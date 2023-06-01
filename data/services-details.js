@@ -1,5 +1,58 @@
 const servicesDetails = [
  {
+  pid: "002",
+  title: "GA4 migrated from UA for your Shopify eCommerce Store",
+  description: `Welcome to my Google Analytics 4, and Google Tag Manager tracking Project! As Universal Analytics will stop processing new data by Jul 2023 and Google has launched the new and improved GA4. I’m a Google-certified, top-rated web analyst and have configured 200+ stores & websites with google tag manager, and google analytics 4 in the span of the last 2 years.
+  
+      With this Upwork Project, I will provide:
+       • Intregrate GA4, and GTM.
+       • Cross-domain tracking.
+       • GA4 Enhanced eCommerce tracking Setup using data layer.
+       • Server-side tracking if required.
+       • Post Purchase - Upsell tracking, if required.
+      
+      I am open to custom requests as I have experience setting up conversion tracking, enhanced eCommerce events, outbound affiliate links tracking, and Facebook, Google, and Pinterest remarketing tags for ads.
+      
+      Let's bring your analytics back to life!
+      💌Message Us Now.
+      Hassan`,
+
+  packages: [
+   {
+    name: "Service Tier",
+    value: ["Starter"],
+   },
+   {
+    name: "Price",
+    value: ["400"],
+   },
+   {
+    name: "Delivery Time",
+    value: ["5 days"],
+   },
+   {
+    name: "Number of Tracking Goals Setup",
+    value: ["1"],
+   },
+   {
+    name: "Analytics & Tracking Setup",
+    value: ["✔"],
+   },
+   {
+    name: "Tag Manager Setup",
+    value: ["✔"],
+   },
+   {
+    name: "eCommerce Purchase Tracking",
+    value: ["✔"],
+   },
+  ],
+  featured_image_url: "/images/services/p_002_1.png",
+  supporting_image_url: "/images/services/p_002_2.png",
+  href:
+   "https://www.upwork.com/services/product/marketing-migrate-ua-to-ga4-for-your-shopify-ecommerce-store-1627077611689336832?ref=project_share&tier=0",
+ },
+ {
   pid: "004",
   title:
    "FB Pixel and CAPI for lead generation, eCommerce or custom-built sites",
@@ -163,59 +216,7 @@ const servicesDetails = [
   href:
    "https://www.upwork.com/services/product/marketing-pinterest-pixel-and-capi-setup-for-lead-generation-or-e-commerce-sites-1514064529233821696?ref=project_share&tier=0",
  },
- {
-  pid: "002",
-  title: "GA4 migrated from UA for your Shopify eCommerce Store",
-  description: `Welcome to my Google Analytics 4, and Google Tag Manager tracking Project! As Universal Analytics will stop processing new data by Jul 2023 and Google has launched the new and improved GA4. I’m a Google-certified, top-rated web analyst and have configured 200+ stores & websites with google tag manager, and google analytics 4 in the span of the last 2 years.
-  
-      With this Upwork Project, I will provide:
-       • Intregrate GA4, and GTM.
-       • Cross-domain tracking.
-       • GA4 Enhanced eCommerce tracking Setup using data layer.
-       • Server-side tracking if required.
-       • Post Purchase - Upsell tracking, if required.
-      
-      I am open to custom requests as I have experience setting up conversion tracking, enhanced eCommerce events, outbound affiliate links tracking, and Facebook, Google, and Pinterest remarketing tags for ads.
-      
-      Let's bring your analytics back to life!
-      💌Message Us Now.
-      Hassan`,
 
-  packages: [
-   {
-    name: "Service Tier",
-    value: ["Starter"],
-   },
-   {
-    name: "Price",
-    value: ["400"],
-   },
-   {
-    name: "Delivery Time",
-    value: ["5 days"],
-   },
-   {
-    name: "Number of Tracking Goals Setup",
-    value: ["1"],
-   },
-   {
-    name: "Analytics & Tracking Setup",
-    value: ["✔"],
-   },
-   {
-    name: "Tag Manager Setup",
-    value: ["✔"],
-   },
-   {
-    name: "eCommerce Purchase Tracking",
-    value: ["✔"],
-   },
-  ],
-  featured_image_url: "/images/services/p_002_1.png",
-  supporting_image_url: "/images/services/p_002_2.png",
-  href:
-   "https://www.upwork.com/services/product/marketing-migrate-ua-to-ga4-for-your-shopify-ecommerce-store-1627077611689336832?ref=project_share&tier=0",
- },
  {
   pid: "003",
   title:
