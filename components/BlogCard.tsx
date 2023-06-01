@@ -1,6 +1,19 @@
 import Link from "next/link";
 import Image from "next/image";
-const BlogCard = ({
+
+interface BlogCardProps {
+ postId: string;
+ slug: string;
+ cta: string;
+ excerpt: string;
+ title: string;
+ url: string;
+ date: string;
+ category: string;
+ featuredImage?: string; // Making it optional as we are assigning a default value
+}
+
+const BlogCard: React.FC<BlogCardProps> = ({
  postId,
  slug,
  cta,
@@ -14,6 +27,7 @@ const BlogCard = ({
  const imageUrl =
   featuredImage ||
   "https://flowbite.com/docs/images/blog/image-1.jpg?width=1920&height=1080";
+
  return (
   <div className='mx-auto'>
    <div className='bg-white shadow-md border border-gray-200 rounded-lg'>

@@ -3,16 +3,24 @@
 import Link from "next/link";
 import { useSelectedLayoutSegments } from "next/navigation";
 
-export default function NavLink({ href, children }) {
+interface NavLinkProps {
+ href: string;
+ children: React.ReactNode;
+}
+
+const NavLink: React.FC<NavLinkProps> = ({ href, children }) => {
  let segment = useSelectedLayoutSegments();
  let active = href === `/${segment}`;
+
  return (
   <Link
    className={`${
-    active ? "underline text-gray-100" : "text-gray-300"
-   } hover:text-gray-100 text-md`}
+    active ? "underline opacity-100" : "opacity-80"
+   } hover:opacity-100 text-md`}
    href={href}>
    {children}
   </Link>
  );
-}
+};
+
+export default NavLink;
