@@ -1,5 +1,5 @@
-import Hero from "components/Hero";
-import ServiceCard from "components/ServiceCard";
+import Hero from "@/components/Hero";
+import ServiceCard from "@/components/ServiceCard";
 import servicesDetails from "@/data/services-details";
 export default function Page() {
  return (

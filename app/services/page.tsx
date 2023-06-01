@@ -1,4 +1,4 @@
-import ServiceCard from "components/ServiceCard";
+import ServiceCard from "@/components/ServiceCard";
 import servicesDetails from "@/data/services-details";
 
 export default function Page() {

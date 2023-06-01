@@ -15,11 +15,11 @@ export default function Hero() {
     </div>
     <div className='flex gap-4 flex-col'>
      <h2 className='text-4xl font-bold'>
-      Elevate your business decisions with accurate data.
+      Elevate your business with accurate data.
      </h2>
      <p className='text-lg font-semibold'>
       <span className='opacity-80'>
-       Elevating Marketing Strategies for Small Businesses through Advanced
+       Improving Marketing Strategies for Small Businesses through Advanced
        Tracking Implementation.
       </span>
      </p>
