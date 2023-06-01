@@ -1,10 +1,53 @@
-import type { MDXComponents } from 'mdx/types'
+import type { MDXComponents } from "mdx/types";
 
 // This file is required to use MDX in `app` directory.
 export function useMDXComponents(components: MDXComponents): MDXComponents {
-  return {
-    // Allows customizing built-in components, e.g. to add styling.
-    // h1: ({ children }) => <h1 style={{ fontSize: "100px" }}>{children}</h1>,
-    ...components,
-  }
+ return {
+  // Allows customizing built-in components, e.g. to add styling.
+  // h1: ({ children }) => <h1 style={{ fontSize: "100px" }}>{children}</h1>,
+  p: ({ ...rest }) => {
+   return <p className='py-2' {...rest} />;
+  },
+
+  ol: ({ ...rest }) => {
+   return (
+    <ol
+     type='1'
+     className='list-decimal list-outside my-1 pl-[40px] mx-0'
+     {...rest}
+    />
+   );
+  },
+  h1: (props) => {
+   return (
+    <h1
+     className='py-2 text-5xl underline capitalize sm:text-6xl lg:text-7xl'
+     {...props}>
+     {props.children}
+    </h1>
+   );
+  },
+  h2: (props) => {
+   return (
+    <h2 className='py-2 text-4xl underline capitalize sm:text-5xl' {...props}>
+     {props.children}
+    </h2>
+   );
+  },
+  h3: (props) => {
+   return (
+    <h3 className='py-2 text-3xl underline capitalize sm:text-4xl' {...props}>
+     {props.children}
+    </h3>
+   );
+  },
+  h4: (props) => {
+   return (
+    <h4 className='py-2 text-2xl underline capitalize sm:text-3xl' {...props}>
+     {props.children}
+    </h4>
+   );
+  },
+  ...components,
+ };
 }

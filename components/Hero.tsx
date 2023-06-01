@@ -2,26 +2,25 @@ import Link from "next/link";
 
 export default function Hero() {
  return (
-  <div className='p-8 bg-gray-800 bg-opacity-[30%] rounded-lg text-center'>
+  <div className='sm:p-8 p-3 bg-gray-800 bg-opacity-[30%] rounded-lg text-center'>
    <div className='py-5 mx-auto lg:max-w-[75vw]'>
     <div className='flex justify-center py-2'>
-     <div className='relative rounded-full text-sm text-gray-300 ring-1 ring-gray-900/10 hover:ring-gray-900/20 gap-1'>
+     <div className='relative rounded-full text-xs sm:text-sm text-gray-300 ring-1 ring-gray-900/10 hover:ring-gray-900/20 gap-1'>
       Welcome to Hassan's Web Analytics Expertise!{` `}
-      <Link href='/about' className='font-semibold text-my-purple'>
+      <Link href='/about-us' className='font-semibold text-my-purple'>
        <span className='absolute inset-0' aria-hidden='true'></span>
        Learn More <span aria-hidden='true'>&rarr;</span>
       </Link>
      </div>
     </div>
     <div className='flex gap-4 flex-col'>
-     <h2 className='text-4xl font-bold tracking-tight leading-[2.5rem]'>
-      Elevate your business decisions with insightful data.
+     <h2 className='text-4xl font-bold'>
+      Elevate your business decisions with accurate data.
      </h2>
      <p className='text-lg font-semibold'>
       <span className='opacity-80'>
-       Discover the transformative power of web analytics with Hassan's expert
-       guidance and embrace data-driven decision making and unlock the full
-       potential of your business.
+       Elevating Marketing Strategies for Small Businesses through Advanced
+       Tracking Implementation.
       </span>
      </p>
      <div className='flex pt-2 items-center justify-center gap-x-6'>

@@ -1,5 +1,59 @@
 const servicesDetails = [
  {
+  pid: "004",
+  title:
+   "FB Pixel and CAPI for lead generation, eCommerce or custom-built sites",
+  description: `Welcome to my Facebook Pixel and Conversion API Tracking Project for Lead Generation, E-commerce, and Custom Built Sites!
+    
+        I specialize in Facebook Pixel and Conversion API tracking for lead generation, e-commerce, and custom-built sites. With over 2 years of experience configuring 200+ stores and websites, I can ensure that your tracking is properly integrated with your website, providing you with the data you need to make informed decisions.
+        
+        With this Upwork project, I offer the following services:
+        • Installation and configuration of Facebook Pixel and Conversion API
+        • Custom event tracking for your specific needs
+        • Integration of Pixel and CAPI with your website
+        • Lead generation tracking, including form submission and phone call tracking
+        • Custom-built site tracking, tailored to your unique requirements
+        
+        I am open to custom requests. Let's bring your analytics back to life!
+        💌Message Us Now.
+        Hassan`,
+
+  packages: [
+   {
+    name: "Service Tier",
+    value: ["Starter", "Standard", "Advanced"],
+   },
+   {
+    name: "Price",
+    value: ["350", "400", "500"],
+   },
+   {
+    name: "Delivery Time",
+    value: ["7 days", "7 days", "5 days"],
+   },
+   {
+    name: "Pixel Setup",
+    value: ["-", "-", "-"],
+   },
+   {
+    name: "Pixel Audit",
+    value: ["-", "-", "-"],
+   },
+   {
+    name: "Analytical Ad Report",
+    value: ["-", "-", "-"],
+   },
+   {
+    name: "Action Plan",
+    value: ["-", "-", "-"],
+   },
+  ],
+  featured_image_url: "/images/services/p_004_1.png",
+  supporting_image_url: "/images/services/p_004_2.png",
+  href:
+   "https://www.upwork.com/services/product/marketing-fb-pixel-and-capi-for-lead-generation-ecommerce-or-custom-built-sites-1550925708831145984?ref=project_share",
+ },
+ {
   pid: "001",
   title:
    "TikTok Pixel and Event API via GTM for lead generation or e-commerce sites",
@@ -53,6 +107,61 @@ const servicesDetails = [
   supporting_image_url: "/images/services/p_001_2.png",
   href:
    "https://www.upwork.com/services/product/marketing-tiktok-pixel-and-event-api-via-gtm-for-lead-generation-or-e-commerce-sites-1449786898515054592?ref=project_share",
+ },
+ {
+  pid: "005",
+  title:
+   "Pinterest Pixel and CAPI setup for lead generation, or e-commerce sites",
+  description: `Welcome to my Pinterest Pixel and Conversion API Tracking Project for Lead Generation, E-commerce, and Custom Built Sites!
+  
+      I specialize in Pinterest Pixel and Conversion API tracking for lead generation, e-commerce, and custom-built sites. With over 2 years of experience configuring 200+ stores and websites, I can ensure that your tracking is properly integrated with your website, providing you with the data you need to make informed decisions.
+      
+      With this Upwork project, I offer the following services:
+      • Installation and configuration of Pinterest Pixel and Conversion API
+      • Custom event tracking for your specific needs
+      • Integration of Pixel and CAPI with your website
+      • Lead generation tracking, including form submission and phone call tracking
+      • E-commerce tracking, including product and cart data tracking
+      • Custom-built site tracking, tailored to your unique requirements
+      
+      I am open to custom requests. Let's bring your analytics back to life!
+      💌 Message Us Now.
+      Hassan`,
+
+  packages: [
+   {
+    name: "Service Tier",
+    value: ["Starter", "Standard", "Advanced"],
+   },
+   {
+    name: "Price",
+    value: ["350", "400", "500"],
+   },
+   {
+    name: "Delivery Time",
+    value: ["7 days", "7 days", "7 days"],
+   },
+   {
+    name: "Pixel Setup",
+    value: ["-", "-", "-"],
+   },
+   {
+    name: "Pixel Audit",
+    value: ["-", "-", "-"],
+   },
+   {
+    name: "Analytical Ad Report",
+    value: ["-", "-", "-"],
+   },
+   {
+    name: "Action Plan",
+    value: ["-", "-", "-"],
+   },
+  ],
+  featured_image_url: "/images/services/p_005_1.png",
+  supporting_image_url: "/images/services/p_005_2.png",
+  href:
+   "https://www.upwork.com/services/product/marketing-pinterest-pixel-and-capi-setup-for-lead-generation-or-e-commerce-sites-1514064529233821696?ref=project_share&tier=0",
  },
  {
   pid: "002",
@@ -168,115 +277,7 @@ const servicesDetails = [
   href:
    "https://www.upwork.com/services/product/marketing-google-analytics-4-via-google-tag-manager-for-a-custom-built-site-1607720520868126720",
  },
- {
-  pid: "004",
-  title:
-   "FB Pixel and CAPI for lead generation, eCommerce or custom-built sites",
-  description: `Welcome to my Facebook Pixel and Conversion API Tracking Project for Lead Generation, E-commerce, and Custom Built Sites!
-  
-      I specialize in Facebook Pixel and Conversion API tracking for lead generation, e-commerce, and custom-built sites. With over 2 years of experience configuring 200+ stores and websites, I can ensure that your tracking is properly integrated with your website, providing you with the data you need to make informed decisions.
-      
-      With this Upwork project, I offer the following services:
-      • Installation and configuration of Facebook Pixel and Conversion API
-      • Custom event tracking for your specific needs
-      • Integration of Pixel and CAPI with your website
-      • Lead generation tracking, including form submission and phone call tracking
-      • Custom-built site tracking, tailored to your unique requirements
-      
-      I am open to custom requests. Let's bring your analytics back to life!
-      💌Message Us Now.
-      Hassan`,
 
-  packages: [
-   {
-    name: "Service Tier",
-    value: ["Starter", "Standard", "Advanced"],
-   },
-   {
-    name: "Price",
-    value: ["350", "400", "500"],
-   },
-   {
-    name: "Delivery Time",
-    value: ["7 days", "7 days", "5 days"],
-   },
-   {
-    name: "Pixel Setup",
-    value: ["-", "-", "-"],
-   },
-   {
-    name: "Pixel Audit",
-    value: ["-", "-", "-"],
-   },
-   {
-    name: "Analytical Ad Report",
-    value: ["-", "-", "-"],
-   },
-   {
-    name: "Action Plan",
-    value: ["-", "-", "-"],
-   },
-  ],
-  featured_image_url: "/images/services/p_004_1.png",
-  supporting_image_url: "/images/services/p_004_2.png",
-  href:
-   "https://www.upwork.com/services/product/marketing-fb-pixel-and-capi-for-lead-generation-ecommerce-or-custom-built-sites-1550925708831145984?ref=project_share",
- },
- {
-  pid: "005",
-  title:
-   "Pinterest Pixel and CAPI setup for lead generation, or e-commerce sites",
-  description: `Welcome to my Pinterest Pixel and Conversion API Tracking Project for Lead Generation, E-commerce, and Custom Built Sites!
-  
-      I specialize in Pinterest Pixel and Conversion API tracking for lead generation, e-commerce, and custom-built sites. With over 2 years of experience configuring 200+ stores and websites, I can ensure that your tracking is properly integrated with your website, providing you with the data you need to make informed decisions.
-      
-      With this Upwork project, I offer the following services:
-      • Installation and configuration of Pinterest Pixel and Conversion API
-      • Custom event tracking for your specific needs
-      • Integration of Pixel and CAPI with your website
-      • Lead generation tracking, including form submission and phone call tracking
-      • E-commerce tracking, including product and cart data tracking
-      • Custom-built site tracking, tailored to your unique requirements
-      
-      I am open to custom requests. Let's bring your analytics back to life!
-      💌 Message Us Now.
-      Hassan`,
-
-  packages: [
-   {
-    name: "Service Tier",
-    value: ["Starter", "Standard", "Advanced"],
-   },
-   {
-    name: "Price",
-    value: ["350", "400", "500"],
-   },
-   {
-    name: "Delivery Time",
-    value: ["7 days", "7 days", "7 days"],
-   },
-   {
-    name: "Pixel Setup",
-    value: ["-", "-", "-"],
-   },
-   {
-    name: "Pixel Audit",
-    value: ["-", "-", "-"],
-   },
-   {
-    name: "Analytical Ad Report",
-    value: ["-", "-", "-"],
-   },
-   {
-    name: "Action Plan",
-    value: ["-", "-", "-"],
-   },
-  ],
-  featured_image_url: "/images/services/p_005_1.png",
-  supporting_image_url: "/images/services/p_005_2.png",
-  href:
-   "https://www.upwork.com/services/product/marketing-pinterest-pixel-and-capi-setup-for-lead-generation-or-e-commerce-sites-1514064529233821696?ref=project_share&tier=0",
- },
  {
   pid: "006",
   title:
