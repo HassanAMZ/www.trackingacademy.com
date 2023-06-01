@@ -1,0 +1,51 @@
+---
+title: Custom Report for facebook ads in UA
+date: '2021-11-30'
+blogID: '00005'
+tags: ['Google analytics', 'custom reports', 'facebook CAPI']
+draft: false
+summary: To track the traffic acquisition for Facebook ads on UA for iOS14+ users using custom reports in google analytics.
+coverImage: '/static/blog/00005.png'
+embedId: 'null'
+---
+
+To track the traffic acquisition for Facebook ads on UA for iOS14+ users using custom reports in universal analytics . In this article, we will walk through the steps to create a custom report and filter the data to view the transactions and analyze the performance of the FB Ad campaigns.
+
+Table Of Content:
+
+1. [Origin of the issue](#origin-of-the-issue)
+   - [Facebook dynamic URL UTM parameters for iOS14 updates](#origin-of-the-issue)
+   - [Google Ads URL suffixes for dynamic UTM parameters](#origin-of-the-issue)
+2. [Custom UA Report](#custom-ua-report)
+3. [Dimensions and Metrics](#dimensions-and-metrics)
+4. [Filters](#filters)
+5. [Final Report](#final-report)
+
+## Origin of the issue
+
+As a result of iOS14 changes, advertisers running campaigns will be affected by limitations on data sharing. The user can opt-out or opt-in of the tracking, either way, the source of the traffic is lost. To set up the UTM parameters on Facebook, follow the link:
+
+1. [Facebook dynamic URL UTM parameters for iOS14 updates](/blog/facebook/facebook-dynamic-url-utm-parameters-for-ios14-updates)
+2. [Google Ads URL suffixes for dynamic UTM parameters](/blog/google-ads/google-ads-url-suffixes-utm-for-dynamic-paramters)
+
+## Custom UA Report
+
+Once, the UTMs have been published in the Facebook ads manager, it takes google analytics 24hours to process the data into a report. however we can process and set up the reports. Go to Customization> Custom Reports> New Custom Reports.
+
+![Picture of New Custom Reports](/static/blog/00005_1.png)
+
+## Dimensions and Metrics
+
+Switch the TYPE from 'explorer' to 'flat table'. Under the first column of DIMENSION, click on the + icon next to DIMENSIONS to add the "campaign", "ad content", "keyword" and "medium" DIMENSIONS to the report. To add METRICS to the report click on the + icon next to METRICS to add the "sessions", "page views", "transactions", and "revenue".
+
+## Filters
+
+To only see the Facebook sales, click on the + icon next to FILTERS, where "source", "Regex", "FacebookAds" that will only show the values from the source [setup in this article](/blog/facebook/facebook-dynamic-url-utm-parameters-for-ios14-updates).
+
+![Picture of Settings](/static/blog/00005_2.png)
+
+## Final Report
+
+Once everything is set up, wait for 24hours for some data to be processed and then you can check the performance of the Facebook Ads campaign in UA.
+
+![Picture of Final Report](/static/blog/00005_3.png)

@@ -1,0 +1,127 @@
+---
+title: Upwork Cover Letter for Web Analytics Niche
+date: '2022-01-03'
+blogID: '00030'
+tags: ['Upwork', 'Cover Letters', 'Upwork Beginners Guide']
+draft: false
+summary: This cover letter i use was inspired by a top-rated freelancer on Upwork. However, here is the breakdown of the cover letter. These 8 aspects are the most important when writing the cover letter to a web analytics job.
+coverImage: '/static/blog/00030.png'
+embedId: 'null'
+---
+
+If you are in the niche of [web analytics](https://www.upwork.com/freelance-jobs/web-analytics/), struggling to get a client and considering if your cover letter is not up to the mark, then you can use this cover letter guide to improve it. I have been using this cover letter for about 9 months now and have got about 70 Jobs on Upwork, helping me earn about 8,000$ in 9 months.
+
+Table Of Content:
+
+1. [Example Cover Letter](#example-cover-letter)
+2. [Pointing out the unique thing](#pointing-out-the-unique-thing)
+3. [Attaching a Video](#attaching-a-video)
+4. [Tracking Browser events](#tracking-browser-events)
+5. [Tracking Server Events](#tracking-server-events)
+6. [Expected time, access required and Budget](#expected-time-access-required-and-budget)
+7. [Call to action](#call-to-action)
+8. [Reference to a similar Job](#reference-to-a-similar-job)
+
+## Example Cover Letter:
+
+```
+Hi, [Name of the client]
+
+
+I have made a short video for you: [Link of Loom Video]
+
+
+Google tag manager requires a data layer object, which is built either directly on the root of the website, or built using a script, depending on the content management system you are using for your websites such as WordPress, Shopify, or custom websites. Data is passed based on events to Google Analytics or Facebook Brower pixel from Google tag manager. If you are only interested in the browser pixel for Facebook then we do not need to set up the conversion API and google tag manager server containers.
+
+
+Facebook conversion API is server-based tracking and we require a google tag manager web and server container hosted on www.gtm-server.com which is a paid service. The events are routed from the google tag manager web container to the server container using data tag and data clients, along with an event id to make the duplication of the events.
+
+
+Setting up enhanced eCommerce events, web tracking, and testing the setup takes 2-3 days time, and the order usually takes 4 days at my end to be delivered(can be done quicker if there are no other pending projects). For setting up and configuring the browser events, it budgets at 150$ fixed cost, and for Server tracking, it budgets at 250$.
+
+
+I’m a top-rated web analyst and have set up and configured 100+ websites with google tag manager, google analytics, and Facebook pixel in the span of the last 6 months. I have experience setting up conversion tracking, enhanced eCommerce events, outbound affiliate links tracking, Facebook, Google, Pinterest remarketing tags for ads.
+
+
+Do you need a [Title of the Job Post] expert? Let’s schedule a quick discovery call. Please provide 2 times this week that work for you.
+
+
+-Hassan
+
+P.s. Be sure to check out my profile, one of my 5-Star reviews is from Paul, where I completed a job very similar to yours.
+```
+
+## Client Name
+
+Starting the Cover Letter with a greeting such as “Hi” or “Hello” followed by the name of the client is appropriate. Do not use greetings such as “Hi Dear”, “Hey Sir/Madam” in case you are not able to find the name of the client.
+
+You can find the name of the client if you will scroll down to the bottom of the Job Post and look for the client recent Job, there you can find the name of the client in feedbacks. If you failed to find the name Just use “Hi”.
+
+```
+Hi, [Name of the Client]
+```
+
+## Pointing out the unique thing
+
+Point out the most peculiar thing about the job post so the client can understand you have gone through the job post thoroughly. The client has mentioned things as “I need help with...” or “what's the name of your favorite movie”.
+
+```
+Interesting job post, too often I just see “need help” in these posts, so the details you provided were great.
+```
+
+## Attaching a Video
+
+The most import thing is providing a video link to the client, where you will be discussing all the details about their job, issues, solution and your past experience. Having a video attached to a proposal adds more value to your cover letter and it built a relationship more than words with a client.
+
+I have seen a conversion rate of over 60% with loom video attached in the cover letter.
+
+```
+I have made a short video for you: [Link of Loom Video]
+```
+
+## Tracking Browser events
+
+Try to provide some information to the client, about the issue and the solution, if the client is interested in tracking Web browser event and hasn't provided any information of their website, i use the below message, however if they have mentioned the CMS then I remove the custom website part.
+
+```
+Google tag manager requires a data layer object, which is built either directly on the root of the website, or built using a script, depending on the content management system you are using for your websites such as WordPress, Shopify, or custom websites. Data is passed based on events to Google Analytics or Facebook Brower pixel from Google tag manager. If you are only interested in the browser pixel for Facebook then we do not need to set up the conversion API and google tag manager server containers.
+
+```
+
+## Tracking Server Events
+
+If the client issue is only for tracking google analytics and FB pixel for browser and they are not concerned with tracking the server, then I never include information about the server tracking and conversion API. However if there is the Job involves server tracking then add the following paragraph in the cover letter.
+
+```
+Facebook conversion API is server-based tracking and we require a google tag manager web and server container hosted on www.gtm-server.com which is a paid service. The events are routed from the google tag manager web container to the server container using data tag and data clients, along with an event id to make the duplication of the events.
+```
+
+## Expected time, access required and Budget
+
+Now you are required to give them an expected timeline, budget, and anything that you required from them. Its better to provide a budget and estimate to the client, in the cover letter so if they are going to message you. They’ll fully understand the timeline and the budget of the project.
+
+```
+Setting up enhanced e-commerce events, web tracking, and testing the setup takes 2-3 days, and the order usually takes 4 days at my end to be delivered(can be done quicker if there are no other pending projects). For setting up and configuring the browser events, it budgets at 150$ fixed cost, and for Server tracking, it budgets at 250$.
+
+```
+
+## Call to action
+
+You can also reemphasis their needs, by using the same words, the client has used in the job title. Its also important to add some sort of a call to action, usually i find it better to invite the client for a meeting on zoom or google meets.
+
+```
+Do you need a [Title of the Job Post] expert?
+
+Let’s schedule a quick discovery call. Please provide 2 times this week that work for you.
+
+-hassan
+```
+
+## Reference to a similar Job
+
+This is the closing and here you want to reinforce the client to revisit your profile where they’ll review your previous jobs. and will completely sell client’s out to your proposal.
+
+```
+P.s. Be sure to check out my profile, one of my 5-Star reviews is from Paul, where I completed a job very similar to yours.
+
+```

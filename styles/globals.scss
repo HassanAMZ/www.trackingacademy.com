@@ -1,0 +1,42 @@
+@media (prefers-color-scheme: dark) {
+ html {
+  color-scheme: dark;
+  scroll-behavior: smooth;
+ }
+}
+
+// Styles for making a YouTube video embed responsive
+.video-responsive {
+ overflow: hidden;
+ padding-bottom: 56.25%; // For 16:9 aspect ratio
+ position: relative;
+ height: 0; // Reset height
+}
+
+.video-responsive iframe {
+ left: 0; // Position to the left
+ top: 0; // Position to the top
+ height: 100%; // Full height
+ width: 100%; // Full width
+ position: absolute; // Absolute positioning within .video-responsive
+}
+
+// Style for the scrollbar in Firefox
+* {
+ scrollbar-width: thin; // Set scrollbar width
+ scrollbar-color: teal; // Set scrollbar color
+}
+
+// Styles for the scrollbar in Chrome, Edge, and Safari
+*::-webkit-scrollbar {
+ width: 6px; // Set scrollbar width
+}
+
+*::-webkit-scrollbar-track {
+ background: rgba(201, 76, 76, 0); // Set scrollbar track background color
+}
+
+*::-webkit-scrollbar-thumb {
+ background-color: teal; // Set scrollbar thumb color
+ border-radius: 0px; // Set scrollbar thumb border radius
+}

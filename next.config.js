@@ -1,11 +1,17 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {
-  pageExtensions: ['js', 'jsx', 'ts', 'tsx', 'mdx'],
-  experimental: {
-    appDir: true,
-    mdxRs: true,
-  },
-}
 
-const withMDX = require('@next/mdx')()
-module.exports = withMDX(nextConfig)
+const path = require("path");
+
+const nextConfig = {
+ pageExtensions: ["js", "jsx", "ts", "tsx", "mdx", "md"],
+ experimental: {
+  appDir: true,
+  mdxRs: true,
+ },
+ sassOptions: {
+  includePaths: [path.join(__dirname, "styles")],
+ },
+};
+
+const withMDX = require("@next/mdx")();
+module.exports = withMDX(nextConfig);

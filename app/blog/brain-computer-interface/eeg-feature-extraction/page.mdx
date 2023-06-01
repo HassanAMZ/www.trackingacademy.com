@@ -1,0 +1,48 @@
+---
+title: "Chapter 07: EEG Feature Extraction"
+date: "2021-01-06"
+blogID: "00044"
+tags: ["Literature Review"]
+draft: false
+summary: The perfect approach, one that is reliable, invariant (across time), and universal (works well for all users), is still out there waiting to be discovered. There is still a lot of work to be done on BCI feature extraction. Focusing on certain sensors or applying spatial filters can be used to utilize spatial information.
+
+coverImage: "/static/blog/00009.png"
+embedId: ""
+---
+
+### EEG Feature Extraction
+
+First Edition of Brain-Computer Interfaces: Foundations and Methods. edited by Laurent Bougrain, Fabien Lotte, and Maureen Clerc. Published by John Wiley & Sons, Inc. and ISTE Ltd. Brain-Computer Interfaces 1: Feature Extraction, Chapter 1 of EEG Signal Processing Discussions. Obtaining training EEG signals, or examples, and streamlining the EEG signal processing chain is necessary for designing a BCI.
+
+<br />
+
+By looking at examples, a classifier can determine which class matches which input features. Through the use of EEG signal examples, features can also be improved, for instance by choosing the most pertinent electrodes. So, to extract features from EEG signals, we need a more condensed representation. Three basic sources of knowledge can be employed in BCI design to extract EEG signal properties. This section begins with a rudimentary (and extremely simplified) explanation of that type of BCI before concentrating on more sophisticated tools like the key algorithm known as "common spatial patterns" (CSP).
+
+<br />
+
+EEG sensors placed above the brain motor areas that would be used by an MI-based BCI to extract characteristics. Basic features would include band power in the ranges of 8–12 Hz and 16–24 Hz for each of electrodes C3 and C4 in a BCI that can distinguish imagined movements of the left and right hands. You can also get higher performance by using more electrodes than two. There are three basic methods for effectively using many sensors, each of which helps to reduce the feature vector's dimension. The process of feature selection in machine learning is a general one that is not exclusive to EEG or BCI.
+
+<br />
+
+Utilizing a minimal number of new channels—virtual channels—that are created by linearly combining the original sensors is what spatial filtering entails. The original signal (from the cortex) can be recovered with the aid of spatial filtering, which collects pertinent data that was dispersed across many sensors. It has been demonstrated that much better classification performance can be achieved by extracting features from bipolar or laplacian channels as opposed to the original EEG sensors. CSP is particularly helpful for BCIs based on oscillatory activity because band power is the property that is most useful for their design. EEG signals are often filtered in the 8-30 Hz region (and rhythms) for BCIs that use MI before being spatially filtered.
+
+<br />
+
+One of the most well-liked and effective techniques for creating BCIs based on oscillatory activity is the CSP algorithm. This algorithm is fairly adaptable because it may be used for any BCI that uses the ERD/ERS. It is numerically efficient, easy to implement, and offers BCIs relatively high classification performance. To differentiate between imagined movements of the right and left hands, we examined four distinct BCI designs, each of which was based on one of four different spatial filters. Before applying one of the four filters geographically, we first applied spectral filtering in the 8–30 Hz region.
+
+<br />
+
+It displays the categorization performance for each approach on the test set. Signals are filtered using a low-pass or bandpass algorithm to extract features for EPs (e.g.in 1–12 Hz for P300) By doing this, the number of EEG signal points and thus the problem's dimension is reduced. The number of time points that can be extracted from various sensors increases the dimension of BCIs using EP. CSP does not meet EP classification requirements because it solely takes into account average signal power. For EPs, there are fortunately various spatial filtering algorithms.
+
+<br />
+
+xDAWN aims to draw attention to the EP in order to increase its visibility among the noise. With this method, EP classification performance that can be greatly enhanced. The most common, practical, and efficient methods for identifying a user's mental state based on EEG oscillations (spectral information) and EPs (temporal information) are straightforward, popular, and frequently used. Recent research investigated a novel method of feature extraction for BCIs. The goal is to condense pertinent data for a specific location in a multidimensional area.
+The perfect approach, one that is reliable, invariant (across time), and universal (works well for all users), is still out there waiting to be discovered. There is still a lot of work to be done on BCI feature extraction. Focusing on certain sensors or applying spatial filters can be used to utilize spatial information.
+
+### Download PDF File
+
+You can find the Download PDF File of Chapter 7:
+
+<a href='/static/blog/00044_1.pdf' download>
+ Download PDF File of Chapter 7 Here.
+</a>

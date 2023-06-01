@@ -1,0 +1,52 @@
+---
+title: "Chapter 09: Statistical Learning for BCIs"
+date: "2021-01-04"
+blogID: "00046"
+tags: ["Literature Review"]
+draft: false
+summary: This chapter provides a quick introduction of some of the main supervised learning techniques with an emphasis on the implementation's practical difficulties.
+
+coverImage: "/static/blog/00012.png"
+embedId: ""
+---
+
+### Statistical Learning for BCIs
+
+Building a prediction function that labels any given case is the aim of supervised statistical learning. The labeled examples that serve as the foundation for this training procedure are used to build the prediction function. For a more thorough explanation of the state of the art at this time, the reader might consult Lotteet al. Either classification or regression problems or both are involved in the supervised learning problem. We will focus just on the group of functions known as linear predictor functions in this chapter.
+
+<br />{" "}
+
+These are simple to train and simple to interpret. The values of the power in a frequency band following spatial filtering of the CSP type are represented by the coordinates of x. With supervised statistical learning, the goal is to generate as few errors as possible throughout the entire set of potential data. Lalso is significant for performance metrics (section 9.3). The 01 cost function is the most well-known loss function for classification.
+
+<br />{" "}
+
+The procedure is more resistant to outliers when a loss function (f(x)) is used rather than an error rate (such as a logarithm), as the impact of a term with a big error is lessened with 1 than with 2. In practice, ridge regression and support vector machines (SVM) both employ this kind of regularization (section 9.3). The positive (and negative) data points are assumed to follow normal distributions in IR d by LDA, a Bayesian method. Using the training data, an empirical estimate is made for the parameters, +,. LDA does not require any hyperparameters and is relatively easy to implement.
+
+<br />{" "}
+
+Nonlinear classifiers for BCIs are frequently trained using Support Vector Machines, or SVMs. They have achieved cutting-edge outcomes in the recognition of motor images and event-related potentials. The performance of the process of decoding these mental states has been enhanced by the development of more sophisticated, targeted techniques. Two specific strategies of sensor selection have received the most in-depth research for BCIs among the many alternative ways that are now available. By gradually removing sensors, the first method identifies the subset of sensors that performs the best at identifying mental states.
+
+<br />{" "}
+
+Applying this process of selection while the decision function is being trained is another potential method of choosing variables and sensors. The localization of EEG sources and the selection of channel groupings for the P300 speller BCI both used mixed norms. Depending on the kinds of models we want to generate, additional regularization terms may be created using prior knowledge of the problem at hand [BAC 12]. Below is a list of the performance indicators used to assess and contrast the benefits of various BCI algorithms. A more thorough discussion of performance indicators may be found in Schlögl et al. [SCH 07], which is recommended reading for readers.
+
+<br />{" "}
+
+Always estimate these measures using data that is separate from the statistical learning for BCIs. Another performance metric frequently utilized for BCIs is mutual information. The amount of information sent by the interface to the machine is measured in bits. Regardless of whether the classes are of identical size, and the area under the ROC curve evaluates the validity of the hypothesis. The P300 speller in the BCI MLSP 2010 competition [HIL 10] was evaluated using the AUC criterion. The mean square error, or 2 cost, serves as the performance statistic for least squares regression (Table 9.1). If the hypothesis yields no information, the metric is equal to 0 and 1 in the case of monotone prediction (f(x)increases with y).
+
+<br />{" "}
+
+We presume that the test data that was taken from the dataset is a good indicator of the data that the classifier will need to predict in the future. Estimating the performance metric is not especially difficult if there is a lot of data available. However, when data is scarce, we need to strike the correct balance between lowering the amount of training data and raising the caliber of the predictions. The average of the performances on the training and testing subgroups is used to estimate classifier performance. Cross-validation lessens the variance of the estimate compared to random sampling.
+
+<br />{" "}
+
+Through the use of uniform samples and replacement with data from the available data points, bootstrapping creates the training data. Hyperparameters, such as the weight of the regularization term (equation [9.3], parameter) or the kernel parameters of a nonlinear SVM, are frequently used in training methods (standard deviation of a Gaussian kernel, degree of a polynomial kernel). Finding the settings that result in the best generalization performance is desirable. We can utilize stochastic approaches or black box optimization, ranging from simulated annealing to evolution-based tactics if Fi is only known as a black box (an algorithm that returns the value ofF()for each). Even though it is difficult to construct, this method has the benefit of being less expensive when there are many parameters than the prior way.
+This chapter provides a quick introduction of some of the main supervised learning techniques with an emphasis on the implementation's practical difficulties.
+
+### Download PDF File
+
+You can find the Download PDF File of Chapter 9:
+
+<a href='/static/blog/00046_1.pdf' download>
+ Download PDF File of Chapter 9 Here.
+</a>
