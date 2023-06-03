@@ -20,6 +20,12 @@ type PageProps = {
   service: string;
  };
 };
+// Return a list of `params` to populate the [slug] dynamic segment
+export async function generateStaticParams() {
+ return servicesDetails.map((service) => ({
+  service: service.pid,
+ }));
+}
 
 const Page: React.FC<PageProps> = ({ params }) => {
  let serviceId = params.service;
@@ -44,7 +50,7 @@ const Page: React.FC<PageProps> = ({ params }) => {
   let buyButton = (
    <div className='px-4 pb-4 flex flex-col'>
     <Link
-     href='#'
+     href='/contact'
      className='rounded-md bg-gradient-to-tr from-my-purple to-my-pink px-3.5 py-2.5 text-center font-semibold shadow-sm hover:to-my-purple hover:from-my-pink focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-my-purple'>
      Continue ( {serviceObject.packages[1].value[0]}$ )
     </Link>
