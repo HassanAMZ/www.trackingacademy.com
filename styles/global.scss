@@ -60,3 +60,37 @@
  background-color: teal; // Set scrollbar thumb color
  border-radius: 0px; // Set scrollbar thumb border radius
 }
+
+@keyframes moving1 {
+ 0% {
+  transform: translateX(0);
+ }
+ 50% {
+  transform: translateX(-20px);
+ }
+ 100% {
+  transform: translateX(0);
+ }
+}
+
+// Background animation style for the purple pulsating thing
+@keyframes moving2 {
+ 0% {
+  transform: translateX(0);
+ }
+ 50% {
+  transform: translateX(20px);
+ }
+ 100% {
+  transform: translateX(0);
+ }
+}
+
+.animate-moving1 {
+ animation: moving1 5s infinite;
+}
+
+.animate-moving2 {
+ animation: moving2 5s infinite;
+}
+// Background animation style for the purple pulsating thing end

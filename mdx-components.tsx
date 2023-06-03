@@ -1,13 +1,15 @@
 import type { MDXComponents } from "mdx/types";
+import Pre from "@/components/Pre";
+import YoutubeEmbed from "@/components/YoutubeEmbed";
 
 // This file is required to use MDX in `app` directory.
 export function useMDXComponents(components: MDXComponents): MDXComponents {
  return {
-  // Allows customizing built-in components, e.g. to add styling.
-  // h1: ({ children }) => <h1 style={{ fontSize: "100px" }}>{children}</h1>,
+  YoutubeEmbed,
   p: ({ ...rest }) => {
    return <p className='py-2' {...rest} />;
   },
+  pre: Pre,
 
   ol: ({ ...rest }) => {
    return (

@@ -11,12 +11,16 @@
   "@types/node": "18.11.18",
   "@types/react": "18.0.27",
   "@types/react-dom": "18.0.10",
+  "fs": "^0.0.1-security",
+  "gray-matter": "^4.0.3",
   "next": "latest",
+  "path": "^0.12.7",
   "react": "18.2.0",
   "react-dom": "18.2.0",
   "typescript": "4.9.5"
  },
  "devDependencies": {
+  "@tailwindcss/typography": "^0.5.9",
   "autoprefixer": "^10.4.14",
   "postcss": "^8.4.24",
   "sass": "^1.62.1",
