@@ -31,7 +31,7 @@ function getFiles(dirPath: string): string[] {
  return files;
 }
 
-export async function getPostsData(): Promise<
+export async function generateStaticParams(): Promise<
  (PostMetaData & { id: string; slug: string })[]
 > {
  const allPostsFiles = getFiles(blogDirectory);
@@ -62,7 +62,7 @@ export async function getPostsData(): Promise<
 }
 
 export default async function Page() {
- const data = await getPostsData();
+ const data = await generateStaticParams();
  const blogLinks = data.map((post, index) => {
   return (
    <Link
