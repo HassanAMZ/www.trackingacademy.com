@@ -1,6 +1,7 @@
 import servicesDetails from "@/data/services-details";
 import Image from "next/image";
 import Link from "next/link";
+import React from "react";
 type ServiceDetails = {
  pid: string;
  title: string;
@@ -27,16 +28,16 @@ const Page: React.FC<PageProps> = ({ params }) => {
  );
 
  if (serviceObject) {
-  let serviceSubDetails = serviceObject.packages.map((service) => {
+  let serviceSubDetails = serviceObject.packages.map((service, index) => {
    return (
-    <>
+    <React.Fragment key={index}>
      <p className='col-span-3'>{service.name}</p>
      <div className='col-span-2 grid grid-cols-1 gap-2'>
-      {service.value.slice(0, 1).map((value) => {
-       return <p>{value}</p>;
+      {service.value.slice(0, 1).map((value, index) => {
+       return <p key={index}>{value}</p>;
       })}
      </div>
-    </>
+    </React.Fragment>
    );
   });
 
@@ -77,16 +78,16 @@ const Page: React.FC<PageProps> = ({ params }) => {
        />
       </div>
       <div className='grid grid-cols-5 gap-2 p-4 border-2 border-gray-50 rounded-md'>
-       {serviceObject.packages.map((service) => {
+       {serviceObject.packages.map((service, index) => {
         return (
-         <>
+         <React.Fragment key={index}>
           <p className='col-span-2'>{service.name}</p>
           <div className='col-span-3 grid grid-cols-3 gap-2'>
-           {service.value.map((value) => {
-            return <p>{value}</p>;
+           {service.value.map((value, index) => {
+            return <p key={index}>{value}</p>;
            })}
           </div>
-         </>
+         </React.Fragment>
         );
        })}
       </div>

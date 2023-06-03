@@ -1,6 +1,6 @@
 import "@/styles/global.scss";
 import "@/styles/tailwind.css";
-import { Inter } from "next/font/google";
+import localFont from "next/font/local";
 import NavBar from "components/Navbar";
 import { ReactNode } from "react";
 
@@ -9,12 +9,17 @@ export const metadata = {
  description: "Top rated web analytics",
 };
 
-const inter = Inter({ subsets: ["latin"] });
+// Font files can be colocated inside of `app`
+const myFont = localFont({
+ src: "fonts/Inter/static/Inter-Regular.ttf",
+ display: "swap",
+});
+
 export default function RootLayout({ children }: { children: ReactNode }) {
  return (
   <html lang='en'>
    <body
-    className={`tracking-tighter leading-tight bg-gray-900 text-gray-100 container mx-auto ${inter.className}`}>
+    className={`tracking-tighter leading-tight bg-gray-900 text-gray-100 container mx-auto max-w-5xl  ${myFont.className}`}>
     <div
      className='absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80'
      aria-hidden='true'>

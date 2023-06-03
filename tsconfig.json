@@ -9,7 +9,8 @@
    "@/firebase/*": ["firebase/*"],
    "@/contexts/*": ["contexts/*"],
    "@/css/*": ["css/*"],
-   "@/styles/*": ["styles/*"]
+   "@/styles/*": ["styles/*"],
+   "@/fonts/*": ["fonts/*"]
   },
   "target": "es5",
   "lib": ["dom", "dom.iterable", "esnext"],
