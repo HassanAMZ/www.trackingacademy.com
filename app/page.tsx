@@ -5,10 +5,10 @@ export default function Page() {
  return (
   <main>
    <Hero />
-   <div className='grid grid-cols-1 sm:grid-cols-3 gap-2 py-8'>
-    {servicesDetails.slice(0, 3).map((service, index) => {
+   <div className='grid grid-cols-2 md:grid-cols-4 gap-2 sm:py-8 py-4'>
+    {servicesDetails.slice(0, 4).map((service, index) => {
      return (
-      <div key={index} className='flex gap-1 sm:flex-col flex-row'>
+      <div key={index} className='flex gap-1 flex-col'>
        <ServiceCard service={service} />
       </div>
      );

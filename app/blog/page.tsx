@@ -67,7 +67,7 @@ export default async function Page() {
   return (
    <Link
     key={index}
-    className='bg-gray-900 bg-opacity-70 rounded-md p-4'
+    className='bg-gray-900 bg-opacity-50 rounded-md p-4'
     href={`/blog/${post.slug}`}>
     <p className='line-clamp-1'>{post.title}</p>
    </Link>

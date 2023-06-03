@@ -32,7 +32,7 @@ const Pre: React.FC<PreProps> = (props) => {
    ref={textInput}
    onMouseEnter={onEnter}
    onMouseLeave={onExit}
-   className='relative my-5 dark:bg-gray-800 bg-gray-100 rounded-lg border-gray-200 shadow-md'>
+   className='relative my-5 bg-gray-900 bg-opacity-50 rounded-lg border-gray-200 shadow-md'>
    {hovered && (
     <button
      aria-label='Copy code'

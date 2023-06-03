@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export default function Hero() {
  return (
-  <div className='sm:p-8 p-3 bg-gray-800 bg-opacity-30 rounded-lg text-center'>
+  <div className='sm:p-8 p-3 bg-gray-900 bg-opacity-50 rounded-lg text-center'>
    <div className='py-5 mx-auto lg:max-w-[75vw]'>
     <div className='flex justify-center py-2'>
      <div className='relative rounded-full text-xs sm:text-sm text-gray-300 ring-1 ring-gray-900/10 hover:ring-gray-900/20 gap-1'>
