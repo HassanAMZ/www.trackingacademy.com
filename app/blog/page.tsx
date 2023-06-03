@@ -61,7 +61,7 @@ export async function getPostsData(): Promise<
  return Promise.all(allPostsData);
 }
 
-export default async function Home() {
+export default async function Page() {
  const data = await getPostsData();
  const blogLinks = data.map((post, index) => {
   return (
