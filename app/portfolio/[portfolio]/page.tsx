@@ -1,114 +1,77 @@
-import servicesDetails from "@/data/services-details";
+import ContainerLayout from "@/components/layouts/ContainerLayout";
+import clientDetails from "@/data/clients-details";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
-type ServiceDetails = {
- pid: string;
+
+type ClientDetails = {
+ id: string;
  title: string;
- description: string;
- packages: {
-  name: string;
-  value: string[];
- }[];
- featured_image_url: string;
- supporting_image_url: string;
- href: string;
+ tags: string[];
+ details: { heading: string; description: string }[];
+ images: string[];
+ project_details: { heading: string; title: string; link: string }[];
 };
 
 type PageProps = {
  params: {
-  service: string;
+  portfolio: string;
  };
 };
-// Return a list of `params` to populate the [slug] dynamic segment
+
 export async function generateStaticParams() {
- return servicesDetails.map((service) => ({
-  service: service.pid,
+ return clientDetails.map((client) => ({
+  client: client.id,
  }));
 }
 
 const Page: React.FC<PageProps> = ({ params }) => {
- let serviceId = params.service;
- let serviceObject = servicesDetails.find(
-  (serviceDetails: ServiceDetails) => serviceDetails.pid === serviceId
+ let clientId = params.portfolio;
+ let clientObject = clientDetails.find(
+  (clientDetails: ClientDetails) => clientDetails.id === clientId
  );
 
- if (serviceObject) {
-  let serviceSubDetails = serviceObject.packages.map((service, index) => {
+ if (clientObject) {
+  let clientSubDetails = clientObject.details.map((detail, index) => {
    return (
     <React.Fragment key={index}>
-     <p className='col-span-3'>{service.name}</p>
-     <div className='col-span-2 grid grid-cols-1 gap-2'>
-      {service.value.slice(0, 1).map((value, index) => {
-       return <p key={index}>{value}</p>;
-      })}
-     </div>
+     <h3>{detail.heading}</h3>
+     <p>{detail.description}</p>
     </React.Fragment>
    );
   });
 
-  let buyButton = (
-   <div className='px-4 pb-4 flex flex-col'>
-    <Link
-     href='/contact'
-     className='rounded-md bg-gradient-to-tr from-my-purple to-my-pink px-3.5 py-2.5 text-center font-semibold shadow-sm hover:to-my-purple hover:from-my-pink focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-my-purple'>
-     Continue ( {serviceObject.packages[1].value[0]}$ )
-    </Link>
-   </div>
-  );
   return (
    <>
-    <h1 className='text-4xl font-semibold'>{serviceObject.title}</h1>
+    <h1 className='text-4xl font-semibold'>{clientObject.title}</h1>
     <div className='grid grid-cols-1 md:grid-cols-[3fr,_2fr]'>
-     <div className='gap-2 flex flex-col'>
-      <div className='relative aspect-[4/3]'>
-       <Image
-        className='rounded-lg'
-        fill
-        src={serviceObject.featured_image_url}
-        alt={serviceObject.title}
-       />
-      </div>
-
-      <div className='flex flex-col md:hidden border-2 border-gray-50 rounded-md'>
-       <div className='grid grid-cols-5 gap-2 p-4'>{serviceSubDetails}</div>
-       {buyButton}
-      </div>
-
-      <div>
+     <div className='gap-2 flex flex-col text-justify'>{clientSubDetails}</div>
+     <div className='hidden md:block px-2'>
+      <div className='flex flex-col border-2 border-gray-50 rounded-md p-2 gap-2'>
        <h3 className='text-2xl font-semibold py-2'> Project Details</h3>
-       <p
-        dangerouslySetInnerHTML={{
-         __html: serviceObject.description.replace(/\n/g, "<br>"),
-        }}
-       />
-      </div>
-      <div className='grid grid-cols-5 gap-2 p-4 border-2 border-gray-50 rounded-md'>
-       {serviceObject.packages.map((service, index) => {
+       {clientObject.project_details.map((project_detail, index) => {
         return (
          <React.Fragment key={index}>
-          <p className='col-span-2'>{service.name}</p>
-          <div className='col-span-3 grid grid-cols-3 gap-2'>
-           {service.value.map((value, index) => {
-            return <p key={index}>{value}</p>;
-           })}
+          <div className='grid grid-cols-5 gap-2 items-center justify-center'>
+           <p className='col-span-2'>{project_detail.heading}:</p>
+           <Link
+            className='col-span-3'
+            href={project_detail.link}
+            target='_blank'
+            rel='noopener noreferrer'>
+            <p>{project_detail.title}</p>
+           </Link>
           </div>
          </React.Fragment>
         );
        })}
       </div>
      </div>
-     <div className='hidden md:block px-2'>
-      <div className='flex flex-col border-2 border-gray-50 rounded-md'>
-       <div className='grid grid-cols-5 gap-2 p-4'>{serviceSubDetails}</div>
-       {buyButton}
-      </div>
-     </div>
     </div>
    </>
   );
  } else {
-  return <div>Service not found</div>;
+  return <ContainerLayout>Client not found</ContainerLayout>;
  }
 };
 

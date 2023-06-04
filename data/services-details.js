@@ -1,6 +1,6 @@
 const servicesDetails = [
  {
-  pid: "002",
+  id: "002",
   title: "GA4 migrated from UA for your Shopify eCommerce Store",
   description: `Welcome to my Google Analytics 4, and Google Tag Manager tracking Project! As Universal Analytics will stop processing new data by Jul 2023 and Google has launched the new and improved GA4. I’m a Google-certified, top-rated web analyst and have configured 200+ stores & websites with google tag manager, and google analytics 4 in the span of the last 2 years.
   
@@ -53,7 +53,7 @@ const servicesDetails = [
    "https://www.upwork.com/services/product/marketing-migrate-ua-to-ga4-for-your-shopify-ecommerce-store-1627077611689336832?ref=project_share&tier=0",
  },
  {
-  pid: "004",
+  id: "004",
   title:
    "FB Pixel and CAPI for lead generation, eCommerce or custom-built sites",
   description: `Welcome to my Facebook Pixel and Conversion API Tracking Project for Lead Generation, E-commerce, and Custom Built Sites!
@@ -107,7 +107,7 @@ const servicesDetails = [
    "https://www.upwork.com/services/product/marketing-fb-pixel-and-capi-for-lead-generation-ecommerce-or-custom-built-sites-1550925708831145984?ref=project_share",
  },
  {
-  pid: "001",
+  id: "001",
   title:
    "TikTok Pixel and Event API via GTM for lead generation or e-commerce sites",
   description: `Welcome to my TikTok Pixel and Event API Tracking Project for Lead Generation, E-commerce, and Custom Built Sites!
@@ -162,7 +162,7 @@ const servicesDetails = [
    "https://www.upwork.com/services/product/marketing-tiktok-pixel-and-event-api-via-gtm-for-lead-generation-or-e-commerce-sites-1449786898515054592?ref=project_share",
  },
  {
-  pid: "005",
+  id: "005",
   title:
    "Pinterest Pixel and CAPI setup for lead generation, or e-commerce sites",
   description: `Welcome to my Pinterest Pixel and Conversion API Tracking Project for Lead Generation, E-commerce, and Custom Built Sites!
@@ -218,7 +218,7 @@ const servicesDetails = [
  },
 
  {
-  pid: "003",
+  id: "003",
   title:
    "Google Analytics 4 for lead generation, e-commerce or custom-built sites",
   description: `Welcome to my GA4 Tracking Service for eCommerce, Lead Generation, or Custom-Built Sites!
@@ -280,7 +280,7 @@ const servicesDetails = [
  },
 
  {
-  pid: "006",
+  id: "006",
   title:
    "Google Ads conversion tracking for lead generation, or e-commerce sites",
   description: `Welcome to my Google Ads Conversion Tracking Project for Lead Generation and E-commerce sites!
@@ -335,7 +335,7 @@ const servicesDetails = [
    "https://www.upwork.com/services/product/marketing-facebook-conversion-api-server-tracking-via-gtm-for-your-shopify-store-1449784162842787840?ref=project_share",
  },
  {
-  pid: "007",
+  id: "007",
   title:
    "Microsoft Bing Ad conversion tracking for lead generation or ecommerce site",
   description: `Welcome to my Microsoft Bing Ads Conversion Tracking Project for Lead Generation and E-commerce sites!
@@ -395,7 +395,7 @@ const servicesDetails = [
    "https://www.upwork.com/services/product/marketing-microsoft-bing-ad-conversion-tracking-for-lead-generation-or-ecommerce-site-1439356248607649792?ref=project_share&tier=0",
  },
  {
-  pid: "008",
+  id: "008",
   title:
    "Audit of your current tracking setup for lead generation or e-commerce site",
   description: `Welcome to my Audit of Your Current Tracking Setup Project for Lead Generation and E-commerce sites!

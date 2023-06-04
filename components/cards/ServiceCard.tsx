@@ -2,7 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 
 type ServiceType = {
- pid: string;
+ id: string;
  title: string;
  description: string;
  packages: Array<{
@@ -31,21 +31,20 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ service }) => {
      alt={service.title}
     />
    </div>
-   <div className='flex flex-col gap-1'>
+   <div className='flex flex-col gap-1 text-center items-center justify-center'>
     <h3 className='font-semibold sm:text-lg line-clamp-1'>{service.title}</h3>
-    <div className='flex gap-2 opacity-80'>
-     <p className='bg-gray-900 bg-opacity-50 rounded-md max-w-fit p-1 text-sm'>
-      from ${service.packages[1].value[0]}
-     </p>
+    {/* <div className='flex gap-2 opacity-80'>
      <p className='py-1 text-sm'>{service.packages[2].value[2]} &nbsp;</p>
-    </div>
+    </div> */}
     <Link
-     href={`/services/${service.pid}`}
-     className='px-2 text-sm py-1 border-[1.5px]  border-gray-50 w-fit rounded-full font-normal shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-my-purple'>
-     View Details &nbsp;
-     {/* <span aria-hidden='true'>&nbsp; → </span> */}
+     href={`/services/${service.id}`}
+     className='px-2 text-sm py-1 border-[1.5px] w-full border-gray-50  rounded-full font-normal shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2'>
+     <p className='bg-gray-900 bg-opacity-50 rounded-md p-1 text-sm'>
+      View Details&nbsp;(from ${service.packages[1].value[0]} )
+      {/* <span aria-hidden='true'>&nbsp; &rarr; </span> */}
+     </p>
     </Link>
-   </div>{" "}
+   </div>
   </>
  );
 };

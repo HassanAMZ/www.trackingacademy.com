@@ -1,9 +1,12 @@
 import { ReactNode, FC } from "react";
 
 interface ContainerLayoutProps {
- children: React.ReactNode;
+ children: ReactNode;
+ className?: string; // Optional className prop
 }
-const ContainerLayout: React.FC<ContainerLayoutProps> = ({ children }) => {
- return <div className=' container mx-auto p-2 max-w-5xl'>{children}</div>;
+
+const ContainerLayout: FC<ContainerLayoutProps> = ({ children, className }) => {
+ return <div className={`container mx-auto p-3 ${className}`}>{children}</div>;
 };
+
 export default ContainerLayout;
