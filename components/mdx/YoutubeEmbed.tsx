@@ -1,8 +1,6 @@
 import React, { FC } from "react";
 
-interface YoutubeEmbedProps {
- embedId: string;
-}
+import { YoutubeEmbedProps } from "@/types/index";
 
 const YoutubeEmbed: FC<YoutubeEmbedProps> = ({ embedId }) => (
  <>

@@ -2,19 +2,8 @@ import fs from "fs";
 import path from "path";
 import matter, { GrayMatterFile } from "gray-matter";
 import Link from "next/link";
-
+import { PostMetaData } from "@/types/index";
 const blogDirectory = path.join(process.cwd(), "app/blog");
-
-interface PostMetaData {
- title: string;
- date: string;
- blogID: string;
- tags: string[];
- draft: boolean;
- summary: string;
- coverImage: string;
- embedId: string;
-}
 
 function getFiles(dirPath: string): string[] {
  let entries = fs.readdirSync(dirPath, { withFileTypes: true });

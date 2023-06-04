@@ -1,22 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 
-type ServiceType = {
- id: string;
- title: string;
- description: string;
- packages: Array<{
-  name: string;
-  value: string[];
- }>;
- featured_image_url: string;
- supporting_image_url: string;
- href: string;
-};
-
-type ServiceCardProps = {
- service: ServiceType;
-};
+import type { ServiceCardProps } from "@/types/index";
 
 const ServiceCard: React.FC<ServiceCardProps> = ({ service }) => {
  let formattedDescription = service.description.replace(/\n/g, "<br>");

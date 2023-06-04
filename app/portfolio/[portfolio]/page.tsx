@@ -3,21 +3,8 @@ import clientDetails from "@/data/clients-details";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
-
-type ClientDetails = {
- id: string;
- title: string;
- tags: string[];
- details: { heading: string; description: string }[];
- images: string[];
- project_details: { heading: string; title: string; link: string }[];
-};
-
-type PageProps = {
- params: {
-  portfolio: string;
- };
-};
+import { Client } from "@/types/index"; // assuming the types folder is in your root directory
+import type { DynamicPortfolioPageProps } from "@/types/index";
 
 export async function generateStaticParams() {
  return clientDetails.map((client) => ({
@@ -25,10 +12,10 @@ export async function generateStaticParams() {
  }));
 }
 
-const Page: React.FC<PageProps> = ({ params }) => {
+const Page: React.FC<DynamicPortfolioPageProps> = ({ params }) => {
  let clientId = params.portfolio;
  let clientObject = clientDetails.find(
-  (clientDetails: ClientDetails) => clientDetails.id === clientId
+  (clientDetails: Client) => clientDetails.id === clientId
  );
 
  if (clientObject) {

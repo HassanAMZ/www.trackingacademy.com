@@ -1,9 +1,6 @@
 "use client";
-
+import { PreProps } from "@/types/index";
 import { DetailedHTMLProps, HTMLAttributes, FC, useRef, useState } from "react";
-
-interface PreProps
- extends DetailedHTMLProps<HTMLAttributes<HTMLPreElement>, HTMLPreElement> {}
 
 const Pre: React.FC<PreProps> = (props) => {
  const textInput = useRef<HTMLDivElement>(null);

@@ -2,20 +2,7 @@ import Link from "next/link";
 import ContainerLayout from "@/components/layouts/ContainerLayout";
 import ClientCard from "@/components/cards/ClientCard";
 import clientDetails from "@/data/clients-details";
-
-interface ClientDetail {
- heading: string;
- description: string;
-}
-
-interface Client {
- id: string;
- title: string;
- tags: string[];
- details: ClientDetail[];
- images: { name: string; link: string }[];
- project_details: { heading: string; title: string; link: string }[];
-}
+import { Client, ClientDetails } from "@/types/index";
 
 const RecentClients: React.FC = () => {
  return (

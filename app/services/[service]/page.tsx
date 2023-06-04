@@ -3,25 +3,7 @@ import Image from "next/image";
 import ContainerLayout from "@/components/layouts/ContainerLayout";
 import Link from "next/link";
 import React from "react";
-
-type ServiceDetails = {
- id: string;
- title: string;
- description: string;
- packages: {
-  name: string;
-  value: string[];
- }[];
- featured_image_url: string;
- supporting_image_url: string;
- href: string;
-};
-
-type PageProps = {
- params: {
-  service: string;
- };
-};
+import type { ServiceDetails, DynamicServicesPageProps } from "@/types/index";
 // Return a list of `params` to populate the [slug] dynamic segment
 export async function generateStaticParams() {
  return servicesDetails.map((service) => ({
@@ -29,7 +11,7 @@ export async function generateStaticParams() {
  }));
 }
 
-const Page: React.FC<PageProps> = ({ params }) => {
+const Page: React.FC<DynamicServicesPageProps> = ({ params }) => {
  let serviceId = params.service;
  let serviceObject = servicesDetails.find(
   (serviceDetails: ServiceDetails) => serviceDetails.id === serviceId

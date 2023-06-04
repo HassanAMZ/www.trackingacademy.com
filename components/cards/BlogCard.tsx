@@ -1,17 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 
-interface BlogCardProps {
- postId: string;
- slug: string;
- cta: string;
- excerpt: string;
- title: string;
- url: string;
- date: string;
- category: string;
- featuredImage?: string; // Making it optional as we are assigning a default value
-}
+import { BlogCardProps } from "@/types/index";
 
 const BlogCard: React.FC<BlogCardProps> = ({
  postId,

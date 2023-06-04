@@ -1,10 +1,5 @@
 import { ReactNode, FC } from "react";
-
-interface ContainerLayoutProps {
- children: ReactNode;
- className?: string; // Optional className prop
-}
-
+import { ContainerLayoutProps } from "@/types/index";
 const ContainerLayout: FC<ContainerLayoutProps> = ({ children, className }) => {
  return <div className={`container mx-auto p-3 ${className}`}>{children}</div>;
 };

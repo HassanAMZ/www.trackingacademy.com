@@ -1,13 +1,7 @@
 "use client";
-
-import { ReactNode, FC } from "react";
+import { NavLinkProps } from "@/types/index";
 import Link from "next/link";
 import { useSelectedLayoutSegments } from "next/navigation";
-
-interface NavLinkProps {
- href: string;
- children: React.ReactNode;
-}
 
 const NavLink: React.FC<NavLinkProps> = ({ href, children }) => {
  let segment = useSelectedLayoutSegments();

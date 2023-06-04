@@ -1,20 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-
-// Define types
-type ClientDetails = {
- id: string;
- title: string;
- tags: string[];
- details: { heading: string; description: string }[];
- images: { name: string; link: string }[];
- project_details: { heading: string; title: string; link: string }[];
-};
-
-type ClientCardProps = {
- client: ClientDetails;
-};
-
+import { ClientCardProps, Client } from "@/types/index";
 const ClientCard: React.FC<ClientCardProps> = ({ client }) => {
  return (
   <>

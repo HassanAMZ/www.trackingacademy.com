@@ -11,6 +11,7 @@
    "@/contexts/*": ["contexts/*"],
    "@/css/*": ["css/*"],
    "@/styles/*": ["styles/*"],
+   "@/types/*": ["types/*"],
    "@/fonts/*": ["fonts/*"]
   },
   "target": "es5",
