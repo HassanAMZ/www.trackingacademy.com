@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import headerNavLinks from "@/data/header-nav-links";
-import NavLink from "components/NavLink";
+import NavLink from "@/components/navbar/NavLink";
 
 const MobileNav = () => {
  const [navOpen, setNavOpen] = useState(false);

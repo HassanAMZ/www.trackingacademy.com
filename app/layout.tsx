@@ -1,7 +1,7 @@
 import "@/styles/global.scss";
 import "@/styles/tailwind.css";
 import localFont from "next/font/local";
-import NavBar from "components/Navbar";
+import NavBar from "@/components/navbar/Navbar";
 import { ReactNode } from "react";
 
 export const metadata = {
@@ -44,10 +44,10 @@ export default function RootLayout({ children }: { children: ReactNode }) {
  return (
   <html lang='en'>
    <body
-    className={`tracking-tighter leading-tight bg-gray-900 text-gray-100 container mx-auto max-w-5xl  ${myFont.className}`}>
+    className={`tracking-tighter leading-tight bg-gray-900 text-gray-100  ${myFont.className}`}>
     {BgPolygon1}
     <NavBar />
-    <div className='container mx-auto p-2'>{children}</div>
+    <div className=''>{children}</div>
     {BgPolygon2}
    </body>
   </html>

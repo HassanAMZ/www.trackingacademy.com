@@ -1,4 +1,10 @@
-const YoutubeEmbed = ({ embedId }) => (
+import React, { FC } from "react";
+
+interface YoutubeEmbedProps {
+ embedId: string;
+}
+
+const YoutubeEmbed: FC<YoutubeEmbedProps> = ({ embedId }) => (
  <>
   <div className='video-responsive'>
    <iframe

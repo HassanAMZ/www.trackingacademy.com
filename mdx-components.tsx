@@ -1,6 +1,6 @@
 import type { MDXComponents } from "mdx/types";
-import Pre from "@/components/Pre";
-import YoutubeEmbed from "@/components/YoutubeEmbed";
+import Pre from "@/components/mdx/Pre";
+import YoutubeEmbed from "@/components/mdx/YoutubeEmbed";
 
 // This file is required to use MDX in `app` directory.
 export function useMDXComponents(components: MDXComponents): MDXComponents {

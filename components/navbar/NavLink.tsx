@@ -1,5 +1,6 @@
 "use client";
 
+import { ReactNode, FC } from "react";
 import Link from "next/link";
 import { useSelectedLayoutSegments } from "next/navigation";
 
