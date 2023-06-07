@@ -17,6 +17,7 @@ const withMDX = require("@next/mdx")({
  extension: /\.mdx?$/,
  experimental: {
   mdxRs: true,
+  serverActions: true,
  },
  options: {
   // If you use remark-gfm, you'll need to use next.config.mjs

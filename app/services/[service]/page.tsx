@@ -41,7 +41,7 @@ const Page: React.FC<DynamicServicesPageProps> = ({ params }) => {
    </div>
   );
   return (
-   <ContainerLayout>
+   <section>
     <h1 className='text-4xl font-semibold'>{serviceObject.title}</h1>
     <div className='grid grid-cols-1 md:grid-cols-[3fr,_2fr]'>
      <div className='gap-2 flex flex-col'>
@@ -90,7 +90,7 @@ const Page: React.FC<DynamicServicesPageProps> = ({ params }) => {
       </div>
      </div>
     </div>
-   </ContainerLayout>
+   </section>
   );
  } else {
   return <ContainerLayout>Service not found</ContainerLayout>;
