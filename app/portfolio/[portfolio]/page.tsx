@@ -30,11 +30,11 @@ const Page: React.FC<DynamicPortfolioPageProps> = ({ params }) => {
 
   return (
    <React.Fragment>
-    <div className='border-2 rounded-lg border-gray-100 '>
+    <div className='shadow-md'>
      <Image
       width={1920}
-      height={1080}
-      className='rounded-md aspect-video'
+      height={540}
+      className='rounded-md'
       src={clientObject.images[0].link}
       alt={clientObject.images[0].name}
      />

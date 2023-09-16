@@ -4,14 +4,14 @@ import { ClientCardProps, Client } from "@/types/index";
 const ClientCard: React.FC<ClientCardProps> = ({ client }) => {
  return (
   <>
-   <div className='flex flex-col gap-1 ring-2 rounded-md ring-gray-900'>
+   <div className='flex flex-col gap-1 shadow-md ring-1 rounded-md ring-gray-900 ring-opacity-50'>
     <Link href={`/portfolio/${client.id}`}>
      <div className='relative  sm:h-auto max-w-full'>
-      <div className='flex flex-col gap-1 text-center'>
+      <div className='flex flex-col gap-1 text-center '>
        <Image
         className='rounded-md'
         width={1920}
-        height={1080}
+        height={540}
         src={client.images[0].link}
         alt={client.title}
        />

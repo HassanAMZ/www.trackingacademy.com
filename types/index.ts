@@ -106,3 +106,8 @@ export type ImageType = {
  link: string;
  name: string;
 };
+
+export interface ExpertInfoProps {
+ title: string;
+ description: JSX.Element; // Modify this line
+}
