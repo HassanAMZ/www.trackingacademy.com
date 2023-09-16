@@ -54,10 +54,7 @@ export default async function Page() {
  const data = await generateStaticParams();
  const blogLinks = data.map((post, index) => {
   return (
-   <Link
-    key={index}
-    className='bg-gray-900 bg-opacity-50 rounded-md p-4'
-    href={`/blog/${post.slug}`}>
+   <Link key={index} className='rounded-md p-4' href={`/blog/${post.slug}`}>
     <p className='line-clamp-1'>{post.title}</p>
    </Link>
   );
@@ -65,7 +62,7 @@ export default async function Page() {
  return (
   <div className='flex flex-col gap-2'>
    <h2 className='text-4xl font-bold'>All Blog Posts</h2>
-   <div className='grid grid-cols-1 md:grid-cols-2 gap-2'>{blogLinks}</div>
+   <div className='grid grid-cols-1 md:grid-cols-2 gap-2 '>{blogLinks}</div>
   </div>
  );
 }

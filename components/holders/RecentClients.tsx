@@ -6,7 +6,7 @@ import { Client, ClientDetails } from "@/types/index";
 
 const RecentClients: React.FC = () => {
  return (
-  <div className='bg-gray-900 bg-opacity-50 rounded-md'>
+  <div className=' rounded-md'>
    <ContainerLayout className='flex flex-col gap-2'>
     <h1 className='text-center'>
      Recent Web Analytics & Tracking Implementation Projects

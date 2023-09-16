@@ -44,7 +44,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
  return (
   <html lang='en'>
    <body
-    className={`tracking-tighter leading-tight bg-gray-900 text-gray-100  ${myFont.className}`}>
+    className={`tracking-tighter leading-tight max-w-3xl mx-auto ${myFont.className}`}>
     {BgPolygon1}
     <NavBar />
     <div className=''>{children}</div>

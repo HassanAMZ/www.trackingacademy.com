@@ -35,7 +35,7 @@ const Page: React.FC<DynamicServicesPageProps> = ({ params }) => {
    <div className='px-4 pb-4 flex flex-col'>
     <Link
      href='/contact'
-     className='bg-gray-50 text-gray-900 rounded-md px-3.5 py-2.5 text-sm font-semibold shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-purple text-center'>
+     className='rounded-md px-3.5 py-2.5 text-sm font-semibold shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-purple text-center'>
      Continue ( {serviceObject.packages[1].value[0]}$ )
     </Link>
    </div>

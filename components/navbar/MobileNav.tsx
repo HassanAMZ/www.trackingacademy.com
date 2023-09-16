@@ -51,9 +51,9 @@ const MobileNav = () => {
    <NavButton />
    {navOpen && (
     <section
-     className={`z-10 fixed top-0 right-0 left-0 bottom-0 transform duration-300 ease-in-out w-full h-full bg-gray-900 bg-opacity-50`}>
+     className={`z-10 fixed top-0 right-0 left-0 bottom-0 transform duration-300 ease-in-out w-full h-full `}>
      <div
-      className={`bg-gray-900 h-screen fixed top-0 right-0 left-0 bottom-0 shadow-lg px-2 py-4 flex flex-row items-start justify-between gap-4 `}
+      className={`h-screen fixed top-0 right-0 left-0 bottom-0 shadow-lg px-2 py-4 flex flex-row items-start justify-between gap-4 `}
       onClick={toggleNav}>
       <nav className='flex flex-col gap-4'>
        <NavLink href='/'>Shahzada Ali Hassan</NavLink>

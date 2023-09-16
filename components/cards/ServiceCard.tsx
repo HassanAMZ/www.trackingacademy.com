@@ -24,7 +24,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ service }) => {
     <Link
      href={`/services/${service.id}`}
      className='px-2 text-sm py-1 border-[1.5px] w-full border-gray-50  rounded-full font-normal shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2'>
-     <p className='bg-gray-900 bg-opacity-50 rounded-md p-1 text-sm'>
+     <p className='rounded-md p-1 text-sm'>
       View Details&nbsp;(from ${service.packages[1].value[0]} )
       {/* <span aria-hidden='true'>&nbsp; &rarr; </span> */}
      </p>

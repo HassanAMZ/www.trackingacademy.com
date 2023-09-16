@@ -4,7 +4,7 @@ import ContainerLayout from "@/components/layouts/ContainerLayout";
 import servicesDetails from "@/data/services-details";
 export default function Hero() {
  return (
-  <div className='bg-gray-900 bg-opacity-50 rounded-md'>
+  <div className='rounded-md'>
    <ContainerLayout>
     <div className='grid grid-cols-2 md:grid-cols-4 gap-2'>
      {servicesDetails.slice(0, 4).map((service, index) => {
