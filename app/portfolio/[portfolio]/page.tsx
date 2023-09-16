@@ -30,13 +30,15 @@ const Page: React.FC<DynamicPortfolioPageProps> = ({ params }) => {
 
   return (
    <React.Fragment>
-    <Image
-     width={1920}
-     height={1080}
-     className='rounded-md aspect-video'
-     src={clientObject.images[0].link}
-     alt={clientObject.images[0].name}
-    />
+    <div className='border-2 rounded-lg border-gray-100 '>
+     <Image
+      width={1920}
+      height={1080}
+      className='rounded-md aspect-video'
+      src={clientObject.images[0].link}
+      alt={clientObject.images[0].name}
+     />
+    </div>
     {/* <h1 className='text-4xl font-semibold'>{clientObject.title}</h1> */}
     <div className='flex flex-col gap-2'>
      <h3 className='text-2xl font-semibold py-2'> Project Details</h3>
