@@ -90,3 +90,19 @@ export interface NavLinkProps {
  href: string;
  children: React.ReactNode;
 }
+
+export type ImageProps = {
+ link: string;
+ name: string;
+ clientId: string;
+};
+
+export type ImageSliderProps = {
+ images: ImageProps[];
+};
+
+export type ImageType = {
+ clientId: string;
+ link: string;
+ name: string;
+};

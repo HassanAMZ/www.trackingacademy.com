@@ -61,7 +61,7 @@ const Page: React.FC<DynamicPortfolioPageProps> = ({ params }) => {
    </React.Fragment>
   );
  } else {
-  return <ContainerLayout>Client not found</ContainerLayout>;
+  return <div>Client not found</div>;
  }
 };
 
