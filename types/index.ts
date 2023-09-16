@@ -15,6 +15,9 @@ export type ServiceCardProps = {
 export type ClientCardProps = {
  client: Client;
 };
+export type AvatarCardProps = {
+ avatar: Avatar;
+};
 export type DynamicPortfolioPageProps = {
  params: {
   portfolio: string;
@@ -43,6 +46,13 @@ export interface ClientDetails {
  description: string;
 }
 
+export interface Avatar {
+ id: string;
+ name: string;
+ title: string;
+ description: string;
+ images: { name: string; link: string }[];
+}
 export interface Client {
  id: string;
  title: string;

@@ -57,7 +57,8 @@ const RecentClientSlider: React.FC = () => {
      <button
       onClick={prevSlide}
       className='absolute left-0 top-1/2 transform -translate-y-1/2 rounded-md text-xs bg-gray-50 sm:text-sm p-1 ring-1 ring-gray-900/10 hover:ring-gray-900/20 gap-1 font-semibold ml-1 bg-opacity-50'>
-      <span aria-hidden='true'>&larr;</span> Prev
+      <span aria-hidden='true'>&larr;</span>{" "}
+      <p className='hidden sm:block'> Prev </p>
      </button>
     )}
 
@@ -66,12 +67,12 @@ const RecentClientSlider: React.FC = () => {
      {/* Mobile View */}
      <ImageSet
       images={images.slice(startIndex, startIndex + mobileViewCount)}
-      widthClass='w-1/3 sm:hidden shadow-md  rounded-md border border-opacity-50 border-gray-900'
+      widthClass='w-1/2 sm:hidden shadow-md  rounded-lg border border-opacity-50 border-gray-900'
      />
      {/* Desktop View */}
      <ImageSet
       images={images.slice(startIndex, startIndex + desktopViewCount)}
-      widthClass='hidden sm:w-1/4 sm:block shadow-md  rounded-md border-2 border-gray-900'
+      widthClass='hidden sm:w-1/4 sm:block shadow-md  rounded-lg border-2 border-gray-900 border-opacity-50'
      />
     </div>
 
@@ -79,7 +80,8 @@ const RecentClientSlider: React.FC = () => {
      <button
       onClick={nextSlide}
       className='absolute right-0 top-1/2 transform -translate-y-1/2 rounded-md text-xs sm:text-sm bg-gray-50 p-1 ring-1 ring-gray-900/10 hover:ring-gray-900/20 gap-1 font-semibold mr-1 bg-opacity-50'>
-      Next <span aria-hidden='true'>&rarr;</span>
+      <p className='hidden sm:block'> Next </p>
+      <span aria-hidden='true'>&rarr;</span>
      </button>
     )}
    </div>
