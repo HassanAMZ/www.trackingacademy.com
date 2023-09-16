@@ -8,10 +8,10 @@ const RecentClients: React.FC = () => {
  return (
   <div className=' rounded-md'>
    <ContainerLayout className='flex flex-col gap-2'>
-    <h1 className='text-center'>
+    <h1 className='font-semibold'>
      Recent Web Analytics & Tracking Implementation Projects
     </h1>
-    <div className='grid grid-cols-2 md:grid-cols-4 gap-2'>
+    <div className='grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2'>
      {clientDetails.slice(0, 4).map((client: Client, index: number) => {
       return (
        <div key={index} className='flex gap-1 flex-col'>

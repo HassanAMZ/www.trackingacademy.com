@@ -22,40 +22,43 @@ const Page: React.FC<DynamicPortfolioPageProps> = ({ params }) => {
   let clientSubDetails = clientObject.details.map((detail, index) => {
    return (
     <React.Fragment key={index}>
-     <h3>{detail.heading}</h3>
+     <h3 className='text-2xl font-semibold py-2'>{detail.heading}</h3>
      <p>{detail.description}</p>
     </React.Fragment>
    );
   });
 
   return (
-   <>
-    <h1 className='text-4xl font-semibold'>{clientObject.title}</h1>
-    <div className='grid grid-cols-1 md:grid-cols-[3fr,_2fr]'>
-     <div className='gap-2 flex flex-col text-justify'>{clientSubDetails}</div>
-     <div className='hidden md:block px-2'>
-      <div className='flex flex-col border-2 border-gray-50 rounded-md p-2 gap-2'>
-       <h3 className='text-2xl font-semibold py-2'> Project Details</h3>
-       {clientObject.project_details.map((project_detail, index) => {
-        return (
-         <React.Fragment key={index}>
-          <div className='grid grid-cols-5 gap-2 items-center justify-center'>
-           <p className='col-span-2'>{project_detail.heading}:</p>
-           <Link
-            className='col-span-3'
-            href={project_detail.link}
-            target='_blank'
-            rel='noopener noreferrer'>
-            <p>{project_detail.title}</p>
-           </Link>
-          </div>
-         </React.Fragment>
-        );
-       })}
-      </div>
-     </div>
+   <React.Fragment>
+    <Image
+     width={1920}
+     height={1080}
+     className='rounded-md aspect-video'
+     src={clientObject.images[0].link}
+     alt={clientObject.images[0].name}
+    />
+    {/* <h1 className='text-4xl font-semibold'>{clientObject.title}</h1> */}
+    <div className='flex flex-col gap-2'>
+     <h3 className='text-2xl font-semibold py-2'> Project Details</h3>
+     {clientObject.project_details.map((project_detail, index) => {
+      return (
+       <React.Fragment key={index}>
+        <div className='grid grid-cols-5 gap-2 items-center justify-center'>
+         <p className='col-span-2'>{project_detail.heading}:</p>
+         <Link
+          className='col-span-3'
+          href={project_detail.link}
+          target='_blank'
+          rel='noopener noreferrer'>
+          <p>{project_detail.title}</p>
+         </Link>
+        </div>
+       </React.Fragment>
+      );
+     })}
     </div>
-   </>
+    <div className='gap-2 flex flex-col text-justify'>{clientSubDetails}</div>
+   </React.Fragment>
   );
  } else {
   return <ContainerLayout>Client not found</ContainerLayout>;

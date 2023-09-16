@@ -1,6 +1,6 @@
 const clientDetails = [
  {
-  id: "002",
+  id: "001",
   title: "Job Ready Programmer",
   tags: ["subscriptions", "teachable"],
   details: [
@@ -23,14 +23,12 @@ const clientDetails = [
     description: `After a focused two-week project, I successfully integrated GA4 with enhanced ecommerce tracking, tackled data deduplication, and set up performance tracking in Google Data Studio. This has paved the way for improved data insights, allowing Imtiaz to track customer journey across platforms, reduce data discrepancies, and monitor the overall performance of JobReadyProgrammer.com more accurately`,
    },
   ],
-  images: [
-   { name: "featured_image_url", link: "/images/services/p_004_1.png" },
-  ],
+  images: [{ name: "featured_image_url", link: "/images/clients/001.svg" }],
   project_details: [
    {
     heading: "Client's website",
     title: "Job Ready Programmer",
-    link: "https://jobreadyprogrammer.com/s",
+    link: "https://www.jobreadyprogrammer.com/",
    },
    {
     heading: "Checkout Processor",
@@ -41,6 +39,51 @@ const clientDetails = [
     heading: "Website CMS",
     title: "WordPress",
     link: " https://wordpress.com/",
+   },
+  ],
+ },
+ {
+  id: "002",
+  title: "Book Online",
+  tags: ["Hotel Booking", "Custom Built CMS"],
+  details: [
+   {
+    heading: "Overview",
+    description:
+     "BookOnline, an independent travel network offering hotel accommodations worldwide, sought to optimize their tracking systems for a more comprehensive understanding of user behaviors. The project entailed addressing issues with their Google ads, enhanced conversion tracking, and Bing's UET conversions tracking, especially when trying to send user data like email addresses.",
+   },
+   {
+    heading: "The Issues the Client Was Facing",
+    description:
+     "BookOnline was struggling with their Google ads enhanced conversion tracking and Bing's UET ads conversions tracking. They were facing challenges in sending user data like email addresses effectively. Furthermore, there were issues of duplicate events and incorrect revenue figures that affected their analytical clarity and marketing strategies.",
+   },
+   {
+    heading: "How I Helped Them Resolve the Issues",
+    description:
+     "After an initial discovery call where we audited their tracking system using Google Tag Manager, I worked to fix a Google ads conversion tracking index. By collaborating with Jason and Ryan, we addressed the problems related to duplicate events and inaccurate revenue figures. This holistic approach ensured BookOnline achieved accurate data insights, enabling them to better understand and engage with their users.",
+   },
+   {
+    heading: "Conclusion",
+    description:
+     "By the end of our engagement, I had successfully addressed the tracking issues faced by BookOnline, ensuring accurate conversion tracking for both Google and Bing ads. With the enhanced insights, BookOnline can now better strategize their marketing campaigns, understanding their user behavior more precisely and ensuring they provide optimal services to their clientele.",
+   },
+  ],
+  images: [{ name: "featured_image_url", link: "/images/clients/002.svg" }],
+  project_details: [
+   {
+    heading: "Client's website",
+    title: "Book Online",
+    link: "https://www.bookonline.com/",
+   },
+   {
+    heading: "Checkout Processor",
+    title: "Custom Built Checkout",
+    link: "",
+   },
+   {
+    heading: "Website CMS",
+    title: "Custom Built Site",
+    link: "",
    },
   ],
  },
