@@ -1,5 +1,3 @@
-"use client";
-
 import "@/styles/global.scss";
 import "@/styles/tailwind.css";
 import localFont from "next/font/local";
