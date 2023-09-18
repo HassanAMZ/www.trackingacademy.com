@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Hero from "@/components/holders/Hero";
 import RecentClientSlider from "@/components/holders/RecentClientSlider";
 import ContainerLayout from "@/components/layouts/ContainerLayout";
@@ -7,6 +7,8 @@ import Link from "next/link";
 import { ExpertInfoProps } from "@/types/index";
 import AvatarCard from "@/components/cards/AvatarCard";
 import avatarsDetails from "@/data/avatar-details";
+import TestimonialCard from "@/components/cards/TestimonialCard";
+import testimonialDetails from "@/data/testimonial-details";
 
 const ExpertInfo: React.FC<ExpertInfoProps> = ({ title, description }) => {
  return (
@@ -140,6 +142,12 @@ const Page: React.FC = () => {
        })}
       </div>
      </div>
+    </section>
+   </ContainerLayout>
+
+   <ContainerLayout>
+    <section>
+     <TestimonialCard testimonial={testimonialDetails[0]} />
     </section>
    </ContainerLayout>
   </main>

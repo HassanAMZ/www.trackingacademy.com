@@ -16,17 +16,15 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ service }) => {
      alt={service.title}
     />
    </div>
-   <div className='flex flex-col gap-1 text-center items-center justify-center'>
-    <h3 className='font-semibold sm:text-lg line-clamp-1'>{service.title}</h3>
-    {/* <div className='flex gap-2 opacity-80'>
-     <p className='py-1 text-sm'>{service.packages[2].value[2]} &nbsp;</p>
-    </div> */}
+   <div className='flex flex-col gap-1 text-left items-center justify-center'>
+    <h3 className='font-semibold py-1 line-clamp-2'>{service.title}</h3>
     <Link
      href={`/services/${service.id}`}
-     className='px-2 text-sm py-1 border-[1.5px] w-full border-gray-50  rounded-full font-normal shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2'>
-     <p className='rounded-md p-1 text-sm'>
-      View Details&nbsp;(from ${service.packages[1].value[0]} )
-      {/* <span aria-hidden='true'>&nbsp; &rarr; </span> */}
+     className='rounded-md px-3 py-2 text-sm font-semibold shadow-md focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-purple bg-purple-50 border-2 border-purple-50 w-full'>
+     <p className='rounded-md p-1 text-sm '>
+      View Details&nbsp;
+      {/* (from ${service.packages[1].value[0]} ) */}
+      <span aria-hidden='true'>&nbsp; &rarr; </span>
      </p>
     </Link>
    </div>

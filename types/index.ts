@@ -18,6 +18,9 @@ export type ClientCardProps = {
 export type AvatarCardProps = {
  avatar: Avatar;
 };
+export type TestimonialCardProps = {
+ testimonial: Testimonial;
+};
 export type DynamicPortfolioPageProps = {
  params: {
   portfolio: string;
@@ -51,6 +54,15 @@ export interface Avatar {
  name: string;
  title: string;
  description: string;
+ images: { name: string; link: string }[];
+}
+
+export interface Testimonial {
+ id: string;
+ name: string;
+ title: string;
+ testimonial_heading: string;
+ testimonial_details: string;
  images: { name: string; link: string }[];
 }
 export interface Client {

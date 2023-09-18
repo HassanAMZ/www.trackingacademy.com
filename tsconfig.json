@@ -3,9 +3,10 @@
   "baseUrl": ".",
   "paths": {
    "@/components/*": ["components/*"],
+   "@/context/*": ["app/context/*"],
    "@/app/*": ["app/*"],
    "@/data/*": ["data/*"],
-   "@/layouts/*": ["layouts/*"],
+   "@/layouts/*": ["components/layouts/*"],
    "@/lib/*": ["lib/*"],
    "@/firebase/*": ["firebase/*"],
    "@/contexts/*": ["contexts/*"],

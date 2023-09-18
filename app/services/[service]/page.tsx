@@ -42,10 +42,10 @@ const Page: React.FC<DynamicServicesPageProps> = ({ params }) => {
   );
   return (
    <section>
-    <h1 className='text-4xl font-semibold'>{serviceObject.title}</h1>
-    <div className='grid grid-cols-1 md:grid-cols-[3fr,_2fr]'>
+    <h1 className='text-4xl font-semibold pb-2'>{serviceObject.title}</h1>
+    <div className='grid grid-cols-1'>
      <div className='gap-2 flex flex-col'>
-      <div className='relative aspect-[4/3]'>
+      <div className='relative aspect-[4/3] '>
        <Image
         className='rounded-lg'
         fill
@@ -68,7 +68,7 @@ const Page: React.FC<DynamicServicesPageProps> = ({ params }) => {
         }}
        />
       </div>
-      <div className='grid grid-cols-5 gap-2 p-4 border-2 border-gray-50 rounded-md'>
+      <div className='grid grid-cols-5 gap-2 p-4 border-2 border-gray-50 rounded-md sm:bg-gray-900 sm:bg-opacity-5 sm:shadow-md  divide-y-2  divide-x-2'>
        {serviceObject.packages.map((service, index) => {
         return (
          <React.Fragment key={index}>
@@ -81,12 +81,6 @@ const Page: React.FC<DynamicServicesPageProps> = ({ params }) => {
          </React.Fragment>
         );
        })}
-      </div>
-     </div>
-     <div className='hidden md:block px-2'>
-      <div className='flex flex-col border-2 border-gray-50 rounded-md'>
-       <div className='grid grid-cols-5 gap-2 p-4'>{serviceSubDetails}</div>
-       {buyButton}
       </div>
      </div>
     </div>

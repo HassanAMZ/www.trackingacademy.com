@@ -1,8 +1,11 @@
+"use client";
+
 import "@/styles/global.scss";
 import "@/styles/tailwind.css";
 import localFont from "next/font/local";
 import NavBar from "@/components/navbar/Navbar";
 import { ReactNode } from "react";
+import { AuthContextProvider } from "./context/AuthContext";
 
 export const metadata = {
  title: "Shazadaalihassan",
@@ -44,10 +47,10 @@ export default function RootLayout({ children }: { children: ReactNode }) {
  return (
   <html lang='en'>
    <body
-    className={`tracking-tighter leading-tight max-w-4xl mx-auto ${myFont.className}`}>
+    className={`tracking-tighter leading-tight max-w-3xl mx-auto ${myFont.className}`}>
     {BgPolygon1}
     <NavBar />
-    <div className=''>{children}</div>
+    <AuthContextProvider>{children}</AuthContextProvider>
     {BgPolygon2}
    </body>
   </html>

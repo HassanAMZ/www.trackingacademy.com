@@ -69,7 +69,7 @@ const Pre: React.FC<PreProps> = (props) => {
     </button>
    )}
 
-   <pre className='p-2'>{props.children}</pre>
+   <pre className='p-2 bg-purple-50 rounded-md'>{props.children}</pre>
   </div>
  );
 };
