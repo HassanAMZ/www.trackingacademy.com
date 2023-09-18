@@ -12,8 +12,8 @@ export const metadata = {
  description: "Top rated web analytics",
 };
 
-const myFont = localFont({
- src: "fonts/Inter/static/Inter-Regular.ttf",
+const interVariableFont = localFont({
+ src: "fonts/Inter/inter-font.ttf",
  display: "swap",
 });
 
@@ -47,7 +47,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
  return (
   <html lang='en'>
    <body
-    className={`tracking-tighter leading-tight max-w-3xl mx-auto ${myFont.className}`}>
+    className={`tracking-tighter leading-tight max-w-4xl mx-auto ${interVariableFont.className}`}>
     {BgPolygon1}
     <NavBar />
     <AuthContextProvider>{children}</AuthContextProvider>

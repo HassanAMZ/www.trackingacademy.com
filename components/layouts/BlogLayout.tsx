@@ -2,7 +2,7 @@ import { ReactNode, FC } from "react";
 import { ContainerLayoutProps } from "@/types/index";
 const BlogLayout: FC<ContainerLayoutProps> = ({ children, className }) => {
  return (
-  <div className={`container mx-auto p-3 text-justify${className}`}>
+  <div className={`container mx-auto px-3 text-justify ${className}`}>
    {children}
   </div>
  );

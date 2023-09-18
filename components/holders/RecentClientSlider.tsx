@@ -79,7 +79,7 @@ const RecentClientSlider: React.FC = () => {
     {startIndex < images.length - viewCount && (
      <button
       onClick={nextSlide}
-      className='absolute right-0 top-1/2 transform -translate-y-1/2 rounded-md text-xs sm:text-sm bg-gray-50 p-1 ring-1 ring-gray-900/10 hover:ring-gray-900/20 gap-1 font-semibold mr-1 bg-opacity-50'>
+      className='flex flex-row absolute right-0 top-1/2 transform -translate-y-1/2 rounded-md text-xs sm:text-sm bg-gray-50 p-1 ring-1 ring-gray-900/10 hover:ring-gray-900/20 gap-1 font-semibold mr-1 bg-opacity-50'>
       <p className='hidden sm:block'> Next </p>
       <span aria-hidden='true'>&rarr;</span>
      </button>
@@ -108,7 +108,7 @@ const RecentClientSlider: React.FC = () => {
 
  return (
   <div className=' rounded-md'>
-   <div className='py-3 flex flex-col gap-2'>
+   <div className='flex flex-col gap-2'>
     <ImageSlider images={clientObject.images} />
    </div>
   </div>

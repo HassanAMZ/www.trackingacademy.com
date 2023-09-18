@@ -1,11 +1,74 @@
 export const meta = {
- title: "",
- date: "",
- downloadId: "00004",
- tags: [""],
+ title: "How to Configure Google Tag Manager on Your Shopify Store",
+ date: "2023-09-18",
+ downloadId: "00001",
+ tags: ["google tag manager", "google analytics 4", "shopify"],
  draft: false,
- summary: "",
+ description:
+  "In this guide, we detailed the step-by-step process of integrating Google Tag Manager (GTM) with a Shopify store. From the initial setup to nuances like upsell tracking, the tutorial covers essential prerequisites, embedding GTM snippets into the Shopify interface, and ensuring accurate tracking on crucial pages like the 'Thank You' page after a purchase. By following these steps, Shopify store owners can seamlessly monitor user interactions, optimize their store's performance, and enhance their marketing efforts.",
  embedId: "null",
 };
 
-## How to setup Google Analytics 4 View Item Event
+## How to Configure Google Tag Manager on Your Shopify Store
+
+In this guide, we'll walk you through the process of setting up Google Tag Manager (GTM) for your Shopify store, covering nuances like tracking upsell purchases.
+
+## Prerequisites:
+
+- Google Tag Manager account
+- Shopify Store
+
+If you're new to Google Tag Manager, feel free to start from the beginning, otherwise, skip ahead as needed.
+
+---
+
+## Steps to Configure GTM:
+
+### 1. Initial Setup
+
+Start by checking your Shopify store. If you have the Google Tag Assistant Legacy Chrome extension, you should notice that no Google Tag Manager containers are present initially.
+
+### 2. Accessing Google Tag Manager
+
+Upon logging into your Google Tag Manager account:
+
+- If it's your first time, you'd need to click on **Create Account** on the top-right corner.
+- Enter the name of your business.
+- Specify the website URL, for example, `crackingacademy.com`.
+- It's advised to use one GTM container for one business to avoid complications.
+
+### 3. Adding the GTM Snippet to Shopify
+
+By default, GTM will show you the tracking snippets needed for your website. There are two main snippets:
+
+- **Head snippet**
+- **Body snippet**
+
+1. Copy the head snippet.
+2. On Shopify, go to **Online Store > Themes**.
+3. Click on the **Edit Code** option.
+4. Navigate to the theme section and paste the copied head snippet under the `<head>` tag.
+5. Similarly, copy the body snippet from GTM and paste it after the `<body>` tag in Shopify.
+6. Save the changes.
+
+### 4. Setting up GTM on the Checkout Page
+
+To ensure GTM works on the final "Thank You" page:
+
+1. Head to Shopify's settings.
+2. Navigate to **Checkout**.
+3. Scroll down to find **Additional Scripts**.
+4. Paste the GTM head snippet here and save the changes.
+
+### 5. Tracking Upsells with GTM
+
+If you use upsell apps, the checkout process might be a bit more complex:
+
+1. Scroll up slightly from the **Additional Scripts** section.
+2. Paste the GTM head snippet in the new **Additional Scripts** section you find.
+
+Note: We only use the head snippet because the "Thank You" page's sandbox doesn't require the body snippet.
+
+---
+
+Once you've completed these steps, your Google Tag Manager should be fully configured for your Shopify store. To further enhance your tracking capabilities, consider setting up Google Analytics 4 or checking out our Facebook tutorials.

@@ -29,12 +29,14 @@ const Page: React.FC = () => {
  return (
   <main className='flex flex-col sm:gap-2'>
    <Hero />
-   <ContainerLayout className='sm:py-10'>
-    <h3 className='font-semibold'>Recent Web Analytics & Tracking Projects</h3>
+   <ContainerLayout className='py-5'>
+    <h3 className='font-semibold py-4'>
+     Recent Web Analytics & Tracking Projects
+    </h3>
     <RecentClientSlider />
    </ContainerLayout>
 
-   <ContainerLayout className='pt-5 sm:py-10 grid grid-cols-1 sm:grid-cols-2 gap-2'>
+   <ContainerLayout className='pt-5 sm:pb-10 grid grid-cols-1 sm:grid-cols-2 gap-2'>
     <section className=''>
      <h3 className='flex w-fit justify-left rounded-md text-xs sm:text-sm p-1 ring-1 ring-gray-900/10 hover:ring-gray-900/20 gap-1'>
       Shahzada Ali Hassan, Tracking Expert
@@ -56,7 +58,7 @@ const Page: React.FC = () => {
     </section>
    </ContainerLayout>
 
-   <ContainerLayout className='py-5 sm:py-10 grid grid-cols-1 sm:grid-cols-2  gap-2 sm:bg-gray-900 sm:bg-opacity-5 shadow-md rounded-md'>
+   <ContainerLayout className='py-5 grid grid-cols-1 sm:grid-cols-2  gap-2 sm:bg-gray-900 sm:bg-opacity-5 sm:shadow-md rounded-md'>
     <section className='flex justify-center flex-col order-2 md:order-1'>
      <YoutubeEmbed embedId='W0ZgVnIGNW4' />
     </section>
@@ -89,7 +91,7 @@ const Page: React.FC = () => {
     </section>
    </ContainerLayout>
 
-   <ContainerLayout className='py-5 sm:py-10 grid grid-cols-1 sm:grid-cols-2 gap-2'>
+   <ContainerLayout className='py-5 sm:pt-10 grid grid-cols-1 sm:grid-cols-2 gap-2'>
     <section className=''>
      <h3 className='flex w-fit justify-left rounded-md text-xs sm:text-sm p-1 ring-1 ring-gray-900/10 hover:ring-gray-900/20 gap-1'>
       James Hammond, CEO of Equifund Mortgage
@@ -118,8 +120,8 @@ const Page: React.FC = () => {
    </ContainerLayout>
 
    <ContainerLayout>
-    <section className='flex flex-col  items-center gap-2 text-center'>
-     <h3 className='text-3xl font-bold py-2 '>
+    <section className='flex flex-col sm:items-center gap-2 sm:text-center sm:bg-gray-900 sm:bg-opacity-5 sm:shadow-md rounded-md py-2 sm:py-4'>
+     <h3 className='text-3xl font-bold pb-2 '>
       Meet Shahzada Ali Hassan, Your Web Analytics and Tracking Expert
      </h3>
      <div>
@@ -135,7 +137,7 @@ const Page: React.FC = () => {
       your website doesn't just look good but performs exceptionally well in
       generating results.
      </p>
-     <div className='w-full sm:w-2/3 md:w-3/4'>
+     <div className='w-full sm:w-2/3 md:w-3/4 pt-5'>
       <div className='flex flex-row gap-2'>
        {avatarsDetails.map((avatar, key) => {
         return <AvatarCard avatar={avatar} key={key} />;
@@ -147,7 +149,7 @@ const Page: React.FC = () => {
 
    <ContainerLayout>
     <section>
-     <TestimonialCard testimonial={testimonialDetails[0]} />
+     <TestimonialCard testimonial={testimonialDetails[2]} />
     </section>
    </ContainerLayout>
   </main>

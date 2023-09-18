@@ -61,7 +61,6 @@ export interface Testimonial {
  id: string;
  name: string;
  title: string;
- testimonial_heading: string;
  testimonial_details: string;
  images: { name: string; link: string }[];
 }
@@ -79,8 +78,8 @@ export interface PostMetaData {
  blogID: string;
  tags: string[];
  draft: boolean;
- summary: string;
- coverImage: string;
+ description: string;
+ images: string[];
  embedId: string;
 }
 

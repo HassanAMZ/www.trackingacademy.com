@@ -3,7 +3,7 @@ import Image from "next/image";
 import { AvatarCardProps, Avatar } from "@/types/index";
 const AvatarCard: React.FC<AvatarCardProps> = ({ avatar }) => {
  return (
-  <section className='sm:bg-gray-900 sm:bg-opacity-5 sm:shadow-md rounded-md  '>
+  <section className='bg-gray-900 bg-opacity-5 shadow-md rounded-md flex flex-col '>
    <Image
     className='rounded-md'
     width={4000}

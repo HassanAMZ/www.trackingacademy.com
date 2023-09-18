@@ -8,10 +8,12 @@ export default function Layout({ children }: { children: ReactNode }) {
  return (
   <React.Fragment>
    <main>{children}</main>
-   <h3 className='text-2xl font-semibold pt-2'>
-    Other Web Analytics & Tracking Projects
-   </h3>
-   <RecentClientSlider />
+   <div className=''>
+    <h3 className='text-2xl font-semibold py-4'>
+     Recent Web Analytics & Tracking Projects
+    </h3>
+    <RecentClientSlider />
+   </div>
   </React.Fragment>
  );
 }

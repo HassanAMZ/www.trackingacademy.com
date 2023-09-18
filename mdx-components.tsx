@@ -7,23 +7,28 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
  return {
   YoutubeEmbed,
   p: ({ ...rest }) => {
-   return <p className='py-2' {...rest} />;
+   return <p className='py-1' {...rest} />;
   },
   pre: Pre,
 
   ol: ({ ...rest }) => {
+   return <ol className='text-left list-disc py-1 gap-1' {...rest} />;
+  },
+  ul: ({ ...rest }) => {
    return (
-    <ol
-     type='1'
-     className='list-decimal list-outside my-1 pl-[40px] mx-0'
+    <ul
+     className='text-left py-1 list-disc list-inside flex flex-col gap-1'
      {...rest}
     />
    );
   },
+  li: ({ ...rest }) => {
+   return <li className='text-left pl-4' {...rest} />;
+  },
   h1: (props) => {
    return (
     <h1
-     className='py-2 text-5xl underline capitalize sm:text-6xl lg:text-7xl'
+     className='text-left py-2 text-2xl capitalize sm:text-3xl font-semibold'
      {...props}>
      {props.children}
     </h1>
@@ -31,21 +36,27 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
   },
   h2: (props) => {
    return (
-    <h2 className='py-2 text-4xl underline capitalize sm:text-5xl' {...props}>
+    <h2
+     className='text-left py-2 text-2xl capitalize sm:text-3xl font-semibold'
+     {...props}>
      {props.children}
     </h2>
    );
   },
   h3: (props) => {
    return (
-    <h3 className='py-2 text-3xl underline capitalize sm:text-4xl' {...props}>
+    <h3
+     className='text-left py-2 text-2xl capitalize sm:text-3xl font-semibold'
+     {...props}>
      {props.children}
     </h3>
    );
   },
   h4: (props) => {
    return (
-    <h4 className='py-2 text-2xl underline capitalize sm:text-3xl' {...props}>
+    <h4
+     className='text-left py-2 text-2xl capitalize sm:text-3xl font-semibold'
+     {...props}>
      {props.children}
     </h4>
    );
