@@ -1,11 +1,9 @@
 "use client";
-import ClientCard from "@/components/cards/ClientCard";
 import clientDetails from "@/data/clients-details";
-import { Client } from "@/types/index";
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { ImageProps, ImageSliderProps, ImageType } from "@/types/index";
+import { ImageSliderProps, ImageType } from "@/types/index";
 
 const RecentClientSlider: React.FC = () => {
  const ImageSet: React.FC<{ images: ImageType[]; widthClass: string }> = ({
@@ -15,7 +13,11 @@ const RecentClientSlider: React.FC = () => {
   return (
    <>
     {images.map((img, index) => (
-     <div key={index} className={widthClass}>
+     <div
+      key={index}
+      className={`${widthClass} ${
+       index % 2 === 0 ? "bg-gray-900" : "bg-gray-50"
+      }`}>
       <Link href={`/portfolio/${img.clientId}`} className=''>
        <Image
         width={1920}
@@ -30,6 +32,7 @@ const RecentClientSlider: React.FC = () => {
    </>
   );
  };
+
  const ImageSlider: React.FC<ImageSliderProps> = ({ images }) => {
   const mobileViewCount = 3;
   const desktopViewCount = 5;
@@ -93,13 +96,14 @@ const RecentClientSlider: React.FC = () => {
   return data
    .map((client) => {
     const clientId = client.id;
-    return client.images.map((image) => ({
-     clientId: clientId, // using client.id from the outer map
+    const image = client.images[0]; // Only get the first image
+    return {
+     clientId: clientId,
      link: image.link,
      name: image.name,
-    }));
+    };
    })
-   .flat();
+   .filter((image) => image !== null); // Filter out any null entries from the result
  };
 
  const clientObject = {

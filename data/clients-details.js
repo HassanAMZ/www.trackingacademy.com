@@ -2,13 +2,15 @@ const clientDetails = [
  {
   id: "001",
   title: "Job Ready Programmer",
-  contact: {
+  business_details: {
    email: "info@jobreadyprogrammer.com",
    phone: "",
+   name: "Job Ready Programmer",
+   link: "https://www.linkedin.com/in/imtiaz-ahmad-80117324/",
   },
-  client_names: ["Imtiaz Ahmed"],
-  tags: ["subscriptions", "teachable"],
-  details: [
+  client_details: [{ name: "Imtiaz Ahmed", email: "imtiazahmad007@gmail.com" }],
+  tags: ["Subscriptions", "Teachable", "Online Courses"],
+  project_description: [
    {
     heading: "Overview",
     description: `JobReadyProgrammer.com, an online educational platform selling programming courses, sought to streamline their Google Analytics tracking for a more cohesive understanding of their ecommerce journey. With the website developed on WordPress and their checkout system situated on Teachable, this multi-platform system posed an analytical challenge. The project involved configuring Google Analytics 4 (GA4) with enhanced ecommerce tracking, data deduplication, and comprehensive reporting via Google Data Studio.`,
@@ -28,7 +30,16 @@ const clientDetails = [
     description: `After a focused two-week project, I successfully integrated GA4 with enhanced ecommerce tracking, tackled data deduplication, and set up performance tracking in Google Data Studio. This has paved the way for improved data insights, allowing Imtiaz to track customer journey across platforms, reduce data discrepancies, and monitor the overall performance of JobReadyProgrammer.com more accurately`,
    },
   ],
-  images: [{ name: "featured_image_url", link: "/images/clients/001.svg" }],
+  testimonial_details: [
+   {
+    testimonial: "Very happy working with Hassan! Does a great job!",
+    project_title: "Google tag manager and google ads expert needed",
+   },
+  ],
+  images: [
+   { name: "featured_image_url", link: "/images/clients/001.svg" },
+   { name: "profile_image_url", link: "/images/clients/001_1.jfif" },
+  ],
   project_details: [
    {
     heading: "Client's website",
@@ -50,13 +61,18 @@ const clientDetails = [
  {
   id: "002",
   title: "Book Online",
-  contact: {
+  business_details: {
    email: "contact@bookonline.com",
    phone: "+18552295934",
+   name: "Book Online",
+   link: "",
   },
-  client_names: ["Json", "Ryan"],
+  client_details: [
+   { name: "Jason G", email: "imtiazahmad007@gmail.com" },
+   { name: "Ryadd inc", email: "imtiazahmad007@gmail.com" },
+  ],
   tags: ["Hotel Booking", "Custom Built CMS"],
-  details: [
+  project_description: [
    {
     heading: "Overview",
     description:
@@ -76,6 +92,12 @@ const clientDetails = [
     heading: "Conclusion",
     description:
      "By the end of our engagement, I had successfully addressed the tracking issues faced by BookOnline, ensuring accurate conversion tracking for both Google and Bing ads. With the enhanced insights, BookOnline can now better strategize their marketing campaigns, understanding their user behavior more precisely and ensuring they provide optimal services to their clientele.",
+   },
+  ],
+  testimonial_details: [
+   {
+    testimonial: "Very happy working with Hassan! Does a great job!",
+    project_title: "Project Title",
    },
   ],
   images: [{ name: "featured_image_url", link: "/images/clients/002.svg" }],
@@ -100,13 +122,17 @@ const clientDetails = [
  {
   id: "003",
   title: "Equifund Mortgage",
-  contact: {
+  business_details: {
    email: "info@equifundmortgage.com",
    phone: "+1 866 713 9292",
+   name: "Job Ready Programmer",
+   link: "",
   },
-  client_names: ["James Hammond"],
+  client_details: [
+   { name: "James Hammond", email: "imtiazahmad007@gmail.com" },
+  ],
   tags: ["Consulting", "Financial Services", "ReactJs"],
-  details: [
+  project_description: [
    {
     heading: "Overview",
     description:
@@ -128,6 +154,14 @@ const clientDetails = [
      "By the end of our collaboration, EquiFund Mortgage had a robust tracking mechanism in place across multiple domains, ensuring their A/B testing and digital marketing strategies were data-driven and effective. With accurate insights, they are now poised to strategize their marketing campaigns more efficiently, understanding user behavior in-depth, and providing superior services.",
    },
   ],
+
+  testimonial_details: [
+   {
+    testimonial: "Very happy working with Hassan! Does a great job!",
+    project_title: "Project Title",
+   },
+  ],
+
   images: [{ name: "featured_image_url", link: "/images/clients/003.svg" }],
   project_details: [
    {
@@ -145,13 +179,22 @@ const clientDetails = [
  {
   id: "004",
   title: "Comrade",
-  contact: {
+  business_details: {
    email: "info@cmrd.com",
    phone: "",
+   name: "EMBR Group",
+   link:
+    "https://www.linkedin.com/in/david-bodnar-07023580/?originalSubdomain=au",
   },
-  client_names: ["Lior Galante Cohen", "Sami Baddar"],
+  client_details: [
+   {
+    name: "Lior Galante Cohen",
+    email: "imtiazahmad007@gmail.com",
+   },
+   { name: "Sami Baddar", email: "imtiazahmad007@gmail.com" },
+  ],
   tags: ["Chrome Extension", "User Privacy", "Ads"],
-  details: [
+  project_description: [
    {
     heading: "Overview",
     description:
@@ -173,6 +216,13 @@ const clientDetails = [
      "By the end of our collaboration, Comrade had a clear insight into user behavior, especially concerning their Chrome extension downloads. With the dashboard in place, they could effortlessly understand and interpret data, making informed decisions to further their mission of making ads more user-centric and rewarding.",
    },
   ],
+  testimonial_details: [
+   {
+    testimonial: "Very happy working with Hassan! Does a great job!",
+    project_title: "Project Title",
+   },
+  ],
+
   images: [{ name: "featured_image_url", link: "/images/clients/004.svg" }],
   project_details: [
    {

@@ -8,7 +8,7 @@ import { ExpertInfoProps } from "@/types/index";
 import AvatarCard from "@/components/cards/AvatarCard";
 import avatarsDetails from "@/data/avatar-details";
 import TestimonialCard from "@/components/cards/TestimonialCard";
-import testimonialDetails from "@/data/testimonial-details";
+import clientDetails from "@/data/clients-details";
 
 const ExpertInfo: React.FC<ExpertInfoProps> = ({ title, description }) => {
  return (
@@ -132,10 +132,11 @@ const Page: React.FC = () => {
       I'm not a team, but an individual freelancer with a passion for web
       analytics and a dedication to providing exceptional services.
      </p>
-     <p className=' max-w-2xl'>
+     <p className='max-w-2xl'>
       Focused on web analytics and optimization, my aim is simple: to ensure
       your website doesn't just look good but performs exceptionally well in
-      generating results.
+      generating results and{" "}
+      <span className='font-semibold'> zain helps me with YouTube.</span>
      </p>
      <div className='w-full sm:w-2/3 md:w-3/4 pt-5'>
       <div className='flex flex-row gap-2'>
@@ -149,7 +150,7 @@ const Page: React.FC = () => {
 
    <ContainerLayout>
     <section>
-     <TestimonialCard testimonial={testimonialDetails[2]} />
+     <TestimonialCard client={clientDetails[3]} />
     </section>
    </ContainerLayout>
   </main>

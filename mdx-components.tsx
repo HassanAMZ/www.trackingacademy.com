@@ -12,7 +12,7 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
   pre: Pre,
 
   ol: ({ ...rest }) => {
-   return <ol className='text-left list-disc py-1 gap-1' {...rest} />;
+   return <ol className='text-left list-inside py-1 gap-1' {...rest} />;
   },
   ul: ({ ...rest }) => {
    return (

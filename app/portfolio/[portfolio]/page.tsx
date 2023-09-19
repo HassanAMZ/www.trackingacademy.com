@@ -19,14 +19,23 @@ const Page: React.FC<DynamicPortfolioPageProps> = ({ params }) => {
  );
 
  if (clientObject) {
-  let clientSubDetails = clientObject.details.map((detail, index) => {
-   return (
-    <React.Fragment key={index}>
-     <h3 className='text-2xl font-semibold py-2'>{detail.heading}</h3>
-     <p>{detail.description}</p>
-    </React.Fragment>
-   );
-  });
+  let clientSubDetails = clientObject.project_description.map(
+   (detail, index) => {
+    return (
+     <React.Fragment key={index}>
+      <h3 className='text-2xl font-semibold py-2'>{detail.heading}</h3>
+      <p>{detail.description}</p>
+     </React.Fragment>
+    );
+   }
+  );
+  const isEven = (id: string): boolean => {
+   return parseInt(id, 10) % 2 === 0;
+  };
+
+  const bgColor = isEven(clientObject.id)
+   ? "bg-gray-50 border-gray-900"
+   : "bg-gray-900 border-gray-500";
 
   return (
    <React.Fragment>
@@ -34,7 +43,7 @@ const Page: React.FC<DynamicPortfolioPageProps> = ({ params }) => {
      <Image
       width={1920}
       height={540}
-      className='rounded-md'
+      className={`rounded-md ${bgColor} border-2 `}
       src={clientObject.images[0].link}
       alt={clientObject.images[0].name}
      />
