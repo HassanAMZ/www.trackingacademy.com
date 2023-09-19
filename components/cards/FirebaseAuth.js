@@ -10,7 +10,7 @@ export const FirebaseAuth = () => {
   try {
    await googleSignIn();
   } catch (error) {
-   console.log(error);
+   console.log("googleSignIn error from FirebaseAuth.js", error);
   }
  };
 
@@ -18,7 +18,7 @@ export const FirebaseAuth = () => {
   try {
    await logOut();
   } catch (error) {
-   console.log(error);
+   console.log("handleSignOut error from FirebaseAuth.js", error);
   }
  };
  useEffect(() => {

@@ -65,7 +65,7 @@ export interface Client {
   name: string;
   link: string;
  };
- client_details: { name: string; email: string }[];
+ client_details: { name: string; email: string; position: string }[];
  tags: string[];
  project_description: { heading: string; description: string }[];
  testimonial_details: TestimonialDetails[];

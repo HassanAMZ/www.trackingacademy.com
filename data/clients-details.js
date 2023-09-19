@@ -8,7 +8,13 @@ const clientDetails = [
    name: "Job Ready Programmer",
    link: "https://www.linkedin.com/in/imtiaz-ahmad-80117324/",
   },
-  client_details: [{ name: "Imtiaz Ahmed", email: "imtiazahmad007@gmail.com" }],
+  client_details: [
+   {
+    name: "Imtiaz Ahmed",
+    email: "imtiazahmad007@gmail.com",
+    position: "CEO and Founder",
+   },
+  ],
   tags: ["Subscriptions", "Teachable", "Online Courses"],
   project_description: [
    {
@@ -68,8 +74,8 @@ const clientDetails = [
    link: "",
   },
   client_details: [
-   { name: "Jason G", email: "imtiazahmad007@gmail.com" },
-   { name: "Ryadd inc", email: "imtiazahmad007@gmail.com" },
+   { name: "Jason G", email: "", position: "CEO and Founder" },
+   { name: "Ryadd inc", email: "", position: "CEO and Founder" },
   ],
   tags: ["Hotel Booking", "Custom Built CMS"],
   project_description: [
@@ -96,8 +102,8 @@ const clientDetails = [
   ],
   testimonial_details: [
    {
-    testimonial: "Very happy working with Hassan! Does a great job!",
-    project_title: "Project Title",
+    testimonial: "",
+    project_title: "GA4 & Gads Initial Setup",
    },
   ],
   images: [{ name: "featured_image_url", link: "/images/clients/002.svg" }],
@@ -124,12 +130,16 @@ const clientDetails = [
   title: "Equifund Mortgage",
   business_details: {
    email: "info@equifundmortgage.com",
-   phone: "+1 866 713 9292",
-   name: "Job Ready Programmer",
+   phone: "",
+   name: "",
    link: "",
   },
   client_details: [
-   { name: "James Hammond", email: "imtiazahmad007@gmail.com" },
+   {
+    name: "James Hammond",
+    email: "imtiazahmad007@gmail.com",
+    position: "CEO and Founder",
+   },
   ],
   tags: ["Consulting", "Financial Services", "ReactJs"],
   project_description: [
@@ -157,12 +167,15 @@ const clientDetails = [
 
   testimonial_details: [
    {
-    testimonial: "Very happy working with Hassan! Does a great job!",
-    project_title: "Project Title",
+    testimonial: "",
+    project_title: "Facebook Conversion API Setup",
    },
   ],
 
-  images: [{ name: "featured_image_url", link: "/images/clients/003.svg" }],
+  images: [
+   { name: "featured_image_url", link: "/images/clients/003.svg" },
+   { name: "supporting_image_url", link: "/images/clients/001_1.jfif" },
+  ],
   project_details: [
    {
     heading: "Client's website",
@@ -182,16 +195,17 @@ const clientDetails = [
   business_details: {
    email: "info@cmrd.com",
    phone: "",
-   name: "EMBR Group",
+   name: "Comrade Technologies Inc",
    link:
     "https://www.linkedin.com/in/david-bodnar-07023580/?originalSubdomain=au",
   },
   client_details: [
    {
     name: "Lior Galante Cohen",
-    email: "imtiazahmad007@gmail.com",
+    email: "",
+    position: "CEO and Founder",
    },
-   { name: "Sami Baddar", email: "imtiazahmad007@gmail.com" },
+   { name: "Sami Baddar", email: "", position: "CEO and Founder" },
   ],
   tags: ["Chrome Extension", "User Privacy", "Ads"],
   project_description: [
@@ -218,12 +232,16 @@ const clientDetails = [
   ],
   testimonial_details: [
    {
-    testimonial: "Very happy working with Hassan! Does a great job!",
-    project_title: "Project Title",
+    testimonial:
+     "Very thorough and professional. Identified a problem with our meta tracking and implemented a complete overhaul that has resolved the problem. Would recommend.",
+    project_title: "Comrade Technologies Inc",
    },
   ],
 
-  images: [{ name: "featured_image_url", link: "/images/clients/004.svg" }],
+  images: [
+   { name: "featured_image_url", link: "/images/clients/004.svg" },
+   { name: "supporting_image_url", link: "/images/clients/001_1.jfif" },
+  ],
   project_details: [
    {
     heading: "Client's website",
