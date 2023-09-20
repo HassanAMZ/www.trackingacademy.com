@@ -35,14 +35,14 @@ const Page: React.FC<DynamicServicesPageProps> = ({ params }) => {
    <div className='px-4 pb-4 flex flex-col'>
     <Link
      href='/contact'
-     className='rounded-md px-3.5 py-2.5 text-sm font-semibold shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-purple text-center'>
+     className='rounded-md px-3.5 py-2.5 text-sm font-medium shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-purple text-center'>
      Continue ( {serviceObject.packages[1].value[0]}$ )
     </Link>
    </div>
   );
   return (
    <section>
-    <h1 className='text-4xl font-semibold pb-2'>{serviceObject.title}</h1>
+    <h1 className='text-4xl font-medium pb-2'>{serviceObject.title}</h1>
     <div className='grid grid-cols-1'>
      <div className='gap-2 flex flex-col'>
       <div className='relative aspect-[4/3] '>
@@ -60,7 +60,7 @@ const Page: React.FC<DynamicServicesPageProps> = ({ params }) => {
       </div>
 
       <div>
-       <h3 className='text-2xl font-semibold py-2'> Project Details</h3>
+       <h3 className='text-2xl font-medium py-2'> Project Details</h3>
        <p
         className='text-justify'
         dangerouslySetInnerHTML={{

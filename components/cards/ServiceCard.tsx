@@ -17,10 +17,10 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ service }) => {
     />
    </div>
    <div className='flex flex-col gap-1 text-left items-center justify-center'>
-    <h3 className='font-semibold py-1 line-clamp-2'>{service.title}</h3>
+    <h3 className='font-medium py-1 line-clamp-2'>{service.title}</h3>
     <Link
      href={`/services/${service.id}`}
-     className='rounded-md px-3 py-2 text-sm font-semibold shadow-md focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-purple bg-purple-50 border-2 border-purple-50 w-full'>
+     className='rounded-md px-3 py-2 text-sm font-medium shadow-md focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-purple bg-purple-50 border-2 border-purple-50 w-full'>
      <p className='rounded-md p-1 text-sm '>
       View Details&nbsp;
       {/* (from ${service.packages[1].value[0]} ) */}

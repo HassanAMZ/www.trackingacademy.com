@@ -2,13 +2,12 @@ import Image from "next/image";
 import { ClientCardProps, Client } from "@/types/index";
 import Link from "next/link";
 const TestimonialCard: React.FC<ClientCardProps> = ({ client }) => {
- console.log(client.images[1]);
  return (
   <div className='bg-gray-900 bg-opacity-5 shadow-md rounded-md  text-sm sm:text-md p-6'>
    <blockquote className='overflow-hidden h-full  flex flex-col'>
     <header className='flex flex-col flex-1'>
      <div className='flex'>
-      <p className='font-semibold text-left line-clamp-1 text-md'>
+      <p className='font-medium text-left line-clamp-1 text-md'>
        {client.title}
       </p>
      </div>

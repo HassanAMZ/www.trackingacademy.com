@@ -12,7 +12,7 @@ const AvatarCard: React.FC<AvatarCardProps> = ({ avatar }) => {
     alt={avatar.name}
    />
    <div className='p-2'>
-    <p className='font-semibold text-left pt-2 pb-1'>{avatar.title}</p>
+    <p className='font-medium text-left pt-2 pb-1'>{avatar.title}</p>
     <p className='text-left pb-1'>{avatar.description}</p>
    </div>
   </section>

@@ -9,7 +9,7 @@ export default function Layout({ children }: { children: ReactNode }) {
   <React.Fragment>
    <main>{children}</main>
    <div className=''>
-    <h3 className='text-2xl font-semibold py-4'>
+    <h3 className='text-2xl font-medium py-4'>
      Recent Web Analytics & Tracking Projects
     </h3>
     <RecentClientSlider />

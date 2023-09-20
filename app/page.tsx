@@ -31,7 +31,7 @@ const Page: React.FC = () => {
    <Hero />
    <ContainerLayout className='sm:py-5'>
     <div className='p-2'>
-     <h3 className='font-semibold py-2 sm:py-4'>
+     <h3 className='font-medium py-2 sm:py-4'>
       Recent Web Analytics & Tracking Projects
      </h3>
      <RecentClientSlider />
@@ -89,7 +89,7 @@ const Page: React.FC = () => {
       <div className='flex pt-2 items-center justify-left gap-x-4'>
        <Link
         href='/portfolio'
-        className='rounded-md px-3.5 py-2.5 text-sm font-semibold shadow-md focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-purple bg-purple-50 border'>
+        className='rounded-md px-3.5 py-2.5 text-sm font-medium shadow-md focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-purple bg-purple-50 border'>
         Browse our portfolio <span aria-hidden='true'>&rarr;</span>
        </Link>
       </div>
@@ -136,7 +136,7 @@ const Page: React.FC = () => {
       <Divider />
       <Divider />
      </div>
-     <p className='font-semibold max-w-2xl'>
+     <p className='font-medium max-w-2xl'>
       I'm not a team, but an individual freelancer with a passion for web
       analytics and a dedication to providing exceptional services.
      </p>
@@ -144,7 +144,7 @@ const Page: React.FC = () => {
       Focused on web analytics and optimization, my aim is simple: to ensure
       your website doesn't just look good but performs exceptionally well in
       generating results and{" "}
-      <span className='font-semibold'> zain helps me with YouTube.</span>
+      <span className='font-medium'> zain helps me with YouTube.</span>
      </p>
      <div className='w-full sm:w-2/3 md:w-3/4 pt-5'>
       <div className='flex flex-row gap-2'>
@@ -170,7 +170,7 @@ const Page: React.FC = () => {
        title='Optimize your website with advanced analytics'
        description={
         <React.Fragment>
-         <p className='font-semibold'>
+         <p className='font-medium'>
           Our web analytics and tracking strategy fine-tunes your site for
           better user understanding and engagement.
          </p>
