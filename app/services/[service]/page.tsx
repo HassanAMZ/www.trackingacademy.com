@@ -42,7 +42,7 @@ const Page: React.FC<DynamicServicesPageProps> = ({ params }) => {
   );
   return (
    <section>
-    <h1 className='text-4xl font-medium pb-2'>{serviceObject.title}</h1>
+    <h1 className='text-6xl font-medium pb-2'>{serviceObject.title}</h1>
     <div className='grid grid-cols-1'>
      <div className='gap-2 flex flex-col'>
       <div className='relative aspect-[4/3] '>

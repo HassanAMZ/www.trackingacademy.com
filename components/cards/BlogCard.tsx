@@ -32,7 +32,7 @@ const BlogCard: React.FC<BlogCardProps> = ({
     </a>
     <div className='sm:p-3 p-2 flex flex-col'>
      <Link href={url}>
-      <h5 className='text-gray-900 font-bold text-xl tracking-tight sm:mb-2 mb-1 line-clamp-2'>
+      <h5 className='text-gray-900 font-semibold text-xl tracking-tight sm:mb-2 mb-1 line-clamp-2'>
        {title}
       </h5>
      </Link>

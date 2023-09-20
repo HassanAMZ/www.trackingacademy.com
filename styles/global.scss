@@ -5,24 +5,24 @@
  }
 }
 :root {
- font-size: calc(10px + 1.15vw);
+ font-size: calc(11px + 1.15vw);
 }
 
 @media (min-width: 640px) {
  :root {
-  font-size: calc(10px + 0.85vw);
+  font-size: calc(11px + 0.85vw);
  }
 }
 
 @media (min-width: 768px) {
  :root {
-  font-size: calc(10px + 0.7vw);
+  font-size: calc(11px + 0.7vw);
  }
 }
 
 @media (min-width: 1024px) {
  :root {
-  font-size: calc(10px + 0.55vw);
+  font-size: calc(11px + 0.55vw);
  }
 }
 // Styles for making a YouTube video embed responsive

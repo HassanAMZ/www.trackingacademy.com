@@ -8,7 +8,7 @@ export default function NavBar() {
   <ContainerLayout>
    <header className='w-full pt-3'>
     <div className='flex items-center justify-between font-medium w-full'>
-     <div className='flex font-bold flex-row items-center justify-center gap-1'>
+     <div className='flex font-semibold flex-row items-center justify-center gap-1'>
       <NavLink href='/'>Shahzada Ali Hassan</NavLink>
      </div>
      <nav className='sm:flex space-x-4 hidden'>

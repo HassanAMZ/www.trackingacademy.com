@@ -28,7 +28,7 @@ const TestimonialCard: React.FC<ClientCardProps> = ({ client }) => {
      />
 
      <div>
-      <p className='font-bold'>{client.client_details[0].name}</p>
+      <p className='font-semibold'>{client.client_details[0].name}</p>
       <div className='flex gap-2'>
        <p className='text-sm'>{client.client_details[0].position} - </p>
        <Link href={client.business_details.link} className=''>
