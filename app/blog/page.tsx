@@ -1,8 +1,11 @@
+import React from "react";
 import fs from "fs";
 import path from "path";
 import matter, { GrayMatterFile } from "gray-matter";
-import Link from "next/link";
 import { PostMetaData } from "@/types/index";
+
+import BlogContainer from "@/components/blog/BlogContainer";
+
 const blogDirectory = path.join(process.cwd(), "app/blog");
 
 function getFiles(dirPath: string): string[] {
@@ -27,13 +30,24 @@ export async function generateStaticParams(): Promise<
 
  // remove non-mdx files
  const mdxFiles = allPostsFiles.filter((file) => path.extname(file) === ".mdx");
+ function extractMetaFromString(content: string): any {
+  // Extract the meta string from the content
+  const metaStringMatch = content.match(
+   /export const metadata = (\{[\s\S]*?\});/
+  );
+  if (!metaStringMatch) return {};
 
+  // Evaluate the string to get the object
+  // This is a bit hacky, but given the context, it should be safe
+  const metaObject = eval(`(${metaStringMatch[1]})`);
+  return metaObject;
+ }
  const allPostsData = mdxFiles.map(async (fileName) => {
   const fileContents = fs.readFileSync(fileName, "utf8");
+  const { content } = matter(fileContents) as GrayMatterFile<string>;
+  const data = extractMetaFromString(content);
 
-  const { data } = matter(fileContents) as GrayMatterFile<string>;
   const slug = path.dirname(fileName).split(path.sep).slice(-2).join("/");
-
   const title = path
    .basename(path.dirname(fileName))
    .replace(/-/g, " ")
@@ -52,20 +66,10 @@ export async function generateStaticParams(): Promise<
 
 export default async function Page() {
  const data = await generateStaticParams();
- const blogLinks = data.map((post, index) => {
-  return (
-   <Link
-    key={index}
-    className='rounded-md p-4 shadow-md'
-    href={`/blog/${post.slug}`}>
-    <p className='line-clamp-1'>{post.title}</p>
-   </Link>
-  );
- });
  return (
   <div className='flex flex-col gap-2'>
    <h2 className='text-4xl font-bold'>All Blog Posts</h2>
-   <div className='grid grid-cols-1 md:grid-cols-2 gap-2  '>{blogLinks}</div>
+   <BlogContainer data={data} />
   </div>
  );
 }

@@ -79,7 +79,7 @@ export interface PostMetaData {
  tags: string[];
  draft: boolean;
  description: string;
- images: string[];
+ openGrapgh: { images: string[] };
  embedId: string;
 }
 
@@ -98,6 +98,24 @@ export interface BlogCardProps {
 export interface ContainerLayoutProps {
  children: ReactNode;
  className?: string; // Optional className prop
+}
+export interface MetaData {
+ title: string;
+ date: string;
+ blogID: string;
+ tags: string[];
+ draft: boolean;
+ description: string;
+ openGrapgh: {
+  images: string[];
+ };
+ embedId: string;
+}
+
+export interface BlogLayoutProps {
+ children: ReactNode;
+ className?: string;
+ metadata?: MetaData; // Optional metadata prop
 }
 
 export interface PreProps

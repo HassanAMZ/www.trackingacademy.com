@@ -18,7 +18,6 @@ const RecentClientSlider: React.FC = () => {
       className={`${widthClass} ${
        parseInt(img.clientId, 10) % 2 === 0 ? "bg-gray-50" : "bg-gray-900"
       }`}>
-      <>{console.log("image's client id", img.clientId)}</>
       <Link href={`/portfolio/${img.clientId}`} className=''>
        <Image
         width={1920}

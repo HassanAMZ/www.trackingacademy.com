@@ -5,7 +5,7 @@ import NavBar from "@/components/navbar/Navbar";
 import { ReactNode } from "react";
 import { AuthContextProvider } from "./context/AuthContext";
 
-export const metadata = {
+export const metadata= {
  title: "Shazadaalihassan",
  description: "Top rated web analytics",
 };

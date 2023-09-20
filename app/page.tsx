@@ -303,6 +303,33 @@ const Page: React.FC = () => {
    <ContainerLayout>
     <TestimonialCard client={clientDetails[3]} />
    </ContainerLayout>
+
+   <ContainerLayout className=''>
+    <section className='py-5 gap-2 bg-gray-900 bg-opacity-5 shadow-md rounded-md p-2'>
+     <ExpertInfo
+      title='Not Sure What You Need?'
+      description={
+       <React.Fragment>
+        <p>That’s okay. Priorities evolve.</p>
+        <p>
+         Needs change, and I understand that. Drawing from extensive experience
+         with diverse clients, I recognize the shifts in focus that can happen.
+         I’m here to adapt and guide.
+        </p>
+        <ul className='list-disc list-inside pl-4 py-2'>
+         <li>Visual aesthetics and branding</li>
+         <li>Data insights, results, and ROI</li>
+         <li>Collaboration, responsiveness, and care</li>
+        </ul>
+        <p>
+         The roadmap might shift, but the destination remains: A refined online
+         strategy you'll cherish.
+        </p>
+       </React.Fragment>
+      }
+     />
+    </section>
+   </ContainerLayout>
   </main>
  );
 };

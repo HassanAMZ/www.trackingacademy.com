@@ -1,0 +1,34 @@
+"use client";
+
+import React, { useState, useEffect } from "react";
+import { PostMetaData } from "@/types/index";
+
+interface BlogSearchProps {
+ data: (PostMetaData & { id: string; slug: string })[];
+ onSearch: (filtered: (PostMetaData & { id: string; slug: string })[]) => void;
+}
+
+const BlogSearch: React.FC<BlogSearchProps> = ({ data, onSearch }) => {
+ const [searchTerm, setSearchTerm] = useState("");
+
+ useEffect(() => {
+  const results = data.filter((post) =>
+   post.title.toLowerCase().includes(searchTerm.toLowerCase())
+  );
+  onSearch(results);
+ }, [searchTerm]); // only react to searchTerm changes
+
+ return (
+  <div className='flex flex-col gap-2'>
+   <input
+    type='text'
+    placeholder='Search for a post...'
+    value={searchTerm}
+    onChange={(e) => setSearchTerm(e.target.value)}
+    className='p-2 border rounded-md mb-2'
+   />
+  </div>
+ );
+};
+
+export default BlogSearch;

@@ -32,13 +32,14 @@ export default function Hero() {
       <Link
        href='/portfolio'
        className='rounded-md px-3.5 py-2.5 text-sm font-medium shadow-md focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-purple bg-purple-50 border-2 border-purple-50 '>
-       Show me the portfolio
+       Show me the Web Analytics Portfolio
+       <span aria-hidden='true'> &nbsp;→ </span>
       </Link>
-      <Link
+      {/* <Link
        href='/contact'
        className='rounded-md px-3.5 py-2.5 text-sm font-medium '>
        Get In Touch <span aria-hidden='true'> &nbsp;→ </span>
-      </Link>
+      </Link> */}
      </div>
     </div>
    </div>
