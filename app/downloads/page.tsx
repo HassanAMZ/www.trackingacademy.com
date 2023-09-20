@@ -67,9 +67,8 @@ export async function generateStaticParams(): Promise<
 export default async function Page() {
  const data = await generateStaticParams();
  return (
-  <div className='flex flex-col gap-2'>
-   <h2 className='text-6xl font-semibold'>All Blog Posts</h2>
-   <BlogContainer data={data} />
+  <div className='flex flex-col gap-2 py-4'>
+   <BlogContainer data={data} type='downloads' />
   </div>
  );
 }

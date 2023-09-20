@@ -29,7 +29,7 @@ export const FirebaseAuth = () => {
   checkAuthentication();
  }, [user]);
  return (
-  <div className='sm:bg-gray-900 sm:bg-opacity-5 sm:shadow-md rounded-md p-2'>
+  <div className='bg-gray-900 bg-opacity-5 shadow-md rounded-md p-2'>
    {loading ? null : !user ? (
     <div className='flex flex-col items-center gap-2  h-[50vh] justify-center'>
      <p className='flex justify-center'>

@@ -5,3 +5,22 @@
 code {
  @apply overflow-hidden whitespace-pre-wrap;
 }
+
+/* Styling for unordered lists (ul) */
+ul {
+ @apply list-disc list-outside pl-5;
+}
+
+/* Styling for ordered lists (ol) */
+ol {
+ @apply list-decimal list-inside;
+}
+
+/* Styling for list items (li) */
+li {
+ @apply text-left p-1;
+}
+/* Styling for paragraph (p) */
+p {
+ @apply py-1;
+}

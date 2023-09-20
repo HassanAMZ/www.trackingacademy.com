@@ -2,11 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import { PostMetaData } from "@/types/index";
-
-interface BlogSearchProps {
- data: (PostMetaData & { id: string; slug: string })[];
- onSearch: (filtered: (PostMetaData & { id: string; slug: string })[]) => void;
-}
+import { BlogSearchProps } from "@/types/index";
 
 const BlogSearch: React.FC<BlogSearchProps> = ({ data, onSearch }) => {
  const [searchTerm, setSearchTerm] = useState("");

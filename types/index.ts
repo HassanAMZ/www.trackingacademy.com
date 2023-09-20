@@ -9,6 +9,17 @@ import {
  ReactNode,
 } from "react";
 
+export interface AccordionItemProps {
+ title: string;
+ content: string;
+}
+
+export interface AccordionProps {
+ data: string; // This is the document ID
+}
+export type AccordionDataType = {
+ [key: string]: AccordionItemProps[];
+};
 export type ServiceCardProps = {
  service: ServiceDetails;
 };
@@ -42,7 +53,18 @@ export type DynamicServicesPageProps = {
   service: string;
  };
 };
-
+export interface BlogSearchProps {
+ data: (PostMetaData & { id: string; slug: string })[];
+ onSearch: (filtered: (PostMetaData & { id: string; slug: string })[]) => void;
+}
+export interface BlogContentProps {
+ data: (PostMetaData & { id: string; slug: string })[];
+ type: string;
+}
+export interface BlogContainerProps {
+ data: (PostMetaData & { id: string; slug: string })[];
+ type: string;
+}
 export interface TestimonialDetails {
  testimonial: string;
  project_title: string;

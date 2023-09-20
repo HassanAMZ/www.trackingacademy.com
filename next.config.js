@@ -8,6 +8,7 @@ const nextConfig = {
   appDir: true,
   mdxRs: true,
  },
+ reactStrictMode: true,
  sassOptions: {
   includePaths: [path.join(__dirname, "styles")],
  },

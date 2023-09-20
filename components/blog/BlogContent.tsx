@@ -4,17 +4,14 @@ import React from "react";
 import Link from "next/link";
 import { PostMetaData } from "@/types/index";
 import Image from "next/image";
+import { BlogContentProps } from "@/types/index";
 
-interface BlogContentProps {
- data: (PostMetaData & { id: string; slug: string })[];
-}
-
-const BlogContent: React.FC<BlogContentProps> = ({ data }) => {
+const BlogContent: React.FC<BlogContentProps> = ({ data, type }) => {
  const blogLinks = data.map((post, index) => (
   <Link
    key={index}
-   className='rounded-md p-3 sm:p-4 shadow-md'
-   href={`/blog/${post.slug}`}>
+   className='rounded-md shadow-md'
+   href={`/${type}/${post.slug}`}>
    <div className='grid sm:grid-cols-4 gap-2 jusitfy-center items-center'>
     <div className='col-span-1'>
      <Image
@@ -25,9 +22,9 @@ const BlogContent: React.FC<BlogContentProps> = ({ data }) => {
       alt={post.title}
      />
     </div>
-    <div className='sm:col-span-3 flex flex-col gap-2'>
-     <h3 className='font-semibold line-clamp-2 text-left'>{post.title}</h3>
-     <p className='sm:line-clamp-3 line-clamp-2 font-normal text-sm'>
+    <div className='sm:col-span-3 flex flex-col gap-2 px-3 sm:px-4 py-1'>
+     <h3 className='font-semibold line-clamp-3 text-left'>{post.title}</h3>
+     <p className='line-clamp-3 font-normal text-left text-sm opacity-70'>
       {post.description}
      </p>
     </div>

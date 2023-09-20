@@ -68,7 +68,7 @@ export default async function Page() {
  const data = await generateStaticParams();
  return (
   <div className='flex flex-col gap-2'>
-   <BlogContainer data={data} />
+   <BlogContainer data={data} type='blog' />
   </div>
  );
 }
