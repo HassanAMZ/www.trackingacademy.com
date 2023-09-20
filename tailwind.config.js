@@ -7,12 +7,8 @@ module.exports = {
  ],
  theme: {
   extend: {
-   colors: {
-    "my-pink": "#ff80b5",
-    "my-purple": "#9089fc",
-   },
+   colors: {},
    animation: {
-    text: "text 5s ease infinite",
     fadeIn: "fadeIn 0.2s ease-in-out forwards",
    },
 

@@ -21,7 +21,7 @@ const RecentClientSlider: React.FC = () => {
       <Link href={`/portfolio/${img.clientId}`} className=''>
        <Image
         width={1920}
-        height={1080}
+        height={540}
         className='rounded-md'
         src={img.link}
         alt={img.name}

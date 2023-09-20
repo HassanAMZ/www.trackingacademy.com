@@ -94,3 +94,13 @@
  animation: moving2 5s infinite;
 }
 // Background animation style for the purple pulsating thing end
+
+// hero section text color
+.animate-text {
+ animation: text 5s ease infinite;
+ background: linear-gradient(to right, #f56565, #9f7aea, #667eea);
+ background-clip: text;
+ color: transparent;
+}
+
+//  backgound color for body

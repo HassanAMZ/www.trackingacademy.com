@@ -17,10 +17,8 @@ export default function Hero() {
 
     <div className='flex sm:gap-4 gap-2 flex-col'>
      <div className='text-4xl sm:text-5xl font-black tracking-tighter capitalize'>
-      Grow your business with&nbsp;
-      <span className='animate-text  bg-gradient-to-r from-red-500 via-purple-500 to-indigo-900 bg-clip-text text-transparent capitalize '>
-       Accurate data
-      </span>
+      Grow your business with{" "}
+      <span className='animate-text  capitalize '>Accurate data</span>
      </div>
      <p className='sm:text-lg font-medium'>
       <span className='opacity-70'>
