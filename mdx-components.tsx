@@ -1,13 +1,19 @@
 import type { MDXComponents } from "mdx/types";
 import Pre from "@/components/mdx/Pre";
 import YoutubeEmbed from "@/components/mdx/YoutubeEmbed";
+import BlogHeader from "@/components/blog/BlogHeader";
+import CustomLink from "@/components/mdx/CustomLink";
+import Note from "@/components/mdx/Note";
+import React from "react";
 
 // This file is required to use MDX in `app` directory.
 export function useMDXComponents(components: MDXComponents): MDXComponents {
  return {
   YoutubeEmbed,
-
+  BlogHeader,
+  Note,
   pre: Pre,
+  a: CustomLink,
 
   h1: (props) => {
    return (

@@ -19,19 +19,23 @@ export default function Layout({ children }: { children: ReactNode }) {
  }, [user]);
 
  return (
-  <BlogLayout>
-   {loading ? (
-    <h3>Page is Loading</h3>
-   ) : user ? (
-    <div>
-     <FirebaseAuth />
-     <React.Fragment>{children}</React.Fragment>
-    </div>
-   ) : (
-    <React.Fragment>
-     <FirebaseAuth />
-    </React.Fragment>
-   )}
-  </BlogLayout>
+  <>
+   <BlogLayout>
+    {loading ? (
+     <h3>Authentication Page is Loading</h3>
+    ) : user ? (
+     <div>
+      <React.Fragment>{children}</React.Fragment>
+      <section className='py-4'>
+       <FirebaseAuth />
+      </section>
+     </div>
+    ) : (
+     <React.Fragment>
+      <FirebaseAuth />
+     </React.Fragment>
+    )}
+   </BlogLayout>
+  </>
  );
 }

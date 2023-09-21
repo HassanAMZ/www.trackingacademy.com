@@ -3,7 +3,7 @@ import { BlogLayoutProps } from "@/types/index";
 
 const BlogLayout: FC<BlogLayoutProps> = ({ children, className, metadata }) => {
  return (
-  <div className={`container mx-auto px-3 text-justify ${className}`}>
+  <div className={`container mx-auto px-4 text-justify ${className}`}>
    {metadata && (
     <div className='blog-metadata'>
      <h1>{metadata.title}</h1>

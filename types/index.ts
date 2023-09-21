@@ -101,7 +101,7 @@ export interface PostMetaData {
  tags: string[];
  draft: boolean;
  description: string;
- openGrapgh: { images: string[] };
+ openGraph: { images: string[] };
  embedId: string;
 }
 
@@ -128,7 +128,7 @@ export interface MetaData {
  tags: string[];
  draft: boolean;
  description: string;
- openGrapgh: {
+ openGraph: {
   images: string[];
  };
  embedId: string;
@@ -172,3 +172,21 @@ export interface ExpertInfoProps {
  title: string;
  description: JSX.Element; // Modify this line
 }
+
+export type OpenGraph = {
+ images: string[];
+};
+
+export type Metadata = {
+ title: string;
+ date: string;
+ downloadId: string;
+ tags: string[];
+ draft: boolean;
+ openGraph: OpenGraph;
+ description: string;
+ embedId: string;
+};
+export type MetadataProps = {
+ metadata: Metadata;
+};

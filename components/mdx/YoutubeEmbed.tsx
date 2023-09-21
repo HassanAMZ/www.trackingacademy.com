@@ -1,9 +1,17 @@
-import React, { FC } from "react";
-
+import React, { FC, Fragment } from "react";
 import { YoutubeEmbedProps } from "@/types/index";
 
-const YoutubeEmbed: FC<YoutubeEmbedProps> = ({ embedId }) => (
- <>
+const YoutubeEmbed: FC<YoutubeEmbedProps> = ({ embedId }) => {
+ if (
+  embedId === null ||
+  embedId === undefined ||
+  embedId === "null" ||
+  embedId === "undefined"
+ ) {
+  return <Fragment />; // or simply return <></>;
+ }
+
+ return (
   <div className='video-responsive'>
    <iframe
     width={853}
@@ -14,7 +22,7 @@ const YoutubeEmbed: FC<YoutubeEmbedProps> = ({ embedId }) => (
     title='Embedded youtube'
    />
   </div>
- </>
-);
+ );
+};
 
 export default YoutubeEmbed;
