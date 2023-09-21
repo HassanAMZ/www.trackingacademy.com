@@ -26,7 +26,7 @@ const ExpertInfo: React.FC<ExpertInfoProps> = ({ title, description }) => {
 };
 
 const Divider: React.FC = () => {
- return <div className='w-12 h-px bg-gray-900 mb-1'></div>;
+ return <div className='w-12 h-px dark:bg-white bg-gray-800 mb-1'></div>;
 };
 
 const Page: React.FC = () => {
@@ -45,7 +45,7 @@ const Page: React.FC = () => {
    <ContainerLayout className=''>
     <div className='sm:pb-10 grid grid-cols-1 sm:grid-cols-2 gap-2 p-2'>
      <section className=''>
-      <h3 className='flex w-fit justify-left rounded-md text-xs sm:text-sm p-1 ring-1 ring-gray-900/10 hover:ring-gray-900/20 gap-1'>
+      <h3 className='flex w-fit justify-left rounded-md text-xs sm:text-base p-1 ring-1 ring-gray-800/10 dark:ring-gray-100/10 hover:ring-gray-800/20 hover:dark:ring-gray-100/20 gap-1'>
        Shahzada Ali Hassan, Tracking Expert
       </h3>
       <ExpertInfo
@@ -61,13 +61,15 @@ const Page: React.FC = () => {
      </section>
      <section className='flex justify-center flex-col '>
       <YoutubeEmbed embedId='W0ZgVnIGNW4' />
-      <p className='hidden sm:flex pt-1 text-sm'>Listen up, this is crucial!</p>
+      <p className='hidden sm:flex pt-1 text-base'>
+       Listen up, this is crucial!
+      </p>
      </section>
     </div>
    </ContainerLayout>
 
    <ContainerLayout className=''>
-    <div className='py-5 grid grid-cols-1 sm:grid-cols-2 bg-gray-900 bg-opacity-5 shadow-md rounded-md gap-2 p-2'>
+    <div className='py-5 grid grid-cols-1 sm:grid-cols-2 backgroundOverlay gap-2 p-2'>
      <section className='flex justify-center flex-col order-2 sm:order-1 '>
       <YoutubeEmbed embedId='W0ZgVnIGNW4' />
      </section>
@@ -91,9 +93,7 @@ const Page: React.FC = () => {
       </ul>
 
       <div className='flex pt-2 items-center justify-left gap-x-4'>
-       <Link
-        href='/portfolio'
-        className='rounded-md px-3.5 py-2.5 text-sm font-medium shadow-md focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-purple bg-purple-50 border'>
+       <Link href='/portfolio' className='primaryButton'>
         Browse our portfolio <span aria-hidden='true'>&rarr;</span>
        </Link>
       </div>
@@ -104,7 +104,7 @@ const Page: React.FC = () => {
    <ContainerLayout className=''>
     <div className='py-5 sm:py-10 grid grid-cols-1 sm:grid-cols-2 rounded-md gap-2 p-2'>
      <section className=''>
-      <h3 className='flex w-fit justify-left rounded-md text-xs sm:text-sm p-1 ring-1 ring-gray-900/10 hover:ring-gray-900/20 gap-1'>
+      <h3 className='flex w-fit justify-left rounded-md text-xs sm:text-base p-1 ring-1 ring-gray-900/10 hover:ring-gray-900/20 dark:ring-gray-100/10 hover:dark:ring-gray-100/20 gap-1'>
        James Hammond, CEO of Equifund Mortgage
       </h3>
       <ExpertInfo
@@ -124,7 +124,7 @@ const Page: React.FC = () => {
      </section>
      <section className='flex justify-center flex-col'>
       <YoutubeEmbed embedId='W0ZgVnIGNW4' />
-      <p className='hidden sm:flex py-1 text-justify text-sm'>
+      <p className='hidden sm:flex py-1 text-justify text-base'>
        "Amazing speedy and expert knowledge to fix tracking issues - James"
       </p>
      </section>
@@ -132,7 +132,7 @@ const Page: React.FC = () => {
    </ContainerLayout>
 
    <ContainerLayout>
-    <section className='py-5 sm:py-10 flex flex-col sm:items-center gap-2 sm:text-center bg-gray-900 bg-opacity-5 shadow-md rounded-md  p-2'>
+    <section className='py-5 sm:py-10 flex flex-col sm:items-center gap-2 sm:text-center backgroundOverlay  p-2'>
      <h3 className='text-3xl font-semibold pb-2 '>
       Meet Shahzada Ali Hassan, Your Web Analytics and Tracking Expert
      </h3>
@@ -169,7 +169,6 @@ const Page: React.FC = () => {
    <ContainerLayout className=''>
     <div className='pt-5 sm:pb-10 grid grid-cols-1 sm:grid-cols-2 gap-2 p-2'>
      <section className=''>
-      {/* <h3 className='flex w-fit justify-left rounded-md text-xs sm:text-sm p-1 ring-1 ring-gray-900/10 hover:ring-gray-900/20 gap-1'></h3> */}
       <ExpertInfo
        title='Optimize your website with advanced analytics'
        description={
@@ -197,13 +196,15 @@ const Page: React.FC = () => {
      </section>
      <section className='flex justify-center flex-col '>
       <YoutubeEmbed embedId='W0ZgVnIGNW4' />
-      <p className='hidden sm:flex pt-1 text-sm'>Listen up, this is crucial!</p>
+      <p className='hidden sm:flex pt-1 text-base'>
+       Listen up, this is crucial!
+      </p>
      </section>
     </div>
    </ContainerLayout>
 
    <ContainerLayout className=''>
-    <div className='sm:pb-10 grid grid-cols-1 sm:grid-cols-2 gap-2 bg-gray-900 bg-opacity-5 shadow-md rounded-md p-2'>
+    <div className='sm:pb-10 grid grid-cols-1 sm:grid-cols-2 gap-2 backgroundOverlay p-2'>
      <section className='flex justify-center flex-col order-2 sm:order-1'>
       <YoutubeEmbed embedId='W0ZgVnIGNW4' />
      </section>
@@ -267,13 +268,15 @@ const Page: React.FC = () => {
 
      <section className='flex justify-center flex-col '>
       <YoutubeEmbed embedId='W0ZgVnIGNW4' />
-      <p className='hidden sm:flex pt-1 text-sm'>Listen up, this is crucial!</p>
+      <p className='hidden sm:flex pt-1 text-base'>
+       Listen up, this is crucial!
+      </p>
      </section>
     </div>
    </ContainerLayout>
 
    <ContainerLayout className=''>
-    <div className='py-5 grid grid-cols-1 sm:grid-cols-2 gap-2 bg-gray-900 bg-opacity-5 shadow-md rounded-md p-2'>
+    <div className='py-5 grid grid-cols-1 sm:grid-cols-2 gap-2 backgroundOverlay p-2'>
      <section className='flex justify-center flex-col order-2 sm:order-1'>
       <YoutubeEmbed embedId='W0ZgVnIGNW4' />
      </section>
@@ -309,7 +312,7 @@ const Page: React.FC = () => {
    </ContainerLayout>
 
    <ContainerLayout className=''>
-    <section className='py-5 gap-2 bg-gray-900 bg-opacity-5 shadow-md rounded-md p-2'>
+    <section className='py-5 gap-2 backgroundOverlay p-2'>
      <ExpertInfo
       title='Not Sure What You Need?'
       description={

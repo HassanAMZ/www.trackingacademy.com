@@ -20,3 +20,15 @@ ol {
 li {
  @apply text-left p-1;
 }
+
+.primaryButton {
+ @apply rounded-md px-3.5 py-2.5 text-base font-semibold shadow-md bg-gray-100 border-2 border-gray-100 text-gray-800 dark:bg-gray-800  dark:border-gray-800  dark:text-gray-100;
+}
+
+.primaryButton:focus-visible {
+ @apply outline outline-2 outline-offset-2 outline-purple-50;
+}
+
+.backgroundOverlay {
+ @apply bg-gray-800 dark:bg-gray-100 bg-opacity-10 dark:bg-opacity-10 shadow-md rounded-md py-5 px-2;
+}

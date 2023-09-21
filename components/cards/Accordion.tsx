@@ -12,9 +12,9 @@ const AccordionItem: React.FC<
 > = ({ title, content, isOpen, onClick }) => {
  return (
   <div
-   className={`border-2 border-gray-50 rounded-md ${
-    isOpen ? "bg-gray-200" : ""
-   } hover:bg-gray-300 transition-all duration-300`}>
+   className={`border-2 border-gray-100 dark:border-gray-800 rounded-md  ${
+    isOpen ? "bg-gray-200 dark:bg-gray-700" : ""
+   } hover:bg-gray-300 hover:dark:bg-gray-600 transition-all duration-300`}>
    <button
     className='w-full text-left py-2 px-4 flex justify-between items-center font-medium'
     onClick={onClick}>
@@ -25,7 +25,7 @@ const AccordionItem: React.FC<
     className={`overflow-hidden transition-max-height duration-500 ${
      isOpen ? "max-h-60" : "max-h-0"
     }`}>
-    <div className='px-4 py-4 border-t border-gray-50 bg-gray-100 '>
+    <div className='px-4 py-4 border-t border-gray-100 bg-gray-100 dark:border-gray-700 dark:bg-gray-600'>
      {content}
     </div>
    </div>

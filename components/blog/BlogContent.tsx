@@ -10,10 +10,10 @@ const BlogContent: React.FC<BlogContentProps> = ({ data, type }) => {
  const blogLinks = data.map((post, index) => (
   <Link
    key={index}
-   className='rounded-md shadow-md  hover:bg-gray-900 hover:bg-opacity-5'
+   className='backgroundOverlay p-1  hover:dark:bg-gray-100 hover:dark:bg-opacity-10 hover:bg-gray-900 hover:bg-opacity-5'
    href={`/${type}/${post.slug}`}>
-   <div className='grid sm:grid-cols-4 gap-2 jusitfy-center items-center'>
-    <div className='col-span-1 sm:p-2'>
+   <div className='grid grid-cols-4 sm:gap-2 gap-0 jusitfy-center items-center'>
+    <div className='col-span-1 sm:pl-2'>
      <Image
       width={1920}
       height={1080}
@@ -22,9 +22,11 @@ const BlogContent: React.FC<BlogContentProps> = ({ data, type }) => {
       alt={post.title}
      />
     </div>
-    <div className='sm:col-span-3 flex flex-col px-3 sm:px-4 py-1'>
-     <h3 className='font-semibold text-left  line-clamp-3'>{post.title}</h3>
-     <p className=' font-normal text-left line-clamp-3 opacity-70'>
+    <div className='col-span-3 flex flex-col px-2 sm:px-4'>
+     <h3 className='font-semibold text-left  sm:line-clamp-2 line-clamp-1'>
+      {post.title}
+     </h3>
+     <p className=' font-normal text-left line-clamp-2 sm:line-clamp-3 opacity-70 '>
       {post.description}
      </p>
     </div>
@@ -32,9 +34,7 @@ const BlogContent: React.FC<BlogContentProps> = ({ data, type }) => {
   </Link>
  ));
 
- return (
-  <div className='grid grid-cols-2 sm:grid-cols-1 gap-2'>{blogLinks}</div>
- );
+ return <div className='grid grid-cols-1 gap-2'>{blogLinks}</div>;
 };
 
 export default BlogContent;

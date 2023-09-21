@@ -4,7 +4,7 @@ import { ClientCardProps, Client } from "@/types/index";
 const ClientCard: React.FC<ClientCardProps> = ({ client }) => {
  return (
   <>
-   <div className='flex flex-col gap-1 shadow-md ring-1 rounded-md ring-gray-900 ring-opacity-50'>
+   <div className='flex flex-col gap-1 shadow-md ring-1 rounded-md ring-gray-900 dark:ring-gray-100 ring-opacity-50 dark:ring-opacity-50'>
     <Link href={`/portfolio/${client.id}`}>
      <div className='relative  sm:h-auto max-w-full'>
       <div className='flex flex-col gap-1 text-center '>

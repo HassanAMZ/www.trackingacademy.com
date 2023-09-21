@@ -34,8 +34,8 @@ const Page: React.FC<DynamicPortfolioPageProps> = ({ params }) => {
   };
 
   const bgColor = isEven(clientObject.id)
-   ? "bg-gray-50 border-gray-900"
-   : "bg-gray-900 border-gray-500";
+   ? "bg-gray-100 border-gray-900 dark:bg-gray-800 dark:border-gray-100"
+   : "bg-gray-900 border-gray-1000 dark:bg-gray-100 dark:border-gray-600";
 
   return (
    <React.Fragment>

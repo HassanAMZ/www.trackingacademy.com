@@ -7,7 +7,7 @@ interface NotesProps {
 
 const Note: React.FC<NotesProps> = ({ title, content }) => {
  return (
-  <div className='rounded-md text-left bg-gray-900 bg-opacity-5 shadow-md p-4'>
+  <div className='rounded-md text-left bg-gray-800 dark:bg-gray-100 dark:bg-opacity-10 bg-opacity-10 shadow-md p-4'>
    <strong>{title}</strong>: {content}
   </div>
  );

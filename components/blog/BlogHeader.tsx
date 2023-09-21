@@ -14,11 +14,11 @@ const BlogHeader: React.FC<MetadataProps> = ({ metadata }) => {
     type='application/ld+json'
     dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
    />
-   <div className='rounded-md text-left sm:text-center bg-gray-900 bg-opacity-5 shadow-md py-5 sm:py-12 px-2'>
-    <h1 className='text-3xl sm:text-4xl leading-none font-bold tracking-tighter font-bold'>
+   <div className='rounded-md text-left sm:text-center dark:bg-gray-1000 bg-gray-200 bg-opacity-10 dark:bg-opacity-10 shadow-md py-5 sm:py-12 px-2'>
+    <h1 className='text-3xl sm:text-4xl leading-none font-bold tracking-tighter'>
      {metadata.title}
     </h1>
-    <div className='text-gray-600'>
+    <div className='text-gray-600 dark:text-gray-100'>
      <span> {formatDate(metadata.date)}</span>
      {/*  <span className='ml-4'>|</span>
     <span className='ml-4'>Tags: {metadata.tags.join(", ")}</span> */}

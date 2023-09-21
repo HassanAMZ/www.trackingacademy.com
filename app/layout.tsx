@@ -45,7 +45,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
  return (
   <html lang='en'>
    <body
-    className={`tracking-tighter max-w-4xl mx-auto text-md leading-tight ${interVariableFont.className}`}>
+    className={`bg-gray-50 dark:bg-gray-800 text-gray-900 dark:text-white tracking-tighter max-w-4xl mx-auto text-base leading-tight ${interVariableFont.className}`}>
     {BgPolygon1}
     <NavBar />
     <AuthContextProvider>{children}</AuthContextProvider>

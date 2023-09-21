@@ -29,14 +29,14 @@ const Pre: React.FC<PreProps> = (props) => {
    ref={textInput}
    onMouseEnter={onEnter}
    onMouseLeave={onExit}
-   className='relative my-5  rounded-lg border-gray-200 shadow-md'>
+   className='relative my-5  rounded-lg border-gray-200 dark:border-gray-700 shadow-md'>
    {hovered && (
     <button
      aria-label='Copy code'
      type='button'
-     className={`absolute right-2 top-2 w-8 h-8 p-1 rounded border-2 bg-gray-700 dark:bg-gray-800 ${
+     className={`absolute right-2 top-2 w-8 h-8 p-1 rounded border-2 bg-gray-700 dark:bg-gray-300 ${
       copied
-       ? "focus:outline-none focus:border-green-400 border-green-400"
+       ? "focus:outline-none focus:border-green-400 focus:dark:border-green-600 dark:border-green-600 border-green-400"
        : "border-gray-300"
      }`}
      onClick={onCopy}>
@@ -45,7 +45,11 @@ const Pre: React.FC<PreProps> = (props) => {
       viewBox='0 0 24 24'
       stroke='currentColor'
       fill='none'
-      className={copied ? "text-green-400" : "text-gray-300"}>
+      className={
+       copied
+        ? "text-green-400 dark:text-green-600"
+        : "text-gray-300 dark:text-gray-700"
+      }>
       {copied ? (
        <>
         <path
@@ -69,7 +73,9 @@ const Pre: React.FC<PreProps> = (props) => {
     </button>
    )}
 
-   <pre className='p-2 bg-purple-50 rounded-md'>{props.children}</pre>
+   <pre className='p-2 bg-gray-100 dark:bg-gray-700 rounded-md'>
+    {props.children}
+   </pre>
   </div>
  );
 };
