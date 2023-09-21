@@ -180,13 +180,13 @@ export type OpenGraph = {
 export type Metadata = {
  title: string;
  date: string;
- downloadId: string;
  tags: string[];
  draft: boolean;
  openGraph: OpenGraph;
  description: string;
  embedId: string;
-};
+} & ({ downloadId: string } | { blogID: string });
+
 export type MetadataProps = {
  metadata: Metadata;
 };

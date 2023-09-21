@@ -10,9 +10,9 @@ const BlogContent: React.FC<BlogContentProps> = ({ data, type }) => {
  const blogLinks = data.map((post, index) => (
   <Link
    key={index}
-   className='rounded-md shadow-md'
+   className='rounded-md shadow-md  hover:bg-gray-900 hover:bg-opacity-5'
    href={`/${type}/${post.slug}`}>
-   <div className='grid sm:grid-cols-4 gap-2  jusitfy-center items-center'>
+   <div className='grid sm:grid-cols-4 gap-2 jusitfy-center items-center'>
     <div className='col-span-1 sm:p-2'>
      <Image
       width={1920}

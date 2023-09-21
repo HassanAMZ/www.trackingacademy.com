@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import Hero from "@/components/holders/Hero";
 import RecentClientSlider from "@/components/holders/RecentClientSlider";
 import ContainerLayout from "@/components/layouts/ContainerLayout";
@@ -16,9 +16,11 @@ const ExpertInfo: React.FC<ExpertInfoProps> = ({ title, description }) => {
    <h2 className='text-3xl leading-none tracking-tighter font-bold py-2'>
     {title}
    </h2>
-   <Divider />
-   <Divider />
-   <div className='text-left '>{description}</div>
+   <div className='pt-2'>
+    <Divider />
+    <Divider />
+   </div>
+   <div className='text-left py-2'>{description}</div>
   </React.Fragment>
  );
 };

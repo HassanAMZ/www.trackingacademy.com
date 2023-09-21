@@ -15,7 +15,9 @@ const BlogHeader: React.FC<MetadataProps> = ({ metadata }) => {
     dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
    />
    <div className='rounded-md text-left sm:text-center bg-gray-900 bg-opacity-5 shadow-md py-5 sm:py-12 px-2'>
-    <h1 className='text-2xl font-bold mb-4'>{metadata.title}</h1>
+    <h1 className='text-3xl sm:text-4xl leading-none font-bold tracking-tighter font-bold'>
+     {metadata.title}
+    </h1>
     <div className='text-gray-600'>
      <span> {formatDate(metadata.date)}</span>
      {/*  <span className='ml-4'>|</span>

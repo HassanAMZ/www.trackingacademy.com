@@ -61,7 +61,13 @@ export async function generateStaticParams(): Promise<
   } as PostMetaData & { id: string; slug: string };
  });
 
- return Promise.all(allPostsData);
+ const sortedData = (await Promise.all(allPostsData)).sort((a, b) => {
+  const dateA = new Date(a.date);
+  const dateB = new Date(b.date);
+  return dateB.getTime() - dateA.getTime();
+ });
+
+ return sortedData;
 }
 
 export default async function Page() {

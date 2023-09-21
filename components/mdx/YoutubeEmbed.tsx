@@ -12,7 +12,7 @@ const YoutubeEmbed: FC<YoutubeEmbedProps> = ({ embedId }) => {
  }
 
  return (
-  <div className='video-responsive'>
+  <div className='video-responsive shadow-md rounded-md'>
    <iframe
     width={853}
     height={480}
