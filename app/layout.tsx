@@ -6,8 +6,11 @@ import { ReactNode } from "react";
 import { AuthContextProvider } from "./context/AuthContext";
 
 export const metadata = {
- title: "Shazadaalihassan",
- description: "Top rated web analytics",
+ title: "Shahzada Ali Hassan - Top Rated Web Developer",
+ description: `Blog for Web Analysts and Marketing People`,
+ openGraph: {
+  images: ["/images/social-sharing.png"],
+ },
 };
 
 const interVariableFont = localFont({
