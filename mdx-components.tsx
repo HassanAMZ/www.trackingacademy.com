@@ -3,6 +3,7 @@ import Pre from "@/components/mdx/Pre";
 import YoutubeEmbed from "@/components/mdx/YoutubeEmbed";
 import BlogHeader from "@/components/blog/BlogHeader";
 import CustomLink from "@/components/mdx/CustomLink";
+import Accordian from "@/components/mdx/Accordion";
 import Note from "@/components/mdx/Note";
 import React from "react";
 
@@ -14,6 +15,7 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
   Note,
   pre: Pre,
   a: CustomLink,
+  Accordian,
 
   h1: (props) => {
    return (
@@ -22,6 +24,13 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
      {...props}>
      {props.children}
     </h1>
+   );
+  },
+  p: (props) => {
+   return (
+    <p className='py-1 text-gray-700 dark:text-gray-100 text-left' {...props}>
+     {props.children}
+    </p>
    );
   },
   h2: (props) => {

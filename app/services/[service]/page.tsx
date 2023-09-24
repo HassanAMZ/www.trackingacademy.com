@@ -1,7 +1,7 @@
 import servicesDetails from "@/data/services-details";
 import Image from "next/image";
 import ContainerLayout from "@/components/layouts/ContainerLayout";
-import Link from "next/link";
+import CustomLink from "@/components/mdx/CustomLink";
 import React from "react";
 import type { ServiceDetails, DynamicServicesPageProps } from "@/types/index";
 // Return a list of `params` to populate the [slug] dynamic segment
@@ -50,7 +50,7 @@ const Page: React.FC<DynamicServicesPageProps> = ({ params }) => {
       <div>
        <h3 className='text-2xl font-medium py-2'> Project Details</h3>
        <div
-        className='text-justify text-gray-700 dark:text-gray-300'
+        className='text-left text-gray-700 dark:text-gray-300'
         dangerouslySetInnerHTML={{
          __html: serviceObject.description.replace(/\n/g, "<br>"),
         }}

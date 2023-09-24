@@ -26,9 +26,9 @@ li {
 }
 
 .primaryButton:focus-visible {
- @apply outline outline-2 outline-offset-2 outline-purple-50;
+ @apply outline outline-2 outline-offset-2 outline-gray-50;
 }
 
 .backgroundOverlay {
- @apply bg-gray-800 dark:bg-gray-100 bg-opacity-10 dark:bg-opacity-10 shadow-md rounded-md py-5 px-2;
+ @apply bg-gray-800 dark:bg-gray-100 bg-opacity-5 dark:bg-opacity-5 shadow-md rounded-md py-5 px-2;
 }

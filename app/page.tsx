@@ -3,7 +3,7 @@ import Hero from "@/components/holders/Hero";
 import RecentClientSlider from "@/components/holders/RecentClientSlider";
 import ContainerLayout from "@/components/layouts/ContainerLayout";
 import YoutubeEmbed from "@/components/mdx/YoutubeEmbed";
-import Link from "next/link";
+import CustomLink from "@/components/mdx/CustomLink";
 import { ExpertInfoProps } from "@/types/index";
 import AvatarCard from "@/components/cards/AvatarCard";
 import avatarsDetails from "@/data/avatar-details";
@@ -93,9 +93,9 @@ const Page: React.FC = () => {
       </ul>
 
       <div className='flex pt-2 items-center justify-left gap-x-4'>
-       <Link href='/portfolio' className='primaryButton'>
+       <CustomLink href='/portfolio' className='primaryButton'>
         Browse our portfolio <span aria-hidden='true'>&rarr;</span>
-       </Link>
+       </CustomLink>
       </div>
      </section>
     </div>
@@ -124,7 +124,7 @@ const Page: React.FC = () => {
      </section>
      <section className='flex justify-center flex-col'>
       <YoutubeEmbed embedId='W0ZgVnIGNW4' />
-      <p className='hidden sm:flex py-1 text-justify text-base'>
+      <p className='hidden sm:flex py-1 text-left text-base'>
        "Amazing speedy and expert knowledge to fix tracking issues - James"
       </p>
      </section>

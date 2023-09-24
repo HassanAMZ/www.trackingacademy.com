@@ -21,7 +21,7 @@ const BlogSearch: React.FC<BlogSearchProps> = ({ data, onSearch }) => {
     placeholder='Search for a post...'
     value={searchTerm}
     onChange={(e) => setSearchTerm(e.target.value)}
-    className='p-2 border rounded-md mb-2'
+    className='p-2 border rounded-md mb-2 text-gray-800'
    />
   </div>
  );

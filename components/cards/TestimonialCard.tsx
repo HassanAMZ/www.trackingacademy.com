@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { ClientCardProps, Client } from "@/types/index";
-import Link from "next/link";
+import CustomLink from "@/components/mdx/CustomLink";
 const TestimonialCard: React.FC<ClientCardProps> = ({ client }) => {
  return (
   <div className='backgroundOverlay  text-base sm:text-base p-6'>
@@ -31,9 +31,9 @@ const TestimonialCard: React.FC<ClientCardProps> = ({ client }) => {
       <p className='font-semibold'>{client.client_details[0].name}</p>
       <div className='flex gap-2'>
        <p className='text-base'>{client.client_details[0].position} - </p>
-       <Link href={client.business_details.link} className=''>
+       <CustomLink href={client.business_details.link} className=''>
         {client.business_details.name}
-       </Link>
+       </CustomLink>
       </div>
      </div>
     </footer>

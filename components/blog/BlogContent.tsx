@@ -1,14 +1,14 @@
 // BlogContent.tsx
 
 import React from "react";
-import Link from "next/link";
+import CustomLink from "@/components/mdx/CustomLink";
 import { PostMetaData } from "@/types/index";
 import Image from "next/image";
 import { BlogContentProps } from "@/types/index";
 
 const BlogContent: React.FC<BlogContentProps> = ({ data, type }) => {
  const blogLinks = data.map((post, index) => (
-  <Link
+  <CustomLink
    key={index}
    className='backgroundOverlay p-1  hover:dark:bg-gray-100 hover:dark:bg-opacity-10 hover:bg-gray-900 hover:bg-opacity-5'
    href={`/${type}/${post.slug}`}>
@@ -31,7 +31,7 @@ const BlogContent: React.FC<BlogContentProps> = ({ data, type }) => {
      </p>
     </div>
    </div>
-  </Link>
+  </CustomLink>
  ));
 
  return <div className='grid grid-cols-1 gap-2'>{blogLinks}</div>;

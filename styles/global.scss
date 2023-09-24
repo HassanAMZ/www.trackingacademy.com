@@ -73,7 +73,7 @@
  }
 }
 
-// Background animation style for the purple pulsating thing
+// Background animation style for the gray-50 pulsating thing
 @keyframes moving2 {
  0% {
   transform: translateX(0);
@@ -93,7 +93,7 @@
 .animate-moving2 {
  animation: moving2 5s infinite;
 }
-// Background animation style for the purple pulsating thing end
+// Background animation style for the gray-50 pulsating thing end
 
 // hero section text color
 .animate-text {

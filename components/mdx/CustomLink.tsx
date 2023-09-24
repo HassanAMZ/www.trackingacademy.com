@@ -2,22 +2,22 @@ import Link from "next/link";
 
 type CustomLinkProps = {
  href?: string;
- customClasses?: string;
+ className?: string;
  [key: string]: any; // for rest props
 };
 
-const CustomLink: React.FC<CustomLinkProps> = ({
+let CustomLink: React.FC<CustomLinkProps> = ({
  href = "",
- customClasses = "",
+ className = "",
  ...rest
 }) => {
- const isInternalLink = href.startsWith("/");
- const isAnchorLink = href.startsWith("#");
- const isExternal = `${href}?utm_source=ShahzadaAliHassan&utm_medium=affiliate&utm_campaign=HassanUpwork&utm_term=website&utm_content=${encodeURIComponent(
+ let isInternalLink = href.startsWith("/");
+ let isAnchorLink = href.startsWith("#");
+ let isExternal = `${href}?utm_source=ShahzadaAliHassan&utm_medium=affiliate&utm_campaign=HassanUpwork&utm_term=website&utm_content=${encodeURIComponent(
   href
  )}`;
 
- const classes = `underline curosr font-semibold  ${customClasses}`;
+ let classes = `underline curosr font-semibold underline-offset-2  ${className}`;
 
  if (isInternalLink) {
   return (

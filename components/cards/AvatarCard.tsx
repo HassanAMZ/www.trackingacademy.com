@@ -1,4 +1,4 @@
-import Link from "next/link";
+import CustomLink from "@/components/mdx/CustomLink";
 import Image from "next/image";
 import { AvatarCardProps, Avatar } from "@/types/index";
 const AvatarCard: React.FC<AvatarCardProps> = ({ avatar }) => {

@@ -2,7 +2,7 @@
 import clientDetails from "@/data/clients-details";
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
-import Link from "next/link";
+import CustomLink from "@/components/mdx/CustomLink";
 import { ImageSliderProps, ImageType } from "@/types/index";
 
 const RecentClientSlider: React.FC = () => {
@@ -20,7 +20,7 @@ const RecentClientSlider: React.FC = () => {
         ? "bg-gray-100 dark:bg-gray-100"
         : "bg-gray-800 dark:bg-gray-800"
       }`}>
-      <Link href={`/portfolio/${img.clientId}`} className=''>
+      <CustomLink href={`/portfolio/${img.clientId}`} className=''>
        <Image
         width={1920}
         height={540}
@@ -28,7 +28,7 @@ const RecentClientSlider: React.FC = () => {
         src={img.link}
         alt={img.name}
        />
-      </Link>
+      </CustomLink>
      </div>
     ))}
    </>

@@ -1,4 +1,4 @@
-import Link from "next/link";
+import CustomLink from "@/components/mdx/CustomLink";
 import ServiceCard from "@/components/cards/ServiceCard";
 import ContainerLayout from "@/components/layouts/ContainerLayout";
 import servicesDetails from "@/data/services-details";
