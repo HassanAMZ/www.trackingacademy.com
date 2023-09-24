@@ -97,7 +97,7 @@ export interface Client {
 export interface PostMetaData {
  title: string;
  date: string;
- blogID: string;
+ blogId: string;
  tags: string[];
  draft: boolean;
  description: string;
@@ -124,7 +124,7 @@ export interface ContainerLayoutProps {
 export interface MetaData {
  title: string;
  date: string;
- blogID: string;
+ blogId: string;
  tags: string[];
  draft: boolean;
  description: string;
@@ -185,7 +185,7 @@ export type Metadata = {
  openGraph: OpenGraph;
  description: string;
  embedId: string;
-} & ({ downloadId: string } | { blogID: string });
+} & ({ downloadId: string } | { blogId: string });
 
 export type MetadataProps = {
  metadata: Metadata;
