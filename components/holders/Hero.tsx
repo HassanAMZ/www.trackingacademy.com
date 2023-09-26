@@ -16,11 +16,11 @@ export default function Hero() {
     </div>
 
     <div className='flex sm:gap-4 gap-2 flex-col'>
-     <div className='text-6xl leading-none sm:text-7xl font-bold tracking-tighter'>
+     <div className='text-6xl leading-none sm:text-7xl font-semibold tracking-tighter'>
       Grow your business with{" "}
       <span className='animate-text  capitalize '>Accurate data</span>
      </div>
-     <p className='text-2xl leading-normal font-semibold'>
+     <p className='text-2xl leading-normal font-medium'>
       Improving Marketing Strategies for Small Businesses through Advanced
       Tracking Implementation.
      </p>

@@ -24,7 +24,7 @@ const BlogContent: React.FC<BlogContentProps> = ({ data, type }) => {
      />
     </div>
     <div className='col-span-3 flex flex-col px-2 sm:px-4'>
-     <h3 className='font-semibold text-left  sm:line-clamp-2 line-clamp-1'>
+     <h3 className='font-medium text-left  sm:line-clamp-2 line-clamp-1'>
       {post.title}
      </h3>
      <p className=' font-normal text-left line-clamp-2 sm:line-clamp-3 opacity-70 '>

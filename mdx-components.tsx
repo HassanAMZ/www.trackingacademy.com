@@ -19,9 +19,7 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
 
   h1: (props) => {
    return (
-    <h1
-     className='text-left py-2 text-2xl sm:text-3xl font-semibold'
-     {...props}>
+    <h1 className='text-left py-2 text-2xl sm:text-3xl font-medium' {...props}>
      {props.children}
     </h1>
    );
@@ -35,27 +33,21 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
   },
   h2: (props) => {
    return (
-    <h2
-     className='text-left py-2 text-2xl sm:text-3xl font-semibold'
-     {...props}>
+    <h2 className='text-left py-2 text-2xl sm:text-3xl font-medium' {...props}>
      {props.children}
     </h2>
    );
   },
   h3: (props) => {
    return (
-    <h3
-     className='text-left py-2 text-2xl sm:text-3xl font-semibold'
-     {...props}>
+    <h3 className='text-left py-2 text-2xl sm:text-3xl font-medium' {...props}>
      {props.children}
     </h3>
    );
   },
   h4: (props) => {
    return (
-    <h4
-     className='text-left py-2 text-2xl sm:text-3xl font-semibold'
-     {...props}>
+    <h4 className='text-left py-2 text-2xl sm:text-3xl font-medium' {...props}>
      {props.children}
     </h4>
    );

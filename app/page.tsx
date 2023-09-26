@@ -13,7 +13,7 @@ import clientDetails from "@/data/clients-details";
 const ExpertInfo: React.FC<ExpertInfoProps> = ({ title, description }) => {
  return (
   <React.Fragment>
-   <h2 className='text-3xl leading-none tracking-tighter font-bold py-2'>
+   <h2 className='text-3xl leading-none tracking-tighter font-semibold py-2'>
     {title}
    </h2>
    <div className='pt-2'>
@@ -133,7 +133,7 @@ const Page: React.FC = () => {
 
    <ContainerLayout>
     <section className='py-5 sm:py-10 flex flex-col sm:items-center gap-2 sm:text-center backgroundOverlay  p-2'>
-     <h3 className='text-3xl font-semibold pb-2 '>
+     <h3 className='text-3xl font-medium pb-2 '>
       Meet Shahzada Ali Hassan, Your Web Analytics and Tracking Expert
      </h3>
      <div>

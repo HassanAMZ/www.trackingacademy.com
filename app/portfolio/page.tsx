@@ -27,7 +27,7 @@ export default function Page() {
             />
            </div>
           </div>
-          <p className='font-semibold sm:text-xl p-3 text-center'>
+          <p className='font-medium sm:text-xl p-3 text-center'>
            {client.title}
           </p>
          </React.Fragment>
