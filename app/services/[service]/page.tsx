@@ -4,7 +4,7 @@ import ContainerLayout from "@/components/layouts/ContainerLayout";
 import CustomLink from "@/components/mdx/CustomLink";
 import React from "react";
 import type { ServiceDetails, DynamicServicesPageProps } from "@/types/index";
-// Return a list of `params` to populate the [slug] dynamic segment
+import PayPal from "@/components/paypal/PayPal";
 export async function generateStaticParams() {
  return servicesDetails.map((service) => ({
   service: service.id,
@@ -16,21 +16,19 @@ const Page: React.FC<DynamicServicesPageProps> = ({ params }) => {
  let serviceObject = servicesDetails.find(
   (serviceDetails: ServiceDetails) => serviceDetails.id === serviceId
  );
+ const getPricingFromPackages = (
+  packages: { name: string; value: string }[]
+ ): string => {
+  const pricePackage = packages.find((pkg) => pkg.name === "Price");
+  return pricePackage?.value || "Not found";
+ };
 
  if (serviceObject) {
-  let serviceSubDetails = serviceObject.packages.map((service, index) => {
-   return (
-    <React.Fragment key={index}>
-     <p className='col-span-3'>{service.name}</p>
-     <div className='col-span-2 grid grid-cols-1 gap-2'>
-      {service.value.slice(0, 1).map((value, index) => {
-       return <p key={index}>{value}</p>;
-      })}
-     </div>
-    </React.Fragment>
-   );
-  });
-
+  let product = {
+   name: serviceObject.title,
+   amount: parseFloat(getPricingFromPackages(serviceObject.packages)),
+  };
+  console.log(product);
   return (
    <section>
     <h1 className='text-5xl leading-none  font-semibold tracking-tighter'>
@@ -62,19 +60,14 @@ const Page: React.FC<DynamicServicesPageProps> = ({ params }) => {
          <React.Fragment key={index}>
           <p className='col-span-2 font-medium'>{service.name}</p>
           <div className='col-span-3 grid grid-cols-3 gap-2'>
-           {service.value.map((value, index) => {
-            return (
-             <p key={index} className=''>
-              {value}
-             </p>
-            );
-           })}
+           {service.value}
           </div>
          </React.Fragment>
         );
        })}
       </div>
      </div>
+     <PayPal product={product} />
     </div>
    </section>
   );

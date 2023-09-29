@@ -20,31 +20,31 @@ const servicesDetails = [
   packages: [
    {
     name: "Service Tier",
-    value: ["Starter"],
+    value: "Combined",
    },
    {
     name: "Price",
-    value: ["400"],
+    value: "1400",
    },
    {
     name: "Delivery Time",
-    value: ["5 days"],
+    value: "✔",
    },
    {
     name: "Number of Tracking Goals Setup",
-    value: ["1"],
+    value: "✔",
    },
    {
     name: "Analytics & Tracking Setup",
-    value: ["✔"],
+    value: "✔",
    },
    {
     name: "Tag Manager Setup",
-    value: ["✔"],
+    value: "✔",
    },
    {
     name: "eCommerce Purchase Tracking",
-    value: ["✔"],
+    value: "✔",
    },
   ],
   featured_image_url: "/images/services/p_002_1.png",
@@ -74,31 +74,31 @@ const servicesDetails = [
   packages: [
    {
     name: "Service Tier",
-    value: ["Starter", "Standard", "Advanced"],
+    value: "Combined",
    },
    {
     name: "Price",
-    value: ["350", "400", "500"],
+    value: "1400",
    },
    {
     name: "Delivery Time",
-    value: ["7 days", "7 days", "5 days"],
+    value: "Varies",
    },
    {
     name: "Pixel Setup",
-    value: ["-", "-", "-"],
+    value: "-",
    },
    {
     name: "Pixel Audit",
-    value: ["-", "-", "-"],
+    value: "-",
    },
    {
     name: "Analytical Ad Report",
-    value: ["-", "-", "-"],
+    value: "-",
    },
    {
     name: "Action Plan",
-    value: ["-", "-", "-"],
+    value: "-",
    },
   ],
   featured_image_url: "/images/services/p_004_1.png",
@@ -129,31 +129,31 @@ const servicesDetails = [
   packages: [
    {
     name: "Service Tier",
-    value: ["Starter", "Standard", "Advanced"],
+    value: "Combined",
    },
    {
     name: "Price",
-    value: ["350", "400", "500"],
+    value: "1400",
    },
    {
     name: "Delivery Time",
-    value: ["7 days", "7 days", "7 days"],
+    value: "✔",
    },
    {
-    name: "Pixel Setup",
-    value: ["-", "-", "-"],
+    name: "Number of Tracking Goals Setup",
+    value: "✔",
    },
    {
-    name: "Pixel Audit",
-    value: ["-", "-", "-"],
+    name: "Analytics & Tracking Setup",
+    value: "✔",
    },
    {
-    name: "Analytical Ad Report",
-    value: ["-", "-", "-"],
+    name: "Tag Manager Setup",
+    value: "✔",
    },
    {
-    name: "Action Plan",
-    value: ["-", "-", "-"],
+    name: "eCommerce Purchase Tracking",
+    value: "✔",
    },
   ],
   featured_image_url: "/images/services/p_001_1.png",
@@ -184,31 +184,31 @@ const servicesDetails = [
   packages: [
    {
     name: "Service Tier",
-    value: ["Starter", "Standard", "Advanced"],
+    value: "Combined",
    },
    {
     name: "Price",
-    value: ["350", "400", "500"],
+    value: "1400",
    },
    {
     name: "Delivery Time",
-    value: ["7 days", "7 days", "7 days"],
+    value: "✔",
    },
    {
-    name: "Pixel Setup",
-    value: ["-", "-", "-"],
+    name: "Number of Tracking Goals Setup",
+    value: "✔",
    },
    {
-    name: "Pixel Audit",
-    value: ["-", "-", "-"],
+    name: "Analytics & Tracking Setup",
+    value: "✔",
    },
    {
-    name: "Analytical Ad Report",
-    value: ["-", "-", "-"],
+    name: "Tag Manager Setup",
+    value: "✔",
    },
    {
-    name: "Action Plan",
-    value: ["-", "-", "-"],
+    name: "eCommerce Purchase Tracking",
+    value: "✔",
    },
   ],
   featured_image_url: "/images/services/p_005_1.png",
@@ -242,35 +242,31 @@ const servicesDetails = [
   packages: [
    {
     name: "Service Tier",
-    value: ["Starter", "Standard", "Advanced"],
+    value: "Combined",
    },
    {
     name: "Price",
-    value: ["350", "400", "500"],
+    value: "1400",
    },
    {
     name: "Delivery Time",
-    value: ["7 days", "7 days", "7 days"],
+    value: "✔",
    },
    {
     name: "Number of Tracking Goals Setup",
-    value: ["3", "4", "7"],
+    value: "✔",
    },
    {
     name: "Analytics & Tracking Setup",
-    value: ["✔", "✔", "✔"],
+    value: "✔",
    },
    {
     name: "Tag Manager Setup",
-    value: ["✔", "✔", "✔"],
+    value: "✔",
    },
    {
     name: "eCommerce Purchase Tracking",
-    value: ["✔", "✔", "✔"],
-   },
-   {
-    name: "Social Platform Tracking",
-    value: ["✔", "✔", "✔"],
+    value: "✔",
    },
   ],
   featured_image_url: "/images/services/p_003_1.png",
@@ -302,31 +298,31 @@ const servicesDetails = [
   packages: [
    {
     name: "Service Tier",
-    value: ["Starter", "Standard", "Advanced"],
+    value: "Combined",
    },
    {
     name: "Price",
-    value: ["350", "400", "500"],
+    value: "1400",
    },
    {
     name: "Delivery Time",
-    value: ["7 days", "7 days", "7 days"],
+    value: "✔",
    },
    {
     name: "Number of Tracking Goals Setup",
-    value: ["3", "3", "3"],
+    value: "✔",
+   },
+   {
+    name: "Analytics & Tracking Setup",
+    value: "✔",
    },
    {
     name: "Tag Manager Setup",
-    value: ["✔", "✔", "✔"],
+    value: "✔",
    },
    {
     name: "eCommerce Purchase Tracking",
-    value: ["-", "-", "-"],
-   },
-   {
-    name: "Social Platform Tracking",
-    value: ["-", "-", "-"],
+    value: "✔",
    },
   ],
   featured_image_url: "/images/services/p_006_1.png",
@@ -358,35 +354,31 @@ const servicesDetails = [
   packages: [
    {
     name: "Service Tier",
-    value: ["Starter", "Standard", "Advanced"],
+    value: "Combined",
    },
    {
     name: "Price",
-    value: ["350", "400", "500"],
+    value: "1400",
    },
    {
     name: "Delivery Time",
-    value: ["7 days", "7 days", "7 days"],
+    value: "✔",
    },
    {
     name: "Number of Tracking Goals Setup",
-    value: ["3", "4", "7"],
+    value: "✔",
    },
    {
     name: "Analytics & Tracking Setup",
-    value: ["✔", "✔", "✔"],
+    value: "✔",
    },
    {
     name: "Tag Manager Setup",
-    value: ["✔", "✔", "✔"],
+    value: "✔",
    },
    {
     name: "eCommerce Purchase Tracking",
-    value: ["-", "✔", "✔"],
-   },
-   {
-    name: "Social Platform Tracking",
-    value: ["-", "-", "-"],
+    value: "✔",
    },
   ],
   featured_image_url: "/images/services/p_007_1.png",
@@ -416,31 +408,31 @@ const servicesDetails = [
   packages: [
    {
     name: "Service Tier",
-    value: ["Starter", "Standard", "Advanced"],
+    value: "Combined",
    },
    {
     name: "Price",
-    value: ["350", "400", "500"],
+    value: "1400",
    },
    {
     name: "Delivery Time",
-    value: ["7 days", "7 days", "7 days"],
+    value: "✔",
    },
    {
-    name: "Pixel Setup",
-    value: ["-", "-", "-"],
+    name: "Number of Tracking Goals Setup",
+    value: "✔",
    },
    {
-    name: "Pixel Audit",
-    value: ["✔", "✔", "✔"],
+    name: "Analytics & Tracking Setup",
+    value: "✔",
    },
    {
-    name: "Analytical Ad Report",
-    value: ["-", "-", "-"],
+    name: "Tag Manager Setup",
+    value: "✔",
    },
    {
-    name: "Action Plan",
-    value: ["-", "-", "-"],
+    name: "eCommerce Purchase Tracking",
+    value: "✔",
    },
   ],
   featured_image_url: "/images/services/p_008_1.png",

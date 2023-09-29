@@ -41,7 +41,7 @@ export type ServiceDetails = {
  description: string;
  packages: {
   name: string;
-  value: string[];
+  value: string;
  }[];
  featured_image_url: string;
  supporting_image_url: string;

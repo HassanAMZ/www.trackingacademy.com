@@ -9,6 +9,7 @@ import AvatarCard from "@/components/cards/AvatarCard";
 import avatarsDetails from "@/data/avatar-details";
 import TestimonialCard from "@/components/cards/TestimonialCard";
 import clientDetails from "@/data/clients-details";
+import PayPal from "@/components/paypal/PayPal";
 
 const ExpertInfo: React.FC<ExpertInfoProps> = ({ title, description }) => {
  return (
@@ -27,6 +28,14 @@ const ExpertInfo: React.FC<ExpertInfoProps> = ({ title, description }) => {
 
 const Divider: React.FC = () => {
  return <div className='w-12 h-px dark:bg-white bg-gray-800 mb-1'></div>;
+};
+
+export const metadata = {
+ title: "Shahzada Ali Hassan - Top Rated Web Developer",
+ description: `Blog for Web Analysts and Marketing People`,
+ openGraph: {
+  images: ["/images/social-sharing.png"],
+ },
 };
 
 const Page: React.FC = () => {

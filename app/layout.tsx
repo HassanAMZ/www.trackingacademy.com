@@ -3,15 +3,8 @@ import "@/styles/tailwind.css";
 import localFont from "next/font/local";
 import NavBar from "@/components/navbar/Navbar";
 import { ReactNode } from "react";
-import { AuthContextProvider } from "./context/AuthContext";
-
-export const metadata = {
- title: "Shahzada Ali Hassan - Top Rated Web Developer",
- description: `Blog for Web Analysts and Marketing People`,
- openGraph: {
-  images: ["/images/social-sharing.png"],
- },
-};
+import { AuthContextProvider } from "@/context/AuthContext";
+import { PaypalContext } from "@/context/PaypalContext";
 
 const interVariableFont = localFont({
  src: "fonts/Inter/inter-font.ttf",
@@ -51,7 +44,9 @@ export default function RootLayout({ children }: { children: ReactNode }) {
     className={`bg-gray-50 dark:bg-gray-800 text-gray-900 dark:text-white tracking-tighter max-w-4xl mx-auto text-base leading-tight ${interVariableFont.className}`}>
     {BgPolygon1}
     <NavBar />
-    <AuthContextProvider>{children}</AuthContextProvider>
+    <PaypalContext>
+     <AuthContextProvider>{children}</AuthContextProvider>
+    </PaypalContext>
     {BgPolygon2}
    </body>
   </html>
