@@ -15,11 +15,7 @@ const RecentClientSlider: React.FC = () => {
     {images.map((img) => (
      <div
       key={img.clientId}
-      className={`${widthClass} ${
-       parseInt(img.clientId, 10) % 2 === 0
-        ? "bg-gray-100 dark:bg-gray-100"
-        : "bg-gray-800 dark:bg-gray-800"
-      }`}>
+      className={`${widthClass} bg-gray-100 dark:bg-gray-100`}>
       <CustomLink href={`/portfolio/${img.clientId}`} className=''>
        <Image
         width={1920}
@@ -61,7 +57,7 @@ const RecentClientSlider: React.FC = () => {
     {startIndex > 0 && (
      <button
       onClick={prevSlide}
-      className='absolute left-0 top-1/2 transform -translate-y-1/2 rounded-md text-xs bg-gray-100 dark:bg-gray-800 sm:text-base p-1 ring-1 ring-gray-900/10 hover:ring-gray-900/20 dark:ring-gray-100/10 hover:dark:ring-gray-100/20 gap-1 font-medium ml-1 bg-opacity-50'>
+      className='absolute left-0 top-1/2 transform -translate-y-1/2  text-xs backgroundOverlay !p-2 bg-opacity-50 dark:bg-opacity-50'>
       <span aria-hidden='true'>&larr;</span>{" "}
       <p className='hidden sm:block'> Prev </p>
      </button>
@@ -84,7 +80,7 @@ const RecentClientSlider: React.FC = () => {
     {startIndex < images.length - viewCount && (
      <button
       onClick={nextSlide}
-      className='flex flex-row absolute right-0 top-1/2 transform -translate-y-1/2 rounded-md text-xs sm:text-base bg-gray-100 dark:bg-gray-800 p-1 ring-1 ring-gray-900/10 hover:ring-gray-900/20 dark:ring-gray-100/10 hover:dark:ring-gray-100/20 gap-1 font-medium mr-1 bg-opacity-50 dark:bg-opacity-50'>
+      className='flex flex-row absolute right-0 top-1/2 transform -translate-y-1/2 text-xs backgroundOverlay !p-2 bg-opacity-50 dark:bg-opacity-50'>
       <p className='hidden sm:block'> Next </p>
       <span aria-hidden='true'>&rarr;</span>
      </button>

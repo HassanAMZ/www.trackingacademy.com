@@ -11,7 +11,7 @@ const BlogContent: React.FC<BlogContentProps> = ({ data, type }) => {
  const blogLinks = data.map((post, index) => (
   <Link
    key={index}
-   className='backgroundOverlay p-1  hover:dark:bg-gray-100 hover:dark:bg-opacity-10 hover:bg-gray-900 hover:bg-opacity-5'
+   className='backgroundOverlay p-1 border-2 hover:bg-gray-300 hover:dark:bg-gray-700 '
    href={`/${type}/${post.slug}`}>
    <div className='grid grid-cols-4 sm:gap-2 gap-0 jusitfy-center items-center'>
     <div className='col-span-1 sm:pl-2'>

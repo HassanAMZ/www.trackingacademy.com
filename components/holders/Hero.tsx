@@ -28,7 +28,7 @@ export default function Hero() {
      </p>
      <div className='flex pt-2 items-center justify-left sm:justify-center gap-x-4'>
       <Link href='/portfolio' className='primaryButton'>
-       Show me the Web Analytics Portfolio
+       Show me the Portfolio
        <span aria-hidden='true'> &nbsp;→ </span>
       </Link>
       {/* <Link

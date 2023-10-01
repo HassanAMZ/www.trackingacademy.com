@@ -190,3 +190,20 @@ export type Metadata = {
 export type MetadataProps = {
  metadata: Metadata;
 };
+
+export interface TagContainerProps {
+ tags: string[];
+ type: string;
+ blogsData: (PostMetaData & { id: string; slug: string })[]; // New addition
+}
+
+export interface TagSearchProps {
+ tags: string[];
+ onSearch: (filtered: string[]) => void;
+}
+
+export interface TagContentProps {
+ tags: string[];
+ type: string;
+ blogsData: (PostMetaData & { id: string; slug: string })[];
+}

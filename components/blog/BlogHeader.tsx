@@ -14,7 +14,7 @@ const BlogHeader: React.FC<MetadataProps> = ({ metadata }) => {
     type='application/ld+json'
     dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
    />
-   <div className='rounded-md text-left sm:text-center dark:bg-gray-1000 bg-gray-200 bg-opacity-10 dark:bg-opacity-10 shadow-md py-5 sm:py-12 px-2'>
+   <div className='rounded-md text-left sm:text-center backgroundOverlay py-5 sm:py-12 px-2'>
     <h2 className='text-3xl py-2 leading-none font-semibold tracking-tighter'>
      {metadata.title}
     </h2>
