@@ -1,48 +1,78 @@
 {
- "compilerOptions": {
-  "baseUrl": ".",
-  "paths": {
-   "@/components/*": ["components/*"],
-   "@/context/*": ["app/context/*"],
-   "@/app/*": ["app/*"],
-   "@/data/*": ["data/*"],
-   "@/layouts/*": ["components/layouts/*"],
-   "@/lib/*": ["lib/*"],
-   "@/firebase/*": ["firebase/*"],
-   "@/contexts/*": ["contexts/*"],
-   "@/css/*": ["css/*"],
-   "@/styles/*": ["styles/*"],
-   "@/types/*": ["types/*"],
-   "@/fonts/*": ["fonts/*"]
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@/components/*": [
+        "components/*"
+      ],
+      "@/context/*": [
+        "app/context/*"
+      ],
+      "@/app/*": [
+        "app/*"
+      ],
+      "@/data/*": [
+        "data/*"
+      ],
+      "@/layouts/*": [
+        "components/layouts/*"
+      ],
+      "@/lib/*": [
+        "lib/*"
+      ],
+      "@/firebase/*": [
+        "firebase/*"
+      ],
+      "@/contexts/*": [
+        "contexts/*"
+      ],
+      "@/css/*": [
+        "css/*"
+      ],
+      "@/styles/*": [
+        "styles/*"
+      ],
+      "@/types/*": [
+        "types/*"
+      ],
+      "@/fonts/*": [
+        "fonts/*"
+      ]
+    },
+    "target": "es5",
+    "downlevelIteration": true,
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "noEmit": true,
+    "esModuleInterop": true,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "jsx": "preserve",
+    "incremental": true,
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ]
   },
-  "target": "es5",
-  "downlevelIteration": true,
-  "lib": ["dom", "dom.iterable", "esnext"],
-  "allowJs": true,
-  "skipLibCheck": true,
-  "strict": true,
-  "forceConsistentCasingInFileNames": true,
-  "noEmit": true,
-  "esModuleInterop": true,
-  "module": "esnext",
-  "moduleResolution": "node",
-  "resolveJsonModule": true,
-  "isolatedModules": true,
-  "jsx": "preserve",
-  "incremental": true,
-  "plugins": [
-   {
-    "name": "next"
-   }
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    "**/*.js",
+    "**/*.jsx",
+    ".next/types/**/*.ts"
+  ],
+  "exclude": [
+    "node_modules"
   ]
- },
- "include": [
-  "next-env.d.ts",
-  "**/*.ts",
-  "**/*.tsx",
-  "**/*.js",
-  "**/*.jsx",
-  ".next/types/**/*.ts"
- ],
- "exclude": ["node_modules"]
 }

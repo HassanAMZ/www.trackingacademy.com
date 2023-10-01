@@ -1,17 +1,14 @@
-import React from "react";
 import fs from "fs";
 import path from "path";
 import matter, { GrayMatterFile } from "gray-matter";
 import { PostMetaData } from "@/types/index";
-import extractMetaFromString from "@/components/utils/extractMetaFromString";
-import BlogContainer from "@/components/blog/BlogContainer";
-import getFiles from "@/components/utils/getFiles";
+import extractMetaFromString from "./extractMetaFromString";
+import getFiles from "./getFiles";
 
-const blogDirectory = path.join(process.cwd(), "app/blog");
-
-export async function generateStaticParams(): Promise<
+export default async function getTagsData(): Promise<
  (PostMetaData & { id: string; slug: string })[]
 > {
+ const blogDirectory = path.join(process.cwd(), "app/blog");
  const allPostsFiles = getFiles(blogDirectory);
 
  // remove non-mdx files
@@ -43,13 +40,4 @@ export async function generateStaticParams(): Promise<
  });
 
  return sortedData;
-}
-
-export default async function Page() {
- const data = await generateStaticParams();
- return (
-  <div className='flex flex-col gap-2'>
-   <BlogContainer data={data} type='blog' />
-  </div>
- );
 }

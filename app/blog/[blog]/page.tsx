@@ -5,43 +5,18 @@ import matter, { GrayMatterFile } from "gray-matter";
 import { PostMetaData } from "@/types/index";
 import formatString from "@/components/utils/formatString";
 import BlogContainer from "@/components/blog/BlogContainer";
-
-const blogDirectory = path.join(process.cwd(), "app/blog");
-
-function getFiles(dirPath: string): string[] {
- let entries = fs.readdirSync(dirPath, { withFileTypes: true });
-
- let files = entries
-  .filter((file) => !file.isDirectory())
-  .map((file) => path.join(dirPath, file.name)); // maps to full path
-
- let directories = entries.filter((folder) => folder.isDirectory());
-
- for (let directory of directories)
-  files = files.concat(getFiles(path.join(dirPath, directory.name)));
-
- return files;
-}
+import extractMetaFromString from "@/components/utils/extractMetaFromString";
+import getFiles from "@/components/utils/getFiles";
 
 export async function generateStaticParams(): Promise<
  (PostMetaData & { id: string; slug: string })[]
 > {
+ const blogDirectory = path.join(process.cwd(), "app/blog");
  const allPostsFiles = getFiles(blogDirectory);
 
  // remove non-mdx files
  const mdxFiles = allPostsFiles.filter((file) => path.extname(file) === ".mdx");
- function extractMetaFromString(content: string): any {
-  // Extract the meta string from the content
-  const metaStringMatch = content.match(
-   /export const metadata = (\{[\s\S]*?\});/
-  );
-  if (!metaStringMatch) return {};
 
-  // Evaluate the string to get the object
-  // This is a bit hacky, but given the context, it should be safe
-  const metaObject = eval(`(${metaStringMatch[1]})`);
-  return metaObject;
- }
  const allPostsData = mdxFiles.map(async (fileName) => {
   const fileContents = fs.readFileSync(fileName, "utf8");
   const { content } = matter(fileContents) as GrayMatterFile<string>;
