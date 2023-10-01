@@ -6,7 +6,9 @@ import { ReactNode } from "react";
 import { AuthContextProvider } from "@/context/AuthContext";
 import { PaypalContext } from "@/context/PaypalContext";
 import Script from "next/script";
-
+import GTMAnalytics from "@/components/analytics/GTMAnalytics";
+import React from "react";
+import VercelAnalytics from "@/components/analytics/VercelAnalytics";
 const interVariableFont = localFont({
  src: "fonts/Inter/inter-font.ttf",
  display: "swap",
@@ -51,17 +53,6 @@ export default function RootLayout({ children }: { children: ReactNode }) {
 
  return (
   <html lang='en' className='light'>
-   {isProduction && (
-    <Script id='google-tag-manager' strategy='afterInteractive'>
-     {`
-    (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-    })(window,document,'script','dataLayer','${process.env.NEXT_PUBLIC_GTM_ID}');
-    `}
-    </Script>
-   )}
    <body
     className={`bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-white tracking-tighter max-w-4xl mx-auto text-base leading-tight ${interVariableFont.className}`}>
     {BgPolygon1}
@@ -72,6 +63,9 @@ export default function RootLayout({ children }: { children: ReactNode }) {
      <AuthContextProvider>{children}</AuthContextProvider>
     </PaypalContext>
     {BgPolygon2}
+    {isProduction && <React.Fragment></React.Fragment>}
+    <GTMAnalytics />
+    <VercelAnalytics />
    </body>
   </html>
  );

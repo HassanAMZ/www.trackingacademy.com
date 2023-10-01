@@ -33,10 +33,10 @@ const Divider: React.FC = () => {
 const Page: React.FC = () => {
  return (
   <main className='flex flex-col'>
-   <div className='sm:py-8 py-4'>
+   <div className='py-4'>
     <Hero />
    </div>
-   <ContainerLayout className=' pb-5'>
+   <ContainerLayout className='pb-4'>
     <h3 className='text-2xl font-medium py-2 '>
      Recent Web Analytics & Tracking Projects
     </h3>
