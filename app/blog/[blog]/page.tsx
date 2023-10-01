@@ -48,7 +48,6 @@ export async function generateStaticParams(): Promise<
 export default async function Page({ params }: { params: { blog: string } }) {
  let blog = params.blog;
  const data = await generateStaticParams();
- console.log(blog);
  const filteredData = blog
   ? data.filter((post) => post.slug.split("/")[0] === blog)
   : data;

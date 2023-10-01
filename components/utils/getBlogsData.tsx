@@ -19,11 +19,16 @@ export default async function getBlogsData(): Promise<
   const { content } = matter(fileContents) as GrayMatterFile<string>;
   const data = extractMetaFromString(content);
 
-  const slug = path.basename(fileName, ".mdx"); // assuming the slug is the filename without the .mdx extension
-  const id = slug; // you might want to adjust how you generate the id
+  const slug = path.dirname(fileName).split(path.sep).slice(-2).join("/");
+  const title = path
+   .basename(path.dirname(fileName))
+   .replace(/-/g, " ")
+   .replace(/\b\w/g, (match) => match.toUpperCase());
+
+  const id = fileName.replace(/\.mdx$/, "");
 
   if (data) {
-   blogs.push({ ...data, id, slug });
+   blogs.push({ ...data, id, slug, title });
   }
  }
 
