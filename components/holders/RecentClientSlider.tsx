@@ -72,12 +72,12 @@ const RecentClientSlider: React.FC = () => {
      {/* Mobile View */}
      <ImageSet
       images={images.slice(startIndex, startIndex + mobileViewCount)}
-      widthClass='w-1/2 sm:hidden shadow-md  rounded-lg border border-opacity-50 dark:border-opacity-50 border-gray-800 dark:border-gray-100'
+      widthClass='w-1/2 sm:hidden shadow-md  rounded-md border border-opacity-50 dark:border-opacity-50 border-gray-800 dark:border-gray-100'
      />
      {/* Desktop View */}
      <ImageSet
       images={images.slice(startIndex, startIndex + desktopViewCount)}
-      widthClass='hidden sm:w-1/4 sm:block shadow-md  rounded-lg border-2 -50 border-gray-800 dark:border-gray-100 border-opacity-50 dark:border-opacity-50'
+      widthClass='hidden sm:w-1/4 sm:block shadow-md  rounded-md border-2 -50 border-gray-800 dark:border-gray-100 border-opacity-50 dark:border-opacity-50'
      />
     </div>
 

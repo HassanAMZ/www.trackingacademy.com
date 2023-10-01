@@ -11,6 +11,14 @@ const interVariableFont = localFont({
  display: "swap",
 });
 
+export const metadata = {
+ title: "Shahzada Ali Hassan - Top Rated Web Developer",
+ description: `Blog for Web Analysts and Marketing People`,
+ openGraph: {
+  images: ["/images/social-sharing.png"],
+ },
+};
+
 const BgPolygon1 = (
  <div
   className='fixed inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80 animate-moving1'
@@ -39,11 +47,13 @@ const BgPolygon2 = (
 
 export default function RootLayout({ children }: { children: ReactNode }) {
  return (
-  <html lang='en'>
+  <html lang='en' className='light'>
    <body
-    className={`bg-gray-50 dark:bg-gray-800 text-gray-900 dark:text-white tracking-tighter max-w-4xl mx-auto text-base leading-tight ${interVariableFont.className}`}>
+    className={`bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-white tracking-tighter max-w-4xl mx-auto text-base leading-tight ${interVariableFont.className}`}>
     {BgPolygon1}
-    <NavBar />
+    <div className=''>
+     <NavBar />
+    </div>
     <PaypalContext>
      <AuthContextProvider>{children}</AuthContextProvider>
     </PaypalContext>

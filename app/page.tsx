@@ -9,14 +9,14 @@ import AvatarCard from "@/components/cards/AvatarCard";
 import avatarsDetails from "@/data/avatar-details";
 import TestimonialCard from "@/components/cards/TestimonialCard";
 import clientDetails from "@/data/clients-details";
-import PayPal from "@/components/paypal/PayPal";
+import Link from "next/link";
 
 const ExpertInfo: React.FC<ExpertInfoProps> = ({ title, description }) => {
  return (
   <React.Fragment>
-   <h2 className='text-3xl leading-none tracking-tighter font-semibold py-2'>
+   <h3 className='text-2xl font-medium py-2 leading-none tracking-tighter '>
     {title}
-   </h2>
+   </h3>
    <div className='pt-2'>
     <Divider />
     <Divider />
@@ -30,21 +30,13 @@ const Divider: React.FC = () => {
  return <div className='w-12 h-px dark:bg-white bg-gray-800 mb-1'></div>;
 };
 
-export const metadata = {
- title: "Shahzada Ali Hassan - Top Rated Web Developer",
- description: `Blog for Web Analysts and Marketing People`,
- openGraph: {
-  images: ["/images/social-sharing.png"],
- },
-};
-
 const Page: React.FC = () => {
  return (
   <main className='flex flex-col'>
    <Hero />
    <ContainerLayout className=''>
     <div className='p-2'>
-     <h3 className='font-medium py-2 sm:py-4'>
+     <h3 className='text-2xl font-medium py-2 '>
       Recent Web Analytics & Tracking Projects
      </h3>
      <RecentClientSlider />
@@ -102,9 +94,9 @@ const Page: React.FC = () => {
       </ul>
 
       <div className='flex pt-2 items-center justify-left gap-x-4'>
-       <CustomLink href='/portfolio' className='primaryButton'>
+       <Link href='/portfolio' className='primaryButton'>
         Browse our portfolio <span aria-hidden='true'>&rarr;</span>
-       </CustomLink>
+       </Link>
       </div>
      </section>
     </div>
@@ -142,7 +134,7 @@ const Page: React.FC = () => {
 
    <ContainerLayout>
     <section className='py-5 sm:py-10 flex flex-col sm:items-center gap-2 sm:text-center backgroundOverlay  p-2'>
-     <h3 className='text-3xl font-medium pb-2 '>
+     <h3 className='text-2xl font-medium pb-2 '>
       Meet Shahzada Ali Hassan, Your Web Analytics and Tracking Expert
      </h3>
      <div>

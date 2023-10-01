@@ -17,13 +17,6 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
   a: CustomLink,
   Accordion,
 
-  h1: (props) => {
-   return (
-    <h1 className='text-left py-2 text-2xl sm:text-3xl font-medium' {...props}>
-     {props.children}
-    </h1>
-   );
-  },
   p: (props) => {
    return (
     <p className='py-1 text-gray-700 dark:text-gray-100 text-left' {...props}>
@@ -31,23 +24,30 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     </p>
    );
   },
+  h1: (props) => {
+   return (
+    <h1 className='text-left py-2 text-4xl font-medium' {...props}>
+     {props.children}
+    </h1>
+   );
+  },
   h2: (props) => {
    return (
-    <h2 className='text-left py-2 text-2xl sm:text-3xl font-medium' {...props}>
+    <h2 className='text-left py-2 text-3xl font-medium' {...props}>
      {props.children}
     </h2>
    );
   },
   h3: (props) => {
    return (
-    <h3 className='text-left py-2 text-2xl sm:text-3xl font-medium' {...props}>
+    <h3 className='text-left py-2 text-2xl font-medium' {...props}>
      {props.children}
     </h3>
    );
   },
   h4: (props) => {
    return (
-    <h4 className='text-left py-2 text-2xl sm:text-3xl font-medium' {...props}>
+    <h4 className='text-left py-2 text-xl font-medium' {...props}>
      {props.children}
     </h4>
    );

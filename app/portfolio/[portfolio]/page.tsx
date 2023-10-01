@@ -1,4 +1,3 @@
-import ContainerLayout from "@/components/layouts/ContainerLayout";
 import clientDetails from "@/data/clients-details";
 import Image from "next/image";
 import CustomLink from "@/components/mdx/CustomLink";

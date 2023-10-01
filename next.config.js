@@ -5,7 +5,6 @@ const path = require("path");
 const nextConfig = {
  pageExtensions: ["js", "jsx", "ts", "tsx", "mdx", "md"],
  experimental: {
-  appDir: true,
   mdxRs: true,
  },
  reactStrictMode: true,
