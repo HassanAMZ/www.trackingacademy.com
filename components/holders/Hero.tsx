@@ -1,24 +1,25 @@
 import Link from "next/link";
 import ContainerLayout from "@/components/layouts/ContainerLayout";
+import CustomLink from "@/components/mdx/CustomLink";
 
 export default function Hero() {
  return (
-  <ContainerLayout className=' '>
-   <div className='rounded-md text-left sm:text-center backgroundOverlay sm:py-12'>
-    <div className='flex justify-left sm:justify-center pt-5 pb-3'>
-     <div className='relative flex flex-row rounded-md text-xs sm:text-base font-normal p-1 ring-1 ring-gray-900/10 hover:ring-gray-900/20 dark:ring-gray-100/10 hover:dark:ring-gray-100/20 shadow-md '>
+  <ContainerLayout className=' backgroundOverlay'>
+   <div className='p-4 sm:py-12 text-left'>
+    <div className='flex justify-left  pt-5 pb-3'>
+     <div className='relative flex flex-row rounded-md text-xs font-normal p-1 ring-1 ring-gray-900/10 hover:ring-gray-900/20 dark:ring-gray-100/10 hover:dark:ring-gray-100/20 shadow-md '>
       <span>Check Learning Resourses&nbsp;</span>
-      <Link
-       href='/courses'
-       className='font-medium dark:text-gray-100 text-gray-800'>
+      <CustomLink
+       href='https://trackingacademy.com/'
+       className='!no-underline dark:text-gray-100 text-gray-800 font-semibold'>
        <span className='absolute inset-0 ' aria-hidden='true'></span>
        Explore Courses <span aria-hidden='true'>&rarr;</span>
-      </Link>
+      </CustomLink>
      </div>
     </div>
 
     <div className='flex sm:gap-4 gap-2 flex-col'>
-     <div className='text-6xl leading-none sm:text-7xl font-semibold tracking-tighter'>
+     <div className='text-5xl leading-none font-semibold tracking-tighter'>
       Grow your business with{" "}
       <span className='animate-text  capitalize '>Accurate data</span>
      </div>
@@ -26,7 +27,7 @@ export default function Hero() {
       Improving Marketing Strategies for Small Businesses through Advanced
       Tracking Implementation.
      </p>
-     <div className='flex pt-2 items-center justify-left sm:justify-center gap-x-4'>
+     <div className='flex pt-2 items-center justify-left gap-x-4'>
       <Link href='/portfolio' className='primaryButton'>
        Show me the Portfolio
        <span aria-hidden='true'> &nbsp;→ </span>
