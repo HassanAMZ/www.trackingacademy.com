@@ -15,6 +15,7 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
   Note,
   pre: Pre,
   a: CustomLink,
+
   Accordion,
 
   p: (props) => {

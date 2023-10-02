@@ -120,6 +120,7 @@ export interface BlogCardProps {
 export interface ContainerLayoutProps {
  children: ReactNode;
  className?: string; // Optional className prop
+ id?: string; // Optional className prop
 }
 export interface MetaData {
  title: string;
@@ -170,7 +171,16 @@ export type ImageType = {
 
 export interface ExpertInfoProps {
  title: string;
- description: JSX.Element; // Modify this line
+ description: JSX.Element;
+}
+
+export interface InfoSectionProps extends ExpertInfoProps {
+ embedId?: string;
+ testimonial?: string;
+ className?: string;
+ id?: string;
+ flexDirection?: string;
+ backgroundOverlay?: boolean;
 }
 
 export type OpenGraph = {

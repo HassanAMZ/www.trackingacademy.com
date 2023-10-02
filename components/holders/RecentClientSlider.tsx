@@ -13,9 +13,7 @@ const RecentClientSlider: React.FC = () => {
   return (
    <>
     {images.map((img) => (
-     <div
-      key={img.clientId}
-      className={`${widthClass} bg-gray-100 dark:bg-gray-100`}>
+     <div key={img.clientId} className={`${widthClass} `}>
       <CustomLink href={`/portfolio/${img.clientId}`} className=''>
        <Image
         width={1920}
@@ -57,30 +55,30 @@ const RecentClientSlider: React.FC = () => {
     {startIndex > 0 && (
      <button
       onClick={prevSlide}
-      className='absolute left-0 top-1/2 transform -translate-y-1/2  text-xs backgroundOverlay !p-2 bg-opacity-50 dark:bg-opacity-50'>
+      className='absolute left-0 top-1/2 transform -translate-y-1/2  text-xs backgroundOverlay !p-2 bg-opacity-80 dark:bg-opacity-80 ml-2'>
       <span aria-hidden='true'>&larr;</span>{" "}
       <p className='hidden sm:block'> Prev </p>
      </button>
     )}
 
     {/* Render based on viewport */}
-    <div className='flex overflow-hidden gap-1'>
+    <div className='flex overflow-hidden sm:gap-4 gap-2'>
      {/* Mobile View */}
      <ImageSet
       images={images.slice(startIndex, startIndex + mobileViewCount)}
-      widthClass='w-1/2 sm:hidden shadow-md  rounded-md border border-opacity-50 dark:border-opacity-50 border-gray-800 dark:border-gray-100'
+      widthClass='w-1/2 sm:hidden backgroundOverlay !p-1'
      />
      {/* Desktop View */}
      <ImageSet
       images={images.slice(startIndex, startIndex + desktopViewCount)}
-      widthClass='hidden sm:w-1/4 sm:block shadow-md  rounded-md border-2 -50 border-gray-800 dark:border-gray-100 border-opacity-50 dark:border-opacity-50'
+      widthClass='hidden sm:w-1/4 sm:block backgroundOverlay !p-2'
      />
     </div>
 
     {startIndex < images.length - viewCount && (
      <button
       onClick={nextSlide}
-      className='flex flex-row absolute right-0 top-1/2 transform -translate-y-1/2 text-xs backgroundOverlay !p-2 bg-opacity-50 dark:bg-opacity-50'>
+      className='flex flex-row absolute right-0 top-1/2 transform -translate-y-1/2 text-xs backgroundOverlay !p-2 bg-opacity-80 dark:bg-opacity-80 mr-2'>
       <p className='hidden sm:block'> Next </p>
       <span aria-hidden='true'>&rarr;</span>
      </button>
@@ -110,7 +108,7 @@ const RecentClientSlider: React.FC = () => {
 
  return (
   <div className=' rounded-md'>
-   <div className='flex flex-col gap-2'>
+   <div className='flex flex-col gap-2 '>
     <ImageSlider images={clientObject.images} />
    </div>
   </div>
