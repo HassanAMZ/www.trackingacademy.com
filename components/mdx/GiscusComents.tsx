@@ -2,6 +2,7 @@
 
 import React, { useEffect } from "react";
 import { usePathname } from "next/navigation";
+import BlogLayout from "@/components/layouts/BlogLayout";
 
 function GiscusComments() {
  const pathname = usePathname();
@@ -59,7 +60,11 @@ function GiscusComments() {
   };
  }, [pathname]);
 
- return <div id='comment-section' />;
+ return (
+  <section className='py-2'>
+   <div id='comment-section'></div>
+  </section>
+ );
 }
 
 export default GiscusComments;
