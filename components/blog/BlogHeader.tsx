@@ -1,14 +1,16 @@
-import React from "react";
-import { MetadataProps } from "@/types/index";
+import React, { useEffect } from "react";
+import { PostMetadataProps } from "@/types/index";
 import formatDate from "@/components/seo/formatDate";
 import generateSchema from "@/components/seo/generateSchema";
 import Script from "next/script";
+import { GTMBlogViewEvent } from "@/components/analytics/GTMEvents";
 
-// Usage in your component
-const BlogHeader: React.FC<MetadataProps> = ({ metadata }) => {
+const BlogHeader: React.FC<PostMetadataProps> = ({ metadata }) => {
  const schema = generateSchema(metadata);
+
  return (
   <section className='py-3'>
+   <GTMBlogViewEvent metadata={metadata} />
    <Script
     id='blog-schema'
     type='application/ld+json'

@@ -1,6 +1,6 @@
-import { MetadataProps } from "@/types/index";
+import { PostMetadataProps } from "@/types/index";
 
-function generateSchema(metadata: MetadataProps["metadata"]) {
+function generateSchema(metadata: PostMetadataProps["metadata"]) {
  return {
   "@context": "https://schema.org",
   "@type": "Article",

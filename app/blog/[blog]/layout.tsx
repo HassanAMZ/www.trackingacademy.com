@@ -1,8 +1,7 @@
-import getTags from "@/components/utils/getTags";
-import formatString from "@/components/utils/formatString";
 import React, { ReactNode } from "react";
 import reverseFormatString from "@/components/utils/reverseFormatString";
 import getBlogsData from "@/components/utils/getBlogsData";
+
 export async function generateMetadata({ params }: any) {
  return {
   title: `${reverseFormatString(params.blog)} Archieve- ShahzadaAliHassan`,

@@ -1,12 +1,12 @@
 import fs from "fs";
 import path from "path";
 import matter, { GrayMatterFile } from "gray-matter";
-import { PostMetaData } from "@/types/index";
+import { PostMetadata } from "@/types/index";
 import extractMetaFromString from "@/components/utils/extractMetaFromString";
 import getFiles from "@/components/utils/getFiles";
 
 export default async function getBlogsData(): Promise<
- (PostMetaData & { id: string; slug: string })[]
+ (PostMetadata & { id: string; slug: string })[]
 > {
  const blogDirectory = path.join(process.cwd(), "app/blog");
  const allPostsFiles = getFiles(blogDirectory);

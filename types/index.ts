@@ -1,4 +1,23 @@
 "use client";
+
+export interface GTMEvent {
+ event: string;
+ datalayer_event_name: string;
+ event_id?: number;
+ [key: string]: any;
+}
+export interface GTMBlogListViewEventProps {
+ blogList: (PostMetadata & { id: string; slug: string })[];
+}
+declare global {
+ interface Window {
+  dataLayer: GTMEvent[];
+ }
+}
+export type GTMBlogViewProps = {
+ metadata: PostMetadata;
+};
+
 // types/index.ts or types/clientTypes.ts
 import {
  DetailedHTMLProps,
@@ -54,15 +73,15 @@ export type DynamicServicesPageProps = {
  };
 };
 export interface BlogSearchProps {
- data: (PostMetaData & { id: string; slug: string })[];
- onSearch: (filtered: (PostMetaData & { id: string; slug: string })[]) => void;
+ data: (PostMetadata & { id: string; slug: string })[];
+ onSearch: (filtered: (PostMetadata & { id: string; slug: string })[]) => void;
 }
 export interface BlogContentProps {
- data: (PostMetaData & { id: string; slug: string })[];
+ data: (PostMetadata & { id: string; slug: string })[];
  type: string;
 }
 export interface BlogContainerProps {
- data: (PostMetaData & { id: string; slug: string })[];
+ data: (PostMetadata & { id: string; slug: string })[];
  type: string;
 }
 export interface TestimonialDetails {
@@ -94,7 +113,7 @@ export interface Client {
  images: { name: string; link: string }[];
  project_details: { heading: string; title: string; link: string }[];
 }
-export interface PostMetaData {
+export interface PostMetadata {
  title: string;
  date: string;
  blogId: string;
@@ -103,6 +122,8 @@ export interface PostMetaData {
  description: string;
  openGraph: { images: string[] };
  embedId: string;
+ id?: string;
+ slug?: string;
 }
 
 export interface BlogCardProps {
@@ -122,23 +143,11 @@ export interface ContainerLayoutProps {
  className?: string; // Optional className prop
  id?: string; // Optional className prop
 }
-export interface MetaData {
- title: string;
- date: string;
- blogId: string;
- tags: string[];
- draft: boolean;
- description: string;
- openGraph: {
-  images: string[];
- };
- embedId: string;
-}
 
 export interface BlogLayoutProps {
  children: ReactNode;
  className?: string;
- metadata?: MetaData; // Optional metadata prop
+ metadata?: PostMetadata; // Optional metadata prop
 }
 
 export interface PreProps
@@ -174,6 +183,9 @@ export interface ExpertInfoProps {
  description: JSX.Element;
 }
 
+export type PostMetadataProps = {
+ metadata: PostMetadata;
+};
 export interface InfoSectionProps extends ExpertInfoProps {
  embedId?: string;
  testimonial?: string;
@@ -187,24 +199,10 @@ export type OpenGraph = {
  images: string[];
 };
 
-export type Metadata = {
- title: string;
- date: string;
- tags: string[];
- draft: boolean;
- openGraph: OpenGraph;
- description: string;
- embedId: string;
-} & ({ downloadId: string } | { blogId: string });
-
-export type MetadataProps = {
- metadata: Metadata;
-};
-
 export interface TagContainerProps {
  tags: string[];
  type: string;
- blogsData: (PostMetaData & { id: string; slug: string })[]; // New addition
+ blogsData: (PostMetadata & { id: string; slug: string })[]; // New addition
 }
 
 export interface TagSearchProps {
@@ -215,5 +213,5 @@ export interface TagSearchProps {
 export interface TagContentProps {
  tags: string[];
  type: string;
- blogsData: (PostMetaData & { id: string; slug: string })[];
+ blogsData: (PostMetadata & { id: string; slug: string })[];
 }

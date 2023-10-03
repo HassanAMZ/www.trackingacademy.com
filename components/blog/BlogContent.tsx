@@ -2,7 +2,7 @@
 
 import React from "react";
 import CustomLink from "@/components/mdx/CustomLink";
-import { PostMetaData } from "@/types/index";
+import { PostMetadata } from "@/types/index";
 import Image from "next/image";
 import { BlogContentProps } from "@/types/index";
 import Link from "next/link";

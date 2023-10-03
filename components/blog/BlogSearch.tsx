@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import { PostMetaData } from "@/types/index";
+import { PostMetadata } from "@/types/index";
 import { BlogSearchProps } from "@/types/index";
 
 const BlogSearch: React.FC<BlogSearchProps> = ({ data, onSearch }) => {

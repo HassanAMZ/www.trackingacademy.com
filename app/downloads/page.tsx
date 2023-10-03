@@ -2,7 +2,7 @@ import React from "react";
 import fs from "fs";
 import path from "path";
 import matter, { GrayMatterFile } from "gray-matter";
-import { PostMetaData } from "@/types/index";
+import { PostMetadata } from "@/types/index";
 import extractMetaFromString from "@/components/utils/extractMetaFromString";
 import BlogContainer from "@/components/blog/BlogContainer";
 import getFiles from "@/components/utils/getFiles";
@@ -10,7 +10,7 @@ import getFiles from "@/components/utils/getFiles";
 const blogDirectory = path.join(process.cwd(), "app/downloads");
 
 export async function generateStaticParams(): Promise<
- (PostMetaData & { id: string; slug: string })[]
+ (PostMetadata & { id: string; slug: string })[]
 > {
  const allPostsFiles = getFiles(blogDirectory);
 
@@ -33,7 +33,7 @@ export async function generateStaticParams(): Promise<
    slug,
    title,
    ...data,
-  } as PostMetaData & { id: string; slug: string };
+  } as PostMetadata & { id: string; slug: string };
  });
 
  return Promise.all(allPostsData);
