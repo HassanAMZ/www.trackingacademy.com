@@ -4,16 +4,17 @@
 import React from "react";
 import { InlineWidget } from "react-calendly";
 import { GTMCalendlyEvent } from "@/components/analytics/GTMEvents"; // Update the import path as per your directory structure
+import CustomHeader from "@/components/home/CustomHeader";
 
 const Page = () => {
  return (
   <>
    <GTMCalendlyEvent />
-   <h3 className='text-2xl font-medium py-4'>Schedule a meeting</h3>
-   <div className='backgroundOverlay h-screen'>
+   <CustomHeader text='Schedule a meeting' />
+   <div className='backgroundOverlay'>
     <InlineWidget
      url='https://calendly.com/shahzadaalihassan'
-     styles={{ height: "120vh" }}
+     styles={{ height: "130vh" }}
     />
     {/* 
             <iframe

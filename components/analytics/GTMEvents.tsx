@@ -13,32 +13,36 @@ import { useCalendlyEventListener } from "react-calendly";
 
 const GTMCalendlyEvent: React.FC = () => {
  useCalendlyEventListener({
-  onProfilePageViewed: () =>
+  onProfilePageViewed: () => {
+   initDataLayer(); // Use utility function
    window.dataLayer.push({
     event: "gtm_custom_event",
     datalayer_event_name: "calendly_profile_page_viewed",
-   }),
-  onDateAndTimeSelected: () =>
+   });
+  },
+  onDateAndTimeSelected: () => {
+   initDataLayer(); // Use utility function
    window.dataLayer.push({
     event: "gtm_custom_event",
     datalayer_event_name: "calendly_date_and_time_selected",
-   }),
-  onEventTypeViewed: () =>
+   });
+  },
+  onEventTypeViewed: () => {
+   initDataLayer(); // Use utility function
    window.dataLayer.push({
     event: "gtm_custom_event",
     datalayer_event_name: "calendly_event_type_viewed",
-   }),
-  onEventScheduled: (e) =>
+   });
+  },
+  onEventScheduled: (e) => {
+   initDataLayer(); // Use utility function
    window.dataLayer.push({
     event: "gtm_custom_event",
     datalayer_event_name: "calendly_event_scheduled",
     payload: e.data.payload,
-   }),
+   });
+  },
  });
-
- useEffect(() => {
-  window.dataLayer = window.dataLayer || [];
- }, []);
 
  return <React.Fragment />;
 };
