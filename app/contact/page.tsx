@@ -16,12 +16,6 @@ const Page = () => {
      url='https://calendly.com/shahzadaalihassan'
      styles={{ height: "130vh" }}
     />
-    {/* 
-            <iframe
-              src='https://calendly.com/shahzadaalihassan?text_color=ffffff&primary_color=333333'
-              className='absolute inset-0import { InlineWidget } from "react-calendly"; w-full h-full border-none'
-              scrolling='no'></iframe>
-            */}
    </div>
   </>
  );

@@ -78,7 +78,7 @@ const Page: React.FC<DynamicServicesPageProps> = ({ params }) => {
        })}
       </div>
       <div className='md:block hidden'>
-       <PaypalRender />
+       <PaypalRender product={product} />
       </div>
      </div>
     </div>
@@ -92,7 +92,7 @@ const Page: React.FC<DynamicServicesPageProps> = ({ params }) => {
      />
     </div>
     <div className='block md:hidden'>
-     <PaypalRender />
+     <PaypalRender product={product} />
     </div>
    </section>
   );
