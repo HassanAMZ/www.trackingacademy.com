@@ -3,15 +3,18 @@ import { PostMetadata, PostMetadataProps } from "@/types/index";
 const gtmCategories = ({ metadata }: PostMetadataProps) => {
  const sortedTags = [...metadata.tags].sort();
  let categories: { [key: string]: string } = {};
- if (sortedTags.length <= 4) {
+
+ if (sortedTags.length <= 5) {
   sortedTags.forEach((tag, index) => {
-   categories[`category_${index + 1}`] = tag;
+   let key = index === 0 ? "item_category" : `item_category${index + 1}`;
+   categories[key] = tag;
   });
  } else {
   for (let i = 0; i < 4; i++) {
-   categories[`item_category_${i + 1}`] = sortedTags[i];
+   let key = i === 0 ? "item_category" : `item_category${i + 1}`;
+   categories[key] = sortedTags[i];
   }
-  categories["item_category_5"] = sortedTags.slice(4).join(", ");
+  categories["item_category5"] = sortedTags.slice(4).join(", ");
  }
 
  return categories;
@@ -28,13 +31,15 @@ const initDataLayer = () => {
 
 const createItem = (metadata: PostMetadata) => {
  const categories = gtmCategories({ metadata });
- return {
-  item_id: metadata.blogId,
-  item_name: metadata.title,
-  date: metadata.date,
-  item_description: metadata.description.slice(0, 20),
-  ...categories,
- };
+ return [
+  {
+   item_id: metadata.blogId,
+   item_name: metadata.title,
+   date: metadata.date,
+   item_description: metadata.description.slice(0, 20),
+   ...categories,
+  },
+ ];
 };
 
 export { createItem, initDataLayer, gtmCategories };
