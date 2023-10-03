@@ -10,6 +10,7 @@ export default async function Page() {
   const dateB = new Date(b.date);
   return dateB.getTime() - dateA.getTime();
  });
+
  return (
   <div className='flex flex-col gap-2'>
    <GTMBlogListViewEvent blogList={sortedData} />

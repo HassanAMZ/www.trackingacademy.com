@@ -6,7 +6,7 @@ import CustomLink from "@/components/mdx/CustomLink";
 import Accordion from "@/components/mdx/Accordion";
 import Note from "@/components/mdx/Note";
 import React from "react";
-
+import GiscusComments from "@/components/mdx/GiscusComents";
 // This file is required to use MDX in `app` directory.
 export function useMDXComponents(components: MDXComponents): MDXComponents {
  return {
@@ -15,7 +15,7 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
   Note,
   pre: Pre,
   a: CustomLink,
-
+  GiscusComments,
   Accordion,
 
   p: (props) => {

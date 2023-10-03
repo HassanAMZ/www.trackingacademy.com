@@ -14,7 +14,6 @@ import { useCalendlyEventListener } from "react-calendly";
 const GTMCalendlyEvent: React.FC = () => {
  useCalendlyEventListener({
   onProfilePageViewed: () => {
-   console.log("onProfile Page Viewed Called");
    window.dataLayer = window.dataLayer || [];
    window.dataLayer.push({
     event: "gtm_custom_event",

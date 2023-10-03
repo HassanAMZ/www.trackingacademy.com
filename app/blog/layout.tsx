@@ -3,6 +3,8 @@ import { ReactNode } from "react";
 import React, { useEffect, useState } from "react";
 import { PostMetadata } from "@/types/index";
 import getBlogsData from "@/components/utils/getBlogsData";
+import GiscusComments from "@/components/mdx/GiscusComents";
+import ContainerLayout from "@/components/layouts/ContainerLayout";
 
 export const metadata = {
  title: "Blog Archieve- ShahzadaAliHassan",
