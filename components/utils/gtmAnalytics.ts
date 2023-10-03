@@ -9,9 +9,9 @@ const gtmCategories = ({ metadata }: PostMetadataProps) => {
   });
  } else {
   for (let i = 0; i < 4; i++) {
-   categories[`category_${i + 1}`] = sortedTags[i];
+   categories[`item_category_${i + 1}`] = sortedTags[i];
   }
-  categories["category_5"] = sortedTags.slice(4).join(", ");
+  categories["item_category_5"] = sortedTags.slice(4).join(", ");
  }
 
  return categories;
@@ -29,10 +29,10 @@ const initDataLayer = () => {
 const createItem = (metadata: PostMetadata) => {
  const categories = gtmCategories({ metadata });
  return {
-  id: metadata.blogId,
-  name: metadata.title,
+  item_id: metadata.blogId,
+  item_name: metadata.title,
   date: metadata.date,
-  description: metadata.description.slice(0, 20),
+  item_description: metadata.description.slice(0, 20),
   ...categories,
  };
 };
