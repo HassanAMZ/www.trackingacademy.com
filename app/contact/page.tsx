@@ -1,15 +1,29 @@
+// Page component
+"use client";
+
 import React from "react";
+import { InlineWidget } from "react-calendly";
+import { GTMCalendlyEvent } from "@/components/analytics/GTMEvents"; // Update the import path as per your directory structure
 
-const CalendlyPage = () => (
- <>
-  <h3 className='text-2xl font-medium py-4'>Schedule a meeting</h3>
-  <div className='backgroundOverlay relative overflow-hidden aspect-1 md:aspect-[4/3] max-w-full h-[70vh] md:h-auto'>
-   <iframe
-    src='https://calendly.com/shahzadaalihassan?text_color=ffffff&primary_color=333333'
-    className='absolute inset-0 w-full h-full border-none'
-    scrolling='no'></iframe>
-  </div>
- </>
-);
+const Page = () => {
+ return (
+  <>
+   <GTMCalendlyEvent />
+   <h3 className='text-2xl font-medium py-4'>Schedule a meeting</h3>
+   <div className='backgroundOverlay h-screen'>
+    <InlineWidget
+     url='https://calendly.com/shahzadaalihassan'
+     styles={{ height: "120vh" }}
+    />
+    {/* 
+            <iframe
+              src='https://calendly.com/shahzadaalihassan?text_color=ffffff&primary_color=333333'
+              className='absolute inset-0import { InlineWidget } from "react-calendly"; w-full h-full border-none'
+              scrolling='no'></iframe>
+            */}
+   </div>
+  </>
+ );
+};
 
-export default CalendlyPage;
+export default Page;

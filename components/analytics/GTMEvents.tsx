@@ -9,6 +9,39 @@ import {
  createItem,
  gtmCategories,
 } from "@/components/utils/gtmAnalytics";
+import { useCalendlyEventListener } from "react-calendly";
+
+const GTMCalendlyEvent: React.FC = () => {
+ useCalendlyEventListener({
+  onProfilePageViewed: () =>
+   window.dataLayer.push({
+    event: "gtm_custom_event",
+    datalayer_event_name: "calendly_profile_page_viewed",
+   }),
+  onDateAndTimeSelected: () =>
+   window.dataLayer.push({
+    event: "gtm_custom_event",
+    datalayer_event_name: "calendly_date_and_time_selected",
+   }),
+  onEventTypeViewed: () =>
+   window.dataLayer.push({
+    event: "gtm_custom_event",
+    datalayer_event_name: "calendly_event_type_viewed",
+   }),
+  onEventScheduled: (e) =>
+   window.dataLayer.push({
+    event: "gtm_custom_event",
+    datalayer_event_name: "calendly_event_scheduled",
+    payload: e.data.payload,
+   }),
+ });
+
+ useEffect(() => {
+  window.dataLayer = window.dataLayer || [];
+ }, []);
+
+ return <React.Fragment />;
+};
 
 const GTMBlogViewEvent: React.FC<GTMBlogViewProps> = ({ metadata }) => {
  useEffect(() => {
@@ -50,4 +83,4 @@ const GTMBlogListViewEvent: React.FC<GTMBlogListViewEventProps> = ({
  return <React.Fragment></React.Fragment>;
 };
 
-export { GTMBlogViewEvent, GTMBlogListViewEvent };
+export { GTMBlogViewEvent, GTMBlogListViewEvent, GTMCalendlyEvent };
