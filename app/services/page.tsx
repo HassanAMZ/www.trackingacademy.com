@@ -1,4 +1,4 @@
-import ServiceCard from "@/components/cards/ServiceCard";
+import ServiceCard from "@/components/global/ServiceCard";
 import servicesDetails from "@/data/services-details";
 import ContainerLayout from "@/components/layouts/ContainerLayout";
 

@@ -1,4 +1,4 @@
-import HeroComponent from "@/components/cards/HeroComponent";
+import HeroComponent from "@/components/global/HeroComponent";
 import {
  Paragraph,
  SubHeader,
@@ -6,29 +6,10 @@ import {
 } from "@/components/typography/Heading";
 import Image from "next/image";
 import React from "react";
-
-interface DetailsProps {
- icon?: string;
- header: string;
- details: string;
-}
+import Details from "@/components/global/Details";
+import { DetailsProps } from "@/types/index";
 
 export default function Page() {
- const Details: React.FC<DetailsProps> = ({ icon, header, details }) => {
-  return (
-   <React.Fragment>
-    <div className=' flex gap-2 py-4'>
-     <div>
-      <div className='bg-gray-100 bg-opacity-20 rounded-full p-2'>{icon}</div>
-     </div>
-     <div className='flex flex-col gap-2'>
-      <Paragraph>{header}</Paragraph>
-      <Paragraph className='opacity-80'>{details}</Paragraph>
-     </div>
-    </div>
-   </React.Fragment>
-  );
- };
  return (
   <section className=''>
    {/* <div className=''>

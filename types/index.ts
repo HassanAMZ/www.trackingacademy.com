@@ -215,3 +215,8 @@ export interface TagContentProps {
  type: string;
  blogsData: (PostMetadata & { id: string; slug: string })[];
 }
+export interface DetailsProps {
+ icon?: string;
+ header: string;
+ details: string;
+}

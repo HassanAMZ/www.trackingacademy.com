@@ -1,30 +1,52 @@
-import React, { ReactNode } from "react";
+import React, { ReactNode, CSSProperties } from "react";
 
 interface HeadingProps {
  children: ReactNode;
  className?: string;
+ style?: CSSProperties; // Including style prop
 }
 
-const TitleHeader: React.FC<HeadingProps> = ({ children, className }) => {
+const TitleHeader: React.FC<HeadingProps> = ({
+ children,
+ className,
+ style,
+}) => {
  return (
-  <h2 className={`text-5xl sm:text-7xl font-bold leading-none ${className}`}>
+  <h2 className={`text-5xl font-bold leading-none ${className}`} style={style}>
    {children}
   </h2>
  );
 };
-const SubHeader: React.FC<HeadingProps> = ({ children, className }) => {
+const SubTitleHeader: React.FC<HeadingProps> = ({
+ children,
+ className,
+ style,
+}) => {
  return (
-  <h2 className={`text-2xl font-semibold tracking-normal  ${className}`}>
+  <h3 className={`text-4xl font-bold leading-none ${className}`} style={style}>
    {children}
-  </h2>
- );
-};
-const Paragraph: React.FC<HeadingProps> = ({ children, className }) => {
- return (
-  <h2 className={`text-xl font-medium tracking-normal ${className}`}>
-   {children}
-  </h2>
+  </h3>
  );
 };
 
-export { TitleHeader, SubHeader, Paragraph };
+const SubHeader: React.FC<HeadingProps> = ({ children, className, style }) => {
+ return (
+  <h4
+   className={`text-xl font-semibold tracking-normal ${className}`}
+   style={style}>
+   {children}
+  </h4>
+ );
+};
+
+const Paragraph: React.FC<HeadingProps> = ({ children, className, style }) => {
+ return (
+  <p
+   className={`text-xl font-medium tracking-normal ${className}`}
+   style={style}>
+   {children}
+  </p>
+ );
+};
+
+export { TitleHeader, SubHeader, SubTitleHeader, Paragraph };

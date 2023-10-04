@@ -30,7 +30,7 @@ li {
 }
 
 .backgroundOverlay {
- @apply bg-gray-800 dark:bg-gray-100 bg-opacity-5 dark:bg-opacity-5 shadow-md rounded-md py-5 px-2;
+ @apply bg-gray-800 dark:bg-gray-100 bg-opacity-5 dark:bg-opacity-5 shadow-md rounded-md;
 }
 
 .giscus {

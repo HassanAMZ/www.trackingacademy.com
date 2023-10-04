@@ -17,15 +17,19 @@ module.exports = {
    },
 
    fontSize: {
-    sm: "0.85rem",
-    base: "1rem",
-    xl: "1.125rem",
-    "2xl": "1.35rem",
-    "3xl": "1.75rem",
-    "4xl": "2.2rem",
-    "5xl": "2.7rem",
-    "6xl": "3.3rem",
-    "7xl": "3.8rem",
+    xxs: "0.625rem", // 10px
+    xs: "0.75rem", // 12px
+    sm: "0.875rem", // 14px
+    base: "1rem", // 16px
+    lg: "1.125rem", // 18px
+    xl: "1.25rem", // 20px
+    "2xl": "1.5rem", // 24px
+    "3xl": "1.875rem", // 30px
+    "4xl": "2.5rem",
+    "5xl": "3rem", // 48px
+    "6xl": "4rem", // 64px
+    "7xl": "5rem", // 80px
+    "8xl": "6rem", // 96px
    },
    keyframes: {
     fadeIn: {

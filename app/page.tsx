@@ -1,22 +1,53 @@
 import React from "react";
-import Hero from "@/components/home/Hero";
 import RecentClientSlider from "@/components/holders/RecentClientSlider";
 import ContainerLayout from "@/components/layouts/ContainerLayout";
-import AvatarCard from "@/components/cards/AvatarCard";
+import AvatarCard from "@/components/global/AvatarCard";
 import avatarsDetails from "@/data/avatar-details";
-import TestimonialCard from "@/components/cards/TestimonialCard";
+import TestimonialCard from "@/components/global/TestimonialCard";
 import clientDetails from "@/data/clients-details";
 import Link from "next/link";
 import Divider from "@/components/home/Divider";
 import InfoSection from "@/components/home/InfoSection";
 import CustomHeader from "@/components/home/CustomHeader";
+import HeroComponent from "@/components/global/HeroComponent";
+import baseColors from "@/data/base-colors";
 
 const Page: React.FC = () => {
  return (
   <main className='flex flex-col'>
-   <div className='py-4'>
-    <Hero />
-   </div>
+   <ContainerLayout className='pb-4'>
+    <HeroComponent
+     clientImageBoolean={true}
+     welcomeText='Top Rated Web Analyst on Upwork 🚀'
+     linksBoolean={true}
+     heading='Grow your business with Accurate data'
+     subHeading1=''
+     subHeading2='Improving Marketing Strategies for Small Businesses through Advanced Tracking Implementation.'
+     primaryLink={{ src: "/portfolio", text: "Show me the Portfolio" }}
+     secondaryLink={{ src: "/contact", text: "Get In Touch" }} // Add this prop if possible
+     imagesData={[
+      {
+       src: "/images/clients/001_1.jfif",
+       alt: "Imtiaz Ahmed - Job Ready Programmer",
+      },
+      { src: "/images/clients/007.jfif", alt: "Client" },
+      {
+       src: "/images/clients/008.jfif",
+       alt: "Pjipipp Herglotz - Kiss Agency",
+      },
+      {
+       src: "/images/clients/001.jpg",
+       alt: "Imtiaz Ahmed - Job Ready Programmer",
+      },
+     ]}
+     backgroundImage='/images/hero/hero-image.png'
+     primaryColor={baseColors.home.primary}
+     colorPercentage={{
+      dark: { value: 80 },
+      light: { value: 10 },
+     }}
+    />
+   </ContainerLayout>
    <ContainerLayout className='pb-4'>
     <CustomHeader text='Recent Web Analytics & Tracking Projects' />
     <RecentClientSlider />

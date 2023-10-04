@@ -4,7 +4,7 @@ import BlogLayout from "@/layouts/BlogLayout";
 import { ReactNode } from "react";
 import React, { useEffect, useState } from "react";
 import { UserAuth } from "@/context/AuthContext";
-import { FirebaseAuth } from "@/components/cards/FirebaseAuth";
+import { FirebaseAuth } from "@/components/global/FirebaseAuth";
 
 export default function Layout({ children }: { children: ReactNode }) {
  const { user } = UserAuth();
