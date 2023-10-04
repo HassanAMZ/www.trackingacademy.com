@@ -31,15 +31,13 @@ const initDataLayer = () => {
 
 const createItem = (metadata: PostMetadata) => {
  const categories = gtmCategories({ metadata });
- return [
-  {
-   item_id: metadata.blogId,
-   item_name: metadata.title,
-   date: metadata.date,
-   item_description: metadata.description.slice(0, 20),
-   ...categories,
-  },
- ];
+ return {
+  item_id: metadata.blogId,
+  item_name: metadata.title,
+  date: metadata.date,
+  item_description: metadata.description.slice(0, 20),
+  ...categories,
+ };
 };
 
 export { createItem, initDataLayer, gtmCategories };

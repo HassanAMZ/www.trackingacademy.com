@@ -58,7 +58,7 @@ const GTMBlogViewEvent: React.FC<GTMBlogViewProps> = ({ metadata }) => {
    datalayer_event_name: "view_blog",
    event_id: Date.now(),
    ecommerce: {
-    items: item,
+    items: [item],
    },
   });
  }, [metadata]);
