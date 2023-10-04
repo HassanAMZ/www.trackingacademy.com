@@ -52,9 +52,9 @@ export default function RootLayout({ children }: { children: ReactNode }) {
  const isProduction = process.env.NEXT_PUBLIC_ENVIRONMENT === "production";
 
  return (
-  <html lang='en' className='light'>
+  <html lang='en' className='dark'>
    <body
-    className={`bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-white tracking-tighter max-w-4xl mx-auto text-base leading-tight ${interVariableFont.className}`}>
+    className={`bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-white tracking-tighter max-w-5xl mx-auto text-base leading-tight ${interVariableFont.className}`}>
     {BgPolygon1}
     <div className=''>
      <NavBar />

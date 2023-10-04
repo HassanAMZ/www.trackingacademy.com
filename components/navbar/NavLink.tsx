@@ -10,8 +10,8 @@ const NavLink: React.FC<NavLinkProps> = ({ href, children }) => {
 
  return (
   <Link
-   className={`${
-    active ? "underline opacity-100 font-semibold" : "opacity-80 font-medium"
+   className={`text-xl  ${
+    active ? "underline opacity-100 font-bold" : "opacity-80 font-semibold "
    } hover:opacity-100`}
    href={href}>
    {children}

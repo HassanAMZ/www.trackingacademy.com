@@ -7,6 +7,9 @@ module.exports = {
   "./components/**/*.{js,ts,jsx,tsx}",
  ],
  theme: {
+  backgroundPosition: {
+   "right-10": "right 10rem",
+  },
   extend: {
    colors: {},
    animation: {

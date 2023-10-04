@@ -4,7 +4,6 @@ The site has been uppgraded to Verson 3, due to Nextjs13 Update: [repo link](htt
 
 [email](mailto:shahzadaalihassan@gmail.com)
 
-
 [github](https://github.com/HassanAMZ)
 
 [twitter](https://twitter.com/shahzadaalihas4)
@@ -19,6 +18,4 @@ The site has been uppgraded to Verson 3, due to Nextjs13 Update: [repo link](htt
 
 [siteRepo](https://github.com/HassanAMZ/shahzadaalihassan)
 
-[image](https://shahzadaalihassan.com/static/images/avatar.png)
-
-[socialBanner](https://shahzadaalihassan.com/static/images/avatar.png)
+[socialBanner](https://shahzadaalihassan.com/images/social-sharing.png)
