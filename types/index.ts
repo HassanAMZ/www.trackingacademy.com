@@ -14,9 +14,9 @@ declare global {
   dataLayer: GTMEvent[];
  }
 }
-export type GTMBlogViewProps = {
+export interface GTMBlogViewProps {
  metadata: PostMetadata;
-};
+}
 
 // types/index.ts or types/clientTypes.ts
 import {
@@ -36,25 +36,25 @@ export interface AccordionItemProps {
 export interface AccordionProps {
  data: string; // This is the document ID
 }
-export type AccordionDataType = {
+export interface AccordionDataType {
  [key: string]: AccordionItemProps[];
-};
-export type ServiceCardProps = {
+}
+export interface ServiceCardProps {
  service: ServiceDetails;
-};
-export type ClientCardProps = {
+}
+export interface ClientCardProps {
  client: Client;
-};
-export type AvatarCardProps = {
+}
+export interface AvatarCardProps {
  avatar: Avatar;
-};
+}
 
-export type DynamicPortfolioPageProps = {
+export interface DynamicPortfolioPageProps {
  params: {
   portfolio: string;
  };
-};
-export type ServiceDetails = {
+}
+export interface ServiceDetails {
  id: string;
  title: string;
  description: string;
@@ -65,13 +65,13 @@ export type ServiceDetails = {
  featured_image_url: string;
  supporting_image_url: string;
  href: string;
-};
+}
 
-export type DynamicServicesPageProps = {
+export interface DynamicServicesPageProps {
  params: {
   service: string;
  };
-};
+}
 export interface BlogSearchProps {
  data: (PostMetadata & { id: string; slug: string })[];
  onSearch: (filtered: (PostMetadata & { id: string; slug: string })[]) => void;
@@ -96,7 +96,9 @@ export interface Avatar {
  description: string;
  images: { name: string; link: string }[];
 }
-
+export interface DetailsProps {
+ detailsList: Detail[];
+}
 export interface Client {
  id: string;
  title: string;
@@ -162,30 +164,30 @@ export interface NavLinkProps {
  children: React.ReactNode;
 }
 
-export type ImageProps = {
+export interface ImageProps {
  link: string;
  name: string;
  clientId: string;
-};
+}
 
-export type ImageSliderProps = {
+export interface ImageSliderProps {
  images: ImageProps[];
-};
+}
 
-export type ImageType = {
+export interface ImageType {
  clientId: string;
  link: string;
  name: string;
-};
+}
 
 export interface ExpertInfoProps {
  title: string;
  description: JSX.Element;
 }
 
-export type PostMetadataProps = {
+export interface PostMetadataProps {
  metadata: PostMetadata;
-};
+}
 export interface InfoSectionProps extends ExpertInfoProps {
  embedId?: string;
  testimonial?: string;
@@ -195,9 +197,9 @@ export interface InfoSectionProps extends ExpertInfoProps {
  backgroundOverlay?: boolean;
 }
 
-export type OpenGraph = {
+export interface OpenGraph {
  images: string[];
-};
+}
 
 export interface TagContainerProps {
  tags: string[];
@@ -215,8 +217,81 @@ export interface TagContentProps {
  type: string;
  blogsData: (PostMetadata & { id: string; slug: string })[];
 }
-export interface DetailsProps {
+export interface Detail {
  icon?: string;
  header: string;
  details: string;
+}
+
+export interface Link {
+ src: string;
+ text: string;
+}
+
+export interface Image {
+ src: string;
+ alt: string;
+}
+
+export interface ColorDetails {
+ primary: string;
+}
+
+export interface TextGroup {
+ welcomeText?: string;
+ heading?: string;
+ subHeading?: { one: string; two: string };
+ learnMore: HeadingTextsProps;
+}
+
+export interface HeroProps {
+ textGroup: TextGroup;
+ links: {
+  primary: Link;
+  secondary?: Link;
+ };
+ images: {
+  group?: {
+   list: Image[];
+  };
+  background?: string;
+ };
+ colorDetails: ColorDetailsExtended;
+}
+export interface ColorDetailsExtended extends ColorDetails {
+ light: { value: number; opacity?: number };
+ dark: { value: number; opacity?: number };
+}
+
+export interface ImageData extends Image {
+ width: number;
+ height: number;
+}
+
+export interface SingleGridContentProps {
+ imagesData: ImageData;
+ headingTexts: HeadingTextsProps;
+ paragraphTexts: ParagraphTextsProps;
+}
+
+export interface TwoGridContentProps {
+ learnMoreHeader: string;
+ detailsList: Detail[];
+ primaryLink: Link;
+ imagesData: ImageData;
+ colorDetails: ColorDetails;
+ order: number; // For grid order
+}
+export interface HeadingTextsProps {
+ heading: string;
+ subHeading?: string;
+}
+export interface ParagraphTextsProps {
+ primary: string;
+ secondary?: string;
+}
+
+export interface LearnMoreHeaderProps {
+ headingTexts: HeadingTextsProps;
+ colorDetails: ColorDetails;
 }

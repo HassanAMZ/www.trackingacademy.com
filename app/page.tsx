@@ -17,33 +17,45 @@ const Page: React.FC = () => {
   <main className='flex flex-col'>
    <ContainerLayout className='pb-4'>
     <HeroComponent
-     clientImageBoolean={true}
-     welcomeText='Top Rated Web Analyst on Upwork 🚀'
-     linksBoolean={true}
-     heading='Grow your business with Accurate data'
-     subHeading1=''
-     subHeading2='Improving Marketing Strategies for Small Businesses through Advanced Tracking Implementation.'
-     primaryLink={{ src: "/portfolio", text: "Show me the Portfolio" }}
-     secondaryLink={{ src: "/contact", text: "Get In Touch" }} // Add this prop if possible
-     imagesData={[
-      {
-       src: "/images/clients/001_1.jfif",
-       alt: "Imtiaz Ahmed - Job Ready Programmer",
+     textGroup={{
+      welcomeText: "Become a Freelancer with our 6-Week Mastery Program 🚀",
+      heading: "From ZERO to freelancer in 6 weeks",
+      subHeading: {
+       one: "",
+       two: "A step-by-step course designed to help you start and grow your freelance business.",
       },
-      { src: "/images/clients/007.jfif", alt: "Client" },
-      {
-       src: "/images/clients/008.jfif",
-       alt: "Pjipipp Herglotz - Kiss Agency",
+      learnMore: {
+       heading: "What is Freelancing in 6 Weeks Program? 🚀",
+       subHeading:
+        "We don’t just hand you tools. We make sure you know how to use them.",
       },
-      {
-       src: "/images/clients/001.jpg",
-       alt: "Imtiaz Ahmed - Job Ready Programmer",
+     }}
+     links={{
+      primary: { src: "#", text: "Enroll Here" },
+     }}
+     images={{
+      group: {
+       list: [
+        {
+         src: "/images/clients/001_1.jfif",
+         alt: "Imtiaz Ahmed - Job Ready Programmer",
+        },
+        { src: "/images/clients/007.jfif", alt: "Client" },
+        {
+         src: "/images/clients/008.jfif",
+         alt: "Pjipipp Herglotz - Kiss Agency",
+        },
+        {
+         src: "/images/clients/001.jpg",
+         alt: "Imtiaz Ahmed - Job Ready Programmer",
+        },
+       ],
       },
-     ]}
-     backgroundImage='/images/hero/hero-image.png'
-     primaryColor={baseColors.home.primary}
-     colorPercentage={{
-      dark: { value: 80 },
+      background: "/images/hero/hero-image.png",
+     }}
+     colorDetails={{
+      primary: baseColors.home.primary,
+      dark: { value: 70 },
       light: { value: 10 },
      }}
     />

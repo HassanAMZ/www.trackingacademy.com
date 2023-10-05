@@ -5,6 +5,7 @@ const headerNavLinks = [
  //  { href: "/portfolio", title: "Portfolio" },
  //  { href: "/services", title: "Services" },
  { href: "/for-freelancers", title: "For Freelancers" },
+ { href: "/for-businesses", title: "For Businesses" },
  { href: "/blog", title: "Blogs" },
  //  { href: "/tags", title: "Tags" },
  { href: "/about-us", title: "About" },

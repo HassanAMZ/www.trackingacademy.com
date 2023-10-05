@@ -1,108 +1,176 @@
 import HeroComponent from "@/components/global/HeroComponent";
-import {
- Paragraph,
- SubHeader,
- SubTitleHeader,
- TitleHeader,
-} from "@/components/typography/Heading";
-import Image from "next/image";
 import React from "react";
 import baseColors from "@/data/base-colors";
-import Details from "@/components/global/Details";
-import Link from "next/link";
+import TwoGridContent from "@/components/global/TwoGridContent";
+import SingleGridContent from "@/components/global/SingleGridContent";
+import LearnMoreHeader from "@/components/global/LearnMoreHeader";
+
 export default function Page() {
  return (
   <React.Fragment>
    <HeroComponent
-    clientImageBoolean={true}
-    linksBoolean={true}
-    welcomeText='Become a Freelancer with our 6-Week Mastery Program 🚀'
-    heading='From ZERO to freelancer in 6 weeks'
-    subHeading1=''
-    subHeading2='A step-by-step course designed to help you start and grow your freelance business.'
-    primaryLink={{ src: "#", text: "Enroll Here" }}
-    imagesData={[
-     {
-      src: "/images/clients/001_1.jfif",
-      alt: "Imtiaz Ahmed - Job Ready Programmer",
+    textGroup={{
+     welcomeText: "Become a Freelancer with our 6-Week Mastery Program 🚀",
+     heading: "From ZERO to freelancer in 6 weeks",
+     subHeading: {
+      one: "",
+      two: "A step-by-step course designed to help you start and grow your freelance business.",
      },
-     { src: "/images/clients/007.jfif", alt: "Client" },
-     { src: "/images/clients/008.jfif", alt: "Pjipipp Herglotz - Kiss Agency" },
+     learnMore: {
+      heading: "What is Freelancing in 6 Weeks Program? 🚀",
+      subHeading:
+       "We don’t just hand you tools. We make sure you know how to use them.",
+     },
+    }}
+    links={{
+     primary: { src: "#", text: "Enroll Here" },
+    }}
+    images={{
+     group: {
+      list: [
+       {
+        src: "/images/clients/001_1.jfif",
+        alt: "Imtiaz Ahmed - Job Ready Programmer",
+       },
+       { src: "/images/clients/007.jfif", alt: "Client" },
+       {
+        src: "/images/clients/008.jfif",
+        alt: "Pjipipp Herglotz - Kiss Agency",
+       },
+       {
+        src: "/images/clients/001.jpg",
+        alt: "Imtiaz Ahmed - Job Ready Programmer",
+       },
+      ],
+     },
+     background: "/images/hero/hero-image.png",
+    }}
+    colorDetails={{
+     primary: baseColors.service.primary,
+     dark: { value: 80 },
+     light: { value: 10 },
+    }}
+   />
+
+   <TwoGridContent
+    imagesData={{
+     alt: "temp",
+     src: "/images/hero/temp_img.png",
+     width: 863,
+     height: 1163,
+    }}
+    learnMoreHeader='A proven recipe of freelance success'
+    detailsList={[
      {
-      src: "/images/clients/001.jpg",
-      alt: "Imtiaz Ahmed - Job Ready Programmer",
+      icon: "🔨",
+      header: "Week 1",
+      details:
+       "Establishing a Solid Foundation for Your Freelance Business. 🎯",
+     },
+     {
+      icon: "🖥",
+      header: "Week 2",
+      details: "Drawing Clients with a Genuine and Engaging Personal Brand.",
+     },
+     {
+      icon: "📈",
+      header: "Week 3",
+      details:
+       "Establishing Credibility Through a Professional Website and Portfolio.",
+     },
+     {
+      icon: "💼",
+      header: "Week 4",
+      details:
+       "Implement a Lead Generation Strategy and Secure Your First Clients.",
+     },
+     {
+      icon: "🚀",
+      header: "Week 5",
+      details:
+       "Confidently Negotiate and Lock in Lucrative Freelance Contracts.",
+     },
+     {
+      icon: "🌟",
+      header: "Week 6",
+      details:
+       "Successfully Complete Projects and Expand with Client Testimonials.",
      },
     ]}
-    backgroundImage='/images/hero/hero-image.png'
-    primaryColor={baseColors.service.primary}
-    colorPercentage={{ dark: { value: 80 }, light: { value: 10 } }}
+    primaryLink={{ src: "#", text: "Enroll Here" }}
+    colorDetails={{ primary: baseColors.service.primary }}
+    order={1} // Grid order
    />
-   <div className='py-16 text-center'>
-    <SubTitleHeader className='py-2'>
-     What is Freelancing in 6 Weeks Program? 🚀
-    </SubTitleHeader>
-
-    <SubHeader style={{ color: baseColors.service.primary }}>
-     We don’t just hand you tools. We make sure you know how to use them.
-    </SubHeader>
+   <TwoGridContent
+    imagesData={{
+     alt: "temp",
+     src: "/images/hero/temp_img_2.png",
+     width: 500,
+     height: 412,
+    }}
+    learnMoreHeader='Actionable, practical, impactful'
+    detailsList={[
+     {
+      icon: "▶️",
+      header: "Explainer Videos",
+      details:
+       "44 high-quality over-the-shoulder explainer videos showing the exact steps of HOW to build your business.",
+     },
+     {
+      icon: "🎨",
+      header: "Done For You",
+      details:
+       "47 customizable templates, checklists, and spreadsheets, all designed to help you build a freelance business faster.",
+     },
+     {
+      icon: "🖼",
+      header: "Structured Approach",
+      details:
+       "Gain an overview of your progress with the structured Freelancing Pizza Canvas.",
+     },
+    ]}
+    primaryLink={{ src: "#", text: "Enroll Here" }}
+    colorDetails={{ primary: baseColors.service.primary }}
+    order={-1}
+   />
+   <div className='flex md:flex-row flex-col gap-2'>
+    <SingleGridContent
+     imagesData={{
+      src: "/images/hero/temp_img_2.png",
+      alt: "Description of image",
+      width: 600,
+      height: 400,
+     }}
+     headingTexts={{ heading: "Real-life examples, real freelancers" }}
+     paragraphTexts={{
+      primary: "You are not alone on your journey.",
+      secondary:
+       "The course comes with case study videos of real freelance businesses. Gain inspiration, insight, and learn what the current best practices are.",
+     }}
+    />
+    <SingleGridContent
+     imagesData={{
+      src: "/images/hero/temp_img_2.png",
+      alt: "Description of image",
+      width: 600,
+      height: 400,
+     }}
+     headingTexts={{ heading: "Email feedback and coaching" }}
+     paragraphTexts={{
+      primary: "Assurance that you are on the right path.",
+      secondary:
+       "Whenever you have a question about your freelance business, a reply will be in your inbox within hours.",
+     }}
+    />
    </div>
-
-   <section className='backgroundOverlay md:p-10 p-4 '>
-    <div className='md:grid  md:grid-cols-5'>
-     <div className='md:col-span-2 order-1 flex w-full items-center justify-center '>
-      <Image
-       alt='temp'
-       src='/images/hero/temp_img.png'
-       width={863}
-       height={1163}
-      />
-     </div>
-     <div className='md:col-span-3'>
-      <SubTitleHeader>A proven recipe of freelance success</SubTitleHeader>
-      <Details
-       icon='🔨'
-       header='Week 1'
-       details='Establishing a Solid Foundation for Your Freelance Business. 🎯'
-      />
-
-      <Details
-       icon='🖥'
-       header='Week 2'
-       details='Drawing Clients with a Genuine and Engaging Personal Brand.'
-      />
-
-      <Details
-       icon='📈'
-       header='Week 3'
-       details='Establishing Credibility Through a Professional Website and Portfolio.'
-      />
-
-      <Details
-       icon='💼'
-       header='Week 4'
-       details='Implement a Lead Generation Strategy and Secure Your First Clients.'
-      />
-
-      <Details
-       icon='🚀'
-       header='Week 5'
-       details='Confidently Negotiate and Lock in Lucrative Freelance Contracts.'
-      />
-
-      <Details
-       icon='🌟'
-       header='Week 6'
-       details='Successfully Complete Projects and Expand with Client Testimonials.'
-      />
-     </div>
-    </div>
-    <Link
-     className='font-semibold  rounded-md py-4 px-6 w-full flex items-center justify-center'
-     style={{ backgroundColor: baseColors.service.primary }}
-     href='#'>
-     Enroll Today
-    </Link>
-   </section>
+   <LearnMoreHeader
+    headingTexts={{
+     heading: "  Designed for all kinds of creative professionals ☀️",
+     subHeading:
+      "Writers, designers, developers, marketers, coaches and many other have all enjoyed the program!",
+    }}
+    colorDetails={{ primary: baseColors.service.primary }}
+   />
   </React.Fragment>
  );
 }

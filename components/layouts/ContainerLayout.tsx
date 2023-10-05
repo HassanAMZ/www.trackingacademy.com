@@ -6,7 +6,7 @@ const ContainerLayout: FC<ContainerLayoutProps> = ({
  id,
 }) => {
  return (
-  <div id={id} className={`container mx-auto p-2  ${className}`}>
+  <div id={id} className={`container mx-auto px-1  ${className}`}>
    {children}
   </div>
  );
