@@ -58,7 +58,7 @@ const HeroComponent: React.FC<HeroProps> = ({
        </Heading3xl>
       )}
       {textGroup.heading && (
-       <Heading5xl className='py-2 md:max-w-lg'>{textGroup.heading}</Heading5xl>
+       <Heading5xl className='md:max-w-lg'>{textGroup.heading}</Heading5xl>
       )}
       {textGroup.subHeading && (
        <div className='space-y-1 font-semibold text-2xl md:w-[70%]'>

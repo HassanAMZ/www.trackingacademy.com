@@ -115,6 +115,14 @@ export interface Client {
  images: { name: string; link: string }[];
  project_details: { heading: string; title: string; link: string }[];
 }
+export interface TestimonialCardProps {
+ person: {
+  image: ImageData;
+  testimonial: string;
+  name: string;
+  position: string;
+ };
+}
 export interface PostMetadata {
  title: string;
  date: string;
@@ -228,7 +236,7 @@ export interface Link {
  text: string;
 }
 
-export interface Image {
+export interface ImagesProps {
  src: string;
  alt: string;
 }
@@ -241,31 +249,36 @@ export interface TextGroup {
  welcomeText?: string;
  heading?: string;
  subHeading?: { one: string; two: string };
- learnMore: HeadingTextsProps;
+ learnMore?: HeadingTextsProps;
+}
+export interface LinksGroupProps {
+ primary: Link;
+ secondary?: Link;
 }
 
 export interface HeroProps {
  textGroup: TextGroup;
- links: {
-  primary: Link;
-  secondary?: Link;
- };
+ links: LinksGroupProps;
  images: {
   group?: {
-   list: Image[];
+   list: ImagesProps[];
   };
   background?: string;
  };
  colorDetails: ColorDetailsExtended;
 }
+
 export interface ColorDetailsExtended extends ColorDetails {
  light: { value: number; opacity?: number };
  dark: { value: number; opacity?: number };
 }
 
-export interface ImageData extends Image {
+export interface ImageData extends ImagesProps {
  width: number;
  height: number;
+}
+export interface ImageGeneralProps {
+ image: ImageData;
 }
 
 export interface SingleGridContentProps {
@@ -293,5 +306,8 @@ export interface ParagraphTextsProps {
 
 export interface LearnMoreHeaderProps {
  headingTexts: HeadingTextsProps;
+ colorDetails: ColorDetails;
+}
+export interface StartHereSectionProps {
  colorDetails: ColorDetails;
 }

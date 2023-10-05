@@ -10,7 +10,7 @@ export default function Page() {
   <React.Fragment>
    <HeroComponent
     textGroup={{
-     welcomeText: "Become a Freelancer with our 6-Week Mastery Program 🚀",
+     welcomeText: "Become a Freelancer with our 6-Week Mastery Program ",
      heading: "From ZERO to freelancer in 6 weeks",
      subHeading: {
       one: "",

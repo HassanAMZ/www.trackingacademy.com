@@ -3,7 +3,7 @@ import RecentClientSlider from "@/components/holders/RecentClientSlider";
 import ContainerLayout from "@/components/layouts/ContainerLayout";
 import AvatarCard from "@/components/global/AvatarCard";
 import avatarsDetails from "@/data/avatar-details";
-import TestimonialCard from "@/components/global/TestimonialCard";
+import TestimonialCard from "@/components/testimonial/TestimonialCard";
 import clientDetails from "@/data/clients-details";
 import Link from "next/link";
 import Divider from "@/components/home/Divider";
@@ -11,27 +11,28 @@ import InfoSection from "@/components/home/InfoSection";
 import CustomHeader from "@/components/home/CustomHeader";
 import HeroComponent from "@/components/global/HeroComponent";
 import baseColors from "@/data/base-colors";
+import StartHereSection from "@/components/home/StartHereSection";
 
 const Page: React.FC = () => {
  return (
-  <main className='flex flex-col'>
-   <ContainerLayout className='pb-4'>
+  <main className=''>
+   <div className='pb-4'>
     <HeroComponent
      textGroup={{
-      welcomeText: "Become a Freelancer with our 6-Week Mastery Program 🚀",
-      heading: "From ZERO to freelancer in 6 weeks",
+      welcomeText: "Welcome, Freelancers!",
+      heading: "Build a better freelance life.",
       subHeading: {
-       one: "",
-       two: "A step-by-step course designed to help you start and grow your freelance business.",
+       one: "Hey, I'm Hassan, ",
+       two: "and I help aspiring and established creatives with their freelance businesses.",
       },
       learnMore: {
-       heading: "What is Freelancing in 6 Weeks Program? 🚀",
-       subHeading:
-        "We don’t just hand you tools. We make sure you know how to use them.",
+       heading: "Not sure where to start?",
+       subHeading: "Take a look at these free resources on freelancing!",
       },
      }}
      links={{
-      primary: { src: "#", text: "Enroll Here" },
+      primary: { src: "/#start-here", text: "Start Here" },
+      secondary: { src: "/contact", text: "Get In Touch" },
      }}
      images={{
       group: {
@@ -55,12 +56,32 @@ const Page: React.FC = () => {
      }}
      colorDetails={{
       primary: baseColors.home.primary,
-      dark: { value: 70 },
+      dark: { value: 80 },
       light: { value: 10 },
      }}
     />
-   </ContainerLayout>
-   <ContainerLayout className='pb-4'>
+   </div>
+   <StartHereSection
+    colorDetails={{
+     primary: baseColors.home.primary,
+    }}
+   />
+
+   <TestimonialCard
+    person={{
+     testimonial:
+      "Peter was shining a light on questions I never even asked myself!",
+     position: "Freelance Journalist",
+     name: "Clarissa Jurumenha",
+     image: {
+      src: "/images/clients/001_1.jfif",
+      alt: "Imtiaz Ahmed - Job Ready Programmer",
+      width: 1920,
+      height: 1080,
+     },
+    }}
+   />
+   {/* <ContainerLayout className='pb-4'>
     <CustomHeader text='Recent Web Analytics & Tracking Projects' />
     <RecentClientSlider />
    </ContainerLayout>
@@ -265,7 +286,7 @@ const Page: React.FC = () => {
 
    <ContainerLayout>
     <TestimonialCard client={clientDetails[3]} />
-   </ContainerLayout>
+   </ContainerLayout> */}
   </main>
  );
 };

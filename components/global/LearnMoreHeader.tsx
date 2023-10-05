@@ -1,7 +1,11 @@
 // LearnMoreHeader.tsx
 
 import React from "react";
-import { Heading3xl, Heading4xl } from "@/components/typography/Heading";
+import {
+ Heading2xl,
+ Heading4xl,
+ Headingxl,
+} from "@/components/typography/Heading";
 import { LearnMoreHeaderProps } from "@/types/index"; // make sure to use the actual path
 
 const LearnMoreHeader: React.FC<LearnMoreHeaderProps> = ({
@@ -16,9 +20,9 @@ const LearnMoreHeader: React.FC<LearnMoreHeaderProps> = ({
     <Heading4xl className='py-2'>{headingTexts.heading}</Heading4xl>
    )}
    {headingTexts.subHeading && (
-    <Heading3xl style={{ color: colorDetails.primary }}>
+    <Headingxl style={{ color: colorDetails.primary }}>
      {headingTexts.subHeading}
-    </Heading3xl>
+    </Headingxl>
    )}
   </div>
  );
