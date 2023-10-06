@@ -1,0 +1,69 @@
+export const metadata = {
+ title: "Setting Up Google Analytics on Shopify Through Google Tag Manager",
+ date: "2023-10-09", // Assuming the date based on the current context
+ blogId: "00059",
+ tags: ["Google Analytics", "Shopify", "Google Tag Manager", "Tutorial"],
+ draft: false,
+ description:
+  "A step-by-step guide on how to set up Google Analytics for your Shopify store using Google Tag Manager.",
+ openGraph: {
+  images: ["/static/blog/00004.png"], // Images can be provided here
+ },
+ embedId: "eQYAtA_jmb0",
+};
+
+<BlogHeader metadata={metadata} />
+
+Setting up your Shopify store with Google Analytics 4 (GA4) is essential for keeping track of your site's performance and user behavior. Leveraging the power of Google Tag Manager (GTM) simplifies this process. Here's how you can integrate them seamlessly.
+
+## Introduction
+
+With the rise of e-commerce platforms, it's become increasingly important to monitor user interactions. Google Analytics 4 provides a comprehensive view of your site's activity. This guide will focus on integrating GA4 with Shopify using Google Tag Manager.
+
+<YoutubeEmbed embedId={metadata.embedId} />
+
+## Initial Steps: Setting Up Google Analytics and Tag Manager Accounts
+
+1. If you've already set up your Google Analytics and Google Tag Manager accounts, you can skip to the next section. If not, you'll need to [create your Google Analytics and Google Tag Manager accounts](https://youtu.be/Y1baN6llC8c).
+2. Ensure that you have the Google Tag Assistant Chrome extension installed.
+
+## Installing the Google Tag Manager (GTM) Container on Shopify
+
+1. Log in to your GTM account.
+2. Navigate to the **Admin** section and select **Container Settings**.
+3. Under the install section, you'll find two tracking snippets. One is for the `<head>` and the other is for the `<body>` section of your site.
+4. Copy the tracking code for the `<head>`.
+5. On your Shopify dashboard, navigate to **Online Store** > **Themes**.
+6. Click on **Edit Code** and locate the `theme.liquid` file.
+7. Find the `<head>` tag and paste the GTM tracking code you copied.
+8. Return to GTM and grab the tracking code for the `<body>`.
+9. Back in the `theme.liquid` file, search for the `<body>` tag and paste the second tracking code.
+10. Optionally, format the liquid to ensure it's readable.
+11. Save your changes.
+
+## Verifying GTM Installation
+
+1. Visit your Shopify store.
+2. Use the **Google Tag Assistant** extension to check if GTM is correctly implemented. It should indicate that a GTM container has been found on the website.
+
+## Integrating Google Analytics 4 (GA4)
+
+1. In your GA4 account, click on **Admin** located at the bottom left.
+2. Go to **Property Settings** > **Data Streams**.
+3. Locate the relevant data stream (e.g., Web) and copy the **Measurement ID**.
+4. Return to your GTM workspace.
+5. Navigate to **Variables** and create a constant variable named "GA4 Measurement ID" with the copied ID.
+6. Now, go to **Tags** > **New**.
+7. Choose a suitable name and select **GTag** as the tag type.
+8. Insert your "GA4 Measurement ID" variable.
+9. Save your changes and preview the workspace to ensure everything is functioning correctly.
+10. If all goes well, GA4 should now be capturing data from your Shopify store!
+
+<Note
+ title='Tip'
+ content='Remember to periodically check both your GA4 and GTM accounts to ensure data is being captured accurately and to leverage the insights gained for business growth.'
+/>
+
+## Conclusion
+
+Integrating Google Analytics 4 with your Shopify store using Google Tag Manager is a straightforward process. By following these steps, you'll be well on your way to gaining valuable insights about your store's performance and user behavior.

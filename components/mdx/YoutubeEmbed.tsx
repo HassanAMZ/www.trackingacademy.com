@@ -1,4 +1,4 @@
-import React, { FC, Fragment } from "react";
+import React, { FC, Fragment, useEffect } from "react";
 import { YoutubeEmbedProps } from "@/types/index";
 
 const YoutubeEmbed: FC<YoutubeEmbedProps> = ({ embedId }) => {
@@ -12,7 +12,9 @@ const YoutubeEmbed: FC<YoutubeEmbedProps> = ({ embedId }) => {
  }
 
  return (
-  <div className='video-responsive shadow-md rounded-md'>
+  <div
+   id='youtubeEmbedMdxComponents'
+   className='video-responsive shadow-md rounded-md'>
    <iframe
     width={853}
     height={480}

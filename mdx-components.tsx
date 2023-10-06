@@ -6,6 +6,16 @@ import CustomLink from "@/components/mdx/CustomLink";
 import Accordion from "@/components/mdx/Accordion";
 import Note from "@/components/mdx/Note";
 import React from "react";
+import {
+ Heading2xl,
+ Heading3xl,
+ Heading4xl,
+ Heading5xl,
+ Headingxl,
+ Paragraphlg,
+ Paragraphmd,
+ Paragraphsm,
+} from "./components/typography/Heading";
 import GiscusComments from "@/components/mdx/GiscusComents";
 // This file is required to use MDX in `app` directory.
 export function useMDXComponents(components: MDXComponents): MDXComponents {
@@ -17,42 +27,42 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
   a: CustomLink,
   GiscusComments,
   Accordion,
-
-  p: (props) => {
-   return (
-    <p className='py-1 text-gray-700 dark:text-gray-100 text-left' {...props}>
-     {props.children}
-    </p>
-   );
-  },
   h1: (props) => {
    return (
-    <h1 className='text-left py-2 text-4xl font-medium' {...props}>
+    <Heading4xl className='py-2' {...props}>
      {props.children}
-    </h1>
+    </Heading4xl>
    );
   },
   h2: (props) => {
    return (
-    <h2 className='text-left py-2 text-3xl font-medium' {...props}>
+    <Heading3xl className='py-2' {...props}>
      {props.children}
-    </h2>
+    </Heading3xl>
    );
   },
   h3: (props) => {
    return (
-    <h3 className='text-left py-2 text-2xl font-medium' {...props}>
+    <Heading2xl className='py-2' {...props}>
      {props.children}
-    </h3>
+    </Heading2xl>
    );
   },
   h4: (props) => {
    return (
-    <h4 className='text-left py-2 text-xl font-medium' {...props}>
+    <Headingxl className='py-2' {...props}>
      {props.children}
-    </h4>
+    </Headingxl>
    );
   },
+  p: (props) => {
+   return (
+    <Paragraphmd className='tracking-normal leading-normal pb-2' {...props}>
+     {props.children}
+    </Paragraphmd>
+   );
+  },
+
   ...components,
  };
 }

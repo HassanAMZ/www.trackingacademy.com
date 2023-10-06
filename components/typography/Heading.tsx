@@ -68,7 +68,7 @@ const Paragraphmd: React.FC<HeadingProps> = ({
 }) => {
  return (
   <p
-   className={`text-md font-medium tracking-normal ${className}`}
+   className={`text-md font-normal tracking-normal ${className}`}
    style={style}>
    {children}
   </p>

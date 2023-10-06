@@ -1,0 +1,89 @@
+export const metadata = {
+ title: "Configure Google Tag Manager on Your Shopify Store",
+ date: "2023-10-07",
+ blogId: "00058",
+ tags: ["google tag manager", "google analytics 4", "shopify"],
+ draft: false,
+ openGraph: {
+  images: ["/static/blog/00006.png"],
+ },
+ description:
+  "In this guide, we detailed the step-by-step process of integrating Google Tag Manager (GTM) with a Shopify store. From the initial setup to nuances like upsell tracking, the tutorial covers essential prerequisites, embedding GTM snippets into the Shopify interface, and ensuring accurate tracking on crucial pages like the 'Thank You' page after a purchase. By following these steps, Shopify store owners can seamlessly monitor user interactions, optimize their store's performance, and enhance their marketing efforts.",
+ embedId: "DdNpTpcypso",
+};
+
+<BlogHeader metadata={metadata} />
+
+Hello there! 🖐️ In today's tutorial, we'll dive deep into how you can configure Google Tag Manager (GTM) on your Shopify store. This detailed guide will provide you with step-by-step instructions, ensuring a seamless setup process.
+
+<YoutubeEmbed embedId={metadata.embedId} />
+
+## Introduction
+
+Google Tag Manager allows us to manage and deploy marketing tags on our website without modifying the code. This is especially useful for those of us who aren’t developers.
+
+Don't worry; we're keeping things simple and straightforward.
+
+### Here's what we'll cover:
+
+<Accordion data='blogId_00058' />
+
+### Prerequisites:
+
+- A Google Account (assuming everyone has one).
+- A Shopify store.
+
+If you're all set, let's dive in!
+
+## Setting Up Your GTM Account
+
+If you need to create an account, follow this [link](https://youtu.be/Y1baN6llC8c).
+
+For those who already have a GTM account:
+
+1. Log in to your account. You will see your existing containers. But if you're new, you won't see any.
+2. Click on **Create Account** on the top right.
+3. Enter the name of your company or business.
+4. Under the container, set up the URL of your website. For example, `trackingacademy.com`.
+
+<Note
+ title='Tip'
+ content="It's best to use one GTM container per business. If you have multiple
+ domains for the same business, use one container."
+/>
+## Integrating GTM on Shopify
+
+Now, we need to place the GTM code snippets on your Shopify store. Don't worry; it's just copying and pasting.
+
+1. Head to Google Tag Manager. You'll find two snippets:
+
+<div className="pl-4">
+
+- One for the **head** section of your site.
+- One for the **body** section.
+
+</div>
+
+2. Copy the **head** snippet.
+3. Go to your Shopify dashboard > **Online Store** > **Themes** > Click the three dots (…) > **Edit Code**.
+4. Navigate to the **theme** section, and right under the `<head>`, paste the code you copied.
+5. Now, go back to GTM and copy the **body** snippet.
+6. In Shopify's code editor, find the `<body>` tag. You can use Ctrl + F or Command + F to search.
+7. Paste the **body** code snippet right after the opening `<body>` tag.
+
+<Note
+ title='Note'
+ content="It's a good practice to make a backup of your theme before editing its code. This ensures you have a fallback in case of any mistakes."
+/>
+
+## Conclusion
+
+With these steps, Google Tag Manager should now be correctly set up on your Shopify store. You can now easily track events, understand your audience better, and improve your marketing strategies.
+
+<br />
+
+Remember, if you're ever in doubt, there's always a community willing to help out. Join forums, ask questions, and always keep learning.
+
+<br />
+
+Happy tagging!

@@ -1,46 +1,37 @@
-// BlogContent.tsx
-
-import React from "react";
-import CustomLink from "@/components/mdx/CustomLink";
-import { PostMetadata } from "@/types/index";
-import Image from "next/image";
+"use client";
+import React, { useState } from "react";
+import SingleBlogCard from "@/components/blog/SingleBlogCard";
 import { BlogContentProps } from "@/types/index";
-import Link from "next/link";
-import SingleBlogCard from "./SingleBlogCard";
+import { Headingxl } from "@/components/typography/Heading";
 
 const BlogContent: React.FC<BlogContentProps> = ({ data, type }) => {
- const blogLinks = data.map((post, index) => (
-  <React.Fragment>
-   <SingleBlogCard key={index} post={post} type={type} />
-   {/* <Link
-    key={index}
-    className='backgroundOverlay p-1 border-2 hover:scale-[98%] hover:bg-gray-300 hover:dark:bg-gray-700 '
-    href={`/${type}/${post.slug}`}>
-    <div className='grid grid-cols-4 sm:gap-2 gap-0 jusitfy-center items-center'>
-     <div className='col-span-1 sm:pl-2'>
-      <Image
-       width={1920}
-       height={1080}
-       className={`rounded-md border-2 aspect-video`}
-       src={post.openGraph.images[0]}
-       alt={post.title}
-      />
-     </div>
-     <div className='col-span-3 flex flex-col px-2 sm:px-4'>
-      <h3 className='font-medium text-left  sm:line-clamp-2 line-clamp-1'>
-       {post.title}
-      </h3>
-      <p className=' font-normal text-left line-clamp-2 sm:line-clamp-3 opacity-70 '>
-       {post.description}
-      </p>
-     </div>
-    </div>
-   </Link> */}
+ const [visiblePosts, setVisiblePosts] = useState(9); // Display first 9 posts by default
+
+ const mainBlogPost = data.find((blog) => blog.blogId === "00057")!;
+ const visibleBlogLinks = data.slice(0, visiblePosts).map((post, index) => (
+  <React.Fragment key={index}>
+   <SingleBlogCard post={post} type={type} />
   </React.Fragment>
  ));
 
+ const loadMoreHandler = () => {
+  setVisiblePosts((prevValue) => prevValue + 9); // Load 9 more posts
+ };
+
  return (
-  <div className='grid sm:grid-cols-3 grid-cols-1 gap-2'>{blogLinks}</div>
+  <React.Fragment>
+   <SingleBlogCard isMain={true} post={mainBlogPost} type={"blog"} />
+   <div className='grid sm:grid-cols-3 grid-cols-1 gap-2'>
+    {visibleBlogLinks}
+   </div>
+   {visiblePosts < data.length && (
+    <button
+     onClick={loadMoreHandler}
+     className='bg-gray-800 border  py-2 px-4 rounded'>
+     <Headingxl>Load More Blogs</Headingxl>
+    </button>
+   )}
+  </React.Fragment>
  );
 };
 

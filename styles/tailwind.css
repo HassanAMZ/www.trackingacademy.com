@@ -34,5 +34,5 @@ li {
 }
 
 .giscus {
- @apply !p-8 backgroundOverlay;
+ @apply md:p-8 p-2  backgroundOverlay;
 }

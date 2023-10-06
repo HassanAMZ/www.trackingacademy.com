@@ -291,6 +291,8 @@ export interface SingleGridContentProps {
 export interface SingleBlogCardProps {
  post: PostMetadata & { id: string; slug: string };
  type: string;
+ isMain?: boolean;
+ className?: string;
 }
 
 export interface TwoGridContentProps {
