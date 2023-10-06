@@ -1,3 +1,10 @@
+import HeroComponentSkeleton from "@/components/skeleton/HeroComponentSkeleton";
+import React from "react";
+
 export default function Loading() {
- return <p>The Home Page is Loading</p>;
+ return (
+  <React.Fragment>
+   <HeroComponentSkeleton />
+  </React.Fragment>
+ );
 }

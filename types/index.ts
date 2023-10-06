@@ -171,6 +171,7 @@ export interface YoutubeEmbedProps {
 export interface NavLinkProps {
  href: string;
  children: React.ReactNode;
+ className?: string;
 }
 
 export interface ImageProps {
@@ -287,6 +288,10 @@ export interface SingleGridContentProps {
  headingTexts: HeadingTextsProps;
  paragraphTexts: ParagraphTextsProps;
 }
+export interface SingleBlogCardProps {
+ post: PostMetadata & { id: string; slug: string };
+ type: string;
+}
 
 export interface TwoGridContentProps {
  learnMoreHeader: string;
@@ -317,4 +322,14 @@ export interface WhyUsProps {
 }
 export interface StartHereSectionProps {
  colorDetails: ColorDetails;
+}
+export interface Color {
+ primary: string;
+}
+export interface BaseColors {
+ service: Color;
+ aboutUs: Color;
+ home: Color;
+ forBusinesses: Color;
+ [key: string]: Color;
 }

@@ -5,11 +5,12 @@ import NavBar from "@/components/navbar/Navbar";
 import { ReactNode } from "react";
 import { AuthContextProvider } from "@/context/AuthContext";
 import { PaypalContext } from "@/context/PaypalContext";
-import Script from "next/script";
 import GTMAnalytics from "@/components/analytics/GTMAnalytics";
 import React from "react";
 import VercelAnalytics from "@/components/analytics/VercelAnalytics";
 import Footer from "@/components/footer/Footer";
+import ContainerLayout from "@/components/layouts/ContainerLayout";
+
 const interVariableFont = localFont({
  src: "fonts/Inter/inter-font.ttf",
  display: "swap",
@@ -51,23 +52,21 @@ const BgPolygon2 = (
 
 export default function RootLayout({ children }: { children: ReactNode }) {
  const isProduction = process.env.NEXT_PUBLIC_ENVIRONMENT === "production";
-
  return (
   <html lang='en' className='dark'>
    <body
-    className={`bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-white tracking-tighter max-w-5xl mx-auto text-base leading-tight ${interVariableFont.className}`}>
+    className={`bg-gray-100 selection:bg-pink-300 dark:bg-gray-800 text-gray-800 dark:text-white tracking-tighter max-w-5xl mx-auto text-base leading-tight ${interVariableFont.className}`}>
     {BgPolygon1}
-    <div className=''>
+    <ContainerLayout>
      <NavBar />
-    </div>
+    </ContainerLayout>
     <PaypalContext>
      <AuthContextProvider>{children}</AuthContextProvider>
     </PaypalContext>
     {BgPolygon2}
-    {isProduction && <React.Fragment></React.Fragment>}
-    <GTMAnalytics />
-    <VercelAnalytics />
-    <Footer />
+    <ContainerLayout>
+     <Footer />
+    </ContainerLayout>
    </body>
   </html>
  );

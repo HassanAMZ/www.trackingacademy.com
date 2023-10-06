@@ -4,15 +4,15 @@ import CustomLink from "@/components/mdx/CustomLink";
 import { useSelectedLayoutSegments } from "next/navigation";
 import Link from "next/link";
 
-const NavLink: React.FC<NavLinkProps> = ({ href, children }) => {
+const NavLink: React.FC<NavLinkProps> = ({ href, children, className }) => {
  let segment = useSelectedLayoutSegments();
  let active = href === `/${segment}`;
 
  return (
   <Link
-   className={`text-base  ${
-    active ? "underline opacity-100 font-bold" : "opacity-80 font-semibold "
-   } hover:opacity-100`}
+   className={`text-lg md:text-base ${className}  ${
+    active ? "underline opacity-100 font-bold" : "opacity-70 font-semibold "
+   } hover:opacity-100  hover:font-bold`}
    href={href}>
    {children}
   </Link>

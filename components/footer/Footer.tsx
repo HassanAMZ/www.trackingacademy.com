@@ -15,7 +15,7 @@ import NavLink from "../navbar/NavLink";
 
 const Footer: React.FC = () => {
  return (
-  <ContainerLayout className='pt-2 pb-10'>
+  <ContainerLayout className='py-2'>
    <footer className='backgroundOverlay md:px-20 md:py-16 py-12 px-5 flex  md:gap-5 gap-2  justify-between'>
     <div className='flex justify-between flex-col'>
      <div>

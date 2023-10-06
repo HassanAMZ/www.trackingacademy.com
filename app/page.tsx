@@ -19,51 +19,49 @@ import WhyUs from "@/components/global/WhyUs";
 const Page: React.FC = () => {
  return (
   <main className=''>
-   <div className='pb-4'>
-    <HeroComponent
-     textGroup={{
-      welcomeText: "Welcome, Freelancers!",
-      heading: "Build a better freelance life.",
-      subHeading: {
-       one: "Hey, I'm Hassan, ",
-       two: "and I help aspiring and established creatives with their freelance businesses.",
-      },
-      learnMore: {
-       heading: "Not sure where to start?",
-       subHeading: "Take a look at these free resources on freelancing!",
-      },
-     }}
-     links={{
-      primary: { src: "/#start-here", text: "Start Here" },
-      secondary: { src: "/contact", text: "Get In Touch" },
-     }}
-     images={{
-      group: {
-       list: [
-        {
-         src: "/images/clients/001_1.jfif",
-         alt: "Imtiaz Ahmed - Job Ready Programmer",
-        },
-        { src: "/images/clients/007.jfif", alt: "Client" },
-        {
-         src: "/images/clients/008.jfif",
-         alt: "Pjipipp Herglotz - Kiss Agency",
-        },
-        {
-         src: "/images/clients/001.jpg",
-         alt: "Imtiaz Ahmed - Job Ready Programmer",
-        },
-       ],
-      },
-      background: "/images/hero/hero-image.png",
-     }}
-     colorDetails={{
-      primary: baseColors.home.primary,
-      dark: { value: 80 },
-      light: { value: 10 },
-     }}
-    />
-   </div>
+   <HeroComponent
+    textGroup={{
+     welcomeText: "Welcome, Freelancers!",
+     heading: "Build a better freelance life.",
+     subHeading: {
+      one: "Hey, I'm Hassan, ",
+      two: "and I help aspiring and established creatives with their freelance businesses.",
+     },
+     learnMore: {
+      heading: "Not sure where to start?",
+      subHeading: "Take a look at these free resources on freelancing!",
+     },
+    }}
+    links={{
+     primary: { src: "/#start-here", text: "Start Here" },
+     secondary: { src: "/contact", text: "Get In Touch" },
+    }}
+    images={{
+     group: {
+      list: [
+       {
+        src: "/images/clients/001_1.jfif",
+        alt: "Imtiaz Ahmed - Job Ready Programmer",
+       },
+       { src: "/images/clients/007.jfif", alt: "Client" },
+       {
+        src: "/images/clients/008.jfif",
+        alt: "Pjipipp Herglotz - Kiss Agency",
+       },
+       {
+        src: "/images/clients/001.jpg",
+        alt: "Imtiaz Ahmed - Job Ready Programmer",
+       },
+      ],
+     },
+     background: "/images/hero/hero-image.png",
+    }}
+    colorDetails={{
+     primary: baseColors.home.primary,
+     dark: { value: 80 },
+     light: { value: 10 },
+    }}
+   />
    <StartHereSection
     colorDetails={{
      primary: baseColors.home.primary,

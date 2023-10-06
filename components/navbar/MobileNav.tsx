@@ -53,12 +53,14 @@ const MobileNav = () => {
     <section
      className={`z-20 fixed top-0 right-0 left-0 bottom-0 transform duration-300 ease-in-out w-full h-full `}>
      <div
-      className={`bg-gray-100 dark:bg-gray-800 h-screen fixed top-0 right-0 left-0 bottom-0 shadow-lg p-2  pt-5  flex flex-row items-start justify-between gap-4`}
+      className={`bg-gray-100 dark:bg-gray-800 h-screen fixed top-0 right-0 left-0 bottom-0 shadow-lg p-2 pt-5 flex flex-row items-start justify-between gap-4`}
       onClick={toggleNav}>
-      <nav className='flex flex-col gap-4'>
-       <NavLink href='/'>Shahzada Ali Hassan</NavLink>
+      <nav className='flex flex-col w-full'>
+       <NavLink className='pb-5 ' href='/'>
+        Shahzada Ali Hassan
+       </NavLink>
        {headerNavLinks.map(({ href, title }) => (
-        <NavLink key={`nav-link-${title}`} href={href}>
+        <NavLink className='pb-5' key={`nav-link-${title}`} href={href}>
          {title}
         </NavLink>
        ))}

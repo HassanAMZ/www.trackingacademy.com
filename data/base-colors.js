@@ -1,8 +1,10 @@
 const baseColors = {
- service: { primary: "rgba(255,87,51,1)" },
- aboutUs: { primary: "rgba(147, 112, 219, 1)" },
  home: { primary: "rgba(34, 139, 34, 1)" },
+ forFreelancers: { primary: "rgba(152, 251, 152, 1)" },
  forBusinesses: { primary: "rgba(0, 191, 255, 1)" },
+ service: { primary: "rgba(255,87,51,1)" },
+ blog: { primary: "rgba(255,87,51,1)" },
+ aboutUs: { primary: "rgba(147, 112, 219, 1)" },
 };
 
 // Green

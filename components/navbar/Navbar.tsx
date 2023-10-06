@@ -6,7 +6,7 @@ import DesktopNav from "@/components/navbar/DesktopNav";
 
 export default function NavBar() {
  return (
-  <ContainerLayout className='py-4'>
+  <ContainerLayout className='pt-2 pb-3'>
    <header className='w-full pt-3 '>
     <div className='flex items-center justify-between w-full'>
      <DesktopNav />
