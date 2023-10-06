@@ -122,6 +122,7 @@ export interface TestimonialCardProps {
   name: string;
   position: string;
  };
+ className?: string;
 }
 export interface PostMetadata {
  title: string;

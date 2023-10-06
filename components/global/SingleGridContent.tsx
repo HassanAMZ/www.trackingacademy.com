@@ -15,9 +15,9 @@ const SingleGridContent: React.FC<SingleGridContentProps> = ({
  paragraphTexts,
 }) => {
  return (
-  <ContainerLayout className='pb-2'>
-   <section className='backgroundOverlay md:p-10 p-4'>
-    <div className={`order-1 flex w-full items-center justify-center`}>
+  <ContainerLayout className='pb-2 flex'>
+   <section className='backgroundOverlay md:py-10 p-4 grid'>
+    <div className='order-1 flex w-full items-center justify-center'>
      <Image
       alt={imagesData.alt}
       src={imagesData.src}
@@ -25,11 +25,13 @@ const SingleGridContent: React.FC<SingleGridContentProps> = ({
       height={imagesData.height}
      />
     </div>
-    <Heading2xl className=''>{headingTexts.heading}</Heading2xl>
-    <Paragraphmd className='font-semibold py-1'>
-     {paragraphTexts.primary}&nbsp;
-     <span className='opacity-70'>{paragraphTexts.secondary}</span>
-    </Paragraphmd>
+    <div>
+     <Heading2xl className=''>{headingTexts.heading}</Heading2xl>
+     <Paragraphmd className='font-semibold py-1'>
+      {paragraphTexts.primary}&nbsp;
+      <span className='opacity-70'>{paragraphTexts.secondary}</span>
+     </Paragraphmd>
+    </div>
    </section>
   </ContainerLayout>
  );

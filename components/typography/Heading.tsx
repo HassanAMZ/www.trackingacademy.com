@@ -74,6 +74,19 @@ const Paragraphmd: React.FC<HeadingProps> = ({
   </p>
  );
 };
+const Paragraphsm: React.FC<HeadingProps> = ({
+ children,
+ className,
+ style,
+}) => {
+ return (
+  <p
+   className={`text-sm font-medium tracking-normal ${className}`}
+   style={style}>
+   {children}
+  </p>
+ );
+};
 
 export {
  Heading5xl,
@@ -83,4 +96,5 @@ export {
  Headingxl,
  Paragraphlg,
  Paragraphmd,
+ Paragraphsm,
 };

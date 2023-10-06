@@ -71,6 +71,7 @@ const Page: React.FC = () => {
    />
 
    <TestimonialCard
+    className='!py-8'
     person={{
      testimonial:
       "Peter was shining a light on questions I never even asked myself!",
@@ -137,7 +138,9 @@ const Page: React.FC = () => {
      order='order-last md:order-last'
     />
    </section>
+
    <TestimonialCard
+    className='!py-8'
     person={{
      testimonial:
       "Peter was shining a light on questions I never even asked myself!",
