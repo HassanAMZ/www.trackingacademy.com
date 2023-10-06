@@ -308,6 +308,12 @@ export interface LearnMoreHeaderProps {
  headingTexts: HeadingTextsProps;
  colorDetails: ColorDetails;
 }
+export interface WhyUsProps {
+ headingTexts: HeadingTextsProps;
+ paragraphTexts: ParagraphTextsProps;
+ colorDetails: ColorDetails;
+ links: LinksGroupProps;
+}
 export interface StartHereSectionProps {
  colorDetails: ColorDetails;
 }

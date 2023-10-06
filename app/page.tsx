@@ -12,6 +12,9 @@ import CustomHeader from "@/components/home/CustomHeader";
 import HeroComponent from "@/components/global/HeroComponent";
 import baseColors from "@/data/base-colors";
 import StartHereSection from "@/components/home/StartHereSection";
+import LearnMoreHeader from "@/components/global/LearnMoreHeader";
+import FreeResoursesSection from "@/components/global/FreeResoursesSection";
+import WhyUs from "@/components/global/WhyUs";
 
 const Page: React.FC = () => {
  return (
@@ -79,6 +82,90 @@ const Page: React.FC = () => {
       width: 1920,
       height: 1080,
      },
+    }}
+   />
+
+   <LearnMoreHeader
+    headingTexts={{
+     heading: "Transform your carreer",
+     subHeading:
+      "Our programs were designed to guide you though launching or improving your freelance business.",
+    }}
+    colorDetails={{
+     primary: baseColors.home.primary,
+    }}
+   />
+   <section className='flex flex-col gap-2 items-center justify-center py-3'>
+    <FreeResoursesSection
+     headingTexts={{
+      heading: "Freelancing in 21 Days ",
+      subHeading:
+       "Get started with freelancing by taking the comprehensive Freelance Starter Program. Build your business from the ground up with expert guideance.",
+     }}
+     image={{
+      src: "/images/hero/temp_image_4.png",
+      alt: "Imtiaz Ahmed - Job Ready Programmer",
+      height: 1920,
+      width: 1080,
+     }}
+     colorDetails={{
+      primary: baseColors.home.primary,
+     }}
+     links={{
+      primary: { src: "/#start-here", text: "Start Here" },
+     }}
+     order='order-last md:order-first'
+    />
+    <FreeResoursesSection
+     headingTexts={{
+      heading: "Crust Club Monthly Membership",
+      subHeading:
+       "Join the Crust Club to sharpen your skills and land better clients with these exclusive freelancing resources.",
+     }}
+     image={{
+      src: "/images/hero/temp_image_4.png",
+      alt: "Imtiaz Ahmed - Job Ready Programmer",
+      height: 600,
+      width: 600,
+     }}
+     colorDetails={{
+      primary: baseColors.home.primary,
+     }}
+     links={{
+      primary: { src: "/#start-here", text: "Start Here" },
+     }}
+     order='order-last md:order-last'
+    />
+   </section>
+   <TestimonialCard
+    person={{
+     testimonial:
+      "Peter was shining a light on questions I never even asked myself!",
+     position: "Freelance Journalist",
+     name: "Clarissa Jurumenha",
+     image: {
+      src: "/images/clients/001_1.jfif",
+      alt: "Imtiaz Ahmed - Job Ready Programmer",
+      width: 1920,
+      height: 1080,
+     },
+    }}
+   />
+
+   <WhyUs
+    headingTexts={{
+     heading: "Why pizza? 🍕",
+    }}
+    paragraphTexts={{
+     primary: "Because freelancing is like pizza, ",
+     secondary:
+      "the dough, as in the business fundamentals are the same—but everybody gets to pick their own toppings!",
+    }}
+    colorDetails={{
+     primary: baseColors.home.primary,
+    }}
+    links={{
+     primary: { src: "/#start-here", text: "Get Started with Freelancing!" },
     }}
    />
    {/* <ContainerLayout className='pb-4'>

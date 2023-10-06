@@ -38,7 +38,7 @@ const StartHereSection: React.FC<StartHereSectionProps> = ({
    </ContainerLayout>
 
    {selectedButton === 1 && (
-    <div className='flex flex-col gap-3'>
+    <div className='flex flex-col gap-2'>
      <FreeResoursesSection
       headingTexts={{
        heading: "Guidebook to Freelancing",
@@ -93,7 +93,7 @@ const StartHereSection: React.FC<StartHereSectionProps> = ({
     </div>
    )}
    {selectedButton === 2 && (
-    <div className='flex flex-col gap-3'>
+    <div className='flex flex-col gap-2'>
      <FreeResoursesSection
       headingTexts={{
        heading: "6 tips to grow your freelance business",

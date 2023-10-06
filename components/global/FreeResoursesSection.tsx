@@ -15,22 +15,24 @@ import Link from "next/link";
 const FreeResoursesSection: React.FC<
  ImageGeneralProps & { headingTexts: HeadingTextsProps } & {
   links: LinksGroupProps;
- } & { colorDetails: ColorDetails }
-> = ({ image, headingTexts, links, colorDetails }) => {
+ } & { colorDetails: ColorDetails } & { order?: string }
+> = ({ image, headingTexts, links, colorDetails, order }) => {
  return (
   <ContainerLayout>
    <div className='backgroundOverlay '>
-    <div className='md:grid md:grid-cols-4 flex flex-col gap-5'>
-     <div className='md:col-span-1 flex items-center justify-center w-full'>
+    <div className='md:grid md:grid-cols-4 flex flex-col gap-5 md:py-0'>
+     <div
+      className={`md:col-span-1 flex items-center justify-center w-full  ${order} `}>
       <Image
        src={image.src}
        alt={image.alt}
        width={image.width}
        height={image.height}
-       className='rounded-full w-[200px] md:w-full'
+       className='md:w-full'
       />
      </div>
-     <div className='flex flex-col gap-3 md:col-span-3 items-left justify-center p-4'>
+     <div
+      className={`flex flex-col gap-3 md:col-span-3 items-left justify-center px-4 py-8 `}>
       <Heading4xl>{headingTexts.heading}</Heading4xl>
       <Paragraphlg className='opacity-70'>
        {headingTexts.subHeading}

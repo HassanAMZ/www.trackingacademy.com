@@ -9,6 +9,7 @@ import Script from "next/script";
 import GTMAnalytics from "@/components/analytics/GTMAnalytics";
 import React from "react";
 import VercelAnalytics from "@/components/analytics/VercelAnalytics";
+import Footer from "@/components/footer/Footer";
 const interVariableFont = localFont({
  src: "fonts/Inter/inter-font.ttf",
  display: "swap",
@@ -66,6 +67,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
     {isProduction && <React.Fragment></React.Fragment>}
     <GTMAnalytics />
     <VercelAnalytics />
+    <Footer />
    </body>
   </html>
  );
