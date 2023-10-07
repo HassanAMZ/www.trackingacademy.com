@@ -36,3 +36,6 @@ li {
 .giscus {
  @apply md:p-8 p-2  backgroundOverlay;
 }
+.textOpacity80 {
+ @apply text-white/80;
+}

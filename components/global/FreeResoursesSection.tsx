@@ -21,8 +21,7 @@ const FreeResoursesSection: React.FC<
   <ContainerLayout>
    <div className='backgroundOverlay '>
     <div className='md:grid md:grid-cols-4 flex flex-col gap-5 md:py-0'>
-     <div
-      className={`md:col-span-1 flex items-center justify-center w-full  ${order} `}>
+     <div className={`md:col-span-1 flex items-end w-full  ${order} `}>
       <Image
        src={image.src}
        alt={image.alt}
@@ -34,7 +33,7 @@ const FreeResoursesSection: React.FC<
      <div
       className={`flex flex-col gap-3 md:col-span-3 items-left justify-center px-4 py-8 `}>
       <Heading4xl>{headingTexts.heading}</Heading4xl>
-      <Paragraphlg className='opacity-70'>
+      <Paragraphlg className='textOpacity80'>
        {headingTexts.subHeading}
       </Paragraphlg>
       <button

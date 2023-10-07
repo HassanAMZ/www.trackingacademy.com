@@ -13,7 +13,7 @@ export default async function Page({ params }: { params: { tag: string } }) {
   : data;
  return (
   <div className='flex flex-col gap-2'>
-   <BlogContainer data={filteredData} type='blog' />
+   <BlogContainer rawData={data} data={filteredData} type='blog' />
   </div>
  );
 }

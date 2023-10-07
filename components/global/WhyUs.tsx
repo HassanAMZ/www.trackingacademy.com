@@ -30,7 +30,7 @@ const WhyUs: React.FC<WhyUsProps> = ({
      {paragraphTexts && (
       <Headingxl>
        {paragraphTexts.primary}
-       <span className='opacity-70'>{paragraphTexts.secondary}</span>
+       <span className='textOpacity80'>{paragraphTexts.secondary}</span>
       </Headingxl>
      )}
     </div>

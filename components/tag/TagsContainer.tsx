@@ -11,7 +11,6 @@ const TagsContainer: React.FC<TagContainerProps> = ({
  blogsData,
 }) => {
  const [filteredTags, setFilteredTags] = useState(tags);
-
  return (
   <div className='flex flex-col gap-2'>
    <TagSearch tags={tags} onSearch={(filtered) => setFilteredTags(filtered)} />

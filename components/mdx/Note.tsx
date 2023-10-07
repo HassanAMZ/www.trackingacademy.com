@@ -12,7 +12,7 @@ const Note: React.FC<NotesProps> = ({ title, content }) => {
    <div className='backgroundOverlay p-2 md:p-4 '>
     <Paragraphmd>
      <strong>{title}:&nbsp; </strong>
-     <span className='opacity-80'>{content}</span>
+     <span className='textOpacity80'>{content}</span>
     </Paragraphmd>
    </div>
   </div>

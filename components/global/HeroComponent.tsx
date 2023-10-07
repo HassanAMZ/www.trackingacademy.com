@@ -27,7 +27,7 @@ const HeroComponent: React.FC<HeroProps> = ({
    <section className='relative rounded-md flex flex-col py-4 items-center justify-center'>
     {images.background && (
      <div
-      className='rounded-md absolute  top-0 bottom-0 left-0 opacity-60 right-0 bg-cover z-0'
+      className='rounded-md absolute  top-0 bottom-0 left-0 opacity-50 right-0 bg-cover z-0'
       style={{
        backgroundColor: `${color.darker}`,
        backgroundPosition: "65% 10%",
@@ -37,7 +37,7 @@ const HeroComponent: React.FC<HeroProps> = ({
     <div className='relative text-white z-10 flex flex-col justify-center items-start px-5 py-20 md:p-14'>
      <aside className='space-y-4 pb-6'>
       {images.group?.list && (
-       <div className='flex flex-wrap items-center justify-start opacity-60'>
+       <div className='flex flex-wrap items-center justify-start opacity-80'>
         {images.group.list.map((image, index) => (
          <Image
           src={image.src}
@@ -64,7 +64,7 @@ const HeroComponent: React.FC<HeroProps> = ({
        <div className='space-y-1 font-semibold text-2xl md:w-[70%]'>
         <h3>
          {textGroup.subHeading.one}
-         <span className='opacity-60'>{textGroup.subHeading.two}</span>
+         <span className='textOpacity80'>{textGroup.subHeading.two}</span>
         </h3>
        </div>
       )}

@@ -73,9 +73,7 @@ const Pre: React.FC<PreProps> = (props) => {
     </button>
    )}
 
-   <pre className='p-2 bg-gray-100 dark:bg-gray-700 rounded-md'>
-    {props.children}
-   </pre>
+   <pre className='p-2 backgroundOverlay break-words'>{props.children}</pre>
   </div>
  );
 };

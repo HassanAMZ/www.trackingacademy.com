@@ -20,7 +20,7 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({
       alt={person.image.alt}
      />
      <Heading2xl>{person.testimonial}</Heading2xl>
-     <Paragraphmd className='opacity-70'>
+     <Paragraphmd className='textOpacity80'>
       {person.name}
       <br /> {person.position}
      </Paragraphmd>

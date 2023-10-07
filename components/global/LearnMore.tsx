@@ -15,7 +15,7 @@ const LearnMore: React.FC<DetailsProps> = ({ detailsList }) => {
      <div className='flex flex-col gap-2 pl-4'>
       <Paragraphlg className='font-semibold'>
        {detail.header}:&nbsp;
-       <span className='opacity-70'>{detail.details}</span>
+       <span className='textOpacity80'>{detail.details}</span>
       </Paragraphlg>
      </div>
     </div>

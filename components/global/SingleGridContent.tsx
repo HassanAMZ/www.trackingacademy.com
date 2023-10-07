@@ -29,7 +29,7 @@ const SingleGridContent: React.FC<SingleGridContentProps> = ({
      <Heading2xl className=''>{headingTexts.heading}</Heading2xl>
      <Paragraphmd className='font-semibold py-1'>
       {paragraphTexts.primary}&nbsp;
-      <span className='opacity-70'>{paragraphTexts.secondary}</span>
+      <span className='textOpacity80'>{paragraphTexts.secondary}</span>
      </Paragraphmd>
     </div>
    </section>

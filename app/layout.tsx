@@ -24,6 +24,30 @@ export const metadata = {
  },
 };
 
+export default function RootLayout({ children }: { children: ReactNode }) {
+ const isProduction = process.env.NEXT_PUBLIC_ENVIRONMENT === "production";
+ return (
+  <html lang='en' className='dark'>
+   <body
+    className={`bg-gray-100 selection:bg-pink-300 dark:bg-gray-800 text-gray-800 dark:text-white tracking-tighter max-w-5xl mx-auto text-base leading-tight ${interVariableFont.className}`}>
+    {BgPolygon1}
+    <ContainerLayout>
+     <NavBar />
+    </ContainerLayout>
+    <PaypalContext>
+     <AuthContextProvider>{children}</AuthContextProvider>
+    </PaypalContext>
+    {BgPolygon2}
+    <ContainerLayout>
+     <Footer />
+    </ContainerLayout>
+    <GTMAnalytics />
+    <VercelAnalytics />
+   </body>
+  </html>
+ );
+}
+
 const BgPolygon1 = (
  <div
   className='fixed inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80 animate-moving1'
@@ -49,25 +73,3 @@ const BgPolygon2 = (
    }}></div>
  </div>
 );
-
-export default function RootLayout({ children }: { children: ReactNode }) {
- const isProduction = process.env.NEXT_PUBLIC_ENVIRONMENT === "production";
- return (
-  <html lang='en' className='dark'>
-   <body
-    className={`bg-gray-100 selection:bg-pink-300 dark:bg-gray-800 text-gray-800 dark:text-white tracking-tighter max-w-5xl mx-auto text-base leading-tight ${interVariableFont.className}`}>
-    {BgPolygon1}
-    <ContainerLayout>
-     <NavBar />
-    </ContainerLayout>
-    <PaypalContext>
-     <AuthContextProvider>{children}</AuthContextProvider>
-    </PaypalContext>
-    {BgPolygon2}
-    <ContainerLayout>
-     <Footer />
-    </ContainerLayout>
-   </body>
-  </html>
- );
-}

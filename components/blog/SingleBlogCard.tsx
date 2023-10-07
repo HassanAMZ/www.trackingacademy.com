@@ -27,9 +27,9 @@ const BlogCard: React.FC<SingleBlogCardProps> = ({
      className={`absolute inset-0 opacity-30 rounded${isMain ? "" : "-t"}-md`}
      style={{ backgroundColor: generateDarkColor() }}></div>
    </div>
-   <div className='opacity-80 p-6'>
+   <div className='textOpacity80 p-6'>
     <Paragraphsm className='line-clamp-4'>{post.description}</Paragraphsm>
-    <Paragraphsm className='pt-4 pb-2 flex justify-between opacity-70 '>
+    <Paragraphsm className='md:pt-6 pt-4 pb-2 flex justify-between'>
      <span> {formatDate(post.date)} - ShahzadaAliHassan</span>
     </Paragraphsm>
    </div>

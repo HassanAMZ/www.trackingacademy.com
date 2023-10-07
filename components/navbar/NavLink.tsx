@@ -11,8 +11,8 @@ const NavLink: React.FC<NavLinkProps> = ({ href, children, className }) => {
  return (
   <Link
    className={`text-lg md:text-base ${className}  ${
-    active ? "underline opacity-100 font-bold" : "opacity-70 font-semibold "
-   } hover:opacity-100  hover:font-bold`}
+    active ? "underline font-bold" : "textOpacity80 font-semibold "
+   } hover:text-white hover:underline `}
    href={href}>
    {children}
   </Link>
