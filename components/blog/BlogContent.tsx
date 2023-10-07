@@ -4,10 +4,10 @@ import SingleBlogCard from "@/components/blog/SingleBlogCard";
 import { BlogContentProps } from "@/types/index";
 import { Headingxl } from "@/components/typography/Heading";
 
-const BlogContent: React.FC<BlogContentProps> = ({ data, type }) => {
+const BlogContent: React.FC<BlogContentProps> = ({ data, type, rawData }) => {
  const [visiblePosts, setVisiblePosts] = useState(9); // Display first 9 posts by default
 
- const mainBlogPost = data.find((blog) => blog.blogId === "00057")!;
+ const mainBlogPost = rawData?.find((blog) => blog.blogId === "00057")!;
  const visibleBlogLinks = data.slice(0, visiblePosts).map((post, index) => (
   <React.Fragment key={index}>
    <SingleBlogCard post={post} type={type} />

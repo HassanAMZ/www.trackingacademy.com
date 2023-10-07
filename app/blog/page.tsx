@@ -14,7 +14,7 @@ export default async function Page() {
  return (
   <div className='flex flex-col gap-2'>
    <GTMBlogListViewEvent blogList={sortedData} />
-   <BlogContainer data={sortedData} type='blog' />
+   <BlogContainer rawData={data} data={sortedData} type='blog' />
   </div>
  );
 }

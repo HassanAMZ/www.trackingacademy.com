@@ -51,12 +51,9 @@ export default async function Page({ params }: { params: { blog: string } }) {
  const filteredData = blog
   ? data.filter((post) => post.slug.split("/")[0] === blog)
   : data;
-
- //  const filteredData = data.filter(post => post.blog === blog);
-
  return (
   <div className='flex flex-col gap-2'>
-   <BlogContainer data={filteredData} type='blog' />
+   <BlogContainer rawData={data} data={filteredData} type='blog' />
   </div>
  );
 }

@@ -78,10 +78,12 @@ export interface BlogSearchProps {
 }
 export interface BlogContentProps {
  data: (PostMetadata & { id: string; slug: string })[];
+ rawData?: (PostMetadata & { id: string; slug: string })[];
  type: string;
 }
 export interface BlogContainerProps {
  data: (PostMetadata & { id: string; slug: string })[];
+ rawData?: (PostMetadata & { id: string; slug: string })[];
  type: string;
 }
 export interface TestimonialDetails {
