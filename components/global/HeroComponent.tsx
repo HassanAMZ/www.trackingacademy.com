@@ -1,6 +1,10 @@
 import Image from "next/image";
 import React from "react";
-import { Heading3xl, Heading5xl } from "@/components/typography/Heading";
+import {
+ Heading2xl,
+ Heading3xl,
+ Heading5xl,
+} from "@/components/typography/Heading";
 import Link from "next/link";
 import lightenDarkenColor from "@/components/utils/lightenDarkenColor";
 import LearnMoreHeader from "@/components/global/LearnMoreHeader";
@@ -34,10 +38,10 @@ const HeroComponent: React.FC<HeroProps> = ({
        backgroundImage: `url('${images.background}')`,
       }}></div>
     )}
-    <div className='relative text-white z-10 flex flex-col justify-center items-start px-5 py-20 md:p-14'>
-     <aside className='space-y-4 pb-6'>
+    <div className='relative text-white z-10 flex flex-col justify-center items-start px-4 py-20 sm:px-8 md:px-14 '>
+     <aside className='space-y-5 pb-6'>
       {images.group?.list && (
-       <div className='flex flex-wrap items-center justify-start opacity-80'>
+       <div className='flex flex-wrap items-center justify-start opacity-70'>
         {images.group.list.map((image, index) => (
          <Image
           src={image.src}
@@ -45,14 +49,14 @@ const HeroComponent: React.FC<HeroProps> = ({
           width={1920}
           key={index}
           height={1080}
-          className='rounded-full w-8 h-8'
+          className='rounded-full w-10 h-10'
          />
         ))}
        </div>
       )}
       {textGroup.welcomeText && (
        <Heading3xl
-        className='text-xl font-semibold hidden md:block max-w-md lg:max-w-lg'
+        className='text-xl font-semibold w-[70%] md:max-w-md lg:max-w-lg'
         style={{ color: color.lighter }}>
         {textGroup.welcomeText}
        </Heading3xl>
@@ -62,18 +66,18 @@ const HeroComponent: React.FC<HeroProps> = ({
       )}
       {textGroup.subHeading && (
        <div className='space-y-1 font-semibold text-2xl md:w-[70%]'>
-        <h3>
+        <Heading2xl className='font-semibold tracking-normal leading-tight'>
          {textGroup.subHeading.one}
          <span className='textOpacity80'>{textGroup.subHeading.two}</span>
-        </h3>
+        </Heading2xl>
        </div>
       )}
      </aside>
 
-     <div className='flex gap-2 text-base'>
+     <div className='flex gap-2 text-lg'>
       <Link
        href={links.primary.src}
-       className='font-semibold rounded-md py-4 px-6 '
+       className='font-semibold rounded-md py-4 px-6'
        style={{ backgroundColor: color.lighter }}>
        {links.primary.text}
       </Link>

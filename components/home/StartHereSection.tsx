@@ -14,7 +14,7 @@ const StartHereSection: React.FC<StartHereSectionProps> = ({
   <React.Fragment>
    <ContainerLayout className='flex flex-row gap-2 items-center justify-center py-3'>
     <button
-     className='p-2 rounded-md w-full'
+     className='p-4 rounded-md w-full text-lg'
      style={{
       backgroundColor:
        selectedButton === 1 ? colorDetails.primary : "transparent",
@@ -25,7 +25,7 @@ const StartHereSection: React.FC<StartHereSectionProps> = ({
      I'm new to Freelancing!
     </button>
     <button
-     className='p-2 rounded-md w-full'
+     className='p-4 rounded-md w-full text-lg'
      style={{
       backgroundColor:
        selectedButton === 2 ? colorDetails.primary : "transparent",
@@ -46,15 +46,16 @@ const StartHereSection: React.FC<StartHereSectionProps> = ({
         "Learn about the five key ingredients to freelancing that you need to succeed.",
       }}
       image={{
-       src: "/images/hero/temp_image_3.png",
+       src: "/images/supportingImages/001.png",
        alt: "Imtiaz Ahmed - Job Ready Programmer",
        height: 1920,
        width: 1080,
       }}
       colorDetails={{ primary: colorDetails.primary }}
       links={{
-       primary: { src: "/#start-here", text: "Start Here" },
+       primary: { src: "#", text: "Coming Soon" },
       }}
+      order='items-cetenter justify-center p-2 md:p-6'
      />
      <FreeResoursesSection
       headingTexts={{
@@ -63,15 +64,16 @@ const StartHereSection: React.FC<StartHereSectionProps> = ({
         "Download the checklist, and land more clients with the perfect UpWork profile!",
       }}
       image={{
-       src: "/images/hero/temp_image_3.png",
+       src: "/images/supportingImages/002.png",
        alt: "Imtiaz Ahmed - Job Ready Programmer",
        height: 1920,
        width: 1080,
       }}
       colorDetails={{ primary: colorDetails.primary }}
       links={{
-       primary: { src: "/#start-here", text: "Start Here" },
+       primary: { src: "#", text: "Coming Soon" },
       }}
+      order='items-cetenter justify-center p-2 md:p-6'
      />
      <FreeResoursesSection
       headingTexts={{
@@ -80,15 +82,16 @@ const StartHereSection: React.FC<StartHereSectionProps> = ({
         "Receive a copy, it's free. Use the interactive testing tools to find out if you have the means to make a career change to freelancing.",
       }}
       image={{
-       src: "/images/hero/temp_image_3.png",
+       src: "/images/supportingImages/003.png",
        alt: "Imtiaz Ahmed - Job Ready Programmer",
        height: 1920,
        width: 1080,
       }}
       colorDetails={{ primary: colorDetails.primary }}
       links={{
-       primary: { src: "/#start-here", text: "Start Here" },
+       primary: { src: "#", text: "Coming Soon" },
       }}
+      order='items-cetenter justify-center p-2 md:p-6'
      />
     </div>
    )}
@@ -108,8 +111,9 @@ const StartHereSection: React.FC<StartHereSectionProps> = ({
       }}
       colorDetails={{ primary: colorDetails.primary }}
       links={{
-       primary: { src: "/#start-here", text: "Start Here" },
+       primary: { src: "#", text: "Coming Soon" },
       }}
+      order='items-cetenter justify-center p-2 md:p-6'
      />
      <FreeResoursesSection
       headingTexts={{
@@ -125,8 +129,9 @@ const StartHereSection: React.FC<StartHereSectionProps> = ({
       }}
       colorDetails={{ primary: colorDetails.primary }}
       links={{
-       primary: { src: "/#start-here", text: "Start Here" },
+       primary: { src: "#", text: "Coming Soon" },
       }}
+      order='items-cetenter justify-center p-2 md:p-6'
      />
      <FreeResoursesSection
       headingTexts={{
@@ -142,8 +147,9 @@ const StartHereSection: React.FC<StartHereSectionProps> = ({
       }}
       colorDetails={{ primary: colorDetails.primary }}
       links={{
-       primary: { src: "/#start-here", text: "Start Here" },
+       primary: { src: "#", text: "Coming Soon" },
       }}
+      order='items-cetenter justify-center p-2 md:p-6'
      />
     </div>
    )}

@@ -1,12 +1,13 @@
 import { ExpertInfoProps } from "@/types/index";
 import Divider from "@/components/home/Divider";
-import CustomHeader from "@/components/home/CustomHeader";
 import React from "react";
+import { Heading3xl } from "../typography/Heading";
 
 const ExpertInfo: React.FC<ExpertInfoProps> = ({ title, description }) => {
  return (
   <React.Fragment>
-   <CustomHeader text={title} />
+   <Heading3xl>{title}</Heading3xl>
+
    <div className='pt-2'>
     <Divider />
     <Divider />

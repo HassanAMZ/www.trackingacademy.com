@@ -8,7 +8,11 @@ import {
  HeadingTextsProps,
  LinksGroupProps,
 } from "@/types/index";
-import { Heading4xl, Paragraphlg } from "../typography/Heading";
+import {
+ Heading4xl,
+ Headingxl,
+ Paragraphlg,
+} from "@/components/typography/Heading";
 import { ImageGeneralProps } from "@/types/index";
 import Link from "next/link";
 
@@ -21,7 +25,7 @@ const FreeResoursesSection: React.FC<
   <ContainerLayout>
    <div className='backgroundOverlay '>
     <div className='md:grid md:grid-cols-4 flex flex-col gap-5 md:py-0'>
-     <div className={`md:col-span-1 flex items-end w-full  ${order} `}>
+     <div className={`md:col-span-1 flex w-full ${order} `}>
       <Image
        src={image.src}
        alt={image.alt}
@@ -36,11 +40,9 @@ const FreeResoursesSection: React.FC<
       <Paragraphlg className='textOpacity80'>
        {headingTexts.subHeading}
       </Paragraphlg>
-      <button
-       className='p-2 rounded-md w-full text-center'
-       style={{ backgroundColor: colorDetails.primary }}>
+      <div className='p-2 rounded-md w-full text-center border-2 font-semibold'>
        <Link href={links.primary.src}>{links.primary.text}</Link>
-      </button>
+      </div>
      </div>
     </div>
    </div>

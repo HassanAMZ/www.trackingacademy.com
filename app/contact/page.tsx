@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import { InlineWidget, useCalendlyEventListener } from "react-calendly";
 import { GTMCalendlyEvent } from "@/components/analytics/GTMEvents";
-import CustomHeader from "@/components/home/CustomHeader";
+import { Heading4xl } from "@/components/typography/Heading";
 
 const Page = () => {
  // Define a state variable to keep track of the height
@@ -28,7 +28,7 @@ const Page = () => {
  return (
   <React.Fragment>
    <GTMCalendlyEvent />
-   <CustomHeader text='Schedule a meeting' />
+   <Heading4xl>Schedule a meeting</Heading4xl>
    <div className='backgroundOverlay'>
     <InlineWidget
      url='https://calendly.com/shahzadaalihassan'

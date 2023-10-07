@@ -15,7 +15,7 @@ const LearnMoreHeader: React.FC<LearnMoreHeaderProps> = ({
  if (!headingTexts.heading && !headingTexts.subHeading) return null;
 
  return (
-  <div className='py-12 text-center space-y-2'>
+  <div id='learnMoreHeader' className='py-12 text-center space-y-2'>
    {headingTexts.heading && (
     <Heading4xl className='py-2'>{headingTexts.heading}</Heading4xl>
    )}

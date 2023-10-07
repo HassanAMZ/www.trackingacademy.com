@@ -1,4 +1,3 @@
-import React from "react";
 import TestimonialCard from "@/components/testimonial/TestimonialCard";
 import HeroComponent from "@/components/global/HeroComponent";
 import baseColors from "@/data/base-colors";
@@ -6,25 +5,57 @@ import StartHereSection from "@/components/home/StartHereSection";
 import LearnMoreHeader from "@/components/global/LearnMoreHeader";
 import FreeResoursesSection from "@/components/global/FreeResoursesSection";
 import WhyUs from "@/components/global/WhyUs";
+import Clients from "@/components/home/Clients";
+import ContainerLayout from "@/components/layouts/ContainerLayout";
+import CallToActionSections from "@/components/global/CallToActionSections";
 
 const Page: React.FC = () => {
+ const clientData = [
+  {
+   src: "/images/clients/logos/upwork.png",
+   alt: "Client 1",
+   width: 1920,
+   height: 1080,
+  },
+  {
+   src: "/images/clients/logos/roastycoffee.png",
+   alt: "Client 2",
+   width: 1920,
+   height: 1080,
+  },
+  {
+   src: "/images/clients/logos/shepherd.png",
+   alt: "Client 2",
+   width: 1920,
+   height: 1080,
+  },
+  {
+   src: "/images/clients/logos/cmrd.png",
+   alt: "Client 1",
+   width: 1920,
+   height: 1080,
+  },
+  {
+   src: "/images/clients/logos/enhanza.png",
+   alt: "Client 2",
+   width: 1920,
+   height: 1080,
+  },
+ ];
+
  return (
   <main className=''>
    <HeroComponent
     textGroup={{
-     welcomeText: "Welcome, Freelancers!",
-     heading: "Build a better freelance life.",
+     welcomeText: "Welcome to the Community!",
+     heading: "Web Analytics for Freelancers",
      subHeading: {
       one: "Hey, I'm Hassan, ",
-      two: "and I help aspiring and established creatives with their freelance businesses.",
-     },
-     learnMore: {
-      heading: "Not sure where to start?",
-      subHeading: "Take a look at these free resources on freelancing!",
+      two: "and I help aspiring and established freelancers master web analytics across web platforms.",
      },
     }}
     links={{
-     primary: { src: "/#start-here", text: "Start Here" },
+     primary: { src: "#learnMoreHeader", text: "Start Here" },
      secondary: { src: "/contact", text: "Get In Touch" },
     }}
     images={{
@@ -51,6 +82,29 @@ const Page: React.FC = () => {
      primary: baseColors.home.primary,
      dark: { value: 80 },
      light: { value: 10 },
+    }}
+   />
+   <ContainerLayout className='hidden md:grid grid-cols-5 gap-2 pt-6 grayscale items-center justify-center'>
+    {clientData.map((client, index) => (
+     <Clients
+      key={index}
+      image={{
+       width: client.width,
+       height: client.height,
+       src: client.src,
+       alt: client.alt,
+      }}
+     />
+    ))}
+   </ContainerLayout>
+
+   <LearnMoreHeader
+    headingTexts={{
+     heading: "Not sure where to start?",
+     subHeading: "Take a look at these free resources on freelancing!",
+    }}
+    colorDetails={{
+     primary: baseColors.home.primary,
     }}
    />
    <StartHereSection
@@ -85,48 +139,7 @@ const Page: React.FC = () => {
      primary: baseColors.home.primary,
     }}
    />
-   <section className='flex flex-col gap-2 items-center justify-center py-3'>
-    <FreeResoursesSection
-     headingTexts={{
-      heading: "Freelancing in 21 Days ",
-      subHeading:
-       "Get started with freelancing by taking the comprehensive Freelance Starter Program. Build your business from the ground up with expert guideance.",
-     }}
-     image={{
-      src: "/images/hero/temp_image_4.png",
-      alt: "Imtiaz Ahmed - Job Ready Programmer",
-      height: 1920,
-      width: 1080,
-     }}
-     colorDetails={{
-      primary: baseColors.home.primary,
-     }}
-     links={{
-      primary: { src: "/#start-here", text: "Start Here" },
-     }}
-     order='order-last md:order-first'
-    />
-    <FreeResoursesSection
-     headingTexts={{
-      heading: "Crust Club Monthly Membership",
-      subHeading:
-       "Join the Crust Club to sharpen your skills and land better clients with these exclusive freelancing resources.",
-     }}
-     image={{
-      src: "/images/hero/temp_image_4.png",
-      alt: "Imtiaz Ahmed - Job Ready Programmer",
-      height: 600,
-      width: 600,
-     }}
-     colorDetails={{
-      primary: baseColors.home.primary,
-     }}
-     links={{
-      primary: { src: "/#start-here", text: "Start Here" },
-     }}
-     order='order-last md:order-last'
-    />
-   </section>
+   <CallToActionSections />
 
    <TestimonialCard
     className='!py-8'
