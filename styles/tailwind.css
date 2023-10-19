@@ -37,5 +37,5 @@ li {
  @apply md:p-8 p-2  backgroundOverlay;
 }
 .textOpacity80 {
- @apply text-white/80;
+ @apply dark:text-white/80 text-gray-900/80;
 }

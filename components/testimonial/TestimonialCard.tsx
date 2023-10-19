@@ -1,7 +1,12 @@
 import Image from "next/image";
 import { TestimonialCardProps } from "@/types/index";
 import ContainerLayout from "@/layouts/ContainerLayout";
-import { Heading2xl, Paragraphmd } from "@/components/typography/Heading";
+import {
+ Heading2xl,
+ Headingxl,
+ Paragraphmd,
+ Paragraphsm,
+} from "@/components/typography/Heading";
 
 const TestimonialCard: React.FC<TestimonialCardProps> = ({
  person,
@@ -19,11 +24,12 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({
       src={person.image.src}
       alt={person.image.alt}
      />
-     <Heading2xl>{person.testimonial}</Heading2xl>
-     <Paragraphmd className='textOpacity80'>
-      {person.name}
-      <br /> {person.position}
-     </Paragraphmd>
+     <Heading2xl className='line-clamp-2'>{person.testimonial}</Heading2xl>
+     <Paragraphsm className='textOpacity80'>
+      {/* {person.name}
+      <br /> */}
+      {person.position}
+     </Paragraphsm>
     </blockquote>
    </div>
   </ContainerLayout>

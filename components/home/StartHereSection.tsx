@@ -41,9 +41,9 @@ const StartHereSection: React.FC<StartHereSectionProps> = ({
     <div className='flex flex-col gap-2'>
      <FreeResoursesSection
       headingTexts={{
-       heading: "Guidebook to Freelancing",
+       heading: "Roadmap to Web Analytics",
        subHeading:
-        "Learn about the five key ingredients to freelancing that you need to succeed.",
+        "Start your freelancing journey with a comprehensive guide to mastering the basics of web analytics.",
       }}
       image={{
        src: "/images/supportingImages/001.png",
@@ -55,7 +55,7 @@ const StartHereSection: React.FC<StartHereSectionProps> = ({
       links={{
        primary: { src: "#", text: "Coming Soon" },
       }}
-      order='items-cetenter justify-center p-2 md:p-6'
+      order='items-center justify-center p-2 md:p-6'
      />
      <FreeResoursesSection
       headingTexts={{
@@ -73,13 +73,13 @@ const StartHereSection: React.FC<StartHereSectionProps> = ({
       links={{
        primary: { src: "#", text: "Coming Soon" },
       }}
-      order='items-cetenter justify-center p-2 md:p-6'
+      order='items-center justify-center p-2 md:p-6'
      />
      <FreeResoursesSection
       headingTexts={{
-       heading: "Self-Assessment Test",
+       heading: "Guidebook to Freelancing",
        subHeading:
-        "Receive a copy, it's free. Use the interactive testing tools to find out if you have the means to make a career change to freelancing.",
+        "Learn about the five key ingredients to freelancing that you need to succeed.",
       }}
       image={{
        src: "/images/supportingImages/003.png",
@@ -91,7 +91,7 @@ const StartHereSection: React.FC<StartHereSectionProps> = ({
       links={{
        primary: { src: "#", text: "Coming Soon" },
       }}
-      order='items-cetenter justify-center p-2 md:p-6'
+      order='items-center justify-center p-2 md:p-6'
      />
     </div>
    )}
@@ -99,12 +99,12 @@ const StartHereSection: React.FC<StartHereSectionProps> = ({
     <div className='flex flex-col gap-2'>
      <FreeResoursesSection
       headingTexts={{
-       heading: "6 tips to grow your freelance business",
+       heading: "6 tips to Client Management and Analytics",
        subHeading:
-        "The checklist details the potential impact of each item, and contains actual real-life examples on how to implement these changes.",
+        "Effective strategies to manage client expectations, deliverables, and communication in the analytics domain.",
       }}
       image={{
-       src: "/images/hero/temp_image_3.png",
+       src: "/images/supportingImages/004.png",
        alt: "Imtiaz Ahmed - Job Ready Programmer",
        height: 1920,
        width: 1080,
@@ -113,16 +113,16 @@ const StartHereSection: React.FC<StartHereSectionProps> = ({
       links={{
        primary: { src: "#", text: "Coming Soon" },
       }}
-      order='items-cetenter justify-center p-2 md:p-6'
+      order='items-center justify-center p-2 md:p-6'
      />
      <FreeResoursesSection
       headingTexts={{
-       heading: "Companies that Hire Freelancers",
+       heading: "Diversifying Web Analytics Services",
        subHeading:
-        "Use this interactive database of real companies and learn what kind of freelancers have they hired & how much are they paying per project.",
+        "Strategies to expand your offerings and tap into uncharted territories within web analytics freelancing.",
       }}
       image={{
-       src: "/images/hero/temp_image_3.png",
+       src: "/images/supportingImages/005.png",
        alt: "Imtiaz Ahmed - Job Ready Programmer",
        height: 1920,
        width: 1080,
@@ -131,16 +131,16 @@ const StartHereSection: React.FC<StartHereSectionProps> = ({
       links={{
        primary: { src: "#", text: "Coming Soon" },
       }}
-      order='items-cetenter justify-center p-2 md:p-6'
+      order='items-center justify-center p-2 md:p-6'
      />
      <FreeResoursesSection
       headingTexts={{
-       heading: "Freelance Business Audit",
+       heading: "Agency Model Business",
        subHeading:
-        "Take the 5-minute questionnaire and receive your freelance business audit report card immediately.",
+        "Learn to Scale from Freelancer to a Full-fledged Analytics Agency. Strategies and Insights for Evolving Your Freelancing Into an Agency",
       }}
       image={{
-       src: "/images/hero/temp_image_3.png",
+       src: "/images/supportingImages/006.png",
        alt: "Imtiaz Ahmed - Job Ready Programmer",
        height: 1920,
        width: 1080,
@@ -149,7 +149,7 @@ const StartHereSection: React.FC<StartHereSectionProps> = ({
       links={{
        primary: { src: "#", text: "Coming Soon" },
       }}
-      order='items-cetenter justify-center p-2 md:p-6'
+      order='items-center justify-center p-2 md:p-6'
      />
     </div>
    )}

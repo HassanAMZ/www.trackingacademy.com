@@ -4,7 +4,7 @@ import { ImageGeneralProps } from "@/types/index";
 
 const Clients: React.FC<ImageGeneralProps> = ({ image }) => {
  return (
-  <div className='px-10'>
+  <div className='px-6'>
    <Image
     src={image.src}
     alt={image.alt}

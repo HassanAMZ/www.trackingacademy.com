@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://shahzadaalihassan.com
+
+# Sitemaps
+Sitemap: https://shahzadaalihassan.com/sitemap.xml

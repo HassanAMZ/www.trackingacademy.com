@@ -14,20 +14,13 @@ const BlogCard: React.FC<SingleBlogCardProps> = ({
  const renderContent = () => (
   <>
    <div
-    className={`${
-     isMain ? "min-w-fit" : "w-full"
-    } bg-cover bg-center relative py-8 rounded${isMain ? "" : "-t"}-md`}
-    style={{
-     backgroundImage: `url(${post.openGraph.images[0]})`,
-    }}>
-    <div className='relative z-10 p-3'>
-     <Heading3xl className='line-clamp-2 min-w-fit'>{post.title}</Heading3xl>
-    </div>
-    <div
-     className={`absolute inset-0 opacity-30 rounded${isMain ? "" : "-t"}-md`}
-     style={{ backgroundColor: generateDarkColor() }}></div>
+    className={`rounded-md w-full h-full bg-gray-700 ${
+     isMain ? "whitespace-nowrap items-center justify-center py-20 flex" : "p-6"
+    }`}>
+    <Heading3xl className='line-clamp-2 '>{post.title}</Heading3xl>
    </div>
-   <div className='textOpacity80 p-6'>
+
+   <div className='textOpacity80 px-6 border-md'>
     <Paragraphsm className='line-clamp-4'>{post.description}</Paragraphsm>
     <Paragraphsm className='md:pt-6 pt-4 pb-2 flex justify-between'>
      <span> {formatDate(post.date)} - ShahzadaAliHassan</span>
@@ -37,10 +30,15 @@ const BlogCard: React.FC<SingleBlogCardProps> = ({
  );
 
  return (
-  <div className={`${isMain ? "hidden md:flex" : ""} ${className}`}>
+  <div
+   className={` hover:border-2 hover:border-white rounded-md border-2 border-gray-700 shadow-md  ${
+    isMain ? "hidden md:flex" : ""
+   } ${className}`}>
    <Link href={`/${type}/${post.slug}`} className=''>
     <section
-     className={`${isMain ? "flex" : "grid"} backgroundOverlay h-full w-full`}>
+     className={`gap-5 ${
+      isMain ? "flex" : "grid"
+     } backgroundOverlay h-full w-full items-center justify-center`}>
      {renderContent()}
     </section>
    </Link>

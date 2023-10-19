@@ -5,17 +5,17 @@ import NavLink from "../navbar/NavLink";
 
 const Footer: React.FC = () => {
  return (
-  <div className='py-2'>
+  <div className='pb-1 pt-2'>
    <footer className='backgroundOverlay md:px-20 md:py-16 py-12 px-5 flex  md:gap-5 gap-2  justify-between'>
     <div className='flex justify-between flex-col'>
      <div>
       <NavLink href='/'>ShahzadaAliHassan</NavLink>
       <Paragraphmd className='textOpacity80 py-2'>
-       The ultimate educational journey for freelancers.
+       Configuring & Optimizing Website Tracking Setups.
       </Paragraphmd>
      </div>
      <Paragraphmd className='textOpacity80'>
-      © {new Date().getFullYear()} freelance.pizza, All rights reserved
+      © {new Date().getFullYear()} ShahzadaAliHassan, All rights reserved.
      </Paragraphmd>
     </div>
     <nav className='flex flex-col space-y-3 min-w-fit textOpacity80'>

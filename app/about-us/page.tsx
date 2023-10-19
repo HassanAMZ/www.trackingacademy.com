@@ -3,18 +3,21 @@ import LearnMore from "@/components/global/LearnMore";
 import LearnMoreHeader from "@/components/global/LearnMoreHeader";
 import baseColors from "@/data/base-colors";
 import AboutDetails from "@/components/about/AboutDetails";
+import ContainerLayout from "@/components/layouts/ContainerLayout";
+import Image from "next/image";
+
 export default function Page() {
  return (
   <section className=''>
-   {/* <div className=''>
+   <ContainerLayout className='pt-2'>
     <Image
      src='/images/social-sharing.png'
      alt='Imtiaz Ahmed'
      width={1920}
      height={1080}
-     className='rounded-md'
+     className='rounded-lg'
     />
-   </div> */}
+   </ContainerLayout>
 
    <LearnMoreHeader
     headingTexts={{

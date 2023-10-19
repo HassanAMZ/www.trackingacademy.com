@@ -12,6 +12,7 @@ import {
  Heading4xl,
  Headingxl,
  Paragraphlg,
+ Heading2xl,
 } from "@/components/typography/Heading";
 import { ImageGeneralProps } from "@/types/index";
 import Link from "next/link";

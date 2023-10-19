@@ -28,7 +28,7 @@ const HeroComponent: React.FC<HeroProps> = ({
 
  return (
   <ContainerLayout>
-   <section className='relative rounded-md flex flex-col py-4 items-center justify-center'>
+   <section className='relative rounded-md flex flex-col  items-center justify-center'>
     {images.background && (
      <div
       className='rounded-md absolute  top-0 bottom-0 left-0 opacity-50 right-0 bg-cover z-0'
@@ -38,7 +38,7 @@ const HeroComponent: React.FC<HeroProps> = ({
        backgroundImage: `url('${images.background}')`,
       }}></div>
     )}
-    <div className='relative text-white z-10 flex flex-col justify-center items-start px-4 py-20 sm:px-8 md:px-14 '>
+    <div className='relative text-white z-10 flex flex-col justify-center items-start px-4 py-20 sm:px-8 md:px-10 lg:px-14 '>
      <aside className='space-y-5 pb-6'>
       {images.group?.list && (
        <div className='flex flex-wrap items-center justify-start opacity-70'>
