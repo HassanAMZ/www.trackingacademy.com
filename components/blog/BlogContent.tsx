@@ -21,7 +21,7 @@ const BlogContent: React.FC<BlogContentProps> = ({ data, type, rawData }) => {
  return (
   <React.Fragment>
    <SingleBlogCard isMain={true} post={mainBlogPost} type={"blog"} />
-   <div className='grid sm:grid-cols-2 md:grid-cols-3 grid-cols-1 gap-2'>
+   <div className='grid sm:grid-cols-2 lg:grid-cols-3 grid-cols-1 gap-2'>
     {visibleBlogLinks}
    </div>
    {visiblePosts < data.length && (

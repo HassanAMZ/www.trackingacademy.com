@@ -14,8 +14,10 @@ const BlogCard: React.FC<SingleBlogCardProps> = ({
  const renderContent = () => (
   <>
    <div
-    className={`rounded-md w-full h-full bg-gray-700 ${
-     isMain ? "whitespace-nowrap items-center justify-center py-20 flex" : "p-6"
+    className={`rounded-md w-full h-full bg-opacity-40 bg-gray-600 ${
+     isMain
+      ? "whitespace-nowrap items-center justify-center py-20 flex px-3"
+      : "p-6"
     }`}>
     <Heading3xl className='line-clamp-2 '>{post.title}</Heading3xl>
    </div>
