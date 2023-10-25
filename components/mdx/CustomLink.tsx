@@ -7,8 +7,8 @@ type CustomLinkProps = {
 };
 
 let CustomLink: React.FC<CustomLinkProps> = ({
- href = "",
- className = "",
+ href = " ",
+ className = " ",
  ...rest
 }) => {
  let isInternalLink = href.startsWith("/");
@@ -20,11 +20,7 @@ let CustomLink: React.FC<CustomLinkProps> = ({
  let classes = `underline curosr font-medium underline-offset-2  ${className}`;
 
  if (isInternalLink) {
-  return (
-   <Link href={href} className={classes}>
-    <div {...rest} />
-   </Link>
-  );
+  return <Link href={href} className={classes} {...rest} />;
  }
 
  if (isAnchorLink) {
