@@ -15,25 +15,23 @@ const SingleGridContent: React.FC<SingleGridContentProps> = ({
  paragraphTexts,
 }) => {
  return (
-  <ContainerLayout className='pb-2 flex'>
-   <section className='backgroundOverlay md:py-10 p-4 grid'>
-    <div className='order-1 flex w-full items-center justify-center'>
-     <Image
-      alt={imagesData.alt}
-      src={imagesData.src}
-      width={imagesData.width}
-      height={imagesData.height}
-     />
-    </div>
-    <div>
-     <Heading2xl className=''>{headingTexts.heading}</Heading2xl>
-     <Paragraphmd className='font-semibold py-1'>
-      {paragraphTexts.primary}&nbsp;
-      <span className='textOpacity80'>{paragraphTexts.secondary}</span>
-     </Paragraphmd>
-    </div>
-   </section>
-  </ContainerLayout>
+  <section className='backgroundOverlay md:py-10 p-4 grid'>
+   <div className='order-1 flex w-full items-center justify-center'>
+    <Image
+     alt={imagesData.alt}
+     src={imagesData.src}
+     width={imagesData.width}
+     height={imagesData.height}
+    />
+   </div>
+   <div>
+    <Heading2xl className=''>{headingTexts.heading}</Heading2xl>
+    <Paragraphmd className='font-semibold py-1'>
+     {paragraphTexts.primary}&nbsp;
+     <span className='textOpacity80'>{paragraphTexts.secondary}</span>
+    </Paragraphmd>
+   </div>
+  </section>
  );
 };
 

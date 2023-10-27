@@ -8,7 +8,7 @@ const LearnMore: React.FC<DetailsProps> = ({ detailsList }) => {
    {detailsList.map((detail, index) => (
     <div key={index} className='flex gap-2 py-4'>
      <div>
-      <div className='bg-gray-100 bg-opacity-20 rounded-full p-2'>
+      <div className='dark:bg-gray-100 bg-gray-800 bg-opacity-20 rounded-full p-2'>
        {detail.icon}
       </div>
      </div>

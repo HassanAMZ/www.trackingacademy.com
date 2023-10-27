@@ -20,9 +20,9 @@ const BlogCard: React.FC<SingleBlogCardProps> = ({
  const renderContent = () => (
   <>
    <div
-    className={`backgroundOverlay p-6 !shadow-none`}
+    className={`backgroundOverlay p-6 !shadow-none border-b `}
     style={{
-     backgroundColor: generateBrightColor(0.08),
+     backgroundColor: generateBrightColor(0.15),
      position: "relative",
     }}>
     {isMain && (

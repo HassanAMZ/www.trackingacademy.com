@@ -5,12 +5,11 @@ const headerNavLinks = [
  //  { href: "/services", title: "Services" },
  { href: "/for-freelancers", title: "For Freelancers" },
  //  { href: "/for-businesses", title: "For Businesses" },
- { href: "/courses", title: "Courses" },
+ //  { href: "/courses", title: "Courses" },
  { href: "/blog", title: "Blogs" },
  //  { href: "/tags", title: "Tags" },
  { href: "/about-us", title: "About" },
-
- //  { href: "/contact", title: "Contact" },
+ { href: "/contact", title: "Contact" },
 ];
 
 export default headerNavLinks;

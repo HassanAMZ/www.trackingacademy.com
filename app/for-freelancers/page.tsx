@@ -9,6 +9,7 @@ import { Paragraphmd } from "@/components/typography/Heading";
 import FreeResoursesSection from "@/components/global/FreeResoursesSection";
 import WhyUs from "@/components/global/WhyUs";
 import CallToActionSections from "@/components/global/CallToActionSections";
+import ContainerLayout from "@/components/layouts/ContainerLayout";
 
 export default function Page() {
  return (
@@ -137,7 +138,7 @@ export default function Page() {
     colorDetails={{ primary: baseColors.forFreelancers.primary }}
     order={-1}
    />
-   <div className='flex md:flex-row flex-col'>
+   <ContainerLayout className='grid sm:grid-cols-2 grid-cols-1 gap-2'>
     <SingleGridContent
      imagesData={{
       src: "/images/hero/001.png",
@@ -166,7 +167,7 @@ export default function Page() {
        "Whenever you have a question about your freelance business, a reply will be in your inbox within hours.",
      }}
     />
-   </div>
+   </ContainerLayout>
    <LearnMoreHeader
     headingTexts={{
      heading: "  Designed for all kinds of creative professionals ☀️",
