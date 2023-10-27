@@ -19,7 +19,7 @@ const interVariableFont = localFont({
 });
 
 export const metadata = {
- title: "Tracking Academy - Top Rated Web Developer",
+ title: "ShahzadaAliHassan - Top Rated Web Developer",
  description: `Blog for Web Analysts and Marketing People`,
  openGraph: {
   images: ["/images/social-sharing.png"],
