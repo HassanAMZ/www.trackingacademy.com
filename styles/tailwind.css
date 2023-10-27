@@ -8,12 +8,12 @@ code {
 
 /* Styling for unordered lists (ul) */
 ul {
- @apply list-disc list-outside pl-5 py-2;
+ @apply list-disc list-outside pl-6 py-2;
 }
 
 /* Styling for ordered lists (ol) */
 ol {
- @apply list-decimal list-outside pl-5 py-2;
+ @apply list-decimal list-outside pl-6 py-2;
 }
 
 /* Styling for list items (li) */
@@ -38,4 +38,22 @@ li {
 }
 .textOpacity80 {
  @apply dark:text-white/80 text-gray-900/80;
+}
+
+/* Default Scrollbar Style */
+::-webkit-scrollbar {
+ width: 6px;
+}
+
+::-webkit-scrollbar-thumb {
+ @apply rounded bg-purple-600;
+}
+
+::-webkit-scrollbar-track {
+ @apply bg-transparent;
+}
+
+/* Dark Mode Scrollbar Style */
+.dark ::-webkit-scrollbar-thumb {
+ @apply bg-red-600;
 }

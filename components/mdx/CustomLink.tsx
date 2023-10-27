@@ -1,4 +1,5 @@
 import Link from "next/link";
+import React from "react";
 
 type CustomLinkProps = {
  href?: string;
@@ -7,8 +8,8 @@ type CustomLinkProps = {
 };
 
 let CustomLink: React.FC<CustomLinkProps> = ({
- href = " ",
- className = " ",
+ href = "",
+ className = "",
  ...rest
 }) => {
  let isInternalLink = href.startsWith("/");
@@ -20,7 +21,11 @@ let CustomLink: React.FC<CustomLinkProps> = ({
  let classes = `underline curosr font-medium underline-offset-2  ${className}`;
 
  if (isInternalLink) {
-  return <Link href={href} className={classes} {...rest} />;
+  return (
+   <Link href={href} className={classes}>
+    <React.Fragment {...rest} />
+   </Link>
+  );
  }
 
  if (isAnchorLink) {

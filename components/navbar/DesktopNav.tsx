@@ -8,7 +8,7 @@ export default function DesktopNav() {
  return (
   <React.Fragment>
    <div className='flex flex-row items-center justify-center gap-1'>
-    <NavLink href='/'>Shahzada Ali Hassan</NavLink>
+    <NavLink href='/'>ShahzadaAliHassan</NavLink>
    </div>
    <nav className='sm:flex space-x-4 hidden'>
     {headerNavLinks.map(({ href, title }) => (

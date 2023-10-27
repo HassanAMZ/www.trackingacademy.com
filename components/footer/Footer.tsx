@@ -2,6 +2,7 @@ import React from "react";
 import { Paragraphmd } from "@/components/typography/Heading";
 import headerNavLinks from "@/data/header-nav-links";
 import NavLink from "../navbar/NavLink";
+import { ThemeSwitcher } from "../theme/ThemeSwitcher";
 
 const Footer: React.FC = () => {
  return (
@@ -11,11 +12,11 @@ const Footer: React.FC = () => {
      <div>
       <NavLink href='/'>ShahzadaAliHassan</NavLink>
       <Paragraphmd className='textOpacity80 py-2'>
-       Configuring & Optimizing Website Tracking Setups.
+       The ultimate educational journey for freelancers.
       </Paragraphmd>
      </div>
      <Paragraphmd className='textOpacity80'>
-      © {new Date().getFullYear()} ShahzadaAliHassan, All rights reserved.
+      © {new Date().getFullYear()} ShahzadaAliHassan, All rights reserved
      </Paragraphmd>
     </div>
     <nav className='flex flex-col space-y-3 min-w-fit textOpacity80'>
@@ -24,6 +25,7 @@ const Footer: React.FC = () => {
        {title}
       </NavLink>
      ))}
+     <ThemeSwitcher />
     </nav>
    </footer>
   </div>

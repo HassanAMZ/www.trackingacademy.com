@@ -17,15 +17,16 @@ const TwoGridContent: React.FC<TwoGridContentProps> = ({
 }) => (
  <ContainerLayout className='pb-2'>
   <section className='backgroundOverlay md:p-10 p-4'>
-   <div className='md:grid md:grid-cols-2'>
-    <div className={` order-${order} flex w-full items-center justify-center`}>
+   <div className='md:grid md:grid-cols-1'>
+    {/* <div
+     className={` order-${order} flex w-full items-center justify-center`}>
      <Image
       alt={imagesData?.alt}
       src={imagesData?.src}
       width={imagesData?.width}
       height={imagesData?.height}
      />
-    </div>
+    </div> */}
     <div className=''>
      <Heading4xl className='py-2 text-center md:text-left'>
       {learnMoreHeader}

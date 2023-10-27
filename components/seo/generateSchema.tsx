@@ -17,12 +17,12 @@ function generateSchema(metadata: PostMetadataProps["metadata"]) {
   ],
   author: {
    "@type": "Person",
-   name: "Shahzada Ali Hassan",
+   name: "ShahzadaAliHassan",
    url: "https://shahzadaalihassan.com/about-us",
   },
   publisher: {
    "@type": "Organization",
-   name: "Shahzada Ali Hassan",
+   name: "ShahzadaAliHassan",
    logo: {
     "@type": "ImageObject",
     url: "https://shahzadaalihassan.com/static/images/avatar.png",

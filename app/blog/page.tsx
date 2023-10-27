@@ -5,11 +5,15 @@ import { GTMBlogListViewEvent } from "@/components/analytics/GTMEvents";
 
 export default async function Page() {
  const data = await getBlogsData();
- const sortedData = (await Promise.all(data)).sort((a, b) => {
-  const dateA = new Date(a.date);
-  const dateB = new Date(b.date);
-  return dateB.getTime() - dateA.getTime();
- });
+
+ // Filter out draft entries, then sort the remaining entries by date
+ const sortedData = (await Promise.all(data))
+  .filter((item) => item.draft === false)
+  .sort((a, b) => {
+   const dateA = new Date(a.date);
+   const dateB = new Date(b.date);
+   return dateB.getTime() - dateA.getTime();
+  });
 
  return (
   <div className='flex flex-col gap-2'>

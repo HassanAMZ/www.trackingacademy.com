@@ -9,32 +9,50 @@ const StartHereSection: React.FC<StartHereSectionProps> = ({
  colorDetails,
 }) => {
  const [selectedButton, setSelectedButton] = useState<number>(1);
+ type ButtonData = {
+  id: number;
+  text: string;
+ };
+
+ type ButtonProps = {
+  children: React.ReactNode;
+  isSelected: boolean;
+  color: string;
+  onClick: () => void;
+ };
+ const Button: React.FC<ButtonProps> = ({
+  children,
+  isSelected,
+  color,
+  onClick,
+ }) => (
+  <button
+   className='p-4 rounded-md w-full text-lg font-semibold'
+   style={{
+    backgroundColor: isSelected ? color : "transparent",
+    borderColor: isSelected ? "transparent" : color,
+    borderWidth: isSelected ? "0px" : "2px",
+   }}
+   onClick={onClick}>
+   {children}
+  </button>
+ );
 
  return (
   <React.Fragment>
-   <ContainerLayout className='flex flex-row gap-2 items-center justify-center py-3'>
-    <button
-     className='p-4 rounded-md w-full text-lg'
-     style={{
-      backgroundColor:
-       selectedButton === 1 ? colorDetails.primary : "transparent",
-      borderColor: selectedButton === 1 ? "transparent" : colorDetails.primary,
-      borderWidth: selectedButton === 1 ? "0px" : "2px",
-     }}
+   <ContainerLayout className='flex flex-row gap-2 items-center justify-center py-2'>
+    <Button
+     isSelected={selectedButton === 1}
+     color={colorDetails.primary}
      onClick={() => setSelectedButton(1)}>
      I'm new to Freelancing!
-    </button>
-    <button
-     className='p-4 rounded-md w-full text-lg'
-     style={{
-      backgroundColor:
-       selectedButton === 2 ? colorDetails.primary : "transparent",
-      borderColor: selectedButton === 2 ? "transparent" : colorDetails.primary,
-      borderWidth: selectedButton === 2 ? "0px" : "2px",
-     }}
+    </Button>
+    <Button
+     isSelected={selectedButton === 2}
+     color={colorDetails.primary}
      onClick={() => setSelectedButton(2)}>
      I'm already Freelancing!
-    </button>
+    </Button>
    </ContainerLayout>
 
    {selectedButton === 1 && (

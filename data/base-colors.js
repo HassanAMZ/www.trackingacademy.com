@@ -1,10 +1,12 @@
 const baseColors = {
- home: { primary: "rgba(255,87,51,1)" },
+ home: { primary: "rgba(0, 191, 255, 1)" },
+ courses: { primary: "rgba(218, 112, 214, 1)" },
  forFreelancers: { primary: "rgba(50, 210, 50, 1)" },
  forBusinesses: { primary: "rgba(0, 191, 255, 1)" },
  service: { primary: "rgba(255,87,51,1)" },
  blog: { primary: "rgba(255,87,51,1)" },
  aboutUs: { primary: "rgba(147, 112, 219, 1)" },
+ notFound: { primary: "rgba(255,87,51,1)" },
 };
 
 // Green

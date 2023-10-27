@@ -37,11 +37,11 @@ const FreeResoursesSection: React.FC<
      </div>
      <div
       className={`flex flex-col gap-3 md:col-span-3 items-left justify-center px-4 py-8 `}>
-      <Heading4xl>{headingTexts.heading}</Heading4xl>
-      <Paragraphlg className='textOpacity80'>
+      <Heading4xl className=''>{headingTexts.heading}</Heading4xl>
+      <Paragraphlg className='textOpacity80 '>
        {headingTexts.subHeading}
       </Paragraphlg>
-      <div className='p-2 rounded-md w-full text-center border-2 font-semibold'>
+      <div className='p-2 rounded-md w-full text-center border-2 dark:border-white border-gray-800 font-semibold'>
        <Link href={links.primary.src}>{links.primary.text}</Link>
       </div>
      </div>

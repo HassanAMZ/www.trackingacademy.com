@@ -2,7 +2,6 @@ import fs from "fs";
 import path from "path";
 
 export default function getFiles(dirPath: string): string[] {
- const blogDirectory = path.join(process.cwd(), "app/downloads");
  let entries = fs.readdirSync(dirPath, { withFileTypes: true });
 
  let files = entries

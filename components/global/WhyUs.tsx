@@ -35,7 +35,9 @@ const WhyUs: React.FC<WhyUsProps> = ({
      )}
     </div>
     <button className='p-2 rounded-md text-left border-2 border-gray-100'>
-     <Link href={links.primary.src}>{links.primary.text}</Link>
+     <Link className='font-semibold' href={links.primary.src}>
+      {links.primary.text}
+     </Link>
     </button>
    </section>
   </ContainerLayout>

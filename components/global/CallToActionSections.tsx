@@ -11,18 +11,18 @@ const CallToActionSections: React.FC<{ colorDetails: ColorDetails }> = ({
   <React.Fragment>
    <LearnMoreHeader
     headingTexts={{
-     heading: "Enhance Your Website's Tracking",
+     heading: "Transform your carreer",
      subHeading:
-      "I offer specialized services to ensure your website's tracking is set up accurately, efficiently, and delivers the insights you need.",
+      "Our programs were designed to guide you though launching or improving your web analytics freelance business.",
     }}
     colorDetails={{ primary: colorDetails.primary }}
    />
    <section className='flex flex-col gap-2 items-center justify-center py-3'>
     <FreeResoursesSection
      headingTexts={{
-      heading: "Comprehensive Tracking Audit",
+      heading: "Freelancing in 6 Weeks ",
       subHeading:
-       "I'll meticulously review your existing tracking setup, identify gaps, and provide expert solutions to get the most out of your web analytics tools.",
+       "Get started with freelancing in Web Analytics Niche by taking the comprehensive Freelance Starter Program. ",
      }}
      image={{
       src: "/images/hero/temp_image_4.png",
@@ -34,15 +34,15 @@ const CallToActionSections: React.FC<{ colorDetails: ColorDetails }> = ({
       primary: baseColors.home.primary,
      }}
      links={{
-      primary: { src: "/contact", text: "Get In Touch" },
+      primary: { src: "/#start-here", text: "Start Here" },
      }}
      order='order-last md:order-first items-end'
     />
     <FreeResoursesSection
      headingTexts={{
-      heading: "End-to-End Tracking Implementation",
+      heading: "Compass Club Monthly Membership",
       subHeading:
-       "From client-side to server-side setups, I ensure your website is primed to collect accurate data. This includes advanced tools like GA4, UA, FB Pixel, and server-side tracking.",
+       "Join the Crust Club to sharpen your skills and land better clients with these exclusive freelancing resources.",
      }}
      image={{
       src: "/images/hero/temp_image_5.png",
@@ -54,7 +54,7 @@ const CallToActionSections: React.FC<{ colorDetails: ColorDetails }> = ({
       primary: baseColors.home.primary,
      }}
      links={{
-      primary: { src: "/contact", text: "Get In Touch" },
+      primary: { src: "/#start-here", text: "Start Here" },
      }}
      order='order-last md:order-last items-end'
     />

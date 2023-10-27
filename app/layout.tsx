@@ -10,6 +10,8 @@ import React from "react";
 import VercelAnalytics from "@/components/analytics/VercelAnalytics";
 import Footer from "@/components/footer/Footer";
 import ContainerLayout from "@/components/layouts/ContainerLayout";
+import { ThemeProvider } from "@/context/ThemeContext";
+import { ThemeSwitcher } from "@/components/theme/ThemeSwitcher";
 
 const interVariableFont = localFont({
  src: "fonts/Inter/inter-font.ttf",
@@ -17,7 +19,7 @@ const interVariableFont = localFont({
 });
 
 export const metadata = {
- title: "Shahzada Ali Hassan - Top Rated Web Developer",
+ title: "Tracking Academy - Top Rated Web Developer",
  description: `Blog for Web Analysts and Marketing People`,
  openGraph: {
   images: ["/images/social-sharing.png"],
@@ -28,20 +30,22 @@ export default function RootLayout({ children }: { children: ReactNode }) {
  const isProduction = process.env.NEXT_PUBLIC_ENVIRONMENT === "production";
 
  return (
-  <html lang='en' className='dark'>
+  <html lang='en'>
    <body
-    className={`bg-gray-100 selection:bg-red-700 dark:bg-gray-800 text-gray-800 dark:text-white tracking-tighter max-w-5xl mx-auto text-base leading-tight ${interVariableFont.className}`}>
+    className={`bg-gray-100 selection:text-white selection:bg-red-700 dark:bg-gray-800 text-gray-800 dark:text-white tracking-tighter max-w-5xl mx-auto text-base leading-tight  ${interVariableFont.className}`}>
     {BgPolygon1}
-    <ContainerLayout>
-     <NavBar />
-    </ContainerLayout>
-    <PaypalContext>
-     <AuthContextProvider>{children}</AuthContextProvider>
-    </PaypalContext>
-    {BgPolygon2}
-    <ContainerLayout>
-     <Footer />
-    </ContainerLayout>
+    <ThemeProvider attribute='class' defaultTheme='system' enableSystem>
+     <ContainerLayout>
+      <NavBar />
+     </ContainerLayout>
+     <PaypalContext>
+      <AuthContextProvider>{children}</AuthContextProvider>
+     </PaypalContext>
+     {BgPolygon2}
+     <ContainerLayout>
+      <Footer />
+     </ContainerLayout>
+    </ThemeProvider>
     <GTMAnalytics />
     <VercelAnalytics />
    </body>
@@ -51,7 +55,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
 
 const BgPolygon1 = (
  <div
-  className='fixed inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80 animate-moving1'
+  className='animate-pulse fixed inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80 '
   aria-hidden='true'>
   <div
    className='relative left-[calc(50%-11rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 rotate-[30deg] bg-gradient-to-tr from-[#ff80b5] to-[#9089fc] opacity-30 sm:left-[calc(50%-30rem)] sm:w-[72.1875rem]'
@@ -64,7 +68,7 @@ const BgPolygon1 = (
 
 const BgPolygon2 = (
  <div
-  className='fixed inset-x-0 top-[calc(100%-13rem)] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[calc(100%-30rem)] animate-moving2'
+  className='fixed inset-x-0 top-[calc(100%-13rem)] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[calc(100%-30rem)] animate-pulse'
   aria-hidden='true'>
   <div
    className='relative left-[calc(50%+3rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 bg-gradient-to-tr from-[#ff80b5] to-[#9089fc] opacity-30 sm:left-[calc(50%+36rem)] sm:w-[72.1875rem]'

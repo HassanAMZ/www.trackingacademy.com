@@ -39,26 +39,6 @@ html {
  position: absolute; // Absolute positioning within .video-responsive
 }
 
-// Style for the scrollbar in Firefox
-* {
- scrollbar-width: thin; // Set scrollbar width
- scrollbar-color: teal; // Set scrollbar color
-}
-
-// Styles for the scrollbar in Chrome, Edge, and Safari
-*::-webkit-scrollbar {
- width: 6px; // Set scrollbar width
-}
-
-*::-webkit-scrollbar-track {
- background: rgba(201, 76, 76, 0); // Set scrollbar track background color
-}
-
-*::-webkit-scrollbar-thumb {
- background-color: teal; // Set scrollbar thumb color
- border-radius: 0px; // Set scrollbar thumb border radius
-}
-
 @keyframes moving1 {
  0% {
   transform: translateX(0);

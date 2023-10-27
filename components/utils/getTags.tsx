@@ -2,7 +2,7 @@ import fs from "fs";
 import path from "path";
 import matter, { GrayMatterFile } from "gray-matter";
 import getFiles from "@/components/utils/getFiles";
-import extractMetaFromString from "./extractMetaFromString";
+import extractMetaFromStringForBlog from "./extractMetaFromStringForBlog";
 
 export default async function getTags(): Promise<string[]> {
  const blogDirectory = path.join(process.cwd(), "app/blog");
@@ -14,7 +14,7 @@ export default async function getTags(): Promise<string[]> {
  for (const fileName of mdxFiles) {
   const fileContents = fs.readFileSync(fileName, "utf8");
   const { content } = matter(fileContents) as GrayMatterFile<string>;
-  const data = extractMetaFromString(content);
+  const data = extractMetaFromStringForBlog(content);
 
   if (data && data.tags) {
    allTags.push(...data.tags);

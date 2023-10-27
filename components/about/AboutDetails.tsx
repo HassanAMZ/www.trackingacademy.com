@@ -1,8 +1,8 @@
-import LearnMore from "@/components/global/LearnMore";
+import LearnMore from "../global/LearnMore";
 
 export default function AboutDetails() {
  return (
-  <div className='divide-y'>
+  <div className='divide-y p-4'>
    <LearnMore
     detailsList={[
      {

@@ -3,6 +3,7 @@ import { ReactNode } from "react";
 import React from "react";
 import { PostMetadata } from "@/types/index";
 import getBlogsData from "@/components/utils/getBlogsData";
+import AuthenticatedLayout from "@/components/layouts/AuthenticatedLayout";
 
 export const metadata = {
  title: "Blog Archieve- ShahzadaAliHassan",
@@ -20,9 +21,5 @@ export async function generateStaticParams(): Promise<
  return allPostsData;
 }
 export default function Layout({ children }: { children: ReactNode }) {
- return (
-  <BlogLayout>
-   <React.Fragment>{children}</React.Fragment>
-  </BlogLayout>
- );
+ return <BlogLayout>{children}</BlogLayout>;
 }

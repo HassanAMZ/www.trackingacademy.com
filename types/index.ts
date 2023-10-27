@@ -7,7 +7,10 @@ export interface GTMEvent {
  [key: string]: any;
 }
 export interface GTMBlogListViewEventProps {
- blogList: (PostMetadata & { id: string; slug: string })[];
+ blogList: PostMetadata[];
+}
+export interface GTMCourseListViewEventProps {
+ courseList: CourseMetadata[];
 }
 declare global {
  interface Window {
@@ -73,17 +76,31 @@ export interface DynamicServicesPageProps {
  };
 }
 export interface BlogSearchProps {
- data: (PostMetadata & { id: string; slug: string })[];
- onSearch: (filtered: (PostMetadata & { id: string; slug: string })[]) => void;
+ data: PostMetadata[];
+ onSearch: (filtered: PostMetadata[]) => void;
+}
+export interface CourseSearchProps {
+ data: CourseMetadata[];
+ onSearch: (filtered: CourseMetadata[]) => void;
 }
 export interface BlogContentProps {
- data: (PostMetadata & { id: string; slug: string })[];
- rawData?: (PostMetadata & { id: string; slug: string })[];
+ data: PostMetadata[];
+ rawData?: PostMetadata[];
+ type: string;
+}
+export interface CourseContentProps {
+ data: CourseMetadata[];
+ rawData?: CourseMetadata[];
  type: string;
 }
 export interface BlogContainerProps {
- data: (PostMetadata & { id: string; slug: string })[];
- rawData?: (PostMetadata & { id: string; slug: string })[];
+ data: PostMetadata[];
+ rawData?: PostMetadata[];
+ type: string;
+}
+export interface CourseContainerProps {
+ data: CourseMetadata[];
+ rawData?: CourseMetadata[];
  type: string;
 }
 export interface TestimonialDetails {
@@ -200,6 +217,9 @@ export interface ExpertInfoProps {
 export interface PostMetadataProps {
  metadata: PostMetadata;
 }
+export interface CourseMetadataProps {
+ metadata: CourseMetadata;
+}
 export interface InfoSectionProps extends ExpertInfoProps {
  embedId?: string;
  testimonial?: string;
@@ -216,7 +236,7 @@ export interface OpenGraph {
 export interface TagContainerProps {
  tags: string[];
  type: string;
- blogsData: (PostMetadata & { id: string; slug: string })[]; // New addition
+ blogsData: PostMetadata[]; // New addition
 }
 
 export interface TagSearchProps {
@@ -227,7 +247,7 @@ export interface TagSearchProps {
 export interface TagContentProps {
  tags: string[];
  type: string;
- blogsData: (PostMetadata & { id: string; slug: string })[];
+ blogsData: PostMetadata[];
 }
 export interface Detail {
  icon?: string;
@@ -291,12 +311,38 @@ export interface SingleGridContentProps {
  paragraphTexts: ParagraphTextsProps;
 }
 export interface SingleBlogCardProps {
- post: PostMetadata & { id: string; slug: string };
+ post: PostMetadata;
  type: string;
  isMain?: boolean;
  className?: string;
 }
 
+export interface SingleCourseCardProps {
+ course: CourseMetadata;
+ type: string;
+ isMain?: boolean;
+ className?: string;
+}
+
+export interface CourseMetadata {
+ title: string;
+ date: string;
+ courseId: string;
+ tags: string[];
+ draft: boolean;
+ openGraph: {
+  images: string[];
+ };
+ price: number;
+ currency: {
+  symbol: string;
+  type: string;
+ };
+ description: string;
+ embedId: string;
+ id?: string;
+ slug?: string;
+}
 export interface TwoGridContentProps {
  learnMoreHeader: string;
  detailsList: Detail[];

@@ -88,21 +88,6 @@ const linksData = {
    },
   ],
  },
- webAnalyticsLinks: {
-  heading: "Freelancing Stuff",
-  links: [
-   {
-    label: "Tracking Academy",
-    href: "https://trackingacademy.com/",
-    icon: <MonitorIcon />,
-   },
-   {
-    label: "@trackingacademy",
-    href: "https://www.youtube.com/@trackingacademy/",
-    icon: <YouTubeIcon />,
-   },
-  ],
- },
 };
 export default function LinkTree() {
  return (
