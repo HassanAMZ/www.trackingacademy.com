@@ -1,4 +1,3 @@
-import BlogLayout from "@/layouts/BlogLayout";
 import { ReactNode } from "react";
 import React from "react";
 import { PostMetadata } from "@/types/index";

@@ -1,4 +1,4 @@
-import BlogLayout from "@/layouts/BlogLayout";
+import BlogLayout from "@/components/blog/BlogLayout";
 import { ReactNode } from "react";
 import React, { useEffect, useState } from "react";
 import { UserAuth } from "@/context/AuthContext";

@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useEffect, useState, ReactNode } from "react";
-import BlogLayout from "@/layouts/BlogLayout";
 import { UserAuth } from "@/context/AuthContext";
 import { FirebaseAuth } from "@/components/global/FirebaseAuth";
 import { FirebaseAuthSkeleton } from "../skeleton/FirebaseAuthSkeleton";
