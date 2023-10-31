@@ -1,0 +1,263 @@
+export const metadata = {
+ title: "GA4 Purchase Event on Shopify using Google Tag Manager",
+ date: "2023-11-04",
+ blogId: "00067",
+ tags: [
+  "Google Analytics",
+  "Shopify",
+  "Google Tag Manager",
+  "Tutorial",
+  "Purchase",
+ ],
+ draft: false,
+ description:
+  "A step-by-step guide on how to set up Google Analytics 4' Purchase (purchase) for your Shopify store using Google Tag Manager.",
+ openGraph: {
+  images: ["/static/blog/00007.png"],
+ },
+ embedId: "V7FHcp8weDA",
+};
+
+<BlogHeader metadata={metadata} />
+
+## Introduction
+
+This blog will walk you through the process of configuring the purchase event for Google Analytics 4 (GA4) on a Shopify store usin Google Tag Manager. We'll look into how to set up the necessary tools and tags to ensure that you can track Shopify purchases and gather valuable insights about your traffic acquisition and user behavior.
+
+<YoutubeEmbed embedId={metadata.embedId} />
+
+### Prerequisites
+
+Before we dive into the setup, make sure you have the following accounts and configurations ready:
+
+- Google Tag Manager Container
+- Google Analytics 4 Property
+- Shopify Account
+
+If you haven't set these up yet, you can refer to [this page](/blog/shopify/configure-google-tag-manager-on-your-shopify-store).
+
+<Note
+ title='Tip'
+ content='Ensure you have your prerequisites in place for a smooth setup process.'
+/>
+
+## Section 01: Configuring GA4 Configuration Tag
+
+The first step is to set up the GA4 Configuration Tag. This tag is essential for tracking general events such as user engagement, session start, etc. These events are automatically configured by Google Analytics.
+
+1. Head over to your Google Analytics account.
+2. On the bottom left corner, click 'Admin'.
+3. In the properties column, click on 'Data Stream'.
+4. Copy the 'Measurement ID' from your web data stream. If you don't have a data stream set up, click on the blue 'Add Stream' button to create one.
+5. Go to Google Tag Manager and create a variable for your Measurement ID. This makes it easier to refer to it later without having to copy and paste the value repeatedly.
+
+   - Name the variable as 'GA4 Measurement ID'.
+
+6. Create a new tag in Google Tag Manager, set it to fire on all pages of your Shopify store, and send the 'page_view' event.
+
+   - Select 'Google Tag' as the tag type and set it up using the variable you created earlier.
+   - For the trigger, select the built-in 'All Pages' trigger.
+
+After configuring the tag, use the 'Preview' mode in Google Tag Manager to test if the 'page_view' event is firing correctly on all pages of your Shopify store. You should be able to see the events in the debug window as well as in your Google Analytics account.
+
+## Section 2: Preparing for Purchase Event Tracking (Optional)
+
+Next, we need to ensure that the necessary data is available on the final thank you page of the Shopify store to track the purchase event.
+
+### What You Need to Do:
+
+1. Send specific instructions and a script to your developer. This script will add the necessary data layer event to the final thank you page for tracking the purchase event.
+2. You can find the script and instructions below. Make sure to download the PDF and forward it to your developer.
+
+<Note
+ title='Tip'
+ content='Ensure that your developer follows the instructions carefully and tests the implementation to confirm that the data layer event is firing correctly on the final thank you page.'
+/>
+
+### Instructions for Developer
+
+Send over [this document](/static/pdf/blog/shopify/configuring-ga4-purchase-event-on-shopify-using-gtm.pdf) to the developer else following the blog below
+
+## Section 3: Adding the Code Yourself
+
+If you have programming skills, you might prefer to add the code yourself.
+
+### DataLayer Code Snippets Overview
+
+The provided code snippets aim to integrate the `dataLayer` object for Google Tag Manager (GTM) with a Shopify store. The main goal is to send an event called `custom_purchase` whenever a user visits the final /thank-you/ page on Shopify after making the payment.
+
+### Order Status DataLayer Code
+
+1. This script, embedded within a Shopify platform, serves to track purchase-related data for analytics purposes.
+2. When a user accesses a site for the first time (`first_time_accessed`), the script checks if the user is a registered customer. If so, it fetches the user's order count and total spend.
+3. The script then initializes the `dataLayer` object if it doesn't already exist and populates it with purchase details like transaction ID, total value, shipping, tax, currency, and details of items in the order.
+4. These details include individual product attributes such as the product's ID, SKU, name, price, brand, variant, quantity, and other related info.
+
+```jsx
+{% if first_time_accessed %}
+<script>
+    {% if customer %}
+       var orders_count = '{{ customer.orders_count }}'
+       var total_spent  = '{{ customer.total_spent }}'
+    {% endif %}
+    window.dataLayer = window.dataLayer || [];
+    dataLayer.push({ ecommerce: null });
+    var transaction_id = '{{ order_number }}' || undefined ;
+    var value = {{ checkout.subtotal_price | divided_by: 100.0 }} || 0;
+    var shipping = {{ order.shipping_price | divided_by: 100.0 }} || 0;
+    var tax = {{ order.tax_price | divided_by: 100.0 }} || 0;
+    var coupon_code = Shopify.checkout.discount?.code || '';
+    var currency = '{{ currency }}' || 'USD';
+    var line_items = [];
+    Shopify.checkout.line_items.forEach((product_line_item, index) => {
+        line_items.push({
+            'item_id': product_line_item.product_id || undefined ,
+            'item_sku': product_line_item.sku || undefined ,
+            'item_name': product_line_item.title || undefined ,
+            'affiliation': Shopify.shop || undefined ,
+            'price': product_line_item.price || 0,
+            'item_brand': product_line_item.vendor || undefined ,
+            'item_variant': product_line_item.variant_title || undefined ,
+            'item_variant_id': product_line_item.variant_id || undefined ,
+            'quantity': product_line_item.quantity || 1,
+            'currency': currency,
+            'index': index,
+            'google_business_vertical': 'retail'
+        });
+    });
+    dataLayer.push({
+        'event': 'custom_purchase',
+        'datalayer_event_name': "purchase",
+        'ecommerce': {
+            'timestamp': Shopify.checkout.created_at,
+            'transaction_id': transaction_id,
+            'value': value,
+            'orders_count': orders_count || undefined,
+            'total_spent' : total_spent || undefined,
+            'shipping': shipping,
+            'tax': tax,
+            'coupon': coupon_code,
+            'currency': currency,
+            'discount_amount': Shopify.checkout?.discount?.amount || undefined,
+            'items': line_items,
+        },
+    });
+</script>
+{% endif %}
+```
+
+### How to Add Scripts to the Order Status Page in Shopify:
+
+1. **Log into Your Shopify Admin Panel:**
+
+   - Visit your Shopify store's URL followed by `/admin`.
+   - Enter your login credentials to access the admin panel.
+
+2. **Access Checkout Settings:**
+
+   - On the left-hand side menu, click on `Settings`.
+   - From the dropdown, select `Checkout`.
+
+3. **Locate the Additional Scripts Section:**
+
+   - Scroll down until you find the `Order processing` section.
+   - Within this section, you'll see a text box labeled `Additional Scripts`. This is where you can add scripts that will run on the order status page after a customer completes their purchase.
+
+4. **Paste Your Script:**
+
+   - Copy the script you have.
+   - Paste it into the `Additional Scripts` text box.
+
+5. **Save Changes:**
+
+   - After you've pasted your script, scroll to the bottom of the page and click on the `Save` button.
+
+6. **Test the Script (Important):**
+   - After saving, you should make a test purchase to ensure that the script runs as expected on the order status page.
+   - Check if all data is being collected and pushed to the `dataLayer` as intended by your script.
+
+<Note
+ title='Note'
+ content='The Additional Scripts section in the Checkout settings allows you to add scripts that will run after a customer has completed their purchase. This is a safe place to add conversion tracking codes, analytics scripts, or other scripts you want to trigger once a sale is confirmed.'
+/>
+
+## Section 04: Setting Up Google Tag Manager for Enhanced Event Tracking
+
+To accurately track these events, we need to set up appropriate triggers and tags in Google Tag Manager.
+
+#### **Setting Up Event Parameters**
+
+For additional tracking details, such as items, revenue, etc., Google Tag Manager's latest version introduces Ga4 event parameters, similar to setting variables in Universal Analytics.
+
+1. Search for "Google tag event settings".
+2. You'll encounter dataLayer parameters: items, and value.
+3. For items, currency and value, refer to the Data Layer and create dataLayer varibale
+   for each.
+4. Name it `DLV items` and `DLV value` .
+5. Name this
+   event setting as `GTES GA4 EEC Event parameters`.
+
+6. For currency, navigate to the GTM debug window. Within the `ecommerce` section, you'll find the `currency` parameter. Click on the "+" icon to create a new data layer variable. This should be named `ecommerce.currency`.
+
+7. Similarly, establish variables for `tax` and `shipping`. By setting these up in GTM, it ensures that these values get tracked without needing additional processing in G4. Other crucial details include `items`, `value`, `currency`, `tax`, `shipping`, and `transaction_id`.
+
+<Note
+ title='Tip'
+ content='Ensure all necessary parameters are sent correctly to Ga4. When done right, GA4 will handle report generation and conversions automatically.'
+/>
+
+#### **Setting Up the Trigger**
+
+1. Navigate back to the Tag Manager.
+2. Opt for "Triggers" and create a new trigger.
+3. Under trigger configuration, search for "custom event".
+4. Name the custom event as `CE custom_purchase` and set the value to "custom_purchase".
+
+<Note
+ title='Tip'
+ content="Using a 'custom_' prefix ensures that the 'purchase' does not mix with any other events on your website."
+/>
+
+#### **Creating an Event Tag for Google Analytics 4**
+
+1. Return to the tag section and formulate a new event tag for Google Analytics 4.
+2. Select the previously created trigger for `CE custom_purchase`.
+3. For the event, choose `Google Analytics 4 Event Tag`.
+4. Ensure the `GA4 Measurement ID` matches the one created at the beginning of this blog.
+5. For the event parameter, refer back to the same event setting parameter used earlier i.e., `GTES GA4 EEC Event parameters`.
+
+### Tracking Checkout Routes with GTM
+
+By default, with GTM and a basic Shopify account, the `/checkout` route isn't accessible. This means tracking events such as 'Add Shipping Info', 'Add Payment Info', or the 'Begin Checkout' event can be challenging.
+
+However, as discussed in a previous blog, you can workaround this limitation by hijacking button click events on your site. For those who missed that insightful blog, read it [here](/blog/shopify/configuring-ga4-begin-checkout-event-on-shopify-using-gtm).
+
+## Section 05: Testing Tracking on Your Site
+
+To verify the functionality of your tags:
+
+1. **Select a Product**: Navigate to the catalog and select any product.
+2. **Checkout Process**: Instead of adding the item to your cart, directly purchase it. However, you can also follow the regular checkout process if desired.
+
+While on the `/checkout` page, note that this isn't tracked by default in Ga4. On completion of the purchase, redirect to the 'Thank You' page. In the debug window, you should see the custom purchase event trigger alongside the G4 e-commerce purchase tag.
+
+### Verifying the Tracking Data in Google Analytics
+
+#### Using the Debug View
+
+In Google Analytics, under `Admin > Debug View`, you can check recent events. The purchase event should show with a flag, signifying its role as a default conversion.
+
+<Note
+ title='Tip'
+ content="The purchase event is a default conversion in G4. There's no need for additional configurations."
+/>
+
+### Checking Real-time Reports
+
+Real-time reports in Google Analytics provide instant insights, but they won't show the items array. However, other valuable details like `path`, `currency`, and `tax` are available.
+
+## Section 06: Publishing Changes and Concluding
+
+Lastly, ensure you publish all changes on GTM to move them out of draft mode and onto your live site. While Ga4 processes the data, e-commerce reports will become available, generally within 24 hours.
+
+<GiscusComments />

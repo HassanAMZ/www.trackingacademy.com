@@ -57,7 +57,7 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
   },
   p: (props) => {
    return (
-    <Paragraphmd className='tracking-normal leading-normal pb-2' {...props}>
+    <Paragraphmd className='leading-normal' {...props}>
      {props.children}
     </Paragraphmd>
    );
