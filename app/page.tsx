@@ -171,17 +171,18 @@ const Page: React.FC = () => {
       className='rounded-lg'
      />
     </ContainerLayout> */}
+    <ContainerLayout>
+     <LearnMoreHeader
+      headingTexts={{
+       heading: "Boost Your Web Analytics 🚀",
+       subHeading:
+        "From setting up tracking tools to personalized consultations, discover how I can elevate your business's web analytics capabilities.",
+      }}
+      colorDetails={{ primary: baseColors.home.primary }}
+     />
+    </ContainerLayout>
 
-    <LearnMoreHeader
-     headingTexts={{
-      heading: "Boost Your Web Analytics 🚀",
-      subHeading:
-       "From setting up tracking tools to personalized consultations, discover how I can elevate your business's web analytics capabilities.",
-     }}
-     colorDetails={{ primary: baseColors.home.primary }}
-    />
-
-    <div className='grid md:grid-cols-2'>
+    <ContainerLayout className='grid md:grid-cols-2 gap-2'>
      <SingleGridContent
       imagesData={{
        src: "/images/hero/001.png",
@@ -239,7 +240,7 @@ const Page: React.FC = () => {
         "I'll set up server-side tracking for tools like Facebook's Conversion API. This means better data collection without slowing down your website.",
       }}
      />
-    </div>
+    </ContainerLayout>
 
     <LearnMoreHeader
      headingTexts={{
@@ -353,11 +354,11 @@ const Page: React.FC = () => {
     </div>
    </React.Fragment>
 
-   <CallToActionSections
+   {/* <CallToActionSections
     colorDetails={{
      primary: baseColors.home.primary,
     }}
-   />
+   /> */}
    <WhyUs
     headingTexts={{
      heading: "Let's chat.",

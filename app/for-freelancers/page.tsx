@@ -188,7 +188,7 @@ export default function Page() {
     }}
     colorDetails={{ primary: baseColors.forFreelancers.primary }}
    />
-   <div className='grid lg:grid-cols-3 grid-cols-1'>
+   {/* <div className='grid lg:grid-cols-3 grid-cols-1'>
     <TestimonialCard
      person={{
       testimonial:
@@ -271,11 +271,11 @@ export default function Page() {
       },
      }}
     />
-   </div>
+   </div> */}
    <CallToActionSections
     colorDetails={{ primary: baseColors.forFreelancers.primary }}
    />
-   <TestimonialCard
+   {/* <TestimonialCard
     className='!py-8'
     person={{
      testimonial:
@@ -289,7 +289,7 @@ export default function Page() {
       height: 1080,
      },
     }}
-   />
+   /> */}
    <WhyUs
     headingTexts={{
      heading: "Why Web Analytics? 📊",
