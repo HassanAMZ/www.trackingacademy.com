@@ -1,9 +1,11 @@
 "use client";
-
 import React, { useEffect } from "react";
 import { usePathname } from "next/navigation";
+import { useTheme } from "next-themes";
+
 function GiscusComments() {
  const pathname = usePathname();
+ const { theme } = useTheme();
 
  useEffect(() => {
   const script = document.createElement("script");
@@ -38,7 +40,15 @@ function GiscusComments() {
    "data-input-position",
    process.env.NEXT_PUBLIC_GISCUS_INPUT_POSITION || ""
   );
-  script.setAttribute("data-theme", process.env.NEXT_PUBLIC_GISCUS_THEME || "");
+
+  // Assuming the previous lines remain the same...
+  const giscusTheme =
+   theme === "dark"
+    ? process.env.NEXT_PUBLIC_GISCUS_THEME_DARK || "dark"
+    : process.env.NEXT_PUBLIC_GISCUS_THEME_LIGHT || "light";
+
+  script.setAttribute("data-theme", giscusTheme);
+
   script.setAttribute("data-lang", process.env.NEXT_PUBLIC_GISCUS_LANG || "");
   script.setAttribute(
    "data-loading",
@@ -56,10 +66,10 @@ function GiscusComments() {
     commentSection.removeChild(script);
    }
   };
- }, [pathname]);
+ }, [pathname, theme]); // Added theme as a dependency
 
  return (
-  <section className='py-2'>
+  <section className=''>
    <div id='comment-section'></div>
   </section>
  );

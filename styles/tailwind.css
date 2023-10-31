@@ -8,12 +8,12 @@ code {
 
 /* Styling for unordered lists (ul) */
 ul {
- @apply list-disc list-outside pl-6 py-2;
+ @apply list-disc list-outside pl-6 py-1;
 }
 
 /* Styling for ordered lists (ol) */
 ol {
- @apply list-decimal list-outside pl-6 py-2;
+ @apply list-decimal list-outside pl-6 py-1;
 }
 
 /* Styling for list items (li) */
@@ -33,9 +33,6 @@ li {
  @apply bg-gray-800 dark:bg-gray-100 bg-opacity-5 dark:bg-opacity-5 shadow-md rounded-md;
 }
 
-.giscus {
- @apply md:p-8 p-2  backgroundOverlay;
-}
 .textOpacity80 {
  @apply dark:text-white/80 text-gray-900/80;
 }
