@@ -149,13 +149,31 @@ const Page: React.FC = () => {
  };
 
  return (
-  <ContainerLayout className='p-8 flex flex-col shadow-md rounded-lg space-y-4'>
-   <div className='mb-4'>
-    {/* Manual button */}
+  <ContainerLayout className='flex flex-col shadow-md rounded-lg'>
+   {/* Manual button */}
+   {buttonsData.map(
+    (button, index) =>
+     button.text.toLowerCase() === "manual" && (
+      <div key={index} className='w-full mb-2'>
+       <SelectionButton
+        isSelected={selectedButton === button.id}
+        color={baseColors.tools.primary}
+        onClick={() => {
+         setSelectedButton(button.id);
+         handleModeChange(button.text.toLowerCase() as any);
+        }}>
+        {button.text}
+       </SelectionButton>
+      </div>
+     )
+   )}
+
+   {/* Other buttons */}
+   <div className='flex flex-col md:flex-row md:space-x-2 gap-2 md:gap-0'>
     {buttonsData.map(
      (button, index) =>
-      button.text.toLowerCase() === "manual" && (
-       <div key={index} className='w-full mb-2'>
+      button.text.toLowerCase() !== "manual" && (
+       <div key={index} className='flex-1'>
         <SelectionButton
          isSelected={selectedButton === button.id}
          color={baseColors.tools.primary}
@@ -168,29 +186,9 @@ const Page: React.FC = () => {
        </div>
       )
     )}
-
-    {/* Other buttons */}
-    <div className='flex space-x-4'>
-     {buttonsData.map(
-      (button, index) =>
-       button.text.toLowerCase() !== "manual" && (
-        <div key={index} className='flex-1'>
-         <SelectionButton
-          isSelected={selectedButton === button.id}
-          color={baseColors.tools.primary}
-          onClick={() => {
-           setSelectedButton(button.id);
-           handleModeChange(button.text.toLowerCase() as any);
-          }}>
-          {button.text}
-         </SelectionButton>
-        </div>
-       )
-     )}
-    </div>
    </div>
 
-   <div className='space-y-4'>
+   <div className='space-y-4 py-4'>
     <InputField
      required
      label='Website URL *'

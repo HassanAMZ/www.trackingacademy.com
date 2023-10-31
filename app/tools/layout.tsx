@@ -1,12 +1,12 @@
-"use client";
-
-import BlogLayout from "@/components/blog/BlogLayout";
 import { ReactNode } from "react";
-import React, { useEffect, useState } from "react";
-import { UserAuth } from "@/context/AuthContext";
-import { FirebaseAuth } from "@/components/global/FirebaseAuth";
+import React from "react";
 import ContainerLayout from "@/components/layouts/ContainerLayout";
 
+export const metadata = {
+ title: "Tools - ShahzadaAliHassan",
+ description: `Tools Build for Analysts to make the life easier.`,
+};
+
 export default function Layout({ children }: { children: ReactNode }) {
- return <ContainerLayout>{children}</ContainerLayout>;
+ return <React.Fragment>{children}</React.Fragment>;
 }

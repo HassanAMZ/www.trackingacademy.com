@@ -11,7 +11,7 @@ const SelectionButton: React.FC<ButtonProps> = ({
   style={{
    backgroundColor: isSelected ? color : "transparent",
    borderColor: isSelected ? "transparent" : color,
-   borderWidth: isSelected ? "0px" : "2px",
+   borderWidth: isSelected ? "2px" : "2px",
   }}
   onClick={onClick}>
   {children}
