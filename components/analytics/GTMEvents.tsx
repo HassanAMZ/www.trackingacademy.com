@@ -178,8 +178,21 @@ const GTMSignOutEvent: React.FC<{ user: any }> = ({ user }) => {
 
  return null; // This component doesn't render anything
 };
+const GTMContactFormSubmission: React.FC = () => {
+ useEffect(() => {
+  initDataLayer();
+
+  window.dataLayer.push({
+   event: "gtm_custom_event",
+   datalayer_event_name: "contact_form_submission",
+  });
+ }, []);
+
+ return null;
+};
 
 export {
+ GTMContactFormSubmission,
  GTMBlogViewEvent,
  GTMBlogListViewEvent,
  GTMCalendlyEvent,

@@ -1,11 +1,12 @@
 "use client";
+import React, { useState, useEffect } from "react";
 
 import { useFormState, useFormStatus } from "react-dom";
 import { createContact } from "@/components/contact/actions";
-import React, { useState } from "react";
 import ThankYou from "@/components/contact/ThankYou";
 import ContainerLayout from "../layouts/ContainerLayout";
 import Image from "next/image";
+import { GTMContactFormSubmission } from "../analytics/GTMEvents";
 
 const initialState = {
  message: null,
@@ -27,18 +28,19 @@ export default function ContactForm() {
  const [state, formAction] = useFormState(createContact, initialState);
  const [formSubmitted, setFormSubmitted] = useState(false);
 
- // When the form is submitted, check if there's a message from the server.
- // If the message indicates success (or based on any other criteria you want), set formSubmitted to true.
  if (state?.message && !formSubmitted) {
-  // For simplicity, we'll assume any message means the form was submitted successfully.
-  // You can adjust this condition as per your requirements.
   setFormSubmitted(true);
  }
 
- // If the form has been submitted, render the Thank You message
  if (formSubmitted) {
-  return <ThankYou />;
+  return (
+   <>
+    <ThankYou />
+    <GTMContactFormSubmission />
+   </>
+  );
  }
+
  return (
   <ContainerLayout className='pb-2'>
    <section className='w-full grid grid-cols-1 md:grid-cols-2'>
