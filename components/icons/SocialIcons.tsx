@@ -12,13 +12,13 @@ const InstagramIcon = () => (
    cy='42.035'
    r='44.899'
    gradientUnits='userSpaceOnUse'>
-   <stop offset='0' stop-color='#fd5'></stop>
-   <stop offset='.328' stop-color='#ff543f'></stop>
-   <stop offset='.348' stop-color='#fc5245'></stop>
-   <stop offset='.504' stop-color='#e64771'></stop>
-   <stop offset='.643' stop-color='#d53e91'></stop>
-   <stop offset='.761' stop-color='#cc39a4'></stop>
-   <stop offset='.841' stop-color='#c837ab'></stop>
+   <stop offset='0' stopColor='#fd5'></stop>
+   <stop offset='.328' stopColor='#ff543f'></stop>
+   <stop offset='.348' stopColor='#fc5245'></stop>
+   <stop offset='.504' stopColor='#e64771'></stop>
+   <stop offset='.643' stopColor='#d53e91'></stop>
+   <stop offset='.761' stopColor='#cc39a4'></stop>
+   <stop offset='.841' stopColor='#c837ab'></stop>
   </radialGradient>
   <path
    fill='url(#yOrnnhliCrdS2gy~4tD8ma_Xy10Jcu1L2Su_gr1)'
@@ -30,8 +30,8 @@ const InstagramIcon = () => (
    r='29.813'
    gradientTransform='matrix(1 0 0 .6663 0 1.849)'
    gradientUnits='userSpaceOnUse'>
-   <stop offset='0' stop-color='#4168c9'></stop>
-   <stop offset='.999' stop-color='#4168c9' stop-opacity='0'></stop>
+   <stop offset='0' stopColor='#4168c9'></stop>
+   <stop offset='.999' stopColor='#4168c9' stopOpacity='0'></stop>
   </radialGradient>
   <path
    fill='url(#yOrnnhliCrdS2gy~4tD8mb_Xy10Jcu1L2Su_gr2)'
@@ -61,9 +61,9 @@ const YouTubeIcon = () => (
    y1='9.871'
    y2='41.301'
    gradientUnits='userSpaceOnUse'>
-   <stop offset='0' stop-color='#f44f5a'></stop>
-   <stop offset='.443' stop-color='#ee3d4a'></stop>
-   <stop offset='1' stop-color='#e52030'></stop>
+   <stop offset='0' stopColor='#f44f5a'></stop>
+   <stop offset='.443' stopColor='#ee3d4a'></stop>
+   <stop offset='1' stopColor='#e52030'></stop>
   </linearGradient>
   <path
    fill='url(#PgB_UHa29h0TpFV_moJI9a_9a46bTk3awwI_gr1)'
@@ -94,8 +94,8 @@ const FacebookIcon = () => (
    y1='9.993'
    y2='40.615'
    gradientUnits='userSpaceOnUse'>
-   <stop offset='0' stop-color='#2aa4f4'></stop>
-   <stop offset='1' stop-color='#007ad9'></stop>
+   <stop offset='0' stopColor='#2aa4f4'></stop>
+   <stop offset='1' stopColor='#007ad9'></stop>
   </linearGradient>
   <path
    fill='url(#Ld6sqrtcxMyckEl6xeDdMa_uLWV5A9vXIPu_gr1)'

@@ -7,13 +7,9 @@ import { ThemeSwitcher } from "../theme/ThemeSwitcher";
 
 export default function NavBar() {
  return (
-  <ContainerLayout className='pt-2 pb-3'>
-   <header className='w-full pt-3 '>
-    <div className='flex items-center justify-between w-full'>
-     <DesktopNav />
-     <MobileNav />
-    </div>
-   </header>
-  </ContainerLayout>
+  <header className='pt-5 pb-3 flex items-center justify-between w-full'>
+   <DesktopNav />
+   <MobileNav />
+  </header>
  );
 }

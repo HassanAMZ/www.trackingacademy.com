@@ -6,6 +6,7 @@ const nextConfig = {
  pageExtensions: ["js", "jsx", "ts", "tsx", "mdx", "md"],
  experimental: {
   mdxRs: true,
+  optimizeServerReact: true,
  },
  reactStrictMode: true,
  sassOptions: {
@@ -15,18 +16,9 @@ const nextConfig = {
 
 const withMDX = require("@next/mdx")({
  extension: /\.mdx?$/,
- experimental: {
-  mdxRs: true,
-  serverActions: true,
- },
  options: {
-  // If you use remark-gfm, you'll need to use next.config.mjs
-  // as the package is ESM only
-  // https://github.com/remarkjs/remark-gfm#install
   remarkPlugins: [],
   rehypePlugins: [],
-  // If you use `MDXProvider`, uncomment the following line.
-  // providerImportSource: "@mdx-js/react",
  },
 });
 module.exports = withMDX(nextConfig);

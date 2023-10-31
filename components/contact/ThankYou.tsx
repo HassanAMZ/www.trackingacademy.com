@@ -1,0 +1,27 @@
+import baseColors from "@/data/base-colors";
+import HeroComponent from "../global/HeroComponent";
+
+export default function ThankYou() {
+ return (
+  <HeroComponent
+   textGroup={{
+    welcomeText: "Thank You",
+    heading: "For Submitting the Contact Form",
+   }}
+   links={{
+    primary: {
+     src: "/", // You can adjust the redirect link if needed
+     text: "Back to Home",
+    },
+   }}
+   images={{
+    background: "/images/hero/hero-image.png",
+   }}
+   colorDetails={{
+    primary: baseColors.home.primary,
+    dark: { value: 80 },
+    light: { value: 10 },
+   }}
+  />
+ );
+}

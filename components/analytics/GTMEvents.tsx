@@ -40,7 +40,7 @@ const GTMCalendlyEvent: React.FC = () => {
     datalayer_event_name: "calendly_event_type_viewed",
    });
   },
-  onEventScheduled: (e) => {
+  onEventScheduled: (e: { data: { payload: any } }) => {
    window.dataLayer = window.dataLayer || [];
    window.dataLayer.push({
     event: "gtm_custom_event",
