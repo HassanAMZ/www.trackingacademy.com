@@ -10,6 +10,8 @@ import FreeResoursesSection from "@/components/global/FreeResoursesSection";
 import WhyUs from "@/components/global/WhyUs";
 import CallToActionSections from "@/components/global/CallToActionSections";
 import ContainerLayout from "@/components/layouts/ContainerLayout";
+import LearnMore from "@/components/global/LearnMore";
+import StartHereSection from "@/components/home/StartHereSection";
 
 export default function Page() {
  return (
@@ -23,9 +25,8 @@ export default function Page() {
       two: "A step-by-step course designed to help you start and grow your freelance business.",
      },
      learnMore: {
-      heading: "What is Freelancing in 6 Weeks Program? 🚀",
-      subHeading:
-       "We don’t just hand you tools. We make sure you know how to use them.",
+      heading: "Not sure where to start? 🌱",
+      subHeading: "Take a look at these free resources on freelancing!",
      },
     }}
     links={{
@@ -55,6 +56,17 @@ export default function Page() {
      primary: baseColors.forFreelancers.primary,
      dark: { value: 80 },
      light: { value: 10 },
+    }}
+   />
+   <StartHereSection colorDetails={baseColors.forFreelancers} />
+   <LearnMoreHeader
+    headingTexts={{
+     heading: "What is Freelancing in 6 Weeks Program? 🚀",
+     subHeading:
+      "We don’t just hand you tools. We make sure you know how to use them.",
+    }}
+    colorDetails={{
+     primary: baseColors.forFreelancers.primary,
     }}
    />
    <TwoGridContent

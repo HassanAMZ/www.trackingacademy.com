@@ -4,55 +4,28 @@ import React, { useState } from "react";
 import ContainerLayout from "@/layouts/ContainerLayout";
 import FreeResoursesSection from "@/components/global/FreeResoursesSection";
 import { StartHereSectionProps } from "@/types/index";
+import SelectionButton from "@/components/global/SelectionButton";
 
 const StartHereSection: React.FC<StartHereSectionProps> = ({
  colorDetails,
 }) => {
  const [selectedButton, setSelectedButton] = useState<number>(1);
- type ButtonData = {
-  id: number;
-  text: string;
- };
-
- type ButtonProps = {
-  children: React.ReactNode;
-  isSelected: boolean;
-  color: string;
-  onClick: () => void;
- };
- const Button: React.FC<ButtonProps> = ({
-  children,
-  isSelected,
-  color,
-  onClick,
- }) => (
-  <button
-   className='p-4 rounded-md w-full text-lg font-semibold'
-   style={{
-    backgroundColor: isSelected ? color : "transparent",
-    borderColor: isSelected ? "transparent" : color,
-    borderWidth: isSelected ? "0px" : "2px",
-   }}
-   onClick={onClick}>
-   {children}
-  </button>
- );
 
  return (
   <React.Fragment>
    <ContainerLayout className='flex flex-row gap-2 items-center justify-center py-2'>
-    <Button
+    <SelectionButton
      isSelected={selectedButton === 1}
      color={colorDetails.primary}
      onClick={() => setSelectedButton(1)}>
      I'm new to Freelancing!
-    </Button>
-    <Button
+    </SelectionButton>
+    <SelectionButton
      isSelected={selectedButton === 2}
      color={colorDetails.primary}
      onClick={() => setSelectedButton(2)}>
      I'm already Freelancing!
-    </Button>
+    </SelectionButton>
    </ContainerLayout>
 
    {selectedButton === 1 && (

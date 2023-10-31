@@ -1,0 +1,241 @@
+export const metadata = {
+ title: "GA4 AddToCart Event on Shopify using Google Tag Manager",
+ date: "2023-11-06",
+ blogId: "00064",
+ tags: [
+  "Google Analytics",
+  "Shopify",
+  "Google Tag Manager",
+  "Tutorial",
+  "View Item",
+ ],
+ draft: false,
+ description:
+  "A step-by-step guide on how to set up Google Analytics 4' Add To Cart (add_to_cart) for your Shopify store using Google Tag Manager.",
+ openGraph: {
+  images: ["/static/blog/00004.png"],
+ },
+ embedId: "RT8gI98IW84",
+};
+
+<BlogHeader metadata={metadata} />
+
+## Introduction
+
+In this blog, we will walk through the process of configuring the 'add_to_cart' event for a Shopify store using Google Tag Manager (GTM) and Google Analytics 4 (GA4). Before we start, please make sure you have access to a Google Tag Manager account, a Google Analytics 4 account, and a Shopify store, with GTM already installed on your Shopify account.
+
+<YoutubeEmbed embedId={metadata.embedId} />
+
+### Prerequisites
+
+Before we jump in, ensure you have the following:
+
+- A Google Tag Manager and Google Analytics 4 account.
+- A Shopify store with the Google Tag Manager web container already installed.
+
+If you haven't set these up yet, you can refer to [this video](URL).
+
+### Sections Covered
+
+This guide is divided into four main sections, aiming to cover everything from basic event tracking setup to the specifics of configuring 'add_to_cart' events.
+
+1. **Web Configuration Tag Configuration**: This covers how to track basic events like page views, user engagement, and session starts.
+2. **Configuring Add to Cart Event on Button Click**: A deep dive into setting up the event triggered by a button click.
+3. **Using Data Layer**: How to directly trigger the add to cart event from Shopify and send enhanced e-commerce data to Google Analytics 4.
+4. **Testing & Final Steps**: Ensuring everything has been configured correctly and publishing the Google Tag Manager containers.
+
+Now, let's dive in.
+
+## Web Configuration Tag Configuration
+
+To start tracking basic events on your site, follow these steps:
+
+1. Head to [analytics.google.com](http://analytics.google.com/) and navigate to `Admin` located at the bottom left corner. Under the `Property` column, you'll find the option for `Data Streams`. These streams act like pipelines connecting your website to Google Analytics 4.
+2. If you have an existing web stream, great! Otherwise, create a new one.
+3. Copy the `Measurement ID` as you'll be referencing it multiple times in the Google Tag Manager.
+4. Switch over to [tag manager.google.com](http://google.com/) and navigate to the `Variables` section. Here, create a constant variable named `G4 Measurement ID` to store the copied ID. This makes it easily accessible throughout the setup.
+5. Next, head to the `Tag` section. Create a new tag named `gtag G4 Configuration Tag` to track all website pages. Under `Tag Configuration`, select the `Google Tag` option. This new method replaces the old Google Analytics 4 configuration tag. Point the `Google ID` field to the `G4 Measurement ID` you just created.
+6. Once the tag is created, hit `Preview` to connect it to your website. You should now be able to see the tag firing on your site. In the `Debug View`, confirm that the configuration tag is triggered and a page event (`p`) is sent.
+
+<Note
+ title='Tip'
+ content='The Configuration tag is essential as all page events are sent through this tag.'
+/>
+
+## Configuring 'Add to Cart' Event on Button Click
+
+<Note
+ title='Tip'
+ content="Tracking 'Add to Cart' without code might not be the most accurate way. However if you lack programming skills or don't have a developer as this method can be quite handy."
+/>
+
+Although there are more advanced ways to configure this, for those who might not have access to a developer or strong programming skills, this method will work just fine.
+
+1. **Identifying the Button**: First, head over to any product page on your Shopify store. You'll typically see a button labeled "Add to Cart". When a user clicks on this, ideally, an event should trigger in the GTM container.
+
+<Note
+ title='Tip'
+ content="The aim here is to identify this button's action and capture it as an event."
+/>
+
+2. **Creating the Trigger in GTM**: If you've noticed that the event hasn't triggered upon button click, it's likely because there isn't an active trigger set up in GTM for this action. Navigate to the triggers in GTM and create a new trigger for button click events. Initially, you might not want to be specific; instead, create a general button click trigger. Name it something like "All Elements" and preview it.
+
+3. **Gathering Additional Information**: Clicking the "Add to Cart" button after previewing the trigger will allow you to see additional information about the event in GTM's debug view. Here, you might notice that details like `click ID` and `click Text` are missing. This is because the relevant variables haven't been enabled yet.
+
+<Note
+ title='Tip'
+ content='To get detailed info, you need to enable the built-in variables related to button elements in GTM.'
+/>
+
+4. **Enabling Button Element Variables in GTM**: Within GTM, head to the variable section and enable built-in variables like button element classes, target URLs, and especially `click text`. Once enabled, re-preview and click the "Add to Cart" button again. Now, you should see that the `click Text` variable has captured the "Add to Cart" action.
+
+5. **Creating a Specific Trigger**: With the new information gathered, modify the generic button click trigger you created. Instead of having it fire on all clicks, specify it to trigger only when the `click Text` contains "Add to Cart". This ensures the trigger is only activated for the desired action.
+
+6. **Creating a Tag for the Event in GTM**: Now, create a tag that will fire upon this trigger. Use a GA4 event tag, and for the event name, use the standard "add_to_cart". This naming convention follows GA4's standards. Name this tag something indicative, like "GA4_EEC_Add_to_Cart_Event".
+
+7. **Testing Your Configuration**: After saving, re-preview and test the configuration by heading back to your Shopify store, selecting a product, and clicking "Add to Cart". Ideally, the "Add to Cart" event should trigger in the debug view of GTM. Furthermore, you can validate this event in your GA4 property's debug view or real-time report.
+
+<Note
+ title='Tip'
+ content='Always test your configurations to ensure accurate data tracking.'
+/>
+
+## Advanced Tracking with Enhanced E-Commerce Data
+
+This section is for those who wish to capture more data, like the item ID, name, value, quantity, etc., when the "Add to Cart" event is triggered.
+
+<Note
+ title='Tip'
+ content="For this section, some programming knowledge is beneficial. If that's not your strength, you can share our document (linked in the video description) with your developer."
+/>
+
+## Instructions for Developer
+
+Send over [this document](/static/pdf/blog/shopify/configuring-ga4-view-item-event-on-shopify-using-gtm.pdf) to the developer else following the blog below
+
+## DataLayer Code Snippets Overview
+
+The provided code snippets aim to integrate the `dataLayer` object for Google Tag Manager (GTM) with a Shopify store. The main goal is to send an event called `custom_view_item` whenever a user visits a product page on Shopify. This event can then be used in GTM to trigger the `view_item` event for Google Analytics 4 (GA4).
+
+### Head DataLayer Code
+
+This code initializes the `dataLayer` array if it hasn't been already. It then checks if the current page template is a 'product' page and renders a specific snippet called 'datalayer-product'.
+
+```jsx
+<script>
+    window.dataLayer = window.dataLayer || [];
+</script>
+
+{%- if template contains 'product' -%}
+  {%- render 'datalayer-product', product: product -%}
+{%- endif -%}
+```
+
+### Product DataLayer Code
+
+This code snippet contains the main logic for populating the `dataLayer` object with product details whenever a product page is viewed:
+
+1. It first captures the current variant of the product.
+2. It constructs an `itemObject` containing various product details.
+3. On document load, it pushes this data to the `dataLayer` object.
+
+```jsx
+{%- liquid assign current_variant = product.selected_or_first_available_variant -%}
+
+<script>
+  console.log("datalayer-product snippet is loaded")
+  var itemObject = {
+      item_id: {{ current_variant.id | json }},
+      id: {{ current_variant.id | json }},
+      item_name: {{ product.title | json }},
+      currency: {{ shop.currency | json }},
+      item_brand: {{ product.vendor | json }},
+      item_category: {{ product.type | json }},
+      item_variant: {{ current_variant.title | json }},
+      price: {{ current_variant.price }} / 100,
+      google_business_vertical: 'retail',
+      quantity: 1
+  }
+
+  document.addEventListener('DOMContentLoaded', () => {
+      dataLayer.push({ ecommerce: null });  // Clear the previous ecommerce object.
+      dataLayer.push({
+          event: "custom_view_item",
+          ecommerce: {
+          currency: {{ shop.currency | json }},
+              items: [itemObject]
+          }
+      });
+  })
+</script>
+```
+
+### Theme DataLayer Code
+
+This code renders the `head-datalayer` snippet. Depending on the setup of your Shopify theme, this is likely where the head datalayer code resides. Add this code GTM Body Code.
+
+```jsx
+{% render 'head-datalayer' %}
+```
+
+1. Head to your Shopify store.
+2. Click on “Online Store” and then “Themes”.
+3. Click on the three dots next to your theme and select "Edit Code".
+4. Always consider duplicating your website code before making any changes. This creates a safety net in case something goes wrong.
+5. Navigate to the “Snippets” section and create new snippets, one named “head_data_layer” and the other “product_data_layer”.
+6. Copy the respective code for each snippet from the provided link in the video description. These code snippets allow the tracking of various data points when the "Add to Cart" button is clicked.
+7. Integrate these snippets in the appropriate sections of your website. The “head_data_layer” should be placed right above the GTM container in the theme file.
+8. After integrating the snippets, return to GTM and preview your settings to ensure events are firing correctly.
+9. On your product page, validate that the “custom_view_item” event triggers upon page load and the "custom_add_to_cart" event triggers when the "Add to Cart" button is clicked.
+
+<Note
+ title='Tip'
+ content="The custom prefixes added to event names (like 'custom_add_to_cart') prevent any conflicts with other possible integrations or plugins that might be using standard event names."
+/>
+
+### Setting Up Google Tag Manager for Enhanced Event Tracking
+
+#### Modifying the Existing Trigger
+
+1. Navigate to your GTM web container.
+2. Find the existing tag related to the GA4 'Add to Cart' event.
+3. Modify the trigger:
+   - Instead of a button click event, we'll leverage custom events.
+   - Adopt a naming convention, preferably starting events with "custom\_". For instance, our 'Add to Cart' event could be named `custom_ADD_to_cart`. This ensures there are no naming conflicts with other potential events or plugins.
+
+<Note
+ title='Tip'
+ content='Custom events provide more flexibility and specificity than generic button click events in GTM.'
+/>
+
+#### Refining Event Settings
+
+With GA4, you can provide additional details such as currency, items added, and their values. These details offer deeper insights into customer behaviors.
+
+1. In the GTM tag setup for the 'Add to Cart' event, navigate to event properties.
+2. Here, create an event settings variable. This is analogous to how Universal Analytics has a settings variable.
+3. Configure the necessary parameters, ensuring they align with what's available in GA4.
+   - For instance, parameters like "items", "currency", and "value" should ideally have a checkmark next to them, signifying their availability in GA4.
+
+<Note
+ title='Tip'
+ content='Using standardized parameters ensures a seamless flow of data between GTM and GA4.'
+/>
+
+### Validating Events in Google Analytics 4
+
+After setting up your events in GTM, it's crucial to ensure that they're being captured correctly in GA4.
+
+1. Trigger the 'Add to Cart' event on your website, either by adding a product to the cart or simulating the event.
+2. Open GA4 and navigate to the 'Real-time' tab.
+3. Here, you should see the 'Add to Cart' event being registered.
+   - Delve deeper by checking the specifics of the event. This includes the product name, ID, currency, and any other parameters you've set up.
+
+<Note
+ title='Tip'
+ content='Consistent validation ensures the reliability of your tracking setup and the integrity of the data captured.'
+/>
+
+### Conclusion
+
+Setting up enhanced event tracking using Google Tag Manager and Google Analytics 4 is an invaluable asset for e-commerce retailers. It provides insights into customer behaviors, preferences, and potential bottlenecks in the buying process. As always, regular validation ensures you're on top of any changes or issues that might arise. Happy tracking!

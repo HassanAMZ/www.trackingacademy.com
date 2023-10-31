@@ -383,3 +383,29 @@ export interface BaseColors {
  forBusinesses: Color;
  [key: string]: Color;
 }
+
+export interface InputFieldProps {
+ label: string;
+ value: string;
+ onChange: (value: string) => void;
+ type?: string;
+ required?: boolean;
+}
+
+export type IsWebsiteURLValid = (url: string) => boolean;
+export type CopyToClipboard = () => void;
+export type GetErrorMessages = () => string[];
+export type GenerateUTM = () => string;
+export type CanGenerateUTM = () => boolean;
+
+export type ButtonData = {
+ id: number;
+ text: string;
+};
+
+export type ButtonProps = {
+ children: React.ReactNode;
+ isSelected: boolean;
+ color: string;
+ onClick: () => void;
+};
