@@ -1,7 +1,7 @@
 export const metadata = {
  title: "GA4 AddToCart Event on Shopify using Google Tag Manager",
- date: "2023-11-06",
- blogId: "00065",
+ date: "2023-11-01",
+ blogId: "00064",
  tags: [
   "Google Analytics",
   "Shopify",
@@ -13,7 +13,7 @@ export const metadata = {
  description:
   "A step-by-step guide on how to set up Google Analytics 4' View Item (view_item) for your Shopify store using Google Tag Manager.",
  openGraph: {
-  images: ["/static/blog/00005.png"],
+  images: ["/static/blog/00004.png"],
  },
  embedId: "U5zSjA4v3jE",
 };
@@ -131,7 +131,7 @@ This code snippet contains the main logic for populating the `dataLayer` object 
   }
 
   document.addEventListener('DOMContentLoaded', () => {
-      dataLayer.push({ ecommerce: null });  // Clear the previous ecommerce object.
+      dataLayer.push({ ecommerce: null });
       dataLayer.push({
           event: "custom_view_item",
           ecommerce: {
@@ -203,3 +203,5 @@ Although the basic "view item" event is now configured, to get detailed e-commer
 ## Conclusion
 
 Configuring the "view item" event using Google Tag Manager, Shopify, and Google Analytics 4 can provide detailed insights into user behavior on your product pages. By following this tutorial step-by-step, you can effectively set up and track this crucial e-commerce event.
+
+<GiscusComments />
