@@ -13,11 +13,9 @@ import {
 import { db } from "@/app/firebase";
 import { Resend } from "resend";
 
-const resend = new Resend(process.env.NEXT_PUBLIC_RESEND_API_KEY);
-const contactsCollection = collection(db, "contacts");
-const cookieStore = cookies();
-
 export async function createContact(prevState: any, formData: FormData) {
+ // const resend = new Resend(process.env.NEXT_PUBLIC_RESEND_API_KEY);
+ const contactsCollection = collection(db, "contacts");
  const schema = z.object({
   firstName: z.string().min(1),
   lastName: z.string().min(1),
@@ -44,7 +42,7 @@ export async function createContact(prevState: any, formData: FormData) {
   VALUES (${data.firstName}, ${data.lastName}, ${data.email}, ${data.phone}, ${data.websiteLink}, ${data.projectDescription})
   `;
 
-  cookieStore.set("user", JSON.stringify(data));
+  cookies().set("user", JSON.stringify(data));
 
   // await resend.emails.send({
   //  from: "onboarding@resend.dev",
