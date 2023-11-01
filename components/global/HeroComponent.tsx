@@ -29,19 +29,17 @@ const HeroComponent: React.FC<HeroProps> = ({
  );
 
  return (
-  <ContainerLayout>
-   <section className='relative rounded-md flex flex-col shadow-md items-center justify-center'>
+  <ContainerLayout className=''>
+   <section className='relative backgroundOverlay rounded-md flex flex-col shadow-md items-center justify-center'>
     {images.background && (
      <Image
       src={images.background}
       alt='Background image'
-      layout='fill' // make it cover the entire parent div
-      objectFit='cover' // cover the entire viewport
-      quality={100} // adjust quality if necessary
-      className='absolute z-0' // position it absolutely and send it to the back
+      fill
+      className='w-full h-full object-cover object-center opacity-60'
      />
     )}
-    <div className='relativ z-10 flex flex-col justify-center items-start px-4 py-20 sm:px-8 md:px-14 '>
+    <div className='relativ z-10 flex flex-col justify-center items-start px-4 sm:px-8 md:px-14 py-20 md:py-24'>
      <aside className='space-y-5 pb-6'>
       {images.group?.list && (
        <div className='flex flex-wrap items-center justify-start opacity-70'>

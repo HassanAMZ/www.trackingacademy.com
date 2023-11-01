@@ -32,7 +32,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
  return (
   <html lang='en'>
    <body
-    className={`bg-gray-100 selection:text-white selection:bg-red-700 dark:bg-[#121212] text-gray-800 dark:text-white tracking-tighter max-w-5xl mx-auto text-base leading-tight  ${interVariableFont.className}`}>
+    className={`bg-gray-100 selection:text-white selection:bg-red-700 dark:bg-[#121212] text-gray-800 dark:text-white tracking-tighter max-w-4xl mx-auto text-base leading-tight  ${interVariableFont.className}`}>
     {BgPolygon1}
     <ThemeProvider attribute='class' defaultTheme='system' enableSystem>
      <ContainerLayout>
