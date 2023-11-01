@@ -1,7 +1,7 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import { useFormState, useFormStatus } from "react-dom";
-import { createContact } from "@/components/contact/actions";
+import { createContact } from "@/actions/contact-us";
 import ThankYou from "@/components/contact/ThankYou";
 import ContainerLayout from "../layouts/ContainerLayout";
 import Image from "next/image";

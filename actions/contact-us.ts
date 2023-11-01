@@ -11,11 +11,13 @@ import {
  Timestamp,
 } from "firebase/firestore";
 import { db } from "@/app/firebase";
+import { Resend } from "resend";
+
+const resend = new Resend(process.env.NEXT_PUBLIC_RESEND_API_KEY);
+const contactsCollection = collection(db, "contacts");
+const cookieStore = cookies();
 
 export async function createContact(prevState: any, formData: FormData) {
- const contactsCollection = collection(db, "contacts");
- const cookieStore = cookies();
-
  const schema = z.object({
   firstName: z.string().min(1),
   lastName: z.string().min(1),
@@ -24,6 +26,7 @@ export async function createContact(prevState: any, formData: FormData) {
   websiteLink: z.string().min(1),
   projectDescription: z.string().min(1),
  });
+
  const data = schema.parse({
   firstName: formData.get("firstName"),
   lastName: formData.get("lastName"),
@@ -40,7 +43,15 @@ export async function createContact(prevState: any, formData: FormData) {
   INSERT INTO contacts (first_name, last_name, email, phone, website_link, project_description)
   VALUES (${data.firstName}, ${data.lastName}, ${data.email}, ${data.phone}, ${data.websiteLink}, ${data.projectDescription})
   `;
+
   cookieStore.set("user", JSON.stringify(data));
+
+  // await resend.emails.send({
+  //  from: "onboarding@resend.dev",
+  //  to: "reactjswebdev@gmail.com",
+  //  subject: "Message from contact form",
+  //  text: "hello world",
+  // });
 
   revalidatePath("/");
   return { message: `Added contact ${data.firstName} ${data.lastName}` };

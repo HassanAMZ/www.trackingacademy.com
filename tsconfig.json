@@ -13,7 +13,8 @@
    "@/css/*": ["css/*"],
    "@/styles/*": ["styles/*"],
    "@/types/*": ["types/*"],
-   "@/fonts/*": ["fonts/*"]
+   "@/fonts/*": ["fonts/*"],
+   "@/actions/*": ["actions/*"]
   },
   "target": "es5",
   "downlevelIteration": true,

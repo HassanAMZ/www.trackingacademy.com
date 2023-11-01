@@ -8,6 +8,22 @@ const nextConfig = {
   mdxRs: true,
   optimizeServerReact: true,
  },
+ images: {
+  remotePatterns: [
+   {
+    protocol: "https",
+    hostname: "i.ytimg.com",
+    port: "",
+    pathname: "/vi/**",
+   },
+   {
+    protocol: "https",
+    hostname: "ytimg.com",
+    port: "",
+    pathname: "/vi/**",
+   },
+  ],
+ },
  reactStrictMode: true,
  sassOptions: {
   includePaths: [path.join(__dirname, "styles")],
