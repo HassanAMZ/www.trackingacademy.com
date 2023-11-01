@@ -287,7 +287,10 @@ export interface HeroProps {
   group?: {
    list: ImagesProps[];
   };
-  background?: string;
+  background?: {
+   desktop?: string;
+   mobile?: string;
+  };
  };
  colorDetails: ColorDetailsExtended;
 }
@@ -409,3 +412,9 @@ export type ButtonProps = {
  color: string;
  onClick: () => void;
 };
+
+export interface HeadingProps {
+ children?: React.ReactNode;
+ className?: string;
+ style?: React.CSSProperties;
+}

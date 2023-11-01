@@ -12,7 +12,7 @@ import Footer from "@/components/footer/Footer";
 import ContainerLayout from "@/components/layouts/ContainerLayout";
 import { ThemeProvider } from "@/context/ThemeContext";
 import { ThemeSwitcher } from "@/components/theme/ThemeSwitcher";
-
+import { Suspense } from "react";
 const interVariableFont = localFont({
  src: "fonts/Inter/inter-font.ttf",
  display: "swap",
@@ -32,9 +32,9 @@ export default function RootLayout({ children }: { children: ReactNode }) {
  return (
   <html lang='en'>
    <body
-    className={`bg-gray-100 selection:text-white selection:bg-red-700 dark:bg-[#121212] text-gray-800 dark:text-white tracking-tighter max-w-4xl mx-auto text-base leading-tight  ${interVariableFont.className}`}>
+    className={` selection:text-white selection:bg-red-700 dark:bg-[#121212] max-w-4xl mx-auto  ${interVariableFont.className}`}>
     {BgPolygon1}
-    <ThemeProvider attribute='class' defaultTheme='system' enableSystem>
+    <ThemeProvider attribute='class' defaultTheme='dark'>
      <ContainerLayout>
       <NavBar />
      </ContainerLayout>
@@ -46,8 +46,11 @@ export default function RootLayout({ children }: { children: ReactNode }) {
       <Footer />
      </ContainerLayout>
     </ThemeProvider>
-    <GTMAnalytics />
-    <VercelAnalytics />
+
+    <Suspense>
+     <GTMAnalytics />
+     <VercelAnalytics />
+    </Suspense>
    </body>
   </html>
  );

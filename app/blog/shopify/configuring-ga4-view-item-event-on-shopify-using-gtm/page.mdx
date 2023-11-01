@@ -1,5 +1,5 @@
 export const metadata = {
- title: "GA4 AddToCart Event on Shopify using Google Tag Manager",
+ title: "GA4 ViewItem Event on Shopify using Google Tag Manager",
  date: "2023-11-01",
  blogId: "00064",
  tags: [
@@ -11,22 +11,22 @@ export const metadata = {
  ],
  draft: false,
  description:
-  "A step-by-step guide on how to set up Google Analytics 4' View Item (view_item) for your Shopify store using Google Tag Manager.",
+  "The 'ViewItem Event' is more than just a number. It's an insight into what catches a user's eye, what holds their interest, and potentially, what nudges them towards making a purchase. Monitoring this event allows you to understand product performance, optimize listings, and craft targeted marketing campaigns.",
  openGraph: {
   images: ["/static/blog/00004.png"],
  },
- embedId: "U5zSjA4v3jE",
+ embedId: "RT8gI98IW84",
 };
 
 <BlogHeader metadata={metadata} />
 
-### Introduction
+#### Introduction
 
 In this blog, we will walk you through the process of configuring the 'view_item' event for GA4 using Google Tag Manager, so you can track user visits to your product pages, the items they view, and various event details. This will be achieved using Google Tag Manager with a Shopify store and Google Analytics 4.
 
 <YoutubeEmbed embedId={metadata.embedId} />
 
-### Pre-requisites
+#### Pre-requisites
 
 Before we dive in, ensure you have the following:
 
@@ -34,9 +34,7 @@ Before we dive in, ensure you have the following:
 2. An active Shopify account.
 3. A Google Analytics 4 property created.
 
-### Configuring Google Analytics 4 with Google Tag Manager
-
-#### **Connect GA4 Property to GTM**:
+#### Configuring Google Analytics 4 with Google Tag Manager
 
 - Go to your Google Analytics property.
 - On the bottom left corner, select "Admin".
@@ -49,27 +47,27 @@ Before we dive in, ensure you have the following:
  content='The Measurement ID is crucial for configuring GA4 in Google Tag Manager. Make sure to copy it.'
 />
 
-#### **Set up Variables in Google Tag Manager**:
+#### Set up Variables in Google Tag Manager:
 
 - Go to Google Tag Manager.
 - Create a user-defined constant variable.
 - Paste the copied Measurement ID and rename it to "G4 Measurement ID".
 
-#### **Creating the GA4 Configuration Tag**:
+#### Creating the GA4 Configuration Tag:
 
 - In Google Tag Manager, navigate to the tags section.
 - Create a new tag that will track common events such as page views, user engagement, and session starts.
 - Previously, we had the G4 configuration tag, but now it's replaced by Google tag. Use your G4 Measurement ID as the tag ID.
 - Rename the tag for clarity, for example, "gtag G4 configuration tag".
 
-### Setting up the View Item Trigger
+#### Setting up the View Item Trigger
 
 1. In Google Tag Manager, navigate to the triggers section.
 2. Create a custom event named "custom view item" (to avoid potential issues with other integrations or apps).
 3. Next, create a tag in GTM to send this view item event to GA4. Make sure the event name is the standard "view item".
 4. To test the integration, use the GTM preview mode and visit one of your product pages. Ensure the "view item" event is triggering correctly.
 
-### Shopify Store Configuration for the Event
+#### Shopify Store Configuration for the Event
 
 To successfully trigger the "view item" event, the Shopify store must also be configured. This requires some coding:
 
@@ -82,15 +80,15 @@ To successfully trigger the "view item" event, the Shopify store must also be co
 
 Certainly! Let's break down the code snippets and provide a detailed explanation along with steps on how to add these snippets to a Shopify store.
 
-## Instructions for Developer
+#### Instructions for Developer
 
 Send over [this document](/static/pdf/blog/shopify/configuring-ga4-view-item-event-on-shopify-using-gtm.pdf) to the developer else following the blog below
 
-## DataLayer Code Snippets Overview
+#### DataLayer Code Snippets Overview
 
 The provided code snippets aim to integrate the `dataLayer` object for Google Tag Manager (GTM) with a Shopify store. The main goal is to send an event called `custom_view_item` whenever a user visits a product page on Shopify. This event can then be used in GTM to trigger the `view_item` event for Google Analytics 4 (GA4).
 
-### Head DataLayer Code
+#### Head DataLayer Code
 
 This code initializes the `dataLayer` array if it hasn't been already. It then checks if the current page template is a 'product' page and renders a specific snippet called 'datalayer-product'.
 
@@ -104,7 +102,7 @@ This code initializes the `dataLayer` array if it hasn't been already. It then c
 {%- endif -%}
 ```
 
-### Product DataLayer Code
+#### Product DataLayer Code
 
 This code snippet contains the main logic for populating the `dataLayer` object with product details whenever a product page is viewed:
 
@@ -143,7 +141,7 @@ This code snippet contains the main logic for populating the `dataLayer` object 
 </script>
 ```
 
-### Theme DataLayer Code
+#### Theme DataLayer Code
 
 This code renders the `head-datalayer` snippet. Depending on the setup of your Shopify theme, this is likely where the head datalayer code resides. Add this code GTM Body Code.
 
@@ -151,42 +149,42 @@ This code renders the `head-datalayer` snippet. Depending on the setup of your S
 {% render 'head-datalayer' %}
 ```
 
-## Steps to Add the DataLayer Code Snippets in Shopify:
+#### Steps to Add the DataLayer Code Snippets in Shopify:
 
-1. **Backup**: Before making any changes, always backup your current theme.
+1. Backup: Before making any changes, always backup your current theme.
 
-2. **Access Theme Files**:
+2. Access Theme Files:
 
    - Login to your Shopify Admin.
    - Go to Online Store > Themes.
    - Click on the "Actions" dropdown for your live theme and select "Edit code".
 
-3. **Add Head DataLayer Code**:
+3. Add Head DataLayer Code:
 
    - In the left sidebar, locate and click on `theme.liquid`.
    - Insert the "Head DataLayer Code" snippet within the `<head>` tags.
 
-4. **Add Product DataLayer Code**:
+4. Add Product DataLayer Code:
 
    - Click "Add a new template" or "Add a new snippet" depending on your Shopify version.
    - Name it `datalayer-product.liquid`.
    - Insert the "Product DataLayer Code" snippet into this new file.
    - Save changes.
 
-5. **Add Theme DataLayer Code**:
+5. Add Theme DataLayer Code:
 
    - Determine where you want this code to render (usually within the `<head>` tags in `theme.liquid`).
    - Insert the "Theme DataLayer Code" snippet in the desired location.
    - Save changes.
 
-6. **Test**:
+6. Test:
    - Visit a product page on your Shopify store.
    - Open browser's developer console.
    - Confirm that the `custom_view_item` event is fired and the `dataLayer` object contains the correct product details.
 
 Remember, these instructions assume a typical Shopify setup. Some custom themes might require a different approach. Always test thoroughly before and after making changes.
 
-### Integrating Enhanced E-commerce Parameters with GTM
+#### Integrating Enhanced E-commerce Parameters with GTM
 
 Although the basic "view item" event is now configured, to get detailed e-commerce metrics such as item id or item name, further integration is needed.
 
@@ -200,7 +198,7 @@ Although the basic "view item" event is now configured, to get detailed e-commer
  content="Before implementing, ensure that you've correctly followed each step, double-check your codes, variable names, and ensure that you're seeing the expected results in both GTM and GA4. Proper setup will ensure accurate data tracking and invaluable insights for your e-commerce business."
 />
 
-## Conclusion
+#### Conclusion
 
 Configuring the "view item" event using Google Tag Manager, Shopify, and Google Analytics 4 can provide detailed insights into user behavior on your product pages. By following this tutorial step-by-step, you can effectively set up and track this crucial e-commerce event.
 

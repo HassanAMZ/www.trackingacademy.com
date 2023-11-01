@@ -8,7 +8,7 @@ interface NotesProps {
 
 const Note: React.FC<NotesProps> = ({ title, content }) => {
  return (
-  <div id='noteMdxComponents' className=''>
+  <div className='py-2'>
    <div className='backgroundOverlay p-2 md:p-4 '>
     <Paragraphmd>
      <strong>{title}:&nbsp; </strong>

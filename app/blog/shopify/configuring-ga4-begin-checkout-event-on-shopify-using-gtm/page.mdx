@@ -11,7 +11,7 @@ export const metadata = {
  ],
  draft: true,
  description:
-  "A step-by-step guide on how to set up Google Analytics 4' Begin Checkout(begin_checkout) for your Shopify store using Google Tag Manager.",
+  "In the e-commerce universe, the journey from mere interest to a committed purchase is filled with crucial touchpoints. One of the most telling moments in this journey is when a user initiates the checkout process. The 'BeginCheckout Event' in Google Analytics 4 (GA4) offers an unparalleled perspective into this decisive phase, capturing the transition of a browsing user to a potential buyer.",
  openGraph: {
   images: ["/static/blog/00006.png"],
  },
@@ -20,13 +20,13 @@ export const metadata = {
 
 <BlogHeader metadata={metadata} />
 
-## Introduction
+#### Introduction
 
 Hello, everyone! In today's blog, we'll be diving deep into the configuration of Google Analytics 4 (GA4) and Google Tag Manager for your Shopify store. Our main focus will be on tracking the "begin checkout" event, which indicates the user is nearing the final "thank you" page but is still on the cart page.
 
 <YoutubeEmbed embedId={metadata.embedId} />
 
-### Prerequisites
+#### Prerequisites
 
 Before we jump in, ensure you have the following:
 
@@ -40,27 +40,27 @@ If you haven't set these up yet, you can refer to [this page](/blog/shopify/conf
  content='Ensure you have your prerequisites in place for a smooth setup process.'
 />
 
-### Sections Covered
+#### Sections Covered
 
 This blog is divided into three main sections, aiming to cover everything from basic event tracking setup to the specifics of configuring 'begin_checkout' events.
 
-1. **Web Configuration Tags**: This covers how to track basic events like page views, user engagement, and session starts.
-2. **Begin Checkout Data Layer**: How to directly trigger the Begin Checkout event from Shopify and send enhanced e-commerce data to Google Analytics 4.
-3. **Configuring GTM for dataLayer event & Testing**: Ensuring everything has been configured correctly and publishing the Google Tag Manager containers.
+1. Web Configuration Tags: This covers how to track basic events like page views, user engagement, and session starts.
+2. Begin Checkout Data Layer: How to directly trigger the Begin Checkout event from Shopify and send enhanced e-commerce data to Google Analytics 4.
+3. Configuring GTM for dataLayer event & Testing: Ensuring everything has been configured correctly and publishing the Google Tag Manager containers.
 
 Now, let's dive in.
 
-## Section 01: Web Configuration Tags
+#### Section 01: Web Configuration Tags
 
 First up, let's set the groundwork with a configuration tag on Google Tag Manager.
 
-1. **Analytics Measurement ID**: Navigate to your [analytics account](analytics.google.com) to obtain the GA4 measurement ID. This unique ID facilitates data transmission from your website back to Google Analytics.
+1. Analytics Measurement ID: Navigate to your [analytics account](analytics.google.com) to obtain the GA4 measurement ID. This unique ID facilitates data transmission from your website back to Google Analytics.
 
    - On the lower left corner, choose `Admin`.
    - Within the 'Property Settings' column, select `Data Stream`. These data streams operate akin to pipelines, bridging data flow.
    - If you already possess a data stream, great! If not, you can create one. Once set, copy the measurement ID.
 
-2. **Google Tag Manager - Creating Variables**: Switch over to the [Google Tag Manager container](tagmanager.google.com). Here, we'll create variables to reuse IDs efficiently.
+2. Google Tag Manager - Creating Variables: Switch over to the [Google Tag Manager container](tagmanager.google.com). Here, we'll create variables to reuse IDs efficiently.
 
    - Head to the `Variable` section.
    - Click `New` > `Tag Configuration`.
@@ -68,7 +68,7 @@ First up, let's set the groundwork with a configuration tag on Google Tag Manage
    - Label it `GA4 Measurement ID`.
    - Save your changes.
 
-3. **Tag Creation**: With the Measurement ID constant in place, it’s time to create our first tag.
+3. Tag Creation: With the Measurement ID constant in place, it’s time to create our first tag.
 
    - Top right, select `New`.
    - This configuration tag should be active across all website pages. Hence, choose the trigger for built-in all pages.
@@ -77,15 +77,15 @@ First up, let's set the groundwork with a configuration tag on Google Tag Manage
    - Label the tag as `GT GA4 Configuration Tag`.
    - Save.
 
-### Testing the Configuration Tag
+#### Testing the Configuration Tag
 
 To ensure our configuration tag operates smoothly:
 
 1. Click `Preview` > Input your website’s URL.
-2. Use the Google Tag Assistant [**Chrome extensions**](https://chrome.google.com/webstore/detail/tag-assistant-legacy-by-g/kejbdjndbnbjgmefkgdddjlbokphdefk) to make sure the tags active on your website.
+2. Use the Google Tag Assistant [Chrome extensions](https://chrome.google.com/webstore/detail/tag-assistant-legacy-by-g/kejbdjndbnbjgmefkgdddjlbokphdefk) to make sure the tags active on your website.
 3. Cross-verify by navigating directly to the analytics account. Under `Admin`, choose `Debug View`. All default events (page_view, session_start) connected through the preview window to your Shopify store will be displayed here.
 
-## Section 02: Begin Checkout DataLayer with Enhanced E-Commerce Data
+#### Section 02: Begin Checkout DataLayer with Enhanced E-Commerce Data
 
 This section is for those who wish to capture more data, like the item_id, item_name, value, quantity, etc., when the "begin_checkout" event is triggered.
 
@@ -94,15 +94,15 @@ This section is for those who wish to capture more data, like the item_id, item_
  content="For this section, some programming knowledge is beneficial. If that's not your strength, you can share our document with your developer."
 />
 
-### Instructions for Developer
+#### Instructions for Developer
 
 Send over [this document](/static/pdf/blog/shopify/configuring-ga4-begin-checkout-event-on-shopify-using-gtm.pdf) to the developer else following the blog below
 
-### DataLayer Code Snippets Overview
+#### DataLayer Code Snippets Overview
 
 The provided code snippets aim to integrate the `dataLayer` object for Google Tag Manager (GTM) with a Shopify store. The main goal is to send an event called `custom_begin_checkout` whenever a user clicks the Begin Checkout button on the Cart page on Shopify.
 
-### Head DataLayer Code
+#### Head DataLayer Code
 
 This code initializes the `dataLayer` array if it hasn't been already. It then checks if the current page template is a 'product' page and renders a specific snippet called 'datalayer-product'.
 
@@ -114,14 +114,14 @@ This code initializes the `dataLayer` array if it hasn't been already. It then c
 {%- render 'datalayer-checkout' -%}
 ```
 
-### Checkout DataLayer Code
+#### Checkout DataLayer Code
 
 This code snippet contains the main logic for populating the `dataLayer` object with product details whenever a Begin Checkout Event is triggered on the Cart page:
 
-- **Initial Logging**:Outputs a message to verify the script is loaded.
-- **Cart Data & Product Details**: Retrieves cart data from Shopify and transforms cart items for Google's ecommerce tracking format.
-- **Cart Total Value**: Computes the total value of items in the cart.
-- **Begin Checkout Event Listener**: It waits for the page to load and then identifies checkout buttons. For each button: Clears previous `dataLayer` ecommerce data on click and pushes new ecommerce data to the `dataLayer` for Google Tag Manager tracking.
+- Initial Logging:Outputs a message to verify the script is loaded.
+- Cart Data & Product Details: Retrieves cart data from Shopify and transforms cart items for Google's ecommerce tracking format.
+- Cart Total Value: Computes the total value of items in the cart.
+- Begin Checkout Event Listener: It waits for the page to load and then identifies checkout buttons. For each button: Clears previous `dataLayer` ecommerce data on click and pushes new ecommerce data to the `dataLayer` for Google Tag Manager tracking.
 
 ```jsx
 <script>
@@ -165,7 +165,7 @@ This code snippet contains the main logic for populating the `dataLayer` object 
 </script>
 ```
 
-### Theme DataLayer Code
+#### Theme DataLayer Code
 
 This code renders the `head-datalayer` snippet. Depending on the setup of your Shopify theme, this is likely where the head datalayer code resides. Add this code GTM Body Code.
 
@@ -173,14 +173,14 @@ This code renders the `head-datalayer` snippet. Depending on the setup of your S
 {% render 'head-datalayer' %}
 ```
 
-### Steps to Add the DataLayer Code Snippets in Shopify:
+#### Steps to Add the DataLayer Code Snippets in Shopify:
 
-1. **Backup**: Before making any changes, always backup your current theme.
-2. **Access Theme Files**:
+1. Backup: Before making any changes, always backup your current theme.
+2. Access Theme Files:
    - Login to your Shopify Admin.
    - Go to Online Store > Themes.
    - Click on the "Actions" dropdown for your live theme and select "Edit code".
-3. **Add Head DataLayer Code**:
+3. Add Head DataLayer Code:
 
    - In the left sidebar, locate and click on `theme.liquid`.
    - Insert the "Head DataLayer Code" snippet within the `<head>` tags.
@@ -190,20 +190,20 @@ This code renders the `head-datalayer` snippet. Depending on the setup of your S
  content='Always ensure your code is correctly formatted for readability and error prevention.'
 />
 
-4. **Add Checkout DataLayer Code**:
+4. Add Checkout DataLayer Code:
 
    - Click "Add a new snippet" depending on your Shopify version.
    - Name it `datalayer-checkout.liquid`.
    - Insert the "Checkout DataLayer Code" snippet into this new file.
    - Save changes.
 
-5. **Add Theme DataLayer Code**:
+5. Add Theme DataLayer Code:
 
    - Determine where you want this code to render (usually within the `<head>` tags in `theme.liquid`).
    - Insert the "Theme DataLayer Code" snippet in the desired location.
    - Save changes.
 
-6. **Test**:
+6. Test:
    - Visit a Cart page on your Shopify store and click BeginChecout button.
    - Open browser's developer console.
    - Confirm that the `custom_begin_checkout` event is fired and the `dataLayer` object contains the correct product details.
@@ -213,11 +213,11 @@ This code renders the `head-datalayer` snippet. Depending on the setup of your S
  content="The custom prefixes added to event names (like 'custom_begin_checkout') prevent any conflicts with other possible integrations or plugins that might be using standard event names."
 />
 
-## Section 03: Setting Up Google Tag Manager for Enhanced Event Tracking
+#### Section 03: Setting Up Google Tag Manager for Enhanced Event Tracking
 
 To accurately track these events, we need to set up appropriate triggers and tags in Google Tag Manager.
 
-#### **Setting Up the Trigger**
+#### Setting Up the Trigger
 
 1. Navigate back to the Tag Manager.
 2. Opt for "Triggers" and create a new trigger.
@@ -229,7 +229,7 @@ To accurately track these events, we need to set up appropriate triggers and tag
  content="Using a 'custom_' prefix ensures that the 'begin checkout' does not mix with any other events on your website."
 />
 
-#### **Setting Up Event Parameters**
+#### Setting Up Event Parameters
 
 For additional tracking details, such as items, revenue, etc., Google Tag Manager's latest version introduces G4 event parameters, similar to setting variables in Universal Analytics.
 
@@ -244,7 +244,7 @@ For additional tracking details, such as items, revenue, etc., Google Tag Manage
  content="Ensure you use the correct notations, whether it's a dot for objects or indexes for arrays, to avoid errors."
 />
 
-#### **Creating an Event Tag for Google Analytics 4**
+#### Creating an Event Tag for Google Analytics 4
 
 1. Return to the tag section and formulate a new event tag for Google Analytics 4.
 2. Select the previously created trigger for `CE custom_begin_checkout`.
@@ -252,15 +252,15 @@ For additional tracking details, such as items, revenue, etc., Google Tag Manage
 4. Ensure the `GA4 Measurement ID` matches the one created at the beginning of this blog.
 5. For the event parameter, refer back to the same event setting parameter used earlier i.e., `GTES GA4 EEC Event parameters`.
 
-### Testing and Preview on GA4
+#### Testing and Preview on GA4
 
 After these configurations, test to ensure all parameters are working as expected. You can do this by initiating a checkout on your Shopify store and verifying that the Data Layer populates correctly, and the triggers fire as intended. Additionally, confirm the successful transmission of all parameters, such as items and currency, to Google Analytics 4.
 
-### Publish the Changes on GTM
+#### Publish the Changes on GTM
 
 Conclusing this section, always remember to publish your changes in Google Tag Manager. Failing to do so means your edits remain as drafts and won't reflect on the live website.
 
-### Conclusion
+#### Conclusion
 
 Integrating Google Analytics 4 (GA4) with Shopify using Google Tag Manager (GTM) offers e-commerce businesses a deeper understanding of their customer's journey. By effectively tracking the 'begin checkout' event, businesses can gain actionable insights into user behaviors and preferences, providing opportunities for optimization. Following this step-by-step guide ensures accurate data capture, enhancing decision-making and strategy formulation. As e-commerce continues to evolve, ensuring robust tracking mechanisms remains crucial. By leveraging the power of GA4 and GTM, retailers can ensure they're well-equipped to navigate the ever-changing landscape of online commerce. Happy tracking!
 

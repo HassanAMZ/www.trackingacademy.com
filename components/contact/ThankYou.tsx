@@ -15,7 +15,10 @@ export default function ThankYou() {
     },
    }}
    images={{
-    background: "/images/hero/hero-image.png",
+    background: {
+     desktop: "/images/hero/hero-image-md.png",
+     mobile: "/images/hero/hero-image-sm.png",
+    },
    }}
    colorDetails={{
     primary: baseColors.home.primary,

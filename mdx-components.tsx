@@ -5,63 +5,35 @@ import BlogHeader from "@/components/blog/BlogHeader";
 import CustomLink from "@/components/mdx/CustomLink";
 import Accordion from "@/components/mdx/Accordion";
 import Note from "@/components/mdx/Note";
-import React from "react";
 import {
  Heading2xl,
  Heading3xl,
  Heading4xl,
  Heading5xl,
+ Heading6xl,
  Headingxl,
  Paragraphlg,
  Paragraphmd,
  Paragraphsm,
 } from "./components/typography/Heading";
 import GiscusComments from "@/components/mdx/GiscusComents";
-// This file is required to use MDX in `app` directory.
+
 export function useMDXComponents(components: MDXComponents): MDXComponents {
  return {
+  GiscusComments,
   YoutubeEmbed,
   BlogHeader,
+  Accordion,
   Note,
   pre: Pre,
   a: CustomLink,
-  GiscusComments,
-  Accordion,
-  h1: (props) => {
-   return (
-    <Heading4xl className='py-2' {...props}>
-     {props.children}
-    </Heading4xl>
-   );
-  },
-  h2: (props) => {
-   return (
-    <Heading3xl className='py-2' {...props}>
-     {props.children}
-    </Heading3xl>
-   );
-  },
-  h3: (props) => {
-   return (
-    <Heading2xl className='py-2' {...props}>
-     {props.children}
-    </Heading2xl>
-   );
-  },
-  h4: (props) => {
-   return (
-    <Headingxl className='py-2' {...props}>
-     {props.children}
-    </Headingxl>
-   );
-  },
-  p: (props) => {
-   return (
-    <Paragraphmd className='leading-normal' {...props}>
-     {props.children}
-    </Paragraphmd>
-   );
-  },
+  p: Paragraphmd,
+  h1: Heading6xl,
+  h2: Heading5xl,
+  h3: Heading4xl,
+  h4: Heading3xl,
+  h5: Heading2xl,
+  h6: Headingxl,
 
   ...components,
  };

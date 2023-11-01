@@ -31,12 +31,20 @@ const HeroComponent: React.FC<HeroProps> = ({
  return (
   <ContainerLayout className=''>
    <section className='relative backgroundOverlay rounded-md flex flex-col shadow-md items-center justify-center'>
-    {images.background && (
+    {images?.background?.desktop && (
      <Image
-      src={images.background}
+      src={images.background.desktop}
       alt='Background image'
       fill
-      className='w-full h-full object-cover object-center opacity-60'
+      className='w-full h-full object-cover object-center opacity-60 hidden sm:block'
+     />
+    )}
+    {images?.background?.mobile && (
+     <Image
+      src={images.background.mobile}
+      alt='Background image'
+      fill
+      className='w-full h-full object-cover object-right-bottom opacity-60 sm:hidden block'
      />
     )}
     <div className='relativ z-10 flex flex-col justify-center items-start px-4 sm:px-8 md:px-14 py-20 md:py-24'>
@@ -65,7 +73,7 @@ const HeroComponent: React.FC<HeroProps> = ({
       )}
       {textGroup.subHeading && (
        <div className='space-y-1 font-semibold text-2xl md:w-[70%]'>
-        <Heading2xl className='font-semibold tracking-normal leading-tight'>
+        <Heading2xl className=''>
          {textGroup.subHeading.one}
          <span className='textOpacity80'>{textGroup.subHeading.two}</span>
         </Heading2xl>

@@ -4,13 +4,13 @@ import { BlogContentProps } from "@/types/index";
 import { Headingxl } from "@/components/typography/Heading";
 
 const BlogContent: React.FC<BlogContentProps> = ({ data, type, rawData }) => {
- const [visiblePosts, setVisiblePosts] = useState(11); // Display first 9 posts by default
+ const [visiblePosts, setVisiblePosts] = useState(10); // Display first 9 posts by default
 
  const latestPost = data[0]; // Get the latest post
  const remainingPosts = data.slice(1, visiblePosts); // Exclude the latest post
 
  const loadMoreHandler = () => {
-  setVisiblePosts((prevValue) => prevValue + 11); // Load 9 more posts
+  setVisiblePosts((prevValue) => prevValue + 10); // Load 9 more posts
  };
 
  return (

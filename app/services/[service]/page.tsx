@@ -5,6 +5,7 @@ import React from "react";
 import type { ServiceDetails, DynamicServicesPageProps } from "@/types/index";
 import PayPal from "@/components/paypal/PayPal";
 import type { Metadata, ResolvingMetadata } from "next";
+import { Heading3xl } from "@/components/typography/Heading";
 
 export async function generateStaticParams() {
  return servicesDetails.map((service) => ({
@@ -54,9 +55,7 @@ const Page: React.FC<DynamicServicesPageProps> = ({ params }) => {
   };
   return (
    <section>
-    <h3 className='text-2xl py-2 leading-none font-semibold tracking-tighter'>
-     {serviceObject.title}
-    </h3>
+    <Heading3xl className=''>{serviceObject.title}</Heading3xl>
     <div className='gap-2 grid grid-cols-1 md:grid-cols-5'>
      <div className='relative aspect-[4/3] col-span-1 md:col-span-3'>
       <Image
