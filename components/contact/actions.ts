@@ -3,11 +3,19 @@ import { cookies } from "next/headers";
 import { revalidatePath } from "next/cache";
 import { sql } from "@vercel/postgres";
 import { z } from "zod";
-import { collection, addDoc, deleteDoc, doc } from "firebase/firestore";
+import {
+ collection,
+ addDoc,
+ deleteDoc,
+ doc,
+ Timestamp,
+} from "firebase/firestore";
 import { db } from "@/app/firebase";
 
 export async function createContact(prevState: any, formData: FormData) {
+ const contactsCollection = collection(db, "contacts");
  const cookieStore = cookies();
+
  const schema = z.object({
   firstName: z.string().min(1),
   lastName: z.string().min(1),
@@ -26,14 +34,13 @@ export async function createContact(prevState: any, formData: FormData) {
  });
 
  try {
-  const contactsCollection = collection(db, "contacts");
   await addDoc(contactsCollection, data);
 
   await sql`
   INSERT INTO contacts (first_name, last_name, email, phone, website_link, project_description)
   VALUES (${data.firstName}, ${data.lastName}, ${data.email}, ${data.phone}, ${data.websiteLink}, ${data.projectDescription})
   `;
-  cookies().set("user", JSON.stringify(data));
+  cookieStore.set("user", JSON.stringify(data));
 
   revalidatePath("/");
   return { message: `Added contact ${data.firstName} ${data.lastName}` };
