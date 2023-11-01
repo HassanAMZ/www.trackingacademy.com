@@ -4,7 +4,7 @@ import localFont from "next/font/local";
 import NavBar from "@/components/navbar/Navbar";
 import { ReactNode } from "react";
 import { AuthContextProvider } from "@/context/AuthContext";
-import { PaypalContext } from "@/context/PaypalContext";
+// import { PaypalContext } from "@/context/PaypalContext";
 import GTMAnalytics from "@/components/analytics/GTMAnalytics";
 import React from "react";
 import VercelAnalytics from "@/components/analytics/VercelAnalytics";
@@ -38,9 +38,9 @@ export default function RootLayout({ children }: { children: ReactNode }) {
      <ContainerLayout>
       <NavBar />
      </ContainerLayout>
-     <PaypalContext>
-      <AuthContextProvider>{children}</AuthContextProvider>
-     </PaypalContext>
+     {/* <PaypalContext> */}
+     <AuthContextProvider>{children}</AuthContextProvider>
+     {/* </PaypalContext> */}
      {BgPolygon2}
      <ContainerLayout>
       <Footer />

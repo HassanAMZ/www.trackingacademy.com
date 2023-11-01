@@ -3,8 +3,7 @@ import Image from "next/image";
 import ContainerLayout from "@/components/layouts/ContainerLayout";
 import React from "react";
 import type { ServiceDetails, DynamicServicesPageProps } from "@/types/index";
-import PayPal from "@/components/paypal/PayPal";
-import type { Metadata, ResolvingMetadata } from "next";
+// import PayPal from "@/components/paypal/PayPal";
 import { Heading3xl } from "@/components/typography/Heading";
 
 export async function generateStaticParams() {
@@ -25,15 +24,15 @@ export async function generateMetadata({ params }: any) {
  };
 }
 
-const PaypalRender = ({ product }: any) => {
- return (
-  <div className='py-2 grid justify-left items-center '>
-   <div className='md:max-w-lg'>
-    <PayPal product={product} />
-   </div>
-  </div>
- );
-};
+// const PaypalRender = ({ product }: any) => {
+//  return (
+//   <div className='py-2 grid justify-left items-center '>
+//    <div className='md:max-w-lg'>
+//     <PayPal product={product} />
+//    </div>
+//   </div>
+//  );
+// };
 
 const Page: React.FC<DynamicServicesPageProps> = ({ params }) => {
  let serviceId = params.service;
@@ -77,7 +76,7 @@ const Page: React.FC<DynamicServicesPageProps> = ({ params }) => {
        })}
       </div>
       <div className='md:block hidden'>
-       <PaypalRender product={product} />
+       {/* <PaypalRender product={product} /> */}
       </div>
      </div>
     </div>
@@ -91,7 +90,7 @@ const Page: React.FC<DynamicServicesPageProps> = ({ params }) => {
      />
     </div>
     <div className='block md:hidden'>
-     <PaypalRender product={product} />
+     {/* <PaypalRender product={product} /> */}
     </div>
    </section>
   );

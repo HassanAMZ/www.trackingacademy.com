@@ -7,7 +7,6 @@ import {
  onAuthStateChanged,
  GoogleAuthProvider,
 } from "firebase/auth";
-import { PayPalScriptProvider } from "@paypal/react-paypal-js";
 import { auth } from "../firebase";
 
 const AuthContext = createContext();
