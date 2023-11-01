@@ -1,12 +1,12 @@
 "use client";
 import React, { useState, useEffect } from "react";
-
 import { useFormState, useFormStatus } from "react-dom";
 import { createContact } from "@/components/contact/actions";
 import ThankYou from "@/components/contact/ThankYou";
 import ContainerLayout from "../layouts/ContainerLayout";
 import Image from "next/image";
 import { GTMContactFormSubmission } from "../analytics/GTMEvents";
+import { Heading2xl } from "../typography/Heading";
 
 const initialState = {
  message: null,
@@ -43,6 +43,7 @@ export default function ContactForm() {
 
  return (
   <ContainerLayout className='pb-2'>
+   <Heading2xl>Submit a Contact Form</Heading2xl>
    <section className='w-full grid grid-cols-1 md:grid-cols-2'>
     <form action={formAction} className='flex flex-col space-y-2 '>
      <label htmlFor='firstName' className='text-sm font-medium'>
