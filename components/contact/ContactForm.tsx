@@ -18,12 +18,15 @@ function SubmitButton() {
  return (
   <button
    type='submit'
-   aria-disabled={pending}
-   className='bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded mt-4'>
-   Submit Contact Form
+   disabled={pending}
+   className={`bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded mt-4 ${
+    pending ? "opacity-50 cursor-not-allowed" : ""
+   }`}>
+   {pending ? "Submitting..." : "Submit Contact Form"}
   </button>
  );
 }
+
 export default function ContactForm() {
  const [state, formAction] = useFormState(createContact, initialState);
  const [formSubmitted, setFormSubmitted] = useState(false);

@@ -1,4 +1,5 @@
 "use server";
+
 import { cookies } from "next/headers";
 import { revalidatePath } from "next/cache";
 import { sql } from "@vercel/postgres";
@@ -11,11 +12,14 @@ import {
  Timestamp,
 } from "firebase/firestore";
 import { db } from "@/app/firebase";
-import { Resend } from "resend";
+
+// import { Resend } from "resend";
 
 export async function createContact(prevState: any, formData: FormData) {
  // const resend = new Resend(process.env.NEXT_PUBLIC_RESEND_API_KEY);
+
  const contactsCollection = collection(db, "contacts");
+
  const schema = z.object({
   firstName: z.string().min(1),
   lastName: z.string().min(1),
@@ -37,10 +41,10 @@ export async function createContact(prevState: any, formData: FormData) {
  try {
   await addDoc(contactsCollection, data);
 
-  await sql`
-  INSERT INTO contacts (first_name, last_name, email, phone, website_link, project_description)
-  VALUES (${data.firstName}, ${data.lastName}, ${data.email}, ${data.phone}, ${data.websiteLink}, ${data.projectDescription})
-  `;
+  // await sql`
+  // INSERT INTO contacts (first_name, last_name, email, phone, website_link, project_description)
+  // VALUES (${data.firstName}, ${data.lastName}, ${data.email}, ${data.phone}, ${data.websiteLink}, ${data.projectDescription})
+  // `;
 
   cookies().set("user", JSON.stringify(data));
 
@@ -51,7 +55,6 @@ export async function createContact(prevState: any, formData: FormData) {
   //  text: "hello world",
   // });
 
-  revalidatePath("/");
   return { message: `Added contact ${data.firstName} ${data.lastName}` };
  } catch (e) {
   return { message: "Failed to create contact" };
