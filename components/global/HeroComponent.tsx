@@ -32,13 +32,14 @@ const HeroComponent: React.FC<HeroProps> = ({
   <ContainerLayout>
    <section className='relative rounded-md flex flex-col shadow-md items-center justify-center'>
     {images.background && (
-     <div
-      className='dark:bg-gray-800 bg-gray-400 rounded-md absolute top-0 bottom-0 left-0 dark:opacity-40 opacity-50 right-0 bg-cover z-0'
-      style={{
-       //  backgroundColor: `${color.lighter}`,
-       backgroundPosition: "65% 10%",
-       backgroundImage: `url('${images.background}')`,
-      }}></div>
+     <Image
+      src={images.background}
+      alt='Background image'
+      layout='fill' // make it cover the entire parent div
+      objectFit='cover' // cover the entire viewport
+      quality={100} // adjust quality if necessary
+      className='absolute z-0' // position it absolutely and send it to the back
+     />
     )}
     <div className='relativ z-10 flex flex-col justify-center items-start px-4 py-20 sm:px-8 md:px-14 '>
      <aside className='space-y-5 pb-6'>
