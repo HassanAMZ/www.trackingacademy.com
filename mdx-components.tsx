@@ -13,12 +13,11 @@ import {
  Heading6xl,
  Headingxl,
  ListItem,
- Paragraphlg,
  Paragraphmd,
  OrderedList,
- Paragraphsm,
  UnorderedList,
 } from "./components/typography/Heading";
+import Image from "next/image";
 import GiscusComments from "@/components/mdx/GiscusComents";
 
 export function useMDXComponents(components: MDXComponents): MDXComponents {
@@ -40,6 +39,11 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
   li: ListItem,
   ol: OrderedList,
   ul: UnorderedList,
+  img: (props) => {
+   // @ts-ignore
+   return <Image src={props.src} width={1920} height={1080} {...props} />;
+  },
+
   ...components,
  };
 }

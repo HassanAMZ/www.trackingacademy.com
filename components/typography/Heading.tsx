@@ -73,6 +73,7 @@ const Paragraphlg: React.FC<HeadingProps> = ({
   </p>
  );
 };
+
 const Paragraphmd: React.FC<HeadingProps> = ({
  children,
  className,
@@ -86,6 +87,7 @@ const Paragraphmd: React.FC<HeadingProps> = ({
   </p>
  );
 };
+
 const Paragraphsm: React.FC<HeadingProps> = ({
  children,
  className,

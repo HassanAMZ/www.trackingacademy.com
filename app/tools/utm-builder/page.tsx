@@ -63,7 +63,7 @@ const Page: React.FC = () => {
   if (campaignID) params.push(`utm_id=${campaignID}`);
   if (campaignTerm) params.push(`utm_term=${campaignTerm}`);
   if (campaignContent) params.push(`utm_content=${campaignContent}`);
-
+  if (selectedMode === "google") params.push(`gclid={gclid}`);
   return `${websiteURL}?${params.join("&")}`;
  };
 
