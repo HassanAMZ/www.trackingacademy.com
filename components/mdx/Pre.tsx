@@ -1,20 +1,10 @@
 "use client";
 import { PreProps } from "@/types/index";
-import { DetailedHTMLProps, HTMLAttributes, FC, useRef, useState } from "react";
+import { useRef, useState } from "react";
 
-const Pre: React.FC<PreProps> = (props) => {
+const Pre: React.FC<PreProps> = ({ language, children }) => {
  const textInput = useRef<HTMLDivElement>(null);
- const [hovered, setHovered] = useState(false);
  const [copied, setCopied] = useState(false);
-
- const onEnter = () => {
-  setHovered(true);
- };
-
- const onExit = () => {
-  setHovered(false);
-  setCopied(false);
- };
 
  const onCopy = () => {
   setCopied(true);
@@ -25,55 +15,32 @@ const Pre: React.FC<PreProps> = (props) => {
  };
 
  return (
-  <div
-   ref={textInput}
-   onMouseEnter={onEnter}
-   onMouseLeave={onExit}
-   className='relative my-5  rounded-md border-gray-200 dark:border-gray-700 shadow-md'>
-   {hovered && (
-    <button
-     aria-label='Copy code'
-     type='button'
-     className={`absolute right-2 top-2 w-8 h-8 p-1 rounded border-2 bg-gray-700 dark:bg-gray-300 ${
-      copied
-       ? "focus:outline-none focus:border-green-400 focus:dark:border-green-600 dark:border-green-600 border-green-400"
-       : "border-gray-300"
-     }`}
-     onClick={onCopy}>
+  <div className='text-sm md:text-sm rounded-md text-left border-2 dark:border-gray-800 border-gray-50 bg-gray-50 dark:bg-gray-900'>
+   <div className='flex items-center relative text-gray-800 dark:text-gray-200 bg-gray-200 dark:bg-gray-800 px-4 py-2 text-xs font-sans justify-between rounded-t-md'>
+    <span>{language}</span>
+    <button onClick={onCopy} className='flex ml-auto gap-2 items-center '>
      <svg
-      xmlns='http://www.w3.org/2000/svg'
-      viewBox='0 0 24 24'
       stroke='currentColor'
       fill='none'
-      className={
-       copied
-        ? "text-green-400 dark:text-green-600"
-        : "text-gray-300 dark:text-gray-700"
-      }>
-      {copied ? (
-       <>
-        <path
-         strokeLinecap='round'
-         strokeLinejoin='round'
-         strokeWidth={2}
-         d='M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4'
-        />
-       </>
-      ) : (
-       <>
-        <path
-         strokeLinecap='round'
-         strokeLinejoin='round'
-         strokeWidth={2}
-         d='M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2'
-        />
-       </>
-      )}
+      strokeWidth='2'
+      viewBox='0 0 24 24'
+      strokeLinecap='round'
+      strokeLinejoin='round'
+      className='icon-sm h-4 w-4 '
+      xmlns='http://www.w3.org/2000/svg'>
+      <path d='M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2'></path>
+      <rect x='8' y='2' width='8' height='4' rx='1' ry='1'></rect>
      </svg>
+     {copied ? "Code Copied!" : "Copy code"}
     </button>
-   )}
-
-   <pre className='p-2 backgroundOverlay break-words'>{props.children}</pre>
+   </div>
+   <div
+    className='p-4 overflow-y-auto text-gray-800 dark:text-gray-200'
+    ref={textInput}>
+    <code className={`hljs language-${(language || "unknown").toLowerCase()}`}>
+     {children}
+    </code>
+   </div>
   </div>
  );
 };

@@ -22,8 +22,8 @@ const BlogHeader: React.FC<PostMetadataProps> = ({ metadata }) => {
     type='application/ld+json'
     dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
    />
-   <div className='rounded-md text-left sm:text-center backgroundOverlay py-5 sm:py-12 px-4'>
-    <Heading3xl className='py-2'>{metadata.title}</Heading3xl>
+   <div className='rounded-md text-left sm:!text-center backgroundOverlay py-5 sm:py-12 px-4'>
+    <Heading3xl className='py-2 sm:!text-center  '>{metadata.title}</Heading3xl>
     <div className='text-gray-600 dark:text-gray-300'>
      <Paragraphsm>
       by ShahzadaAliHassan - {formatDate(metadata.date)}

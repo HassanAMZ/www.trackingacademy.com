@@ -10,9 +10,9 @@ const Note: React.FC<NotesProps> = ({ title, content }) => {
  return (
   <div className='py-2'>
    <div className='backgroundOverlay p-2 md:p-4 '>
-    <Paragraphmd>
+    <Paragraphmd className='text-gray-900 dark:text-gray-50'>
      <strong>{title}:&nbsp; </strong>
-     <span className='textOpacity80'>{content}</span>
+     <span className=''>{content}</span>
     </Paragraphmd>
    </div>
   </div>

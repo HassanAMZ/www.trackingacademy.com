@@ -12,9 +12,12 @@ import {
  Heading5xl,
  Heading6xl,
  Headingxl,
+ ListItem,
  Paragraphlg,
  Paragraphmd,
+ OrderedList,
  Paragraphsm,
+ UnorderedList,
 } from "./components/typography/Heading";
 import GiscusComments from "@/components/mdx/GiscusComents";
 
@@ -34,7 +37,9 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
   h4: Heading3xl,
   h5: Heading2xl,
   h6: Headingxl,
-
+  li: ListItem,
+  ol: OrderedList,
+  ul: UnorderedList,
   ...components,
  };
 }

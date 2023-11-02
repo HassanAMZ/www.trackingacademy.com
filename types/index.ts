@@ -180,8 +180,12 @@ export interface BlogLayoutProps {
  metadata?: PostMetadata; // Optional metadata prop
 }
 
-export interface PreProps
- extends DetailedHTMLProps<HTMLAttributes<HTMLPreElement>, HTMLPreElement> {}
+export type PreProps = React.DetailedHTMLProps<
+ React.HTMLAttributes<HTMLPreElement>,
+ HTMLPreElement
+> & {
+ language?: string;
+};
 
 export interface YoutubeEmbedProps {
  embedId: string;
