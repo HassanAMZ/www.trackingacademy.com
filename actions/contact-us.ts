@@ -21,20 +21,18 @@ export async function createContact(prevState: any, formData: FormData) {
  const contactsCollection = collection(db, "contacts");
 
  const schema = z.object({
-  firstName: z.string().min(1),
-  lastName: z.string().min(1),
+  userName: z.string().min(1),
   email: z.string().min(1),
-  phone: z.string().min(1),
   websiteLink: z.string().min(1),
+  integrationType: z.string().min(1),
   projectDescription: z.string().min(1),
  });
 
  const data = schema.parse({
-  firstName: formData.get("firstName"),
-  lastName: formData.get("lastName"),
+  userName: formData.get("userName"),
   email: formData.get("email"),
-  phone: formData.get("phone"),
   websiteLink: formData.get("websiteLink"),
+  integrationType: formData.get("integrationType"),
   projectDescription: formData.get("projectDescription"),
  });
 
@@ -55,36 +53,8 @@ export async function createContact(prevState: any, formData: FormData) {
   //  text: "hello world",
   // });
 
-  return { message: `Added contact ${data.firstName} ${data.lastName}` };
+  return { message: `Added contact ${data.userName}` };
  } catch (e) {
   return { message: "Failed to create contact" };
- }
-}
-
-export async function deleteContact(prevState: any, formData: FormData) {
- const schema = z.object({
-  id: z.string().min(1),
-  firstName: z.string().min(1),
-  lastName: z.string().min(1),
- });
- const data = schema.parse({
-  id: formData.get("id"),
-  firstName: formData.get("firstName"),
-  lastName: formData.get("lastName"),
- });
-
- try {
-  await sql`
-      DELETE FROM contacts
-      WHERE id = ${data.id};
-    `;
-
-  const contactRef = doc(db, "contacts", data.id);
-  await deleteDoc(contactRef);
-
-  revalidatePath("/");
-  return { message: `Deleted contact ${data.firstName} ${data.lastName}` };
- } catch (e) {
-  return { message: "Failed to delete contact" };
  }
 }

@@ -46,63 +46,72 @@ export default function ContactForm() {
 
  return (
   <ContainerLayout className='pb-2'>
-   <Heading2xl>Submit a Contact Form</Heading2xl>
-   <section className='w-full grid grid-cols-1 md:grid-cols-2'>
-    <form action={formAction} className='flex flex-col space-y-2 '>
-     <label htmlFor='firstName' className='text-sm font-medium'>
-      First Name
-     </label>
-     <input
-      type='text'
-      id='firstName'
-      name='firstName'
-      required
-      className='p-2 border rounded'
-     />
+   {/* <Heading2xl>Submit a Contact Form</Heading2xl> */}
+   <section className='w-full flex flex-col items-center justify-center'>
+    <Image
+     height={500}
+     width={500}
+     src={"/images/contact/contact-phone.png"}
+     alt={"image"}
+    />
+    <form action={formAction} className='flex flex-col space-y-2 w-full'>
+     <div className='flex md:flex-row flex-col w-full gap-2'>
+      <div className='flex flex-col w-full'>
+       <label htmlFor='userName' className='text-sm font-medium'>
+        First Name
+       </label>
+       <input
+        type='text'
+        id='userName'
+        name='userName'
+        required
+        className='p-2 border rounded'
+       />
+      </div>
+      <div className='flex flex-col w-full'>
+       <label htmlFor='email' className='text-sm font-medium'>
+        Email
+       </label>
+       <input
+        type='email'
+        id='email'
+        name='email'
+        required
+        className='p-2 border rounded'
+       />
+      </div>
+     </div>
 
-     <label htmlFor='lastName' className='text-sm font-medium'>
-      Last Name
-     </label>
-     <input
-      type='text'
-      id='lastName'
-      name='lastName'
-      required
-      className='p-2 border rounded'
-     />
+     <div className='flex flex-col w-full'>
+      <label htmlFor='websiteLink' className='text-sm font-medium'>
+       Website Link
+      </label>
+      <input
+       type='url'
+       id='websiteLink'
+       name='websiteLink'
+       required
+       className='p-2 border rounded'
+      />
+     </div>
 
-     <label htmlFor='email' className='text-sm font-medium'>
-      Email
-     </label>
-     <input
-      type='email'
-      id='email'
-      name='email'
-      required
-      className='p-2 border rounded'
-     />
-
-     <label htmlFor='phone' className='text-sm font-medium'>
-      Phone
-     </label>
-     <input
-      type='tel'
-      id='phone'
-      name='phone'
-      required
-      className='p-2 border rounded'
-     />
-
-     <label htmlFor='websiteLink' className='text-sm font-medium'>
-      Website Link
-     </label>
-     <input
-      type='url'
-      id='websiteLink'
-      name='websiteLink'
-      required
-      className='p-2 border rounded'
-     />
+     <div className='flex flex-col w-full'>
+      <label htmlFor='integrationType' className='text-sm font-medium'>
+       Choose Integration
+      </label>
+      <select
+       id='integrationType'
+       name='integrationType'
+       required
+       className='p-2 border rounded'>
+       <option value=''>Select...</option>
+       <option value='gtm'>GTM setup</option>
+       <option value='ga4'>GA4 integration</option>
+       <option value='fbPixel'>FB Pixel integration</option>
+       <option value='ttPixel'>TT Pixel integration</option>
+       <option value='s2s'>Server to Server Tracking</option>
+      </select>
+     </div>
 
      <label htmlFor='projectDescription' className='text-sm font-medium'>
       Project Description
@@ -119,13 +128,6 @@ export default function ContactForm() {
       {state?.message}
      </p>
     </form>
-    <Image
-     className='hidden md:block'
-     height={500}
-     width={500}
-     src={"/images/contact/contact-phone.png"}
-     alt={"image"}
-    />
    </section>
   </ContainerLayout>
  );
