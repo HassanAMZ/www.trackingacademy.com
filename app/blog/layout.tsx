@@ -21,5 +21,5 @@ export async function generateStaticParams(): Promise<
  return allPostsData;
 }
 export default function Layout({ children }: { children: ReactNode }) {
- return <BlogLayout>{children}</BlogLayout>;
+ return <BlogLayout className='text-justify'>{children}</BlogLayout>;
 }
