@@ -1,17 +1,23 @@
 "use client";
 import React, { useState, useRef } from "react";
-import ContainerLayout from "@/components/layouts/ContainerLayout";
+
 import baseColors from "@/data/base-colors";
 import {
  IsWebsiteURLValid,
- GenerateUTM,
  CanGenerateUTM,
  CopyToClipboard,
  GetErrorMessages,
 } from "@/types/index";
 import InputField from "@/components/tools/InputField";
 import { ButtonData } from "@/types/index";
-import { Paragraphlg } from "@/components/typography/Heading";
+import {
+ Heading4xl,
+ Paragraphlg,
+ Paragraphmd,
+} from "@/components/typography/Heading";
+import YoutubeEmbed from "@/components/mdx/YoutubeEmbed";
+
+import Link from "next/link";
 
 const Page: React.FC = () => {
  const [websiteURL, setWebsiteURL] = useState<string>("");
@@ -164,17 +170,51 @@ const Page: React.FC = () => {
  };
 
  return (
-  <ContainerLayout className='flex flex-col shadow-md rounded-lg'>
-   <div className='flex flex-row gap-2'>
+  <section className='flex flex-col shadow-md rounded-lg'>
+   <div className='pt-12 pb-2 flex flex-col text-center justify-center items-center space-y-6'>
+    <div className='pt-4 pb-2 space-y-4'>
+     <Heading4xl className=''>Master UTM Parameters in Minutes!</Heading4xl>
+     <Paragraphmd className=''>
+      Wave goodbye to marketing mysteries! Discover the secrets of tracking your
+      digital campaigns with precision. Let's decode UTM parameters together.
+     </Paragraphmd>
+
+     <div className='flex gap-x-4 justify-center'>
+      <Link
+       href='#utm-builder'
+       className='font-bold rounded-md py-4 px-6 dark:text-white text-gray-800'
+       style={{ backgroundColor: baseColors.tools.primary }}>
+       Start Creating UTMs
+      </Link>
+      <Link
+       href='/tags/utm-parameters/'
+       className='font-bold border-2 hidden md:block rounded-md py-4 px-6 dark:text-white text-gray-800'
+       style={{ borderColor: baseColors.tools.primary }}>
+       Read the Blog
+      </Link>
+     </div>
+    </div>
+
+    {/* <Paragraphxs className='text-gray-500 '>
+     Got questions? Our step-by-step guide and UTM builder are here to help you
+     sail smoothly through the seas of campaign tracking!
+    </Paragraphxs> */}
+
+    <div className='w-full'>
+     <YoutubeEmbed embedId='RmB2mSfkdEo' />
+    </div>
+   </div>
+
+   <div className='flex flex-col md:flex-row gap-2' id='utm-builder'>
     {buttonsData.map((button) => (
-     <div key={button.text} className='w-full mb-2'>
+     <div key={button.text} className='w-full'>
       <button
        className={`
-       border-2 border-gray-600 dark:border-gray-300 p-2 w-full transition duration-300 ease-in-out rounded-md 
+       border-2 border-gray-600 dark:border-gray-300 p-2 w-full transition font-semibold duration-300 ease-in-out rounded-md 
         ${
          selectedButton === button.id
-          ? ` text-white  dark:text-gray-50 bg-red-500` // Solid Button
-          : ` text-gray-600  dark:text-gray-300 hover:bg-gray-500 hover:text-gray-50 ` // Outlined Button
+          ? ` text-gray-50 darktext-gray-800  dark:text-gray-800 bg-gray-50`
+          : ` text-gray-600  dark:text-gray-300 hover:bg-gray-500 hover:text-gray-50 `
         }
       `}
        //  style={{ backgroundColor: baseColors.tools.primary }}
@@ -188,47 +228,63 @@ const Page: React.FC = () => {
     ))}
    </div>
 
-   <div className='space-y-4 py-4'>
+   <div className='space-y-2 py-4'>
     <InputField
      required
-     label='Website URL *'
+     label='Website URL '
      value={websiteURL}
      onChange={setWebsiteURL}
      type='url'
+     id='website-url'
+     helperText='The full website URL (e.g., https://www.example.com)'
     />
     <InputField
      label='Campaign ID'
      value={campaignID}
      onChange={setCampaignID}
+     id='campaign-id'
+     helperText='The unique ads campaign ID (e.g., V7FHcp8weDA)'
     />
     <InputField
      required
-     label='Campaign Source *'
+     label='Campaign Source '
      value={campaignSource}
      onChange={setCampaignSource}
+     id='campaign-source'
+     helperText='The referrer (e.g., google, newsletter)'
     />
     <InputField
      required
-     label='Campaign Medium *'
+     label='Campaign Medium '
      value={campaignMedium}
      onChange={setCampaignMedium}
+     id='campaign-medium'
+     helperText='Marketing medium (e.g., cpc, banner, email)'
     />
     <InputField
-     label='Campaign Name'
+     required
+     label='Campaign Name '
      value={campaignName}
      onChange={setCampaignName}
+     id='campaign-name'
+     helperText='Product, promo code, or slogan (e.g., spring_sale). One of campaign name or campaign id is required.'
     />
     <InputField
      label='Campaign Term'
      value={campaignTerm}
      onChange={setCampaignTerm}
+     id='campaign-term'
+     helperText='Identify the paid keywords (e.g., V7FHcp8weDA)'
     />
     <InputField
      label='Campaign Content'
      value={campaignContent}
      onChange={setCampaignContent}
+     id='campaign-content'
+     helperText='Use to differentiate ads (e.g., Use to differentiate between similar ads in the same campaign)'
     />
    </div>
+
    <div className='rounded-lg space-y-2'>
     <span>Generated UTM Link:</span>
     <textarea
@@ -263,7 +319,7 @@ const Page: React.FC = () => {
      </Paragraphlg>
     </button>
    </div>
-  </ContainerLayout>
+  </section>
  );
 };
 

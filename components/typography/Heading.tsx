@@ -103,13 +103,15 @@ const Paragraphsm: React.FC<HeadingProps> = ({
 };
 const Paragraphxs: React.FC<HeadingProps> = ({
  children,
+ id,
  className,
  style,
 }) => {
  return (
   <p
    className={`text-xs text-gray-700 dark:text-gray-300 ${className}`}
-   style={style}>
+   style={style}
+   id={`${id}`}>
    {children}
   </p>
  );

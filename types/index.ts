@@ -446,6 +446,7 @@ export type ButtonProps = {
 
 export interface HeadingProps {
  children?: React.ReactNode;
+ id?: React.ReactNode;
  className?: string;
  style?: React.CSSProperties;
 }
