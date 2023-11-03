@@ -43,7 +43,7 @@ const YouTubeSearch: FC<YouTubeSearchProps> = ({ onSearchComplete }) => {
  };
 
  return (
-  <div className='flex gap-2 w-full px-2'>
+  <div className='flex flex-col md:flex-row gap-2 w-full px-2'>
    <input
     type='text'
     value={searchInput}
@@ -53,7 +53,7 @@ const YouTubeSearch: FC<YouTubeSearchProps> = ({ onSearchComplete }) => {
    />
    <button
     onClick={searchYouTube}
-    className='bg-blue-500 w-40 text-white p-2 rounded-full shadow hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50'>
+    className='bg-blue-500 md:w-40 w-full text-white p-2 rounded-full shadow hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50'>
     Search
    </button>
    {errorMessage && (

@@ -1,10 +1,9 @@
 "use client";
-
 import React, { useEffect, useState } from "react";
-import ContainerLayout from "../layouts/ContainerLayout";
-import YoutubeVideo from "./YoutubeVideo";
-import YouTubeSearch from "./YoutubeSearch";
 import VideoUrlInput from "./VideoUrlInput ";
+import YouTubeSearch from "./YoutubeSearch";
+import YoutubeVideo from "./YoutubeVideo";
+import { VideoUrl, VideoDetails } from "@/types/index";
 
 const defaultVideos = [
  "https://www.youtube.com/watch?v=GZ42PIi9bis",
@@ -28,33 +27,63 @@ const defaultVideos = [
  "https://www.youtube.com/watch?v=lpcsg4ziKus",
  "https://www.youtube.com/watch?v=XXXtJ8NJKo8",
 ];
-type VideoUrl = string;
 
 const VideoGrid = () => {
  const [addedVideos, setAddedVideos] = useState<VideoUrl[]>([]);
- const [videos, setVideos] = useState<VideoUrl[]>([]);
+ const [videos, setVideos] = useState<VideoUrl[]>(defaultVideos);
+ const [videoDetails, setVideoDetails] = useState<VideoDetails[]>([]);
  const [videoInput, setVideoInput] = useState("");
  const [errorMessage, setErrorMessage] = useState("");
- const fetchFeaturedVideos = async () => {
+
+ const fetchVideosDetails = async (videoIds: string[]) => {
   const apiKey = process.env.NEXT_PUBLIC_YOUTUBE_API_KEY;
-  const maxResults = 16;
-  const url = `https://www.googleapis.com/youtube/v3/videos?part=snippet&chart=mostPopular&regionCode=US&maxResults=${maxResults}&key=${apiKey}`;
+  const url = `https://www.googleapis.com/youtube/v3/videos?id=${videoIds.join(
+   ","
+  )}&part=snippet,statistics&key=${apiKey}`;
 
   try {
    const response = await fetch(url);
    if (!response.ok) {
     throw new Error("Network response was not ok");
    }
+
    const data = await response.json();
-   const featuredVideos: VideoUrl[] = data.items.map(
-    (item: any) => `https://www.youtube.com/watch?v=${item.id}`
-   );
-   setVideos(featuredVideos);
+   return data.items as VideoDetails[];
   } catch (error) {
-   console.error("Failed to fetch featured videos:", error);
-   setErrorMessage("Failed to load featured videos.");
-   setVideos(defaultVideos);
+   console.error("Failed to fetch video details:", error);
+   setErrorMessage("Failed to load video details.");
+   return [];
   }
+ };
+
+ useEffect(() => {
+  const fetchAllVideoDetails = async () => {
+   const videoIds = videos
+    .map((url) => new URL(url).searchParams.get("v"))
+    .filter(Boolean) as string[];
+   const details = await fetchVideosDetails(videoIds);
+   setVideoDetails(details);
+  };
+
+  fetchAllVideoDetails();
+ }, [videos]);
+
+ const insertRandomly = (
+  existingItems: VideoUrl[],
+  newItems: VideoUrl[]
+ ): VideoUrl[] => {
+  let result = [...existingItems];
+
+  newItems.forEach((item) => {
+   let randomIndex = Math.floor(Math.random() * (result.length + 1));
+   result.splice(randomIndex, 0, item);
+  });
+
+  return result;
+ };
+
+ const handleSearchComplete = (searchResults: string[]) => {
+  setVideos((prevVideos) => insertRandomly(searchResults, addedVideos));
  };
 
  const addVideo = () => {
@@ -79,29 +108,9 @@ const VideoGrid = () => {
   setVideoInput("");
  };
 
- const handleSearchComplete = (searchResults: string[]) => {
-  setVideos((prevVideos) => insertRandomly(searchResults, addedVideos));
- };
- const insertRandomly = (
-  existingItems: VideoUrl[],
-  newItems: VideoUrl[]
- ): VideoUrl[] => {
-  let result = [...existingItems];
-
-  newItems.forEach((item) => {
-   let randomIndex = Math.floor(Math.random() * (result.length + 1));
-   result.splice(randomIndex, 0, item);
-  });
-
-  return result;
- };
- useEffect(() => {
-  console.log("Component did mount, fetching featured videos");
-  fetchFeaturedVideos();
- }, []);
  return (
   <>
-   <div className='flex py-2 flex-col backgroundOverlay gap-2 items-center justify-between px-2'>
+   <div className='flex py-2 flex-col backgroundOverlay gap-2 items-center justify-between'>
     <YouTubeSearch onSearchComplete={handleSearchComplete} />
     <VideoUrlInput
      videoInput={videoInput}
@@ -112,11 +121,16 @@ const VideoGrid = () => {
    </div>
 
    <div className='grid grid-cols-1 py-2 sm:grid-cols-2 lg:grid-cols-4 gap-x-4 gap-y-6'>
-    {videos.map((videoUrl, index) => (
-     <div key={index} className='video-item'>
-      <YoutubeVideo videoUrl={videoUrl} />
-     </div>
-    ))}
+    {videos.map((videoUrl, index) => {
+     const videoId = new URL(videoUrl).searchParams.get("v");
+     const details = videoDetails.find((detail) => detail.id === videoId);
+
+     return (
+      <div key={index} className='video-item'>
+       <YoutubeVideo videoUrl={videoUrl} details={details} />
+      </div>
+     );
+    })}
    </div>
   </>
  );

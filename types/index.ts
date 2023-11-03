@@ -450,3 +450,46 @@ export interface HeadingProps {
  className?: string;
  style?: React.CSSProperties;
 }
+
+export type VideoDetails = {
+ id: string;
+ snippet: {
+  title: string;
+  description: string;
+  thumbnails: {
+   medium: {
+    url: string;
+   };
+  };
+ };
+ statistics: {
+  viewCount: string;
+  likeCount: string;
+ };
+};
+
+export type VideoUrl = string;
+export interface YoutubdeVideoProps {
+ videoUrl: string;
+ details?: VideoDetails;
+}
+
+export type YouTubeApiResponse = {
+ items: {
+  id: string;
+  snippet?: {
+   title: string;
+   description: string;
+   thumbnails: {
+    default: {
+     url: string;
+    };
+   };
+  };
+  statistics?: {
+   viewCount: string;
+   likeCount: string;
+   dislikeCount: string;
+  };
+ }[];
+};
