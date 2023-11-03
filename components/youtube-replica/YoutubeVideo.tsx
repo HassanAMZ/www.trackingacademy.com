@@ -17,19 +17,22 @@ const YoutubeVideo: React.FC<YoutubdeVideoProps> = ({ videoUrl, details }) => {
   }
  }
 
- // Function to format the time since the video was uploaded
  function formatTimeSince(date: string): string {
   const videoDate = new Date(date);
   const now = new Date();
   const timeDiff = now.getTime() - videoDate.getTime();
+
   const seconds = timeDiff / 1000;
   const minutes = seconds / 60;
   const hours = minutes / 60;
   const days = hours / 24;
+  const weeks = days / 7; // Calculate weeks
   const years = days / 365;
 
   if (years >= 1) {
    return `${Math.floor(years)} year${Math.floor(years) > 1 ? "s" : ""} ago`;
+  } else if (weeks >= 1) {
+   return `${Math.floor(weeks)} week${Math.floor(weeks) > 1 ? "s" : ""} ago`;
   } else if (days >= 1) {
    return `${Math.floor(days)} day${Math.floor(days) > 1 ? "s" : ""} ago`;
   } else if (hours >= 1) {
@@ -45,7 +48,6 @@ const YoutubeVideo: React.FC<YoutubdeVideoProps> = ({ videoUrl, details }) => {
   }
  }
 
- // If details are provided, render them. Otherwise, display a loading message
  return (
   <div>
    {details ? (
@@ -58,6 +60,12 @@ const YoutubeVideo: React.FC<YoutubdeVideoProps> = ({ videoUrl, details }) => {
       />
      </div>
      <div className='flex flex-row items-start justify-start gap-3 mt-3'>
+      {/* Profile picture */}
+      <img
+       src={details.snippet.thumbnails.default.url} // Replace with the correct property path if different
+       alt='Channel Thumbnail'
+       className='w-10 h-10 rounded-full object-cover bg-repeat object-center' // Adjust size and styling as needed
+      />
       <div className='flex flex-col'>
        <CustomLink
         href={videoUrl}

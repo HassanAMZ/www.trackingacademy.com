@@ -452,12 +452,14 @@ export interface HeadingProps {
 }
 
 export type VideoDetails = {
+ channelThumbnailUrl: string | undefined;
  id: string;
  snippet: {
   publishedAt: string;
   title: string;
   description: string;
   thumbnails: {
+   default: any;
    medium: {
     url: string;
    };

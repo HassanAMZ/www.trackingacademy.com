@@ -60,11 +60,11 @@ const VideoGrid = () => {
      (video: { id: string }) => `https://www.youtube.com/watch?v=${video.id}`
     );
     setVideos(trendingVideoUrls);
-    setVideoDetails(trendingVideos);
    }
   };
 
   initializeTrendingVideos();
+  console.log("empty depenedcy useEffect");
  }, []);
 
  useEffect(() => {
@@ -81,6 +81,7 @@ const VideoGrid = () => {
    }
   };
   fetchAllVideoDetails();
+  console.log("Video List depenedcy useEffect");
  }, [videos]);
 
  const insertRandomly = (
