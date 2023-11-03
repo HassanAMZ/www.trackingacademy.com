@@ -33,7 +33,9 @@ const BlogCard: React.FC<SingleBlogCardProps> = ({
     <Headingxl className='line-clamp-2'>{post.title}</Headingxl>
    </div>
    <div className='textOpacity80 py-6 px-6 border-md'>
-    <Paragraphsm className='line-clamp-3'>{post.description}</Paragraphsm>
+    <Paragraphsm className='line-clamp-3 text-left'>
+     {post.description}
+    </Paragraphsm>
     <Paragraphxs className='md:pt-6 pt-4 pb-2 flex justify-between'>
      <span> {formatDate(post.date)} - ShahzadaAliHassan</span>
     </Paragraphxs>
