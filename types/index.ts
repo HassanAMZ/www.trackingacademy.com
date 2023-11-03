@@ -454,6 +454,7 @@ export interface HeadingProps {
 export type VideoDetails = {
  id: string;
  snippet: {
+  publishedAt: string;
   title: string;
   description: string;
   thumbnails: {
@@ -493,3 +494,32 @@ export type YouTubeApiResponse = {
   };
  }[];
 };
+
+export type FetchTrendingVideosParams = {
+ setErrorMessage: (message: string) => void;
+};
+
+export interface VideoUrlInputProps {
+ videoInput: string;
+ setVideoInput: React.Dispatch<React.SetStateAction<string>>;
+ addVideo: () => void;
+ errorMessage: string;
+}
+
+export type FetchVideosDetailsParams = {
+ videoIds: string[]; // Array of strings for the video IDs
+ setErrorMessage: (message: string) => void; // Function to set the error message
+};
+
+export type SetStateFunction<T> = React.Dispatch<React.SetStateAction<T>>;
+
+export interface AddVideoParams {
+ videoInput: string;
+ setAddedVideos: SetStateFunction<VideoUrl[]>;
+ setVideos: SetStateFunction<VideoUrl[]>;
+ setErrorMessage: SetStateFunction<string>;
+ insertRandomly: (
+  existingItems: VideoUrl[],
+  newItems: VideoUrl[]
+ ) => VideoUrl[];
+}

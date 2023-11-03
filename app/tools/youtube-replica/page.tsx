@@ -1,12 +1,13 @@
 // pages/index.js
 import React from "react";
 import VideoGrid from "@/components/youtube-replica/VideoGrid";
+import ContainerLayout from "@/components/layouts/ContainerLayout";
 
 const Home = () => {
  return (
-  <div className='p-4 container mx-auto max-w-6xl'>
+  <ContainerLayout className='max-w-6xl'>
    <VideoGrid />
-  </div>
+  </ContainerLayout>
  );
 };
 

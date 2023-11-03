@@ -1,36 +1,14 @@
 "use client";
+
 import React, { useEffect, useState } from "react";
 import VideoUrlInput from "./VideoUrlInput ";
 import YouTubeSearch from "./YoutubeSearch";
 import YoutubeVideo from "./YoutubeVideo";
 import { VideoUrl, VideoDetails } from "@/types/index";
 
-const defaultVideos = [
- "https://www.youtube.com/watch?v=GZ42PIi9bis",
- "https://www.youtube.com/watch?v=btcYU2xXdtc",
- "https://www.youtube.com/watch?v=Y0amF_F6EvI",
- "https://www.youtube.com/watch?v=HW8NAmD7dEQ",
- "https://www.youtube.com/watch?v=iCzBVWdNOeE",
- "https://www.youtube.com/watch?v=2_ELnXpDB5U",
- "https://www.youtube.com/watch?v=857ednPWvgg",
- "https://www.youtube.com/watch?v=L4rXidEr248",
- "https://www.youtube.com/watch?v=yxF9TGhWPMc",
- "https://www.youtube.com/watch?v=Rte7VuVEwCA",
- "https://www.youtube.com/watch?v=Nv60Vww-YZ4",
- "https://www.youtube.com/watch?v=uEnLhxL8Afs",
- "https://www.youtube.com/watch?v=M8xdxafesmo",
- "https://www.youtube.com/watch?v=AqjACHug_N0",
- "https://www.youtube.com/watch?v=t6J-m7I056E",
- "https://www.youtube.com/watch?v=AeQ3f4zmSMs",
- "https://www.youtube.com/watch?v=3X9u2bNG2aY",
- "https://www.youtube.com/watch?v=75d_29QWELk",
- "https://www.youtube.com/watch?v=lpcsg4ziKus",
- "https://www.youtube.com/watch?v=XXXtJ8NJKo8",
-];
-
 const VideoGrid = () => {
  const [addedVideos, setAddedVideos] = useState<VideoUrl[]>([]);
- const [videos, setVideos] = useState<VideoUrl[]>(defaultVideos);
+ const [videos, setVideos] = useState<VideoUrl[]>([]);
  const [videoDetails, setVideoDetails] = useState<VideoDetails[]>([]);
  const [videoInput, setVideoInput] = useState("");
  const [errorMessage, setErrorMessage] = useState("");
@@ -56,15 +34,52 @@ const VideoGrid = () => {
   }
  };
 
+ const fetchTrendingVideos = async () => {
+  const apiKey = process.env.NEXT_PUBLIC_YOUTUBE_API_KEY;
+  const url = `https://www.googleapis.com/youtube/v3/videos?part=snippet,contentDetails,statistics&chart=mostPopular&regionCode=US&maxResults=24&key=${apiKey}`;
+
+  try {
+   const response = await fetch(url);
+   if (!response.ok) {
+    throw new Error("Network response was not ok");
+   }
+   const data = await response.json();
+   return data.items;
+  } catch (error) {
+   console.error("Failed to fetch trending videos:", error);
+   setErrorMessage("Failed to load trending videos.");
+   return [];
+  }
+ };
+
+ useEffect(() => {
+  const initializeTrendingVideos = async () => {
+   const trendingVideos = await fetchTrendingVideos();
+   if (trendingVideos.length > 0) {
+    const trendingVideoUrls = trendingVideos.map(
+     (video: { id: string }) => `https://www.youtube.com/watch?v=${video.id}`
+    );
+    setVideos(trendingVideoUrls);
+    setVideoDetails(trendingVideos);
+   }
+  };
+
+  initializeTrendingVideos();
+ }, []);
+
  useEffect(() => {
   const fetchAllVideoDetails = async () => {
    const videoIds = videos
-    .map((url) => new URL(url).searchParams.get("v"))
+    .map((videoUrl) => {
+     const urlParams = new URL(videoUrl).searchParams;
+     return urlParams.get("v");
+    })
     .filter(Boolean) as string[];
-   const details = await fetchVideosDetails(videoIds);
-   setVideoDetails(details);
+   if (videoIds.length > 0) {
+    const details = await fetchVideosDetails(videoIds);
+    setVideoDetails(details);
+   }
   };
-
   fetchAllVideoDetails();
  }, [videos]);
 
