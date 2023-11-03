@@ -4,13 +4,8 @@ import baseColors from "@/data/base-colors";
 import TwoGridContent from "@/components/global/TwoGridContent";
 import SingleGridContent from "@/components/global/SingleGridContent";
 import LearnMoreHeader from "@/components/global/LearnMoreHeader";
-import TestimonialCard from "@/components/testimonial/TestimonialCard";
-import { Paragraphmd } from "@/components/typography/Heading";
-import FreeResoursesSection from "@/components/global/FreeResoursesSection";
 import WhyUs from "@/components/global/WhyUs";
 import CallToActionSections from "@/components/global/CallToActionSections";
-import ContainerLayout from "@/components/layouts/ContainerLayout";
-import LearnMore from "@/components/global/LearnMore";
 import StartHereSection from "@/components/home/StartHereSection";
 
 export default function Page() {
@@ -153,7 +148,16 @@ export default function Page() {
     colorDetails={{ primary: baseColors.forFreelancers.primary }}
     order={-1}
    />
-   <ContainerLayout className='grid sm:grid-cols-2 grid-cols-1 gap-2'>
+
+   <LearnMoreHeader
+    headingTexts={{
+     heading: "  Designed for all kinds of creative professionals ☀️",
+     subHeading:
+      "Writers, designers, developers, marketers, coaches and many other have all enjoyed the program!",
+    }}
+    colorDetails={{ primary: baseColors.forFreelancers.primary }}
+   />
+   <div className='grid sm:grid-cols-2 grid-cols-1 gap-2'>
     <SingleGridContent
      imagesData={{
       src: "/images/hero/001.png",
@@ -182,15 +186,8 @@ export default function Page() {
        "Whenever you have a question about your freelance business, a reply will be in your inbox within hours.",
      }}
     />
-   </ContainerLayout>
-   <LearnMoreHeader
-    headingTexts={{
-     heading: "  Designed for all kinds of creative professionals ☀️",
-     subHeading:
-      "Writers, designers, developers, marketers, coaches and many other have all enjoyed the program!",
-    }}
-    colorDetails={{ primary: baseColors.forFreelancers.primary }}
-   />
+   </div>
+
    {/* <div className='grid lg:grid-cols-3 grid-cols-1'>
     <TestimonialCard
      person={{

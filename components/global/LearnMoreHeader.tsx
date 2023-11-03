@@ -20,7 +20,7 @@ const LearnMoreHeader: React.FC<LearnMoreHeaderProps> = ({
     <Heading4xl className='py-2'>{headingTexts.heading}</Heading4xl>
    )}
    {headingTexts.subHeading && (
-    <Headingxl style={{ color: colorDetails.primary }}>
+    <Headingxl className='text-center' style={{ color: colorDetails.primary }}>
      {headingTexts.subHeading}
     </Headingxl>
    )}

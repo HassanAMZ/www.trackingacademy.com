@@ -1,9 +1,10 @@
 import { ReactNode, FC } from "react";
 import { BlogLayoutProps } from "@/types/index";
+import ContainerLayout from "../layouts/ContainerLayout";
 
 const BlogLayout: FC<BlogLayoutProps> = ({ children, className, metadata }) => {
  return (
-  <div className={`container mx-auto  px-2 text-left ${className}`}>
+  <ContainerLayout className={`text-left ${className}`}>
    {metadata && (
     <div className='blog-metadata'>
      <h1>{metadata.title}</h1>
@@ -12,7 +13,7 @@ const BlogLayout: FC<BlogLayoutProps> = ({ children, className, metadata }) => {
     </div>
    )}
    <main className=''>{children}</main>
-  </div>
+  </ContainerLayout>
  );
 };
 

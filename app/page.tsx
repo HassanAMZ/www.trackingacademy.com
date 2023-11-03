@@ -49,7 +49,7 @@ const Page: React.FC = () => {
  ];
 
  return (
-  <main className=''>
+  <ContainerLayout className=''>
    <React.Fragment>
     <HeroComponent
      textGroup={{
@@ -94,7 +94,7 @@ const Page: React.FC = () => {
      }}
     />
 
-    <ContainerLayout className='hidden md:grid grid-cols-5 gap-2 pt-6 grayscale items-center justify-center'>
+    <div className='hidden md:grid grid-cols-5 gap-2 pt-6 grayscale items-center justify-center'>
      {clientData.map((client, index) => (
       <Clients
        key={index}
@@ -106,9 +106,9 @@ const Page: React.FC = () => {
        }}
       />
      ))}
-    </ContainerLayout>
+    </div>
 
-    <ContainerLayout>
+    <div>
      <LearnMoreHeader
       headingTexts={{
        heading: "Configuring & Optimizing Website Tracking Setups 🚀",
@@ -155,17 +155,17 @@ const Page: React.FC = () => {
        ]}
       />
      </div>
-    </ContainerLayout>
-    <ContainerLayout className='flex'>
+    </div>
+    <div className='flex'>
      <Link
       href='/contact'
       className='font-semibold rounded-md p-3 w-full text-center'
       style={{ backgroundColor: baseColors.home.primary }}>
       Schedule a Quick Demo
      </Link>
-    </ContainerLayout>
+    </div>
 
-    {/* <ContainerLayout className='pt-2'>
+    {/* <div className='pt-2'>
      <Image
       src='/images/social-sharing.png'
       alt='Imtiaz Ahmed'
@@ -173,8 +173,8 @@ const Page: React.FC = () => {
       height={1080}
       className='rounded-lg'
      />
-    </ContainerLayout> */}
-    <ContainerLayout>
+    </div> */}
+    <div>
      <LearnMoreHeader
       headingTexts={{
        heading: "Boost Your Web Analytics 🚀",
@@ -183,9 +183,9 @@ const Page: React.FC = () => {
       }}
       colorDetails={{ primary: baseColors.home.primary }}
      />
-    </ContainerLayout>
+    </div>
 
-    <ContainerLayout className='grid md:grid-cols-2 gap-2'>
+    <div className='grid md:grid-cols-2 gap-2'>
      <SingleGridContent
       imagesData={{
        src: "/images/hero/001.png",
@@ -243,7 +243,7 @@ const Page: React.FC = () => {
         "I'll set up server-side tracking for tools like Facebook's Conversion API. This means better data collection without slowing down your website.",
       }}
      />
-    </ContainerLayout>
+    </div>
 
     <LearnMoreHeader
      headingTexts={{
@@ -252,7 +252,6 @@ const Page: React.FC = () => {
      }}
      colorDetails={{ primary: baseColors.home.primary }}
     />
-
     <AboutDetails />
     <div className='flex px-2'>
      <Link
@@ -379,10 +378,10 @@ const Page: React.FC = () => {
     }}
    />
    {/* <div>
-    <ContainerLayout className='pb-4'>
+    <div className='pb-4'>
      <CustomHeader text='Recent Web Analytics & Tracking Projects' />
      <RecentClientSlider />
-    </ContainerLayout>
+    </div>
 
     <InfoSection
      title='Web analytics is a testament to precision'
@@ -438,7 +437,7 @@ const Page: React.FC = () => {
      testimonial='Amazing speedy and expert knowledge to fix tracking issues - James'
     />
 
-    <ContainerLayout>
+    <div>
      <section className='py-5 sm:py-10 flex flex-col sm:items-center gap-2 sm:text-center backgroundOverlay  p-2'>
       <h3 className='text-2xl font-medium pb-2 '>
        Meet Shahzada Ali Hassan, Your Web Analytics and Tracking Expert
@@ -465,13 +464,13 @@ const Page: React.FC = () => {
        </div>
       </div>
      </section>
-    </ContainerLayout>
+    </div>
 
-    <ContainerLayout>
+    <div>
      <section>
       <TestimonialCard client={clientDetails[3]} />
      </section>
-    </ContainerLayout>
+    </div>
 
     <InfoSection
      title='Optimize your website with advanced analytics'
@@ -526,9 +525,9 @@ const Page: React.FC = () => {
      backgroundOverlay={true}
     />
 
-    <ContainerLayout>
+    <div>
      <TestimonialCard client={clientDetails[3]} />
-    </ContainerLayout>
+    </div>
 
     <InfoSection
      title='Web Analytics: A Symphony of Decisions'
@@ -583,11 +582,11 @@ const Page: React.FC = () => {
      backgroundOverlay={true}
     />
 
-    <ContainerLayout>
+    <div>
      <TestimonialCard client={clientDetails[3]} />
-    </ContainerLayout>
+    </div>
    </div> */}
-  </main>
+  </ContainerLayout>
  );
 };
 

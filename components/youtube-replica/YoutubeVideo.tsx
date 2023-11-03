@@ -3,6 +3,8 @@
 // components/VideoThumbnail.tsx
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
+import CustomLink from "../mdx/CustomLink";
 
 interface Props {
  videoUrl: string;
@@ -75,19 +77,23 @@ const YoutubeVideo: React.FC<Props> = ({ videoUrl }) => {
        className='absolute top-0 left-0 w-full h-full rounded-md object-cover'
       />
      </div>
-     <div className=' flex flex-row items-start justify-start gap-3'>
+     <div className='flex flex-row items-start justify-start gap-3'>
       <img
        src={channelThumbnailUrl}
        alt='Channel Thumbnail'
-       className='w-8 h-8 rounded-full mt-3' // Adjust size and styling as needed
+       className='w-8 h-8 rounded-full mt-3'
       />
-      <div className='flex flex-col '>
-       <h3 className='text-sm font-medium text-white mt-2'>{title}</h3>
-       <p className='text-sm text-gray-400'>
+      <div className='flex flex-col'>
+       <CustomLink
+        href={videoUrl}
+        className=' !no-underline text-sm font-medium mt-2 dark:text-white text-black'>
+        {title}
+       </CustomLink>
+       <p className='text-sm dark:text-gray-400 text-gray-800'>
         {formatViews(views)} views • {time}
        </p>
       </div>
-     </div>{" "}
+     </div>
     </div>
    ) : (
     <p>Loading video and channel details...</p>
