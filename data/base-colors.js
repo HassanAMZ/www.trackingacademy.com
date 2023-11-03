@@ -7,7 +7,7 @@ const baseColors = {
  blog: { primary: "rgba(255,87,51,1)" },
  aboutUs: { primary: "rgba(147, 112, 219, 1)" },
  notFound: { primary: "rgba(255,87,51,1)" },
- tools: { primary: "rgba(0, 191, 255, 1)" },
+ tools: { primary: "rgba(123, 104, 238, 1)" },
 };
 
 // Green

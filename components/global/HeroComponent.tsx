@@ -8,7 +8,7 @@ import {
  Paragraphmd,
 } from "@/components/typography/Heading";
 import Link from "next/link";
-import lightenDarkenColor from "@/components/utils/lightenDarkenColor";
+import lightenDarkenColor from "utils/lightenDarkenColor";
 import LearnMoreHeader from "@/components/global/LearnMoreHeader";
 import ContainerLayout from "@/layouts/ContainerLayout";
 import { HeroProps } from "@/types/index";

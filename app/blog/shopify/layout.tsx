@@ -1,7 +1,7 @@
 import { ReactNode } from "react";
 import React from "react";
 import { PostMetadata } from "@/types/index";
-import getBlogsData from "@/components/utils/getBlogsData";
+import getBlogsData from "utils/getBlogsData";
 import AuthenticatedLayout from "@/components/layouts/AuthenticatedLayout";
 
 export const metadata = {

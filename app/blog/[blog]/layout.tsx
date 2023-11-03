@@ -1,6 +1,6 @@
 import React, { ReactNode } from "react";
-import reverseFormatString from "@/components/utils/reverseFormatString";
-import getBlogsData from "@/components/utils/getBlogsData";
+import reverseFormatString from "utils/reverseFormatString";
+import getBlogsData from "utils/getBlogsData";
 
 export async function generateMetadata({ params }: any) {
  return {

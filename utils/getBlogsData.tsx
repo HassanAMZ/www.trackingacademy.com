@@ -1,21 +1,23 @@
 import fs from "fs";
 import path from "path";
 import matter, { GrayMatterFile } from "gray-matter";
-import { CourseMetadata } from "@/types/index";
-import extractMetaFromStringForCourse from "@/components/utils/extractMetaFromStringForCourse";
-import getFiles from "@/components/utils/getFiles";
+import { PostMetadata } from "@/types/index";
+import extractMetaFromStringForBlog from "utils/extractMetaFromStringForBlog";
+import getFiles from "utils/getFiles";
 
-export default async function getCoursesData(): Promise<CourseMetadata[]> {
- const courseDirectory = path.join(process.cwd(), "app/courses");
- const allPostsFiles = getFiles(courseDirectory);
+export default async function getBlogsData(): Promise<
+ (PostMetadata & { id: string; slug: string })[]
+> {
+ const blogDirectory = path.join(process.cwd(), "app/blog");
+ const allPostsFiles = getFiles(blogDirectory);
  const mdxFiles = allPostsFiles.filter((file) => path.extname(file) === ".mdx");
 
- const courses = [];
+ const blogs = [];
 
  for (const fileName of mdxFiles) {
   const fileContents = fs.readFileSync(fileName, "utf8");
   const { content } = matter(fileContents) as GrayMatterFile<string>;
-  const data = extractMetaFromStringForCourse(content);
+  const data = extractMetaFromStringForBlog(content);
 
   const slug = path.dirname(fileName).split(path.sep).slice(-2).join("/");
   const title = path
@@ -26,9 +28,9 @@ export default async function getCoursesData(): Promise<CourseMetadata[]> {
   const id = fileName.replace(/\.mdx$/, "");
 
   if (data) {
-   courses.push({ ...data, id, slug, title });
+   blogs.push({ ...data, id, slug, title });
   }
  }
 
- return courses;
+ return blogs;
 }

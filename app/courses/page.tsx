@@ -10,7 +10,7 @@ import ContainerLayout from "@/components/layouts/ContainerLayout";
 import CallToActionSections from "@/components/global/CallToActionSections";
 import React from "react";
 import CourseContainer from "@/components/courses/CourseContainer";
-import getCoursesData from "@/components/utils/getCoursesData";
+import getCoursesData from "utils/getCoursesData";
 import { GTMCourseListViewEvent } from "@/components/analytics/GTMEvents";
 
 export default async function Page() {

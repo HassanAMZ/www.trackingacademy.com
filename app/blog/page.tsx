@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import BlogContainer from "@/components/blog/BlogContainer";
-import getBlogsData from "@/components/utils/getBlogsData";
+import getBlogsData from "utils/getBlogsData";
 import { GTMBlogListViewEvent } from "@/components/analytics/GTMEvents";
 
 export default async function Page() {

@@ -1,7 +1,7 @@
-import getTags from "@/components/utils/getTags";
-import formatString from "@/components/utils/formatString";
+import getTags from "utils/getTags";
+import formatString from "utils/formatString";
 import React, { ReactNode } from "react";
-import reverseFormatString from "@/components/utils/reverseFormatString";
+import reverseFormatString from "utils/reverseFormatString";
 
 export async function generateMetadata({ params }: any) {
  return {

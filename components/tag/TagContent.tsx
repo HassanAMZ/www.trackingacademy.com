@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import { TagContentProps } from "@/types/index";
 import Link from "next/link";
-import formatString from "@/components/utils/formatString";
+import formatString from "utils/formatString";
 import { Headingxl, Paragraphmd } from "../typography/Heading";
 
 const TagContent: React.FC<TagContentProps> = ({ tags, type, blogsData }) => {

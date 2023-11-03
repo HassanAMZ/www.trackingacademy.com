@@ -1,6 +1,6 @@
 import { PostMetadata } from "@/types/index";
 import getTags from "./getTags";
-import getBlogsData from "@/components/utils/getBlogsData";
+import getBlogsData from "utils/getBlogsData";
 
 export default async function getBlogAndTagsData(): Promise<{
  tags: string[];

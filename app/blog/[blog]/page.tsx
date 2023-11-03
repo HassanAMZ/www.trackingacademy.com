@@ -3,10 +3,10 @@ import fs from "fs";
 import path from "path";
 import matter, { GrayMatterFile } from "gray-matter";
 import { PostMetadata } from "@/types/index";
-import formatString from "@/components/utils/formatString";
+import formatString from "utils/formatString";
 import BlogContainer from "@/components/blog/BlogContainer";
-import extractMetaFromStringForBlog from "@/components/utils/extractMetaFromStringForBlog";
-import getFiles from "@/components/utils/getFiles";
+import extractMetaFromStringForBlog from "utils/extractMetaFromStringForBlog";
+import getFiles from "utils/getFiles";
 
 export async function generateStaticParams(): Promise<
  (PostMetadata & { id: string; slug: string })[]

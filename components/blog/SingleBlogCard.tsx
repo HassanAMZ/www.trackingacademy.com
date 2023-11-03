@@ -7,7 +7,7 @@ import {
  Paragraphxs,
 } from "@/components/typography/Heading";
 import Link from "next/link";
-import generateBrightColor from "@/components/utils/generateBrightColor";
+import generateBrightColor from "utils/generateBrightColor";
 import formatDate from "@/components/seo/formatDate";
 import { SingleBlogCardProps } from "@/types/index";
 

@@ -17,6 +17,17 @@ declare global {
   dataLayer: GTMEvent[];
  }
 }
+export interface UTMParams {
+ websiteURL: string;
+ campaignSource: string;
+ campaignMedium: string;
+ campaignName: string;
+ campaignID: string;
+ campaignTerm: string;
+ campaignContent: string;
+ selectedMode: "manual" | "facebook" | "pinterest" | "google" | "tiktok";
+}
+
 export interface GTMBlogViewProps {
  metadata: PostMetadata;
 }
@@ -29,6 +40,7 @@ import {
  useRef,
  useState,
  ReactNode,
+ ChangeEvent,
 } from "react";
 
 export interface AccordionItemProps {
@@ -397,6 +409,21 @@ export interface InputFieldProps {
  onChange: (value: string) => void;
  type?: string;
  required?: boolean;
+}
+
+export interface UTMOutputProps {
+ utmLink: string;
+ canGenerate: boolean;
+ errorMessages: string[];
+ onCopy: () => void;
+}
+
+export interface TextFieldProps {
+ label: string; // Label is now optional
+ value: string;
+ readOnly?: boolean;
+ rows?: number;
+ canGenerate: boolean; // New prop to handle conditional styling
 }
 
 export type IsWebsiteURLValid = (url: string) => boolean;

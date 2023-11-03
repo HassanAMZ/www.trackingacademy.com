@@ -10,9 +10,9 @@ import {
  GetErrorMessages,
 } from "@/types/index";
 import InputField from "@/components/tools/InputField";
-import { ButtonData, ButtonProps } from "@/types/index";
-import SelectionButton from "@/components/global/SelectionButton";
+import { ButtonData } from "@/types/index";
 import { Paragraphlg } from "@/components/typography/Heading";
+
 const Page: React.FC = () => {
  const [websiteURL, setWebsiteURL] = useState<string>("");
  const [campaignID, setCampaignID] = useState<string>("");
@@ -55,15 +55,30 @@ const Page: React.FC = () => {
   }
  };
 
- const generateUTM: GenerateUTM = () => {
+ const generateUTM = (): string => {
+  const encodeParam = (param: string) => {
+   if (selectedMode === "manual") {
+    return encodeURIComponent(param);
+   } else {
+    return param
+     .split("")
+     .map((char) =>
+      ["{", "}", "_"].includes(char) ? char : encodeURIComponent(char)
+     )
+     .join("");
+   }
+  };
+
   const params = [];
-  if (campaignSource) params.push(`utm_source=${campaignSource}`);
-  if (campaignMedium) params.push(`utm_medium=${campaignMedium}`);
-  if (campaignName) params.push(`utm_campaign=${campaignName}`);
-  if (campaignID) params.push(`utm_id=${campaignID}`);
-  if (campaignTerm) params.push(`utm_term=${campaignTerm}`);
-  if (campaignContent) params.push(`utm_content=${campaignContent}`);
+  if (campaignSource) params.push(`utm_source=${encodeParam(campaignSource)}`);
+  if (campaignMedium) params.push(`utm_medium=${encodeParam(campaignMedium)}`);
+  if (campaignName) params.push(`utm_campaign=${encodeParam(campaignName)}`);
+  if (campaignID) params.push(`utm_id=${encodeParam(campaignID)}`);
+  if (campaignTerm) params.push(`utm_term=${encodeParam(campaignTerm)}`);
+  if (campaignContent)
+   params.push(`utm_content=${encodeParam(campaignContent)}`);
   if (selectedMode === "google") params.push(`gclid={gclid}`);
+
   return `${websiteURL}?${params.join("&")}`;
  };
 
@@ -135,7 +150,7 @@ const Page: React.FC = () => {
     setCampaignContent("__CID_NAME__");
     break;
    default:
-    resetUTMFields(); // This will reset all the UTM fields
+    resetUTMFields();
     break;
   }
  };
@@ -150,42 +165,27 @@ const Page: React.FC = () => {
 
  return (
   <ContainerLayout className='flex flex-col shadow-md rounded-lg'>
-   {/* Manual button */}
-   {buttonsData.map(
-    (button, index) =>
-     button.text.toLowerCase() === "manual" && (
-      <div key={index} className='w-full mb-2'>
-       <SelectionButton
-        isSelected={selectedButton === button.id}
-        color={baseColors.tools.primary}
-        onClick={() => {
-         setSelectedButton(button.id);
-         handleModeChange(button.text.toLowerCase() as any);
-        }}>
-        {button.text}
-       </SelectionButton>
-      </div>
-     )
-   )}
-
-   {/* Other buttons */}
-   <div className='flex flex-col md:flex-row md:space-x-2 gap-2 md:gap-0'>
-    {buttonsData.map(
-     (button, index) =>
-      button.text.toLowerCase() !== "manual" && (
-       <div key={index} className='flex-1'>
-        <SelectionButton
-         isSelected={selectedButton === button.id}
-         color={baseColors.tools.primary}
-         onClick={() => {
-          setSelectedButton(button.id);
-          handleModeChange(button.text.toLowerCase() as any);
-         }}>
-         {button.text}
-        </SelectionButton>
-       </div>
-      )
-    )}
+   <div className='flex flex-row gap-2'>
+    {buttonsData.map((button) => (
+     <div key={button.text} className='w-full mb-2'>
+      <button
+       className={`
+       border-2 border-gray-600 dark:border-gray-300 p-2 w-full transition duration-300 ease-in-out rounded-md 
+        ${
+         selectedButton === button.id
+          ? ` text-white  dark:text-gray-50 bg-red-500` // Solid Button
+          : ` text-gray-600  dark:text-gray-300 hover:bg-gray-500 hover:text-gray-50 ` // Outlined Button
+        }
+      `}
+       //  style={{ backgroundColor: baseColors.tools.primary }}
+       onClick={() => {
+        setSelectedButton(button.id);
+        handleModeChange(button.text.toLowerCase() as any);
+       }}>
+       {button.text}
+      </button>
+     </div>
+    ))}
    </div>
 
    <div className='space-y-4 py-4'>

@@ -1,4 +1,5 @@
 import { ButtonProps } from "@/types/index";
+import { Paragraphmd } from "../typography/Heading";
 
 const SelectionButton: React.FC<ButtonProps> = ({
  children,
@@ -7,14 +8,13 @@ const SelectionButton: React.FC<ButtonProps> = ({
  onClick,
 }) => (
  <button
-  className='p-4 rounded-md w-full text-lg font-semibold'
+  className='p-4 w-full flex border-2 rounded-md'
   style={{
    backgroundColor: isSelected ? color : "transparent",
    borderColor: isSelected ? "transparent" : color,
-   borderWidth: isSelected ? "2px" : "2px",
   }}
   onClick={onClick}>
-  {children}
+  <Paragraphmd className='w-full'>{children}</Paragraphmd>
  </button>
 );
 

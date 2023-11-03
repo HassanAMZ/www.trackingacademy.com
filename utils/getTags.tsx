@@ -1,7 +1,7 @@
 import fs from "fs";
 import path from "path";
 import matter, { GrayMatterFile } from "gray-matter";
-import getFiles from "@/components/utils/getFiles";
+import getFiles from "utils/getFiles";
 import extractMetaFromStringForBlog from "./extractMetaFromStringForBlog";
 
 export default async function getTags(): Promise<string[]> {

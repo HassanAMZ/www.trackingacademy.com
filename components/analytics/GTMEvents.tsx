@@ -14,7 +14,7 @@ import {
  gtmCategoriesFromBlogs,
  createItemFromCourses,
  gtmCategoriesFromCourses,
-} from "@/components/utils/gtmAnalytics";
+} from "utils/gtmAnalytics";
 import { useCalendlyEventListener } from "react-calendly";
 
 const GTMCalendlyEvent: React.FC = () => {

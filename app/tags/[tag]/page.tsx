@@ -1,8 +1,8 @@
 import React from "react";
-import formatString from "@/components/utils/formatString";
+import formatString from "utils/formatString";
 import BlogContainer from "@/components/blog/BlogContainer";
 
-import getTagsData from "@/components/utils/getTagsData";
+import getTagsData from "utils/getTagsData";
 
 export default async function Page({ params }: { params: { tag: string } }) {
  let tag = params.tag;
