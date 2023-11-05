@@ -170,11 +170,11 @@ const Page: React.FC = () => {
  };
 
  return (
-  <section className='flex flex-col shadow-md rounded-lg'>
-   <div className='pt-12 pb-2 flex flex-col text-center justify-center items-center space-y-6'>
-    <div className='pt-4 pb-2 space-y-4'>
+  <section className='flex flex-col shadow-md rounded-lg '>
+   <div className='py-12 mb-8 backgroundOverlay flex flex-col text-center justify-center items-center space-y-6'>
+    <div className='pt-12 pb-8 space-y-4'>
      <Heading4xl className=''>Master UTM Parameters in Minutes!</Heading4xl>
-     <Paragraphmd className=''>
+     <Paragraphmd className=' max-w-3xl px-2'>
       Wave goodbye to marketing mysteries! Discover the secrets of tracking your
       digital campaigns with precision. Let's decode UTM parameters together.
      </Paragraphmd>
@@ -187,7 +187,7 @@ const Page: React.FC = () => {
        Start Creating UTMs
       </Link>
       <Link
-       href='/tags/utm-parameters/'
+       href='/blog/google-analytics/understanding-utm-builder-tool'
        className='font-bold border-2 hidden md:block rounded-md py-4 px-6 dark:text-white text-gray-800'
        style={{ borderColor: baseColors.tools.primary }}>
        Read the Blog
@@ -200,9 +200,9 @@ const Page: React.FC = () => {
      sail smoothly through the seas of campaign tracking!
     </Paragraphxs> */}
 
-    <div className='w-full'>
+    {/* <div className='w-full'>
      <YoutubeEmbed embedId='RmB2mSfkdEo' />
-    </div>
+    </div> */}
    </div>
 
    <div className='flex flex-col md:flex-row gap-2' id='utm-builder'>
@@ -228,7 +228,7 @@ const Page: React.FC = () => {
     ))}
    </div>
 
-   <div className='space-y-2 py-4'>
+   <div className='space-y-3 py-4'>
     <InputField
      required
      label='Website URL '

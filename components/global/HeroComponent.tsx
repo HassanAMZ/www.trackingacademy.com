@@ -29,22 +29,42 @@ const HeroComponent: React.FC<HeroProps> = ({
  );
 
  return (
-  <ContainerLayout className=''>
+  <React.Fragment>
    <section className='relative backgroundOverlay rounded-md flex flex-col shadow-md items-center justify-center'>
     {images?.background?.desktop && (
      <Image
+      alt='Mountains'
       src={images.background.desktop}
-      alt='Background image'
+      placeholder='blur'
+      blurDataURL={images.background.desktop}
+      quality={100}
       fill
-      className='w-full h-full object-cover object-center opacity-60 hidden sm:block'
+      className='sm:block hidden'
+      sizes='100vw'
+      style={{
+       objectFit: "cover",
+      }}
      />
+     //  <Image
+     //   src={images.background.desktop}
+     //   alt='Background image'
+     //   fill
+     //   className='w-full h-full object-cover object-center opacity-60 hidden sm:block'
+     //  />
     )}
     {images?.background?.mobile && (
      <Image
+      alt='Mountains'
       src={images.background.mobile}
-      alt='Background image'
+      placeholder='blur'
+      blurDataURL={images.background.mobile}
+      quality={100}
+      className='sm:hidden block object-right-bottom'
       fill
-      className='w-full h-full object-cover object-right-bottom opacity-60 sm:hidden block'
+      sizes='100vw'
+      style={{
+       objectFit: "cover",
+      }}
      />
     )}
     <div className='relativ z-10 flex flex-col justify-center items-start px-4 sm:px-8 md:px-14 py-20 md:py-24'>
@@ -108,7 +128,7 @@ const HeroComponent: React.FC<HeroProps> = ({
      colorDetails={{ primary: colorDetails.primary }}
     />
    )}
-  </ContainerLayout>
+  </React.Fragment>
  );
 };
 

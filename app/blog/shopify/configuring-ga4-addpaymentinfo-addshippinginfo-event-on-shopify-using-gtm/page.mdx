@@ -1,0 +1,86 @@
+export const metadata = {
+ title:
+  "GA4 AddPaymentInfo and AddShippingInfo Event on Shopify using Google Tag Manager",
+ date: "2023-11-07",
+ blogId: "00068",
+ tags: [
+  "Google Analytics",
+  "Shopify",
+  "Google Tag Manager",
+  "Tutorial",
+  "Add Payment Info",
+  "Add Shipping Info",
+ ],
+ draft: false,
+ description: `In this blog, we're going to explore how you can effectively track 'Add Payment Info' and 'Add Shipping Info' events on your Shopify store for Google Analytics 4 (GA4) using Google Tag Manager (GTM). This process is crucial for e-commerce analytics, helping you understand your customers' journey through your online store. `,
+ openGraph: {
+  images: ["/static/blog/00008.png"],
+ },
+ embedId: "x1CZ8lnrWSM",
+};
+
+<BlogHeader metadata={metadata} />
+
+#### Introduction
+
+In this blog, we're going to explore how you can effectively track _Add Payment Info_ (`add_payment_info`) and _Add Shipping Info_ (`add_shipping_info`) events on your Shopify store for Google Analytics 4 (GA4) using Google Tag Manager (GTM). This process is crucial for e-commerce analytics, helping you understand your customers' journey through your online store.
+
+<YoutubeEmbed embedId={metadata.embedId} />
+
+#### Prerequisites:
+
+Before diving into the setup process, ensure that you have the following:
+
+- A Google Tag Manager container
+- A GA4 property
+- An Shopify store
+
+It's also essential that your GA4 account is linked with your Shopify store. If you're not sure how to do that, you can start at [this page](/blog/shopify/configure-google-tag-manager-on-your-shopify-store).
+.
+
+<Note
+ title='Important Note'
+ content="A critical limitation to note is that if you don't have a Shopify Plus account, you won't be able to track these specific events as access to the checkout route is restricted for security reasons."
+/>
+
+#### Setting Up GA4 in Google Tag Manager
+
+Let's begin by setting up our GA4 configuration tag in GTM, which will enable tracking of basic events such as `page_view`, `user_engagement`, and `session_start`.
+
+#### GA4 Data Streams and GTM Variables
+
+Data streams act as conduits between your Shopify store and GA4, allowing data to flow seamlessly. Here's how to configure them:
+
+1. Navigate to the `Admin` section in GA4.
+2. In the `Property` column, look for `Data Streams`.
+3. If you don’t have a data stream, create one by clicking the button to add a new web stream.
+4. Copy the 'Measurement ID' that is provided.
+5. With the `Measurement ID` in hand, head over to the GTM container.
+6. Create a user-defined constant variable named `GA4 Measurement ID` for efficient reuse.
+7. Go to 'Tags' and create a new 'GT GA4 Configuration' tag based off of `Google Tag`.
+8. Set this tag to fire on all pages.
+
+#### Integrating Event Tracking in Shopify
+
+For the second part, we'll need to get a bit technical by working with custom code that your developer will add to the Shopify backend.
+
+#### Crafting Tags and Triggers
+
+You'll need to create custom triggers for both 'Add Shipping Info' and 'Add Payment Info' events:
+
+1. Define custom events for shipping and payment in GTM.
+2. Use a prefix like 'custom\_' to avoid any conflicts with existing tags.
+3. Set up tags in GTM that will fire these events back to GA4, making sure they capture enhanced conversion data like value, currency, and items.
+
+#### Concluding the Setup
+
+After setting up the triggers and tags in GTM:
+
+1. Test everything using GTM's preview mode.
+2. Once confirmed, publish the GTM container to make the changes live.
+
+Remember, without a Shopify Plus account, this setup cannot be tested. But following these steps will allow Shopify Plus users to track these crucial e-commerce events.
+
+#### Conclusion
+
+In this tutorial, we've covered the essential steps to track 'Add Payment Info' and 'Add Shipping Info' events in a Shopify store using GA4 and GTM. By following these instructions, you should be able to capture valuable data about how users interact with your checkout process. However, keep in mind the limitation for non-Shopify Plus users and plan accordingly. Remember to review and refine the setup to ensure accuracy and optimal data collection. Happy tracking!

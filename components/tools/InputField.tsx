@@ -1,7 +1,7 @@
 // components/InputField.tsx
 
 import React, { ChangeEvent } from "react";
-import { Paragraphxs } from "../typography/Heading";
+import { Paragraphmd, Paragraphsm, Paragraphxs } from "../typography/Heading";
 
 interface InputFieldProps {
  label: string;
@@ -24,11 +24,11 @@ const InputField: React.FC<InputFieldProps> = ({
 }) => {
  return (
   <div className='space-y-1'>
-   <label
-    htmlFor={id}
-    className='block text-sm font-medium text-gray-700 dark:text-gray-300'>
-    {label}
-    {required && <span className='text-red-500 dark:text-red-400'>*</span>}
+   <label htmlFor={id} className='block '>
+    <Paragraphmd className='font-semibold'>
+     {label}
+     {required && <span className='text-red-500 dark:text-red-400'>*</span>}
+    </Paragraphmd>
    </label>
    <div className='mt-1'>
     <input
@@ -50,11 +50,11 @@ const InputField: React.FC<InputFieldProps> = ({
     />
    </div>
    {helperText && (
-    <Paragraphxs
+    <Paragraphsm
      className='mt-2 opacity-80 text-gray-500 dark:text-gray-400'
      id={`${id}-helper-text`}>
      {helperText}
-    </Paragraphxs>
+    </Paragraphsm>
    )}
   </div>
  );

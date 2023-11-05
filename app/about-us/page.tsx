@@ -9,6 +9,15 @@ import Image from "next/image";
 export default function Page() {
  return (
   <section className=''>
+   <LearnMoreHeader
+    headingTexts={{
+     heading: "Hey, I'm Hassan 👋 ",
+     subHeading:
+      "I'm a Top Rated Freelancer on Upwork, here's what you should know about me.",
+    }}
+    colorDetails={{ primary: baseColors.aboutUs.primary }}
+   />
+
    <ContainerLayout className='pt-2'>
     <Image
      src='/images/social-sharing.png'
@@ -18,15 +27,6 @@ export default function Page() {
      className='rounded-lg'
     />
    </ContainerLayout>
-
-   <LearnMoreHeader
-    headingTexts={{
-     heading: "Hey, I'm Hassan 👋 ",
-     subHeading:
-      "I'm a Top Rated Freelancer on Upwork, here's what you should know about me.",
-    }}
-    colorDetails={{ primary: baseColors.aboutUs.primary }}
-   />
    <AboutDetails />
    {/* <HeroComponent
     clientImageBoolean={false}
