@@ -21,7 +21,7 @@ const YouTubeSearch: FC<YouTubeSearchProps> = ({ onSearchComplete }) => {
   }
 
   const apiKey = process.env.NEXT_PUBLIC_YOUTUBE_API_KEY; // Replace with your actual API key
-  const maxResults = 24;
+  const maxResults = 20;
   const url = `https://www.googleapis.com/youtube/v3/search?part=snippet&q=${encodeURIComponent(
    searchInput
   )}&maxResults=${maxResults}&key=${apiKey}&type=video`;

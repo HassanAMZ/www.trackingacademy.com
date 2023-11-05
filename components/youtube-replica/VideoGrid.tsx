@@ -36,7 +36,7 @@ const VideoGrid = () => {
 
  const fetchTrendingVideos = async () => {
   const apiKey = process.env.NEXT_PUBLIC_YOUTUBE_API_KEY;
-  const url = `https://www.googleapis.com/youtube/v3/videos?part=snippet,contentDetails,statistics&chart=mostPopular&regionCode=US&maxResults=24&key=${apiKey}`;
+  const url = `https://www.googleapis.com/youtube/v3/videos?part=snippet,contentDetails,statistics&chart=mostPopular&regionCode=US&maxResults=20&key=${apiKey}`;
 
   try {
    const response = await fetch(url);
