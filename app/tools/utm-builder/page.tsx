@@ -187,7 +187,7 @@ const Page: React.FC = () => {
        Start Creating UTMs
       </Link>
       <Link
-       href='/blog/google-analytics/understanding-utm-builder-tool'
+       href='/blog/ga4/understanding-utm-builder-tool'
        className='font-bold border-2 hidden md:block rounded-md py-4 px-6 dark:text-white text-gray-800'
        style={{ borderColor: baseColors.tools.primary }}>
        Read the Blog
