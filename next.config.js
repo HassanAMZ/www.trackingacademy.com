@@ -7,6 +7,7 @@ const nextConfig = {
  experimental: {
   mdxRs: true,
   optimizeServerReact: true,
+  webpackBuildWorker: true,
  },
  images: {
   remotePatterns: [
