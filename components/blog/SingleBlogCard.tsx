@@ -36,8 +36,8 @@ const BlogCard: React.FC<SingleBlogCardProps> = ({
     <Paragraphsm className='line-clamp-3 text-left'>
      {post.description}
     </Paragraphsm>
-    <Paragraphxs className='md:pt-6 pt-4 pb-2 flex justify-between'>
-     <span> {formatDate(post.date)} - ShahzadaAliHassan</span>
+    <Paragraphxs className='md:pt-6 pt-4 pb-2 text-left'>
+     {formatDate(post.date)} - ShahzadaAliHassan
     </Paragraphxs>
    </div>
   </>
