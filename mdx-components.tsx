@@ -19,6 +19,7 @@ import {
 } from "./components/typography/Heading";
 import Image from "next/image";
 import GiscusComments from "@/components/mdx/GiscusComents";
+import AuthPre from "./components/mdx/AuthPre";
 
 export function useMDXComponents(components: MDXComponents): MDXComponents {
  return {
@@ -27,7 +28,7 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
   BlogHeader,
   Accordion,
   Note,
-  pre: Pre,
+  pre: AuthPre,
   a: CustomLink,
   p: Paragraphmd,
   h1: Heading6xl,

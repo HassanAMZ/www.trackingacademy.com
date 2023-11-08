@@ -20,9 +20,5 @@ export async function generateStaticParams(): Promise<
  return allPostsData;
 }
 export default function Layout({ children }: { children: ReactNode }) {
- return (
-  <AuthenticatedLayout>
-   <React.Fragment>{children}</React.Fragment>
-  </AuthenticatedLayout>
- );
+ return <React.Fragment>{children}</React.Fragment>;
 }
