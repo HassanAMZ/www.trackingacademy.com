@@ -1,6 +1,6 @@
 "use client";
-import React, { useState, useRef } from "react";
 
+import React, { useState, useRef, useEffect } from "react";
 import baseColors from "@/data/base-colors";
 import {
  IsWebsiteURLValid,
@@ -16,7 +16,6 @@ import {
  Paragraphmd,
 } from "@/components/typography/Heading";
 import YoutubeEmbed from "@/components/mdx/YoutubeEmbed";
-
 import Link from "next/link";
 
 const Page: React.FC = () => {
@@ -32,6 +31,7 @@ const Page: React.FC = () => {
   "manual" | "facebook" | "pinterest" | "google" | "tiktok"
  >("manual");
  const [selectedButton, setSelectedButton] = useState<number>(1);
+ const [isInitialLoad, setIsInitialLoad] = useState(true); // New state to track initial load
 
  const buttonsData: ButtonData[] = [
   { id: 1, text: "Manual" },
@@ -133,10 +133,10 @@ const Page: React.FC = () => {
     setCampaignTerm("{{ad.name}}");
     break;
    case "pinterest":
+    setCampaignID("{campaignid}");
     setCampaignSource("pinterest");
     setCampaignMedium("paidsocial");
     setCampaignName("{campaignname}");
-    setCampaignID("{campaignid}");
     setCampaignTerm("{adgroupname}");
     setCampaignContent("{adid}");
     break;
@@ -144,6 +144,7 @@ const Page: React.FC = () => {
     setCampaignID("{campaignid}");
     setCampaignSource("google");
     setCampaignMedium("cpc");
+    setCampaignName("{campaignid}");
     setCampaignTerm("{adgroupid}");
     setCampaignContent("{creative}");
     break;
@@ -169,8 +170,66 @@ const Page: React.FC = () => {
   setCampaignContent("");
  };
 
+ // Save to local storage when state changes
+ useEffect(() => {
+  if (!isInitialLoad) {
+   console.log("useEffect01");
+   localStorage.setItem("websiteURL", websiteURL);
+   localStorage.setItem("campaignID", campaignID);
+   localStorage.setItem("campaignSource", campaignSource);
+   localStorage.setItem("campaignMedium", campaignMedium);
+   localStorage.setItem("campaignName", campaignName);
+   localStorage.setItem("campaignTerm", campaignTerm);
+   localStorage.setItem("campaignContent", campaignContent);
+   localStorage.setItem("selectedMode", selectedMode);
+   localStorage.setItem("selectedButton", selectedButton.toString());
+  }
+ }, [
+  websiteURL,
+  campaignID,
+  campaignSource,
+  campaignMedium,
+  campaignName,
+  campaignTerm,
+  campaignContent,
+  selectedMode,
+  selectedButton,
+ ]);
+ // Load from local storage when component mounts
+ useEffect(() => {
+  console.log("useEffect02");
+
+  const savedWebsiteURL = localStorage.getItem("websiteURL") || "";
+  const savedCampaignID = localStorage.getItem("campaignID") || "";
+  const savedCampaignSource = localStorage.getItem("campaignSource") || "";
+  const savedCampaignMedium = localStorage.getItem("campaignMedium") || "";
+  const savedCampaignName = localStorage.getItem("campaignName") || "";
+  const savedCampaignTerm = localStorage.getItem("campaignTerm") || "";
+  const savedCampaignContent = localStorage.getItem("campaignContent") || "";
+  const savedSelectedMode = localStorage.getItem("selectedMode") || "manual";
+  const savedSelectedButton = localStorage.getItem("selectedButton") || "1";
+
+  setWebsiteURL(savedWebsiteURL);
+  setCampaignID(savedCampaignID);
+  setCampaignSource(savedCampaignSource);
+  setCampaignMedium(savedCampaignMedium);
+  setCampaignName(savedCampaignName);
+  setCampaignTerm(savedCampaignTerm);
+  setCampaignContent(savedCampaignContent);
+  setSelectedMode(
+   savedSelectedMode as
+    | "manual"
+    | "facebook"
+    | "pinterest"
+    | "google"
+    | "tiktok"
+  );
+  setSelectedButton(parseInt(savedSelectedButton, 10));
+  setIsInitialLoad(false); // Update flag after initial load
+ }, []);
+
  return (
-  <section className='flex flex-col shadow-md rounded-lg '>
+  <section className='flex flex-col rounded-lg '>
    <div className='py-12 mb-8 backgroundOverlay flex flex-col text-center justify-center items-center space-y-6'>
     <div className='pt-12 pb-8 space-y-4'>
      <Heading4xl className=''>Master UTM Parameters in Minutes!</Heading4xl>
@@ -182,7 +241,7 @@ const Page: React.FC = () => {
      <div className='flex gap-x-4 justify-center'>
       <Link
        href='#utm-builder'
-       className='font-bold rounded-md py-4 px-6 dark:text-white text-gray-800'
+       className='font-bold rounded-md py-4 px-6 text-white '
        style={{ backgroundColor: baseColors.tools.primary }}>
        Start Creating UTMs
       </Link>
@@ -213,7 +272,7 @@ const Page: React.FC = () => {
        border-2 border-gray-600 dark:border-gray-300 p-2 w-full transition font-semibold duration-300 ease-in-out rounded-md 
         ${
          selectedButton === button.id
-          ? ` text-gray-50 darktext-gray-800  dark:text-gray-800 bg-gray-50`
+          ? ` text-gray-50 dark:text-gray-800   bg-gray-800 dark:bg-gray-50`
           : ` text-gray-600  dark:text-gray-300 hover:bg-gray-500 hover:text-gray-50 `
         }
       `}
