@@ -3,6 +3,7 @@ import MobileNav from "@/components/navbar/MobileNav";
 import NavLink from "@/components/navbar/NavLink";
 import ContainerLayout from "@/components/layouts/ContainerLayout";
 import React from "react";
+import NavigationLinks from "./NavigationLinks";
 
 export default function DesktopNav() {
  return (
@@ -11,11 +12,7 @@ export default function DesktopNav() {
     <NavLink href='/'>ShahzadaAliHassan</NavLink>
    </div>
    <nav className='sm:flex space-x-4 hidden'>
-    {headerNavLinks.map(({ href, title }) => (
-     <NavLink key={`nav-link-${title}`} href={href}>
-      {title}
-     </NavLink>
-    ))}
+    <NavigationLinks />
    </nav>
   </React.Fragment>
  );

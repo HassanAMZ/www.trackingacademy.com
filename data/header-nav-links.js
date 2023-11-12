@@ -4,6 +4,11 @@ const headerNavLinks = [
  //  { href: "/portfolio", title: "Portfolio" },
  //  { href: "/services", title: "Services" },
  { href: "/for-freelancers", title: "For Freelancers" },
+ {
+  href: "/tools",
+  title: "Tools",
+  children: [{ href: "/tools/utm-builder", title: "UTM Builder" }],
+ },
  //  { href: "/for-businesses", title: "For Businesses" },
  //  { href: "/courses", title: "Courses" },
  { href: "/blog", title: "Blogs" },

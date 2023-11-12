@@ -1,6 +1,5 @@
 import React from "react";
 import { Paragraphmd } from "@/components/typography/Heading";
-import headerNavLinks from "@/data/header-nav-links";
 import NavLink from "../navbar/NavLink";
 import { ThemeSwitcher } from "../theme/ThemeSwitcher";
 import {
@@ -10,6 +9,7 @@ import {
  InstagramIcon,
 } from "@/components/icons/SocialIcons";
 import CustomLink from "../mdx/CustomLink";
+import NavigationLinks from "../navbar/NavigationLinks";
 
 const Footer: React.FC = () => {
  return (
@@ -20,21 +20,14 @@ const Footer: React.FC = () => {
      className='hover:text-primary transition-all duration-300'>
      ShahzadaAliHassan
     </NavLink>
-    <Paragraphmd className='textOpacity80 py-2 animate__animated animate__fadeIn'>
+    <Paragraphmd className='textOpacity80 text-center sm:text-left py-2 animate__animated animate__fadeIn'>
      {" "}
      {/* added animation */}
      The ultimate educational journey for freelancers.
     </Paragraphmd>
 
-    <nav className='flex flex-row gap-2 items-center justify-between pt-12'>
-     {headerNavLinks.map(({ href, title }) => (
-      <NavLink
-       key={`nav-link-${title}`}
-       href={href}
-       className='hover:underline hover:text-primary transition-all duration-300'>
-       {title}
-      </NavLink>
-     ))}
+    <nav className='flex flex-col sm:flex-row gap-2 items-center justify-between pt-12'>
+     <NavigationLinks />
      <ThemeSwitcher />
     </nav>
 
