@@ -1,5 +1,5 @@
 import ContainerLayout from "@/components/layouts/ContainerLayout";
-import { ReactNode } from "react";
+import React, { ReactNode } from "react";
 
 export const metadata = {
  title: "UTM Builder tool - ShahzadaAliHassan",
@@ -9,5 +9,5 @@ export const metadata = {
  },
 };
 export default function Layout({ children }: { children: ReactNode }) {
- return <ContainerLayout>{children}</ContainerLayout>;
+ return <React.Fragment>{children}</React.Fragment>;
 }
