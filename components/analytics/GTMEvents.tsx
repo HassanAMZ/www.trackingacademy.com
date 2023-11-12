@@ -196,8 +196,5 @@ export {
  GTMBlogViewEvent,
  GTMBlogListViewEvent,
  GTMCalendlyEvent,
- GTMSignOutEvent,
  GTMCourseListViewEvent,
- GTMSignInFailedEvent,
- GTMSignInSuccessEvent,
 };
