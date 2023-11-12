@@ -22,9 +22,9 @@ code {
  @apply dark:text-white/80 text-gray-900/80;
 }
 
-/* Default Scrollbar Style */
 ::-webkit-scrollbar {
- width: 6px;
+ height: 6px; /* Set the height for horizontal scrollbar */
+ width: 6px; /* Set the width for vertical scrollbar */
 }
 
 ::-webkit-scrollbar-thumb {
