@@ -1,0 +1,138 @@
+export const metadata = {
+   title: "Complete Guide to Facebook Pixel Purchase Event Setup on Shopify Using Google Tag Manager",
+   date: "2023-11-16",
+   blogId: "00075",
+   tags: [
+    "Facebook Pixel",
+    "Shopify",
+    "Google Tag Manager",
+    "Tutorial",
+    "Purchase",
+   ],
+   draft: false,
+   description:
+    "",
+   openGraph: {
+    images: ["/static/blog/00015.png"],
+   },
+   embedId: "BZFmsCyVqaM",
+  };
+  
+  <BlogHeader metadata={metadata} />
+  
+  #### Introduction
+  
+The Blog will be Updated soon
+  <YoutubeEmbed embedId={metadata.embedId} />
+  
+ 
+  
+  #### Instructions for Developer
+  
+  Send over [this document](/static/pdf/blog/shopify/configuring-ga4-purchase-event-on-shopify-using-gtm.pdf) to the developer else following the blog below
+  
+  #### Section 3: Adding the Code Yourself
+  
+  If you have programming skills, you might prefer to add the code yourself.
+  
+  #### DataLayer Code Snippets Overview
+  
+  The provided code snippets aim to integrate the `dataLayer` object for Google Tag Manager (GTM) with a Shopify store. The main goal is to send an event called `custom_purchase` whenever a user visits the final /thank-you/ page on Shopify after making the payment.
+  
+  #### Order Status DataLayer Code
+  
+  1. This script, embedded within a Shopify platform, serves to track purchase-related data for analytics purposes.
+  2. When a user accesses a site for the first time (`first_time_accessed`), the script checks if the user is a registered customer. If so, it fetches the user's order count and total spend.
+  3. The script then initializes the `dataLayer` object if it doesn't already exist and populates it with purchase details like transaction ID, total value, shipping, tax, currency, and details of items in the order.
+  4. These details include individual product attributes such as the product's ID, SKU, name, price, brand, variant, quantity, and other related info.
+  
+  ```jsx
+  {% if first_time_accessed %}
+  <script>
+      {% if customer %}
+         var orders_count = '{{ customer.orders_count }}'
+         var total_spent  = '{{ customer.total_spent }}'
+      {% endif %}
+      window.dataLayer = window.dataLayer || [];
+      dataLayer.push({ ecommerce: null });
+      var transaction_id = '{{ order_number }}' || undefined ;
+      var value = {{ checkout.subtotal_price | divided_by: 100.0 }} || 0;
+      var shipping = {{ order.shipping_price | divided_by: 100.0 }} || 0;
+      var tax = {{ order.tax_price | divided_by: 100.0 }} || 0;
+      var coupon_code = Shopify.checkout.discount?.code || '';
+      var currency = '{{ currency }}' || 'USD';
+      var line_items = [];
+      Shopify.checkout.line_items.forEach((product_line_item, index) => {
+          line_items.push({
+              'item_id': product_line_item.product_id || undefined ,
+              'item_sku': product_line_item.sku || undefined ,
+              'item_name': product_line_item.title || undefined ,
+              'affiliation': Shopify.shop || undefined ,
+              'price': product_line_item.price || 0,
+              'item_brand': product_line_item.vendor || undefined ,
+              'item_variant': product_line_item.variant_title || undefined ,
+              'item_variant_id': product_line_item.variant_id || undefined ,
+              'quantity': product_line_item.quantity || 1,
+              'currency': currency,
+              'index': index,
+              'google_business_vertical': 'retail'
+          });
+      });
+      dataLayer.push({
+          'event': 'custom_purchase',
+          'datalayer_event_name': "purchase",
+          'ecommerce': {
+              'timestamp': Shopify.checkout.created_at,
+              'transaction_id': transaction_id,
+              'value': value,
+              'orders_count': orders_count || undefined,
+              'total_spent' : total_spent || undefined,
+              'shipping': shipping,
+              'tax': tax,
+              'coupon': coupon_code,
+              'currency': currency,
+              'discount_amount': Shopify.checkout?.discount?.amount || undefined,
+              'items': line_items,
+          },
+      });
+  </script>
+  {% endif %}
+  ```
+  
+  #### How to Add Scripts to the Order Status Page in Shopify:
+  
+  1. Log into Your Shopify Admin Panel:
+  
+     - Visit your Shopify store's URL followed by `/admin`.
+     - Enter your login credentials to access the admin panel.
+  
+  2. Access Checkout Settings:
+  
+     - On the left-hand side menu, click on `Settings`.
+     - From the dropdown, select `Checkout`.
+  
+  3. Locate the Additional Scripts Section:
+  
+     - Scroll down until you find the `Order processing` section.
+     - Within this section, you'll see a text box labeled `Additional Scripts`. This is where you can add scripts that will run on the order status page after a customer completes their purchase.
+  
+  4. Paste Your Script:
+  
+     - Copy the script you have.
+     - Paste it into the `Additional Scripts` text box.
+  
+  5. Save Changes:
+  
+     - After you've pasted your script, scroll to the bottom of the page and click on the `Save` button.
+  
+  6. Test the Script (Important):
+     - After saving, you should make a test purchase to ensure that the script runs as expected on the order status page.
+     - Check if all data is being collected and pushed to the `dataLayer` as intended by your script.
+  
+  <Note
+   title='Note'
+   content='The Additional Scripts section in the Checkout settings allows you to add scripts that will run after a customer has completed their purchase. This is a safe place to add conversion tracking codes, analytics scripts, or other scripts you want to trigger once a sale is confirmed.'
+  />
+  
+  
+  <GiscusComments />

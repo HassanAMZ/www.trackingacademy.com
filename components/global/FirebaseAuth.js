@@ -2,11 +2,6 @@
 import { UserAuth } from "@/context/AuthContext";
 import React, { useState, useEffect } from "react";
 import { Paragraphsm } from "@/components/typography/Heading";
-import {
- GTMSignInFailedEvent,
- GTMSignInSuccessEvent,
- GTMSignOutEvent,
-} from "@/components/analytics/GTMEvents";
 
 export const FirebaseAuth = () => {
  const { user, googleSignIn, facebookSignIn, logOut } = UserAuth();
@@ -31,7 +26,6 @@ export const FirebaseAuth = () => {
 
  const handleSignOut = async () => {
   try {
-   <GTMSignOutEvent user={user} />;
    await logOut();
   } catch (error) {
    console.log("handleSignOut error from FirebaseAuth.js", error);
