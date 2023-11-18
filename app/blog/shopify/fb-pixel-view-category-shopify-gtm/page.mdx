@@ -1,0 +1,78 @@
+export const metadata = {
+ title:
+  "Tracking View Category Events in Facebook Pixel Using Google Tag Manager and Shopify",
+ date: "2023-11-17",
+ blogId: "00077",
+ tags: [
+  "Facebook Pixel",
+  "Shopify",
+  "Google Tag Manager",
+  "Tutorial",
+  "Purchase",
+ ],
+ draft: false,
+ description: `How you can effectively track "View Category" events in Facebook Pixel. This capability is crucial for understanding user engagement on category pages of your website and can be pivotal for creating targeted audiences or data-related events. We'll be utilizing Google Tag Manager and a Shopify store for this project.`,
+ openGraph: {
+  images: ["/static/blog/00017.png"],
+ },
+ embedId: "meh1hdnCsn8",
+};
+
+<BlogHeader metadata={metadata} />
+
+In this comprehensive guide, we'll delve into how you can effectively track "View
+Category" events in Facebook Pixel. This capability is crucial for understanding
+user engagement on category pages of your website and can be pivotal for creating
+targeted audiences or data-related events. We'll be utilizing Google Tag Manager
+and a Shopify store for this project.
+
+<YoutubeEmbed embedId={metadata.embedId} />
+
+#### Prerequisites
+
+Before diving into the tutorial, ensure you have the following:
+
+1. A Shopify store.
+2. A Google Tag Manager container.
+3. A Facebook Pixel set up in your Business Manager.
+
+#### Section 1: Configuring Google Tag Manager on Your Shopify Store
+
+1. **Accessing Container ID**: In your Google Tag Manager account, locate the container ID at the top right corner.
+2. **Copying Container Codes**: There are two codes provided - one for the head section and another for the body. Both must be placed in your Shopify theme file to track user interaction across the website.
+3. **Editing Shopify Theme File**:
+   - Click on "Online Store" in your Shopify dashboard.
+   - Duplicate the theme file for backup.
+   - Access the theme's code editor.
+   - Paste the head tracking snippet just below the opening `<head>` tag.
+   - Similarly, paste the body tracking snippet near the opening `<body>` tag.
+
+#### Section 2: Configuring the Facebook Pixel Base Tag
+
+1. **Navigating to Event Manager**: Go to your Facebook Business Manager and access the Event Manager.
+2. **Setting Up Pixel**: If you haven't already, create a new pixel named 'Tracking Academy' or similar.
+3. **Creating Variable in Google Tag Manager**: In Google Tag Manager, create a constant variable for the Facebook Pixel ID for easy reference.
+4. **Installing Template for Facebook Pixel**: Search for and install a Facebook Pixel template from the Google Tag Manager template gallery, created by the Facebook archive team.
+5. **Configuring Pixel Tag**: Create a new tag in Google Tag Manager using the Facebook Pixel template and the previously created Pixel ID variable.
+
+#### Section 3: Adding View Item List Scripts
+
+<ViewItemList />
+
+#### Section 4: Creating View Category Event in Google Tag Manager
+
+1. **Setting Up Trigger**: Create a new custom event trigger in Google Tag Manager using the name 'custom VI item list'.
+2. **Creating Variables**: Set up data layer variables in Google Tag Manager to extract values like currency, item list name, and items array.
+3. **Mapping Event Parameters**: Since Facebook Pixel uses different event parameter names, map Google Analytics' e-commerce event parameters to Facebook's using a variable template.
+4. **Finalizing Tag Configuration**: Create a new tag for the 'View Category' event, ensuring all necessary parameters are included.
+
+#### Section 5: Testing and Publishing Changes
+
+1. **Testing Setup**: Use the Google Tag Manager preview mode and Facebook Pixel helper extension to ensure tags are firing correctly on your Shopify store.
+2. **Publishing Changes**: Once verified, publish the changes in Google Tag Manager with a descriptive version name.
+
+#### Conclusion
+
+By following these steps, you will have successfully set up tracking for 'View Category' events in Facebook Pixel using Google Tag Manager and Shopify. This setup allows for detailed insights into user interactions with your category pages, paving the way for more refined audience targeting and data-driven marketing strategies. Remember, it may take 1-3 hours for the event to become available in your Facebook Event Manager, after which you can start creating retargeting audiences or custom reports in your ad account.
+
+<GiscusComments />

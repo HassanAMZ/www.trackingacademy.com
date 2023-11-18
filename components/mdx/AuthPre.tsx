@@ -1,6 +1,6 @@
 "use client";
 import { PreProps } from "@/types/index";
-import { useRef, useState } from "react";
+import { Suspense, useRef, useState } from "react";
 import AuthenticatedLayout from "../layouts/AuthenticatedLayout";
 import Pre from "./Pre";
 
