@@ -4,7 +4,7 @@ import React, { ReactNode, CSSProperties } from "react";
 const Headingxl: React.FC<HeadingProps> = ({ children, className, style }) => {
  return (
   <h6
-   className={`text-xl text-left font-semibold leading-tight ${className}`}
+   className={`text-xl text-left font-semibold leading-tight py-2  ${className}`}
    style={style}>
    {children}
   </h6>
@@ -95,7 +95,7 @@ const Paragraphsm: React.FC<HeadingProps> = ({
 }) => {
  return (
   <p
-   className={`text-sm text-gray-700 dark:text-gray-300 ${className}`}
+   className={`text-sm text-gray-700 dark:text-gray-300  ${className}`}
    style={style}>
    {children}
   </p>
@@ -117,7 +117,7 @@ const Paragraphxs: React.FC<HeadingProps> = ({
 const ListItem: React.FC<HeadingProps> = ({ children, className, style }) => {
  return (
   <li
-   className={`text-md text-gray-700 dark:text-gray-300 p-1 ${className}`}
+   className={`text-md text-gray-700 dark:text-gray-300 px-1 ${className}`}
    style={style}>
    {children}
   </li>
