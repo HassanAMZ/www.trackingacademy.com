@@ -1,6 +1,6 @@
 export const metadata = {
  title:
-  "Setting Up Initiate Checkout Event for Facebook Pixel in Shopify with Google Tag Manager!",
+  "Setting Up Facebook Pixel's Initiate Checkout Event on Shopify with Google Tag Manager.",
  date: "2023-11-15",
  blogId: "00076",
  tags: [
@@ -8,10 +8,11 @@ export const metadata = {
   "Shopify",
   "Google Tag Manager",
   "Tutorial",
-  "Begin Checkout",
+  "Initiate Checkout",
  ],
  draft: false,
- description: "",
+ description:
+  "This setup will allow you to effectively track the Initiate Checkout event on your Shopify store via Facebook Pixel, providing valuable insights into your customers' shopping behaviors. For detailed scripts and more information, refer to the video description.",
  openGraph: {
   images: ["/static/blog/00016.png"],
  },
@@ -20,34 +21,54 @@ export const metadata = {
 
 <BlogHeader metadata={metadata} />
 
-#### Introduction
+### Introduction
 
-The Blog will be updated soon
+In this blog, we'll learn how to set up the Facebook Pixel's Initiate Checkout event on a Shopify store using Google Tag Manager (GTM) web containers. The process is divided into five sections for clarity and ease of implementation.
 
 <YoutubeEmbed embedId={metadata.embedId} />
 
-#### Prerequisites
+#### Step 1: Setting Up Google Tag Manager on Shopify
 
-#### Section 02: Begin Checkout DataLayer with Enhanced E-Commerce Data
+Firstly, we'll set up the GTM container on your Shopify store to track various events:
 
-This section is for those who wish to capture more data, like the item_id, item_name, value, quantity, etc., when the "begin_checkout" event is triggered.
+1. Access your GTM dashboard.
+2. Note the container ID.
+3. Copy the head and body tracking snippets.
+4. On Shopify, navigate to Online Store -> Themes -> Edit code.
+5. Duplicate your theme file for backup.
+6. Paste the head code under the `<head>` section and body code under the `<body>` section of the `theme.liquid` file.
+7. Save changes and verify the GTM container is live.
+
+#### Step 2: Configuring Page View Event for Facebook Pixel
+
+Next, we configure the base tag for Facebook Pixel:
+
+1. Go to Facebook Event Manager and copy your Pixel (now called a Data Source) ID.
+2. In GTM, use the Facebook Pixel tag template for easier setup.
+3. Create a new tag for the Facebook Pixel, setting it to fire on all pages.
+4. Use a constant variable for the Pixel ID for future convenience.
+5. Verify the pixel fires correctly using Pixel Helper.
+
+#### Step 3: Setting Up Initiate Checkout Script in Shopify
+
+Now, we'll implement the script for the Initiate Checkout event:
 
 <Note
  title='Tip'
  content="For this section, some programming knowledge is beneficial. If that's not your strength, you can share our document with your developer."
 />
 
-#### Instructions for Developer
+###### Instructions for Developer
 
 Send over [this document](/static/pdf/blog/shopify/configuring-ga4-begin-checkout-event-on-shopify-using-gtm.pdf) to the developer else following the blog below
 
-#### DataLayer Code Snippets Overview
+###### DataLayer Code Snippets Overview
 
 The provided code snippets aim to integrate the `dataLayer` object for Google Tag Manager (GTM) with a Shopify store. The main goal is to send an event called `custom_begin_checkout` whenever a user clicks the Begin Checkout button on the Cart page on Shopify.
 
-#### Head DataLayer Code
+###### Head DataLayer Code
 
-This code initializes the `dataLayer` array if it hasn't been already. It then checks if the current page template is a 'product' page and renders a specific snippet called 'datalayer-product'.
+This code initializes the `dataLayer` array if it hasn't been already and renders a specific snippet called 'datalayer-checkout'.
 
 ```jsx
 <script>
@@ -57,7 +78,7 @@ This code initializes the `dataLayer` array if it hasn't been already. It then c
 {%- render 'datalayer-checkout' -%}
 ```
 
-#### Checkout DataLayer Code
+###### Checkout DataLayer Code
 
 This code snippet contains the main logic for populating the `dataLayer` object with product details whenever a Begin Checkout Event is triggered on the Cart page:
 
@@ -108,15 +129,15 @@ This code snippet contains the main logic for populating the `dataLayer` object 
 </script>
 ```
 
-#### Theme DataLayer Code
+###### Theme DataLayer Code
 
-This code renders the `head-datalayer` snippet. Depending on the setup of your Shopify theme, this is likely where the head datalayer code resides. Add this code GTM Body Code.
+This code renders the `head-datalayer` snippet. Depending on the setup of your Shopify theme, this is likely where the head datalayer code resides. Add this code bolow GTM Body Code.
 
 ```jsx
 {% render 'head-datalayer' %}
 ```
 
-#### Steps to Add the DataLayer Code Snippets in Shopify:
+###### Steps to Add the DataLayer Code Snippets in Shopify:
 
 1. Backup: Before making any changes, always backup your current theme.
 2. Access Theme Files:
@@ -155,5 +176,24 @@ This code renders the `head-datalayer` snippet. Depending on the setup of your S
  title='Tip'
  content="The custom prefixes added to event names (like 'custom_begin_checkout') prevent any conflicts with other possible integrations or plugins that might be using standard event names."
 />
+
+#### Step 4: Finalizing Tags, Triggers, and Variables in GTM
+
+In this step, we create the necessary components in GTM:
+
+1. Set up a custom event trigger matching the Begin Checkout event.
+2. Create variables for e-commerce data like items, value, and currency.
+3. Implement a Facebook parameter generator variable for detailed event tracking.
+4. Create a new GTM tag for the Initiate Checkout event with the appropriate triggers and variables.
+
+#### Step 5: Testing and Publishing
+
+Finally, we test and publish our setup:
+
+1. Use GTM's preview mode to test the tag functionality.
+2. Simulate a checkout on your Shopify store and monitor event firing.
+3. Once verified, publish the GTM container to apply changes live.
+
+This setup will allow you to effectively track the Initiate Checkout event on your Shopify store via Facebook Pixel, providing valuable insights into your customers' shopping behaviors. For detailed scripts and more information, refer to the video description.
 
 <GiscusComments />
