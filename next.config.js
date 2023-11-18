@@ -4,11 +4,7 @@ const path = require("path");
 
 const nextConfig = {
  pageExtensions: ["js", "jsx", "ts", "tsx", "mdx", "md"],
- experimental: {
-  mdxRs: true,
-  optimizeServerReact: true,
-  webpackBuildWorker: true,
- },
+ //  experimental: {},
  images: {
   remotePatterns: [
    {
@@ -38,4 +34,5 @@ const withMDX = require("@next/mdx")({
   rehypePlugins: [],
  },
 });
+
 module.exports = withMDX(nextConfig);
