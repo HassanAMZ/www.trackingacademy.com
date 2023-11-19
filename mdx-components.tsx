@@ -22,6 +22,8 @@ import GiscusComments from "@/components/mdx/GiscusComents";
 import AuthPre from "./components/mdx/AuthPre";
 import ViewItemList from "./components/dataLayer/ViewItemList";
 import ViewItem from "./components/dataLayer/ViewItem";
+import AddToCart from "./components/dataLayer/AddToCart";
+import Purchase from "./components/dataLayer/Purchase";
 
 export function useMDXComponents(components: MDXComponents): MDXComponents {
  return {
@@ -44,6 +46,8 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
   ul: UnorderedList,
   ViewItemList,
   ViewItem,
+  AddToCart,
+  Purchase,
   img: (props) => {
    // @ts-ignore
    return <Image src={props.src} width={1920} height={1080} {...props} />;
