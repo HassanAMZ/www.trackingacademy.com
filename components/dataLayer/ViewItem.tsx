@@ -122,8 +122,7 @@ export default function ViewItem() {
      Add Product DataLayer Code:
      <UnorderedList>
       <ListItem>
-       Click "Add a new template" or "Add a new snippet" depending on your
-       Shopify version.
+       Click "Add a new snippet" depending on your Shopify version.
       </ListItem>
       <ListItem>Name it `datalayer-product.liquid`.</ListItem>
       <ListItem>

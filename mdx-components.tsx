@@ -24,6 +24,7 @@ import ViewItemList from "./components/dataLayer/ViewItemList";
 import ViewItem from "./components/dataLayer/ViewItem";
 import AddToCart from "./components/dataLayer/AddToCart";
 import Purchase from "./components/dataLayer/Purchase";
+import BeginCheckout from "./components/dataLayer/BeginCheckout";
 
 export function useMDXComponents(components: MDXComponents): MDXComponents {
  return {
@@ -46,6 +47,7 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
   ul: UnorderedList,
   ViewItemList,
   ViewItem,
+  BeginCheckout,
   AddToCart,
   Purchase,
   img: (props) => {

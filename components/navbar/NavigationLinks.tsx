@@ -12,7 +12,7 @@ type NavLinkType = {
 const NavigationLinks: React.FC = () => {
  const navLinks = headerNavLinks;
  return (
-  <div className='flex space-x-4'>
+  <React.Fragment>
    {navLinks.map((link) => {
     if (link.children && link.children.length > 0) {
      return (
@@ -45,7 +45,7 @@ const NavigationLinks: React.FC = () => {
      </NavLink>
     );
    })}
-  </div>
+  </React.Fragment>
  );
 };
 
