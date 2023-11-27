@@ -44,7 +44,7 @@ This blog post will guide you through configuring the "View Item List" event in 
 
 - Use GTM's preview mode to verify the setup. A debug window will attach to your Shopify store for monitoring changes.
 
-### Google Analytics 4 Configuration Tag Setup
+#### Google Analytics 4 Configuration Tag Setup
 
 - **Creating a Web Data Stream in GA4**: In GA4, create a web data stream for your Shopify store. Copy the unique measurement ID.
 - **GA4 Measurement ID Setup in GTM**: In GTM, create a variable for the measurement ID for reuse.
@@ -54,11 +54,11 @@ This blog post will guide you through configuring the "View Item List" event in 
 
 - Use GTM's preview mode to ensure that the GA4 configuration tag is firing correctly on all pages.
 
-### Setting Up Data Layer Event Scripts in Shopify
+#### Setting Up Data Layer Event Scripts in Shopify
 
 <ViewItemList />
 
-### Creating Tracking Scripts in Google Tag Manager
+#### Creating Tracking Scripts in Google Tag Manager
 
 - **Setting Up Data Layer Variables in GTM**: Create data layer variables in GTM to extract values for items array and item list names.
 - **Assigning Currency Parameters in GTM**: Set up a variable for the currency parameter.
@@ -68,12 +68,12 @@ This blog post will guide you through configuring the "View Item List" event in 
 
 - Test the setup using GTM's preview mode and then publish the container to apply the changes.
 
-### Verifying Event Data in GA4 Debug View
+#### Verifying Event Data in GA4 Debug View
 
 - **Checking Event Firing**: In GA4's debug view, verify that the "View Item List" event is firing correctly with all parameters.
 - **Reviewing in Real Time Reports**: Confirm the event data in GA4's real-time reporting section.
 
-### Conclusion
+#### Conclusion
 
 Once published, the GA4 event tracking will be active on your Shopify store, capturing "View Item List" events. These data points will be available in custom reports and Google Looker Studio after processing. For more detailed, step-by-step instructions, refer to the linked blog post and PDF in the description.
 
