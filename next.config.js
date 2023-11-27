@@ -4,7 +4,11 @@ const path = require("path");
 
 const nextConfig = {
  pageExtensions: ["js", "jsx", "ts", "tsx", "mdx", "md"],
- //  experimental: {},
+ experimental: {
+  mdxRs: true,
+  optimizeServerReact: true,
+  webpackBuildWorker: true,
+ },
  images: {
   remotePatterns: [
    {
