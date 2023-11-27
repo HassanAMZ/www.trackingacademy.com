@@ -6,7 +6,7 @@ import React from "react";
 
 export default function NotFound() {
  return (
-  <React.Fragment>
+  <ContainerLayout>
    <HeroComponent
     textGroup={{
      welcomeText: "Lost? Let us help you.",
@@ -35,6 +35,6 @@ export default function NotFound() {
      light: { value: 10 },
     }}
    />
-  </React.Fragment>
+  </ContainerLayout>
  );
 }
