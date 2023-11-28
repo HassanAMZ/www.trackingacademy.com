@@ -6,7 +6,6 @@ import { GTMBlogListViewEvent } from "@/components/analytics/GTMEvents";
 export default async function Page() {
  const data = await getBlogsData();
 
- // Filter out draft entries, then sort the remaining entries by date
  const sortedData = (await Promise.all(data))
   .filter((item) => item.draft === false)
   .sort((a, b) => {

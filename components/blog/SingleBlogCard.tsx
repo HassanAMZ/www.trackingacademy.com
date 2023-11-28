@@ -45,7 +45,7 @@ const BlogCard: React.FC<SingleBlogCardProps> = ({
 
  return (
   <React.Fragment>
-   {post && ( // Check if post is defined
+   {post && (
     <div className={`shadow-md hover:animate-pulse  ${className}`}>
      <Link href={`/${type}/${post.slug}`} className=''>
       <section className='grid backgroundOverlay h-full w-full'>
