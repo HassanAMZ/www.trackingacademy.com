@@ -19,7 +19,7 @@ const WhyUs: React.FC<WhyUsProps> = ({
  if (!headingTexts.heading && !headingTexts.subHeading) return null;
 
  return (
-  <ContainerLayout>
+  <React.Fragment>
    <section
     className='backgroundOverlay md:px-20 md:py-16 py-12 px-5 space-y-5'
     style={{ backgroundColor: colorDetails.primary }}>
@@ -40,7 +40,7 @@ const WhyUs: React.FC<WhyUsProps> = ({
      </Link>
     </button>
    </section>
-  </ContainerLayout>
+  </React.Fragment>
  );
 };
 

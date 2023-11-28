@@ -23,7 +23,7 @@ const FreeResoursesSection: React.FC<
  } & { colorDetails: ColorDetails } & { order?: string }
 > = ({ image, headingTexts, links, colorDetails, order }) => {
  return (
-  <ContainerLayout>
+  <React.Fragment>
    <div className='backgroundOverlay '>
     <div className='md:grid md:grid-cols-4 flex flex-col gap-5 md:py-0'>
      <div className={`md:col-span-1 flex w-full ${order} `}>
@@ -47,7 +47,7 @@ const FreeResoursesSection: React.FC<
      </div>
     </div>
    </div>
-  </ContainerLayout>
+  </React.Fragment>
  );
 };
 export default FreeResoursesSection;
