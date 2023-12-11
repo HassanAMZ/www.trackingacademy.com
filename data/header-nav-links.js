@@ -14,7 +14,7 @@ const headerNavLinks = [
  { href: "/blog", title: "Blogs" },
  //  { href: "/tags", title: "Tags" },
  { href: "/about-us", title: "About" },
- { href: "/contact", title: "Contact" },
+ //  { href: "/contact", title: "Contact" },
 ];
 
 export default headerNavLinks;

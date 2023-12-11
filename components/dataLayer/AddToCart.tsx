@@ -1,13 +1,11 @@
 import React from "react";
 import {
- Heading3xl,
  Headingxl,
  ListItem,
  OrderedList,
  Paragraphsm,
  UnorderedList,
 } from "../typography/Heading";
-import Pre from "../mdx/Pre";
 import AuthPre from "../mdx/AuthPre";
 
 export default function AddToCart() {
