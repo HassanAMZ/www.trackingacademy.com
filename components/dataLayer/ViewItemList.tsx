@@ -4,7 +4,7 @@ import {
  Headingxl,
  ListItem,
  OrderedList,
- Paragraphsm,
+ Paragraphmd,
  UnorderedList,
 } from "../typography/Heading";
 import Pre from "../mdx/Pre";
@@ -14,11 +14,11 @@ export default function ViewItemList() {
  return (
   <React.Fragment>
    <Headingxl>Head DataLayer Code</Headingxl>
-   <Paragraphsm>
+   <Paragraphmd>
     This code initializes the `dataLayer` array if it hasn't been already. It
     then checks if the current page template is a 'collection' page and renders
     a specific snippet called 'datalayer-collection'.
-   </Paragraphsm>
+   </Paragraphmd>
    <AuthPre>
     <code>
      {`<script>
@@ -32,18 +32,12 @@ export default function ViewItemList() {
     </code>
    </AuthPre>
    <Headingxl>Collection DataLayer Code</Headingxl>
-   <OrderedList>
-    <ListItem>
-     This code snippet contains the main logic for populating the `dataLayer`
-     object with product details whenever a collection page is viewed.
-    </ListItem>
-    <ListItem>
-     It constructs an `itemObject` containing various product details.
-    </ListItem>
-    <ListItem>
-     On document load, it pushes this data to the `dataLayer` object.
-    </ListItem>
-   </OrderedList>
+   <Paragraphmd>
+    This code snippet contains the main logic for populating the `dataLayer`
+    object with product details whenever a collection page is viewed. It
+    constructs an `itemObject` containing various product details. On document
+    load, it pushes this data to the `dataLayer` object.
+   </Paragraphmd>
    <AuthPre>
     <code>
      {`<script>
@@ -76,11 +70,11 @@ export default function ViewItemList() {
     </code>
    </AuthPre>
    <Headingxl> Theme DataLayer Code</Headingxl>
-   <Paragraphsm>
+   <Paragraphmd>
     This code renders the `head-datalayer` snippet. Depending on the setup of
     your Shopify theme, this is likely where the head datalayer code resides.
     Add this code below GTM Body Code.
-   </Paragraphsm>
+   </Paragraphmd>
    <AuthPre>
     <code>
      {`{% render 'head-datalayer' %}
@@ -88,74 +82,39 @@ export default function ViewItemList() {
     </code>
    </AuthPre>
    <Headingxl> Steps to Add the DataLayer Code Snippets in Shopify:</Headingxl>
-   <OrderedList>
-    <ListItem>
-     <span className='font-bold'>Backup:</span> Before making any changes,
-     always backup your current theme.
-    </ListItem>
-    <ListItem>
-     Access Theme Files:
-     <UnorderedList>
-      <ListItem>Login to your Shopify Admin. </ListItem>
-      <ListItem>Go to Online Store {">"} Themes. </ListItem>
-      <ListItem>
-       Click on the "Actions" dropdown for your live theme and select "Edit
-       code"
-      </ListItem>
-     </UnorderedList>
-    </ListItem>
-    <ListItem>
-     Add Head DataLayer Code:
-     <UnorderedList>
-      <ListItem>
-       In the left sidebar, locate and click on `theme.liquid`.
-      </ListItem>
-      <ListItem>
-       Insert the "Head DataLayer Code" snippet within the `{"<head>"}` tags.
-      </ListItem>
-     </UnorderedList>
-    </ListItem>
-    <ListItem>
-     Add Collection DataLayer Code:
-     <UnorderedList>
-      <ListItem>
-       Click "Add a new snippet" depending on your Shopify version.
-      </ListItem>
-      <ListItem>Name it `datalayer-collection.liquid`.</ListItem>
-      <ListItem>
-       Insert the "Collection DataLayer Code" snippet into this new file.
-      </ListItem>
-      <ListItem>Save changes.</ListItem>
-     </UnorderedList>
-    </ListItem>
-    <ListItem>
-     Add Theme DataLayer Code:
-     <UnorderedList>
-      <ListItem>
-       Determine where you want this code to render (usually within the
-       {`<head>`} tags in `theme.liquid`).
-      </ListItem>
-      <ListItem>
-       Insert the "Theme DataLayer Code" snippet in the desired location.
-      </ListItem>
-      <ListItem>Save changes.</ListItem>
-     </UnorderedList>
-    </ListItem>
-    <ListItem>
-     Test:
-     <UnorderedList>
-      <ListItem>Visit a product page on your Shopify store.</ListItem>
-      <ListItem>Open browser's developer console.</ListItem>
-      <ListItem>
-       Confirm that the `custom_view_item` event is fired and the `dataLayer`
-       object contains the correct product details.
-      </ListItem>
-     </UnorderedList>
-    </ListItem>
-   </OrderedList>
-   Remember, these instructions assume a typical Shopify setup. Some custom
-   themes might require a different approach. Always test thoroughly before and
-   after making changes.
+   <Paragraphmd>
+    Backup Before making any changes, always backup your current theme.
+   </Paragraphmd>
+   <Paragraphmd>
+    Access Theme Files Login to your Shopify Admin. Go to Online Store {">"}{" "}
+    Themes. Click on the "Actions" dropdown for your live theme and select "Edit
+    code".
+   </Paragraphmd>
+   <Paragraphmd>
+    Add Head DataLayer Code In the left sidebar, locate and click on
+    `theme.liquid`. Insert the "Head DataLayer Code" snippet within the
+    {"<head>"} tags.
+   </Paragraphmd>
+   <Paragraphmd>
+    Add Collection DataLayer Code Click "Add a new snippet" depending on your
+    Shopify version. Name it `datalayer-collection.liquid`. Insert the
+    "Collection DataLayer Code" snippet into this new file. Save changes.
+   </Paragraphmd>
+   <Paragraphmd>
+    Add Theme DataLayer Code Determine where you want this code to render
+    (usually within the {"<head>"} tags in `theme.liquid`). Insert the "Theme
+    DataLayer Code" snippet in the desired location. Save changes.
+   </Paragraphmd>
+   <Paragraphmd>
+    Test Visit a product page on your Shopify store. Open browser's developer
+    console. Confirm that the `custom_view_item` event is fired and the
+    `dataLayer` object contains the correct product details.
+   </Paragraphmd>
+   <Paragraphmd>
+    Remember, these instructions assume a typical Shopify setup. Some custom
+    themes might require a different approach. Always test thoroughly before and
+    after making changes.
+   </Paragraphmd>
   </React.Fragment>
  );
 }

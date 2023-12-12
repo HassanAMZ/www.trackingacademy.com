@@ -41,7 +41,7 @@ export const FirebaseAuth = () => {
  return (
   <React.Fragment>
    {loading ? null : !user ? (
-    <div className='backgroundOverlay p-2 flex flex-col items-center gap-2  h-[50vh] justify-center'>
+    <div className='backgroundOverlay p-2 flex flex-col items-center gap-2  h-[30vh] justify-center'>
      <div className='flex justify-center'>
       <Paragraphsm>Signup for Free to view the Code Snippets</Paragraphsm>
      </div>

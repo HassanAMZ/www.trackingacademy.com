@@ -4,7 +4,7 @@ import {
  Headingxl,
  ListItem,
  OrderedList,
- Paragraphsm,
+ Paragraphmd,
  UnorderedList,
 } from "../typography/Heading";
 import Pre from "../mdx/Pre";
@@ -13,20 +13,20 @@ import AuthPre from "../mdx/AuthPre";
 export default function BeginCheckout() {
  return (
   <React.Fragment>
-   <Paragraphsm>
+   <Paragraphmd>
     This section is for those who wish to capture more data, like the item_id,
     item_name, value, quantity, etc., when the "custom_begin_checkout" event is
     triggered. The provided code snippets aim to integrate the `dataLayer`
     object for Google Tag Manager (GTM) with a Shopify store. The main goal is
     to send an event called `custom_begin_checkout` whenever a user clicks the
     Begin Checkout button on the Cart page on Shopify.
-   </Paragraphsm>
+   </Paragraphmd>
    <Headingxl>Head DataLayer Code</Headingxl>
-   <Paragraphsm>
+   <Paragraphmd>
     This code initializes the `dataLayer` array if it hasn't been already. It
     then checks if the current page template is a 'product' page and renders a
     specific snippet called 'datalayer-checkout' on all pages.
-   </Paragraphsm>
+   </Paragraphmd>
    <AuthPre>
     <code>
      {`<script>
@@ -116,11 +116,11 @@ document.addEventListener('DOMContentLoaded', () => {
     </code>
    </AuthPre>
    <Headingxl> Theme DataLayer Code</Headingxl>
-   <Paragraphsm>
+   <Paragraphmd>
     This code renders the `head-datalayer` snippet. Depending on the setup of
     your Shopify theme, this is likely where the head datalayer code resides.
     Add this code GTM Body Code.
-   </Paragraphsm>
+   </Paragraphmd>
    <AuthPre>
     <code>
      {`{% render 'head-datalayer' %}

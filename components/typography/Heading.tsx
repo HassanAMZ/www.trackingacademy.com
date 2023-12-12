@@ -66,9 +66,7 @@ const Paragraphlg: React.FC<HeadingProps> = ({
  style,
 }) => {
  return (
-  <p
-   className={`text-lg text-gray-700 dark:text-gray-300 ${className}`}
-   style={style}>
+  <p className={`text-lg  ${className}`} style={style}>
    {children}
   </p>
  );
@@ -81,7 +79,7 @@ const Paragraphmd: React.FC<HeadingProps> = ({
 }) => {
  return (
   <p
-   className={`text-md text-gray-700 dark:text-gray-300 ${className}`}
+   className={`text-md dark:text-gray-200 text-gray-800 tracking-wider leading-relaxed ${className}`}
    style={style}>
    {children}
   </p>
@@ -94,9 +92,7 @@ const Paragraphsm: React.FC<HeadingProps> = ({
  style,
 }) => {
  return (
-  <p
-   className={`text-sm text-gray-700 dark:text-gray-300  ${className}`}
-   style={style}>
+  <p className={`text-sm   ${className}`} style={style}>
    {children}
   </p>
  );
@@ -107,9 +103,7 @@ const Paragraphxs: React.FC<HeadingProps> = ({
  style,
 }) => {
  return (
-  <p
-   className={`text-xs text-gray-700 dark:text-gray-300 ${className}`}
-   style={style}>
+  <p className={`text-xs  ${className}`} style={style}>
    {children}
   </p>
  );
@@ -117,7 +111,7 @@ const Paragraphxs: React.FC<HeadingProps> = ({
 const ListItem: React.FC<HeadingProps> = ({ children, className, style }) => {
  return (
   <li
-   className={`text-md text-gray-700 dark:text-gray-300 px-1 ${className}`}
+   className={`text-md  dark:text-gray-200 text-gray-800 tracking-wider leading-relaxed px-1 ${className}`}
    style={style}>
    {children}
   </li>
@@ -130,7 +124,7 @@ const OrderedList: React.FC<HeadingProps> = ({
 }) => {
  return (
   <ol
-   className={`text-md text-gray-700 dark:text-gray-300 list-decimal list-outside pl-6 py-1 ${className}`}
+   className={`text-md dark:text-gray-200 text-gray-800 tracking-wider leading-relaxed list-decimal list-outside pl-6 py-1 ${className}`}
    style={style}>
    {children}
   </ol>
@@ -143,7 +137,7 @@ const UnorderedList: React.FC<HeadingProps> = ({
 }) => {
  return (
   <ul
-   className={`text-md text-gray-700 dark:text-gray-300 list-disc list-outside pl-6 py-1 ${className}`}
+   className={`text-md  dark:text-gray-200 text-gray-800 tracking-wider leading-relaxed list-disc list-outside pl-6 py-1 ${className}`}
    style={style}>
    {children}
   </ul>

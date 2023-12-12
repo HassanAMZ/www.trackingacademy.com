@@ -3,7 +3,7 @@ import {
  Headingxl,
  ListItem,
  OrderedList,
- Paragraphsm,
+ Paragraphmd,
  UnorderedList,
 } from "../typography/Heading";
 import AuthPre from "../mdx/AuthPre";
@@ -11,18 +11,18 @@ import AuthPre from "../mdx/AuthPre";
 export default function AddToCart() {
  return (
   <React.Fragment>
-   <Paragraphsm>
+   <Paragraphmd>
     The provided code snippets aim to integrate the `dataLayer` object for
     Google Tag Manager (GTM) with a Shopify store. The main goal is to send an
     event called `custom_add_to_cart` whenever a user visits a product page and
     clicks on the AddToCart button on Shopify.
-   </Paragraphsm>
+   </Paragraphmd>
    <Headingxl>Head DataLayer Code</Headingxl>
-   <Paragraphsm>
+   <Paragraphmd>
     This code initializes the `dataLayer` array if it hasn't been already. It
     then checks if the current page template is a 'product' page and renders a
     specific snippet called 'datalayer-product'.
-   </Paragraphsm>
+   </Paragraphmd>
    <AuthPre>
     <code>
      {`<script>
@@ -86,11 +86,11 @@ export default function AddToCart() {
     </code>
    </AuthPre>
    <Headingxl> Theme DataLayer Code</Headingxl>
-   <Paragraphsm>
+   <Paragraphmd>
     This code renders the `head-datalayer` snippet. Depending on the setup of
     your Shopify theme, this is likely where the head datalayer code resides.
     Add this code GTM Body Code.
-   </Paragraphsm>
+   </Paragraphmd>
    <AuthPre>
     <code>
      {`{% render 'head-datalayer' %}

@@ -1,0 +1,101 @@
+import React from "react";
+import {
+ Headingxl,
+ ListItem,
+ OrderedList,
+ Paragraphmd,
+} from "../typography/Heading";
+import AuthPre from "../mdx/AuthPre";
+import Note from "../mdx/Note";
+
+export default function TikTokBaseTag() {
+ return (
+  <React.Fragment>
+   <Paragraphmd>
+    Next, we focus on adding the TikTok base configuration tag in GTM. This
+    process requires obtaining the TikTok Pixel ID and the base script from your
+    TikTok Ads Manager. Once obtained, these are added to GTM as a custom HTML
+    tag. For ease of future use, we also create a variable for the TikTok Pixel
+    ID.
+   </Paragraphmd>
+
+   <Headingxl>Step 1: Accessing TikTok Ads Manager</Headingxl>
+   <OrderedList>
+    <ListItem>Log in to your TikTok Ads Manager account.</ListItem>
+    <ListItem>
+     If you’re new to TikTok ads, create a new pixel by navigating to the pixel
+     section. For existing users, note down your pixel ID.
+    </ListItem>
+   </OrderedList>
+
+   <Headingxl>Step 2: Manual Pixel Setup</Headingxl>
+   <OrderedList>
+    <ListItem>
+     Choose to set up the pixel manually for a more tailored approach.
+    </ListItem>
+    <ListItem>
+     Name your pixel and ensure to bypass any automatic setup options.
+    </ListItem>
+   </OrderedList>
+
+   <Headingxl>Step 3: Adding the Pixel to Google Tag Manager</Headingxl>
+   <OrderedList>
+    <ListItem>Open your Google Tag Manager dashboard.</ListItem>
+    <ListItem>Create a new custom HTML tag.</ListItem>
+    <ListItem>Paste the TikTok pixel code into this tag.</ListItem>
+    <ListItem>
+     Configure the trigger for this tag to fire on all pages, enabling page view
+     tracking.
+    </ListItem>
+   </OrderedList>
+
+   <Headingxl>Step 4: Creating a Variable for the Pixel ID</Headingxl>
+   <OrderedList>
+    <ListItem>In Google Tag Manager, create a new variable.</ListItem>
+    <ListItem>Assign your TikTok pixel ID to this variable.</ListItem>
+    <ListItem>
+     This step ensures ease of updating the pixel ID in the future, maintaining
+     consistency across your tracking setup.
+    </ListItem>
+   </OrderedList>
+
+   <Headingxl>Step 5: Testing TikTok Pixel Events</Headingxl>
+   <OrderedList>
+    <ListItem>
+     Use tools like the TikTok Pixel Helper browser extension.
+    </ListItem>
+    <ListItem>
+     Navigate through your Shopify store and verify if the pixel events (like
+     page views) are firing correctly.
+    </ListItem>
+    <ListItem>
+     Ensure that all desired events are being tracked accurately.
+    </ListItem>
+   </OrderedList>
+
+   <Headingxl>Step 6: Publish Your Changes</Headingxl>
+   <OrderedList>
+    <ListItem>
+     After successful testing, go back to Google Tag Manager.
+    </ListItem>
+    <ListItem>Review your configurations and publish the changes.</ListItem>
+    <ListItem>
+     This action will make the TikTok pixel live on your Shopify store.
+    </ListItem>
+   </OrderedList>
+
+   <Paragraphmd>
+    By following these steps, you'll have a fully functional TikTok pixel set up
+    in your Shopify store, providing valuable insights into your customer's
+    interactions and behaviors.
+   </Paragraphmd>
+
+   <Note
+    title={"Note"}
+    content={
+     "Remember to replace 'GTM-XXXX' with your actual Google Tag Manager container ID."
+    }
+   />
+  </React.Fragment>
+ );
+}

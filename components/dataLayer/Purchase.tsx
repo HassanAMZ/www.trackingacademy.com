@@ -4,7 +4,7 @@ import {
  Headingxl,
  ListItem,
  OrderedList,
- Paragraphsm,
+ Paragraphmd,
  UnorderedList,
 } from "../typography/Heading";
 import Pre from "../mdx/Pre";
@@ -15,12 +15,12 @@ export default function Purchase() {
  return (
   <React.Fragment>
    <Headingxl>DataLayer Code Snippets Overview</Headingxl>
-   <Paragraphsm>
+   <Paragraphmd>
     The provided code snippets aim to integrate the `dataLayer` object for
     Google Tag Manager (GTM) with a Shopify store. The main goal is to send an
     event called `custom_purchase` whenever a user visits the final /thank-you/
     page on Shopify after making the payment.
-   </Paragraphsm>
+   </Paragraphmd>
    <Headingxl>Order Status DataLayer Code</Headingxl>
    <OrderedList>
     <ListItem>

@@ -26,6 +26,7 @@ import AddToCart from "./components/dataLayer/AddToCart";
 import Purchase from "./components/dataLayer/Purchase";
 import BeginCheckout from "./components/dataLayer/BeginCheckout";
 import ConfiguringGTM from "./components/dataLayer/ConfiguringGTM";
+import TikTokBaseTag from "./components/dataLayer/TikTokBaseTag";
 
 export function useMDXComponents(components: MDXComponents): MDXComponents {
  return {
@@ -52,6 +53,7 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
   ConfiguringGTM,
   AddToCart,
   Purchase,
+  TikTokBaseTag,
   img: (props) => {
    // @ts-ignore
    return <Image src={props.src} width={1920} height={1080} {...props} />;

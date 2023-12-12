@@ -1,24 +1,22 @@
 import React from "react";
 import {
- Heading3xl,
  Headingxl,
  ListItem,
+ Paragraphmd,
  OrderedList,
- Paragraphsm,
- UnorderedList,
 } from "../typography/Heading";
-import Pre from "../mdx/Pre";
 import AuthPre from "../mdx/AuthPre";
+import Note from "../mdx/Note";
 
 export default function ViewItem() {
  return (
   <React.Fragment>
    <Headingxl>Head DataLayer Code</Headingxl>
-   <Paragraphsm>
+   <Paragraphmd>
     This code initializes the `dataLayer` array if it hasn't been already. It
     then checks if the current page template is a 'product' page and renders a
     specific snippet called 'datalayer-product'.
-   </Paragraphsm>
+   </Paragraphmd>
    <AuthPre>
     <code>
      {`<script>
@@ -69,8 +67,9 @@ export default function ViewItem() {
       dataLayer.push({
           event: "custom_view_item",
           ecommerce: {
+          value: itemObject.price,
           currency: {{ shop.currency | json }},
-              items: [itemObject]
+            items: [itemObject]
           }
       });
   })
@@ -79,11 +78,11 @@ export default function ViewItem() {
     </code>
    </AuthPre>
    <Headingxl> Theme DataLayer Code</Headingxl>
-   <Paragraphsm>
+   <Paragraphmd>
     This code renders the `head-datalayer` snippet. Depending on the setup of
     your Shopify theme, this is likely where the head datalayer code resides.
     Add this code GTM Body Code.
-   </Paragraphsm>
+   </Paragraphmd>
    <AuthPre>
     <code>
      {`{% render 'head-datalayer' %}
@@ -93,72 +92,61 @@ export default function ViewItem() {
    <Headingxl> Steps to Add the DataLayer Code Snippets in Shopify:</Headingxl>
    <OrderedList>
     <ListItem>
-     <span className='font-bold'>Backup:</span> Before making any changes,
-     always backup your current theme.
+     <Paragraphmd>
+      <span className='font-bold'>Backup: </span>
+      Before making any changes, always backup your current theme.
+     </Paragraphmd>
     </ListItem>
+
     <ListItem>
-     Access Theme Files:
-     <UnorderedList>
-      <ListItem>Login to your Shopify Admin. </ListItem>
-      <ListItem>Go to Online Store {">"} Themes. </ListItem>
-      <ListItem>
-       Click on the "Actions" dropdown for your live theme and select "Edit
-       code"
-      </ListItem>
-     </UnorderedList>
+     <Paragraphmd>
+      <span className='font-bold'>Access Theme Files: </span>
+      Login to your Shopify Admin. Then, go to Online Store {">"} Themes. Click
+      on the "Actions" dropdown for your live theme and select "Edit code".
+     </Paragraphmd>
     </ListItem>
+
     <ListItem>
-     Add Head DataLayer Code:
-     <UnorderedList>
-      <ListItem>
-       In the left sidebar, locate and click on `theme.liquid`.
-      </ListItem>
-      <ListItem>
-       Insert the "Head DataLayer Code" snippet within the `{"<head>"}` tags.
-      </ListItem>
-     </UnorderedList>
+     <Paragraphmd>
+      <span className='font-bold'>Add Head DataLayer Code: </span>
+      In the left sidebar, locate and click on `theme.liquid`. Insert the "Head
+      DataLayer Code" snippet within the `{"<head>"}` tags.
+     </Paragraphmd>
     </ListItem>
+
     <ListItem>
-     Add Product DataLayer Code:
-     <UnorderedList>
-      <ListItem>
-       Click "Add a new snippet" depending on your Shopify version.
-      </ListItem>
-      <ListItem>Name it `datalayer-product.liquid`.</ListItem>
-      <ListItem>
-       Insert the "Product DataLayer Code" snippet into this new file.
-      </ListItem>
-      <ListItem>Save changes.</ListItem>
-     </UnorderedList>
+     <Paragraphmd>
+      <span className='font-bold'>Add Product DataLayer Code: </span>
+      Click "Add a new snippet" depending on your Shopify version. Name it
+      `datalayer-product.liquid`. Insert the "Product DataLayer Code" snippet
+      into this new file. Save changes.
+     </Paragraphmd>
     </ListItem>
+
     <ListItem>
-     Add Theme DataLayer Code:
-     <UnorderedList>
-      <ListItem>
-       Determine where you want this code to render (usually within the`
-       {"<head>"}` tags in `theme.liquid`).
-      </ListItem>
-      <ListItem>
-       Insert the "Theme DataLayer Code" snippet in the desired location.
-      </ListItem>
-      <ListItem>Save changes.</ListItem>
-     </UnorderedList>
+     <Paragraphmd>
+      <span className='font-bold'>Add Theme DataLayer Code: </span>
+      Determine where you want this code to render (usually within the `
+      {"<head>"}` tags in `theme.liquid`). Insert the "Theme DataLayer Code"
+      snippet in the desired location. Save changes.
+     </Paragraphmd>
     </ListItem>
+
     <ListItem>
-     Test:
-     <UnorderedList>
-      <ListItem>Visit a product page on your Shopify store.</ListItem>
-      <ListItem>Open browser's developer console.</ListItem>
-      <ListItem>
-       Confirm that the `custom_view_item` event is fired and the `dataLayer`
-       object contains the correct product details.
-      </ListItem>
-     </UnorderedList>
+     <Paragraphmd>
+      <span className='font-bold'>Test: </span>
+      Visit a product page on your Shopify store. Open browser's developer
+      console. Confirm that the `custom_view_item` event is fired and the
+      `dataLayer` object contains the correct product details.
+     </Paragraphmd>
     </ListItem>
    </OrderedList>
-   Remember, these instructions assume a typical Shopify setup. Some custom
+   <Note
+    title={"Remember"}
+    content={`These instructions assume a typical Shopify setup. Some custom
    themes might require a different approach. Always test thoroughly before and
-   after making changes.
+   after making changes.`}
+   />
   </React.Fragment>
  );
 }
