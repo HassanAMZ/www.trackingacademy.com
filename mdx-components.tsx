@@ -26,7 +26,7 @@ import AddToCart from "./components/dataLayer/AddToCart";
 import Purchase from "./components/dataLayer/Purchase";
 import BeginCheckout from "./components/dataLayer/BeginCheckout";
 import ConfiguringGTM from "./components/dataLayer/ConfiguringGTM";
-import TikTokBaseTag from "./components/dataLayer/TikTokBaseTag";
+import TikTokBaseTag from "@/components/dataLayer/TikTokBaseTag";
 
 export function useMDXComponents(components: MDXComponents): MDXComponents {
  return {
