@@ -20,13 +20,15 @@ import {
 import Image from "next/image";
 import GiscusComments from "@/components/mdx/GiscusComents";
 import AuthPre from "./components/mdx/AuthPre";
-import ViewItemList from "./components/dataLayer/ViewItemList";
-import ViewItem from "./components/dataLayer/ViewItem";
-import AddToCart from "./components/dataLayer/AddToCart";
-import Purchase from "./components/dataLayer/Purchase";
-import BeginCheckout from "./components/dataLayer/BeginCheckout";
-import ConfiguringGTM from "./components/dataLayer/ConfiguringGTM";
-import TikTokBaseTag from "@/components/dataLayer/TikTokBaseTag";
+import {
+ AddToCart,
+ BeginCheckout,
+ ConfiguringGTM,
+ Purchase,
+ TikTokBaseTag,
+ ViewItem,
+ ViewItemList,
+} from "@/components/dataLayer/index";
 
 export function useMDXComponents(components: MDXComponents): MDXComponents {
  return {
