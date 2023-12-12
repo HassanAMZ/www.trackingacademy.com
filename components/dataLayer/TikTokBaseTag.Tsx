@@ -5,7 +5,6 @@ import {
  OrderedList,
  Paragraphmd,
 } from "../typography/Heading";
-import AuthPre from "../mdx/AuthPre";
 import Note from "../mdx/Note";
 
 export default function TikTokBaseTag() {
