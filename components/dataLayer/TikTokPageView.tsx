@@ -5,9 +5,10 @@ import {
  OrderedList,
  Paragraphmd,
 } from "../typography/Heading";
+import AuthPre from "../mdx/AuthPre";
 import Note from "../mdx/Note";
 
-export default function TikTokBaseTag() {
+export default function TikTokPageView() {
  return (
   <React.Fragment>
    <Paragraphmd>

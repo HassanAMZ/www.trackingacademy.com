@@ -2,7 +2,7 @@ import AddToCart from "./AddToCart";
 import BeginCheckout from "./BeginCheckout";
 import ConfiguringGTM from "./ConfiguringGTM";
 import Purchase from "./Purchase";
-import TikTokBaseTag from "./TikTokBaseTag";
+import TikTokPageView from "./TikTokPageView";
 import ViewItem from "./ViewItem";
 import ViewItemList from "./ViewItemList";
 
@@ -11,7 +11,7 @@ export {
  BeginCheckout,
  ConfiguringGTM,
  Purchase,
- TikTokBaseTag,
+ TikTokPageView,
  ViewItem,
  ViewItemList,
 };

@@ -25,7 +25,7 @@ import {
  BeginCheckout,
  ConfiguringGTM,
  Purchase,
- TikTokBaseTag,
+ TikTokPageView,
  ViewItem,
  ViewItemList,
 } from "@/components/dataLayer/index";
@@ -55,7 +55,7 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
   ConfiguringGTM,
   AddToCart,
   Purchase,
-  TikTokBaseTag,
+  TikTokPageView,
   img: (props) => {
    // @ts-ignore
    return <Image src={props.src} width={1920} height={1080} {...props} />;
