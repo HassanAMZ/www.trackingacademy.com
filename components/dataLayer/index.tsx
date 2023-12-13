@@ -5,6 +5,7 @@ import Purchase from "./Purchase";
 import TikTokPageView from "./TikTokPageView";
 import ViewItem from "./ViewItem";
 import ViewItemList from "./ViewItemList";
+import ViewCart from "./ViewCart";
 
 export {
  AddToCart,
@@ -14,4 +15,5 @@ export {
  TikTokPageView,
  ViewItem,
  ViewItemList,
+ ViewCart,
 };

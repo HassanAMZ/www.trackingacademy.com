@@ -110,13 +110,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
    <Paragraphmd>
     To ensure that everything is set up correctly, use the Google Tag Manager’s
     preview function. This will allow you to verify that the container is firing
-    correctly on your Shopify store.
-   </Paragraphmd>
-
-   <Paragraphmd>
-    This setup ensures that Google Tag Manager is properly configured in your
-    Shopify store, laying the groundwork for other Analytics and Ads tracking
-    and optimization.
+    correctly on your Shopify store. This setup ensures that Google Tag Manager
+    is properly configured in your Shopify store, laying the groundwork for
+    other Analytics and Ads tracking and optimization.
    </Paragraphmd>
    <Note
     title={"Note"}

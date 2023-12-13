@@ -1,0 +1,78 @@
+export const metadata = {
+ title:
+  "Tracking TikTok Pixel View Cart Events on Shopify with Google Tag Manager",
+ date: "2023-12-13",
+ blogId: "00083",
+ tags: [
+  "View Cart",
+  "Shopify",
+  "E-commerce Engagement",
+  "Google Tag Manager",
+  "Shopping Cart Analysis",
+ ],
+ draft: false,
+ description: `In this blog post, we delve into the methods for effectively tracking View Cart events in Shopify stores using Google Tag Manager. Understanding these events is essential for analyzing customer engagement and shopping cart behavior. It provides valuable insights into how customers interact with their carts, which is key to enhancing the shopping experience, increasing engagement, and formulating targeted marketing strategies.`,
+ openGraph: {
+  images: ["/static/blog/00033.png"],
+ },
+ embedId: "fnblXXFNm-E",
+};
+
+<BlogHeader metadata={metadata} />
+
+In this Blog , we'll explore how to effectively integrate TikTok Pixel ViewCart
+Event with your Shopify store using Google Tag Manager (GTM). This integration is
+crucial for leveraging TikTok's dynamic ad capabilities based on user interactions
+on your site.
+
+<YoutubeEmbed embedId={metadata.embedId} />
+
+#### Section 1: Configuring Google Tag Manager on Shopify
+
+<ConfiguringGTM />
+
+#### Section 2: Integrating TikTok Base Script in Tag Manager
+
+<TikTokPageView />
+
+#### Section 3: Writing InitiateCheckout Script in Shopify
+
+<ViewCart />
+
+#### Section 4: Configuring the Custom View Cart Tag in Google Tag Manager
+
+In this section, we'll outline the steps to set up a custom View Cart tag in Google Tag Manager (GTM) for your Shopify store. This is essential for tracking View Cart events and improving your e-commerce analytics.
+
+1. **Access Your Google Tag Manager Container**: Log into your Google Tag Manager account and select the container associated with your Shopify store.
+
+2. **Create a New Tag**: Go to the "Tags" section in the GTM dashboard. Click "New" to create a new tag dedicated to tracking View Cart events.
+
+3. **Tag Configuration**: Choose a tag type that is optimal for tracking e-commerce cart viewing events. If a specific template for View Cart events exists, use it. Otherwise, consider creating a custom HTML tag.
+
+4. **Set Up the Trigger**: Create a new trigger that fires when the View Cart action occurs. Name it clearly (like "CE custom_view_cart") to ensure clarity.
+
+5. **Configure the Tag**: Enter necessary details such as your tracking ID or pixel ID. It's recommended to use variables for these details for easier future management.
+
+6. **Select the Event**: Choose "View Cart" as the event this tag will track.
+
+7. **Object Properties**: Configure object properties to capture details about the products in the cart, including their names, IDs, categories, and other relevant information. You can pull this data from your dataLayer or enter it manually.
+
+8. **Include the Currency Parameter**: Make sure to include the currency parameter in the data sent with the View Cart event, particularly if your store operates with multiple currencies.
+
+#### Section 5: Testing and Verification of the View Cart Script
+
+After setting up the custom View Cart tag, it's crucial to test and verify its functionality for accurate event tracking.
+
+1. **Enable Preview Mode**: Switch on the preview mode in Google Tag Manager. This will allow you to see a debug view connected to your Shopify store for real-time monitoring of events, tags, and triggers.
+
+2. **Utilize Debugging Tools**: Use browser extensions or other tools to monitor the tracking of View Cart events. Verify that all the necessary product data is being captured.
+
+3. **Simulate Cart Viewing**: Browse through your Shopify store and add items to the cart, then view the cart. Check the debug window to ensure that the View Cart event is being triggered correctly.
+
+4. **Validate Event Data**: Review the data sent with each View Cart event. Confirm that it accurately represents the products in the cart, including their names, IDs, categories, and currency.
+
+5. **Submit and Publish Changes**: Once you are satisfied with the testing, submit your changes in Google Tag Manager and then publish them. This will enable the tracking of View Cart events on your Shopify store.
+
+By following these steps, you can effectively set up and test a custom View Cart event in Google Tag Manager, thereby enhancing your e-commerce tracking and gaining valuable insights into customer behavior in the shopping cart stage.
+
+<GiscusComments />

@@ -25,6 +25,7 @@ import {
  BeginCheckout,
  ConfiguringGTM,
  Purchase,
+ ViewCart,
  TikTokPageView,
  ViewItem,
  ViewItemList,
@@ -56,6 +57,7 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
   AddToCart,
   Purchase,
   TikTokPageView,
+  ViewCart,
   img: (props) => {
    // @ts-ignore
    return <Image src={props.src} width={1920} height={1080} {...props} />;
