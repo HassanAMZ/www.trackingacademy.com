@@ -100,69 +100,53 @@ export default function AddToCart() {
    <Headingxl> Steps to Add the DataLayer Code Snippets in Shopify:</Headingxl>
    <OrderedList>
     <ListItem>
-     <span className='font-bold'>Backup:</span> Before making any changes,
-     always backup your current theme.
+     <Paragraphmd>
+      <span className='font-bold'>Backup: </span>
+      Before making any changes, always backup your current theme.
+     </Paragraphmd>
     </ListItem>
+
     <ListItem>
-     Access Theme Files:
-     <UnorderedList>
-      <ListItem>Login to your Shopify Admin. </ListItem>
-      <ListItem>Go to Online Store {">"} Themes. </ListItem>
-      <ListItem>
-       Click on the "Actions" dropdown for your live theme and select "Edit
-       code"
-      </ListItem>
-     </UnorderedList>
+     <Paragraphmd>
+      <span className='font-bold'>Access Theme Files: </span>
+      Login to your Shopify Admin. Then, go to Online Store {">"} Themes. Click
+      on the "Actions" dropdown for your live theme and select "Edit code".
+     </Paragraphmd>
     </ListItem>
+
     <ListItem>
-     Add Head DataLayer Code:
-     <UnorderedList>
-      <ListItem>
-       In the left sidebar, locate and click on `theme.liquid`.
-      </ListItem>
-      <ListItem>
-       Insert the "Head DataLayer Code" snippet within the `{"<head>"}` tags.
-      </ListItem>
-     </UnorderedList>
+     <Paragraphmd>
+      <span className='font-bold'>Add Head DataLayer Code: </span>
+      In the left sidebar, locate and click on `theme.liquid`. Insert the "Head
+      DataLayer Code" snippet within the `{"<head>"}` tags.
+     </Paragraphmd>
     </ListItem>
+
     <ListItem>
-     Add Product DataLayer Code:
-     <UnorderedList>
-      <ListItem>
-       Click "Add a new snippet" depending on your Shopify version.
-      </ListItem>
-      <ListItem>Name it `datalayer-product.liquid`.</ListItem>
-      <ListItem>
-       Insert the "Product DataLayer Code" snippet into this new file.
-      </ListItem>
-      <ListItem>Save changes.</ListItem>
-     </UnorderedList>
+     <Paragraphmd>
+      <span className='font-bold'>Add Product DataLayer Code: </span>
+      Click "Add a new snippet" depending on your Shopify version. Name it
+      `datalayer-product.liquid`. Insert the "Product DataLayer Code" snippet
+      into this new file. Save changes.
+     </Paragraphmd>
     </ListItem>
+
     <ListItem>
-     Add Theme DataLayer Code:
-     <UnorderedList>
-      <ListItem>
-       Determine where you want this code to render (usually within the`
-       {"<head>"}` tags in `theme.liquid`).
-      </ListItem>
-      <ListItem>
-       Insert the "Theme DataLayer Code" snippet in the desired location.
-      </ListItem>
-      <ListItem>Save changes.</ListItem>
-     </UnorderedList>
+     <Paragraphmd>
+      <span className='font-bold'>Add Theme DataLayer Code: </span>
+      Determine where you want this code to render (usually within the `
+      {"<head>"}` tags in `theme.liquid`). Insert the "Theme DataLayer Code"
+      snippet in the desired location. Save changes.
+     </Paragraphmd>
     </ListItem>
+
     <ListItem>
-     Test:
-     <UnorderedList>
-      <ListItem>
-       Visit a product page on your Shopify store and click AddToCart button.
-      </ListItem>
-      <ListItem>Open browser's developer console.</ListItem>
-      <ListItem>
-       Confirm that the `custom_add_to_cart` event is fired and the `dataLayer`
-       object contains the correct product details.
-      </ListItem>
-     </UnorderedList>
+     <Paragraphmd>
+      <span className='font-bold'>Test: </span>
+      Visit a product page on your Shopify store. Open browser's developer
+      console. Confirm that the `custom_add_to_cart` event is fired and the
+      `dataLayer` object contains the correct product details.
+     </Paragraphmd>
     </ListItem>
    </OrderedList>
    Remember, these instructions assume a typical Shopify setup. Some custom
