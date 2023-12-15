@@ -13,7 +13,7 @@ const StartHereSection: React.FC<StartHereSectionProps> = ({
 
  return (
   <React.Fragment>
-   <ContainerLayout className='flex flex-row gap-2 items-center justify-center py-2'>
+   <div className='flex flex-row gap-2 items-center justify-center py-2'>
     <SelectionButton
      isSelected={selectedButton === 1}
      color={colorDetails.primary}
@@ -26,7 +26,7 @@ const StartHereSection: React.FC<StartHereSectionProps> = ({
      onClick={() => setSelectedButton(2)}>
      I'm already Freelancing!
     </SelectionButton>
-   </ContainerLayout>
+   </div>
 
    {selectedButton === 1 && (
     <div className='flex flex-col gap-2'>

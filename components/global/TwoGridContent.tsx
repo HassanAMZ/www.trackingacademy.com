@@ -15,7 +15,7 @@ const TwoGridContent: React.FC<TwoGridContentProps> = ({
  colorDetails,
  order,
 }) => (
- <ContainerLayout className='pb-2'>
+ <div className='pb-2'>
   <section className='backgroundOverlay md:p-10 p-4'>
    <div className='md:grid md:grid-cols-1'>
     {/* <div
@@ -41,7 +41,7 @@ const TwoGridContent: React.FC<TwoGridContentProps> = ({
     </div>
    </div>
   </section>
- </ContainerLayout>
+ </div>
 );
 
 export default TwoGridContent;

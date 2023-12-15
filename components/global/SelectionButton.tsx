@@ -14,7 +14,7 @@ const SelectionButton: React.FC<ButtonProps> = ({
    borderColor: isSelected ? "transparent" : color,
   }}
   onClick={onClick}>
-  <Paragraphmd className='w-full'>{children}</Paragraphmd>
+  <Paragraphmd className='w-full font-bold'>{children}</Paragraphmd>
  </button>
 );
 
