@@ -1,7 +1,11 @@
 // components/InputField.tsx
 
 import React, { ChangeEvent } from "react";
-import { Paragraphmd, Paragraphsm, Paragraphxs } from "../typography/Heading";
+import {
+ Paragraphmd,
+ Paragraphsm,
+ Paragraphxs,
+} from "@/components/typography/Heading";
 
 interface InputFieldProps {
  label: string;

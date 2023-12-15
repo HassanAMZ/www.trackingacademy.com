@@ -5,8 +5,8 @@ import {
  OrderedList,
  Paragraphmd,
  UnorderedList,
-} from "../typography/Heading";
-import AuthPre from "../mdx/AuthPre";
+} from "@/components/typography/Heading";
+import AuthPre from "@/components/mdx/AuthPre";
 
 export default function AddToCart() {
  return (

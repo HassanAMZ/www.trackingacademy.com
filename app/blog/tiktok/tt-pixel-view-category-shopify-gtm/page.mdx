@@ -1,0 +1,79 @@
+export const metadata = {
+ title: "Master TikTok Ads: Track View Category Events on Shopify with GTM",
+ date: "2023-12-15",
+ blogId: "00085",
+ tags: [
+  "View Category Event",
+  "Shopify Tracking",
+  "TikTok Ads Management",
+  "Google Tag Manager",
+  "TikTok Pixel Setup",
+ ],
+ draft: false,
+ description: `Explore essential techniques for tracking view category events on Shopify using Google Tag Manager and TikTok Pixel. This in-depth blog post provides a step-by-step guide to integrating TikTok Pixel with your Shopify store, enabling you to understand and optimize your TikTok ad performance. Learn how to set up, script, and trigger events effectively with GTM for detailed insights into customer interactions, crucial for enhancing your online marketing strategy and boosting your e-commerce success.`,
+ openGraph: {
+  images: ["/static/blog/00035.png"],
+ },
+ embedId: "KAyOAjyd_vA",
+};
+
+<BlogHeader metadata={metadata} />
+
+In this Blog , we'll explore how to effectively integrate TikTok Pixel ViewCategory
+Event with your Shopify store using Google Tag Manager (GTM). This integration is
+crucial for leveraging TikTok's dynamic ad capabilities based on user interactions
+on your site.
+
+<YoutubeEmbed embedId={metadata.embedId} />
+
+#### Section 1: Configuring Google Tag Manager on Shopify
+
+<ConfiguringGTM />
+
+#### Section 2: Integrating TikTok Base Script in Tag Manager
+
+<TikTokPageView />
+
+#### Section 3: Writing ViewCategory Script in Shopify
+
+<ViewItemList />
+
+#### Section 4: Configuring the Custom Purchase Tag for TikTok in Google Tag Manager
+
+In this essential section, we delve into setting up a custom purchase tag in Google Tag Manager (GTM) for TikTok's pixel. This process is vital for accurately tracking purchase events in your Shopify store. Follow these straightforward steps:
+
+1. **Log into GTM**: Access your GTM account and navigate to the container associated with your Shopify store.
+
+2. **Select TikTok Pixel Template**: In GTM, find and use the TikTok Pixel template. This template is specially designed for seamless TikTok pixel integration.
+
+3. **Tag Configuration**: Input your TikTok Pixel ID in the 'Pixel ID' setting. Then, choose 'Complete Purchase' as the event type.
+
+4. **Data Layer Variables Setup**: Extract essential user data (like email and phone number) through Data Layer Variables for precise tracking.
+
+5. **Define Event Parameters**: Utilize the G4 data layer structure to specify event parameters such as 'currency', aligning with your e-commerce configuration.
+
+6. **Create Trigger for the Tag**: Develop a custom event trigger that activates for your Shopify store's purchase event, matching the event name in your data layer script.
+
+7. **Save and Name Your Tag**: After configuration, save your tag. A clear name, such as 'TikTok Purchase Event', is recommended for easy identification.
+
+#### Section 5: Testing and Verification of the TikTok Purchase Event Tag
+
+Testing and verifying your tag ensures it functions as intended:
+
+1. **Enable GTM Preview Mode**: Activate preview mode in GTM for a live test connection with your Shopify store.
+
+2. **Simulate a Purchase**: In your Shopify store, simulate a purchase transaction. You can use test mode or a 100% discount code for this purpose.
+
+3. **Verify the Purchase Event**: Post-purchase, in the GTM debug window, check that the custom purchase event triggers correctly.
+
+4. **Use TikTok Pixel Helper**: Confirm the correct firing of the 'Complete Purchase' event on the thank you page with the TikTok Pixel Helper tool.
+
+5. **Data Layer Verification**: Ensure accurate transmission of transaction details (transaction ID, value, product details) and user data (email, phone number).
+
+6. **Publish GTM Container Changes**: Once satisfied with the tracking accuracy, publish the changes in your GTM container to activate live tracking on your Shopify store.
+
+#### Conclusion
+
+Successfully configuring and verifying a custom purchase tag for TikTok in Google Tag Manager involves a systematic approach. From accessing GTM, choosing the right template, setting up tag configurations, to thorough testing and verification, each step is crucial for accurate event tracking. This setup not only provides valuable insights into customer behavior but also boosts the efficiency of your TikTok advertising campaigns. With this integration, you're well-equipped to harness TikTok's advertising power, leveraging data-driven strategies for your online store.
+
+<GiscusComments />

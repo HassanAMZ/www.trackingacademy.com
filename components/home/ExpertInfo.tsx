@@ -1,7 +1,7 @@
 import { ExpertInfoProps } from "@/types/index";
 import Divider from "@/components/home/Divider";
 import React from "react";
-import { Heading3xl } from "../typography/Heading";
+import { Heading3xl } from "@/components/typography/Heading";
 
 const ExpertInfo: React.FC<ExpertInfoProps> = ({ title, description }) => {
  return (

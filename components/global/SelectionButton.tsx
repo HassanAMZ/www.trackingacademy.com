@@ -1,5 +1,5 @@
 import { ButtonProps } from "@/types/index";
-import { Paragraphmd } from "../typography/Heading";
+import { Paragraphmd } from "@/components/typography/Heading";
 
 const SelectionButton: React.FC<ButtonProps> = ({
  children,

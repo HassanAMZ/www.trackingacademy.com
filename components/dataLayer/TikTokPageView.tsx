@@ -4,9 +4,9 @@ import {
  ListItem,
  OrderedList,
  Paragraphmd,
-} from "../typography/Heading";
-import AuthPre from "../mdx/AuthPre";
-import Note from "../mdx/Note";
+} from "@/components/typography/Heading";
+import AuthPre from "@/components/mdx/AuthPre";
+import Note from "@/components/mdx/Note";
 
 export default function TikTokPageView() {
  return (

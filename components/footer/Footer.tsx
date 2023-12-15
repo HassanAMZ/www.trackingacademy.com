@@ -8,7 +8,7 @@ import {
  YouTubeIcon,
  InstagramIcon,
 } from "@/components/icons/SocialIcons";
-import CustomLink from "../mdx/CustomLink";
+import CustomLink from "@/components/mdx/CustomLink";
 import NavigationLinks from "../navbar/NavigationLinks";
 
 const Footer: React.FC = () => {

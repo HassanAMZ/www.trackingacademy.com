@@ -3,7 +3,11 @@
 import React, { useState, useEffect } from "react";
 import { PostMetadata } from "@/types/index";
 import { BlogSearchProps } from "@/types/index";
-import { Heading4xl, Paragraphlg, Paragraphsm } from "../typography/Heading";
+import {
+ Heading4xl,
+ Paragraphlg,
+ Paragraphsm,
+} from "@/components/typography/Heading";
 import ContainerLayout from "../layouts/ContainerLayout";
 
 const BlogSearch: React.FC<BlogSearchProps> = ({ data, onSearch }) => {

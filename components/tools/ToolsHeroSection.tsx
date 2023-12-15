@@ -1,6 +1,6 @@
 import baseColors from "@/data/base-colors";
 import React from "react";
-import { Heading4xl, Paragraphmd } from "../typography/Heading";
+import { Heading4xl, Paragraphmd } from "@/components/typography/Heading";
 import Link from "next/link";
 
 export default function ToolsHeroSection() {

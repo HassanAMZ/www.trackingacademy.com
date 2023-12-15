@@ -6,9 +6,9 @@ import {
  OrderedList,
  Paragraphmd,
  UnorderedList,
-} from "../typography/Heading";
-import Pre from "../mdx/Pre";
-import AuthPre from "../mdx/AuthPre";
+} from "@/components/typography/Heading";
+import Pre from "@/components/mdx/Pre";
+import AuthPre from "@/components/mdx/AuthPre";
 
 export default function BeginCheckout() {
  return (

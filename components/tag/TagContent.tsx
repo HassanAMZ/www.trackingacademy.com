@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import { TagContentProps } from "@/types/index";
 import Link from "next/link";
 import formatString from "utils/formatString";
-import { Headingxl, Paragraphmd } from "../typography/Heading";
+import { Headingxl, Paragraphmd } from "@/components/typography/Heading";
 
 const TagContent: React.FC<TagContentProps> = ({ tags, type, blogsData }) => {
  // Count the number of blogs for each tag

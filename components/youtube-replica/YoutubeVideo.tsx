@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import CustomLink from "../mdx/CustomLink";
+import CustomLink from "@/components/mdx/CustomLink";
 import { VideoDetails, YoutubdeVideoProps } from "@/types/index";
 
 const YoutubeVideo: React.FC<YoutubdeVideoProps> = ({ videoUrl, details }) => {

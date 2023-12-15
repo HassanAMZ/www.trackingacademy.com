@@ -6,7 +6,7 @@ import ThankYou from "@/components/contact/ThankYou";
 import ContainerLayout from "../layouts/ContainerLayout";
 import Image from "next/image";
 import { GTMContactFormSubmission } from "../analytics/GTMEvents";
-import { Heading2xl } from "../typography/Heading";
+import { Heading2xl } from "@/components/typography/Heading";
 
 const initialState = {
  message: null,

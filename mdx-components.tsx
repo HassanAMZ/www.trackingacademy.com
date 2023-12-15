@@ -16,10 +16,10 @@ import {
  Paragraphmd,
  OrderedList,
  UnorderedList,
-} from "./components/typography/Heading";
+} from "@/components/typography/Heading";
 import Image from "next/image";
 import GiscusComments from "@/components/mdx/GiscusComents";
-import AuthPre from "./components/mdx/AuthPre";
+import AuthPre from "@/components/mdx/AuthPre";
 import {
  AddToCart,
  BeginCheckout,
