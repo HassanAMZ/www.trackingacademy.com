@@ -34,7 +34,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
    <body
     className={` selection:text-white selection:bg-red-700 dark:bg-[#121212] ${interVariableFont.className}`}>
     {BgPolygon1}
-    <ThemeProvider attribute='class' defaultTheme='dark'>
+    <ThemeProvider attribute='class' defaultTheme='light'>
      <ContainerLayout>
       <NavBar />
      </ContainerLayout>

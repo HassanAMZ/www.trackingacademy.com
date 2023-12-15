@@ -79,7 +79,7 @@ const Paragraphmd: React.FC<HeadingProps> = ({
 }) => {
  return (
   <p
-   className={`text-md dark:text-gray-200 text-gray-800 tracking-wider leading-relaxed ${className}`}
+   className={`text-md font-normal dark:text-gray-200 text-gray-800 tracking-wider leading-relaxed ${className}`}
    style={style}>
    {children}
   </p>
