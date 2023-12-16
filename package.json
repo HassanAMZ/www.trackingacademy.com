@@ -4,9 +4,7 @@
   "dev": "next dev",
   "build": "next build",
   "postbuild": "next-sitemap",
-  "start": "next start",
-  "emaildev": "email dev",
-  "exmailexport": "email export"
+  "start": "next start"
  },
  "dependencies": {
   "@mdx-js/loader": "^3.0.0",
@@ -19,14 +17,12 @@
   "clsx": "^2.0.0",
   "firebase": "^10.5.2",
   "gray-matter": "^4.0.3",
-  "next": "^14.0.3",
+  "next": "^14.0.4",
   "next-sitemap": "^4.2.3",
   "next-themes": "^0.2.1",
   "path": "^0.12.7",
   "react": "^18.2.0",
-  "react-calendly": "^4.3.0",
   "react-dom": "^18.2.0",
-  "react-email": "1.9.3",
   "tailwind-merge": "^2.0.0",
   "tailwindcss-animate": "^1.0.7",
   "zod": "^3.22.4"
