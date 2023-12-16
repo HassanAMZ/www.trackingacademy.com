@@ -23,7 +23,7 @@ function GiscusComments() {
    "data-category-id",
    process.env.NEXT_PUBLIC_GISCUS_CATEGORY_ID || ""
   );
-  script.setAttribute("data-mapping", pathname);
+  script.setAttribute("data-mapping", pathname || "");
   script.setAttribute(
    "data-strict",
    process.env.NEXT_PUBLIC_GISCUS_STRICT || ""
@@ -41,7 +41,6 @@ function GiscusComments() {
    process.env.NEXT_PUBLIC_GISCUS_INPUT_POSITION || ""
   );
 
-  // Assuming the previous lines remain the same...
   const giscusTheme =
    theme === "dark"
     ? process.env.NEXT_PUBLIC_GISCUS_THEME_DARK || "dark"

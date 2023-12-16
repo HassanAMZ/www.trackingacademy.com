@@ -30,6 +30,7 @@ import {
  ViewItem,
  ViewItemList,
 } from "@/components/dataLayer/index";
+import TOCInline from "./components/blog/TOCInline";
 
 export function useMDXComponents(components: MDXComponents): MDXComponents {
  return {
@@ -38,6 +39,7 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
   BlogHeader,
   Accordion,
   Note,
+  TOCInline,
   pre: AuthPre,
   a: CustomLink,
   p: Paragraphmd,
@@ -57,6 +59,7 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
   AddToCart,
   Purchase,
   TikTokPageView,
+
   ViewCart,
   img: (props) => {
    // @ts-ignore

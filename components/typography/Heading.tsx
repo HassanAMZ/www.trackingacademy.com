@@ -1,6 +1,14 @@
 import { HeadingProps } from "@/types/index";
+import localFont from "next/font/local";
 import React, { ReactNode, CSSProperties } from "react";
-
+const latoVariableFont = localFont({
+ src: "../../app/fonts/Lato/Lato-Regular.ttf",
+ display: "swap",
+});
+const robotoVariableFont = localFont({
+ src: "../../app/fonts/Roboto/Roboto-Regular.ttf",
+ display: "swap",
+});
 const Headingxl: React.FC<HeadingProps> = ({ children, className, style }) => {
  return (
   <h6
@@ -23,11 +31,11 @@ const Heading2xl: React.FC<HeadingProps> = ({ children, className, style }) => {
 
 const Heading3xl: React.FC<HeadingProps> = ({ children, className, style }) => {
  return (
-  <h4
-   className={`text-3xl text-left font-semibold leading-tight py-2  ${className}`}
+  <h2
+   className={`text-2xl text-left font-bold leading-tight py-2  ${className}`}
    style={style}>
    {children}
-  </h4>
+  </h2>
  );
 };
 
@@ -78,9 +86,7 @@ const Paragraphmd: React.FC<HeadingProps> = ({
  style,
 }) => {
  return (
-  <p
-   className={`text-md dark:text-gray-200 text-gray-800 tracking-wider leading-relaxed ${className}`}
-   style={style}>
+  <p className={`text-base font-medium  ${className}`} style={style}>
    {children}
   </p>
  );
@@ -110,10 +116,8 @@ const Paragraphxs: React.FC<HeadingProps> = ({
 };
 const ListItem: React.FC<HeadingProps> = ({ children, className, style }) => {
  return (
-  <li
-   className={`text-md  dark:text-gray-200 text-gray-800 tracking-wider leading-relaxed px-1 ${className}`}
-   style={style}>
-   {children}
+  <li className={`px-1 ${className}`} style={style}>
+   <Paragraphmd>{children}</Paragraphmd>
   </li>
  );
 };
@@ -124,7 +128,7 @@ const OrderedList: React.FC<HeadingProps> = ({
 }) => {
  return (
   <ol
-   className={`text-md dark:text-gray-200 text-gray-800 tracking-wider leading-relaxed list-decimal list-outside pl-6 py-1 ${className}`}
+   className={`list-decimal list-outside pl-6 py-1 ${className}`}
    style={style}>
    {children}
   </ol>
@@ -137,7 +141,7 @@ const UnorderedList: React.FC<HeadingProps> = ({
 }) => {
  return (
   <ul
-   className={`text-md  dark:text-gray-200 text-gray-800 tracking-wider leading-relaxed list-disc list-outside pl-6 py-1 ${className}`}
+   className={` list-disc list-outside pl-6 py-1 ${className}`}
    style={style}>
    {children}
   </ul>

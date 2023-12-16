@@ -13,8 +13,18 @@ import ContainerLayout from "@/components/layouts/ContainerLayout";
 import { ThemeProvider } from "@/context/ThemeContext";
 import { ThemeSwitcher } from "@/components/theme/ThemeSwitcher";
 import { Suspense } from "react";
+
 const interVariableFont = localFont({
  src: "fonts/Inter/inter-font.ttf",
+ display: "swap",
+});
+
+const latoVariableFont = localFont({
+ src: "fonts/Lato/Lato-Regular.ttf",
+ display: "swap",
+});
+const robotoVariableFont = localFont({
+ src: "fonts/Roboto/Roboto-Regular.ttf",
  display: "swap",
 });
 
@@ -32,7 +42,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
  return (
   <html lang='en'>
    <body
-    className={` selection:text-white selection:bg-red-700 dark:bg-[#121212] ${interVariableFont.className}`}>
+    className={` selection:text-white selection:bg-red-700 dark:bg-[#121212] ${robotoVariableFont.className}`}>
     {BgPolygon1}
     <ThemeProvider attribute='class' defaultTheme='light'>
      <ContainerLayout>
