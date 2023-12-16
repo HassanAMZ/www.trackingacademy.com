@@ -15,43 +15,6 @@ import {
  createItemFromCourses,
  gtmCategoriesFromCourses,
 } from "utils/gtmAnalytics";
-import { useCalendlyEventListener } from "react-calendly";
-
-const GTMCalendlyEvent: React.FC = () => {
- useCalendlyEventListener({
-  onProfilePageViewed: () => {
-   window.dataLayer = window.dataLayer || [];
-   window.dataLayer.push({
-    event: "gtm_custom_event",
-    datalayer_event_name: "calendly_profile_page_viewed",
-   });
-  },
-  onDateAndTimeSelected: () => {
-   window.dataLayer = window.dataLayer || [];
-   window.dataLayer.push({
-    event: "gtm_custom_event",
-    datalayer_event_name: "calendly_date_and_time_selected",
-   });
-  },
-  onEventTypeViewed: () => {
-   window.dataLayer = window.dataLayer || [];
-   window.dataLayer.push({
-    event: "gtm_custom_event",
-    datalayer_event_name: "calendly_event_type_viewed",
-   });
-  },
-  onEventScheduled: (e: { data: { payload: any } }) => {
-   window.dataLayer = window.dataLayer || [];
-   window.dataLayer.push({
-    event: "gtm_custom_event",
-    datalayer_event_name: "calendly_event_scheduled",
-    payload: e.data.payload,
-   });
-  },
- });
-
- return <React.Fragment />;
-};
 
 const GTMBlogViewEvent: React.FC<GTMBlogViewProps> = ({ metadata }) => {
  useEffect(() => {
@@ -195,6 +158,5 @@ export {
  GTMContactFormSubmission,
  GTMBlogViewEvent,
  GTMBlogListViewEvent,
- GTMCalendlyEvent,
  GTMCourseListViewEvent,
 };
