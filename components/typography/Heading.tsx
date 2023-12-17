@@ -86,7 +86,7 @@ const Paragraphmd: React.FC<HeadingProps> = ({
  style,
 }) => {
  return (
-  <p className={`text-base font-medium  ${className}`} style={style}>
+  <p className={`text-base  ${className}`} style={style}>
    {children}
   </p>
  );

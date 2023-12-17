@@ -4,25 +4,19 @@ import localFont from "next/font/local";
 import NavBar from "@/components/navbar/Navbar";
 import { ReactNode } from "react";
 import { AuthContextProvider } from "@/context/AuthContext";
-// import { PaypalContext } from "@/context/PaypalContext";
 import GTMAnalytics from "@/components/analytics/GTMAnalytics";
 import React from "react";
 import VercelAnalytics from "@/components/analytics/VercelAnalytics";
 import Footer from "@/components/footer/Footer";
 import ContainerLayout from "@/components/layouts/ContainerLayout";
 import { ThemeProvider } from "@/context/ThemeContext";
-import { ThemeSwitcher } from "@/components/theme/ThemeSwitcher";
 import { Suspense } from "react";
 
-const interVariableFont = localFont({
- src: "fonts/Inter/inter-font.ttf",
+const robotCondensed = localFont({
+ src: "fonts/RobotoCondensed/RobotCondensed.ttf",
  display: "swap",
 });
 
-const latoVariableFont = localFont({
- src: "fonts/Lato/Lato-Regular.ttf",
- display: "swap",
-});
 const robotoVariableFont = localFont({
  src: "fonts/Roboto/Roboto-Regular.ttf",
  display: "swap",
@@ -37,12 +31,10 @@ export const metadata = {
 };
 
 export default function RootLayout({ children }: { children: ReactNode }) {
- const isProduction = process.env.NEXT_PUBLIC_ENVIRONMENT === "production";
-
  return (
   <html lang='en'>
    <body
-    className={` selection:text-white selection:bg-red-700 dark:bg-[#121212] ${robotoVariableFont.className}`}>
+    className={` selection:text-white selection:bg-red-700 dark:bg-[#121212] ${robotCondensed.className}`}>
     {BgPolygon1}
     <ThemeProvider attribute='class' defaultTheme='light'>
      <ContainerLayout>

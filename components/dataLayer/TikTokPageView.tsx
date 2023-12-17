@@ -89,13 +89,6 @@ export default function TikTokPageView() {
     in your Shopify store, providing valuable insights into your customer's
     interactions and behaviors.
    </Paragraphmd>
-
-   <Note
-    title={"Note"}
-    content={
-     "Remember to replace 'GTM-XXXX' with your actual Google Tag Manager container ID."
-    }
-   />
   </React.Fragment>
  );
 }
