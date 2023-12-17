@@ -13,8 +13,8 @@ import { ThemeProvider } from "@/context/ThemeContext";
 import { Suspense } from "react";
 import CanonicalTag from "@/components/seo/CanonicalTag";
 
-const robotCondensed = localFont({
- src: "fonts/RobotoCondensed/RobotCondensed.ttf",
+const Roboto = localFont({
+ src: "fonts/Roboto/Roboto-Regular.ttf",
  display: "swap",
 });
 
@@ -30,7 +30,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
  return (
   <html lang='en'>
    <body
-    className={` selection:text-white selection:bg-red-700 dark:bg-[#121212] ${robotCondensed.className}`}>
+    className={` selection:text-white selection:bg-red-700 dark:bg-[#121212] ${Roboto.className}`}>
     {BgPolygon1}
     <ThemeProvider attribute='class' defaultTheme='light'>
      <ContainerLayout>
