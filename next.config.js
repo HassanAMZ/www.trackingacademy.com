@@ -39,4 +39,8 @@ const withMDX = require("@next/mdx")({
  },
 });
 
-module.exports = withMDX(nextConfig);
+const withBundleAnalyzer = require("@next/bundle-analyzer")({
+ enabled: process.env.ANALYZE === "false",
+});
+
+module.exports = withBundleAnalyzer(withMDX(nextConfig));

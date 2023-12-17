@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useState, ReactNode } from "react";
+import React, { useEffect, useState, ReactNode, Suspense } from "react";
 import { UserAuth } from "@/context/AuthContext";
 import { FirebaseAuth } from "@/components/global/FirebaseAuth";
 import { FirebaseAuthSkeleton } from "../skeleton/FirebaseAuthSkeleton";
@@ -24,7 +24,7 @@ const AuthenticatedLayout: React.FC<AuthenticatedLayoutProps> = ({
  }, [user]);
 
  return (
-  <React.Fragment>
+  <Suspense fallback={<FirebaseAuthSkeleton />}>
    {loading ? (
     <FirebaseAuthSkeleton />
    ) : user ? (
@@ -39,7 +39,7 @@ const AuthenticatedLayout: React.FC<AuthenticatedLayoutProps> = ({
      <FirebaseAuth />
     </React.Fragment>
    )}
-  </React.Fragment>
+  </Suspense>
  );
 };
 
