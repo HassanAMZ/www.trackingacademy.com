@@ -11,14 +11,10 @@ import Footer from "@/components/footer/Footer";
 import ContainerLayout from "@/components/layouts/ContainerLayout";
 import { ThemeProvider } from "@/context/ThemeContext";
 import { Suspense } from "react";
+import CanonicalTag from "@/components/seo/CanonicalTag";
 
 const robotCondensed = localFont({
  src: "fonts/RobotoCondensed/RobotCondensed.ttf",
- display: "swap",
-});
-
-const robotoVariableFont = localFont({
- src: "fonts/Roboto/Roboto-Regular.ttf",
  display: "swap",
 });
 
@@ -50,6 +46,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
     <Suspense>
      <GTMAnalytics />
      <VercelAnalytics />
+     <CanonicalTag />
     </Suspense>
    </body>
   </html>

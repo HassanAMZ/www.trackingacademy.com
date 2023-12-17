@@ -1,12 +1,15 @@
 import ContainerLayout from "@/components/layouts/ContainerLayout";
 import { ReactNode } from "react";
+import { Metadata } from "next";
 
-export const metadata = {
+export const metadata: Metadata = {
  title: "Services we Offer - ShahzadaAliHassan",
  description: `helping businesses improve their data using better tracking practices`,
  openGraph: {
   images: ["/images/social-sharing.png"],
  },
+
+ robots: "noindex",
 };
 export default function Layout({ children }: { children: ReactNode }) {
  return <ContainerLayout>{children}</ContainerLayout>;
