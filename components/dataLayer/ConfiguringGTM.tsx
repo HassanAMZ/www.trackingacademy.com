@@ -1,6 +1,6 @@
 import React from "react";
 import {
- Headingxl,
+ Heading4xl,
  ListItem,
  OrderedList,
  Paragraphmd,
@@ -16,14 +16,18 @@ export default function ConfiguringGTM() {
     to track all the user interaction.
    </Paragraphmd>
 
-   <Headingxl>Setting Up Google Tag Manager Scripts</Headingxl>
+   <Heading4xl className={`!text-2xl py-2 `}>
+    Setting Up Google Tag Manager Scripts
+   </Heading4xl>
    <Paragraphmd>
     First, add the Google Tag Manager scripts to your Shopify store. These
     scripts are critical for tracking user interactions and collecting valuable
     data.
    </Paragraphmd>
 
-   <Headingxl>Inserting GTM Container Codes</Headingxl>
+   <Heading4xl className={`!text-2xl py-2 `}>
+    Inserting GTM Container Codes
+   </Heading4xl>
    <Paragraphmd>
     Next, insert the head and body scripts from the Google Tag Manager container
     into your Shopify store’s theme files.
@@ -40,7 +44,9 @@ export default function ConfiguringGTM() {
      {"<body>"} tag.
     </ListItem>
    </OrderedList>
-   <Headingxl>GTM container head script </Headingxl>
+   <Heading4xl className={`!text-2xl py-2 `}>
+    GTM container head script{" "}
+   </Heading4xl>
 
    <AuthPre>
     <code>
@@ -53,7 +59,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <!-- End Google Tag Manager -->`}
     </code>
    </AuthPre>
-   <Headingxl>GTM container body script </Headingxl>
+   <Heading4xl className={`!text-2xl py-2 `}>
+    GTM container body script{" "}
+   </Heading4xl>
 
    <AuthPre>
     <code>
@@ -63,13 +71,15 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->`}
     </code>
    </AuthPre>
-   {/* <Headingxl>Validating the Setup</Headingxl> */}
+   {/* <Heading4xl className={`!text-2xl py-2 `}>Validating the Setup</Heading4xl> */}
    <Paragraphmd>
     After inserting the scripts, it’s important to validate the setup to ensure
     that Google Tag Manager is functioning correctly on your Shopify store.
    </Paragraphmd>
 
-   <Headingxl>Steps for Configuring GTM on Shopify:</Headingxl>
+   <Heading4xl className={`!text-2xl py-2 `}>
+    Steps for Configuring GTM on Shopify:
+   </Heading4xl>
    <OrderedList>
     <ListItem>
      Log in to your Shopify admin panel and navigate to the Themes section.
@@ -83,7 +93,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </ListItem>
    </OrderedList>
 
-   <Headingxl>Adding Scripts to Your Shopify Store</Headingxl>
+   <Heading4xl className={`!text-2xl py-2 `}>
+    Adding Scripts to Your Shopify Store
+   </Heading4xl>
    <OrderedList>
     <ListItem>
      To begin, you need to add the head and body scripts from Google Tag Manager
@@ -106,7 +118,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </ListItem>
    </OrderedList>
 
-   <Headingxl>Previewing Google Tag Manager</Headingxl>
+   <Heading4xl className={`!text-2xl py-2 `}>
+    Previewing Google Tag Manager
+   </Heading4xl>
    <Paragraphmd>
     To ensure that everything is set up correctly, use the Google Tag Manager’s
     preview function. This will allow you to verify that the container is firing

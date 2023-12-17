@@ -74,7 +74,9 @@ const Paragraphlg: React.FC<HeadingProps> = ({
  style,
 }) => {
  return (
-  <p className={`text-lg  ${className}`} style={style}>
+  <p
+   className={`text-lg tracking-normal leading-relaxed ${className}`}
+   style={style}>
    {children}
   </p>
  );
@@ -86,7 +88,7 @@ const Paragraphmd: React.FC<HeadingProps> = ({
  style,
 }) => {
  return (
-  <p className={`text-base  ${className}`} style={style}>
+  <p className={`text-md   ${className}`} style={style}>
    {children}
   </p>
  );
@@ -116,8 +118,10 @@ const Paragraphxs: React.FC<HeadingProps> = ({
 };
 const ListItem: React.FC<HeadingProps> = ({ children, className, style }) => {
  return (
-  <li className={`px-1 ${className}`} style={style}>
-   <Paragraphmd>{children}</Paragraphmd>
+  <li
+   className={`px-1 text-lg tracking-normal leading-relaxed ${className}`}
+   style={style}>
+   {children}
   </li>
  );
 };

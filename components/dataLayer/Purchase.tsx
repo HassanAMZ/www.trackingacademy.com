@@ -1,7 +1,7 @@
 import React from "react";
 import {
  Heading3xl,
- Headingxl,
+ Heading4xl,
  ListItem,
  OrderedList,
  Paragraphmd,
@@ -14,14 +14,18 @@ import Note from "@/components/mdx/Note";
 export default function Purchase() {
  return (
   <React.Fragment>
-   <Headingxl>DataLayer Code Snippets Overview</Headingxl>
+   <Heading4xl className={`!text-2xl py-2 `}>
+    DataLayer Code Snippets Overview
+   </Heading4xl>
    <Paragraphmd>
     The provided code snippets aim to integrate the `dataLayer` object for
     Google Tag Manager (GTM) with a Shopify store. The main goal is to send an
     event called `custom_purchase` whenever a user visits the final /thank-you/
     page on Shopify after making the payment.
    </Paragraphmd>
-   <Headingxl>Order Status DataLayer Code</Headingxl>
+   <Heading4xl className={`!text-2xl py-2 `}>
+    Order Status DataLayer Code
+   </Heading4xl>
    <OrderedList>
     <ListItem>
      This script, embedded within a Shopify platform, serves to track
@@ -129,7 +133,10 @@ export default function Purchase() {
 `}
     </code>
    </AuthPre>
-   <Headingxl> Steps to Add the DataLayer Code Snippets in Shopify:</Headingxl>
+   <Heading4xl className={`!text-2xl py-2 `}>
+    {" "}
+    Steps to Add the DataLayer Code Snippets in Shopify:
+   </Heading4xl>
    <OrderedList>
     <ListItem>
      Log into Your Shopify Admin Panel:

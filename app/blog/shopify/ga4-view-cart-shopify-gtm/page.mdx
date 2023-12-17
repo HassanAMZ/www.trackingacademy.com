@@ -20,13 +20,13 @@ export const metadata = {
 
 <BlogHeader metadata={metadata} />
 
-#### Introduction
+## Introduction
 
 Welcome to our detailed guide on configuring the "View Cart" event in Shopify using Google Analytics 4. This functionality is a game-changer for e-commerce reporting, allowing you to track how many visitors are engaging with your cart page and the items they're considering purchasing. Let's dive into the process.
 
 <YoutubeEmbed embedId={metadata.embedId} />
 
-#### Prerequisites
+## Prerequisites
 
 Before we begin, ensure you have the following:
 
@@ -34,7 +34,7 @@ Before we begin, ensure you have the following:
 - A Google Analytics 4 property
 - A Shopify store
 
-#### Setting Up the Base Configuration Tag
+## Setting Up the Base Configuration Tag
 
 Our first step is to set up the base configuration tag for Google Analytics. This allows us to track events such as page views, user engagement, and more.
 
@@ -51,7 +51,7 @@ Our first step is to set up the base configuration tag for Google Analytics. Thi
 
 Now, let's create a variable in Google Tag Manager to hold our Measurement ID, which is unique for each data stream.
 
-#### Managing DataLayer Scripts:
+## Managing DataLayer Scripts:
 
 1. Send specific instructions and a script to your developer. This script will add the necessary data layer event to the cart page for tracking the purchase event.
 2. You can find the script and instructions below. Make sure to download the PDF and forward it to your developer.
@@ -61,11 +61,11 @@ Now, let's create a variable in Google Tag Manager to hold our Measurement ID, w
  content='Ensure that your developer follows the instructions carefully and tests the implementation to confirm that the data layer event is firing correctly on the cart page.'
 />
 
-#### Instructions for Developer
+## Instructions for Developer
 
 Send over [this document](/static/pdf/blog/shopify/tracking-view-cart-event-in-shopify-with-gtm-for-ga4.pdf) to the developer else following the blog below
 
-#### Adding the Code Yourself
+## Adding the Code Yourself
 
 In the next section, we write the script that will trigger the "View Cart" event on the Shopify store.
 
@@ -73,7 +73,7 @@ In the next section, we write the script that will trigger the "View Cart" event
 - Click on the 'Actions' button and select 'Edit code'.
 - Find the Google Tag Manager code snippet and paste the view cart event script below it.
 
-#### DataLayer Snippet for View Cart Events
+## DataLayer Snippet for View Cart Events
 
 Here's the script you'll be adding:
 
@@ -118,7 +118,7 @@ Here's the script you'll be adding:
  content="It's essential to format your code correctly to ensure it runs without issues. Use the 'Format code' option in Shopify's code editor."
 />
 
-#### Creating Tags and Triggers in GTM
+## Creating Tags and Triggers in GTM
 
 The third step involves creating tags and triggers in Google Tag Manager to capture the view cart event.
 
@@ -128,7 +128,7 @@ The third step involves creating tags and triggers in Google Tag Manager to capt
 
 Don't forget to rename your variables and tags for clarity and consistency.
 
-#### Testing and Verifying the Setup
+## Testing and Verifying the Setup
 
 Finally, it's time to test everything to ensure proper tracking.
 
@@ -141,7 +141,7 @@ Finally, it's time to test everything to ensure proper tracking.
  content='Use the Real-Time report in Google Analytics to verify if the event is firing correctly, especially when you have low traffic.'
 />
 
-#### Conclusion
+## Conclusion
 
 Configuring the view cart event in Google Analytics 4 is a significant step towards understanding your customers' behavior on your Shopify store. By following these steps, you've learned how to set up the base configuration tag, write and implement the necessary scripts, and ensure that everything is functioning as it should.
 

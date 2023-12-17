@@ -1,7 +1,7 @@
 import React from "react";
 import {
  Heading3xl,
- Headingxl,
+ Heading4xl,
  ListItem,
  OrderedList,
  Paragraphmd,
@@ -21,7 +21,7 @@ export default function BeginCheckout() {
     to send an event called `custom_begin_checkout` whenever a user clicks the
     Begin Checkout button on the Cart page on Shopify.
    </Paragraphmd>
-   <Headingxl>Head DataLayer Code</Headingxl>
+   <Heading4xl className={`!text-2xl py-2 `}>Head DataLayer Code</Heading4xl>
    <Paragraphmd>
     This code initializes the `dataLayer` array if it hasn't been already. It
     then checks if the current page template is a 'product' page and renders a
@@ -37,7 +37,10 @@ export default function BeginCheckout() {
 `}
     </code>
    </AuthPre>
-   <Headingxl> Checkout DataLayer Code</Headingxl>
+   <Heading4xl className={`!text-2xl py-2 `}>
+    {" "}
+    Checkout DataLayer Code
+   </Heading4xl>
    This code snippet contains the main logic for populating the `dataLayer`
    object with product details whenever a Begin Checkout Event is triggered on
    the Cart page:
@@ -115,7 +118,7 @@ document.addEventListener('DOMContentLoaded', () => {
 `}
     </code>
    </AuthPre>
-   <Headingxl> Theme DataLayer Code</Headingxl>
+   <Heading4xl className={`!text-2xl py-2 `}> Theme DataLayer Code</Heading4xl>
    <Paragraphmd>
     This code renders the `head-datalayer` snippet. Depending on the setup of
     your Shopify theme, this is likely where the head datalayer code resides.
@@ -127,7 +130,10 @@ document.addEventListener('DOMContentLoaded', () => {
 `}
     </code>
    </AuthPre>
-   <Headingxl> Steps to Add the DataLayer Code Snippets in Shopify:</Headingxl>
+   <Heading4xl className={`!text-2xl py-2 `}>
+    {" "}
+    Steps to Add the DataLayer Code Snippets in Shopify:
+   </Heading4xl>
    <OrderedList>
     <ListItem>
      <span className='font-bold'>Backup:</span> Before making any changes,

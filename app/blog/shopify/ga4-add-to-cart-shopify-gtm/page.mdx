@@ -20,13 +20,13 @@ export const metadata = {
 
 <BlogHeader metadata={metadata} />
 
-#### Introduction
+## Introduction
 
 In this blog, we will walk through the process of configuring the 'add_to_cart' event for a Shopify store using Google Tag Manager (GTM) and Google Analytics 4 (GA4).
 
 <YoutubeEmbed embedId={metadata.embedId} />
 
-#### Prerequisites
+## Prerequisites
 
 Before we jump in, ensure you have the following:
 
@@ -35,7 +35,7 @@ Before we jump in, ensure you have the following:
 
 If you haven't set these up yet, you can refer to [this page](/blog/shopify/configure-google-tag-manager-on-your-shopify-store).
 
-#### Sections Covered
+## Sections Covered
 
 This blog is divided into four main sections, aiming to cover everything from basic event tracking setup to the specifics of configuring 'add_to_cart' events.
 
@@ -44,7 +44,7 @@ This blog is divided into four main sections, aiming to cover everything from ba
 3. Using Data Layer: How to directly trigger the add to cart event from Shopify and send enhanced e-commerce data to Google Analytics 4.
 4. Configuring GTM for dataLayer event & Testing: Ensuring everything has been configured correctly and publishing the Google Tag Manager containers.
 
-#### Section 01: Web Configuration Tags
+## Section 01: Web Configuration Tags
 
 To start tracking basic events on your site, follow these steps:
 
@@ -60,7 +60,7 @@ To start tracking basic events on your site, follow these steps:
  content='The Configuration tag is essential as all page events are sent through this tag.'
 />
 
-#### Section 02: Configuring 'Add to Cart' Event on Button Click
+## Section 02: Configuring 'Add to Cart' Event on Button Click
 
 <Note
  title='Tip'
@@ -96,7 +96,7 @@ To start tracking basic events on your site, follow these steps:
  content='Always test your configurations to ensure accurate data tracking.'
 />
 
-#### Section 03: Advanced Tracking with Enhanced E-Commerce Data
+## Section 03: Advanced Tracking with Enhanced E-Commerce Data
 
 This section is for those who wish to capture more data, like the item ID, name, value, quantity, etc., when the "Add to Cart" event is triggered.
 
@@ -105,13 +105,13 @@ This section is for those who wish to capture more data, like the item ID, name,
  content="For this section, some programming knowledge is beneficial. If that's not your strength, you can share our document with your developer."
 />
 
-#### DataLayer Code Snippets Overview
+## DataLayer Code Snippets Overview
 
 <AddToCart />
 
-#### Section 04: Setting Up Google Tag Manager for Enhanced Event Tracking
+## Section 04: Setting Up Google Tag Manager for Enhanced Event Tracking
 
-#### Modifying the Existing Trigger
+## Modifying the Existing Trigger
 
 1. Navigate to your GTM web container.
 2. Find the existing tag related to the GA4 'Add to Cart' event.
@@ -124,7 +124,7 @@ This section is for those who wish to capture more data, like the item ID, name,
  content='Custom events provide more flexibility and specificity than generic button click events in GTM.'
 />
 
-#### Refining Event Settings
+## Refining Event Settings
 
 With GA4, you can provide additional details such as currency, items added, and their values. These details offer deeper insights into customer behaviors.
 
@@ -138,7 +138,7 @@ With GA4, you can provide additional details such as currency, items added, and 
  content='Using standardized parameters ensures a seamless flow of data between GTM and GA4.'
 />
 
-#### Validating Events in Google Analytics 4
+## Validating Events in Google Analytics 4
 
 After setting up your events in GTM, it's crucial to ensure that they're being captured correctly in GA4.
 
@@ -152,7 +152,7 @@ After setting up your events in GTM, it's crucial to ensure that they're being c
  content='Consistent validation ensures the reliability of your tracking setup and the integrity of the data captured.'
 />
 
-#### Conclusion
+## Conclusion
 
 Setting up enhanced event tracking using Google Tag Manager and Google Analytics 4 is an invaluable asset for e-commerce retailers. It provides insights into customer behaviors, preferences, and potential bottlenecks in the buying process. As always, regular validation ensures you're on top of any changes or issues that might arise. Happy tracking!
 

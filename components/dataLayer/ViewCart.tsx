@@ -1,7 +1,7 @@
 import React from "react";
 import {
  Heading3xl,
- Headingxl,
+ Heading4xl,
  ListItem,
  OrderedList,
  Paragraphmd,
@@ -21,7 +21,7 @@ export default function ViewCart() {
     is to send an event named `custom_view_cart` whenever a user views the cart
     page in Shopify.
    </Paragraphmd>
-   <Headingxl>Head DataLayer Code</Headingxl>
+   <Heading4xl className={`!text-2xl py-2 `}>Head DataLayer Code</Heading4xl>
    <Paragraphmd>
     This code snippet ensures the initialization of the `dataLayer` array and
     includes a specific snippet called 'datalayer-cart' for rendering on cart
@@ -37,7 +37,7 @@ export default function ViewCart() {
 `}
     </code>
    </AuthPre>
-   <Headingxl> Cart DataLayer Code</Headingxl>
+   <Heading4xl className={`!text-2xl py-2 `}> Cart DataLayer Code</Heading4xl>
    <Paragraphmd>
     This snippet contains the logic to populate the `dataLayer` object with
     product details whenever a View Cart event is triggered:
@@ -101,7 +101,7 @@ document.addEventListener('DOMContentLoaded', () => {
 `}
     </code>
    </AuthPre>
-   <Headingxl> Theme DataLayer Code</Headingxl>
+   <Heading4xl className={`!text-2xl py-2 `}> Theme DataLayer Code</Heading4xl>
    <Paragraphmd>
     This code renders the `head-datalayer` snippet. Depending on the setup of
     your Shopify theme, this is likely where the head datalayer code resides.
@@ -113,7 +113,10 @@ document.addEventListener('DOMContentLoaded', () => {
 `}
     </code>
    </AuthPre>
-   <Headingxl> Steps to Add the DataLayer Code Snippets in Shopify:</Headingxl>
+   <Heading4xl className={`!text-2xl py-2 `}>
+    {" "}
+    Steps to Add the DataLayer Code Snippets in Shopify:
+   </Heading4xl>
    <OrderedList>
     <ListItem>
      <Paragraphmd>

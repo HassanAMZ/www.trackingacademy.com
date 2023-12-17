@@ -27,7 +27,7 @@ In this blog, we'll learn how to set up the Facebook Pixel's Initiate Checkout e
 
 <YoutubeEmbed embedId={metadata.embedId} />
 
-#### Step 1: Setting Up Google Tag Manager on Shopify
+## Step 1: Setting Up Google Tag Manager on Shopify
 
 Firstly, we'll set up the GTM container on your Shopify store to track various events:
 
@@ -39,7 +39,7 @@ Firstly, we'll set up the GTM container on your Shopify store to track various e
 6. Paste the head code under the `<head>` section and body code under the `<body>` section of the `theme.liquid` file.
 7. Save changes and verify the GTM container is live.
 
-#### Step 2: Configuring Page View Event for Facebook Pixel
+## Step 2: Configuring Page View Event for Facebook Pixel
 
 Next, we configure the base tag for Facebook Pixel:
 
@@ -49,11 +49,11 @@ Next, we configure the base tag for Facebook Pixel:
 4. Use a constant variable for the Pixel ID for future convenience.
 5. Verify the pixel fires correctly using Pixel Helper.
 
-#### Step 3: Setting Up Initiate Checkout Script in Shopify
+## Step 3: Setting Up Initiate Checkout Script in Shopify
 
 <BeginCheckout />
 
-#### Step 4: Finalizing Tags, Triggers, and Variables in GTM
+## Step 4: Finalizing Tags, Triggers, and Variables in GTM
 
 In this step, we create the necessary components in GTM:
 
@@ -62,7 +62,7 @@ In this step, we create the necessary components in GTM:
 3. Implement a Facebook parameter generator variable for detailed event tracking.
 4. Create a new GTM tag for the Initiate Checkout event with the appropriate triggers and variables.
 
-#### Step 5: Testing and Publishing
+## Step 5: Testing and Publishing
 
 Finally, we test and publish our setup:
 

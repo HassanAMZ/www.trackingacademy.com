@@ -19,7 +19,7 @@ export const metadata = {
 
 <BlogHeader metadata={metadata} />
 
-#### Introduction
+## Introduction
 
 This blog post will guide you through configuring the "View Item List" event in Google Analytics 4 (GA4) using Google Tag Manager for your Shopify store. This new event, introduced in e-commerce tracking, resembles the impression event from Universal Analytics. GA4 simplifies the process, making it more intuitive to build different reports. This Blog is divided into four sections:
 
@@ -30,50 +30,50 @@ This blog post will guide you through configuring the "View Item List" event in 
 
 <YoutubeEmbed embedId={metadata.embedId} />
 
-#### Prerequisites
+## Prerequisites
 
 - Google Analytics 4 and Google Tag Manager accounts.
 - A Shopify store.
 
-#### Implementing GTM Snippets on Shopify
+## Implementing GTM Snippets on Shopify
 
 - **Create a Container**: In GTM, create a container named "trackingacademy.com" for your Shopify web store.
 - **Install Head and Body Snippets**: Add the GTM head code right under the opening head tag in the Shopify theme.liquid file. Similarly, paste the body code right after the opening body tag.
 
-#### Verifying GTM Setup on Shopify
+## Verifying GTM Setup on Shopify
 
 - Use GTM's preview mode to verify the setup. A debug window will attach to your Shopify store for monitoring changes.
 
-#### Google Analytics 4 Configuration Tag Setup
+## Google Analytics 4 Configuration Tag Setup
 
 - **Creating a Web Data Stream in GA4**: In GA4, create a web data stream for your Shopify store. Copy the unique measurement ID.
 - **GA4 Measurement ID Setup in GTM**: In GTM, create a variable for the measurement ID for reuse.
 - **Firing GA4 Configuration Tag on All Pages**: Create a tag in GTM that fires the GA4 configuration tag on all Shopify store pages.
 
-#### Previewing GA4 Configuration in GTM
+## Previewing GA4 Configuration in GTM
 
 - Use GTM's preview mode to ensure that the GA4 configuration tag is firing correctly on all pages.
 
-#### Setting Up Data Layer Event Scripts in Shopify
+## Setting Up Data Layer Event Scripts in Shopify
 
 <ViewItemList />
 
-#### Creating Tracking Scripts in Google Tag Manager
+## Creating Tracking Scripts in Google Tag Manager
 
 - **Setting Up Data Layer Variables in GTM**: Create data layer variables in GTM to extract values for items array and item list names.
 - **Assigning Currency Parameters in GTM**: Set up a variable for the currency parameter.
 - **Finalizing GA4 Event Tag Configuration**: Create a GA4 event tag in GTM that sends the "View Item List" event to GA4. Use the previously configured variables and triggers.
 
-#### Testing & Publishing Changes in GTM
+## Testing & Publishing Changes in GTM
 
 - Test the setup using GTM's preview mode and then publish the container to apply the changes.
 
-#### Verifying Event Data in GA4 Debug View
+## Verifying Event Data in GA4 Debug View
 
 - **Checking Event Firing**: In GA4's debug view, verify that the "View Item List" event is firing correctly with all parameters.
 - **Reviewing in Real Time Reports**: Confirm the event data in GA4's real-time reporting section.
 
-#### Conclusion
+## Conclusion
 
 Once published, the GA4 event tracking will be active on your Shopify store, capturing "View Item List" events. These data points will be available in custom reports and Google Looker Studio after processing. For more detailed, step-by-step instructions, refer to the linked blog post and PDF in the description.
 

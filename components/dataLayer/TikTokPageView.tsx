@@ -1,6 +1,6 @@
 import React from "react";
 import {
- Headingxl,
+ Heading4xl,
  ListItem,
  OrderedList,
  Paragraphmd,
@@ -19,7 +19,9 @@ export default function TikTokPageView() {
     ID.
    </Paragraphmd>
 
-   <Headingxl>Step 1: Accessing TikTok Ads Manager</Headingxl>
+   <Heading4xl className={`!text-2xl py-2 `}>
+    Step 1: Accessing TikTok Ads Manager
+   </Heading4xl>
    <OrderedList>
     <ListItem>Log in to your TikTok Ads Manager account.</ListItem>
     <ListItem>
@@ -28,7 +30,9 @@ export default function TikTokPageView() {
     </ListItem>
    </OrderedList>
 
-   <Headingxl>Step 2: Manual Pixel Setup</Headingxl>
+   <Heading4xl className={`!text-2xl py-2 `}>
+    Step 2: Manual Pixel Setup
+   </Heading4xl>
    <OrderedList>
     <ListItem>
      Choose to set up the pixel manually for a more tailored approach.
@@ -38,7 +42,9 @@ export default function TikTokPageView() {
     </ListItem>
    </OrderedList>
 
-   <Headingxl>Step 3: Adding the Pixel to Google Tag Manager</Headingxl>
+   <Heading4xl className={`!text-2xl py-2 `}>
+    Step 3: Adding the Pixel to Google Tag Manager
+   </Heading4xl>
    <OrderedList>
     <ListItem>Open your Google Tag Manager dashboard.</ListItem>
     <ListItem>Create a new custom HTML tag.</ListItem>
@@ -49,7 +55,9 @@ export default function TikTokPageView() {
     </ListItem>
    </OrderedList>
 
-   <Headingxl>Step 4: Creating a Variable for the Pixel ID</Headingxl>
+   <Heading4xl className={`!text-2xl py-2 `}>
+    Step 4: Creating a Variable for the Pixel ID
+   </Heading4xl>
    <OrderedList>
     <ListItem>In Google Tag Manager, create a new variable.</ListItem>
     <ListItem>Assign your TikTok pixel ID to this variable.</ListItem>
@@ -59,7 +67,9 @@ export default function TikTokPageView() {
     </ListItem>
    </OrderedList>
 
-   <Headingxl>Step 5: Testing TikTok Pixel Events</Headingxl>
+   <Heading4xl className={`!text-2xl py-2 `}>
+    Step 5: Testing TikTok Pixel Events
+   </Heading4xl>
    <OrderedList>
     <ListItem>
      Use tools like the TikTok Pixel Helper browser extension.
@@ -73,7 +83,9 @@ export default function TikTokPageView() {
     </ListItem>
    </OrderedList>
 
-   <Headingxl>Step 6: Publish Your Changes</Headingxl>
+   <Heading4xl className={`!text-2xl py-2 `}>
+    Step 6: Publish Your Changes
+   </Heading4xl>
    <OrderedList>
     <ListItem>
      After successful testing, go back to Google Tag Manager.

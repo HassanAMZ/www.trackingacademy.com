@@ -20,13 +20,13 @@ export const metadata = {
 
 <BlogHeader metadata={metadata} />
 
-#### Introduction
+## Introduction
 
 This blog will walk you through the process of configuring the purchase event for Google Analytics 4 (GA4) on a Shopify store usin Google Tag Manager. We'll look into how to set up the necessary tools and tags to ensure that you can track Shopify purchases and gather valuable insights about your traffic acquisition and user behavior.
 
 <YoutubeEmbed embedId={metadata.embedId} />
 
-#### Prerequisites
+## Prerequisites
 
 Before we dive into the setup, make sure you have the following accounts and configurations ready:
 
@@ -41,7 +41,7 @@ If you haven't set these up yet, you can refer to [this page](/blog/shopify/conf
  content='Ensure you have your prerequisites in place for a smooth setup process.'
 />
 
-#### Section 01: Configuring GA4 Configuration Tag
+## Section 01: Configuring GA4 Configuration Tag
 
 The first step is to set up the GA4 Configuration Tag. This tag is essential for tracking general events such as user engagement, session start, etc. These events are automatically configured by Google Analytics.
 
@@ -60,15 +60,15 @@ The first step is to set up the GA4 Configuration Tag. This tag is essential for
 
 After configuring the tag, use the 'Preview' mode in Google Tag Manager to test if the 'page_view' event is firing correctly on all pages of your Shopify store. You should be able to see the events in the debug window as well as in your Google Analytics account.
 
-#### Section 2: Preparing for Purchase Event Tracking (Optional)
+## Section 2: Preparing for Purchase Event Tracking (Optional)
 
 <Purchase />
 
-#### Section 04: Setting Up Google Tag Manager for Enhanced Event Tracking
+## Section 04: Setting Up Google Tag Manager for Enhanced Event Tracking
 
 To accurately track these events, we need to set up appropriate triggers and tags in Google Tag Manager.
 
-#### Setting Up Event Parameters
+## Setting Up Event Parameters
 
 For additional tracking details, such as items, revenue, etc., Google Tag Manager's latest version introduces Ga4 event parameters, similar to setting variables in Universal Analytics.
 
@@ -89,7 +89,7 @@ For additional tracking details, such as items, revenue, etc., Google Tag Manage
  content='Ensure all necessary parameters are sent correctly to Ga4. When done right, GA4 will handle report generation and conversions automatically.'
 />
 
-###### Setting Up the Trigger
+### Setting Up the Trigger
 
 1. Navigate back to the Tag Manager.
 2. Opt for "Triggers" and create a new trigger.
@@ -101,7 +101,7 @@ For additional tracking details, such as items, revenue, etc., Google Tag Manage
  content="Using a 'custom_' prefix ensures that the 'purchase' does not mix with any other events on your website."
 />
 
-###### Creating an Event Tag for Google Analytics 4
+### Creating an Event Tag for Google Analytics 4
 
 1. Return to the tag section and formulate a new event tag for Google Analytics 4.
 2. Select the previously created trigger for `CE custom_purchase`.
@@ -109,13 +109,13 @@ For additional tracking details, such as items, revenue, etc., Google Tag Manage
 4. Ensure the `GA4 Measurement ID` matches the one created at the beginning of this blog.
 5. For the event parameter, refer back to the same event setting parameter used earlier i.e., `GTES GA4 EEC Event parameters`.
 
-###### Tracking Checkout Routes with GTM
+### Tracking Checkout Routes with GTM
 
 By default, with GTM and a basic Shopify account, the `/checkout` route isn't accessible. This means tracking events such as 'Add Shipping Info', 'Add Payment Info', or the 'Begin Checkout' event can be challenging.
 
 However, as discussed in a previous blog, you can workaround this limitation by hijacking button click events on your site. For those who missed that insightful blog, read it [here](/blog/shopify/configuring-ga4-begin-checkout-event-on-shopify-using-gtm).
 
-#### Section 05: Testing Tracking on Your Site
+## Section 05: Testing Tracking on Your Site
 
 To verify the functionality of your tags:
 
@@ -124,9 +124,9 @@ To verify the functionality of your tags:
 
 While on the `/checkout` page, note that this isn't tracked by default in Ga4. On completion of the purchase, redirect to the 'Thank You' page. In the debug window, you should see the custom purchase event trigger alongside the G4 e-commerce purchase tag.
 
-#### Verifying the Tracking Data in Google Analytics
+## Verifying the Tracking Data in Google Analytics
 
-#### Using the Debug View
+## Using the Debug View
 
 In Google Analytics, under `Admin > Debug View`, you can check recent events. The purchase event should show with a flag, signifying its role as a default conversion.
 
@@ -135,11 +135,11 @@ In Google Analytics, under `Admin > Debug View`, you can check recent events. Th
  content="The purchase event is a default conversion in G4. There's no need for additional configurations."
 />
 
-#### Checking Real-time Reports
+## Checking Real-time Reports
 
 Real-time reports in Google Analytics provide instant insights, but they won't show the items array. However, other valuable details like `path`, `currency`, and `tax` are available.
 
-#### Section 06: Publishing Changes and Concluding
+## Section 06: Publishing Changes and Concluding
 
 Lastly, ensure you publish all changes on GTM to move them out of draft mode and onto your live site. While Ga4 processes the data, e-commerce reports will become available, generally within 24 hours.
 

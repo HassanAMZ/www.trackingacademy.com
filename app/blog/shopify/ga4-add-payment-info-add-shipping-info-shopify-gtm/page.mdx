@@ -21,13 +21,13 @@ export const metadata = {
 
 <BlogHeader metadata={metadata} />
 
-#### Introduction
+## Introduction
 
 In this blog, we're going to explore how you can effectively track _Add Payment Info_ (`add_payment_info`) and _Add Shipping Info_ (`add_shipping_info`) events on your Shopify store for Google Analytics 4 (GA4) using Google Tag Manager (GTM). This process is crucial for e-commerce analytics, helping you understand your customers' journey through your online store.
 
 <YoutubeEmbed embedId={metadata.embedId} />
 
-#### Prerequisites:
+## Prerequisites:
 
 Before diving into the setup process, ensure that you have the following:
 
@@ -43,11 +43,11 @@ It's also essential that your GA4 account is linked with your Shopify store. If 
  content="A critical limitation to note is that if you don't have a Shopify Plus account, you won't be able to track these specific events as access to the checkout route is restricted for security reasons."
 />
 
-#### Setting Up GA4 in Google Tag Manager
+## Setting Up GA4 in Google Tag Manager
 
 Let's begin by setting up our GA4 configuration tag in GTM, which will enable tracking of basic events such as `page_view`, `user_engagement`, and `session_start`.
 
-#### GA4 Data Streams and GTM Variables
+## GA4 Data Streams and GTM Variables
 
 Data streams act as conduits between your Shopify store and GA4, allowing data to flow seamlessly. Here's how to configure them:
 
@@ -60,11 +60,11 @@ Data streams act as conduits between your Shopify store and GA4, allowing data t
 7. Go to 'Tags' and create a new 'GT GA4 Configuration' tag based off of `Google Tag`.
 8. Set this tag to fire on all pages.
 
-#### Integrating Event Tracking in Shopify
+## Integrating Event Tracking in Shopify
 
 For the second part, we'll need to get a bit technical by working with custom code that your developer will add to the Shopify backend.
 
-#### Crafting Tags and Triggers
+## Crafting Tags and Triggers
 
 You'll need to create custom triggers for both 'Add Shipping Info' and 'Add Payment Info' events:
 
@@ -72,7 +72,7 @@ You'll need to create custom triggers for both 'Add Shipping Info' and 'Add Paym
 2. Use a prefix like `custom_` to avoid any conflicts with existing tags.
 3. Set up tags in GTM that will fire these events back to GA4, making sure they capture enhanced conversion data like value, currency, and items.
 
-#### Concluding the Setup
+## Concluding the Setup
 
 After setting up the triggers and tags in GTM:
 
@@ -81,6 +81,6 @@ After setting up the triggers and tags in GTM:
 
 Remember, without a Shopify Plus account, this setup cannot be tested. But following these steps will allow Shopify Plus users to track these crucial e-commerce events.
 
-#### Conclusion
+## Conclusion
 
 In this tutorial, we've covered the essential steps to track 'Add Payment Info' and 'Add Shipping Info' events in a Shopify store using GA4 and GTM. By following these instructions, you should be able to capture valuable data about how users interact with your checkout process. However, keep in mind the limitation for non-Shopify Plus users and plan accordingly. Remember to review and refine the setup to ensure accuracy and optimal data collection. Happy tracking!

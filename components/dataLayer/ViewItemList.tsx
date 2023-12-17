@@ -1,5 +1,6 @@
 import React from "react";
 import {
+ Heading4xl,
  Headingxl,
  ListItem,
  OrderedList,
@@ -11,7 +12,7 @@ import Note from "@/components/mdx/Note";
 export default function ViewItemList() {
  return (
   <React.Fragment>
-   <Headingxl>Head DataLayer Code</Headingxl>
+   <Heading4xl className={`!text-2xl py-2 `}>Head DataLayer Code</Heading4xl>
    <Paragraphmd>
     This code initializes the `dataLayer` array if it hasn't been already. It
     then checks if the current page template is a 'collection' page and renders
@@ -29,7 +30,9 @@ export default function ViewItemList() {
 `}
     </code>
    </AuthPre>
-   <Headingxl>Collection DataLayer Code</Headingxl>
+   <Heading4xl className={`!text-2xl py-2 `}>
+    Collection DataLayer Code
+   </Heading4xl>
    <Paragraphmd>
     This code snippet contains the main logic for populating the `dataLayer`
     object with product details whenever a collection page is viewed. It
@@ -67,7 +70,7 @@ export default function ViewItemList() {
 `}
     </code>
    </AuthPre>
-   <Headingxl> Theme DataLayer Code</Headingxl>
+   <Heading4xl className={`!text-2xl py-2 `}> Theme DataLayer Code</Heading4xl>
    <Paragraphmd>
     This code renders the `head-datalayer` snippet. Depending on the setup of
     your Shopify theme, this is likely where the head datalayer code resides.
@@ -79,7 +82,10 @@ export default function ViewItemList() {
 `}
     </code>
    </AuthPre>
-   <Headingxl> Steps to Add the DataLayer Code Snippets in Shopify:</Headingxl>
+   <Heading4xl className={`!text-2xl py-2 `}>
+    {" "}
+    Steps to Add the DataLayer Code Snippets in Shopify:
+   </Heading4xl>
    <OrderedList>
     <ListItem>
      <Paragraphmd>

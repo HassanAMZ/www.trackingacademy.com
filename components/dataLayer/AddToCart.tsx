@@ -1,6 +1,6 @@
 import React from "react";
 import {
- Headingxl,
+ Heading4xl,
  ListItem,
  OrderedList,
  Paragraphmd,
@@ -17,7 +17,7 @@ export default function AddToCart() {
     event called `custom_add_to_cart` whenever a user visits a product page and
     clicks on the AddToCart button on Shopify.
    </Paragraphmd>
-   <Headingxl>Head DataLayer Code</Headingxl>
+   <Heading4xl className={`!text-2xl py-2 `}>Head DataLayer Code</Heading4xl>
    <Paragraphmd>
     This code initializes the `dataLayer` array if it hasn't been already. It
     then checks if the current page template is a 'product' page and renders a
@@ -35,7 +35,7 @@ export default function AddToCart() {
 `}
     </code>
    </AuthPre>
-   <Headingxl>Product DataLayer Code</Headingxl>
+   <Heading4xl className={`!text-2xl py-2 `}>Product DataLayer Code</Heading4xl>
    This code snippet contains the main logic for populating the `dataLayer`
    object with product details whenever a product page is viewed:
    <OrderedList>
@@ -85,7 +85,7 @@ export default function AddToCart() {
 `}
     </code>
    </AuthPre>
-   <Headingxl> Theme DataLayer Code</Headingxl>
+   <Heading4xl className={`!text-2xl py-2 `}> Theme DataLayer Code</Heading4xl>
    <Paragraphmd>
     This code renders the `head-datalayer` snippet. Depending on the setup of
     your Shopify theme, this is likely where the head datalayer code resides.
@@ -97,13 +97,14 @@ export default function AddToCart() {
 `}
     </code>
    </AuthPre>
-   <Headingxl> Steps to Add the DataLayer Code Snippets in Shopify:</Headingxl>
+   <Heading4xl className={`!text-2xl py-2 `}>
+    {" "}
+    Steps to Add the DataLayer Code Snippets in Shopify:
+   </Heading4xl>
    <OrderedList>
     <ListItem>
-     <Paragraphmd>
-      <span className='font-bold'>Backup: </span>
-      Before making any changes, always backup your current theme.
-     </Paragraphmd>
+     <span className='font-bold'>Backup: </span>
+     Before making any changes, always backup your current theme.
     </ListItem>
 
     <ListItem>

@@ -15,26 +15,26 @@ export const metadata = {
 
 <BlogHeader metadata={metadata} />
 
-##### Introduction
+## Introduction
 
 In this tutorial, we'll explore configuring the 'View Content' event for Facebook Pixel on a Shopify store using Google Tag Manager (GTM). This is particularly useful if you're not using Shopify's built-in Facebook and Instagram app.
 
 <YoutubeEmbed embedId={metadata.embedId} />
 
-##### Prerequisites
+## Prerequisites
 
 1. Google Tag Manager Container
 2. Active Shopify Store
 3. Facebook Business Manager Account with a Facebook Pixel
 
-##### Section 1: Configuring Google Tag Manager on Shopify
+## Section 1: Configuring Google Tag Manager on Shopify
 
 1. Go to your GTM Container, click on the container ID or navigate to 'Admin' > 'Install Google Tag Manager' to get the code snippets.
 2. Copy the 'Head' snippet and paste it right under the `<head>` tag in the `theme.liquid` file on Shopify.
 3. Copy the 'Body' snippet and paste it just after the opening `<body>` tag in Shopify.
 4. Save changes and use GTM's preview mode to verify the setup.
 
-##### Section 2: Setting Up Facebook Pixel Base Code
+## Section 2: Setting Up Facebook Pixel Base Code
 
 1. In Facebook Business Manager, navigate to 'Event Manager' > 'Data Sources'.
 2. If you have a Pixel created, select it; otherwise, create a new one.
@@ -43,11 +43,11 @@ In this tutorial, we'll explore configuring the 'View Content' event for Faceboo
 5. Set the trigger for all pages and save.
 6. Alternatively, use Facebook's custom template in GTM for a simpler setup.
 
-##### Section 3: Setting Up 'View Content' Event Scripts
+## Section 3: Setting Up 'View Content' Event Scripts
 
 <ViewItem />
 
-##### Section 4: Creating Tags for 'View Content' Event in GTM
+## Section 4: Creating Tags for 'View Content' Event in GTM
 
 1. Create a new trigger in GTM for the custom 'View Item' event.
 2. Set up necessary variables for enhanced e-commerce tracking in GTM.
@@ -55,13 +55,13 @@ In this tutorial, we'll explore configuring the 'View Content' event for Faceboo
 4. Ensure the tag fires the 'View Content' event with the correct parameters.
 5. Verify the setup through GTM's preview mode and Facebook Pixel's helper.
 
-##### Section 5: Testing and Publishing
+## Section 5: Testing and Publishing
 
 1. Publish your GTM changes with a descriptive version name.
 2. Test the integration using Facebook Pixel's debug view.
 3. Ensure the 'View Content' event is firing correctly with all required parameters.
 
-##### Conclusion
+## Conclusion
 
 By following these steps, you can successfully configure the 'View Content' event for Facebook Pixel on your Shopify store using Google Tag Manager. This setup is crucial for accurate tracking and data collection for your marketing efforts.
 
