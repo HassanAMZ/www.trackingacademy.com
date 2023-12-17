@@ -49,13 +49,13 @@ const Footer: React.FC = () => {
       <FacebookIcon />
      </CustomLink>
 
-     <CustomLink
+     {/* <CustomLink
       href='https://www.instagram.com/shahzadaalihassan_/'
       target='_blank'
       rel='noopener noreferrer'
       className='hover:text-primary transition-all duration-300'>
       <InstagramIcon />
-     </CustomLink>
+     </CustomLink> */}
     </div>
 
     <Paragraphmd className='textOpacity80 pt-12'>

@@ -9,7 +9,6 @@ import {
  Heading4xl,
  Heading5xl,
  ListItem,
- Paragraphmd,
  OrderedList,
  UnorderedList,
  Heading3xl,
@@ -70,7 +69,6 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
   AddToCart,
   Purchase,
   TikTokPageView,
-
   ViewCart,
   img: (props) => {
    // @ts-ignore
