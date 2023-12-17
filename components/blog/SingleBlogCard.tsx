@@ -5,6 +5,7 @@ import {
  Headingxl,
  Paragraphsm,
  Paragraphxs,
+ Heading5xl,
 } from "@/components/typography/Heading";
 import Link from "next/link";
 import generateBrightColor from "utils/generateBrightColor";
@@ -30,7 +31,7 @@ const BlogCard: React.FC<SingleBlogCardProps> = ({
       New
      </div>
     )}
-    <Headingxl className='line-clamp-2'>{post.title}</Headingxl>
+    <Heading5xl className='line-clamp-2 !text-3xl'>{post.title}</Heading5xl>
    </div>
    <div className='textOpacity80 py-6 px-6 border-md'>
     <Paragraphsm className='line-clamp-3 text-left'>

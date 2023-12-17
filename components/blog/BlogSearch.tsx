@@ -4,7 +4,7 @@ import React, { useState, useEffect } from "react";
 import { PostMetadata } from "@/types/index";
 import { BlogSearchProps } from "@/types/index";
 import {
- Heading4xl,
+ Heading6xl,
  Paragraphlg,
  Paragraphsm,
 } from "@/components/typography/Heading";
@@ -37,7 +37,9 @@ const BlogSearch: React.FC<BlogSearchProps> = ({ data, onSearch }) => {
 
  return (
   <div className='flex flex-col pt-6 pb-1 sm:py-12 items-left sm:items-center sm:text-center justify-center w-full gap-4'>
-   <Heading4xl>Articles, Ideas and Inspiration!</Heading4xl>
+   <Heading6xl className='!text-4xl sm:!text-6xl'>
+    Articles, Ideas and Inspiration!
+   </Heading6xl>
    <Paragraphsm className='sm:w-2/3 w-full'>
     A helpful blog for web analysts, trying to make sense of marketing with
     data, tag manager, analytics and tracking scripts.
