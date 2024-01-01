@@ -1,0 +1,55 @@
+export const metadata = {
+ title:
+  " A Comprehensive Guide on Begin Checkout Conversion Tracking on Google Ads and Shopify",
+ date: "2024-01-01",
+ blogId: "00087",
+ Keywords: ``,
+ tags: [
+  "Google Ads",
+  "Shopify Conversion Tracking",
+  "Google Tag Manager",
+  "E-commerce Analytics",
+  "Data Layer Script",
+ ],
+ draft: false,
+ description: ``,
+ openGraph: {
+  images: ["/static/blog/00037.png"],
+ },
+ embedId: "TiQGowdXHy8",
+};
+
+<BlogHeader metadata={metadata} />
+
+## Introduction
+
+Blog will be updated soon
+
+<YoutubeEmbed embedId={metadata.embedId} />
+
+## Importance of Tracking View Item Conversions
+
+Tracking view item conversions is crucial for several reasons:
+
+1. **Enhanced Ad Performance**: It helps Google Ads to identify which products are gaining attention, enabling more targeted and effective advertising.
+2. **Data-Driven Decisions**: Understanding customer preferences and behaviors leads to more informed marketing and inventory decisions.
+
+## Step 1: Setting Up Google Tag Manager on Shopify
+
+### Verifying GTM Firing on Shopify
+
+Before diving into conversion tracking, it's essential to ensure that GTM is firing correctly on your Shopify store:
+
+1. **Access GTM Container ID**: In your GTM dashboard, click on your container ID to view the head and body tracking scripts.
+2. **Integrating Scripts on Shopify**:
+   - Navigate to the 'Online Store' section of your Shopify dashboard.
+   - Go to 'Themes', click 'Actions', and then 'Edit Code'.
+   - Locate the `<head>` tag and paste the GTM head script.
+   - Find the opening `<body>` tag (use Ctrl + F for convenience) and paste the GTM body script.
+3. **Save Changes**: Format the code, save the file, and verify the script’s functionality on your store.
+
+## Step 2: Writing the Data Layer Script for View Item Event
+
+<BeginCheckout/ >
+
+<GiscusComments />
