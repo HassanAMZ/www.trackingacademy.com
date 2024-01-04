@@ -1,0 +1,256 @@
+export const metadata = {
+ title:
+  "A Comprehensive Guide on Begin Checkout Remarketing Tracking on Google Ads and Shopify",
+ date: "2024-01-03",
+ blogId: "00088",
+ Keywords: ``,
+ tags: [
+  "Google Ads",
+  "Shopify Remarketing Tracking",
+  "Google Tag Manager",
+  "Shpoify",
+  "E-commerce Analytics",
+  "Data Layer Script",
+ ],
+ draft: false,
+ description: ``,
+ openGraph: {
+  images: ["/static/blog/00038.png"],
+ },
+ embedId: "g-q2MvQXvNs",
+};
+
+<BlogHeader metadata={metadata} />
+
+## Introduction
+
+Remarketing tags in Google Ads play a pivotal role in re-engaging visitors based on their actions on your website. In this guide, we focus on setting up a remarketing tag for the 'begin checkout' event, a critical step for e-commerce analytics and targeted marketing campaigns.
+
+In this guide, we explore the process of setting up a remarketing tag for the 'begin_checkout' event in Google Ads, using a data layer script on your Shopify store. We'll walk through creating a conversion action in Google Ads and configuring the remarketing conversion tag in your Google Tag Manager container. Before we start, ensure that your Google Tag Manager container is correctly firing on all pages of your Shopify store.
+
+<YoutubeEmbed embedId={metadata.embedId} />
+
+## Importance of Remarketing Tags
+
+Remarketing tags allow you to:
+
+- **Target Previous Visitors**: Customize your ads to target users who have previously visited your site, enhancing the chances of conversion.
+- **Tailor Campaigns**: Adjust your campaigns according to specific actions users have taken on your site, like beginning the checkout process.
+
+## Step 1: Setting Up Google Tag Manager on Shopify
+
+1. **Access Google Tag Manager**: Log in to your GTM account and locate the container ID.
+
+2. **Add Head and Body Snippets**:
+
+   - Navigate to your Shopify store's admin panel.
+   - Go to Online Store > Themes.
+   - Click on 'Actions' and select 'Edit Code'.
+   - Find the `<head>` and `<body>` tags in your theme file.
+
+3. **Insert GTM Snippets**:
+
+   - Paste the head tracking snippet right below the opening `<head>` tag.
+   - Locate the opening `<body>` tag (e.g., on line 292) and insert the body tracking snippet there.
+
+4. **Save Changes**: Format the code and save your changes.
+
+5. **Verify Setup**:
+   - In GTM, click on the 'Preview' button to start a debug session.
+   - Enter the URL of your Shopify store in the debug assistant window.
+   - Ensure that the GTM container is firing correctly on all pages.
+
+By setting up GTM on your Shopify store, you lay the foundation for effective remarketing strategies and enhanced tracking of user interactions on your site.
+
+## Step 2: Begin Checkout - Data Layer Integration for Shopify and Google Tag Manager
+
+This section is for those who wish to capture more data, like the `item_id`, `item_name`, `value`, `quantity`, etc., when the "custom_begin_checkout" event is triggered. The provided code snippets aim to integrate the `dataLayer` object for Google Tag Manager (GTM) with a Shopify store. The main goal is to send an event called `custom_begin_checkout` whenever a user clicks the Begin Checkout button on the Cart page on Shopify.
+
+### Head DataLayer Code
+
+This code initializes the `dataLayer` array if it hasn't been already. It then checks if the current page template is a 'product' page and renders a specific snippet called 'datalayer-checkout' on all pages.
+
+```javascript
+<script>
+    window.dataLayer = window.dataLayer || [];
+</script>
+
+{%- render 'datalayer-checkout' -%}
+```
+
+### Checkout DataLayer Code
+
+This code snippet contains the main logic for populating the `dataLayer` object with product details whenever a Begin Checkout Event is triggered on the Cart page:
+
+1. **Initial Logging**: Outputs a message to verify the script is loaded.
+2. **Cart Data & Product Details**: Retrieves cart data from Shopify and transforms cart items for Google's ecommerce tracking format.
+3. **Cart Total Value**: Computes the total value of items in the cart.
+4. **Begin Checkout Event Listener**: It waits for the page to load and then identifies checkout buttons. For each button: Clears previous `dataLayer` ecommerce data on click and pushes new ecommerce data to the `dataLayer` for Google Tag Manager tracking.
+
+```javascript
+<script>
+// Ensure the script runs after the DOM is fully loaded
+document.addEventListener('DOMContentLoaded', () => {
+  // Find all checkout buttons
+  const checkoutButtons = document.querySelectorAll('[name="checkout"]');
+
+  checkoutButtons.forEach(button => {
+    // Add click event listener to each checkout button
+    button.addEventListener('click', () => {
+      // Fetch the latest cart data
+      fetch('/cart.js')
+        .then(response => response.json())
+        .then(cartData => {
+          // Map the cart items to the format required by GA4
+          const productDetails = cartData.items.map(item => ({
+            item_id: item.id,
+            id: item.id,
+            item_name: item.product_title,
+            item_brand: item.vendor,
+            item_category: item.product_type,
+            quantity: item.quantity,
+            currency: cartData.currency,
+            google_business_vertical: 'retail',
+            price: parseFloat(item.price / 100.0)
+          }));
+
+          // Calculate the total value of the cart
+          const cartTotalValue = cartData.items.reduce((acc, item) => {
+            return acc + (item.price * item.quantity);
+          }, 0);
+
+          // Reset the dataLayer for the new event
+          dataLayer.push({ ecommerce: null });
+
+          // Push the updated cart data to the dataLayer
+          dataLayer.push({
+            event: "custom_begin_checkout",
+            ecommerce: {
+              items: productDetails,
+              value: parseFloat(cartTotalValue / 100.0),
+              currency: cartData.currency
+            }
+          });
+        })
+        .catch(error => console.error('Error fetching cart data:', error));
+    });
+  });
+});
+</script>
+```
+
+### Theme DataLayer Code
+
+This code renders the `head-datalayer` snippet. Depending on the setup of your Shopify theme, this is likely where the head datalayer code resides. Add this code GTM Body Code.
+
+```liquid
+{% render 'head-datalayer' %}
+```
+
+### Steps to Add the DataLayer Code Snippets in Shopify:
+
+1. **Backup**: Before making any changes, always backup your current theme.
+2. **Access Theme Files**:
+   - Login to your Shopify Admin.
+   - Go to Online Store > Themes.
+   - Click on the "Actions" dropdown for your live theme and select "Edit code".
+3. **Add Head DataLayer Code**:
+   - In the left sidebar, locate and click on `theme.liquid`.
+   - Insert the "Head DataLayer Code" snippet within the `<head>` tags.
+4. **Add Checkout DataLayer Code**:
+   - Click "Add a new snippet" depending on your Shopify version.
+   - Name it `datalayer-checkout.liquid`.
+   - Insert the "Checkout DataLayer Code" snippet into this new file.
+   - Save changes.
+5. **Add Theme DataLayer Code**:
+   - Determine where you want this code to render (usually within the `<head>` tags in `theme.liquid`).
+   - Insert the "Theme DataLayer Code" snippet in the desired location.
+   - Save changes.
+6. **Test**:
+   - Visit a Cart page on your Shopify store and click BeginChecout button.
+   - Open browser's developer console.
+   - Confirm that the `custom_begin_checkout` event is fired and the `dataLayer` object contains the correct product details.
+
+The custom prefixes added to event names (like 'custom_begin_checkout') prevent any conflicts with other possible integrations or plugins that might be using standard event names.
+
+## Step 3: Setting Up Conversion Actions in Google Ads
+
+This step involves creating a conversion action in your Google Ads account specifically for the 'begin checkout' event. Follow these instructions:
+
+1. **Create a New Conversion Action**:
+
+   - Go to your Google Ads account and navigate to 'Goals' under 'Conversions'.
+   - Choose 'Website' as the type of conversion since we are not using Google Analytics or app conversions.
+   - Enter your website URL and scan for existing Google Tags.
+   - Select 'Manual' conversion actions and choose 'Begin Checkout' as the category.
+   - Name the conversion action (e.g., 'Begin Checkout') and select the value parameter if applicable.
+
+2. **Obtain Conversion IDs and Labels**:
+   - After saving the conversion action, you'll be given conversion IDs and labels.
+   - Create variables in Google Tag Manager (GTM) for these IDs and labels for easy access.
+
+## Step 4: Configuring Remarketing Tag in GTM
+
+Configuring the remarketing tag involves several steps in Google Tag Manager:
+
+1. **Set Up Data Layer Variables**:
+
+   - Create variables for dynamic information like value, currency, and items array.
+
+2. **Create a Custom Trigger**:
+
+   - This trigger should fire whenever the custom 'custom_begin_checkout' event is triggered.
+
+3. **Add Remarketing Tag**:
+   - Ensure the Conversion Linker is firing on all pages.
+   - Create a Google Ads Remarketing Tag in GTM, selecting the appropriate conversion ID and label.
+   - Use dynamic parameters, ensuring the event name matches the standard e-commerce event name (e.g., 'begin_checkout').
+
+## Step 5: Finalizing the Setup and Testing
+
+Final steps involve testing and publishing the GTM configuration:
+
+1. **Test the Setup**:
+
+   - Use the 'Preview' mode in GTM to test the setup.
+   - Verify that the custom checkout event triggers correctly and that the remarketing tag fires as expected.
+
+2. **Publish the GTM Container**:
+
+   - Ensure all tags and triggers are correctly configured and then publish the GTM container.
+
+3. **Monitor Google Ads Conversion Actions**:
+
+   - Initially, the conversion action in Google Ads might show as inactive.
+   - It may take a few hours for the status to update to 'No Recent Conversions', indicating successful integration.
+
+4. **Note on Conversion Tracking**:
+   - If you haven't set up purchase event tracking on your Shopify store, you're missing out on valuable data. Proper tracking ensures Google's algorithm recognizes the types of items purchased on your website.
+
+By following these steps, you can effectively track the 'begin_checkout' event in your Shopify store, facilitating targeted remarketing campaigns through Google Ads.
+
+## Conclusion
+
+In this comprehensive guide, we have navigated through the crucial steps of setting up and implementing begin checkout remarketing tracking on Google Ads and Shopify. This journey has equipped you with the necessary skills and knowledge to harness the power of remarketing tags, ultimately enhancing your e-commerce analytics and marketing strategies.
+
+### Key Takeaways
+
+1. **Remarketing Tags' Role**: Understanding the significance of remarketing tags in Google Ads is vital. They enable targeted campaigns, focusing on users who have previously interacted with your site, particularly those who began the checkout process.
+
+2. **Google Tag Manager (GTM) Integration**: Setting up GTM on Shopify is foundational. Proper installation and verification of head and body snippets ensure that your site is ready for advanced tracking and data layer manipulation.
+
+3. **Data Layer Script Integration**: Implementing the 'custom_begin_checkout' event via data layer scripts is a technical but rewarding step. This allows for detailed tracking of user interactions and valuable data collection for remarketing purposes.
+
+4. **Google Ads Conversion Actions**: Establishing specific conversion actions in Google Ads aligns your tracking efforts with your marketing goals, making your campaigns more efficient and focused.
+
+5. **Remarketing Tag Configuration in GTM**: Configuring remarketing tags in GTM is a critical step. It involves setting up data layer variables, creating custom triggers, and adding remarketing tags, ensuring that the right data is captured at the right moment.
+
+6. **Finalization and Testing**: The importance of testing and finalizing your setup cannot be overstated. This ensures that every component is functioning as intended, providing reliable and accurate data for your remarketing campaigns.
+
+### Moving Forward
+
+As e-commerce continues to evolve, staying ahead with sophisticated tracking and remarketing strategies is essential. The skills and insights gained from this guide are not just about technical implementation but also about understanding user behavior and leveraging that knowledge for business growth. Remember, the journey doesn't end here; continuous learning and adapting are key to staying competitive in the dynamic world of online retail.
+
+We encourage you to apply these learnings and share your success stories. For more insights and updates, keep following our blog and join our community discussions.
+
+<GiscusComments />
