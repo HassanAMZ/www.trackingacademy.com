@@ -1,0 +1,44 @@
+export const metadata = {
+ title:
+  "A Comprehensive Guide on Adding Products to Cart and Tracking Conversions with Google Ads and Shopify",
+ date: "2024-01-05",
+ blogId: "00089",
+ Keywords: `Google Ads Dynamic Marketing, Shopify Integration, Google Tag Manager Setup, E-commerce Event Tracking, Add To Cart Event Tags, Data Layer Configuration, Conversion Action Setup, Google Ads Conversion Tracking, Debugging in GTM`,
+ tags: [
+  "Google Ads",
+  "Shopify",
+  "Google Ads Conversion Tracking",
+  "Google Tag Manager",
+  "Add To Cart",
+ ],
+ draft: false,
+ description: `Google Ads Dynamic Marketing is exceptionally effective in utilizing e-commerce event data, including product details, IDs, and names, for creating precise and efficient marketing strategies. By the end of this guide, you'll learn how to set up Add To Cart event tracking and transmit dynamic parameters to Google Ads.`,
+ openGraph: {
+  images: ["/static/blog/00039.png"],
+ },
+ embedId: "lfshe17W88U",
+};
+
+<BlogHeader metadata={metadata} />
+
+Blog will be updated soon
+
+<YoutubeEmbed embedId={metadata.embedId} />
+
+## Section 1: Setting Up Google Tag Manager on Shopify
+
+To begin tracking, the first step is integrating Google Tag Manager with your Shopify store:
+
+1. **Access GTM Account**: Log into your GTM account and note your container ID.
+2. **Implement GTM Snippets**:
+   - Go to your Shopify admin, navigate to Online Store > Themes.
+   - In the theme editor, find the `<head>` and `<body>` tags.
+   - Insert the GTM head snippet below the opening `<head>` tag and the body snippet immediately after the opening `<body>` tag.
+3. **Verify the Integration**:
+   - Use GTM's 'Preview' mode to confirm that the container is firing correctly across all Shopify pages.
+
+## Section 2: Enhancing Shopify with Add To Cart Data Layer Integration for Google Tag Manager
+
+<AddToCart />
+
+<GiscusComments />
