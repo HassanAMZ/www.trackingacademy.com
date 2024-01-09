@@ -12,6 +12,7 @@ import ContainerLayout from "@/components/layouts/ContainerLayout";
 import { ThemeProvider } from "@/context/ThemeContext";
 import { Suspense } from "react";
 import CanonicalTag from "@/components/seo/CanonicalTag";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 const Roboto = localFont({
  src: "fonts/Roboto/Roboto-Regular.ttf",
@@ -47,6 +48,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
      <GTMAnalytics />
      <VercelAnalytics />
      <CanonicalTag />
+     <SpeedInsights />
     </Suspense>
    </body>
   </html>
