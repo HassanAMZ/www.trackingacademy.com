@@ -1,6 +1,8 @@
 import ContainerLayout from "@/components/layouts/ContainerLayout";
 import { ReactNode } from "react";
 import { Metadata } from "next";
+import Footer from "@/components/footer/Footer";
+import NavBar from "@/components/navbar/Navbar";
 
 export const metadata: Metadata = {
  title: "Services we Offer - ShahzadaAliHassan",
@@ -12,5 +14,11 @@ export const metadata: Metadata = {
  robots: "noindex",
 };
 export default function Layout({ children }: { children: ReactNode }) {
- return <ContainerLayout>{children}</ContainerLayout>;
+ return (
+  <ContainerLayout>
+   <NavBar />
+   {children}
+   <Footer />
+  </ContainerLayout>
+ );
 }

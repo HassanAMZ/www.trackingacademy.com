@@ -1,4 +1,6 @@
+import Footer from "@/components/footer/Footer";
 import ContainerLayout from "@/components/layouts/ContainerLayout";
+import NavBar from "@/components/navbar/Navbar";
 import { ReactNode } from "react";
 
 export const metadata = {
@@ -10,5 +12,11 @@ export const metadata = {
 };
 
 export default function Layout({ children }: { children: ReactNode }) {
- return <ContainerLayout className=''>{children}</ContainerLayout>;
+ return (
+  <ContainerLayout>
+   <NavBar />
+   {children}
+   <Footer />
+  </ContainerLayout>
+ );
 }

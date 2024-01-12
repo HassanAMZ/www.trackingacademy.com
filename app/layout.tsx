@@ -33,15 +33,9 @@ export default function RootLayout({ children }: { children: ReactNode }) {
    <body
     className={` selection:text-white selection:bg-red-700 dark:bg-[#121212] ${Roboto.className}`}>
     {BgPolygon1}
-    <ThemeProvider attribute='class' defaultTheme='light'>
-     <ContainerLayout>
-      <NavBar />
-     </ContainerLayout>
+    <ThemeProvider attribute='class' defaultTheme='dark'>
      <AuthContextProvider>{children}</AuthContextProvider>
      {BgPolygon2}
-     <ContainerLayout>
-      <Footer />
-     </ContainerLayout>
     </ThemeProvider>
 
     <Suspense>

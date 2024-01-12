@@ -4,6 +4,8 @@ import React from "react";
 import { PostMetadata } from "@/types/index";
 import getBlogsData from "utils/getBlogsData";
 import AuthenticatedLayout from "@/components/layouts/AuthenticatedLayout";
+import NavBar from "@/components/navbar/Navbar";
+import Footer from "@/components/footer/Footer";
 
 export const metadata = {
  title: "Blog Archieve- ShahzadaAliHassan",
@@ -21,5 +23,11 @@ export async function generateStaticParams(): Promise<
  return allPostsData;
 }
 export default function Layout({ children }: { children: ReactNode }) {
- return <BlogLayout className=''>{children}</BlogLayout>;
+ return (
+  <BlogLayout className=''>
+   <NavBar />
+   {children}
+   <Footer />
+  </BlogLayout>
+ );
 }
