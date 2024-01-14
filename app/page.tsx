@@ -13,6 +13,8 @@ import Link from "next/link";
 import SingleGridContent from "@/components/global/SingleGridContent";
 import AboutDetails from "@/components/about/AboutDetails";
 import WhyUs from "@/components/global/WhyUs";
+import Footer from "@/components/footer/Footer";
+import NavBar from "@/components/navbar/Navbar";
 
 const Page: React.FC = () => {
  const clientData = [
@@ -50,6 +52,8 @@ const Page: React.FC = () => {
 
  return (
   <ContainerLayout className=''>
+   <NavBar />
+
    <React.Fragment>
     <HeroComponent
      textGroup={{
@@ -586,6 +590,7 @@ const Page: React.FC = () => {
      <TestimonialCard client={clientDetails[3]} />
     </div>
    </div> */}
+   <Footer />
   </ContainerLayout>
  );
 };
