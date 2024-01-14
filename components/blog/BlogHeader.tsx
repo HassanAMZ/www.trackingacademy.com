@@ -1,3 +1,5 @@
+"use client";
+
 import React, { useEffect } from "react";
 import { PostMetadataProps } from "@/types/index";
 import formatDate from "@/components/seo/formatDate";
@@ -5,6 +7,7 @@ import generateSchema from "@/components/seo/generateSchema";
 import Script from "next/script";
 import { GTMBlogViewEvent } from "@/components/analytics/GTMEvents";
 import { Heading6xl, Paragraphmd } from "@/components/typography/Heading";
+import BreadCrumbs from "./BreadCrumbs";
 
 const BlogHeader: React.FC<PostMetadataProps> = ({ metadata }) => {
  const schema = generateSchema(metadata);
@@ -25,6 +28,7 @@ const BlogHeader: React.FC<PostMetadataProps> = ({ metadata }) => {
      by ShahzadaAliHassan - {formatDate(metadata.date)}
     </Paragraphmd>
    </div>
+   <BreadCrumbs />
   </section>
  );
 };
