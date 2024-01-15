@@ -10,6 +10,14 @@ const BreadCrumbs: React.FC = () => {
   return null; // Return null or a default component
  }
 
+ const formatSegment = (segment: string) => {
+  return segment
+   .replace(/-/g, " ") // Replace hyphens with spaces
+   .split(" ")
+   .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+   .join(" "); // Capitalize the first letter of each word
+ };
+
  const pathSegments = pathname.split("/").filter((path) => path.length > 0);
 
  return (
@@ -33,11 +41,13 @@ const BreadCrumbs: React.FC = () => {
        {isLast ? (
         <React.Fragment>
          <span className='mx-2 text-gray-500 dark:text-gray-400'>/</span>
-         <span className='text-gray-500 dark:text-gray-400'>{segment}</span>
+         <span className='text-gray-500 dark:text-gray-400'>
+          {formatSegment(segment)}
+         </span>
         </React.Fragment>
        ) : (
         <CustomLink href={path} className='dark:text-gray-300'>
-         {segment}
+         {formatSegment(segment)}
         </CustomLink>
        )}
       </li>

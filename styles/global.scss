@@ -86,3 +86,39 @@ html {
  background-position: right 0.5rem center;
  background-size: 1.25em;
 }
+.hide-scrollbar {
+ /* For Internet Explorer, Edge */
+ -ms-overflow-style: none;
+
+ /* For Firefox */
+ scrollbar-width: none;
+
+ /* For Chrome, Safari, Opera */
+ &::-webkit-scrollbar {
+  display: none;
+ }
+}
+
+/* globals.css */
+.selectedClient::before {
+ content: "";
+ height: 1vw;
+ width: 1vw;
+ position: absolute;
+ left: 0;
+ top: 50%;
+ border-radius: 100%;
+ background-color: #00ff6a;
+ filter: blur(3px);
+ opacity: 1; /* Show it when the client is selected */
+ transform: translateY(-50%);
+ transition: opacity 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.clientName {
+ transition: transform 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.selectedClient .clientName {
+ transform: translateX(20px); /* Adjust as needed */
+}

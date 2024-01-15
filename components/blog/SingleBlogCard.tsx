@@ -47,7 +47,7 @@ const BlogCard: React.FC<SingleBlogCardProps> = ({
  return (
   <React.Fragment>
    {post && (
-    <div className={`shadow-md hover:animate-pulse  ${className}`}>
+    <div className={`shadow-md hover:animate-pulse  ${className || ""}`}>
      <Link href={`/${type}/${post.slug}`} className=''>
       <section className='grid backgroundOverlay h-full w-full'>
        {renderContent()}

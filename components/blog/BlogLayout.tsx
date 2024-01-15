@@ -4,7 +4,7 @@ import ContainerLayout from "../layouts/ContainerLayout";
 
 const BlogLayout: FC<BlogLayoutProps> = ({ children, className, metadata }) => {
  return (
-  <ContainerLayout className={`text-left ${className}`}>
+  <ContainerLayout className={`text-left ${className || ""}`}>
    {metadata && (
     <div className='blog-metadata'>
      <h1>{metadata.title}</h1>
