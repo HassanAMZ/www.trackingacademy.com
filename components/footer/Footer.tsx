@@ -18,7 +18,7 @@ const Footer: React.FC = () => {
     <NavLink
      href='/'
      className='hover:text-primary transition-all duration-300'>
-     ShahzadaAliHassan
+     TrackingAcademy
     </NavLink>
     <Paragraphmd className='textOpacity80 text-center sm:text-left py-2 animate__animated animate__fadeIn'>
      {" "}
@@ -34,7 +34,7 @@ const Footer: React.FC = () => {
     {/* Adding social media icons */}
     <div className='flex space-x-5 pt-5'>
      <CustomLink
-      href='https://www.youtube.com/@shahzadaalihassan_'
+      href='https://www.youtube.com/@TrackingAcademy_'
       target='_blank'
       rel='noopener noreferrer'
       className='hover:text-primary transition-all duration-300'>
@@ -59,7 +59,7 @@ const Footer: React.FC = () => {
     </div>
 
     <Paragraphmd className='textOpacity80 pt-12'>
-     © {new Date().getFullYear()} ShahzadaAliHassan, All rights reserved
+     © {new Date().getFullYear()} TrackingAcademy, All rights reserved
     </Paragraphmd>
    </footer>
   </div>

@@ -5,7 +5,7 @@ import reverseFormatString from "utils/reverseFormatString";
 
 export async function generateMetadata({ params }: any) {
  return {
-  title: `${reverseFormatString(params.tag)} Archieve- ShahzadaAliHassan`,
+  title: `${reverseFormatString(params.tag)} Archieve- TrackingAcademy`,
   description: `Blog for Web Analysts and Marketing People`,
   openGraph: {
    images: ["/images/social-sharing.png"],

@@ -174,7 +174,6 @@ const Page: React.FC = () => {
  // Save to local storage when state changes
  useEffect(() => {
   if (!isInitialLoad) {
-   console.log("useEffect01");
    localStorage.setItem("websiteURL", websiteURL);
    localStorage.setItem("campaignID", campaignID);
    localStorage.setItem("campaignSource", campaignSource);
@@ -198,8 +197,6 @@ const Page: React.FC = () => {
  ]);
  // Load from local storage when component mounts
  useEffect(() => {
-  console.log("useEffect02");
-
   const savedWebsiteURL = localStorage.getItem("websiteURL") || "";
   const savedCampaignID = localStorage.getItem("campaignID") || "";
   const savedCampaignSource = localStorage.getItem("campaignSource") || "";

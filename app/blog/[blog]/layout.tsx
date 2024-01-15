@@ -4,7 +4,7 @@ import getBlogsData from "utils/getBlogsData";
 
 export async function generateMetadata({ params }: any) {
  return {
-  title: `${reverseFormatString(params.blog)} Archieve- ShahzadaAliHassan`,
+  title: `${reverseFormatString(params.blog)} Archieve- TrackingAcademy`,
   description: `Blog for Web Analysts and Marketing People`,
   openGraph: {
    images: ["/images/social-sharing.png"],

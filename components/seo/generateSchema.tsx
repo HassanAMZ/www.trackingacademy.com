@@ -12,20 +12,20 @@ function generateSchema(metadata: PostMetadataProps["metadata"]) {
   image: [
    {
     "@type": "ImageObject",
-    url: `https://shahzadaalihassan.com${metadata.openGraph.images[0]}`, // Taking the first image, adjust if not the case.
+    url: `https://trackingacademy.com${metadata.openGraph.images[0]}`, // Taking the first image, adjust if not the case.
    },
   ],
   author: {
    "@type": "Person",
-   name: "ShahzadaAliHassan",
-   url: "https://shahzadaalihassan.com/about-us",
+   name: "TrackingAcademy",
+   url: "https://trackingacademy.com/about-us",
   },
   publisher: {
    "@type": "Organization",
-   name: "ShahzadaAliHassan",
+   name: "TrackingAcademy",
    logo: {
     "@type": "ImageObject",
-    url: "https://shahzadaalihassan.com/static/images/avatar.png",
+    url: "https://trackingacademy.com/static/images/avatar.png",
    },
   },
  };

@@ -8,7 +8,7 @@ import NavBar from "@/components/navbar/Navbar";
 import Footer from "@/components/footer/Footer";
 
 export const metadata = {
- title: "Blog Archieve- ShahzadaAliHassan",
+ title: "Blog Archieve- TrackingAcademy",
  description: `Blog for Web Analysts and Marketing People`,
  openGraph: {
   images: ["/images/social-sharing.png"],

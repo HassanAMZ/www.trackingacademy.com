@@ -14,7 +14,7 @@ let CustomLink: React.FC<CustomLinkProps> = ({
 }) => {
  let isInternalLink = href.startsWith("/");
  let isAnchorLink = href.startsWith("#");
- let isExternal = `${href}?utm_source=ShahzadaAliHassan.com&utm_medium=affiliate&utm_campaign=InternalLink&utm_term=website&utm_content=${encodeURIComponent(
+ let isExternal = `${href}?utm_source=TrackingAcademy.com&utm_medium=affiliate&utm_campaign=InternalLink&utm_term=website&utm_content=${encodeURIComponent(
   href
  )}`;
 

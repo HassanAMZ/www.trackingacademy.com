@@ -4,7 +4,7 @@ import NavBar from "@/components/navbar/Navbar";
 import { ReactNode } from "react";
 
 export const metadata = {
- title: "Privacy Policey - ShahzadaAliHassan",
+ title: "Privacy Policey - TrackingAcademy",
  description: `Become a part of the clientele and master your data`,
  openGraph: {
   images: ["/images/social-sharing.png"],

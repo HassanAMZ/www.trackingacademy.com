@@ -17,7 +17,7 @@ const TOSPage = () => {
    <section className='tos-section'>
     <Heading3xl>Acceptance of Terms</Heading3xl>
     <Paragraphmd>
-     By accessing and using ShahzadaAliHassan.com, you accept and agree to be
+     By accessing and using TrackingAcademy.com, you accept and agree to be
      bound by the terms and provision of this agreement.
     </Paragraphmd>
    </section>
@@ -25,7 +25,7 @@ const TOSPage = () => {
    <section className='tos-section'>
     <Heading3xl>Provision of Services</Heading3xl>
     <Paragraphmd>
-     ShahzadaAliHassan.com provides educational content on digital tracking
+     TrackingAcademy.com provides educational content on digital tracking
      technologies. We reserve the right to modify or discontinue our services at
      any time.
     </Paragraphmd>
@@ -34,8 +34,8 @@ const TOSPage = () => {
    <section className='tos-section'>
     <Heading3xl>Intellectual Property</Heading3xl>
     <Paragraphmd>
-     All content, including videos and blogs, on ShahzadaAliHassan.com are the
-     exclusive property of ShahzadaAliHassan.com and are protected by copyright
+     All content, including videos and blogs, on TrackingAcademy.com are the
+     exclusive property of TrackingAcademy.com and are protected by copyright
      and other intellectual property laws.
     </Paragraphmd>
    </section>
@@ -43,7 +43,7 @@ const TOSPage = () => {
    <section className='tos-section'>
     <Heading3xl>User Conduct</Heading3xl>
     <Paragraphmd>
-     Users are expected to use ShahzadaAliHassan.com responsibly and to respect
+     Users are expected to use TrackingAcademy.com responsibly and to respect
      the rights and dignity of others.
     </Paragraphmd>
    </section>
@@ -51,7 +51,7 @@ const TOSPage = () => {
    <section className='tos-section'>
     <Heading3xl>Disclaimer of Warranties</Heading3xl>
     <Paragraphmd>
-     The services and content on ShahzadaAliHassan.com are provided "as is". We
+     The services and content on TrackingAcademy.com are provided "as is". We
      disclaim all warranties, express or implied, regarding the accuracy or
      reliability of content.
     </Paragraphmd>

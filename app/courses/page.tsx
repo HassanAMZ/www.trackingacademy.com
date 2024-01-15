@@ -20,7 +20,7 @@ export default async function Page() {
    <React.Fragment>
     <HeroComponent
      textGroup={{
-      welcomeText: "ShahzadaAliHassan Courses",
+      welcomeText: "TrackingAcademy Courses",
       heading: "Learn from technical marketing experts",
       subHeading: {
        one: "With TrackingAcademy, ",

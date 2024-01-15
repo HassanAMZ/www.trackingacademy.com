@@ -5,7 +5,7 @@ import { UserAuth } from "@/context/AuthContext";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
- title: "Tags Archieve- ShahzadaAliHassan",
+ title: "Tags Archieve- TrackingAcademy",
  description: `Tag Pages for Web Analysts and Marketing People`,
  openGraph: {
   images: ["/images/social-sharing.png"],

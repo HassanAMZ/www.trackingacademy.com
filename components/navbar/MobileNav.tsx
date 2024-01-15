@@ -57,7 +57,7 @@ const MobileNav = () => {
       onClick={toggleNav}>
       <nav className='flex flex-col w-full'>
        <NavLink className='pb-5 ' href='/'>
-        ShahzadaAliHassan
+        TrackingAcademy
        </NavLink>
        {headerNavLinks.map(({ href, title }) => (
         <NavLink className='pb-5' key={`nav-link-${title}`} href={href}>

@@ -27,7 +27,6 @@ const BlogSearch: React.FC<BlogSearchProps> = ({ data, onSearch }) => {
  const [selectedPixel, setSelectedPixel] = useState("");
  const [selectedEvent, setSelectedEvent] = useState("");
  const [selectedIntegration, setSelectedIntegration] = useState("");
- console.log(data[0]);
  useEffect(() => {
   const searchWords = searchTerm
    .toLowerCase()

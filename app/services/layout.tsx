@@ -5,7 +5,7 @@ import Footer from "@/components/footer/Footer";
 import NavBar from "@/components/navbar/Navbar";
 
 export const metadata: Metadata = {
- title: "Services we Offer - ShahzadaAliHassan",
+ title: "Services we Offer - TrackingAcademy",
  description: `helping businesses improve their data using better tracking practices`,
  openGraph: {
   images: ["/images/social-sharing.png"],

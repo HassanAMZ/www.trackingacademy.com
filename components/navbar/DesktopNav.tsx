@@ -9,7 +9,7 @@ export default function DesktopNav() {
  return (
   <React.Fragment>
    <div className='flex flex-row items-center justify-center gap-1'>
-    <NavLink href='/'>ShahzadaAliHassan</NavLink>
+    <NavLink href='/'>TrackingAcademy</NavLink>
    </div>
    <nav className='sm:flex space-x-4 hidden'>
     <NavigationLinks />

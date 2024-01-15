@@ -5,7 +5,7 @@ import Footer from "@/components/footer/Footer";
 import NavBar from "@/components/navbar/Navbar";
 
 export const metadata = {
- title: "Tools - ShahzadaAliHassan",
+ title: "Tools - TrackingAcademy",
  description: `Tools Build for Analysts to make the life easier.`,
 };
 
