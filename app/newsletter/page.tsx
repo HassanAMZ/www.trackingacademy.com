@@ -78,36 +78,9 @@ const clients: Client[] = [
  },
 ];
 
-const DetailSection: FC<DetailSectionProps> = ({
- title,
- description,
- className,
-}) => {
- return (
-  <div className={`py-3 ${className}`}>
-   <Heading3xl className='uppercase pb-6 '>{title}</Heading3xl>
-   <Paragraphmd className=''>{description}</Paragraphmd>
-  </div>
- );
-};
-
 interface DividerProps {
  className?: string;
 }
-
-const Divider: React.FC<DividerProps> = ({ className }) => {
- return (
-  <div
-   className={`flex items-center justify-between max-h-[2vh] ${
-    className || ""
-   }`}>
-   <span className={`font-thin text-gray-400 ${className || ""}`}>+</span>
-   <div
-    className={`border-t border-gray-400 w-full mx-2 ${className || ""}`}></div>
-   <span className={`font-thin text-gray-400 ${className || ""}`}>+</span>
-  </div>
- );
-};
 
 const Page: FC = () => {
  const [selectedClient, setSelectedClient] = useState<Client | null>(
@@ -118,6 +91,35 @@ const Page: FC = () => {
 
  const toggleForm = () => {
   setIsFormOpen(!isFormOpen);
+ };
+
+ const DetailSection: FC<DetailSectionProps> = ({
+  title,
+  description,
+  className,
+ }) => {
+  return (
+   <div className={`py-3 ${className}`}>
+    <Heading3xl className='uppercase pb-6 '>{title}</Heading3xl>
+    <Paragraphmd className=''>{description}</Paragraphmd>
+   </div>
+  );
+ };
+
+ const Divider: React.FC<DividerProps> = ({ className }) => {
+  return (
+   <div
+    className={`flex items-center justify-between max-h-[2vh] ${
+     className || ""
+    }`}>
+    <span className={`font-thin text-gray-400 ${className || ""}`}>+</span>
+    <div
+     className={`border-t border-gray-400 w-full mx-2 ${
+      className || ""
+     }`}></div>
+    <span className={`font-thin text-gray-400 ${className || ""}`}>+</span>
+   </div>
+  );
  };
 
  return (
