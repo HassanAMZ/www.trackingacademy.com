@@ -3,10 +3,14 @@ import ContainerLayout from "@/components/layouts/ContainerLayout";
 import baseColors from "@/data/base-colors";
 import Link from "next/link";
 import React from "react";
+import Head from "./head";
+import NavBar from "@/components/navbar/Navbar";
+import Footer from "@/components/footer/Footer";
 
 export default function NotFound() {
  return (
   <ContainerLayout>
+   <NavBar />
    <HeroComponent
     textGroup={{
      welcomeText: "Lost? Let us help you.",
@@ -35,6 +39,7 @@ export default function NotFound() {
      light: { value: 10 },
     }}
    />
+   <Footer />
   </ContainerLayout>
  );
 }
