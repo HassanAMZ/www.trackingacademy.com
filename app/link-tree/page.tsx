@@ -21,7 +21,7 @@ const linksData = {
    },
    {
     label: "@shahzadaalihassan_",
-    href: "https://www.youtube.com/@shahzadaalihassan_",
+    href: "https://www.youtube.com/@trackingacademy_",
     icon: <YouTubeIcon />,
    },
    {

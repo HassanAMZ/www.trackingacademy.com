@@ -36,7 +36,7 @@ const Footer: React.FC = () => {
      {/* Adding social media icons */}
      <div className='flex space-x-5 pt-5'>
       <CustomLink
-       href='https://www.youtube.com/@TrackingAcademy_'
+       href='https://www.youtube.com/@trackingacademy_'
        target='_blank'
        rel='noopener noreferrer'
        className='hover:text-primary transition-all duration-300'>

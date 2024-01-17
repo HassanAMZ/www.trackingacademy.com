@@ -43,17 +43,6 @@ import {
  ChangeEvent,
 } from "react";
 
-export interface AccordionItemProps {
- title: string;
- content: string;
-}
-
-export interface AccordionProps {
- data: string; // This is the document ID
-}
-export interface AccordionDataType {
- [key: string]: AccordionItemProps[];
-}
 export interface ServiceCardProps {
  service: ServiceDetails;
 }
