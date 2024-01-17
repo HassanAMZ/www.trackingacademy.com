@@ -220,7 +220,7 @@ export default function Page() {
     <TestimonialCard
      person={{
       testimonial: "Very happy working with Hassan! Does a great job!",
-      position: "GDS Setup",
+      position: "Gads Setup",
       name: "Clarissa Jurumenha",
       image: {
        src: "/images/clients/JamieNorsa.jfif",

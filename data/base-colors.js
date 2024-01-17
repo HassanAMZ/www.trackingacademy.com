@@ -8,9 +8,9 @@ const baseColors = {
  aboutUs: { primary: "rgba(147, 112, 219, 1)" },
  notFound: { primary: "rgba(255,87,51,1)" },
  tools: { primary: "rgba(123, 104, 238, 1)" },
+ portfolio: { primary: "rgba(0, 181, 245, 1)" },
 };
 
-// Dark Purple: rgba(72, 61, 139, 1)
-// Dodger Blue: rgba(30, 144, 255, 1)
+// (0, 181, 245), (0, 171, 235), (0, 161, 225), (0, 151, 215), (0, 141, 205)
 
 export default baseColors;

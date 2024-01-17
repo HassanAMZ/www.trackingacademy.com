@@ -1,10 +1,10 @@
 const headerNavLinks = [
  // { href: '/price', title: 'Price' },
  //  { href: "/resources", title: "Free Resources" },
- //  { href: "/portfolio", title: "Portfolio" },
  //  { href: "/services", title: "Services" },
  { href: "/for-agencies", title: "For Agencies" },
  { href: "/for-freelancers", title: "For Freelancers" },
+ { href: "/portfolio", title: "Portfolio" },
  //  {
  //   href: "/tools",
  //   title: "Tools",

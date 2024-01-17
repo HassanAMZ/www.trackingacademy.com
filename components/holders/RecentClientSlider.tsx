@@ -86,7 +86,6 @@ const RecentClientSlider: React.FC = () => {
    </div>
   );
  };
- // clientDetails is your provided JSON structure
 
  const extractImages = (data: typeof clientDetails): ImageType[] => {
   return data

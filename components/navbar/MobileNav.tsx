@@ -12,7 +12,9 @@ const MobileNav = () => {
  };
  const NavButton = () => {
   return (
-   <div onClick={toggleNav} className='focus:outline-none '>
+   <div
+    onClick={toggleNav}
+    className='focus:outline-none hover:cursor-pointer '>
     {navOpen ? (
      <svg
       xmlns='http://www.w3.org/2000/svg'
@@ -47,7 +49,7 @@ const MobileNav = () => {
  };
 
  return (
-  <div className='sm:hidden '>
+  <div className='md:hidden  '>
    <NavButton />
    {navOpen && (
     <section

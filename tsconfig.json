@@ -14,6 +14,7 @@
    "@/styles/*": ["styles/*"],
    "@/types/*": ["types/*"],
    "@/fonts/*": ["fonts/*"],
+   "@/utils/*": ["utils/*"],
    "@/actions/*": ["actions/*"]
   },
   "target": "es5",

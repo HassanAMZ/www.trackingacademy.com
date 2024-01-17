@@ -3,7 +3,6 @@ import Pre from "@/components/mdx/Pre";
 import YoutubeEmbed from "@/components/mdx/YoutubeEmbed";
 import BlogHeader from "@/components/blog/BlogHeader";
 import CustomLink from "@/components/mdx/CustomLink";
-import Accordion from "@/components/mdx/Accordion";
 import Note from "@/components/mdx/Note";
 import {
  Heading4xl,
@@ -36,7 +35,6 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
   GiscusComments,
   YoutubeEmbed,
   BlogHeader,
-  Accordion,
   Note,
   pre: AuthPre,
   a: CustomLink,
