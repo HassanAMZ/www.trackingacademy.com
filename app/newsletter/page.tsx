@@ -50,7 +50,7 @@ const clients: Client[] = [
   ],
   clientName: "Colin Forsyth, Creative Director",
   testimonial:
-   "We challenged Studio Freight to bring the sauce for an ambitious redesign of our digital security, Republic Note—including logos, motion, web, and beyond. They produced exceptional creative, working against a timeline that was, to put it mildly, insanely aggressive. Freight entirely delivered on the age-old agency cliché of becoming a true extension of our team. Their culture, communication, and energy propelled our work through lots of stakeholders with justifiably high expectations. For Republic Note’s successful relaunch, Freight undoubtedly met the challenge we issued—and more. They brought the sauce.",
+   "We challenged Tracking Academy to bring the sauce for an ambitious redesign of our digital security, Republic Note—including logos, motion, web, and beyond. They produced exceptional creative, working against a timeline that was, to put it mildly, insanely aggressive. Freight entirely delivered on the age-old agency cliché of becoming a true extension of our team. Their culture, communication, and energy propelled our work through lots of stakeholders with justifiably high expectations. For Republic Note’s successful relaunch, Freight undoubtedly met the challenge we issued—and more. They brought the sauce.",
 
   services: ["VISUAL IDENTITY", "WEB DESIGN", "ART DIRECTION", "COLLATERAL"],
   stack: ["FIGMA", "ADOBE", "BLENDER"],
@@ -62,16 +62,16 @@ const clients: Client[] = [
   website: "https://client2website.com",
   details: "Details of Client 2...",
   images: [
-   "/images/hero/001.png",
-   "/images/hero/002.png",
    "/images/hero/003.png",
-   "/images/hero/001.png",
    "/images/hero/002.png",
+   "/images/hero/001.png",
    "/images/hero/003.png",
+   "/images/hero/002.png",
+   "/images/hero/001.png",
   ],
   clientName: "Colin Forsyth, Creative Director",
   testimonial:
-   "We challenged Studio Freight to bring the sauce for an ambitious redesign of our digital security, Republic Note—including logos, motion, web, and beyond. They produced exceptional creative, working against a timeline that was, to put it mildly, insanely aggressive. Freight entirely delivered on the age-old agency cliché of becoming a true extension of our team. Their culture, communication, and energy propelled our work through lots of stakeholders with justifiably high expectations. For Republic Note’s successful relaunch, Freight undoubtedly met the challenge we issued—and more. They brought the sauce.",
+   "We challenged Tracking Academy to bring the sauce for an ambitious redesign of our digital security, Republic Note—including logos, motion, web, and beyond. They produced exceptional creative, working against a timeline that was, to put it mildly, insanely aggressive. Freight entirely delivered on the age-old agency cliché of becoming a true extension of our team. Their culture, communication, and energy propelled our work through lots of stakeholders with justifiably high expectations. For Republic Note’s successful relaunch, Freight undoubtedly met the challenge we issued—and more. They brought the sauce.",
 
   services: ["VISUAL IDENTITY", "WEB DESIGN", "ART DIRECTION", "COLLATERAL"],
   stack: ["FIGMA", "ADOBE", "BLENDER"],
@@ -136,9 +136,10 @@ const Page: FC = () => {
      </button>
     </div>
     <Divider className='z-20' />
-    <div className='w-full text-center relative h-[10vh]'>
-     <Image src='/images/logo.png' alt='Image' fill={true} />
+    <div className='w-full text-center relative h-[8vh]'>
+     <Image src='/images/logo_2.png' alt='Image' fill={true} />
     </div>
+
     <Divider />
    </header>
    <ContactForm isOpen={isFormOpen} closeForm={toggleForm} />
@@ -146,15 +147,15 @@ const Page: FC = () => {
     <div className='col-span-1 overflow-auto hide-scrollbar max-h-[75vh] pr-6'>
      <DetailSection
       title='About'
-      description='Studio Freight is an independent creative studio built on principle.'
+      description='Tracking Academy is an independent creative studio built on principle.'
      />
      <DetailSection
       title='INDEPENDENT'
-      description='We rise to the level of the limits we accept. At the heart of Studio Freight is independent thinking, we are owned by ourselves and collaborate with those willing to choose and create the realities they want to live in. There are no rules, only consequences.'
+      description='We rise to the level of the limits we accept. At the heart of Tracking Academy is independent thinking, we are owned by ourselves and collaborate with those willing to choose and create the realities they want to live in. There are no rules, only consequences.'
      />
      <DetailSection
       title='CREATIVE STUDIO'
-      description='Studio Freight is a creative business, practice, and project. We build
+      description='Tracking Academy is a creative business, practice, and project. We build
       brands and experiences. We incubate products and experiments. We invest in
       companies and people. Our pursuits vary widely, but the approach remains —
       a great creative practice is the known path to great unknowns.'
@@ -266,7 +267,7 @@ const Page: FC = () => {
     </div>
    </main>
    <Divider />
-   <footer className='min-h-[10vh]'>bottom section</footer>
+   <footer className=''>bottom section</footer>
   </div>
  );
 };

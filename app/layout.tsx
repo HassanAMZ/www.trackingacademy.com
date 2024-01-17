@@ -20,7 +20,7 @@ const Roboto = localFont({
 });
 
 export const metadata = {
- title: "TrackingAcademy - Top Rated Web Developer",
+ title: "TrackingAcademy - Top Rated Web Analytics Agency",
  description: `Blog for Web Analysts and Marketing People`,
  openGraph: {
   images: ["/images/social-sharing.png"],
