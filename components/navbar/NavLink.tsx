@@ -9,7 +9,6 @@ const NavLink: React.FC<NavLinkProps> = ({ href, children, className }) => {
  let segments = useSelectedLayoutSegments();
 
  let active = href === `/${segments}`;
- console.log("active", active, "segments", segments, "href", href);
  return (
   <Link
    className={`text-lg md:text-base underline-offset-2 hover:dark:text-white hover:text-gray-800 ${
