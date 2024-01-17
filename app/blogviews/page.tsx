@@ -15,10 +15,16 @@ async function fetchPageViews() {
    },
   },
  });
- return response.rows.reduce(
-  (sum, row) => sum + parseInt(row.metricValues[0].value, 10),
-  0
- );
+ if (!response.rows) {
+  return 0;
+ }
+ return response.rows.reduce((sum, row) => {
+  if (row.metricValues && row.metricValues[0]?.value) {
+   return sum + parseInt(row.metricValues[0].value, 10);
+  } else {
+   return sum;
+  }
+ }, 0);
 }
 
 // Server Component for fetching data
