@@ -15,23 +15,19 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({
  return (
   <ContainerLayout className={`text-center  ${(className || "") ?? ""}`}>
    <div className='text-center py-3 '>
-    <blockquote className='overflow-hidden h-full items-center justify-center flex flex-col p-6 gap-5'>
+    <blockquote className='overflow-hidden h-full items-center justify-center flex flex-col p-4 md:p-6 gap-5'>
      <Paragraphmd>★★★★★</Paragraphmd>
      <Image
-      className='w-32 rounded-full'
+      className='w-20 md:w-32 rounded-full'
       width={person.image.width}
       height={person.image.height}
       src={person.image.src}
       alt={person.image.alt}
      />
-     <Heading2xl className='lg:line-clamp-3 tracking-tighter leading-tight text-center'>
+     <Heading2xl className='line-clamp-3 tracking-tighter leading-tight text-center'>
       {person.testimonial}
      </Heading2xl>
-     <Paragraphsm className='textOpacity80'>
-      {/* {person.name}
-      <br /> */}
-      {person.position}
-     </Paragraphsm>
+     <Paragraphsm className='textOpacity80'>{person.position}</Paragraphsm>
     </blockquote>
    </div>
   </ContainerLayout>

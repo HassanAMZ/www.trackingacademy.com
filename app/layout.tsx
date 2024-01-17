@@ -1,18 +1,17 @@
 import "@/styles/global.scss";
 import "@/styles/tailwind.css";
 import localFont from "next/font/local";
-import NavBar from "@/components/navbar/Navbar";
 import { ReactNode } from "react";
 import { AuthContextProvider } from "@/context/AuthContext";
 import GTMAnalytics from "@/components/analytics/GTMAnalytics";
 import React from "react";
 import VercelAnalytics from "@/components/analytics/VercelAnalytics";
 import Footer from "@/components/footer/Footer";
-import ContainerLayout from "@/components/layouts/ContainerLayout";
 import { ThemeProvider } from "@/context/ThemeContext";
 import { Suspense } from "react";
 import CanonicalTag from "@/components/seo/CanonicalTag";
 import { SpeedInsights } from "@vercel/speed-insights/next";
+import Navbar from "@/components/navbar/Navbar";
 
 const Roboto = localFont({
  src: "fonts/Roboto/Roboto-Regular.ttf",
@@ -33,7 +32,11 @@ export default function RootLayout({ children }: { children: ReactNode }) {
    <body
     className={` selection:text-white selection:bg-purple-700 dark:selection:bg-red-700 dark:bg-black bg-white ${Roboto.className}`}>
     <ThemeProvider attribute='class' defaultTheme='dark'>
-     <AuthContextProvider>{children}</AuthContextProvider>
+     <AuthContextProvider>
+      <Navbar />
+      {children}
+      <Footer />
+     </AuthContextProvider>
     </ThemeProvider>
 
     <Suspense>

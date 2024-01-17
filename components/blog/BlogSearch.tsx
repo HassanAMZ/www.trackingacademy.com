@@ -115,9 +115,7 @@ const BlogSearch: React.FC<BlogSearchProps> = ({ data, onSearch }) => {
     />
    </div>
 
-   {/* Dropdowns */}
-   <div className='flex flex-wrap sm:justify-center gap-3 '>
-    {/* CMS Selector */}
+   {/* <div className='flex flex-wrap sm:justify-center gap-3 '>
     <select
      value={selectedCMS}
      onChange={(e) => setSelectedCMS(e.target.value)}
@@ -130,7 +128,6 @@ const BlogSearch: React.FC<BlogSearchProps> = ({ data, onSearch }) => {
      ))}
     </select>
 
-    {/* Pixel Selector */}
     <select
      value={selectedPixel}
      onChange={(e) => setSelectedPixel(e.target.value)}
@@ -143,7 +140,6 @@ const BlogSearch: React.FC<BlogSearchProps> = ({ data, onSearch }) => {
      ))}
     </select>
 
-    {/* Event Selector */}
     <select
      value={selectedEvent}
      onChange={(e) => setSelectedEvent(e.target.value)}
@@ -156,7 +152,6 @@ const BlogSearch: React.FC<BlogSearchProps> = ({ data, onSearch }) => {
      ))}
     </select>
 
-    {/* Integration Type Selector */}
     <select
      value={selectedIntegration}
      onChange={(e) => setSelectedIntegration(e.target.value)}
@@ -168,7 +163,7 @@ const BlogSearch: React.FC<BlogSearchProps> = ({ data, onSearch }) => {
       </option>
      ))}
     </select>
-   </div>
+   </div> */}
 
    {results.length === 0 && (
     <div className='flex flex-col items-center mt-6'>

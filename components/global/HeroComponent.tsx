@@ -10,7 +10,6 @@ import {
 import Link from "next/link";
 import lightenDarkenColor from "utils/lightenDarkenColor";
 import LearnMoreHeader from "@/components/global/LearnMoreHeader";
-import ContainerLayout from "@/layouts/ContainerLayout";
 import { HeroProps } from "@/types/index";
 
 const HeroComponent: React.FC<HeroProps> = ({
@@ -39,18 +38,12 @@ const HeroComponent: React.FC<HeroProps> = ({
       blurDataURL={images.background.desktop}
       quality={100}
       fill
-      className='sm:block hidden'
+      className='sm:block hidden opacity-75'
       sizes='100vw'
       style={{
        objectFit: "cover",
       }}
      />
-     //  <Image
-     //   src={images.background.desktop}
-     //   alt='Background image'
-     //   fill
-     //   className='w-full h-full object-cover object-center opacity-60 hidden sm:block'
-     //  />
     )}
     {images?.background?.mobile && (
      <Image
@@ -59,7 +52,7 @@ const HeroComponent: React.FC<HeroProps> = ({
       placeholder='blur'
       blurDataURL={images.background.mobile}
       quality={100}
-      className='sm:hidden block object-right-bottom'
+      className='sm:hidden block object-right-bottom opacity-50'
       fill
       sizes='100vw'
       style={{
@@ -67,18 +60,24 @@ const HeroComponent: React.FC<HeroProps> = ({
       }}
      />
     )}
-    <div className='relativ z-10 flex flex-col justify-center items-start px-4 sm:px-8 md:px-14 py-20 md:py-24'>
+    <div className='relativ z-10 flex flex-col justify-center items-start px-4 sm:px-8 md:px-10 lg:px-14 py-20 md:py-24'>
      <aside className='space-y-5 pb-6'>
       {images.group?.list && (
-       <div className='flex flex-wrap items-center justify-start opacity-70'>
+       <div className='relative h-10 w-10'>
         {images.group.list.map((image, index) => (
          <Image
           src={image.src}
           alt={image.alt}
           width={1920}
-          key={index}
           height={1080}
-          className='rounded-full w-10 h-10'
+          key={index}
+          className={`rounded-full absolute opacity-90
+          ${index === 0 ? "left-0 top-0 z-10" : ""} 
+          ${index === 1 ? "left-4 top-0 z-20" : ""} 
+          ${index === 2 ? "left-8 top-0 z-30" : ""}
+          ${index === 3 ? "left-12 top-0 z-30" : ""}
+          
+          `}
          />
         ))}
        </div>

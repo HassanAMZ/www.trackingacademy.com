@@ -1,8 +1,8 @@
+// NavigationLinks.tsx
 import React from "react";
 import NavLink from "./NavLink"; // Adjust the import path based on your project structure
-import headerNavLinks from "@/data/header-nav-links";
+import headerNavLinks from "@/data/header-nav-links"; // Adjust the import path based on your project structure
 
-// Define a type for each navigation link
 type NavLinkType = {
  href: string;
  title: string;
@@ -10,7 +10,7 @@ type NavLinkType = {
 };
 
 const NavigationLinks: React.FC = () => {
- const navLinks = headerNavLinks;
+ const navLinks = headerNavLinks as NavLinkType[];
  return (
   <React.Fragment>
    {navLinks.map((link) => {

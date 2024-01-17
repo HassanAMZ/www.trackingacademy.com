@@ -325,7 +325,7 @@ export interface ImageGeneralProps {
 }
 
 export interface SingleGridContentProps {
- imagesData: ImageData;
+ imagesData?: ImageData;
  headingTexts: HeadingTextsProps;
  paragraphTexts: ParagraphTextsProps;
 }
@@ -375,7 +375,7 @@ export interface HeadingTextsProps {
  subHeading?: string;
 }
 export interface ParagraphTextsProps {
- primary: string;
+ primary?: string;
  secondary?: string;
 }
 

@@ -23,11 +23,5 @@ export async function generateStaticParams(): Promise<
  return allPostsData;
 }
 export default function Layout({ children }: { children: ReactNode }) {
- return (
-  <BlogLayout className=''>
-   <NavBar />
-   {children}
-   <Footer />
-  </BlogLayout>
- );
+ return <BlogLayout className=''>{children}</BlogLayout>;
 }

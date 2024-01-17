@@ -10,7 +10,6 @@ import Footer from "@/components/footer/Footer";
 export default function NotFound() {
  return (
   <ContainerLayout>
-   <NavBar />
    <HeroComponent
     textGroup={{
      welcomeText: "Lost? Let us help you.",
@@ -39,7 +38,6 @@ export default function NotFound() {
      light: { value: 10 },
     }}
    />
-   <Footer />
   </ContainerLayout>
  );
 }

@@ -52,8 +52,6 @@ const Page: React.FC = () => {
 
  return (
   <ContainerLayout className=''>
-   <NavBar />
-
    <React.Fragment>
     <HeroComponent
      textGroup={{
@@ -590,7 +588,6 @@ const Page: React.FC = () => {
      <TestimonialCard client={clientDetails[3]} />
     </div>
    </div> */}
-   <Footer />
   </ContainerLayout>
  );
 };

@@ -1,13 +1,15 @@
 "use client";
+
 import { NavLinkProps } from "@/types/index";
 import CustomLink from "@/components/mdx/CustomLink";
 import { useSelectedLayoutSegments } from "next/navigation";
 import Link from "next/link";
 
 const NavLink: React.FC<NavLinkProps> = ({ href, children, className }) => {
- let segment = useSelectedLayoutSegments();
- let active = href === `/${segment}`;
+ let segments = useSelectedLayoutSegments();
 
+ let active = href === `/${segments}`;
+ console.log("active", active, "segments", segments, "href", href);
  return (
   <Link
    className={`text-lg md:text-base underline-offset-2 hover:dark:text-white hover:text-gray-800 ${
