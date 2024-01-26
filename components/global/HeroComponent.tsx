@@ -8,7 +8,7 @@ import {
  Paragraphmd,
 } from "@/components/typography/Heading";
 import Link from "next/link";
-import lightenDarkenColor from "utils/lightenDarkenColor";
+import lightenDarkenColor from "@/utils/lightenDarkenColor";
 import LearnMoreHeader from "@/components/global/LearnMoreHeader";
 import { HeroProps } from "@/types/index";
 
@@ -32,7 +32,7 @@ const HeroComponent: React.FC<HeroProps> = ({
    <section className='relative backgroundOverlay rounded-md flex flex-col shadow-md items-center justify-center'>
     {images?.background?.desktop && (
      <Image
-      alt='Mountains'
+      alt='Shahzada Ali Hassan'
       src={images.background.desktop}
       placeholder='blur'
       blurDataURL={images.background.desktop}
