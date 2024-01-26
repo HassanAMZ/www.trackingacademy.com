@@ -37,7 +37,7 @@ const BlogCard: React.FC<SingleBlogCardProps> = ({
       <section className='grid backgroundOverlay h-full w-full'>
        <>
         <div
-         className={`backgroundOverlay p-6 !shadow-none border-b `}
+         className={`backgroundOverlay p-4 md:p-6 !shadow-none border-b `}
          style={{
           backgroundColor: generateBrightColor(0.15),
           position: "relative",
@@ -47,15 +47,13 @@ const BlogCard: React.FC<SingleBlogCardProps> = ({
            New
           </div>
          )}
-         <Heading5xl className='line-clamp-2 !text-3xl'>
-          {post.title}
-         </Heading5xl>
+         <Heading3xl className='line-clamp-2 '>{post.title}</Heading3xl>
         </div>
-        <div className='textOpacity80 py-6 px-6 border-md'>
+        <div className='textOpacity80 p-4 md:p-6 border-md'>
          <Paragraphsm className='line-clamp-3 text-left'>
           {post.description}
          </Paragraphsm>
-         <Paragraphxs className='md:pt-6 pt-4 pb-2 text-left'>
+         <Paragraphxs className='md:pt-6 pt-4 md:pb-2 text-left'>
           {formatDate(post.date)} - ShahzadaAliHassan
          </Paragraphxs>
         </div>

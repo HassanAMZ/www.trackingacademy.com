@@ -15,6 +15,7 @@ import {
  Heading2xl,
  Headingxl,
  Paragraphlg,
+ Paragraphmd,
 } from "@/components/typography/Heading";
 import Image from "next/image";
 import GiscusComments from "@/components/mdx/GiscusComents";
@@ -38,24 +39,42 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
   Note,
   pre: AuthPre,
   a: CustomLink,
-  p: Paragraphlg,
+  p: (props) => <p {...props} className='py-2 text-md md:text-lg' />,
   h1: (props) => (
-   <Heading6xl {...props} className={`!text-4xl py-2 ${props.className}`} />
+   <Heading6xl
+    {...props}
+    className={`!text-4xl py-2 underline underline-offset-2 ${props.className}`}
+   />
   ),
   h2: (props) => (
-   <Heading5xl {...props} className={`!text-3xl py-2  ${props.className}`} />
+   <Heading5xl
+    {...props}
+    className={`!text-3xl py-2 underline underline-offset-2 ${props.className}`}
+   />
   ),
   h3: (props) => (
-   <Heading4xl {...props} className={`!text-2xl py-2  ${props.className}`} />
+   <Heading4xl
+    {...props}
+    className={`!text-2xl py-2 underline underline-offset-2 ${props.className}`}
+   />
   ),
   h4: (props) => (
-   <Heading3xl {...props} className={`!text-xl py-2  ${props.className}`} />
+   <Heading3xl
+    {...props}
+    className={`!text-xl py-2 underline underline-offset-2 ${props.className}`}
+   />
   ),
   h5: (props) => (
-   <Heading2xl {...props} className={`!text-lg py-2  ${props.className}`} />
+   <Heading2xl
+    {...props}
+    className={`!text-lg py-2 underline underline-offset-2 ${props.className}`}
+   />
   ),
   h6: (props) => (
-   <Headingxl {...props} className={`!text-md py-2  ${props.className}`} />
+   <Headingxl
+    {...props}
+    className={`!text-md py-2 underline underline-offset-2 ${props.className}`}
+   />
   ),
   li: ListItem,
   ol: OrderedList,

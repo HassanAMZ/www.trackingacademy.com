@@ -24,7 +24,7 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({
       src={person.image.src}
       alt={person.image.alt}
      />
-     <Heading2xl className='line-clamp-3 tracking-tighter leading-tight text-center'>
+     <Heading2xl className='line-clamp-3  text-center'>
       {person.testimonial}
      </Heading2xl>
      <Paragraphsm className='textOpacity80'>{person.position}</Paragraphsm>

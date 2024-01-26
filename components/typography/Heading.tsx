@@ -45,7 +45,7 @@ const Heading3xl: React.FC<HeadingProps> = ({ children, className, style }) => {
 const Heading4xl: React.FC<HeadingProps> = ({ children, className, style }) => {
  return (
   <h3
-   className={`text-4xl  font-semibold leading-none tracking-tight ${
+   className={`text-4xl  font-semibold leading-none md:tracking-tight ${
     RobotoCondensed.className
    } ${className || ""}`}
    style={style}>
@@ -57,7 +57,7 @@ const Heading4xl: React.FC<HeadingProps> = ({ children, className, style }) => {
 const Heading5xl: React.FC<HeadingProps> = ({ children, className, style }) => {
  return (
   <h2
-   className={`text-5xl font-bold leading-none tracking-tight ${
+   className={`text-5xl font-bold leading-none md:tracking-tight ${
     RobotoCondensed.className
    } ${className || ""}`}
    style={style}>
@@ -68,7 +68,7 @@ const Heading5xl: React.FC<HeadingProps> = ({ children, className, style }) => {
 const Heading6xl: React.FC<HeadingProps> = ({ children, className, style }) => {
  return (
   <h1
-   className={`text-6xl font-black leading-none tracking-tight ${
+   className={`text-6xl font-black leading-none md:tracking-tight ${
     RobotoCondensed.className
    }  ${className || ""}`}
    style={style}>
@@ -84,7 +84,7 @@ const Paragraphlg: React.FC<HeadingProps> = ({
 }) => {
  return (
   <p
-   className={`text-lg tracking-normal leading-relaxed ${className || ""}`}
+   className={`text-lg tracking-normal leading-relaxed py-2 ${className || ""}`}
    style={style}>
    {children}
   </p>
@@ -128,7 +128,7 @@ const Paragraphxs: React.FC<HeadingProps> = ({
 const ListItem: React.FC<HeadingProps> = ({ children, className, style }) => {
  return (
   <li
-   className={`px-1 text-lg tracking-normal leading-relaxed ${className || ""}`}
+   className={`px-1 pt-1  text-md md:text-lg  ${className || ""}`}
    style={style}>
    {children}
   </li>
@@ -141,7 +141,7 @@ const OrderedList: React.FC<HeadingProps> = ({
 }) => {
  return (
   <ol
-   className={`list-decimal list-outside pl-6 py-1 ${className || ""}`}
+   className={`list-decimal list-outside pl-6 py-2 ${className || ""}`}
    style={style}>
    {children}
   </ol>
@@ -154,7 +154,7 @@ const UnorderedList: React.FC<HeadingProps> = ({
 }) => {
  return (
   <ul
-   className={` list-disc list-outside pl-6 py-1 ${className || ""}`}
+   className={` list-disc list-outside pl-6 py-2 ${className || ""}`}
    style={style}>
    {children}
   </ul>

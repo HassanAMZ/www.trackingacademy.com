@@ -7,6 +7,7 @@ import formatString from "utils/formatString";
 import BlogContainer from "@/components/blog/BlogContainer";
 import extractMetaFromStringForBlog from "utils/extractMetaFromStringForBlog";
 import getFiles from "utils/getFiles";
+import BlogContent from "@/components/blog/BlogContent";
 
 export async function generateStaticParams(): Promise<
  (PostMetadata & { id: string; slug: string })[]
