@@ -1,12 +1,14 @@
 export default function extractMetaFromStringForBlog(content: string): any {
- // Extract the meta string from the content
+ // Adjust the regex to match the updated structure, including handling backticks for template strings
  const metaStringMatch = content.match(
-  /export const metadata = (\{[\s\S]*?\});/
+  /export const metadata = (\{[\s\S]*?\}\s*);/
  );
+
  if (!metaStringMatch) return {};
 
- // Evaluate the string to get the object
- // This is a bit hacky, but given the context, it should be safe
- const metaObject = eval(`(${metaStringMatch[1]})`);
+ // Using a safer alternative to eval, such as Function constructor
+ // This approach is a bit safer than eval but still use with caution
+ const metaObject = new Function(`return (${metaStringMatch[1]});`)();
+
  return metaObject;
 }

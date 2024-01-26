@@ -147,7 +147,7 @@ export interface TestimonialCardProps {
 export interface PostMetadata {
  title: string;
  date: string;
- blogId: string;
+ blogId: number;
  tags: string[];
  draft: boolean;
  description: string;

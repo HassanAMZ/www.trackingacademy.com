@@ -16,6 +16,24 @@ import {
  gtmCategoriesFromCourses,
 } from "utils/gtmAnalytics";
 
+const GTMSelectBlogEvent: React.FC<{ metadata: PostMetadata }> = ({
+ metadata,
+}) => {
+ useEffect(() => {
+  initDataLayer();
+
+  const item = createItemFromBlog(metadata);
+
+  window.dataLayer.push({
+   event: "gtm_custom_event",
+   datalayer_event_name: "select_item",
+   items: [item],
+  });
+ }, [metadata]);
+
+ return null;
+};
+
 const GTMBlogViewEvent: React.FC<GTMBlogViewProps> = ({ metadata }) => {
  useEffect(() => {
   initDataLayer(); // Use utility function
@@ -24,7 +42,7 @@ const GTMBlogViewEvent: React.FC<GTMBlogViewProps> = ({ metadata }) => {
 
   window.dataLayer.push({
    event: "gtm_custom_event",
-   datalayer_event_name: "view_blog",
+   datalayer_event_name: "view_item",
    event_id: Date.now(),
    ecommerce: {
     items: [item],
@@ -45,7 +63,7 @@ const GTMBlogListViewEvent: React.FC<GTMBlogListViewEventProps> = ({
 
   window.dataLayer.push({
    event: "gtm_custom_event",
-   datalayer_event_name: "view_blog_list",
+   datalayer_event_name: "view_item_list",
    event_id: Date.now(),
    ecommerce: {
     items,
@@ -159,4 +177,5 @@ export {
  GTMBlogViewEvent,
  GTMBlogListViewEvent,
  GTMCourseListViewEvent,
+ GTMSelectBlogEvent,
 };
