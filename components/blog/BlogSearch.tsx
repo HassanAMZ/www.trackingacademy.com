@@ -33,23 +33,31 @@ const BlogSearch: React.FC<BlogSearchProps> = ({ data, onSearch }) => {
   setResults(filtered);
   onSearch(filtered);
  }, [searchTerm]);
+
+ const formatText = (text?: string) => {
+  if (text) {
+   return text.replace(/-/g, " ");
+  }
+  return "";
+ };
+
  const pathname = usePathname();
  const isRootBlogPage = pathname === "/blog";
- const params = useParams<{ blog: string }>();
+ const params = useParams<{ blog?: string; tag?: string }>();
+ const displayText = formatText(params.blog || params.tag);
 
- console.log("pathname", pathname, params.blog);
  return (
   <div className='flex flex-col pt-6 pb-1 sm:py-12 items-left sm:items-center sm:text-center justify-center w-full gap-4'>
    <Heading6xl className='!text-4xl sm:!text-6xl'>
-    {!isRootBlogPage && (
-     <span className='capitalize'>{params.blog.replace(/-/g, " ")} - </span>
+    {!isRootBlogPage && displayText && (
+     <span className='capitalize'>{displayText} - </span>
     )}
     Articles, Ideas and Inspiration!{" "}
    </Heading6xl>
    <Paragraphsm className='sm:w-2/3 w-full'>
     A helpful blog for web analysts, trying to make sense of marketing with{" "}
-    {!isRootBlogPage && (
-     <span className='capitalize'>{params.blog.replace(/-/g, " ")}, </span>
+    {!isRootBlogPage && displayText && (
+     <span className='capitalize'>{displayText}, </span>
     )}
     tag manager, analytics and tracking scripts.
    </Paragraphsm>

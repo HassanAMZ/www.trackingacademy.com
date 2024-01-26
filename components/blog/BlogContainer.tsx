@@ -15,7 +15,6 @@ const BlogContainer: React.FC<BlogContainerProps> = ({
  return (
   <div className='flex flex-col gap-2'>
    <BlogSearch data={data} onSearch={(filtered) => setFilteredData(filtered)} />
-
    <BlogContent rawData={rawData} data={filteredData} type={type} />
   </div>
  );

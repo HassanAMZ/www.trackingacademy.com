@@ -47,7 +47,9 @@ const BlogCard: React.FC<SingleBlogCardProps> = ({
            New
           </div>
          )}
-         <Heading3xl className='line-clamp-2 '>{post.title}</Heading3xl>
+         <Heading3xl className='line-clamp-2 !p-0 my-2'>
+          {post.title}
+         </Heading3xl>
         </div>
         <div className='textOpacity80 p-4 md:p-6 border-md'>
          <Paragraphsm className='line-clamp-3 text-left'>
