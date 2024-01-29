@@ -86,7 +86,55 @@ To ensure our configuration tag operates smoothly:
 
 ## Section 02: Begin Checkout DataLayer with Enhanced E-Commerce Data
 
-<BeginCheckout />
+This segment is designed for users who want to enhance data capture during the "custom_begin_checkout" event, specifically for tracking elements like item_id, item_name, value, and quantity. It outlines how to integrate the `dataLayer` object with a Shopify store, utilizing Google Tag Manager (GTM). The primary objective is to ensure that the `custom_begin_checkout` event is activated when a user presses the Begin Checkout button on Shopify's Cart page.
+
+## Initializing DataLayer on Head
+
+Here, we set up the `dataLayer` array, ensuring its initialization. The code assesses if the user is on a 'product' page and accordingly deploys a 'datalayer-checkout' snippet across all pages.
+
+<DataLayerCode type='beginCheckout' subType='head' />
+
+## Main Checkout DataLayer Script
+
+This section details the key steps in loading product information into the `dataLayer` when the Begin Checkout Event is activated on the Cart page:
+
+1. Script Verification: Confirms the script's activation.
+2. Gathering Cart and Product Information: Extracts and formats cart data from Shopify to suit Google's ecommerce tracking needs.
+3. Calculating Cart Total: Determines the overall value of the cart's contents.
+4. Checkout Button Monitoring: Post-page load, it locates checkout buttons, clears any existing `dataLayer` ecommerce data upon click, and inputs new ecommerce data into the `dataLayer` for GTM tracking.
+
+<DataLayerCode type='beginCheckout' subType='main' />
+
+## Theme-Related DataLayer Implementation
+
+This script implements the `head-datalayer` snippet, typically found within your Shopify theme setup. This should be incorporated into your GTM Body Code.
+
+<DataLayerCode type='beginCheckout' subType='theme' />
+
+## Guidelines for Implementing DataLayer Snippets in Shopify:
+
+1. **Preparation:** Secure a backup of your current theme before modifications.
+2. **Accessing Theme Files:**
+   - Log into your Shopify Admin area.
+   - Navigate to Online Store > Themes.
+   - In the live theme, select "Edit code" from the "Actions" dropdown.
+3. **Installing Head DataLayer Script:**
+   - Find `theme.liquid` in the sidebar and open it.
+   - Place the "Head DataLayer Code" within the `<head>` section.
+4. **Setting up Checkout DataLayer Script:**
+   - Depending on your Shopify edition, opt to "Add a new snippet."
+   - Label it `datalayer-checkout.liquid`.
+   - Embed the "Checkout DataLayer Code" into this file and save.
+5. **Applying Theme DataLayer Script:**
+   - Decide on the location for this script, commonly within the `<head>` in `theme.liquid`.
+   - Add the "Theme DataLayer Code" accordingly.
+   - Save your adjustments.
+6. **Verification:**
+   - Visit a Cart page on your store and initiate the Begin Checkout process.
+   - Open the developer console in your browser.
+   - Verify the triggering of `custom_begin_checkout` and correct product details in the `dataLayer`.
+
+The use of unique event names like 'custom_begin_checkout' is to avoid clashes with other integrations or plugins that might use standard event naming conventions.
 
 ## Section 03: Setting Up Google Tag Manager for Enhanced Event Tracking
 

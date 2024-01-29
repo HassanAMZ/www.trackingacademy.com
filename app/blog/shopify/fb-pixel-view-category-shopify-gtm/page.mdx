@@ -52,7 +52,40 @@ Before diving into the tutorial, ensure you have the following:
 
 ## Section 3: Adding View Item List Scripts
 
-<ViewItemList />
+This script begins by ensuring the `dataLayer` array is established. It then identifies if the webpage is a product page and, if so, implements the 'datalayer-collection' snippet.
+
+<DataLayerCode type='viewItemList' subType='head' />
+
+## Collection Page DataLayer Script
+
+The primary function of this script is to enrich the `dataLayer` object with product-specific information when a collection page is accessed:
+
+1. It initially identifies the current product variant.
+2. An `itemObject` is created, encapsulating various details about the product.
+3. Upon the document's loading, this information is added to the `dataLayer` object.
+4. Save the file with name `datalayer-collection.liquid`
+
+<DataLayerCode type='viewItemList' subType='main' />
+
+## Theme-Level DataLayer Script
+
+This script executes the `head-datalayer` snippet. Typically found in the head section of your Shopify theme's setup, this snippet is key for integrating the head datalayer code. Incorporate this within the GTM Body Code.
+
+<DataLayerCode type='viewItemList' subType='theme' />
+
+## Steps for Implementing DataLayer Scripts in Shopify:
+
+1. **Backup First:** As a precaution, ensure you have a backup of your current theme.
+
+2. **Theme File Access:** Log into your Shopify Admin, navigate to Online Store > Themes, find your active theme, click "Actions," and select "Edit code".
+
+3. **Head DataLayer Script Insertion:** Find `theme.liquid` in the sidebar, and within the `<head>` tags, place the "Head DataLayer Script".
+
+4. **Incorporating Product DataLayer Script:** Opt to "Add a new snippet" (this varies with Shopify versions). Name this snippet `datalayer-product.liquid` and include the "Product DataLayer Script". Save your modifications.
+
+5. **Theme DataLayer Script Placement:** Decide the appropriate spot (usually within the `<head>` section in `theme.liquid`) to insert the "Theme DataLayer Script". Implement and save.
+
+6. **Verification:** Test the integration by visiting a product page on your Shopify store. Open the developer console in your browser to confirm that the `custom_view_item` event triggers and the `dataLayer` object accurately displays product information.
 
 ## Section 4: Creating View Category Event in Google Tag Manager
 

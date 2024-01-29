@@ -29,11 +29,90 @@ Understanding the significance of TikTok ads in business growth is crucial. Thes
 
 ## Section 1: Configuring Google Tag Manager on Shopify
 
-<ConfiguringGTM />
+Start by ensuring your Shopify store includes the Google Tag Manager (GTM) container, essential for monitoring user activities.
+
+### Implementing GTM Scripts
+
+Initially, integrate GTM scripts into your Shopify store. These scripts are vital for observing user behaviors and gathering data.
+
+### Embedding GTM Container Scripts
+
+Then, embed both the head and body GTM container scripts into your Shopify store’s theme.
+
+1. Access the theme.liquid file via your Shopify admin.
+2. Insert the GTM container head script right after the `<head>` tag opens.
+3. Place the GTM container body script just after the `<body>` tag opens.
+
+### GTM Head Script Code
+
+<DataLayerCode type='googleTagManager' subType='head' />
+
+### GTM Body Script Code
+
+<DataLayerCode type='googleTagManager' subType='body' />
+
+Post-script insertion, confirm that the Google Tag Manager operates effectively on your Shopify store.
+
+### Steps to Activate GTM on Shopify:
+
+1. Log into your Shopify admin and go to Themes.
+2. Choose your active theme and select 'Edit code'.
+3. In the theme.liquid file, embed the GTM scripts as previously described.
+4. Save and examine the setup with GTM’s preview mode.
+
+### Adding GTM Scripts to Shopify
+
+1. Begin by adding both head and body scripts from Google Tag Manager to your Shopify store. Retrieve these scripts from your GTM container. For comprehensive coverage, include both scripts.
+2. Locate and modify your theme file in Shopify. This file is usually at the top of your theme directory. Insert the GTM scripts below the opening head and body tags of your theme file.
+3. After inserting the scripts, use Shopify's 'Format Liquid' feature for proper code formatting, enhancing readability and reducing errors.
+
+### Testing with GTM Preview
+
+Confirm your setup using Google Tag Manager’s preview feature. This check ensures the container is functioning as intended on your Shopify store, setting the stage for additional tracking and optimization with Analytics and Ads.
+
+> **Note**
+> Be sure to substitute 'GTM-XXXX' with your actual Google Tag Manager container ID.
 
 ## Section 2: Creating and Adding a TikTok Pixel to Your Shopify Store
 
-<TikTokPageView />
+Integrating a TikTok pixel into your Google Tag Manager (GTM) is a multi-step process that enhances your Shopify store's ability to track customer interactions. This comprehensive setup involves obtaining and embedding the TikTok Pixel ID and script, along with configuring and testing for optimal performance.
+
+#### Initial Step: Retrieving TikTok Pixel Information
+
+1. **Accessing Your TikTok Ads Manager**: Start by logging into your TikTok Ads Manager. If you're a first-time user, you'll need to generate a new pixel in the pixel section. Existing users should locate and note their current pixel ID.
+
+#### Detailed Pixel Configuration
+
+2. **Custom Pixel Setup**: Opt for a manual setup of your TikTok pixel. This allows for a customized configuration. During this phase, name your pixel distinctly and make sure to skip any automated setup processes to maintain full control.
+
+#### Embedding Pixel in GTM
+
+3. **Incorporating Pixel into GTM**: Now, move to your Google Tag Manager dashboard.
+   - Begin by creating a new custom HTML tag.
+   - Carefully paste the obtained TikTok pixel code into this new tag.
+   - Set up a trigger for the tag, ensuring it activates on all pages. This is crucial for tracking page views across your entire Shopify store.
+
+#### Streamlining with Variables
+
+4. **Variable Creation for Pixel ID**:
+   - In GTM, establish a new variable specifically for your TikTok pixel ID.
+   - Assign the noted pixel ID to this variable. This practice simplifies future updates and maintains uniformity in your tracking system.
+
+#### Rigorous Testing Phase
+
+5. **Validating TikTok Pixel Functionality**:
+   - Employ the TikTok Pixel Helper, a browser extension tool, for this purpose.
+   - Navigate through your Shopify store, meticulously checking if pixel events, especially page views, are being captured correctly.
+   - Confirm that all targeted events are accurately tracked, ensuring comprehensive data collection.
+
+#### Finalizing and Activating
+
+6. **Implementing Your Setup**:
+   - Once testing confirms everything is functioning as expected, return to your GTM dashboard.
+   - Review all configurations for accuracy and completeness.
+   - Finalize the process by publishing these changes, thereby activating the TikTok pixel on your Shopify store.
+
+Following these detailed steps will result in a robust TikTok pixel integration within your Shopify store. This setup not only tracks user interactions but also provides deep insights into customer behavior, crucial for enhancing marketing strategies and understanding audience engagement.
 
 ## Section 3: Publishing Your Changes
 

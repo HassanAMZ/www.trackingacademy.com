@@ -14,79 +14,63 @@ import {
  Heading6xl,
  Heading2xl,
  Headingxl,
- Paragraphlg,
- Paragraphmd,
 } from "@/components/typography/Heading";
 import Image from "next/image";
 import GiscusComments from "@/components/mdx/GiscusComents";
 import AuthPre from "@/components/mdx/AuthPre";
-import {
- AddToCart,
- BeginCheckout,
- ConfiguringGTM,
- Purchase,
- ViewCart,
- TikTokPageView,
- ViewItem,
- ViewItemList,
-} from "@/components/dataLayer/index";
+import DataLayerCode from "./components/dataLayer/DataLayerCode";
 
 export function useMDXComponents(components: MDXComponents): MDXComponents {
  return {
   GiscusComments,
   YoutubeEmbed,
+  DataLayerCode,
   BlogHeader,
   Note,
+  AuthPre,
   pre: AuthPre,
   a: CustomLink,
   p: (props) => <p {...props} className='py-2 text-md md:text-lg' />,
   h1: (props) => (
-   <Heading6xl
+   <h1
     {...props}
-    className={`!text-4xl py-2 underline underline-offset-2 ${props.className}`}
+    className='text-4xl py-2 underline underline-offset-2 font-semibold leading-tight'
    />
   ),
   h2: (props) => (
-   <Heading5xl
+   <h1
     {...props}
-    className={`!text-3xl py-2 underline underline-offset-2 ${props.className}`}
+    className='text-3xl py-2 underline underline-offset-2 font-semibold leading-tight'
    />
   ),
   h3: (props) => (
-   <Heading4xl
+   <h1
     {...props}
-    className={`!text-2xl py-2 underline underline-offset-2 ${props.className}`}
+    className='text-2xl py-2 underline underline-offset-2 font-semibold leading-tight'
    />
   ),
   h4: (props) => (
-   <Heading3xl
+   <h1
     {...props}
-    className={`!text-xl py-2 underline underline-offset-2 ${props.className}`}
+    className='text-xl py-2 underline underline-offset-2 font-semibold leading-tight'
    />
   ),
   h5: (props) => (
-   <Heading2xl
+   <h1
     {...props}
-    className={`!text-lg py-2 underline underline-offset-2 ${props.className}`}
+    className='text-lg py-2 underline underline-offset-2 font-semibold leading-tight'
    />
   ),
   h6: (props) => (
-   <Headingxl
+   <h1
     {...props}
-    className={`!text-md py-2 underline underline-offset-2 ${props.className}`}
+    className='text-md py-2 underline underline-offset-2 font-semibold leading-tight'
    />
   ),
   li: ListItem,
   ol: OrderedList,
   ul: UnorderedList,
-  ViewItemList,
-  ViewItem,
-  BeginCheckout,
-  ConfiguringGTM,
-  AddToCart,
-  Purchase,
-  TikTokPageView,
-  ViewCart,
+
   img: (props) => {
    // @ts-ignore
    return <Image src={props.src} width={1920} height={1080} {...props} />;

@@ -73,14 +73,52 @@ This section we will see how to capture more data, like the item ID, name, value
 
 ### DataLayer Code Snippets Overview
 
-<AddToCart />
+This section provides code examples for integrating Google Tag Manager's `dataLayer` object with a Shopify store. Its primary function is to track and send a `custom_add_to_cart` event when a user clicks the AddToCart button on a product page in Shopify.
+
+### Initializing DataLayer in Head Section
+
+This snippet ensures the `dataLayer` array is set up. It detects if the user is on a 'product' page and, if so, implements a 'datalayer-product' snippet.
+
+<DataLayerCode type='addToCart' subType='head' />
+
+### Capturing Product Page Details in DataLayer
+
+Here, the code snippet captures essential product information when a product page is accessed:
+
+1. It identifies the product's current variant.
+2. It constructs an `itemObject` filled with product specifics.
+3. Upon document loading, it sends this information to the `dataLayer` object.
+
+<DataLayerCode type='addToCart' subType='main' />
+
+### Integrating DataLayer with Shopify Theme
+
+This snippet places the `head-datalayer` code within the Shopify theme. Typically, this should be added to the GTM Body Code section.
+
+<DataLayerCode type='addToCart' subType='theme' />
+
+Steps for Implementing DataLayer Snippets in Shopify:
+
+1. **Backup First:** Always create a backup of your theme before modifications.
+
+2. **Navigate to Theme Files:** Log in to Shopify Admin, select Online Store > Themes. In your active theme, click "Actions" then "Edit code".
+
+3. **Insert Head DataLayer Snippet:** Find `theme.liquid` in the left menu. Place the "Head DataLayer Code" within the `<head>` section.
+
+4. **Add Product DataLayer Snippet:** Choose "Add a new snippet" (this varies with Shopify version). Name it `datalayer-product.liquid` and include the "Product DataLayer Code". Save the file.
+
+5. **Place Theme DataLayer Snippet:** Decide the location for this code (usually within the `<head>` in `theme.liquid`). Insert the "Theme DataLayer Code" there. Save your changes.
+
+6. **Verification:** To test, visit a product page on your Shopify store and open the browser's developer console. Ensure that the `custom_add_to_cart` event triggers and the `dataLayer` shows accurate product information.
+
+Note: These instructions are based on a standard Shopify configuration. Custom themes may require different methods. Always conduct thorough tests before and after implementing changes.
 
 ## Section 4: Finalizing Add to Cart Event Tracking
 
 1. In Google Tag Manager, create a custom event trigger for the Add to Cart event.
 2. Use Facebook Parameter Generator for mapping event parameters.
 3. Create necessary variables for item ID, price, quantity, etc.
-4. Add a data layer variable for 'e-commerce do currency'.
+4. Add a data layer variable for 'ecommerce.currency'.
 5. Create the Add to Cart event tag using the Facebook Pixel template.
 6. Configure the tag with event parameters and set it to trigger on the Add to Cart event.
 7. Verify the event firing through preview and Facebook Pixel Event Manager.

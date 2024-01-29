@@ -81,7 +81,47 @@ To successfully trigger the "view item" event, the Shopify store must also be co
 
 Certainly! Let's break down the code snippets and provide a detailed explanation along with steps on how to add these snippets to a Shopify store.
 
-<ViewItem />
+## Implementing View Item Event Data Layer Code for Shopify
+
+This section outlines the process of setting up and integrating the `dataLayer` object on a Shopify site for effective data tracking and analytics, particularly for view item events.
+
+### Initializing the Data Layer
+
+The initial step involves a code snippet that activates the `dataLayer` array. This snippet also checks if the page is a product page. On identifying a product page, it triggers a special code segment, 'datalayer-product'.
+
+<DataLayerCode type='viewItem' subType='head' />
+
+### Gathering Product Information
+
+The core functionality of the 'datalayer-product' snippet lies in capturing key product data when a user lands on a product page. It performs the following:
+
+1. Recognizes and captures the selected product variant.
+2. Builds an `itemObject` containing detailed product information.
+3. Pushes this data into the `dataLayer` upon the document’s load.
+
+<DataLayerCode type='viewItem' subType='main' />
+
+### Embedding Theme-Level Data Layer Code
+
+For complete integration, include the 'head-datalayer' snippet in your theme. Typically, this part of the code is placed in the GTM Body Code area, depending on your Shopify theme's configuration.
+
+<DataLayerCode type='viewItem' subType='theme' />
+
+### Steps for Data Layer Implementation in Shopify:
+
+1. **Backup Your Theme:** Start by backing up your existing theme.
+
+2. **Navigate to Theme Files:** Log into your Shopify Admin, head to Online Store > Themes. Under "Actions," select "Edit code" for the active theme.
+
+3. **Incorporate Head Data Layer Code:** Locate `theme.liquid` in the sidebar. Insert the "Head DataLayer Code" within the `<head>` section.
+
+4. **Insert Product Data Layer Code:** Create a new snippet (name it `datalayer-product.liquid` if necessary) and add the "Product DataLayer Code" there. Save your changes.
+
+5. **Apply Theme Data Layer Code:** Determine the appropriate spot within the `<head>` section of `theme.liquid` for the "Theme DataLayer Code." Place it there and save.
+
+6. **Verify Functionality:** Test by visiting a product page. Open the developer console in your browser and confirm that the `custom_view_item` event activates and the `dataLayer` displays accurate product details.
+
+Following these instructions will ensure your Shopify site is well-equipped to capture and leverage data for tracking and analysis.
 
 ## Integrating Enhanced E-commerce Parameters with GTM
 

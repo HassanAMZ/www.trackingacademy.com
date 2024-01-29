@@ -64,7 +64,48 @@ In this comprehensive guide, we'll explore how to configure the purchase event o
 
 ## Section 3: DataLayer code for Purchase Events
 
-<Purchase />
+The provided code snippets aim to integrate the `dataLayer` object for Google Tag Manager (GTM) with a Shopify store. The main goal is to send an event called `custom_purchase` whenever a user visits the final /thank-you/ page on Shopify after making the payment.
+
+### Order Status DataLayer Code
+
+1. This script, embedded within a Shopify platform, serves to track purchase-related data for analytics purposes.
+2. When a user accesses a site for the first time (`first_time_accessed`), the script checks if the user is a registered customer. If so, it fetches the user's order count and total spend.
+3. The script then initializes the `dataLayer` object if it doesn't already exist and populates it with purchase details like transaction ID, total value, shipping, tax, currency, and details of items in the order.
+4. These details include individual product attributes such as the product's ID, SKU, name, price, brand, variant, quantity, and other related info.
+
+<DataLayerCode type='purchase' subType='main' />
+
+### Steps to Add the DataLayer Code Snippets in Shopify:
+
+1. **Log into Your Shopify Admin Panel:**
+
+   - Visit your Shopify store's URL followed by `/admin`.
+   - Enter your login credentials to access the admin panel.
+
+2. **Access Checkout Settings:**
+
+   - On the left-hand side menu, click on `Settings`.
+   - From the dropdown, select `Checkout`.
+
+3. **Locate the Additional Scripts Section:**
+
+   - Scroll down until you find the `Order processing` section.
+   - Within this section, you'll see a text box labeled `Additional Scripts`. This is where you can add scripts that will run on the order status page after a customer completes their purchase.
+
+4. **Paste Your Script:**
+
+   - Copy the script you have.
+   - Paste it into the `Additional Scripts` text box.
+
+5. **Save Changes:**
+
+   - After you've pasted your script, scroll to the bottom of the page and click on the `Save` button.
+
+6. **Test the Script (Important):**
+   - After saving, make a test purchase to ensure that the script runs as expected on the order status page.
+   - Check if all data is being collected and pushed to the `dataLayer` as intended by your script.
+
+> **Note:** The Additional Scripts section in the Checkout settings allows you to add scripts that will run after a customer has completed their purchase. This is a safe place to add conversion tracking codes, analytics scripts, or other scripts you want to trigger once a sale is confirmed.
 
 ## Section 4: GTM Configuration for Purchase Tracking
 

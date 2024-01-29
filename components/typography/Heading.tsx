@@ -33,7 +33,7 @@ const Heading2xl: React.FC<HeadingProps> = ({ children, className, style }) => {
 const Heading3xl: React.FC<HeadingProps> = ({ children, className, style }) => {
  return (
   <h2
-   className={`text-2xl text-left font-bold leading-tight py-2 ${
+   className={`text-3xl text-left font-bold leading-tight py-2 ${
     RobotoCondensed.className
    } ${className || ""}`}
    style={style}>
