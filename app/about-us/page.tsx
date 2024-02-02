@@ -28,30 +28,6 @@ export default function Page() {
     />
    </ContainerLayout>
    <AboutDetails />
-   {/* <HeroComponent
-    clientImageBoolean={false}
-    linksBoolean={false}
-    welcomeText='Welcome to Freelance Pizza!'
-    heading="Hey, I'm Hassan."
-    subHeading1='A top rated Freelancer on Upwork,  '
-    subHeading2="here's what you should know about me."
-    primaryLink='startHereLink'
-    secondaryLink='membershipLink'
-    imagesData={[
-     {
-      src: "/images/clients/001_1.jfif",
-      alt: "Imtiaz Ahmed - Job Ready Programmer",
-     },
-     { src: "/images/clients/007.jfif", alt: "Client" },
-     { src: "/images/clients/008.jfif", alt: "Pjipipp Herglotz - Kiss Agency" },
-     {
-      src: "/images/clients/001.jpg",
-      alt: "Imtiaz Ahmed - Job Ready Programmer",
-     },
-    ]}
-    backgroundImage='/images/hero/hero-image.png'
-    primaryColor='rgba(255,87,51,1)'
-   /> */}
   </section>
  );
 }
