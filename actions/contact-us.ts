@@ -1,6 +1,6 @@
 "use server";
 
-import { collection, addDoc } from "firebase/firestore";
+import { collection, addDoc, Timestamp } from "firebase/firestore";
 import { db } from "@/app/firebase";
 import { z } from "zod";
 import { Resend } from "resend";
@@ -16,6 +16,7 @@ export async function createContact(prevState: any, formData: FormData) {
   websiteLink: z.string().min(1),
   integrationType: z.string().min(1),
   projectDescription: z.string().min(1),
+  budget: z.string().min(1),
  });
 
  const data = schema.parse({
@@ -24,6 +25,8 @@ export async function createContact(prevState: any, formData: FormData) {
   websiteLink: formData.get("websiteLink"),
   integrationType: formData.get("integrationType"),
   projectDescription: formData.get("projectDescription"),
+  budget: formData.get("budget"),
+  createdAt: Timestamp.now(),
  });
 
  try {
@@ -33,7 +36,7 @@ export async function createContact(prevState: any, formData: FormData) {
    from: "support@trackingacademy.com",
    to: data.email,
    subject: "Thank you for contacting us!",
-   html: `<p>Dear ${data.userName},</p><p>Thank you for reaching out to us. We have received your query regarding ${data.integrationType}. Our team will get back to you shortly.</p><p>Best Regards,<br>Shahzada Ali Hassan</p>`,
+   html: `<p>Dear ${data.userName},</p><p>Thank you for reaching out to us. We have received your query regarding ${data.integrationType} with a budget of ${data.budget}. Our team will get back to you shortly.</p><p>Best Regards,<br>Shahzada Ali Hassan</p>`,
   });
 
   return { message: `Added contact ${data.userName}` };
