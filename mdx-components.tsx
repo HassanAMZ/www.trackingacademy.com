@@ -34,37 +34,37 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
   h1: (props) => (
    <h1
     {...props}
-    className='text-4xl py-2 underline underline-offset-2 font-semibold leading-tight'
+    className='text-3xl py-2 underline underline-offset-2 font-semibold leading-tight'
    />
   ),
   h2: (props) => (
    <h1
     {...props}
-    className='text-3xl py-2 underline underline-offset-2 font-semibold leading-tight'
+    className='text-2xl py-2 underline underline-offset-2 font-semibold leading-tight'
    />
   ),
   h3: (props) => (
    <h1
     {...props}
-    className='text-2xl py-2 underline underline-offset-2 font-semibold leading-tight'
+    className='text-xl py-2 underline underline-offset-2 font-semibold leading-tight'
    />
   ),
   h4: (props) => (
    <h1
     {...props}
-    className='text-xl py-2 underline underline-offset-2 font-semibold leading-tight'
+    className='text-lg py-2 underline underline-offset-2 font-semibold leading-tight'
    />
   ),
   h5: (props) => (
    <h1
     {...props}
-    className='text-lg py-2 underline underline-offset-2 font-semibold leading-tight'
+    className='text-md py-2 underline underline-offset-2 font-semibold leading-tight'
    />
   ),
   h6: (props) => (
    <h1
     {...props}
-    className='text-md py-2 underline underline-offset-2 font-semibold leading-tight'
+    className='text-sm py-2 underline underline-offset-2 font-semibold leading-tight'
    />
   ),
   li: ListItem,

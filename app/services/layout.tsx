@@ -10,8 +10,6 @@ export const metadata: Metadata = {
  openGraph: {
   images: ["/images/social-sharing.png"],
  },
-
- robots: "noindex",
 };
 export default function Layout({ children }: { children: ReactNode }) {
  return <ContainerLayout>{children}</ContainerLayout>;
