@@ -1,18 +1,19 @@
 import fs from "fs";
 import path from "path";
 import matter, { GrayMatterFile } from "gray-matter";
-import { PostMetadata } from "@/types/index";
-import extractMetaFromStringForBlog from "utils/extractMetaFromStringForBlog";
-import getFiles from "utils/getFiles";
+import { PostMetadata } from "@/types/index"; // Ensure this path is correct
+import extractMetaFromStringForBlog from "@/utils/extractMetaFromStringForBlog"; // Ensure this path is correct
+import getFiles from "@/utils/getFiles"; // Ensure this path is correct
 
-export default async function getBlogsData(): Promise<
- (PostMetadata & { id: string; slug: string })[]
-> {
- const blogDirectory = path.join(process.cwd(), "app/blog");
- const allPostsFiles = getFiles(blogDirectory);
+// Function with a default parameter for content directory path
+export default async function getContentData(
+ contentDirectoryPath: string = "app/blog" // Default value assigned here
+): Promise<(PostMetadata & { id: string; slug: string; title: string })[]> {
+ const baseDirectory = path.join(process.cwd(), contentDirectoryPath);
+ const allPostsFiles = getFiles(baseDirectory);
  const mdxFiles = allPostsFiles.filter((file) => path.extname(file) === ".mdx");
 
- const blogs = [];
+ const contents = [];
 
  for (const fileName of mdxFiles) {
   const fileContents = fs.readFileSync(fileName, "utf8");
@@ -28,9 +29,9 @@ export default async function getBlogsData(): Promise<
   const id = fileName.replace(/\.mdx$/, "");
 
   if (data) {
-   blogs.push({ ...data, id, slug, title });
+   contents.push({ ...data, id, slug, title });
   }
  }
 
- return blogs;
+ return contents;
 }

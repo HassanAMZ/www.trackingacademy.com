@@ -1,6 +1,6 @@
 const clientDetails = [
  {
-  id: "001",
+  id: 1,
   title: "Job Ready Programmer",
   business_details: {
    email: "info@jobreadyprogrammer.com",
@@ -65,7 +65,7 @@ const clientDetails = [
   ],
  },
  {
-  id: "002",
+  id: 2,
   title: "Book Online",
   business_details: {
    email: "contact@bookonline.com",
@@ -126,7 +126,7 @@ const clientDetails = [
   ],
  },
  {
-  id: "003",
+  id: 3,
   title: "Equifund Mortgage",
   business_details: {
    email: "info@equifundmortgage.com",
@@ -190,7 +190,7 @@ const clientDetails = [
   ],
  },
  {
-  id: "004",
+  id: 4,
   title: "Comrade",
   business_details: {
    email: "info@cmrd.com",
@@ -258,6 +258,69 @@ const clientDetails = [
     heading: "Website CMS",
     title: "ReactJs & Gatsby",
     link: "https://react.dev/",
+   },
+  ],
+ },
+ {
+  id: 5,
+  title: "Cookie Consent Implementation for E-Commerce",
+  business_details: {
+   email: "[Client's Email]",
+   phone: "[Client's Phone]",
+   name: "[Client's Business Name]",
+   link: "[Client's Business Link]",
+  },
+  client_details: [
+   {
+    name: "[Client's Name]",
+    email: "[Client's Email]",
+    position: "[Client's Position]",
+   },
+  ],
+  tags: ["GDPR Compliance", "Cookie Consent", "Google Tag Manager"],
+  project_description: [
+   {
+    heading: "Overview",
+    description:
+     "The project involved setting up a cookie consent management system for the client's e-commerce websites. The goal was to integrate a system that would comply with GDPR and other privacy regulations, ensuring that cookies were only loaded upon user acceptance.",
+   },
+   {
+    heading: "The Challenges",
+    description:
+     "The client needed to implement a cookie consent solution that was integrated with Google Tag Manager to manage user consent across multiple websites efficiently. The challenge was to do so without compromising the integrity of the client's analytics data.",
+   },
+   {
+    heading: "Solution",
+    description:
+     "I reconfigured the GTM setup for evans.co.uk and navabifashion.com to integrate with TrustArc for cookie consent management. This ensured that analytics and tracking tags would only fire after obtaining user consent, in accordance with GDPR regulations.",
+   },
+   {
+    heading: "Outcome",
+    description:
+     "The implementation was successful, with the client's websites now fully compliant with privacy laws and regulations. The analytics data integrity was maintained, and the client was able to accurately track conversion events post-implementation.",
+   },
+  ],
+  testimonial_details: [
+   {
+    testimonial:
+     "I am impressed with the efficiency and thoroughness of the cookie consent integration. It has brought our e-commerce operations up to the latest compliance standards.",
+    project_title: "GDPR Cookie Consent Integration",
+   },
+  ],
+  images: [
+   { name: "featured_image_url", link: "/images/clients/004.svg" },
+   { name: "supporting_image_url", link: "/images/clients/001_1.jfif" },
+  ],
+  project_details: [
+   {
+    heading: "E-commerce Sites",
+    title: "Evans & Navabi Fashion",
+    link: "https://www.evans.co.uk/",
+   },
+   {
+    heading: "Cookie Consent Tool",
+    title: "TrustArc",
+    link: "https://trustarc.com/",
    },
   ],
  },

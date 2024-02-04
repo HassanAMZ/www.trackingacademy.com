@@ -14,8 +14,9 @@ export async function generateStaticParams() {
 
 const Page: React.FC<DynamicPortfolioPageProps> = ({ params }) => {
  let clientId = params.portfolio;
+ console.log("hi", typeof clientId, clientId);
  let clientObject = clientDetails.find(
-  (clientDetails: Client) => clientDetails.id === clientId
+  (client) => client.id === parseInt(clientId)
  );
 
  if (clientObject) {
@@ -29,8 +30,8 @@ const Page: React.FC<DynamicPortfolioPageProps> = ({ params }) => {
     );
    }
   );
-  const isEven = (id: string): boolean => {
-   return parseInt(id, 10) % 2 === 0;
+  const isEven = (id: number): boolean => {
+   return id % 2 === 0;
   };
 
   const bgColor = isEven(clientObject.id)

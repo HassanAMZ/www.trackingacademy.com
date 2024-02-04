@@ -120,7 +120,7 @@ export interface DetailsProps {
  detailsList: Detail[];
 }
 export interface Client {
- id: string;
+ id: number;
  title: string;
  business_details: {
   email: string;
@@ -198,18 +198,12 @@ export interface NavLinkProps {
  className?: string;
 }
 
-export interface ImageProps {
- link: string;
- name: string;
- clientId: string;
-}
-
 export interface ImageSliderProps {
- images: ImageProps[];
+ images: ImageType[];
 }
 
 export interface ImageType {
- clientId: string;
+ clientId: number;
  link: string;
  name: string;
 }

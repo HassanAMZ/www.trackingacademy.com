@@ -18,7 +18,7 @@ export const metadata = {
 export async function generateStaticParams(): Promise<
  (PostMetadata & { id: string; slug: string })[]
 > {
- let allPostsData = await getBlogsData();
+ let allPostsData = await getBlogsData("app/blog");
 
  return allPostsData;
 }

@@ -17,7 +17,7 @@ const BlogLayout: FC<BlogLayoutProps> = async ({
  className,
  metadata,
 }) => {
- let allPostsData = await getBlogsData();
+ let allPostsData = await getBlogsData("app/blog");
 
  const shuffledPosts = allPostsData.sort(() => 0.5 - Math.random());
  const randomPosts = shuffledPosts.slice(0, 4);

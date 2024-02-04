@@ -13,7 +13,7 @@ export async function generateMetadata({ params }: any) {
 }
 
 export async function generateStaticParams(): Promise<{ blog: string }[]> {
- const blogs = await getBlogsData();
+ const blogs = await getBlogsData("app/blog");
 
  const seenBlogs = new Set();
  const blogSlugs = blogs
