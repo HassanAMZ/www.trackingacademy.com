@@ -61,13 +61,7 @@ This section is crafted for those aiming to deepen their data capture during the
 
 The provided script ensures the initialization of the `dataLayer` array if it hasn't occurred yet. It checks whether the current page template aligns with a 'product' page and subsequently activates a specified snippet named 'datalayer-checkout' across all pages.
 
-```javascript
-<script>
-    window.dataLayer = window.dataLayer || [];
-</script>
-
-{%- render 'datalayer-checkout' -%}
-```
+<DataLayerCode type='beginCheckout' subType='head' />
 
 ### Crafting the Checkout DataLayer Script
 
@@ -78,65 +72,13 @@ This script plays a crucial role in enriching the `dataLayer` object with essent
 3. **Determining Cart's Total Value**: Calculates the aggregate value of cart items.
 4. **Event Listener for Begin Checkout**: After page load completion, it identifies checkout buttons and, upon each click, refreshes the `dataLayer` ecommerce data, followed by injecting updated ecommerce information for GTM tracking.
 
-```javascript
-<script>
-// Script activates post complete loading of the DOM
-document.addEventListener('DOMContentLoaded', () => {
-  // Locates checkout buttons
-  const checkoutButtons = document.querySelectorAll('[name="checkout"]');
-
-  checkoutButtons.forEach(button => {
-    // Attaches click event listener to each button
-    button.addEventListener('click', () => {
-      // Retrieves updated cart information
-      fetch('/cart.js')
-        .then(response => response.json())
-        .then(cartData => {
-          // Formats cart items for GA4 tracking
-          const productDetails = cartData.items.map(item => ({
-            item_id: item.id,
-            id: item.id,
-            item_name: item.product_title,
-            item_brand: item.vendor,
-            item_category: item.product_type,
-            quantity: item.quantity,
-            currency: cartData.currency,
-            google_business_vertical: 'retail',
-            price: parseFloat(item.price / 100.0)
-          }));
-
-          // Computes total cart value
-          const cartTotalValue = cartData.items.reduce((total, item) => {
-            return total + (item.price * item.quantity);
-          }, 0);
-
-          // Refreshes dataLayer for the new event
-          dataLayer.push({ ecommerce: null });
-
-          // Updates the dataLayer with new cart data
-          dataLayer.push({
-            event: "custom_begin_checkout",
-            ecommerce: {
-              items: productDetails,
-              value: parseFloat(cartTotalValue / 100.0),
-              currency: cartData.currency
-            }
-          });
-        })
-        .catch(error => console.error('Error in fetching cart data:', error));
-    });
-  });
-});
-</script>
-```
+<DataLayerCode type='beginCheckout' subType='main' />
 
 ### Implementing the Theme DataLayer Code
 
 This segment of code activates the `head-datalayer` snippet. Depending on your Shopify theme's configuration, this is typically where the head datalayer code is positioned. Incorporate this within the GTM Body Code.
 
-```liquid
-{% render 'head-datalayer' %}
-```
+<DataLayerCode type='beginCheckout' subType='theme' />
 
 ### Procedural Steps for Integrating DataLayer Code Snippets in Shopify:
 

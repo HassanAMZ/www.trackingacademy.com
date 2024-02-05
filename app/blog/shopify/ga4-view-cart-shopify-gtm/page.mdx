@@ -78,41 +78,7 @@ In the next section, we write the script that will trigger the "View Cart" event
 
 Here's the script you'll be adding:
 
-```javascript
-{%- if template == 'cart' -%}
-    <script type="text/javascript">
-    console.log("datalayer-cart snippet is loaded");
-    var cart_data = {{ cart | json }};
-    var product_details = cart_data.items.map(function(item, index) {
-        return {
-        item_id: item.id,
-        id: item.id,
-        item_name: item.product_title,
-        item_brand: item.vendor,
-        item_category: item.product_type,
-        quantity: item.quantity,
-        currency: {{ shop.currency | json }},
-        google_business_vertical: 'retail',
-        price: parseFloat(item.price / 100.0)
-        };
-    });
-    var total_value = product_details.reduce(function(acc, item) {
-        return acc + (item.price * item.quantity);
-    }, 0);
-
-    dataLayer.push({ ecommerce: null });
-    dataLayer.push({
-        event: "custom_view_cart",
-        currency: {{ shop.currency | json }},
-        ecommerce: {
-        value: total_value,
-        currency: {{ shop.currency | json }},
-        items: product_details
-        }
-    });
-    </script>
-{%- endif -%}
-```
+<DataLayerCode type='viewCart' subType='main' />
 
 <Note
  title='Tip'

@@ -62,15 +62,7 @@ This set of code snippets is responsible for managing the initialization and pop
 
 To start, we have a code snippet designed to initialize the `dataLayer` array if it hasn't been initialized already. It also includes logic to identify whether the current page template corresponds to a 'product' page. If it does, it triggers the rendering of a specific snippet called 'datalayer-product'.
 
-```jsx
-<script>
-  window.dataLayer = window.dataLayer || [];
-</script>
-
-{%- if template contains 'product' -%}
-  {%- render 'datalayer-product', product: product -%}
-{%- endif -%}
-```
+<DataLayerCode type='viewItem' subType='head' />
 
 ### **Capturing Product Data**
 
@@ -80,45 +72,13 @@ The primary focus of the 'datalayer-product' snippet is to capture essential pro
 2. Constructs an `itemObject` that holds various product details.
 3. Upon document load, it pushes this data into the `dataLayer` object.
 
-```jsx
-{%- liquid assign current_variant = product.selected_or_first_available_variant -%}
-
-<script>
-  console.log("datalayer-product snippet is loaded")
-  var itemObject = {
-      item_id: {{ current_variant.id | json }},
-      id: {{ current_variant.id | json }},
-      item_name: {{ product.title | json }},
-      currency: {{ shop.currency | json }},
-      item_brand: {{ product.vendor | json }},
-      item_category: {{ product.type | json }},
-      item_variant: {{ current_variant.title | json }},
-      price: {{ current_variant.price }} / 100,
-      google_business_vertical: 'retail',
-      quantity: 1
-  }
-
-  document.addEventListener('DOMContentLoaded', () => {
-      dataLayer.push({ ecommerce: null });
-      dataLayer.push({
-          event: "custom_view_item",
-          ecommerce: {
-          value: itemObject.price,
-          currency: {{ shop.currency | json }},
-            items: [itemObject]
-          }
-      });
-  })
-</script>
-```
+<DataLayerCode type='viewItem' subType='main' />
 
 ### **Integrating Theme DataLayer Code**
 
 Lastly, to integrate the theme-level dataLayer code, you need to render the 'head-datalayer' snippet. Typically, this is where the head datalayer code resides in your Shopify theme setup. You should insert this code into the GTM Body Code section.
 
-```jsx
-{% render 'head-datalayer' %}
-```
+<DataLayerCode type='viewItem' subType='theme' />
 
 ### **Steps to Implement DataLayer Code in Shopify:**
 

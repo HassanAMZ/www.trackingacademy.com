@@ -14,7 +14,6 @@ export async function generateStaticParams() {
 
 const Page: React.FC<DynamicPortfolioPageProps> = ({ params }) => {
  let clientId = params.portfolio;
- console.log("hi", typeof clientId, clientId);
  let clientObject = clientDetails.find(
   (client) => client.id === parseInt(clientId)
  );
