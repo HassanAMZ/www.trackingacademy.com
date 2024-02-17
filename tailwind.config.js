@@ -11,9 +11,25 @@ module.exports = {
    "right-10": "right 10rem",
   },
   extend: {
-   colors: {},
+   filter: ["hover", "focus"], // This enables filters
+   brightness: ["hover", "focus"], // This enables brightness adjustment
+
+   colors: {
+    primary: "#BDFD6D",
+    secondary: "#89C64F",
+    tertiary: "",
+    light: {
+     primary: "#ffffff",
+     secondary: "#fff000",
+    },
+    dark: {
+     primary: "#262420",
+     secondary: "#403D37",
+    },
+   },
    animation: {
     fadeIn: "fadeIn 0.2s ease-in-out forwards",
+    "gradient-move": "gradient-animation 3s ease infinite",
    },
 
    fontSize: {
@@ -32,19 +48,13 @@ module.exports = {
     "8xl": "6rem", // 96px
    },
    keyframes: {
+    "gradient-animation": {
+     "0%, 100%": { backgroundPosition: "0% 50%" },
+     "50%": { backgroundPosition: "200% 50%" },
+    },
     fadeIn: {
      "0%": { opacity: 0 },
      "100%": { opacity: 100 },
-    },
-    text: {
-     "0%, 100%": {
-      "background-size": "200% 200%",
-      "background-position": "left center",
-     },
-     "50%": {
-      "background-size": "200% 200%",
-      "background-position": "right center",
-     },
     },
    },
   },

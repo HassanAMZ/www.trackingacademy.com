@@ -14,58 +14,56 @@ import ContainerLayout from "../layouts/ContainerLayout";
 
 const Footer: React.FC = () => {
  return (
-  <ContainerLayout>
-   <div className='pb-1 pt-2'>
-    <footer className='backgroundOverlay py-12 px-5 flex flex-col justify-center items-center shadow-lg'>
-     <NavLink
-      href='/'
+  <div className='pb-1 pt-2'>
+   <footer className='backgroundOverlay py-12 px-5 flex flex-col justify-center items-center shadow-lg'>
+    <NavLink
+     href='/'
+     className='hover:text-primary transition-all duration-300'>
+     TrackingAcademy
+    </NavLink>
+    <Paragraphmd className='textOpacity80 text-center sm:text-left py-2 animate__animated animate__fadeIn'>
+     {" "}
+     {/* added animation */}
+     The ultimate educational journey for freelancers.
+    </Paragraphmd>
+
+    <nav className='flex flex-col sm:flex-row gap-2 items-center justify-between pt-12'>
+     <NavigationLinks />
+     <ThemeSwitcher />
+    </nav>
+
+    {/* Adding social media icons */}
+    <div className='flex space-x-5 pt-5'>
+     <CustomLink
+      href='https://www.youtube.com/@trackingacademy_'
+      target='_blank'
+      rel='noopener noreferrer'
       className='hover:text-primary transition-all duration-300'>
-      TrackingAcademy
-     </NavLink>
-     <Paragraphmd className='textOpacity80 text-center sm:text-left py-2 animate__animated animate__fadeIn'>
-      {" "}
-      {/* added animation */}
-      The ultimate educational journey for freelancers.
-     </Paragraphmd>
+      <YouTubeIcon />
+     </CustomLink>
 
-     <nav className='flex flex-col sm:flex-row gap-2 items-center justify-between pt-12'>
-      <NavigationLinks />
-      <ThemeSwitcher />
-     </nav>
+     <CustomLink
+      href='https://www.facebook.com/shahzadaalihassan/'
+      target='_blank'
+      rel='noopener noreferrer'
+      className='hover:text-primary transition-all duration-300'>
+      <FacebookIcon />
+     </CustomLink>
 
-     {/* Adding social media icons */}
-     <div className='flex space-x-5 pt-5'>
-      <CustomLink
-       href='https://www.youtube.com/@trackingacademy_'
-       target='_blank'
-       rel='noopener noreferrer'
-       className='hover:text-primary transition-all duration-300'>
-       <YouTubeIcon />
-      </CustomLink>
-
-      <CustomLink
-       href='https://www.facebook.com/shahzadaalihassan/'
-       target='_blank'
-       rel='noopener noreferrer'
-       className='hover:text-primary transition-all duration-300'>
-       <FacebookIcon />
-      </CustomLink>
-
-      {/* <CustomLink
+     {/* <CustomLink
       href='https://www.instagram.com/shahzadaalihassan_/'
       target='_blank'
       rel='noopener noreferrer'
       className='hover:text-primary transition-all duration-300'>
       <InstagramIcon />
      </CustomLink> */}
-     </div>
+    </div>
 
-     <Paragraphmd className='textOpacity80 pt-12'>
-      © {new Date().getFullYear()} TrackingAcademy, All rights reserved
-     </Paragraphmd>
-    </footer>
-   </div>
-  </ContainerLayout>
+    <Paragraphmd className='textOpacity80 pt-12'>
+     © {new Date().getFullYear()} TrackingAcademy, All rights reserved
+    </Paragraphmd>
+   </footer>
+  </div>
  );
 };
 

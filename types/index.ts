@@ -172,7 +172,7 @@ export interface BlogCardProps {
 export interface ContainerLayoutProps {
  children: ReactNode;
  className?: string; // Optional className prop
- id?: string; // Optional className prop
+ id?: string; // Optional id prop
 }
 
 export interface BlogLayoutProps {

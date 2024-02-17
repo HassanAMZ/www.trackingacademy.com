@@ -2,27 +2,27 @@ html {
  scroll-behavior: smooth;
 }
 
-:root {
- font-size: 16px;
-}
+// :root {
+//  font-size: 16px;
+// }
 
-@media (min-width: 640px) {
- :root {
-  font-size: 17px;
- }
-}
+// @media (min-width: 640px) {
+//  :root {
+//   font-size: 17px;
+//  }
+// }
 
-@media (min-width: 768px) {
- :root {
-  font-size: 18px;
- }
-}
+// @media (min-width: 768px) {
+//  :root {
+//   font-size: 18px;
+//  }
+// }
 
-@media (min-width: 1024px) {
- :root {
-  font-size: 20px;
- }
-}
+// @media (min-width: 1024px) {
+//  :root {
+//   font-size: 20px;
+//  }
+// }
 // Styles for making a YouTube video embed responsive
 .video-responsive {
  overflow: hidden;
@@ -121,4 +121,16 @@ html {
 
 .selectedClient .clientName {
  transform: translateX(20px); /* Adjust as needed */
+}
+
+@keyframes gradientBackground {
+ 0% {
+  background-position: 0% 50%;
+ }
+ 50% {
+  background-position: 100% 50%;
+ }
+ 100% {
+  background-position: 0% 50%;
+ }
 }
