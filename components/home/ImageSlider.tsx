@@ -12,7 +12,7 @@ const ImageSlider = () => {
   dots: false,
   infinite: true,
   speed: 5000,
-  slidesToShow: 6,
+  slidesToShow: 3,
   slidesToScroll: 1,
   autoplay: true,
   cssEase: "linear",
@@ -20,6 +20,12 @@ const ImageSlider = () => {
   pauseOnHover: true,
   arrows: false,
   responsive: [
+   {
+    breakpoint: 2500,
+    settings: {
+     slidesToShow: 6,
+    },
+   },
    {
     breakpoint: 1600,
     settings: {

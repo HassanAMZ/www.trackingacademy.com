@@ -32,7 +32,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
    <body
     className={` selection:text-light-primary selection:bg-secondary dark:selection:bg-secondary dark:bg-dark-primary bg-light-primary text-dark-primary dark:text-light-primary ${Roboto.className}`}>
     <ThemeProvider attribute='class' defaultTheme='dark'>
-     {children}
+     <AuthContextProvider>{children}</AuthContextProvider>
     </ThemeProvider>
 
     <Suspense>

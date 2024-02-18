@@ -184,7 +184,7 @@ function page() {
       </div>{" "}
       in website tracking?
      </h2>
-     <p className='text-center max-w-xl'>
+     <p className='text-center container-secondary paragraph-primary py-8'>
       For 240+ clients and 25+ agencies, from startups to multi-million-dollar
       websites, we have made setting up and fixing tracking systems simple,
       fast, efficient and successful.
@@ -234,7 +234,7 @@ function page() {
        websites for eCommerce brands and lead generation websites with Google
        Analytics 4, Google Tag Manager, Facebook Pixel and more.
       </p>
-      <p className='md:py-6 paragraph-secondary text-center md:text-left'>
+      <p className='md:py-6 paragraph-primary text-center md:text-left'>
        After making hundreds of tracking integration and system for clients and
        agencies, Hassan put together a world-class team of strategists,
        Analysts, marketers, developers, and a conversion tracking experts that
@@ -339,8 +339,8 @@ function page() {
      </div>
      <div className='text-dark-primary'>
       <h2 className='title-secondary text-center'>How we compare</h2>
-      <div className='container-secondary flex items-center justify-center py-6'>
-       <p className='paragraph-secondary text-center'>
+      <div className=' flex items-center justify-center py-6'>
+       <p className='paragraph-primary container-primary text-center'>
         Your primary website can't possibly appeal to all customers at all
         times. That's where landing pages come in! When you build landing pages
         with HOOX, you're able to create a unique site experience tailored to

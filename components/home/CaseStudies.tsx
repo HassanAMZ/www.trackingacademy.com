@@ -65,12 +65,12 @@ const CaseStudies: React.FC = () => {
     </div>
     <div className=' col-span-1 text-left gap-5 flex flex-col'>
      <h3 className='title-secondary '>{title}</h3>
-     <p className='paragraph-secondary'>{description}</p>
+     <p className='paragraph-primary'>{description}</p>
      <div className='grid grid-cols-2 gap-4'>
       {stats.map((stat, index) => (
        <div key={index}>
         <p className='title-secondary'>{stat.percentage}</p>
-        <p className='paragraph-secondary'>{stat.text}</p>
+        <p className='paragraph-primary'>{stat.text}</p>
        </div>
       ))}
      </div>

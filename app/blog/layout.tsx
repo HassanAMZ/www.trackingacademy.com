@@ -3,9 +3,6 @@ import { ReactNode } from "react";
 import React from "react";
 import { PostMetadata } from "@/types/index";
 import getBlogsData from "utils/getBlogsData";
-import AuthenticatedLayout from "@/components/layouts/AuthenticatedLayout";
-import NavBar from "@/components/navbar/Navbar";
-import Footer from "@/components/footer/Footer";
 import { AuthContextProvider } from "@/context/AuthContext";
 
 export const metadata = {
@@ -24,9 +21,5 @@ export async function generateStaticParams(): Promise<
  return allPostsData;
 }
 export default function Layout({ children }: { children: ReactNode }) {
- return (
-  <AuthContextProvider>
-   <BlogLayout className=''>{children}</BlogLayout>
-  </AuthContextProvider>
- );
+ return <BlogLayout>{children}</BlogLayout>;
 }
