@@ -1,5 +1,8 @@
 import { ReactNode, FC } from "react";
 import { ContainerLayoutProps } from "@/types/index";
+import NavBar from "../navbar/Navbar";
+import Footer from "../footer/Footer";
+
 const ContainerLayout: FC<ContainerLayoutProps> = ({
  children,
  className,
@@ -8,8 +11,10 @@ const ContainerLayout: FC<ContainerLayoutProps> = ({
  return (
   <div
    id={id}
-   className={`max-w-3xl container mx-auto px-2  ${className || ""}`}>
+   className={`max-w-3xl container mx-auto px-2 ${className || ""}`}>
+   <NavBar />
    {children}
+   <Footer />
   </div>
  );
 };

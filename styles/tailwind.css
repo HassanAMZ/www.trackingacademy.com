@@ -23,8 +23,8 @@ code {
 }
 
 ::-webkit-scrollbar {
- height: 6px; /* Set the height for horizontal scrollbar */
- width: 6px; /* Set the width for vertical scrollbar */
+ height: 0px; /* Set the height for horizontal scrollbar */
+ width: 0px; /* Set the width for vertical scrollbar */
 }
 
 ::-webkit-scrollbar-thumb {
@@ -38,4 +38,57 @@ code {
 /* Dark Mode Scrollbar Style */
 .dark ::-webkit-scrollbar-thumb {
  @apply bg-red-600;
+}
+
+.title-primary {
+ @apply tracking-tight text-[clamp(1.875rem,_5vw,_3rem)] leading-tight font-bold;
+}
+
+.title-secondary {
+ @apply tracking-tight text-[clamp(1.75rem,_4vw,_2.5rem)] leading-tight font-bold;
+}
+
+.title-tertiary {
+ @apply tracking-tight text-[clamp(1.5rem,_3vw,_1.5rem)] leading-tight font-bold;
+}
+
+.paragraph-primary {
+ @apply tracking-normal text-[clamp(1.125rem,_1.5vw,_1.25rem)] leading-normal;
+}
+
+.paragraph-secondary {
+ @apply tracking-normal text-[clamp(0.825rem,_1.25vw,_1rem)] leading-normal;
+}
+.paragraph-tertiary {
+ @apply tracking-normal text-[clamp(0.75rem,_1vw,_0.875rem)] leading-normal;
+}
+
+.link-primary {
+ @apply rounded-full border-2 border-dark-primary bg-primary hover:bg-light-primary dark:text-dark-primary font-semibold text-light-primary;
+}
+
+.link-secondary {
+ @apply text-primary bg-dark-primary font-semibold hover:text-primary border-primary rounded-full border-2;
+}
+
+.container-primary {
+ @apply container mx-auto max-w-7xl px-3;
+}
+.container-secondary {
+ @apply max-w-4xl px-3 mx-auto;
+}
+@layer components {
+ .slider-container-shadow {
+  @apply relative overflow-hidden;
+ }
+
+ .slider-container-shadow::after {
+  @apply absolute inset-x-0 bottom-0 h-1/3;
+  content: "";
+  background: linear-gradient(
+   to top,
+   theme("colors.dark.primary"),
+   rgba(0, 0, 0, 0)
+  );
+ }
 }

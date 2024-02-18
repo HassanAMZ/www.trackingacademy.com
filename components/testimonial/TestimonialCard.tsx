@@ -13,7 +13,7 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({
  className,
 }) => {
  return (
-  <ContainerLayout className={`text-center  ${(className || "") ?? ""}`}>
+  <section className={`text-center  ${(className || "") ?? ""}`}>
    <div className='text-center py-3 '>
     <blockquote className='overflow-hidden h-full items-center justify-center flex flex-col p-4 md:p-6 gap-5'>
      <Paragraphmd>★★★★★</Paragraphmd>
@@ -30,7 +30,7 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({
      <Paragraphsm className='textOpacity80'>{person.position}</Paragraphsm>
     </blockquote>
    </div>
-  </ContainerLayout>
+  </section>
  );
 };
 

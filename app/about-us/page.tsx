@@ -18,7 +18,7 @@ export default function Page() {
     colorDetails={{ primary: baseColors.aboutUs.primary }}
    />
 
-   <ContainerLayout className='pt-2'>
+   <section className='pt-2'>
     <Image
      src='/images/social-sharing.png'
      alt='Imtiaz Ahmed'
@@ -26,7 +26,7 @@ export default function Page() {
      height={1080}
      className='rounded-lg'
     />
-   </ContainerLayout>
+   </section>
    <AboutDetails />
   </section>
  );
