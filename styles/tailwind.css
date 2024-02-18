@@ -75,7 +75,7 @@ code {
  @apply container mx-auto max-w-7xl px-3;
 }
 .container-secondary {
- @apply max-w-4xl px-3;
+ @apply max-w-4xl px-3 mx-auto;
 }
 @layer components {
  .slider-container-shadow {

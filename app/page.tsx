@@ -7,6 +7,8 @@ import MobileNav from "@/components/home/MobileNav";
 import DesktopNav from "@/components/home/DesktopNav";
 import Image from "next/image";
 import Timeline from "@/components/home/Timeline";
+import Technologies from "@/components/home/Technologies";
+import ComparisonTable from "@/components/home/ComparisonTable";
 
 const poppins = Poppins({
  subsets: ["latin"],
@@ -151,7 +153,7 @@ function page() {
       4 Reasons Why You Should work with us to Configure your Wesbite's Tracking
      </h2>
 
-     <div className='grid md:grid-cols-2 gap-3 md:gap-6 py-10'>
+     <div className='grid md:grid-cols-2 gap-2 md:gap-4 py-10'>
       {reasonsData.map((reason, index) => (
        <div
         key={index}
@@ -273,7 +275,7 @@ function page() {
 
     <section className='py-20 container-primary flex flex-col items-center'>
      <h2 className='title-secondary text-center py-10 container-secondary'>
-      What happens when you purchase a Landing Page
+      What happens when you purchase a Tracking Package
      </h2>
      <Timeline />
     </section>
@@ -282,53 +284,18 @@ function page() {
      <CaseStudies />
     </section>
 
-    <section>
-     <div>
-      <div> Image</div>
-      <h3>Fill out a detailed onboarding form</h3>
-      <p>
-       This form takes 7 minutes to complete and allows us to collect everything
-       we need to build your page.
-      </p>
-     </div>
-     <div>
-      <div> Image</div>
-      <h3>Strategy, Wireframing & Copywriting</h3>
-      <p>
-       The HOOX team spends 8-10 hours on brand research, wireframing, and
-       copywriting for your page.
-      </p>
-     </div>
-     <div>
-      <div> Image</div>
-      <h3>Mobile & Desktop Design</h3>
-      <p>
-       Using your brand book and guidelines, we bring your landing page to life.
-       All HOOX landing pages are designed responsively for desktop and mobile.
-      </p>
-     </div>
-     <div>
-      <div> Image</div>
-      <h3>Your LP goes LIVE!</h3>
-      <p>
-       We develop your landing page, and once it's complete, we transfer the
-       fully developed page to you. Now it's time to run some traffic!
-      </p>
-     </div>
-    </section>
-
     <section
      id='call-to-action'
-     className='grid md:grid-cols-2 gap-4 py-10 container-primary'>
+     className='grid md:grid-cols-2 gap-4 py-10 items-center justify-center container-primary'>
      <div className='space-y-4'>
       <p className='text-primary'>Let's talk shop</p>
       <h2 className='title-secondary'>Our landing page solution</h2>
-      <p className='paragraph-secondary'>
+      <p className='paragraph-primary'>
        We build digital experiences for brands through custom landing pages.
        This helps you acquire customers more effectively with higher conversion
        rates, lower CPAs, and improved ROAS.
       </p>
-      <p className='paragraph-tertiary'>
+      <p className='paragraph-primary'>
        Our pages help consumers understand who you are, what you sell, how it
        helps them, and why you're the best option on the market.
       </p>
@@ -337,7 +304,7 @@ function page() {
      <div className='bg-primary rounded-lg py-10 px-6 text-dark-primary divide-y divide-dark-secondary'>
       <div className='pb-3'>
        <h3 className='title-tertiary font-bold'>Landing page build</h3>
-       <div className='flex items-center gap-4'>
+       <div className='py-4 flex items-center gap-4'>
         <p className='paragraph-secondary font-bold'>$5,000</p>
         <p className='paragraph-tertiary'>
          1 fully custom landing page build included
@@ -346,7 +313,7 @@ function page() {
       </div>
       <div className='py-4'>
        <p className='paragraph-secondary font-bold'>What's included</p>
-       <ul className='list-inside space-y-2 grid md:grid-cols-2'>
+       <ul className='list-inside space-y-2 grid sm:grid-cols-2'>
         <li className='flex items-center'>✔ Ideation & Concept</li>
         <li className='flex items-center'>✔ Wireframe</li>
         <li className='flex items-center'>✔ Copywriting</li>
@@ -359,21 +326,21 @@ function page() {
         <li className='flex items-center'>✔ Development </li>
        </ul>
       </div>
-      <button className='link-secondary w-full mt-6 !text-light-primary'>
+      <button className='link-secondary w-full mt-6 p-4 !text-light-primary'>
        Build my Page
       </button>
      </div>
     </section>
 
-    <section className='container-primary'>
-     <div className='bg-light-primary text-dark-primary text-center '>
-      <div className=''>
-       <h2 className='title-secondary'>We plug into your tech stack</h2>
-      </div>
-
-      <div>
-       <h2>How we compare</h2>
-       <p>
+    <section className=' bg-light-primary'>
+     <div className='container-primary py-20 text-dark-primary text-center '>
+      <h2 className='title-secondary py-8'>We plug into your tech stack</h2>
+      <Technologies />
+     </div>
+     <div className='text-dark-primary'>
+      <h2 className='title-secondary text-center'>How we compare</h2>
+      <div className='container-secondary flex items-center justify-center py-6'>
+       <p className='paragraph-secondary text-center'>
         Your primary website can't possibly appeal to all customers at all
         times. That's where landing pages come in! When you build landing pages
         with HOOX, you're able to create a unique site experience tailored to
@@ -381,11 +348,10 @@ function page() {
         them. With custom landing pages, you can create a red-carpet experience
         for any site visitor to become a customer over time.
        </p>
-       <div> table</div>
       </div>
+      <ComparisonTable />
      </div>
     </section>
-
     <section className='container-primary'>
      <h2>What others have to say about working with HOOX</h2>
      <div> testimonals </div>

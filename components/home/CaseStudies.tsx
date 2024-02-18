@@ -17,23 +17,27 @@ interface CaseStudy {
 
 const caseStudies: CaseStudy[] = [
  {
-  title: "Caraway",
-  description:
-   "Mango Lorem Ipsum is simply dummy text of the printing and typesetting industry...",
-  imageSrc: "/images/social-sharing.png",
+  title: "Google Analytics 4 using GTM and Gtag (Ecommerce Store)",
+  description: `The objective to seamlessly transition to GA4 for Hama, ensuring that Google Ads and Ga4 tracking were not just maintained but optimized in the process, this transition was critical, as GA4 offers a more comprehensive view.`,
+  imageSrc: "/images/home/client-hama.png",
   stats: [
-   { percentage: "74%", text: "Lorem Ipsum is simply dummy text..." },
-   { percentage: "32%", text: "Lorem Ipsum is simply dummy text..." },
+   {
+    percentage: "86%",
+    text: "Increase in conversions tracked on Ads and attribution.",
+   },
+   { percentage: "32%", text: "Improvement in Return on Ads Spent." },
   ],
  },
  {
-  title: "Hallway",
-  description:
-   "Lorem Ipsum is simply dummy text of the printing and typesetting industry...",
-  imageSrc: "/images/social-sharing.png",
+  title: "Facebook Pixel and Conversion API (Server Side Tracking)",
+  description: `The primary goal was to ensure the precise tracking of purchase events and other significant user interactions directly to Facebook's servers, bypassing browser restrictions and enhancing data privacy and accuracy.`,
+  imageSrc: "/images/home/client-ticketonsale.png",
   stats: [
-   { percentage: "74%", text: "Lorem Ipsum is simply dummy text..." },
-   { percentage: "32%", text: "Lorem Ipsum is simply dummy text..." },
+   {
+    percentage: "71%",
+    text: "Increase in conversions tracked on Ads and attribution.",
+   },
+   { percentage: "43%", text: "Improvement in Return on Ads Spent." },
   ],
  },
 ];
@@ -54,31 +58,23 @@ const CaseStudies: React.FC = () => {
  return (
   <div className='flex flex-col items-center text-center py-10 container-primary'>
    <p className='text-secondary font-semibold'>It works, too</p>
-
-   <h2 className='title-secondary text-dark-primary'>Case studies Man</h2>
-
-   <div className='text-dark-primary sm:grid grid-cols-2 py-20'>
-    <div>
-     <Image
-      src={imageSrc}
-      alt={title}
-      width={1920}
-      height={1080}
-      className='rounded-lg'
-     />
+   <h2 className='title-secondary text-dark-primary'>Case studies </h2>
+   <div className='text-dark-primary md:grid md:grid-cols-2 items-center justify-center gap-6 py-20'>
+    <div className='col-span-1 p-6'>
+     <Image src={imageSrc} alt='Desktop version' width={1000} height={1000} />
     </div>
-    <div className='text-center sm:text-left gap-5 flex flex-col'>
-     <h3 className='title-tertiary '>{title}</h3>
-     <p className='paragraph-tertiary'>{description}</p>
+    <div className=' col-span-1 text-left gap-5 flex flex-col'>
+     <h3 className='title-secondary '>{title}</h3>
+     <p className='paragraph-secondary'>{description}</p>
      <div className='grid grid-cols-2 gap-4'>
       {stats.map((stat, index) => (
        <div key={index}>
         <p className='title-secondary'>{stat.percentage}</p>
-        <p className='paragraph-tertiary'>{stat.text}</p>
+        <p className='paragraph-secondary'>{stat.text}</p>
        </div>
       ))}
      </div>
-     <div className='flex justify-start font-bold gap-4 items-center py-4 text-dark-primary'>
+     <div className='flex md:justify-start justify-center font-bold gap-4 items-center py-4 text-dark-primary'>
       <button
        onClick={goToPrevious}
        className=''

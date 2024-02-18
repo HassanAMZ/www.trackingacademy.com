@@ -6,6 +6,7 @@ import getBlogsData from "utils/getBlogsData";
 import AuthenticatedLayout from "@/components/layouts/AuthenticatedLayout";
 import NavBar from "@/components/navbar/Navbar";
 import Footer from "@/components/footer/Footer";
+import { AuthContextProvider } from "@/context/AuthContext";
 
 export const metadata = {
  title: "Blog Archieve- TrackingAcademy",
@@ -23,5 +24,9 @@ export async function generateStaticParams(): Promise<
  return allPostsData;
 }
 export default function Layout({ children }: { children: ReactNode }) {
- return <BlogLayout className=''>{children}</BlogLayout>;
+ return (
+  <AuthContextProvider>
+   <BlogLayout className=''>{children}</BlogLayout>
+  </AuthContextProvider>
+ );
 }
