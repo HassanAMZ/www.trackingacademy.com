@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import BlogContainer from "@/components/blog/BlogContainer";
 import getBlogsData from "utils/getBlogsData";
 import { GTMBlogListViewEvent } from "@/components/analytics/GTMEvents";
+import SopDetails from "@/components/blog/SopDetails";
 
 export default async function Page() {
  const data = await getBlogsData("app/blog");

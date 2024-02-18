@@ -29,7 +29,7 @@ const Footer: React.FC = () => {
 
     <nav className='flex flex-col sm:flex-row gap-2 items-center justify-between pt-12'>
      <NavigationLinks />
-     <ThemeSwitcher />
+     {/* <ThemeSwitcher /> */}
     </nav>
 
     {/* Adding social media icons */}

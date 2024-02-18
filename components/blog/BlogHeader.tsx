@@ -24,7 +24,7 @@ const BlogHeader: React.FC<PostMetadataProps> = ({ metadata }) => {
     <Heading6xl className='py-2 sm:!text-center !text-4xl'>
      {metadata.title}
     </Heading6xl>
-    <Paragraphmd className='text-gray-600 dark:text-gray-300'>
+    <Paragraphmd className='text-gray-300'>
      by ShahzadaAliHassan - {formatDate(metadata.date)}
     </Paragraphmd>
    </div>

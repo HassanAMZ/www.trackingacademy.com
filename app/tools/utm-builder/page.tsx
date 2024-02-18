@@ -234,11 +234,11 @@ const Page: React.FC = () => {
      <div key={button.text} className='w-full'>
       <button
        className={`
-       border-2 border-gray-600 dark:border-gray-300 p-2 w-full transition font-semibold duration-300 ease-in-out rounded-md 
+       border-2 border-gray-300 p-2 w-full transition font-semibold duration-300 ease-in-out rounded-md 
         ${
          selectedButton === button.id
-          ? ` text-gray-50 dark:text-gray-800   bg-gray-800 dark:bg-gray-50`
-          : ` text-gray-600  dark:text-gray-300 hover:bg-gray-500 hover:text-gray-50 `
+          ? ` text-gray-800   bg-gray-50`
+          : ` text-gray-300 hover:bg-gray-500 hover:text-gray-50 `
         }
       `}
        //  style={{ backgroundColor: baseColors.tools.primary }}

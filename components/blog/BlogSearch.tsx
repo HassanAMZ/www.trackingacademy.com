@@ -62,7 +62,7 @@ const BlogSearch: React.FC<BlogSearchProps> = ({ data, onSearch }) => {
     tag manager, analytics and tracking scripts.
    </Paragraphsm>
    {isRootBlogPage && (
-    <div className='border relative flex sm:w-2/3 w-full items-center h-10 rounded-full focus-within:shadow-lg bg-white dark:bg-gray-800  overflow-hidden'>
+    <div className='border relative flex sm:w-2/3 w-full items-center h-10 rounded-full focus-within:shadow-lg bg-gray-800  overflow-hidden'>
      <div className='grid place-items-center h-full w-12 text-gray-300'>
       <svg
        xmlns='http://www.w3.org/2000/svg'
@@ -83,7 +83,7 @@ const BlogSearch: React.FC<BlogSearchProps> = ({ data, onSearch }) => {
       placeholder='Search for a post...'
       value={searchTerm}
       onChange={(e) => setSearchTerm(e.target.value)}
-      className='p-1 rounded-full text-gray-800 dark:text-white bg-transparent peer h-full w-full outline-none text-sm  pr-2'
+      className='p-1 rounded-full text-white bg-transparent peer h-full w-full outline-none text-sm  pr-2'
      />
     </div>
    )}
@@ -92,7 +92,7 @@ const BlogSearch: React.FC<BlogSearchProps> = ({ data, onSearch }) => {
      <span role='img' aria-label='Thinking face' style={{ fontSize: "3rem" }}>
       😭
      </span>
-     <Paragraphlg className='mt-4 text-gray-600 dark:text-gray-300'>
+     <Paragraphlg className='mt-4  text-gray-300'>
       We couldn't find any posts matching your search '{searchTerm}'.
       <span role='img' aria-label='Shrug'>
        {" "}

@@ -30,7 +30,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
  return (
   <html lang='en'>
    <body
-    className={` selection:text-light-primary selection:bg-secondary dark:selection:bg-secondary dark:bg-dark-primary bg-light-primary text-dark-primary dark:text-light-primary ${Roboto.className}`}>
+    className={` selection:text-light-primary selection:bg-secondary  bg-dark-primary text-light-primary ${Roboto.className}`}>
     <ThemeProvider attribute='class' defaultTheme='dark'>
      <AuthContextProvider>{children}</AuthContextProvider>
     </ThemeProvider>

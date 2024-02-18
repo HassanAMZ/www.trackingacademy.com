@@ -1,12 +1,11 @@
 "use client";
-// use client
-
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
 
 interface NavItemProps {
  href: string;
  children: React.ReactNode;
+ onClick: () => void;
 }
 
 interface NavButtonProps {
@@ -14,10 +13,11 @@ interface NavButtonProps {
  label: string;
 }
 
-const NavItem: React.FC<NavItemProps> = ({ href, children }) => (
+const NavItem: React.FC<NavItemProps> = ({ href, children, onClick }) => (
  <Link
   href={href}
-  className='rounded hover:text-primary px-2 py-5 w-full border-b-2 border-dark-secondary'>
+  className='rounded hover:text-primary px-2 py-5 w-full border-b-2 border-dark-secondary'
+  onClick={onClick}>
   {children}
  </Link>
 );
@@ -62,9 +62,15 @@ const MobileNavbar: React.FC = () => {
     <div className='flex flex-col items-start justify-between py-3 px-5 gap-2 w-full'>
      <NavButton onClick={toggleMenu} label='Close Navigation Menu' />
      <div className='flex w-full flex-col'>
-      <NavItem href='/#why-us'>Why TA</NavItem>
-      <NavItem href='/#about'>About</NavItem>
-      <NavItem href='/#case-studies'>Case Studies</NavItem>
+      <NavItem href='/#why-us' onClick={toggleMenu}>
+       Why TA
+      </NavItem>
+      <NavItem href='/#about' onClick={toggleMenu}>
+       About
+      </NavItem>
+      <NavItem href='/#case-studies' onClick={toggleMenu}>
+       Case Studies
+      </NavItem>
      </div>
      <div>
       <blockquote className='title-tertiary text-center'>
@@ -79,12 +85,14 @@ const MobileNavbar: React.FC = () => {
      <div className='flex w-full flex-col gap-2'>
       <Link
        href='/#book-a-call'
-       className='link-secondary px-4 py-2 text-center w-full'>
+       className='link-secondary px-4 py-2 text-center w-full'
+       onClick={toggleMenu}>
        Book a Call
       </Link>
       <Link
        href='/#get-started'
-       className='link-primary px-4 py-2 w-full text-center'>
+       className='link-primary px-4 py-2 w-full text-center'
+       onClick={toggleMenu}>
        Get started
       </Link>
      </div>

@@ -9,9 +9,7 @@ const ContainerLayout: FC<ContainerLayoutProps> = ({
  id,
 }) => {
  return (
-  <div
-   id={id}
-   className={`max-w-3xl container mx-auto px-2 ${className || ""}`}>
+  <div id={id} className={`container-primary  ${className || ""}`}>
    <NavBar />
    {children}
    <Footer />

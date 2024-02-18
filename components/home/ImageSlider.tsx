@@ -12,7 +12,7 @@ const ImageSlider = () => {
   dots: false,
   infinite: true,
   speed: 6000,
-  slidesToShow: 4,
+  slidesToShow: 5,
   slidesToScroll: 1,
   autoplay: true,
   cssEase: "linear",
@@ -23,7 +23,7 @@ const ImageSlider = () => {
    {
     breakpoint: 2100,
     settings: {
-     slidesToShow: 6,
+     slidesToShow: 5,
     },
    },
    {

@@ -123,7 +123,7 @@ const Page: FC = () => {
  };
 
  return (
-  <div className='bg-white relative dark:bg-black w-screen h-screen overflow-hidden py-4 px-6 flex flex-col justify-between'>
+  <div className='bg-black relative w-screen h-screen overflow-hidden py-4 px-6 flex flex-col justify-between'>
    <header className=''>
     <div className='flex flex-row justify-between max-h-[5vh] '>
      <div className='flex gap-2 '>
