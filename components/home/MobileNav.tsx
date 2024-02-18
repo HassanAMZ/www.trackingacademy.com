@@ -84,13 +84,13 @@ const MobileNavbar: React.FC = () => {
      </div>
      <div className='flex w-full flex-col gap-2'>
       <Link
-       href='/#book-a-call'
+       href='/contact'
        className='link-secondary px-4 py-2 text-center w-full'
        onClick={toggleMenu}>
        Book a Call
       </Link>
       <Link
-       href='/#get-started'
+       href='/services/web-analytics-and-tracking'
        className='link-primary px-4 py-2 w-full text-center'
        onClick={toggleMenu}>
        Get started

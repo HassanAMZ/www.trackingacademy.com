@@ -17,7 +17,7 @@ export default function Hero() {
    </p>
    <div className='flex gap-x-4 py-4 w-full items-center justify-center '>
     <Link
-     href='/#book-a-call'
+     href='/contact'
      className='link-primary flex w-full md:w-auto md:px-10 items-center justify-center py-4'>
      Book a Call
     </Link>

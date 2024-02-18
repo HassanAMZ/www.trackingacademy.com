@@ -229,7 +229,7 @@ function page() {
       <ImageSlider />
      </div>
      <div className='flex gap-x-2 md:gap-x-4 py-20 container-primary items-center justify-center'>
-      <Link href='/#book-a-call' className='link-primary  px-4 md:px-16 py-3'>
+      <Link href='/contact' className='link-primary  px-4 md:px-16 py-3'>
        Book a Call
       </Link>
       <Link href='/#why-us' className='link-secondary px-4 md:px-16 py-3'>
@@ -260,7 +260,7 @@ function page() {
          </p>
         </div>
         <Link
-         href='/#why-us'
+         href='/services/web-analytics-and-tracking'
          className='link-secondary w-full flex items-center justify-center text-light-primary py-3'>
          Get Started
         </Link>
@@ -288,7 +288,7 @@ function page() {
          </p>
         </div>
         <Link
-         href='/#book-a-call'
+         href='/contact'
          className='link-primary w-full flex items-center justify-center py-3'>
          Book a Call
         </Link>

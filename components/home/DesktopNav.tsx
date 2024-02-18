@@ -17,10 +17,12 @@ const DesktopNav = () => {
     <Link href='/#case-studies' className='rounded hover:text-primary'>
      Case Studies
     </Link>
-    <Link href='/#book-a-call' className='link-secondary px-6 py-3'>
+    <Link href='/contact' className='link-secondary px-6 py-3'>
      Book a Call
     </Link>
-    <Link href='/#get-started' className='link-primary px-6 py-3'>
+    <Link
+     href='/services/web-analytics-and-tracking'
+     className='link-primary px-6 py-3'>
      Get started
     </Link>
    </div>

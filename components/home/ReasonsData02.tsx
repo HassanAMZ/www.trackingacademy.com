@@ -26,7 +26,6 @@ export default function ReasonsData02() {
      alt={`Client `}
      width={1920} // Original width
      height={1080} // Original height
-     layout='responsive'
      className='rounded-lg'
     />
    </div>
