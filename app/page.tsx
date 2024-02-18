@@ -77,7 +77,7 @@ function page() {
 
     <section
      id='why-us'
-     className='pt-3 md:pt-10 flex items-center flex-col container-primary'>
+     className='pt-3 flex items-center flex-col container-primary'>
      <ReasonsData />
     </section>
 
@@ -153,51 +153,51 @@ function page() {
     <section id='case-studies' className='bg-light-primary'>
      <CaseStudies />
     </section>
-
     <section
      id='call-to-action'
      className='grid md:grid-cols-2 gap-4 py-10 items-center justify-center container-primary'>
      <div className='space-y-4 '>
-      <p className='text-primary'>Let's talk shop</p>
-      <h2 className='title-primary'>Our landing page solution</h2>
+      <p className='text-primary'>Let's Enhance Your Digital Presence</p>
+      <h2 className='title-primary'>Analytics & Tracking Solutions</h2>
       <p className='paragraph-primary'>
-       We build digital experiences for brands through custom landing pages.
-       This helps you acquire customers more effectively with higher conversion
-       rates, lower CPAs, and improved ROAS.
+       We specialize in configuring advanced tracking and analytics for your
+       website, ensuring you capture every interaction and gain insights that
+       drive growth.
       </p>
       <p className='paragraph-primary'>
-       Our pages help consumers understand who you are, what you sell, how it
-       helps them, and why you're the best option on the market.
+       Our solutions empower you to understand your audience, optimize your
+       marketing strategies, and achieve higher conversion rates with
+       data-driven decisions.
       </p>
      </div>
 
      <div className='bg-primary rounded-lg py-10 px-6 text-dark-primary divide-y divide-dark-secondary'>
       <div className='pb-3'>
-       <h3 className='title-tertiary font-bold'>Landing page build</h3>
+       <h3 className='title-tertiary font-bold'>Analytics Setup Package</h3>
        <div className='py-4 flex items-center gap-4'>
-        <p className='paragraph-secondary font-bold'>$5,000</p>
+        <p className='paragraph-secondary font-bold'>$3,000</p>
         <p className='paragraph-tertiary'>
-         1 fully custom landing page build included
+         Comprehensive analytics and tracking setup
         </p>
        </div>
       </div>
       <div className='py-4 paragraph-secondary'>
-       <p className='font-bold pt-3 pb-4'>What's included</p>
-       <ul className='list-inside grid gap-4 sm:grid-cols-2'>
-        <li className='flex items-center'>✔ Ideation & Concept</li>
-        <li className='flex items-center'>✔ Wireframe</li>
-        <li className='flex items-center'>✔ Copywriting</li>
-        <li className='flex items-center'>✔ UI and UX</li>
-        <li className='flex items-center'>✔ Development </li>
-        <li className='flex items-center'>✔ Ideation & Concept</li>
-        <li className='flex items-center'>✔ Wireframe</li>
-        <li className='flex items-center'>✔ Copywriting</li>
-        <li className='flex items-center'>✔ UI and UX</li>
-        <li className='flex items-center'>✔ Development </li>
+       <p className='font-bold pt-3 pb-4'>What's Included</p>
+       <ul className='list-inside grid gap-4 sm:grid-cols-2 md:grid-cols-1 lg:grid-cols-2'>
+        <li className='flex items-center'>✔ Google Analytics Setup</li>
+        <li className='flex items-center'>
+         ✔ Google Tag Manager Configuration
+        </li>
+        <li className='flex items-center'>✔ Conversion Tracking</li>
+        <li className='flex items-center'>✔ Custom Event Tracking</li>
+        <li className='flex items-center'>✔ E-commerce Tracking</li>
+        <li className='flex items-center'>✔ Data Layer Implementation</li>
+        <li className='flex items-center'>✔ Dashboard & Report Setup</li>
+        <li className='flex items-center'>✔ Ongoing Support & Optimization</li>
        </ul>
       </div>
       <button className='link-secondary w-full mt-6 p-4 !text-light-primary'>
-       Build my Page
+       Get Started with Analytics
       </button>
      </div>
     </section>
@@ -211,12 +211,11 @@ function page() {
       <h2 className='title-secondary text-center'>How we compare</h2>
       <div className=' flex items-center justify-center py-6'>
        <p className='paragraph-primary container-secondary text-center'>
-        Your primary website can't possibly appeal to all customers at all
-        times. That's where landing pages come in! When you build landing pages
-        with HOOX, you're able to create a unique site experience tailored to
-        the audience you're advertising to, and the problem you're solving for
-        them. With custom landing pages, you can create a red-carpet experience
-        for any site visitor to become a customer over time.
+        At Tracking Academy, we understand the importance of seamless
+        integration with your existing tech stack. Our analytics and tracking
+        solutions are designed to work effortlessly with your marketing tools,
+        providing you with a unified view of your digital performance and
+        enabling more effective decision-making.
        </p>
       </div>
       <ComparisonTable />
@@ -224,7 +223,7 @@ function page() {
     </section>
     <section className='py-20'>
      <h2 className='title-primary container-primary py-12 text-center'>
-      What others have to say about working with HOOX
+      What others have to say about working with Tracking Academy
      </h2>
      <div>
       <ImageSlider />
@@ -247,28 +246,25 @@ function page() {
       <FAQ />
      </div>
     </section>
-
     <section className='bg-light-primary pb-20'>
      <div className='grid md:grid-cols-2 gap-4 md:gap-8 container-primary'>
-      <div className='bg-primary rounded-lg pt-10 pr-10 pl-10 md:pr-16 md:pl-16 md:pt-16 flex flex-col justify-between text-dark-primary'>
-       <div className='pb-3'>
+      <div className='bg-primary rounded-lg flex flex-col justify-between text-dark-primary'>
+       <div className='pb-3 pt-10 pr-10 pl-10 md:pr-16 md:pl-16 md:pt-16'>
         <h3 className='title-tertiary font-bold'>
-         Ready to make your ads more efficient?
+         Ready to Enhance Your Analytics & Tracking?
         </h3>
-        <div className='py-4 flex items-center gap-4'>
+        <div className='py-4 flex items-center gap-4 pb-8'>
          <p className='paragraph-tertiary'>
-          See why companies like Jim Beam Whiskey, Milk Bar, Caraway, JUDY,
-          Feastables, Poo~Pourri, Glamnetic and more, build landing pages with
-          HOOX.
+          Discover why brands like Bookonline, TicketOnline, and Comrade trust
+          us for their analytics and tracking needs.
          </p>
         </div>
+        <Link
+         href='/#why-us'
+         className='link-secondary w-full flex items-center justify-center text-light-primary py-3'>
+         Get Started
+        </Link>
        </div>
-
-       <Link
-        href='/#why-us'
-        className='link-secondary w-full flex items-center justify-center text-light-primary py-3'>
-        Build my page
-       </Link>
 
        <div className='relative w-full pt-4'>
         <Image
@@ -279,24 +275,24 @@ function page() {
          alt='Imtiaz Ahmed'
         />
        </div>
-      </div>{" "}
-      <div className='bg-dark-primary rounded-lg pt-10 pr-10 pl-10 md:pr-16 md:pl-16 md:pt-16 text-light-primary  flex flex-col justify-between '>
-       <div className='pb-3'>
+      </div>
+      <div className='bg-dark-primary rounded-lg text-light-primary flex flex-col justify-between '>
+       <div className='pb-3  pt-10 pr-10 pl-10 md:pr-16 md:pl-16 md:pt-16'>
         <h3 className='title-tertiary font-bold'>
-         Not ready to buy yet? Book a call with us 🤙
+         Not ready to start yet? Book a consultation 🤙
         </h3>
-        <div className='py-4 flex items-center gap-4'>
+        <div className='py-4 flex items-center gap-4  pb-8'>
          <p className='paragraph-tertiary'>
-          Schedule time to discuss how HOOX could supercharge your marketing
-          needs.
+          Schedule a call to discuss how our expertise in analytics and tracking
+          can boost your marketing efforts.
          </p>
         </div>
+        <Link
+         href='/#book-a-call'
+         className='link-primary w-full flex items-center justify-center py-3'>
+         Book a Call
+        </Link>
        </div>
-       <Link
-        href='/#book-a-call'
-        className='link-primary w-full flex items-center justify-center py-3'>
-        Book a Call
-       </Link>
        <div className='relative w-full pt-4'>
         <Image
          className='w-full grayscale'

@@ -8,6 +8,7 @@ interface Feature {
  inHouseTeam: boolean;
  standardAgencies: boolean;
 }
+
 const comparisonData: Feature[] = [
  {
   name: "Comprehensive Audit and Strategic Planning",
@@ -48,11 +49,11 @@ const ComparisonTable: React.FC = () => (
    <p className=' font-semibold col-span-2 px-4 py-4 flex items-center justify-center border-2 border-dark-secondary bg-primary rounded-t-full'>
     Tracking Academy
    </p>
-   <p className='px-4 py-4 flex items-center justify-center border-b-2 paragraph-secondary border-dark-primary '>
-    DIY & Freelancers
+   <p className='px-4 py-4 flex items-center justify-center border-b-2 paragraph-secondary border-dark-primary'>
+    DIY
    </p>
    <p className='px-4 py-4 flex items-center justify-center border-b-2 paragraph-secondary border-dark-primary'>
-    Other Agencies
+    Freelancers
    </p>
   </div>
 

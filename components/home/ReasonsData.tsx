@@ -29,7 +29,6 @@ const reasonsData = [
 export default function ReasonsData() {
  return (
   <React.Fragment>
-   {" "}
    <h2 className='title-secondary text-center container-secondary'>
     4 Reasons Why You Should work with us to Configure your Wesbite's Tracking
    </h2>
