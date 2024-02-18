@@ -11,8 +11,8 @@ const ImageSlider = () => {
  const settings = {
   dots: false,
   infinite: true,
-  speed: 5000,
-  slidesToShow: 3,
+  speed: 6000,
+  slidesToShow: 4,
   slidesToScroll: 1,
   autoplay: true,
   cssEase: "linear",
@@ -21,7 +21,7 @@ const ImageSlider = () => {
   arrows: false,
   responsive: [
    {
-    breakpoint: 2500,
+    breakpoint: 2100,
     settings: {
      slidesToShow: 6,
     },
@@ -41,7 +41,7 @@ const ImageSlider = () => {
    {
     breakpoint: 1024,
     settings: {
-     slidesToShow: 4,
+     slidesToShow: 3,
     },
    },
    {
@@ -163,7 +163,7 @@ const ImageSlider = () => {
    <Slider {...settings}>
     {clientTestimonial.map((testimonial, index) => (
      <div key={index} className='p-1'>
-      <div className='text-left bg-light-primary rounded-md p-2 h-[450px]  py-5 px-2 lg:px-5 flex flex-col gap-5 items-start justify-between'>
+      <div className='text-left bg-light-primary rounded-md p-2 h-[450px]  py-5 px-2 md:px-5 flex flex-col gap-5 items-start justify-between'>
        <div className='flex flex-col gap-3 items-start justify-center'>
         <svg
          height='35px'

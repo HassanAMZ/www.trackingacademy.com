@@ -27,24 +27,12 @@ const NavButton: React.FC<NavButtonProps> = ({ onClick, label }) => (
   <Link href='/' className='font-semibold title-tertiary'>
    Tracking Academy
   </Link>
-  <div className='flex gap-3'>
-   <Link
-    href='/#book-a-call'
-    className='sm:flex hidden link-secondary px-4 py-2 text-center '>
-    Book a Call
-   </Link>
-   <Link
-    href='/#get-started'
-    className='sm:flex hidden link-primary px-4 py-2 text-center'>
-    Get started
-   </Link>
-   <button
-    onClick={onClick}
-    className='p-2 lg:hidden title-tertiary'
-    aria-label={label}>
-    🍔
-   </button>
-  </div>
+  <button
+   onClick={onClick}
+   className='p-2 lg:hidden title-tertiary'
+   aria-label={label}>
+   🍔
+  </button>
  </nav>
 );
 

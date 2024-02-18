@@ -9,50 +9,19 @@ import Image from "next/image";
 import Timeline from "@/components/home/Timeline";
 import Technologies from "@/components/home/Technologies";
 import ComparisonTable from "@/components/home/ComparisonTable";
-
+import FAQ from "@/components/home/FAQ";
+import Footer from "@/components/footer/Footer";
+import Hero from "@/components/home/Hero";
+import WorkHistory from "@/components/home/WorkHistory";
+import ReasonsData from "@/components/home/ReasonsData";
+import ReasonsData02 from "@/components/home/ReasonsData02";
+import CallToAction from "@/components/home/CallToAction";
 const poppins = Poppins({
  subsets: ["latin"],
  display: "swap",
  variable: "--font-poppins",
  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
 });
-
-const clientImages = [
- "/images/clients/001.svg",
- "/images/clients/003.svg",
- "/images/clients/004.svg",
- "/images/clients/005.svg",
- "/images/clients/002.svg",
- "/images/clients/006.svg",
-];
-
-const reasonsData = [
- {
-  id: 1,
-  title: "Clear, Actionacble Insights",
-  paragraph:
-   "Let's cut right to the chase. You want straightforward, actionable insights from your website data without the hassle of complex setups and reports. We specialize in making your data work for you, from setting up tracking to fixing issues. Our aim is to simplify your data into clear, actionable insights for growth.",
- },
-
- {
-  id: 2,
-  title: "Custom Solutions for your Unique Problems",
-  paragraph:
-   "Your problems are unique, and so should be the solutions. Whether it's ecommerce tracking that actually makes sense, or analytics that guide your next big decision, We tailor our approach to fit your needs. And the benefits? Better decisions, more conversions, and a clearer path to your goals.",
- },
- {
-  id: 3,
-  title: "Fast, efficient and Transparency",
-  paragraph:
-   "Time is money, and we don't waste either. We set up your tracking fast, keep you in the loop, and make sure you know what you're paying for and why. No hidden fees, no surprise charges. Just honest work that helps your business grow.",
- },
- {
-  id: 4,
-  title: "Reports You'll Actually Read",
-  paragraph:
-   "We know reports can be a snooze. That's why we've made ours different. Think of them as a chat with a friend who knows a lot about your site. Easy to read, easier to understand, and actually useful. No jargon, no endless tables of numbers—just the clear, actionable insights you need.",
- },
-];
 
 const resultsData = [
  {
@@ -95,30 +64,7 @@ function page() {
 
    <main className=''>
     <section className='gap-4 py-10 flex items-center flex-col text-center container-primary'>
-     <h1 className='title-primary pt-5 container-secondary'>
-      We configure tracking that{" "}
-      <span className='bg-gradient-to-r from-primary via-secondary to-primary inline-block text-transparent bg-clip-text animate-gradient-move'>
-       unlocks
-      </span>{" "}
-      more efficient advertising spend
-     </h1>
-
-     <p className='container-secondary paragraph-primary'>
-      We handle auditing, analytics, trackings tag implementations and
-      reporting. You drive traffic with a higher conversion rate.
-     </p>
-     <div className='flex gap-x-4 py-4 w-full items-center justify-center '>
-      <Link
-       href='/#book-a-call'
-       className='link-primary flex w-full md:w-auto md:px-10 items-center justify-center py-4'>
-       Book a Call
-      </Link>
-      <Link
-       href='/#why-us'
-       className='link-secondary flex w-full md:w-auto md:px-10 items-center justify-center py-4'>
-       Learn More
-      </Link>
-     </div>
+     <Hero />
     </section>
 
     <section>
@@ -126,97 +72,21 @@ function page() {
     </section>
 
     <section className='py-20 gap-5 flex items-center flex-col container-primary'>
-     <h2 className='title-secondary text-center'>
-      Tracking Academy is trusted by
-     </h2>
-     <div className='grid grid-cols-2 md:grid-cols-3 gap-2 pt-6 items-center justify-center'>
-      {clientImages.map((image, index) => (
-       <div
-        key={index}
-        className='rounded-lg filter object-contain overflow-hidden brightness-200 contrast-200'>
-        <Image
-         src={image}
-         alt={`Client ${index}`}
-         width={1920}
-         height={540}
-         className='filter brightness-200 grayscale scale-125'
-        />
-       </div>
-      ))}
-     </div>
+     <WorkHistory />
     </section>
 
     <section
      id='why-us'
      className='pt-3 md:pt-10 flex items-center flex-col container-primary'>
-     <h2 className='title-secondary text-center container-secondary'>
-      4 Reasons Why You Should work with us to Configure your Wesbite's Tracking
-     </h2>
-
-     <div className='grid md:grid-cols-2 gap-2 md:gap-4 py-10'>
-      {reasonsData.map((reason, index) => (
-       <div
-        key={index}
-        className='p-6 items-center grid grid-cols-[min-content_1fr] bg-dark-secondary rounded-lg'>
-        <p className='text-7xl text-dark-primary font-black px-4 md:pr-10 leading-none md:leading-normal md:row-span-2'>
-         {reason.id}
-        </p>
-        <h3 className='tracking-nomral title-tertiary leading-tight font-semibold'>
-         {reason.title}
-        </h3>
-        <p className='pb-2 col-span-2 md:col-span-1 md:pt-2 paragraph-secondary'>
-         {reason.paragraph}
-        </p>
-       </div>
-      ))}
-     </div>
+     <ReasonsData />
     </section>
 
     <section className='flex flex-col items-center container-primary md:py-10'>
-     <p className='text-primary text-center'>
-      Configuring & Optimizing Website Tracking Setups 🚀
-     </p>
-     <h2 className='title-primary text-center py-4 max-w-2xl'>
-      Here's why you should trust our{" "}
-      <div className='relative inline-block'>
-       <span>expertise</span>
-       <span className='absolute -bottom-1 left-0 w-full h-1 bg-gradient-to-r from-primary to-primary rounded-full'></span>
-      </div>{" "}
-      in website tracking?
-     </h2>
-     <p className='text-center container-secondary paragraph-primary py-8'>
-      For 240+ clients and 25+ agencies, from startups to multi-million-dollar
-      websites, we have made setting up and fixing tracking systems simple,
-      fast, efficient and successful.
-     </p>
-     <div className='py-5'>
-      <Image
-       src={"/images/social-sharing.png"}
-       alt={`Client `}
-       width={1920} // Original width
-       height={1080} // Original height
-       layout='responsive'
-       className='rounded-lg'
-      />
-     </div>
+     <ReasonsData02 />
     </section>
 
     <section className='px-3'>
-     <div className='container-primary bg-primary rounded-lg py-10 flex items-center flex-col'>
-      <h2 className='title-tertiary text-dark-primary text-center py-5 container-secondary'>
-       Ready to get your analytics & tracking fixed that increases AOV, ROAS,
-       and makes you happy?
-      </h2>
-
-      <div className='flex gap-x-2 md:gap-x-4 py-4'>
-       <Link href='/#book-a-call' className='link-primary  px-4 md:px-16 py-3'>
-        Book a Call
-       </Link>
-       <Link href='/#why-us' className='link-secondary px-4 md:px-16 py-3'>
-        Setup my Analytics
-       </Link>
-      </div>
-     </div>
+     <CallToAction />
     </section>
 
     <section
@@ -259,7 +129,7 @@ function page() {
       <h2 className='title-secondary text-center text-dark-primary container-secondary'>
        As you can see for yourself, we get results
       </h2>
-      <div className='grid sm:grid-cols-2 lg:grid-cols-4 gap-2 pt-16 w-full'>
+      <div className='grid md:grid-cols-4 gap-2 pt-16 w-full'>
        {resultsData.map((result, index) => (
         <div key={index} className='bg-dark-primary border rounded-lg p-8'>
          <p className='title-primary pb-5'> {result.percentage}% </p>
@@ -287,9 +157,9 @@ function page() {
     <section
      id='call-to-action'
      className='grid md:grid-cols-2 gap-4 py-10 items-center justify-center container-primary'>
-     <div className='space-y-4'>
+     <div className='space-y-4 '>
       <p className='text-primary'>Let's talk shop</p>
-      <h2 className='title-secondary'>Our landing page solution</h2>
+      <h2 className='title-primary'>Our landing page solution</h2>
       <p className='paragraph-primary'>
        We build digital experiences for brands through custom landing pages.
        This helps you acquire customers more effectively with higher conversion
@@ -311,9 +181,9 @@ function page() {
         </p>
        </div>
       </div>
-      <div className='py-4'>
-       <p className='paragraph-secondary font-bold'>What's included</p>
-       <ul className='list-inside space-y-2 grid sm:grid-cols-2'>
+      <div className='py-4 paragraph-secondary'>
+       <p className='font-bold pt-3 pb-4'>What's included</p>
+       <ul className='list-inside grid gap-4 sm:grid-cols-2'>
         <li className='flex items-center'>✔ Ideation & Concept</li>
         <li className='flex items-center'>✔ Wireframe</li>
         <li className='flex items-center'>✔ Copywriting</li>
@@ -332,7 +202,7 @@ function page() {
      </div>
     </section>
 
-    <section className=' bg-light-primary'>
+    <section className='pb-20 bg-light-primary'>
      <div className='container-primary py-20 text-dark-primary text-center '>
       <h2 className='title-secondary py-8'>We plug into your tech stack</h2>
       <Technologies />
@@ -340,7 +210,7 @@ function page() {
      <div className='text-dark-primary'>
       <h2 className='title-secondary text-center'>How we compare</h2>
       <div className=' flex items-center justify-center py-6'>
-       <p className='paragraph-primary container-primary text-center'>
+       <p className='paragraph-primary container-secondary text-center'>
         Your primary website can't possibly appeal to all customers at all
         times. That's where landing pages come in! When you build landing pages
         with HOOX, you're able to create a unique site experience tailored to
@@ -352,45 +222,96 @@ function page() {
       <ComparisonTable />
      </div>
     </section>
-    <section className='container-primary'>
-     <h2>What others have to say about working with HOOX</h2>
-     <div> testimonals </div>
-    </section>
-
-    <section className='container-primary'>
-     <h2>Frequently Asked Questions</h2>
-     <div> Faqs </div>
-    </section>
-
-    <section className='container-primary'>
+    <section className='py-20'>
+     <h2 className='title-primary container-primary py-12 text-center'>
+      What others have to say about working with HOOX
+     </h2>
      <div>
-      <h2>Ready to make your ads more efficient?</h2>
-      <p>
-       Lorem Ipsum is simply dummy text of the printing and typesetting
-       industry. Lorem Ipsum has been the industry's standard dummy text ever
-       since the 1500s, when an unknown printer too
-      </p>
-      <Link href='/#get-started'> Get started</Link>
+      <ImageSlider />
      </div>
-     <div>
-      <h2>Ready to make your ads more efficient?</h2>
-      <p>
-       Lorem Ipsum is simply dummy text of the printing and typesetting
-       industry. Lorem Ipsum has been the industry's standard dummy text ever
-       since the 1500s, when an unknown printer too
-      </p>
-      <Link href='/#book-a-call'> Book a Call</Link>
+     <div className='flex gap-x-2 md:gap-x-4 py-20 container-primary items-center justify-center'>
+      <Link href='/#book-a-call' className='link-primary  px-4 md:px-16 py-3'>
+       Book a Call
+      </Link>
+      <Link href='/#why-us' className='link-secondary px-4 md:px-16 py-3'>
+       Get Started
+      </Link>
      </div>
     </section>
 
-    <section className='container-primary'>
-     <h2>Subscribe to our newsletter.</h2>
-     <p>Join the 25000+ CEOs, Growth experts...</p>
-     <div>email box</div>
+    <section className='bg-light-primary text-dark-primary py-20'>
+     <h2 className='title-primary container-primary text-center py-12'>
+      Frequently Asked Questions
+     </h2>
+     <div className='container-secondary'>
+      <FAQ />
+     </div>
+    </section>
+
+    <section className='bg-light-primary pb-20'>
+     <div className='grid md:grid-cols-2 gap-4 md:gap-8 container-primary'>
+      <div className='bg-primary rounded-lg pt-10 pr-10 pl-10 md:pr-16 md:pl-16 md:pt-16 flex flex-col justify-between text-dark-primary'>
+       <div className='pb-3'>
+        <h3 className='title-tertiary font-bold'>
+         Ready to make your ads more efficient?
+        </h3>
+        <div className='py-4 flex items-center gap-4'>
+         <p className='paragraph-tertiary'>
+          See why companies like Jim Beam Whiskey, Milk Bar, Caraway, JUDY,
+          Feastables, Poo~Pourri, Glamnetic and more, build landing pages with
+          HOOX.
+         </p>
+        </div>
+       </div>
+
+       <Link
+        href='/#why-us'
+        className='link-secondary w-full flex items-center justify-center text-light-primary py-3'>
+        Build my page
+       </Link>
+
+       <div className='relative w-full pt-4'>
+        <Image
+         className='w-full grayscale'
+         width={1185}
+         height={1080}
+         src='/images/hero/about-image.png'
+         alt='Imtiaz Ahmed'
+        />
+       </div>
+      </div>{" "}
+      <div className='bg-dark-primary rounded-lg pt-10 pr-10 pl-10 md:pr-16 md:pl-16 md:pt-16 text-light-primary  flex flex-col justify-between '>
+       <div className='pb-3'>
+        <h3 className='title-tertiary font-bold'>
+         Not ready to buy yet? Book a call with us 🤙
+        </h3>
+        <div className='py-4 flex items-center gap-4'>
+         <p className='paragraph-tertiary'>
+          Schedule time to discuss how HOOX could supercharge your marketing
+          needs.
+         </p>
+        </div>
+       </div>
+       <Link
+        href='/#book-a-call'
+        className='link-primary w-full flex items-center justify-center py-3'>
+        Book a Call
+       </Link>
+       <div className='relative w-full pt-4'>
+        <Image
+         className='w-full grayscale'
+         width={1185}
+         height={1080}
+         src='/images/hero/about-image.png'
+         alt='Imtiaz Ahmed'
+        />
+       </div>
+      </div>
+     </div>
     </section>
    </main>
 
-   <footer className='container-praimery'></footer>
+   <Footer />
   </div>
  );
 }
