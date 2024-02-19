@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { Suspense } from "react";
 import Image from "next/image";
 
 export default function ReasonsData02() {
@@ -24,48 +24,57 @@ export default function ReasonsData02() {
    </p>
    <div className='rounded-lg'>
     {/* Horizontal video for md screens and above */}
-    <video
-     autoPlay
-     loop
-     muted
-     className='hidden md:block rounded-lg md:p-5 p-2 bg-light-secondary w-full'
-     onLoadedMetadata={(e) => {
-      e.currentTarget.playbackRate = 1;
-     }}>
-     <source
-      src='/videos/home/reason-comparison-horizontal.mp4'
-      type='video/mp4'
-     />
-     <Image
-      src='/images/home/reason-comparison-horizontal.svg'
-      alt='comparison image'
-      width={1200}
-      height={400}
-      className=''
-     />
-    </video>
 
-    {/* Vertical video for screens smaller than md */}
-    <video
-     autoPlay
-     loop
-     muted
-     className='md:hidden rounded-lg md:p-5 p-2 bg-light-secondary w-full'
-     onLoadedMetadata={(e) => {
-      e.currentTarget.playbackRate = 1;
-     }}>
-     <source
-      src='/videos/home/reason-comparison-vertical.mp4'
-      type='video/mp4'
-     />
-     <Image
-      src='/images/home/reason-comparison-vertical.svg'
-      alt='comparison image'
-      width={400}
-      height={525}
-      className=''
-     />
-    </video>
+    <Suspense
+     fallback={
+      <Image
+       src='/images/home/reason-comparison-horizontal.svg'
+       alt='comparison image'
+       width={400}
+       height={525}
+       className=''
+      />
+     }>
+     <video
+      autoPlay
+      loop
+      muted
+      className='hidden md:block rounded-lg md:p-5 p-2 bg-light-secondary w-full'
+      onLoadedMetadata={(e) => {
+       e.currentTarget.playbackRate = 1;
+      }}>
+      <source
+       src='/videos/home/reason-comparison-horizontal.mp4'
+       type='video/mp4'
+      />
+     </video>
+    </Suspense>
+
+    <Suspense
+     fallback={
+      <Image
+       src='/images/home/reason-comparison-vertical.svg'
+       alt='comparison image'
+       width={400}
+       height={525}
+       className=''
+      />
+     }>
+     {/* Vertical video for screens smaller than md */}
+     <video
+      autoPlay
+      loop
+      muted
+      className='md:hidden rounded-lg md:p-5 p-2 bg-light-secondary w-full'
+      onLoadedMetadata={(e) => {
+       e.currentTarget.playbackRate = 1;
+      }}>
+      <source
+       src='/videos/home/reason-comparison-vertical.mp4'
+       type='video/mp4'
+      />
+     </video>
+    </Suspense>
    </div>
   </div>
  );

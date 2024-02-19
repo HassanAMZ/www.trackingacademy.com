@@ -7,7 +7,6 @@ import HomeNavbar from "@/components/home/Navbar";
 const GlobalNavbar = () => {
  let segments = useSelectedLayoutSegments();
 
- console.log("segments", segments[0]);
  if (segments[0] === undefined) {
   return <HomeNavbar />;
  } else {
