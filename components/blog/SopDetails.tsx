@@ -20,7 +20,7 @@ const SopDetails: React.FC<SopDetailsProps> = ({
  imageSrc,
  imageWidth = 1920,
  imageHeight = 1080,
- isHidden = true,
+ isHidden = false,
 }) => {
  const [showImage, setShowImage] = useState(!isHidden);
 
@@ -28,23 +28,23 @@ const SopDetails: React.FC<SopDetailsProps> = ({
   <div className='space-y-4 pb-2'>
    <div
     key={imageSrc}
-    className='bg-light-primary rounded-lg flex flex-col text-left p-6 gap-4 border-dark-primary'>
+    className='bg-dark-secondary rounded-lg flex flex-col text-left p-6 gap-4 border-dark-secondary'>
     <div className='flex items-center justify-start gap-4'>
-     <span className='flex items-center justify-center w-10 h-10 bg-dark-secondary text-light-primary rounded-full font-bold'>
+     <span className='flex items-center justify-center w-10 h-10 bg-light-secondary text-dark-primary rounded-full font-bold'>
       {id}
      </span>
-     <div className='paragraph-primary font-semibold text-dark-primary'>
+     <div className='paragraph-primary font-semibold text-light-primary'>
       {heading}
      </div>
     </div>
-    <div className='paragraph-primary text-dark-secondary'>{details}</div>
+    <div className='paragraph-primary text-light-secondary'>{details}</div>
     {imageSrc && (
      <div>
-      <button
-       className='text-blue-500 underline'
+      {/* <button
+       className='text-primary underline'
        onClick={() => setShowImage(!showImage)}>
        {showImage ? "Hide screenshot" : "See the screenshot"}
-      </button>
+      </button> */}
       {showImage && (
        <div className='transition ease-in duration-300'>
         <Image

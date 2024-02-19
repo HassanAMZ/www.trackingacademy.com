@@ -29,40 +29,25 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
   a: CustomLink,
   p: (props) => <p {...props} className='py-2 paragraph-primary' />,
   h1: (props) => (
-   <h1
-    {...props}
-    className='title-primary py-2 underline underline-offset-2 font-semibold leading-tight'
-   />
+   <h1 {...props} className='title-primary py-2 font-semibold leading-tight' />
   ),
   h2: (props) => (
    <h1
     {...props}
-    className='title-secondary py-2 underline underline-offset-2 font-semibold leading-tight'
+    className='title-secondary py-2 font-semibold leading-tight'
    />
   ),
   h3: (props) => (
-   <h1
-    {...props}
-    className='title-tertiary py-2 underline underline-offset-2 font-semibold leading-tight'
-   />
+   <h1 {...props} className='title-tertiary py-2 font-semibold leading-tight' />
   ),
   h4: (props) => (
-   <h1
-    {...props}
-    className='text-lg py-2 underline underline-offset-2 font-semibold leading-tight'
-   />
+   <h1 {...props} className='text-lg py-2 font-semibold leading-tight' />
   ),
   h5: (props) => (
-   <h1
-    {...props}
-    className='text-md py-2 underline underline-offset-2 font-semibold leading-tight'
-   />
+   <h1 {...props} className='text-md py-2 font-semibold leading-tight' />
   ),
   h6: (props) => (
-   <h1
-    {...props}
-    className='text-sm py-2 underline underline-offset-2 font-semibold leading-tight'
-   />
+   <h1 {...props} className='text-sm py-2 font-semibold leading-tight' />
   ),
   li: ListItem,
   ol: OrderedList,
