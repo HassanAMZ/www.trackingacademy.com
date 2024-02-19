@@ -20,9 +20,7 @@ const WhyUs: React.FC<WhyUsProps> = ({
 
  return (
   <React.Fragment>
-   <section
-    className='backgroundOverlay md:px-20 md:py-16 py-12 px-5 space-y-5'
-    style={{ backgroundColor: colorDetails.primary }}>
+   <section className='backgroundOverlay md:px-20 md:py-16 py-12 px-5 space-y-5'>
     <div className='text-left space-y-2'>
      {headingTexts.heading && (
       <Heading4xl className='py-2'>{headingTexts.heading}</Heading4xl>

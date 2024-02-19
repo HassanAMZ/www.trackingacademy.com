@@ -10,9 +10,7 @@ const ContainerLayout: FC<ContainerLayoutProps> = ({
 }) => {
  return (
   <div id={id} className={`container-primary  ${className || ""}`}>
-   <NavBar />
    {children}
-   <Footer />
   </div>
  );
 };

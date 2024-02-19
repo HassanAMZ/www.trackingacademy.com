@@ -15,7 +15,7 @@ import ContainerLayout from "../layouts/ContainerLayout";
 const Footer: React.FC = () => {
  return (
   <div className='pb-1 pt-2'>
-   <footer className='backgroundOverlay py-12 px-5 flex flex-col justify-center items-center shadow-lg'>
+   <footer className='bg-dark-secondary py-12 px-5 flex flex-col justify-center items-center shadow-lg'>
     <NavLink
      href='/'
      className='hover:text-primary transition-all duration-300'>

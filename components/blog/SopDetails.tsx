@@ -25,7 +25,7 @@ const SopDetails: React.FC<SopDetailsProps> = ({
  const [showImage, setShowImage] = useState(!isHidden);
 
  return (
-  <div className='space-y-4'>
+  <div className='space-y-4 pb-2'>
    <div
     key={imageSrc}
     className='bg-light-primary rounded-lg flex flex-col text-left p-6 gap-4 border-dark-primary'>

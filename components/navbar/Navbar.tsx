@@ -4,7 +4,7 @@ import ContainerLayout from "../layouts/ContainerLayout";
 
 export default function NavBar() {
  return (
-  <header className='pt-5 pb-3 flex items-center justify-between w-full'>
+  <header className='pt-5 pb-3 flex items-center justify-between w-full container-primary'>
    <DesktopNav />
    <MobileNav />
   </header>

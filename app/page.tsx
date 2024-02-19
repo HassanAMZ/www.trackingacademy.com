@@ -16,6 +16,13 @@ import WorkHistory from "@/components/home/WorkHistory";
 import ReasonsData from "@/components/home/ReasonsData";
 import ReasonsData02 from "@/components/home/ReasonsData02";
 import CallToAction from "@/components/home/CallToAction";
+import AboutDetails from "@/components/about/AboutDetails";
+import LearnMoreHeader from "@/components/global/LearnMoreHeader";
+import SingleGridContent from "@/components/global/SingleGridContent";
+import baseColors from "@/data/base-colors";
+import WhyUs from "@/components/global/WhyUs";
+import TestimonialCard from "@/components/testimonial/TestimonialCard";
+import TestimonialSlider from "@/components/home/TestimonialSlider";
 const poppins = Poppins({
  subsets: ["latin"],
  display: "swap",
@@ -53,15 +60,6 @@ const resultsData = [
 function page() {
  return (
   <div className={`${poppins.className}`}>
-   <header className=' bg-dark-primary w-full'>
-    <div className='container-primary'>
-     <div className='hidden lg:block'>
-      <DesktopNav />
-     </div>
-     <MobileNav />
-    </div>
-   </header>
-
    <main className=''>
     <section className='gap-4 py-10 flex items-center flex-col text-center container-primary'>
      <Hero />
@@ -196,13 +194,16 @@ function page() {
         <li className='flex items-center'>✔ Ongoing Support & Optimization</li>
        </ul>
       </div>
-      <button className='link-secondary w-full mt-6 p-4 !text-light-primary'>
-       Get Started with Analytics
-      </button>
+
+      <Link
+       href='/services/web-analytics-and-tracking'
+       className='link-secondary flex mt-6 p-4 text-light-primary'>
+       <div className='w-full text-center'>Setup my Analytics</div>
+      </Link>
      </div>
     </section>
 
-    <section className='pb-20 bg-light-primary'>
+    <section className=' bg-light-primary'>
      <div className='container-primary py-20 text-dark-primary text-center '>
       <h2 className='title-secondary py-8'>We plug into your tech stack</h2>
       <Technologies />
@@ -221,21 +222,9 @@ function page() {
       <ComparisonTable />
      </div>
     </section>
-    <section className='py-20'>
-     <h2 className='title-primary container-primary py-12 text-center'>
-      What others have to say about working with Tracking Academy
-     </h2>
-     <div>
-      <ImageSlider />
-     </div>
-     <div className='flex gap-x-2 md:gap-x-4 py-20 container-primary items-center justify-center'>
-      <Link href='/contact' className='link-primary  px-4 md:px-16 py-3'>
-       Book a Call
-      </Link>
-      <Link href='/#why-us' className='link-secondary px-4 md:px-16 py-3'>
-       Get Started
-      </Link>
-     </div>
+
+    <section className='py-20 container-primary'>
+     <TestimonialSlider />
     </section>
 
     <section className='bg-light-primary text-dark-primary py-20'>
@@ -246,19 +235,105 @@ function page() {
       <FAQ />
      </div>
     </section>
-    <section className='bg-light-primary pb-20'>
+
+    <section className='container-primary py-10'>
+     <LearnMoreHeader
+      headingTexts={{
+       heading: "Boost Your Web Analytics 🚀",
+       subHeading:
+        "From setting up tracking tools to personalized consultations, discover how I can elevate your business's web analytics capabilities.",
+      }}
+     />
+     <div className='grid md:grid-cols-2 gap-2 '>
+      <SingleGridContent
+       imagesData={{
+        src: "/images/hero/001.png",
+        alt: "Description of image",
+        width: 600,
+        height: 400,
+       }}
+       headingTexts={{ heading: "Audit Current Tracking" }}
+       paragraphTexts={{
+        primary: "Audit Your Setup:",
+        secondary:
+         "I'll look at your current tracking tools for GA4, FB Pixel etc. and see where things can be improved. We'll make sure everything is set up right and catching all the data you need.",
+       }}
+      />
+
+      <SingleGridContent
+       imagesData={{
+        src: "/images/hero/004.png",
+        alt: "Description of image",
+        width: 600,
+        height: 400,
+       }}
+       headingTexts={{ heading: "Expert Consultation Sessions" }}
+       paragraphTexts={{
+        primary: "Get Expert Advice:",
+        secondary:
+         "Not sure where to start with web analytics or how to optimize your current setup? Let's chat. I offer personalized consultations to help you understand and make the most of your data tools.",
+       }}
+      />
+      <SingleGridContent
+       imagesData={{
+        src: "/images/hero/002.png",
+        alt: "Description of image",
+        width: 600,
+        height: 400,
+       }}
+       headingTexts={{ heading: "Client-Side Tracking Setup" }}
+       paragraphTexts={{
+        primary: "Set Up Client Side Tracking:",
+        secondary:
+         "I'll set up tools like GA4, UA, and FB Pixel for you. This will help us see what your visitors are doing on your website and how we can serve them better.",
+       }}
+      />
+      <SingleGridContent
+       imagesData={{
+        src: "/images/hero/003.png",
+        alt: "Description of image",
+        width: 600,
+        height: 400,
+       }}
+       headingTexts={{ heading: "Master Server-Side Tracking" }}
+       paragraphTexts={{
+        primary: "Server-Side Tracking:",
+        secondary:
+         "I'll set up server-side tracking for tools like Facebook's Conversion API. This means better data collection without slowing down your website.",
+       }}
+      />
+     </div>
+    </section>
+    <section className='container-primary'>
+     <LearnMoreHeader
+      headingTexts={{
+       heading: "Our expertise in website tracking",
+       subHeading: "We have mastered web analytics from every angle.",
+      }}
+     />
+    </section>
+    <AboutDetails />
+
+    <section className='bg-light-primary py-20'>
      <div className='grid md:grid-cols-2 gap-4 md:gap-8 container-primary'>
       <div className='bg-primary rounded-lg flex flex-col justify-between text-dark-primary'>
-       <div className='pb-3 pt-10 pr-10 pl-10 md:pr-16 md:pl-16 md:pt-16'>
-        <h3 className='title-tertiary font-bold'>
-         Ready to Enhance Your Analytics & Tracking?
-        </h3>
-        <div className='py-4 flex items-center gap-4 pb-8'>
-         <p className='paragraph-tertiary'>
-          Discover why brands like Bookonline, TicketOnline, and Comrade trust
-          us for their analytics and tracking needs.
-         </p>
-        </div>
+       <div className='p-4 md:p-8'>
+        <LearnMoreHeader
+         headingTexts={{
+          heading: (
+           <div className='text-center md:text-left'>
+            Ready to Enhance Your Analytics & Tracking?
+           </div>
+          ),
+          subHeading: (
+           <div className='text-center md:text-left'>
+            Discover why brands like Bookonline, TicketOnline, and Comrade trust
+            us for their analytics and tracking needs.
+           </div>
+          ),
+         }}
+        />
+
         <Link
          href='/services/web-analytics-and-tracking'
          className='link-secondary w-full flex items-center justify-center text-light-primary py-3'>
@@ -277,16 +352,23 @@ function page() {
        </div>
       </div>
       <div className='bg-dark-primary rounded-lg text-light-primary flex flex-col justify-between '>
-       <div className='pb-3  pt-10 pr-10 pl-10 md:pr-16 md:pl-16 md:pt-16'>
-        <h3 className='title-tertiary font-bold'>
-         Not ready to start yet? Book a consultation 🤙
-        </h3>
-        <div className='py-4 flex items-center gap-4  pb-8'>
-         <p className='paragraph-tertiary'>
-          Schedule a call to discuss how our expertise in analytics and tracking
-          can boost your marketing efforts.
-         </p>
-        </div>
+       <div className='p-4 md:p-8'>
+        <LearnMoreHeader
+         headingTexts={{
+          heading: (
+           <div className='text-center md:text-left'>
+            Not ready to start yet? Book a consultation 🤙
+           </div>
+          ),
+          subHeading: (
+           <div className='text-center md:text-left'>
+            Schedule a call to discuss how our expertise in analytics and
+            tracking can boost your marketing efforts.
+           </div>
+          ),
+         }}
+        />
+
         <Link
          href='/contact'
          className='link-primary w-full flex items-center justify-center py-3'>
@@ -306,8 +388,6 @@ function page() {
      </div>
     </section>
    </main>
-
-   <Footer />
   </div>
  );
 }

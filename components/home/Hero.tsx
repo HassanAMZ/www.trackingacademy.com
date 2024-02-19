@@ -4,14 +4,14 @@ import React from "react";
 export default function Hero() {
  return (
   <React.Fragment>
-   <h1 className='title-primary pt-5 container-secondary'>
+   <h1 className='title-primary md:py-5 container-secondary'>
     We configure tracking that{" "}
     <span className='bg-gradient-to-r from-primary via-secondary to-primary inline-block text-transparent bg-clip-text animate-gradient-move'>
      unlocks
     </span>{" "}
     more efficient advertising spend
    </h1>
-   <p className='container-secondary paragraph-primary'>
+   <p className='container-secondary paragraph-primary pb-4'>
     We handle auditing, analytics, trackings tag implementations and reporting.
     You drive traffic with a higher conversion rate.
    </p>

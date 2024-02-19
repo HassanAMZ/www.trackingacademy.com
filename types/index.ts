@@ -354,8 +354,8 @@ export interface TwoGridContentProps {
  order: number; // For grid order
 }
 export interface HeadingTextsProps {
- heading: string;
- subHeading?: string;
+ heading: JSX.Element | string;
+ subHeading?: JSX.Element | string;
 }
 export interface ParagraphTextsProps {
  primary?: string;
@@ -364,12 +364,12 @@ export interface ParagraphTextsProps {
 
 export interface LearnMoreHeaderProps {
  headingTexts: HeadingTextsProps;
- colorDetails: ColorDetails;
+ colorDetails?: ColorDetails;
 }
 export interface WhyUsProps {
  headingTexts: HeadingTextsProps;
  paragraphTexts: ParagraphTextsProps;
- colorDetails: ColorDetails;
+ colorDetails?: ColorDetails;
  links: LinksGroupProps;
 }
 export interface StartHereSectionProps {

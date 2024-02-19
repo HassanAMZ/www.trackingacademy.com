@@ -23,6 +23,7 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
   BlogHeader,
   Note,
   AuthPre,
+  CustomLink,
   SopDetails,
   pre: AuthPre,
   a: CustomLink,

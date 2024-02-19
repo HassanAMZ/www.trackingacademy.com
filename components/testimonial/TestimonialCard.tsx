@@ -15,8 +15,8 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({
  return (
   <section className={`text-center  ${(className || "") ?? ""}`}>
    <div className='text-center py-3 '>
-    <blockquote className='overflow-hidden h-full items-center justify-center flex flex-col p-4 md:p-6 gap-5'>
-     <Paragraphmd>★★★★★</Paragraphmd>
+    <blockquote className='overflow-hidden h-full items-center justify-center flex flex-col p-2 gap-5'>
+     <span>★★★★★</span>
      <Image
       className='w-20 md:w-32 rounded-full'
       width={person.image.width}
@@ -24,10 +24,10 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({
       src={person.image.src}
       alt={person.image.alt}
      />
-     <Heading2xl className='line-clamp-3  text-center'>
+     <h6 className='line-clamp-3 paragraph-primary font-semibold text-center'>
       {person.testimonial}
-     </Heading2xl>
-     <Paragraphsm className='textOpacity80'>{person.position}</Paragraphsm>
+     </h6>
+     <p className='paragraph-secondary'>{person.position}</p>
     </blockquote>
    </div>
   </section>

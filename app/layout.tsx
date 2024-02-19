@@ -12,6 +12,7 @@ import { Suspense } from "react";
 import CanonicalTag from "@/components/seo/CanonicalTag";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import Navbar from "@/components/navbar/Navbar";
+import GlobalNavbar from "@/components/global/GlobalNavbar";
 
 const Roboto = localFont({
  src: "fonts/Roboto/Roboto-Regular.ttf",
@@ -32,7 +33,11 @@ export default function RootLayout({ children }: { children: ReactNode }) {
    <body
     className={` selection:text-light-primary selection:bg-secondary  bg-dark-primary text-light-primary ${Roboto.className}`}>
     <ThemeProvider attribute='class' defaultTheme='dark'>
-     <AuthContextProvider>{children}</AuthContextProvider>
+     <AuthContextProvider>
+      <GlobalNavbar />
+      {children}
+      <Footer />
+     </AuthContextProvider>
     </ThemeProvider>
 
     <Suspense>

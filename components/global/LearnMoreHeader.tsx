@@ -8,21 +8,18 @@ import {
 } from "@/components/typography/Heading";
 import { LearnMoreHeaderProps } from "@/types/index"; // make sure to use the actual path
 
-const LearnMoreHeader: React.FC<LearnMoreHeaderProps> = ({
- headingTexts,
- colorDetails,
-}) => {
+const LearnMoreHeader: React.FC<LearnMoreHeaderProps> = ({ headingTexts }) => {
  if (!headingTexts.heading && !headingTexts.subHeading) return null;
 
  return (
-  <div className='learnMoreHeader py-12 text-center space-y-2'>
+  <div className='learnMoreHeader py-8 text-center space-y-2'>
    {headingTexts.heading && (
-    <Heading4xl className='py-2'>{headingTexts.heading}</Heading4xl>
+    <div className='py-2 title-secondary'>{headingTexts.heading}</div>
    )}
    {headingTexts.subHeading && (
-    <Headingxl className='text-center' style={{ color: colorDetails.primary }}>
+    <div className='text-center paragraph-primary'>
      {headingTexts.subHeading}
-    </Headingxl>
+    </div>
    )}
   </div>
  );
