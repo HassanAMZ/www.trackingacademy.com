@@ -12,7 +12,7 @@ const ImageSlider = () => {
   dots: false,
   infinite: true,
   speed: 5000,
-  slidesToShow: 5,
+  slidesToShow: 4,
   slidesToScroll: 1,
   autoplay: true,
   cssEase: "linear",

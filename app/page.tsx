@@ -79,11 +79,11 @@ function page() {
      <ReasonsData />
     </section>
 
-    <section className='flex flex-col items-center container-primary md:py-10'>
+    <section className='container-primary'>
      <ReasonsData02 />
     </section>
 
-    <section className='px-3'>
+    <section className='container-primary'>
      <CallToAction />
     </section>
 
