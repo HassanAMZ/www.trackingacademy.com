@@ -27,27 +27,27 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
   SopDetails,
   pre: AuthPre,
   a: CustomLink,
-  p: (props) => <p {...props} className='py-2 paragraph-primary' />,
-  h1: (props) => (
-   <h1 {...props} className='title-primary py-2 font-semibold leading-tight' />
-  ),
-  h2: (props) => (
-   <h1
+  p: (props) => (
+   <p
     {...props}
-    className='title-secondary py-2 font-semibold leading-tight'
+    className='py-2 paragraph-primary leading-loose tracking-wide'
    />
   ),
+  h1: (props) => <h1 {...props} className='title-primary py-2 font-semibold' />,
+  h2: (props) => (
+   <h1 {...props} className='title-secondary py-2 font-semibold' />
+  ),
   h3: (props) => (
-   <h1 {...props} className='title-tertiary py-2 font-semibold leading-tight' />
+   <h1 {...props} className='title-tertiary py-2 font-semibold' />
   ),
   h4: (props) => (
-   <h1 {...props} className='text-lg py-2 font-semibold leading-tight' />
+   <h1 {...props} className='title-tertiary py-2 font-semibold' />
   ),
   h5: (props) => (
-   <h1 {...props} className='text-md py-2 font-semibold leading-tight' />
+   <h1 {...props} className='title-tertiary py-2 font-semibold' />
   ),
   h6: (props) => (
-   <h1 {...props} className='text-sm py-2 font-semibold leading-tight' />
+   <h1 {...props} className='title-tertiary py-2 font-semibold' />
   ),
   li: ListItem,
   ol: OrderedList,

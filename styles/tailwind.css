@@ -15,7 +15,7 @@ code {
 }
 
 .backgroundOverlay {
- @apply bg-gray-800 border border-gray-700 shadow-md rounded-md bg-opacity-50;
+ @apply bg-dark-secondary;
 }
 
 .textOpacity80 {

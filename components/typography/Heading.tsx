@@ -128,7 +128,7 @@ const Paragraphxs: React.FC<HeadingProps> = ({
 const ListItem: React.FC<HeadingProps> = ({ children, className, style }) => {
  return (
   <li
-   className={`px-1 pt-1  text-md md:text-lg  ${className || ""}`}
+   className={`px-1 pt-1 paragraph-primary ${className || ""}`}
    style={style}>
    {children}
   </li>
@@ -141,7 +141,9 @@ const OrderedList: React.FC<HeadingProps> = ({
 }) => {
  return (
   <ol
-   className={`list-decimal list-outside pl-6 py-2 ${className || ""}`}
+   className={`list-decimal list-outside pl-6 py-4 paragraph-primary ${
+    className || ""
+   }`}
    style={style}>
    {children}
   </ol>
@@ -154,7 +156,9 @@ const UnorderedList: React.FC<HeadingProps> = ({
 }) => {
  return (
   <ul
-   className={` list-disc list-outside pl-6 py-2 ${className || ""}`}
+   className={` list-disc list-outside pl-6 py-4 paragraph-primary ${
+    className || ""
+   }`}
    style={style}>
    {children}
   </ul>

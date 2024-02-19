@@ -1,6 +1,5 @@
 import Link from "next/link";
 import React from "react";
-import { Poppins } from "next/font/google";
 import CaseStudies from "@/components/home/CaseStudies";
 import ImageSlider from "@/components/home/ImageSlider";
 import Image from "next/image";
@@ -17,12 +16,6 @@ import AboutDetails from "@/components/about/AboutDetails";
 import LearnMoreHeader from "@/components/global/LearnMoreHeader";
 import SingleGridContent from "@/components/global/SingleGridContent";
 import TestimonialSlider from "@/components/home/TestimonialSlider";
-const poppins = Poppins({
- subsets: ["latin"],
- display: "swap",
- variable: "--font-poppins",
- weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
-});
 
 const resultsData = [
  {
@@ -53,7 +46,7 @@ const resultsData = [
 
 function page() {
  return (
-  <div className={`${poppins.className}`}>
+  <div>
    <main className=''>
     <section className='gap-4 py-10 flex items-center flex-col text-center container-primary'>
      <Hero />
