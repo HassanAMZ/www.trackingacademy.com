@@ -3,14 +3,11 @@ import React from "react";
 import { Poppins } from "next/font/google";
 import CaseStudies from "@/components/home/CaseStudies";
 import ImageSlider from "@/components/home/ImageSlider";
-import MobileNav from "@/components/home/MobileNav";
-import DesktopNav from "@/components/home/DesktopNav";
 import Image from "next/image";
 import Timeline from "@/components/home/Timeline";
 import Technologies from "@/components/home/Technologies";
 import ComparisonTable from "@/components/home/ComparisonTable";
 import FAQ from "@/components/home/FAQ";
-import Footer from "@/components/footer/Footer";
 import Hero from "@/components/home/Hero";
 import WorkHistory from "@/components/home/WorkHistory";
 import ReasonsData from "@/components/home/ReasonsData";
@@ -19,9 +16,6 @@ import CallToAction from "@/components/home/CallToAction";
 import AboutDetails from "@/components/about/AboutDetails";
 import LearnMoreHeader from "@/components/global/LearnMoreHeader";
 import SingleGridContent from "@/components/global/SingleGridContent";
-import baseColors from "@/data/base-colors";
-import WhyUs from "@/components/global/WhyUs";
-import TestimonialCard from "@/components/testimonial/TestimonialCard";
 import TestimonialSlider from "@/components/home/TestimonialSlider";
 const poppins = Poppins({
  subsets: ["latin"],
@@ -173,7 +167,7 @@ function page() {
       <div className='pb-3'>
        <h3 className='title-tertiary font-bold'>Analytics Setup Package</h3>
        <div className='py-4 flex items-center gap-4'>
-        <p className='paragraph-secondary font-bold'>$3,000</p>
+        <p className='paragraph-secondary font-bold'>$2,000</p>
         <p className='paragraph-tertiary'>
          Comprehensive analytics and tracking setup
         </p>

@@ -5,15 +5,13 @@ import React from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import Link from "next/link";
-import clientDetails from "@/data/clients-details";
+
 const ImageSlider = () => {
  const settings = {
   dots: false,
   infinite: true,
-  speed: 5000,
-  slidesToShow: 4,
-  slidesToScroll: 1,
+  speed: 8000,
+  slidesToShow: 7,
   autoplay: true,
   cssEase: "linear",
   autoplaySpeed: 0,
@@ -23,25 +21,25 @@ const ImageSlider = () => {
    {
     breakpoint: 2100,
     settings: {
-     slidesToShow: 5,
+     slidesToShow: 7,
     },
    },
    {
     breakpoint: 1600,
     settings: {
-     slidesToShow: 5,
+     slidesToShow: 6,
     },
    },
    {
     breakpoint: 1280,
     settings: {
-     slidesToShow: 4,
+     slidesToShow: 5,
     },
    },
    {
     breakpoint: 1024,
     settings: {
-     slidesToShow: 3,
+     slidesToShow: 4,
     },
    },
    {
@@ -59,9 +57,31 @@ const ImageSlider = () => {
   ],
  };
 
+ const clientImages = [
+  "makescents",
+  "pandaparken",
+  "holidayparken",
+  "easyloanapproval",
+  "nook",
+  "equifund",
+  "figment",
+  "buyfreddie",
+ ];
  return (
   <div className='slider-container-shadow'>
    <Slider {...settings}>
+    {clientImages.map((image, index) => (
+     <Image
+      key={index}
+      src={`/images/home/client-${image}-mobile-home.png`}
+      alt={"client-makescents-mobile-home.png"}
+      className='p-2 rounded-2xl'
+      width={1080}
+      height={1920}
+     />
+    ))}
+   </Slider>
+   {/* <Slider {...settings}>
     {clientDetails.map((testimonial, index) => (
      <div key={index} className='p-1'>
       <div className='text-left bg-light-primary rounded-md p-2 h-[450px]  py-5 px-2 md:px-5 flex flex-col gap-5 items-start justify-between'>
@@ -122,7 +142,7 @@ const ImageSlider = () => {
       </div>
      </div>
     ))}
-   </Slider>
+   </Slider> */}
   </div>
  );
 };
