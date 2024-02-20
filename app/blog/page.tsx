@@ -3,6 +3,7 @@ import BlogContainer from "@/components/blog/BlogContainer";
 import getBlogsData from "utils/getBlogsData";
 import { GTMBlogListViewEvent } from "@/components/analytics/GTMEvents";
 import SopDetails from "@/components/blog/SopDetails";
+import BlogNavbar from "@/components/blog/BlogNavbar";
 
 export default async function Page() {
  const data = await getBlogsData("app/blog");

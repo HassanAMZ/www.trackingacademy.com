@@ -55,7 +55,7 @@ const MobileNav = () => {
     <section
      className={`z-20 fixed top-0 right-0 left-0 bottom-0 transform duration-300 ease-in-out w-full h-full `}>
      <div
-      className={`bg-gray-800 h-screen fixed top-0 right-0 left-0 bottom-0 shadow-lg p-2 pt-5 flex flex-row items-start justify-between gap-4`}
+      className={`bg-gray-800 h-screen fixed top-0 right-0 left-0 bottom-0 shadow-lg p-3 pt-5 flex flex-row items-start justify-between gap-4`}
       onClick={toggleNav}>
       <nav className='flex flex-col w-full'>
        <NavLink className='pb-5 ' href='/'>

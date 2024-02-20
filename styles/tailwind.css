@@ -27,19 +27,6 @@ code {
  width: 0px; /* Set the width for vertical scrollbar */
 }
 
-::-webkit-scrollbar-thumb {
- @apply rounded bg-purple-600;
-}
-
-::-webkit-scrollbar-track {
- @apply bg-transparent;
-}
-
-/* Dark Mode Scrollbar Style */
-.dark ::-webkit-scrollbar-thumb {
- @apply bg-red-600;
-}
-
 .title-primary {
  @apply tracking-tight text-[clamp(1.875rem,_5vw,_3rem)] leading-tight font-bold;
 }
@@ -77,6 +64,7 @@ code {
 .container-secondary {
  @apply max-w-4xl px-3 mx-auto;
 }
+
 @layer components {
  .slider-container-shadow {
   @apply relative overflow-hidden;
