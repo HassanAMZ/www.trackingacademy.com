@@ -62,7 +62,7 @@ const BlogSearch: React.FC<BlogSearchProps> = ({ data, onSearch }) => {
     tag manager, analytics and tracking scripts.
    </Paragraphsm>
    {isRootBlogPage && (
-    <div className='border relative flex sm:w-2/3 w-full items-center h-10 rounded-full focus-within:shadow-lg bg-gray-800  overflow-hidden'>
+    <div className='border relative flex sm:w-2/3 w-full items-center h-10 rounded-full focus-within:shadow-lg bg-dark-primary  overflow-hidden'>
      <div className='grid place-items-center h-full w-12 text-gray-300'>
       <svg
        xmlns='http://www.w3.org/2000/svg'

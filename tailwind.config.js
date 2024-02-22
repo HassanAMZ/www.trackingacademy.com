@@ -18,6 +18,7 @@ module.exports = {
     primary: "#BDFD6D",
     secondary: "#89C64F",
     tertiary: "",
+    danger: "#FF0000",
     light: {
      primary: "#ffffff",
      secondary: "#FCFBFC",

@@ -24,7 +24,7 @@ const Header: React.FC = () => {
 
  return (
   <header
-   className={`fixed top-0 left-0 w-full dark:bg-dark-primary transition-transform duration-300 z-10 ${
+   className={`fixed top-0 left-0 w-full transition-transform duration-300 z-10 ${
     !isVisible ? "-translate-y-full" : ""
    }`}>
    <div className='container-primary'>

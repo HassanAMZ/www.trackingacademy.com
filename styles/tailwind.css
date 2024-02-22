@@ -7,7 +7,7 @@ code {
 }
 
 .primaryButton {
- @apply rounded-md px-3.5 py-2.5 font-medium shadow-md  border-2 bg-gray-800 border-gray-100  text-gray-100;
+ @apply rounded-md px-3.5 py-2.5 font-medium shadow-md  border-2 bg-dark-primary border-gray-100  text-gray-100;
 }
 
 .primaryButton:focus-visible {
@@ -51,11 +51,11 @@ code {
 }
 
 .link-primary {
- @apply rounded-full border-2 border-dark-primary bg-primary hover:bg-light-primary text-dark-primary font-semibold;
+ @apply rounded-full border-2 border-dark-primary bg-primary hover:bg-light-primary text-dark-primary font-semibold px-4 md:px-16 py-3;
 }
 
 .link-secondary {
- @apply text-primary bg-dark-primary font-semibold hover:text-primary border-primary rounded-full border-2;
+ @apply text-primary bg-dark-primary font-semibold hover:text-primary border-primary rounded-full border-2  px-4 md:px-16 py-3;
 }
 
 .container-primary {

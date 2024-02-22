@@ -234,14 +234,13 @@ const Page: React.FC = () => {
      <div key={button.text} className='w-full'>
       <button
        className={`
-       border-2 border-gray-300 p-2 w-full transition font-semibold duration-300 ease-in-out rounded-md 
+       border border-light-secondary p-2 w-full transition font-semibold duration-300 ease-in-out rounded-md 
         ${
          selectedButton === button.id
-          ? ` text-gray-800   bg-gray-50`
-          : ` text-gray-300 hover:bg-gray-500 hover:text-gray-50 `
+          ? ` text-primary   bg-dark-secondary border-light-secondary`
+          : ` text-ligth-primary hover:bg-secondary hover:text-dark-primary `
         }
       `}
-       //  style={{ backgroundColor: baseColors.tools.primary }}
        onClick={() => {
         setSelectedButton(button.id);
         handleModeChange(button.text.toLowerCase() as any);
@@ -316,12 +315,12 @@ const Page: React.FC = () => {
      readOnly
      value={generateUTM()}
      rows={4}
-     className={`p-1 border-2 border-gray-500 rounded-md bg-transparent peer h-full w-full outline-none text-sm pr-2 ${
-      !canGenerateUTM() ? "opacity-50" : ""
+     className={`p-1 border-2 border-light-primary rounded-md bg-transparent peer h-full w-full outline-none text-sm pr-2 ${
+      !canGenerateUTM() ? "opacity-50" : "border-2 border-primary animate-pulse"
      }`}
     />
     {!canGenerateUTM() && (
-     <div className='text-red-500'>
+     <div className='text-danger'>
       {getErrorMessages().map((error, index) => (
        <p key={index}>{error}</p>
       ))}
@@ -330,17 +329,14 @@ const Page: React.FC = () => {
     <button
      disabled={!canGenerateUTM()}
      onClick={handleCopy}
-     style={{
-      backgroundColor: canGenerateUTM() ? baseColors.tools.primary : undefined,
-     }}
-     className={`p-2 w-full rounded-md dark:text-white transition ${
+     className={`p-2 w-full rounded-md  border-2 transition ${
       canGenerateUTM()
-       ? "hover:animate-pulse dark:hover:bg-blue-800"
-       : "bg-gray-300 cursor-not-allowed dark:bg-gray-700"
-     } ${copied ? "animate-shake" : ""} dark:text-gray-200`}>
-     <Paragraphlg className='!font-bold'>
+       ? " bg-primary text-dark-primary"
+       : " cursor-not-allowed bg-dark-secondary"
+     } ${copied ? "animate-shake" : ""} `}>
+     <p className='paragraph-primary font-bold'>
       {copied ? "Copied!" : "Copy to Clipboard"}
-     </Paragraphlg>
+     </p>
     </button>
    </div>
   </section>

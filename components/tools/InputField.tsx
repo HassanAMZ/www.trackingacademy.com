@@ -29,10 +29,10 @@ const InputField: React.FC<InputFieldProps> = ({
  return (
   <div className='space-y-1'>
    <label htmlFor={id} className='block '>
-    <Paragraphmd className='font-semibold'>
+    <p className='font-semibold '>
      {label}
-     {required && <span className='text-red-500 dark:text-red-400'>*</span>}
-    </Paragraphmd>
+     {required && <span className='text-danger'>*</span>}
+    </p>
    </label>
    <div className='mt-1'>
     <input
@@ -41,24 +41,18 @@ const InputField: React.FC<InputFieldProps> = ({
      value={value}
      onChange={(e: ChangeEvent<HTMLInputElement>) => onChange(e.target.value)}
      required={required}
-     className={`
-            p-2 backgroundOverlay border
-            focus:ring-indigo-500 focus:border-indigo-500 
-            block w-full sm:text-sm 
-            border-gray-300 rounded-md 
-            dark:border-gray-600  dark:text-white 
-            dark:focus:ring-indigo-500 dark:focus:border-indigo-500 
-            ${required && !value ? "border-red-500 dark:border-red-400" : ""}
-          `}
+     className={`p-2 border block w-full paragraph-primary rounded-md border-dark-secondary  text-light-primary ${
+      required && !value ? "border-danger" : ""
+     }`}
      aria-describedby={`${id}-helper-text`}
     />
    </div>
    {helperText && (
-    <Paragraphsm
-     className='mt-2 opacity-80 text-gray-500 dark:text-gray-400'
+    <p
+     className='mt-2 paragraph-secondary text-light-secondary'
      id={`${id}-helper-text`}>
      {helperText}
-    </Paragraphsm>
+    </p>
    )}
   </div>
  );

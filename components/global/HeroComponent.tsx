@@ -29,7 +29,7 @@ const HeroComponent: React.FC<HeroProps> = ({
 
  return (
   <React.Fragment>
-   <section className='relative backgroundOverlay rounded-md flex flex-col shadow-md items-center justify-center'>
+   <section className='relative bg-dark-secondary rounded-md flex flex-col shadow-md items-center justify-center'>
     {images?.background?.desktop && (
      <Image
       alt='Shahzada Ali Hassan'
@@ -83,35 +83,27 @@ const HeroComponent: React.FC<HeroProps> = ({
        </div>
       )}
       {textGroup.welcomeText && (
-       <Paragraphmd className='font-medium dark:text-white text-gray-800  w-[70%] md:max-w-md lg:max-w-lg'>
-        {textGroup.welcomeText}
-       </Paragraphmd>
+       <p className='paragraph-primary text-left'>{textGroup.welcomeText}</p>
       )}
       {textGroup.heading && (
-       <Heading5xl className='md:max-w-lg'>{textGroup.heading}</Heading5xl>
+       <h1 className='title-primary'>{textGroup.heading}</h1>
       )}
       {textGroup.subHeading && (
-       <div className='space-y-1 font-semibold text-2xl md:w-[70%]'>
-        <Heading2xl className=''>
+       <div className=''>
+        <p className='title-tertiary'>
          {textGroup.subHeading.one}
-         <span className='textOpacity80'>{textGroup.subHeading.two}</span>
-        </Heading2xl>
+         <span className='font-normal'>{textGroup.subHeading.two}</span>
+        </p>
        </div>
       )}
      </aside>
 
      <div className='flex gap-2 text-lg'>
-      <Link
-       href={links.primary.src}
-       className='font-bold rounded-md py-4 px-6 dark:text-white text-gray-800'
-       style={{ backgroundColor: color.lighter }}>
+      <Link href={links.primary.src} className='link-primary'>
        {links.primary.text}
       </Link>
       {links.secondary && (
-       <Link
-        href={links.secondary.src}
-        className='font-bold border-2 hidden md:block rounded-md py-4 px-6 dark:text-white text-gray-800'
-        style={{ borderColor: color.lighter }}>
+       <Link href={links.secondary.src} className='link-secondary'>
         {links.secondary.text}
        </Link>
       )}

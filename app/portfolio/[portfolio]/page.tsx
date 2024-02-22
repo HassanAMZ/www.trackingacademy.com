@@ -34,7 +34,7 @@ const Page: React.FC<DynamicPortfolioPageProps> = ({ params }) => {
   };
 
   const bgColor = isEven(clientObject.id)
-   ? "bg-gray-800 border-gray-100"
+   ? "bg-dark-primary border-gray-100"
    : "bg-gray-100 border-gray-600";
 
   return (

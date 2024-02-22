@@ -22,21 +22,12 @@ export default function ToolsHeroSection() {
      </Link>
      <Link
       href='/blog/ga4/understanding-utm-builder-tool'
-      className='font-bold border-2 hidden md:block rounded-md py-4 px-6 dark:text-white text-gray-800'
+      className='font-bold border-2 hidden md:block rounded-md py-4 px-6 text-light-primary '
       style={{ borderColor: baseColors.tools.primary }}>
       Read the Blog
      </Link>
     </div>
    </div>
-
-   {/* <Paragraphxs className='text-gray-500 '>
-     Got questions? Our step-by-step guide and UTM builder are here to help you
-     sail smoothly through the seas of campaign tracking!
-    </Paragraphxs> */}
-
-   {/* <div className='w-full'>
-     <YoutubeEmbed embedId='RmB2mSfkdEo' />
-    </div> */}
   </div>
  );
 }

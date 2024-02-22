@@ -49,7 +49,7 @@ const resultsData = [
 function page() {
  return (
   <div>
-   <main className=''>
+   <main>
     <section className='gap-4 py-10 flex items-center flex-col text-center container-primary'>
      <Hero />
     </section>
@@ -306,16 +306,12 @@ function page() {
     <section className='bg-light-primary py-20'>
      <div className='grid md:grid-cols-2 gap-4 md:gap-8 container-primary'>
       <div className='bg-primary rounded-lg flex flex-col justify-between text-dark-primary'>
-       <div className='p-4 md:p-8'>
+       <div className='p-4 md:p-8 items-center flex flex-col'>
         <LearnMoreHeader
          headingTexts={{
-          heading: (
-           <div className='text-center md:text-left'>
-            Ready to Enhance Your Analytics & Tracking?
-           </div>
-          ),
+          heading: <div>Ready to Enhance Your Analytics & Tracking?</div>,
           subHeading: (
-           <div className='text-center md:text-left'>
+           <div>
             Discover why brands like Bookonline, TicketOnline, and Comrade trust
             us for their analytics and tracking needs.
            </div>
@@ -325,7 +321,7 @@ function page() {
 
         <Link
          href='/services/web-analytics-and-tracking'
-         className='link-secondary w-full flex items-center justify-center text-light-primary py-3'>
+         className='link-secondary'>
          Get Started
         </Link>
        </div>
@@ -340,17 +336,13 @@ function page() {
         />
        </div>
       </div>
-      <div className='bg-dark-primary rounded-lg text-light-primary flex flex-col justify-between '>
-       <div className='p-4 md:p-8'>
+      <div className='bg-dark-primary rounded-lg text-light-primary flex flex-col justify-between  '>
+       <div className='p-4 md:p-8 items-center flex flex-col'>
         <LearnMoreHeader
          headingTexts={{
-          heading: (
-           <div className='text-center md:text-left'>
-            Not ready to start yet? Book a consultation 🤙
-           </div>
-          ),
+          heading: <div>Not ready to start yet? Book a consultation 🤙</div>,
           subHeading: (
-           <div className='text-center md:text-left'>
+           <div>
             Schedule a call to discuss how our expertise in analytics and
             tracking can boost your marketing efforts.
            </div>

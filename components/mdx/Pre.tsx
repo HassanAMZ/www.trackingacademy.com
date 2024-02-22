@@ -16,8 +16,8 @@ const Pre: React.FC<PreProps> = ({ language, children }) => {
 
  return (
   <div className='py-2 '>
-   <div className='text-sm md:text-sm rounded-md text-left border-2 dark:border-gray-800 border-gray-50 bg-gray-50 dark:bg-gray-900'>
-    <div className='flex items-center relative text-gray-800 dark:text-gray-200 bg-gray-200 dark:bg-gray-800 px-4 py-2 text-xs font-sans justify-between rounded-t-md'>
+   <div className='rounded-md text-left text-light-primary   bg-dark-secondary'>
+    <div className='flex items-center relative border-2 border-dark-primary px-4 py-2 justify-between rounded-t-md'>
      <span>{language}</span>
      <button onClick={onCopy} className='flex ml-auto gap-2 items-center '>
       <svg
@@ -36,11 +36,9 @@ const Pre: React.FC<PreProps> = ({ language, children }) => {
      </button>
     </div>
     <div
-     className='p-4 overflow-y-auto text-gray-800 dark:text-gray-200'
+     className='p-4 overflow-y-auto  border-2 border-dark-primary'
      ref={textInput}>
-     <code className={`hljs language-${(language || "unknown").toLowerCase()}`}>
-      {children}
-     </code>
+     <code>{children}</code>
     </div>
    </div>
   </div>

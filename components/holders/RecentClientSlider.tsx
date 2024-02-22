@@ -55,7 +55,7 @@ const RecentClientSlider: React.FC = () => {
     {startIndex > 0 && (
      <button
       onClick={prevSlide}
-      className='absolute left-0 top-1/2 transform -translate-y-1/2  text-xs backgroundOverlay !p-2 bg-opacity-80 dark:bg-opacity-80 ml-2'>
+      className='absolute left-0 top-1/2 transform -translate-y-1/2  text-xs backgroundOverlay !p-2 bg-opacity-80 ml-2'>
       <span aria-hidden='true'>&larr;</span>{" "}
       <p className='hidden sm:block'> Prev </p>
      </button>
@@ -78,7 +78,7 @@ const RecentClientSlider: React.FC = () => {
     {startIndex < images.length - viewCount && (
      <button
       onClick={nextSlide}
-      className='flex flex-row absolute right-0 top-1/2 transform -translate-y-1/2 text-xs backgroundOverlay !p-2 bg-opacity-80 dark:bg-opacity-80 mr-2'>
+      className='flex flex-row absolute right-0 top-1/2 transform -translate-y-1/2 text-xs backgroundOverlay !p-2 bg-opacity-80 mr-2'>
       <p className='hidden sm:block'> Next </p>
       <span aria-hidden='true'>&rarr;</span>
      </button>

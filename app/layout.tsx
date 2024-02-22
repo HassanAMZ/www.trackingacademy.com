@@ -39,7 +39,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
  return (
   <html lang='en'>
    <body
-    className={` selection:text-light-primary selection:bg-secondary  bg-dark-primary text-light-primary ${poppins.className}`}>
+    className={` selection:text-light-primary selection:bg-secondary  bg-dark-primary paragraph-primary text-light-primary ${poppins.className}`}>
     <ThemeProvider attribute='class' defaultTheme='dark'>
      <AuthContextProvider>
       <GlobalNavbar />

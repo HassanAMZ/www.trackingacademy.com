@@ -8,7 +8,7 @@ const DesktopNav = () => {
    <Link href='/' className='font-semibold'>
     Tracking Academy
    </Link>
-   <div className='flex items-center gap-x-7'>
+   <div className='flex items-center gap-x-6'>
     <Link href='/#why-us' className='rounded hover:text-primary'>
      Why TA
     </Link>
@@ -18,12 +18,12 @@ const DesktopNav = () => {
     <Link href='/#case-studies' className='rounded hover:text-primary'>
      Case Studies
     </Link>
-    <BookACall />
     <Link
      href='/services/web-analytics-and-tracking'
-     className='link-primary px-4 md:px-16 py-3'>
+     className='link-secondary '>
      Get started
     </Link>
+    <BookACall />
    </div>
   </nav>
  );

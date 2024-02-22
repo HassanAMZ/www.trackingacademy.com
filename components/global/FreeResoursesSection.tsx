@@ -41,7 +41,7 @@ const FreeResoursesSection: React.FC<
       <Paragraphlg className='textOpacity80 '>
        {headingTexts.subHeading}
       </Paragraphlg>
-      <div className='p-2 rounded-md w-full text-center border-2 dark:border-white border-gray-800 font-semibold'>
+      <div className='p-2 rounded-md w-full text-center border-2 border-white  font-semibold'>
        <Link href={links.primary.src}>{links.primary.text}</Link>
       </div>
      </div>

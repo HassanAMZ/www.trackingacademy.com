@@ -20,7 +20,7 @@ const CourseSearch: React.FC<CourseSearchProps> = ({ data, onSearch }) => {
     placeholder='Search for a course...'
     value={searchTerm}
     onChange={(e) => setSearchTerm(e.target.value)}
-    className='p-2 border-2 rounded-md mb-2 text-gray-800 bg-transparent'
+    className='p-2 border-2 rounded-md mb-2 text-dark-primary bg-transparent'
    />
   </div>
  );

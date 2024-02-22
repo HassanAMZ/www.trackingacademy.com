@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import ContactForm from "../contact/ContactForm";
+import React from "react";
 
 export default function BookACall() {
  const [isModalOpen, setModalOpen] = useState(false);
@@ -13,10 +14,8 @@ export default function BookACall() {
  };
 
  return (
-  <div>
-   <button
-    className='link-primary w-full flex items-center justify-center px-4 md:px-16 py-3'
-    onClick={() => setModalOpen(true)}>
+  <React.Fragment>
+   <button className='link-primary ' onClick={() => setModalOpen(true)}>
     Book a Call
    </button>
 
@@ -39,6 +38,6 @@ export default function BookACall() {
      </button>
     </div>
    </div>
-  </div>
+  </React.Fragment>
  );
 }
