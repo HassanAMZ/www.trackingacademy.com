@@ -1,5 +1,8 @@
+"use client";
+
 import Link from "next/link";
 import React from "react";
+import BookACall from "./BookACall";
 
 export default function CallToAction() {
  return (
@@ -11,10 +14,8 @@ export default function CallToAction() {
      makes you happy?
     </h2>
 
-    <div className='flex gap-x-2 md:gap-x-4 py-4'>
-     <Link href='/contact' className='link-primary  px-4 md:px-16 py-3'>
-      Book a Call
-     </Link>
+    <div className='flex gap-x-2 md:gap-x-4 py-4 '>
+     <BookACall />
      <Link
       href='/services/web-analytics-and-tracking'
       className='link-secondary px-4 md:px-16 py-3'>

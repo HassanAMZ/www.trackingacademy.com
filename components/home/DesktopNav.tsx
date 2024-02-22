@@ -1,5 +1,6 @@
 import Link from "next/link";
 import React from "react";
+import BookACall from "./BookACall";
 
 const DesktopNav = () => {
  return (
@@ -17,12 +18,10 @@ const DesktopNav = () => {
     <Link href='/#case-studies' className='rounded hover:text-primary'>
      Case Studies
     </Link>
-    <Link href='/contact' className='link-secondary px-6 py-3'>
-     Book a Call
-    </Link>
+    <BookACall />
     <Link
      href='/services/web-analytics-and-tracking'
-     className='link-primary px-6 py-3'>
+     className='link-primary px-4 md:px-16 py-3'>
      Get started
     </Link>
    </div>

@@ -3,10 +3,7 @@ import React, { useState } from "react";
 import { useFormState, useFormStatus } from "react-dom";
 import { createContact } from "@/actions/contact-us";
 import ThankYou from "@/components/contact/ThankYou";
-import ContainerLayout from "../layouts/ContainerLayout";
-import Image from "next/image";
 import { GTMContactFormSubmission } from "../analytics/GTMEvents";
-import { Heading2xl, Paragraphmd } from "@/components/typography/Heading";
 
 const initialState = {
  message: null,
@@ -19,7 +16,7 @@ function SubmitButton() {
   <button
    type='submit'
    disabled={pending}
-   className={`bg-blue-700 hover:bg-blue-800 text-white font-bold py-4 px-4 rounded-lg mt-4 transition-all duration-300 ease-in-out ${
+   className={`bg-primary hover:bg-secondary text-dark-primary title-tertiary py-4 px-4 rounded-lg mt-4 transition-all duration-300 ease-in-out ${
     pending ? "opacity-50 cursor-not-allowed" : ""
    }`}>
    {pending ? "Submitting..." : "Submit Contact Form"}
@@ -46,58 +43,58 @@ export default function ContactForm() {
 
  return (
   <React.Fragment>
-   <Heading2xl className='text-center'>Submit a Contact Form</Heading2xl>
+   <h2 className='title-secondary text-center py-6'>Submit a Contact Form</h2>
    <section className='w-full shadow-lg rounded-lg'>
     <form action={formAction} className='flex flex-col space-y-4'>
      <div className='grid grid-cols-1 md:grid-cols-2 gap-4'>
       <div className='flex flex-col'>
        <label htmlFor='userName'>
-        <Paragraphmd> Name</Paragraphmd>
+        <p className='paragraph-primary text-left'> Name</p>
        </label>
        <input
         type='text'
         id='userName'
         name='userName'
         required
-        className='p-3 border-2 border-gray-300 rounded-lg'
+        className='p-3 border-2 border-light-primary text-dark-primary rounded-lg'
        />
       </div>
       <div className='flex flex-col'>
        <label htmlFor='email'>
-        <Paragraphmd> Email</Paragraphmd>
+        <p className='paragraph-primary text-left'> Email</p>
        </label>
        <input
         type='email'
         id='email'
         name='email'
         required
-        className='p-3 border-2 border-gray-300 rounded-lg'
+        className='p-3 border-2 border-light-primary text-dark-primary rounded-lg'
        />
       </div>
      </div>
 
      <div className='flex flex-col'>
       <label htmlFor='websiteLink'>
-       <Paragraphmd> Website URL</Paragraphmd>
+       <p className='paragraph-primary text-left'> Website URL</p>
       </label>
       <input
        type='url'
        id='websiteLink'
        name='websiteLink'
        required
-       className='p-3 border-2 border-gray-300 rounded-lg'
+       className='p-3 border-2 border-light-primary text-dark-primary rounded-lg'
       />
      </div>
 
      <div className='flex flex-col'>
       <label htmlFor='integrationType'>
-       <Paragraphmd> Project Type</Paragraphmd>
+       <p className='paragraph-primary text-left'> Project Type</p>
       </label>
       <select
        id='integrationType'
        name='integrationType'
        required
-       className='p-3 border-2 border-gray-300 rounded-lg'>
+       className='p-3 border-2 border-light-primary text-dark-primary rounded-lg'>
        <option value=''>Project Type...</option>
        <option value='gtm'>GTM setup</option>
        <option value='ga4'>GA4 integration</option>
@@ -110,15 +107,15 @@ export default function ContactForm() {
 
      <div className='flex flex-col'>
       <label htmlFor='budget'>
-       <Paragraphmd> Budget</Paragraphmd>
+       <p className='paragraph-primary text-left'> Budget</p>
       </label>
       <select
        id='budget'
        name='budget'
        required
-       className='p-3 border-2 border-gray-300 rounded-lg'>
+       className='p-3 border-2 border-light-primary text-dark-primary rounded-lg'>
        <option value=''>Choose Your Budget...</option>
-       <option value='100'>100$ - 500$</option>
+       {/* <option value='100'>100$ - 500$</option> */}
        <option value='500'>500$ - 1000$</option>
        <option value='1000'>1000$ - 2000$</option>
        <option value='2000'>2000$-5000$</option>
@@ -127,13 +124,13 @@ export default function ContactForm() {
      </div>
 
      <label htmlFor='projectDescription'>
-      <Paragraphmd> Project Description</Paragraphmd>
+      <p className='paragraph-primary text-left'> Project Description</p>
      </label>
      <textarea
       id='projectDescription'
       name='projectDescription'
       required
-      className='p-3 border-2 border-gray-300 rounded-lg h-32'></textarea>
+      className='p-3 border-2 border-light-primary text-dark-primary rounded-lg h-32'></textarea>
 
      <SubmitButton />
 

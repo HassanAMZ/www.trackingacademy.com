@@ -16,6 +16,8 @@ import AboutDetails from "@/components/about/AboutDetails";
 import LearnMoreHeader from "@/components/global/LearnMoreHeader";
 import SingleGridContent from "@/components/global/SingleGridContent";
 import TestimonialSlider from "@/components/home/TestimonialSlider";
+import ContactForm from "@/components/contact/ContactForm";
+import BookACall from "@/components/home/BookACall";
 
 const resultsData = [
  {
@@ -114,7 +116,7 @@ function page() {
       <h2 className='title-secondary text-center text-dark-primary container-secondary'>
        As you can see for yourself, we get results
       </h2>
-      <div className='grid md:grid-cols-4 gap-2 pt-16 w-full'>
+      <div className='grid md:grid-cols-4 sm:grid-cols-2 gap-2 pt-16 w-full'>
        {resultsData.map((result, index) => (
         <div key={index} className='bg-dark-primary border rounded-lg p-8'>
          <p className='title-primary pb-5'> {result.percentage}% </p>
@@ -355,12 +357,7 @@ function page() {
           ),
          }}
         />
-
-        <Link
-         href='/contact'
-         className='link-primary w-full flex items-center justify-center py-3'>
-         Book a Call
-        </Link>
+        <BookACall />
        </div>
        <div className='relative w-full pt-4'>
         <Image

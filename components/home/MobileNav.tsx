@@ -1,6 +1,7 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
+import BookACall from "./BookACall";
 
 interface NavItemProps {
  href: string;
@@ -83,15 +84,10 @@ const MobileNavbar: React.FC = () => {
       </p>
      </div>
      <div className='flex w-full flex-col gap-2'>
-      <Link
-       href='/contact'
-       className='link-secondary px-4 py-2 text-center w-full'
-       onClick={toggleMenu}>
-       Book a Call
-      </Link>
+      <BookACall />
       <Link
        href='/services/web-analytics-and-tracking'
-       className='link-primary px-4 py-2 w-full text-center'
+       className='text-center link-primary px-4 md:px-16 py-3'
        onClick={toggleMenu}>
        Get started
       </Link>
