@@ -67,7 +67,7 @@ code {
 
 @layer components {
  .slider-container-shadow {
-  @apply relative overflow-hidden;
+  @apply relative overflow-hidden  min-h-[300px];
  }
 
  .slider-container-shadow::after {

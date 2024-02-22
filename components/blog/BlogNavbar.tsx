@@ -15,7 +15,7 @@ export default async function BlogNavbar() {
    return dateB.getTime() - dateA.getTime();
   });
  return (
-  <header className='flex items-center justify-between w-full pt-5'>
+  <header className='flex items-center justify-between w-full py-5'>
    <DesktopNav data={sortedData} />
   </header>
  );

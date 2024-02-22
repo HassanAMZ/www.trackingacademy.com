@@ -77,7 +77,7 @@ function page() {
     <section
      id='about'
      className='grid md:grid-cols-2 pt-20 items-end justify-center container-primary'>
-     <div className='pr-10 pl-3'>
+     <div className='md:pr-10 md:pl-3 px-3'>
       <p className='text-primary text-center md:text-left'>
        Here's why you should trust Tracking Academy
       </p>
@@ -331,9 +331,9 @@ function page() {
        <div className='relative w-full pt-4'>
         <Image
          className='w-full grayscale'
-         width={1185}
-         height={1080}
-         src='/images/hero/about-image.png'
+         width={1000}
+         height={1000}
+         src='/images/home/hassan-image-001.png'
          alt='Imtiaz Ahmed'
         />
        </div>
