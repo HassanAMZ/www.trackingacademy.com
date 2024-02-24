@@ -27,7 +27,7 @@ export async function generateMetadata({ params }: any) {
 // const PaypalRender = ({ product }: any) => {
 //  return (
 //   <div className='py-2 grid justify-left items-center '>
-//    <div className='md:max-w-lg'>
+//    <div className='lg:max-w-lg'>
 //     <PayPal product={product} />
 //    </div>
 //   </div>
@@ -55,8 +55,8 @@ const Page: React.FC<DynamicServicesPageProps> = ({ params }) => {
   return (
    <section>
     <Heading3xl className=''>{serviceObject.title}</Heading3xl>
-    <div className='gap-2 grid grid-cols-1 md:grid-cols-5'>
-     <div className='relative aspect-[4/3] col-span-1 md:col-span-3'>
+    <div className='gap-2 grid grid-cols-1 lg:grid-cols-5'>
+     <div className='relative aspect-[4/3] col-span-1 lg:col-span-3'>
       <Image
        className='rounded-md'
        fill
@@ -64,7 +64,7 @@ const Page: React.FC<DynamicServicesPageProps> = ({ params }) => {
        alt={serviceObject.title}
       />
      </div>
-     <div className='col-span-1 md:col-span-2'>
+     <div className='col-span-1 lg:col-span-2'>
       <div className=' grid grid-cols-3 gap-2 p-4 backgroundOverlay'>
        {serviceObject.packages.map((service, index) => {
         return (
@@ -75,7 +75,7 @@ const Page: React.FC<DynamicServicesPageProps> = ({ params }) => {
         );
        })}
       </div>
-      <div className='md:block hidden'>
+      <div className='lg:block hidden'>
        {/* <PaypalRender product={product} /> */}
       </div>
      </div>
@@ -89,7 +89,7 @@ const Page: React.FC<DynamicServicesPageProps> = ({ params }) => {
       }}
      />
     </div>
-    <div className='block md:hidden'>
+    <div className='block lg:hidden'>
      {/* <PaypalRender product={product} /> */}
     </div>
    </section>

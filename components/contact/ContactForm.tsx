@@ -46,7 +46,7 @@ export default function ContactForm() {
    <h2 className='title-secondary text-center py-6'>Submit a Contact Form</h2>
    <section className='w-full shadow-lg rounded-lg'>
     <form action={formAction} className='flex flex-col space-y-4'>
-     <div className='grid grid-cols-1 md:grid-cols-2 gap-4'>
+     <div className='grid grid-cols-1 lg:grid-cols-2 gap-4'>
       <div className='flex flex-col'>
        <label htmlFor='userName'>
         <p className='paragraph-primary text-left'> Name</p>

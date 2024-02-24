@@ -44,7 +44,7 @@ const comparisonData: Feature[] = [
 
 const ComparisonTable: React.FC = () => (
  <div className='container-secondary py-12 px-6'>
-  <div className='grid grid-cols-7 md:grid-cols-8 text-center'>
+  <div className='grid grid-cols-7 lg:grid-cols-8 text-center'>
    <p className='col-span-4 px-4 py-4 border-b-2 border-dark-primary'></p>
    <p className=' font-semibold col-span-2 px-4 py-4 flex items-center justify-center border-2 border-dark-secondary bg-primary rounded-t-full'>
     Tracking Academy
@@ -52,14 +52,14 @@ const ComparisonTable: React.FC = () => (
    <p className='px-4 py-4 flex items-center justify-center border-b-2 paragraph-secondary border-dark-primary'>
     DIY
    </p>
-   <p className='px-4 py-4 hidden items-center justify-center border-b-2 paragraph-secondary border-dark-primary md:flex '>
+   <p className='px-4 py-4 hidden items-center justify-center border-b-2 paragraph-secondary border-dark-primary lg:flex '>
     Freelancers
    </p>
   </div>
 
   <div>
    {comparisonData.map((feature, index) => (
-    <div key={index} className='grid grid-cols-7 md:grid-cols-8 text-center'>
+    <div key={index} className='grid grid-cols-7 lg:grid-cols-8 text-center'>
      <div className='col-span-4 px-4 py-4 border-b-2 border-dark-primary text-left font-semibold'>
       {feature.name}
      </div>
@@ -125,7 +125,7 @@ const ComparisonTable: React.FC = () => (
        </span>
       )}
      </div>
-     <div className='px-4 py-4 hidden items-center justify-center border-b-2 border-dark-primary md:flex'>
+     <div className='px-4 py-4 hidden items-center justify-center border-b-2 border-dark-primary lg:flex'>
       {feature.standardAgencies ? (
        <span>Sometimes</span>
       ) : (

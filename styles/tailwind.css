@@ -51,15 +51,15 @@ code {
 }
 
 .link-primary {
- @apply rounded-full border-2 border-dark-primary bg-primary hover:bg-light-primary text-dark-primary font-semibold px-4 md:px-16 py-3;
+ @apply rounded-full border-2 border-dark-primary bg-primary hover:bg-light-primary text-dark-primary font-semibold px-4 lg:px-16 py-3;
 }
 
 .link-secondary {
- @apply text-primary bg-dark-primary font-semibold hover:text-primary border-primary rounded-full border-2  px-4 md:px-16 py-3;
+ @apply text-primary bg-dark-primary font-semibold hover:text-primary border-primary rounded-full border-2  px-4 lg:px-16 py-3;
 }
 
 .container-primary {
- @apply container mx-auto max-w-7xl px-3;
+ @apply container mx-auto max-w-6xl px-3;
 }
 .container-secondary {
  @apply max-w-4xl px-3 mx-auto;

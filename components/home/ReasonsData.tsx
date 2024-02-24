@@ -32,18 +32,18 @@ export default function ReasonsData() {
    <h2 className='title-secondary text-center container-secondary'>
     4 Reasons Why You Should work with us to Configure your Wesbite's Tracking
    </h2>
-   <div className='grid md:grid-cols-2 gap-2 md:gap-4 py-10'>
+   <div className='grid lg:grid-cols-2 gap-2 lg:gap-4 py-10'>
     {reasonsData.map((reason, index) => (
      <div
       key={index}
       className='p-6 items-center grid grid-cols-[min-content_1fr] bg-dark-secondary rounded-lg'>
-      <p className='text-7xl text-dark-primary font-black px-4 md:pr-10 leading-none md:leading-normal md:row-span-2'>
+      <p className='text-7xl text-dark-primary font-black px-4 lg:pr-10 leading-none lg:leading-normal lg:row-span-2'>
        {reason.id}
       </p>
       <h3 className='tracking-nomral title-tertiary leading-tight font-semibold'>
        {reason.title}
       </h3>
-      <p className='pb-2 col-span-2 md:col-span-1 md:pt-2 paragraph-secondary'>
+      <p className='pb-2 col-span-2 lg:col-span-1 lg:pt-2 paragraph-secondary'>
        {reason.paragraph}
       </p>
      </div>

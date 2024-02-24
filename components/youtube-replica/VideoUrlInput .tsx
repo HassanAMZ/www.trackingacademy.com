@@ -17,7 +17,7 @@ const VideoUrlInput: React.FC<VideoUrlInputProps> = ({
 }) => {
  return (
   <>
-   <div className='flex w-full flex-col md:flex-row gap-2 px-2 '>
+   <div className='flex w-full flex-col lg:flex-row gap-2 px-2 '>
     <input
      type='text'
      value={videoInput}
@@ -27,7 +27,7 @@ const VideoUrlInput: React.FC<VideoUrlInputProps> = ({
     />
     <button
      onClick={addVideo}
-     className='bg-blue-500 text-white p-2 rounded-full shadow hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 md:w-40 w-full'>
+     className='bg-blue-500 text-white p-2 rounded-full shadow hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 lg:w-40 w-full'>
      Add Video
     </button>
    </div>

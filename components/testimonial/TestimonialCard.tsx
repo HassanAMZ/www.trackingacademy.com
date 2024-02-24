@@ -18,7 +18,7 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({
     <blockquote className='overflow-hidden h-full items-center justify-center flex flex-col p-2 gap-5'>
      <span>★★★★★</span>
      <Image
-      className='w-20 md:w-32 rounded-full'
+      className='w-20 lg:w-32 rounded-full'
       width={person.image.width}
       height={person.image.height}
       src={person.image.src}

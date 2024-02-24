@@ -49,7 +49,7 @@ const MobileNav = () => {
  };
 
  return (
-  <div className='md:hidden  '>
+  <div className='lg:hidden  '>
    <NavButton />
    {navOpen && (
     <section

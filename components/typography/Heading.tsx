@@ -45,7 +45,7 @@ const Heading3xl: React.FC<HeadingProps> = ({ children, className, style }) => {
 const Heading4xl: React.FC<HeadingProps> = ({ children, className, style }) => {
  return (
   <h3
-   className={`text-4xl  font-semibold leading-none md:tracking-tight ${
+   className={`text-4xl  font-semibold leading-none lg:tracking-tight ${
     RobotoCondensed.className
    } ${className || ""}`}
    style={style}>
@@ -57,7 +57,7 @@ const Heading4xl: React.FC<HeadingProps> = ({ children, className, style }) => {
 const Heading5xl: React.FC<HeadingProps> = ({ children, className, style }) => {
  return (
   <h2
-   className={`text-5xl font-bold leading-none md:tracking-tight ${
+   className={`text-5xl font-bold leading-none lg:tracking-tight ${
     RobotoCondensed.className
    } ${className || ""}`}
    style={style}>
@@ -68,7 +68,7 @@ const Heading5xl: React.FC<HeadingProps> = ({ children, className, style }) => {
 const Heading6xl: React.FC<HeadingProps> = ({ children, className, style }) => {
  return (
   <h1
-   className={`text-6xl font-black leading-none md:tracking-tight ${
+   className={`text-6xl font-black leading-none lg:tracking-tight ${
     RobotoCondensed.className
    }  ${className || ""}`}
    style={style}>

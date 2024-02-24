@@ -60,7 +60,7 @@ const HeroComponent: React.FC<HeroProps> = ({
       }}
      />
     )}
-    <div className='relativ z-10 flex flex-col justify-center items-start px-4 sm:px-8 md:px-10 lg:px-14 py-20 md:py-24'>
+    <div className='relativ z-10 flex flex-col justify-center items-start px-4 sm:px-8 lg:px-10 lg:px-14 py-20 lg:py-24'>
      <aside className='space-y-5 pb-6'>
       {images.group?.list && (
        <div className='relative h-10 w-10'>

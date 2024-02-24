@@ -7,7 +7,7 @@ export default function DesktopNav() {
    <div className='flex flex-row items-center justify-center gap-1'>
     <NavLink href='/'>TrackingAcademy</NavLink>
    </div>
-   <nav className='md:flex space-x-4 hidden'>
+   <nav className='lg:flex space-x-4 hidden'>
     <NavigationLinks />
    </nav>
   </React.Fragment>

@@ -4,7 +4,7 @@ import Image from "next/image";
 
 const Timeline: React.FC = () => {
  return (
-  <div className='py-10 space-y-8 relative before:absolute before:inset-0 before:ml-5 before:-translate-x-px md:before:mx-auto md:before:translate-x-0 before:h-full before:w-0.5 before:bg-gradient-to-b before:from-transparent before:via-slate-300 before:to-transparent'>
+  <div className='py-10 space-y-8 relative before:absolute before:inset-0 before:ml-5 before:-translate-x-px lg:before:mx-auto lg:before:translate-x-0 before:h-full before:w-0.5 before:bg-gradient-to-b before:from-transparent before:via-slate-300 before:to-transparent'>
    <TimelineEvent
     title='Initial Consultation & Goal Setting'
     imageULR='/images/home/timeline-initial-consultation.png'

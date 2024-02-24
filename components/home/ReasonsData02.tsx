@@ -5,7 +5,7 @@ import Image from "next/image";
 
 export default function ReasonsData02() {
  return (
-  <div className='pt-10 pb-2 md:py-10'>
+  <div className='pt-10 pb-2 lg:py-10'>
    <p className='text-primary text-center'>
     Configuring & Optimizing Website Tracking Setups 🚀
    </p>
@@ -39,7 +39,7 @@ export default function ReasonsData02() {
       autoPlay
       loop
       muted
-      className='hidden md:block rounded-lg md:p-5 p-2 bg-light-secondary w-full'
+      className='hidden lg:block rounded-lg lg:p-5 p-2 bg-light-secondary w-full'
       onLoadedMetadata={(e) => {
        e.currentTarget.playbackRate = 1;
       }}>
@@ -65,7 +65,7 @@ export default function ReasonsData02() {
       autoPlay
       loop
       muted
-      className='md:hidden rounded-lg md:p-5 p-2 bg-light-secondary w-full'
+      className='lg:hidden rounded-lg lg:p-5 p-2 bg-light-secondary w-full'
       onLoadedMetadata={(e) => {
        e.currentTarget.playbackRate = 1;
       }}>

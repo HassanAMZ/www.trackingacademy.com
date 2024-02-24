@@ -125,14 +125,6 @@ export default function TestimonialSlider() {
      }}
     />
    </Slider>
-   <div className='flex md:flex-row flex-col items-center justify-center gap-2 md:gap-5 pt-10'>
-    <BookACall />
-    <Link
-     href='/services/web-analytics-and-tracking'
-     className='link-secondary flex py-4 px-8  w-full md:w-fit text-light-primary'>
-     <div className='w-full text-center'>Setup my Analytics</div>
-    </Link>
-   </div>
   </div>
  );
 }

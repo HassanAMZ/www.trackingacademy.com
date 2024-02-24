@@ -4,7 +4,7 @@ import ContainerLayout from "../layouts/ContainerLayout";
 const HeroComponentSkeleton: React.FC = () => {
  return (
   <ContainerLayout>
-   <div className='animate-pulse flex flex-col space-y-4 px-5 py-20 md:p-14 backgroundOverlay'>
+   <div className='animate-pulse flex flex-col space-y-4 px-5 py-20 lg:p-14 backgroundOverlay'>
     {/* Skeleton for image group */}
     <div className='flex'>
      {[...Array(4)].map((_, idx) => (

@@ -7,8 +7,12 @@ import HomeNavbar from "@/components/home/Navbar";
 
 const GlobalNavbar = () => {
  let segments = useSelectedLayoutSegments();
-
- if (segments[0] === undefined) {
+ if (
+  segments[0] === undefined ||
+  (segments.length === 2 &&
+   segments[0] === "services" &&
+   segments[1] === "web-analytics-and-tracking")
+ ) {
   return <HomeNavbar />;
  } else if (segments[0] === "blog") {
   return null;

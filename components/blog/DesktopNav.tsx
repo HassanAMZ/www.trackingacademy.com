@@ -88,16 +88,16 @@ const DesktopNav: React.FC<DesktopNavProps> = ({ data }) => {
       <div
        id='search-box'
        ref={searchBoxRef}
-       className='flex flex-col items-center justify-center px-6 py-20 md:p-20'>
+       className='flex flex-col items-center justify-center px-6 py-20 lg:p-20'>
        <input
         ref={inputRef}
         type='text'
         placeholder='Search for a post...'
         value={searchTerm}
         onChange={(e) => setSearchTerm(e.target.value)}
-        className=' w-full md:w-[75vw] rounded-t-lg h-12 bg-primary placeholder:text-dark-primary text-dark-primary pl-4 transition-all duration-300 ease-in-out'
+        className=' w-full lg:w-[75vw] rounded-t-lg h-12 bg-primary placeholder:text-dark-primary text-dark-primary pl-4 transition-all duration-300 ease-in-out'
        />
-       <div className=' w-full md:w-[75vw] '>
+       <div className=' w-full lg:w-[75vw] '>
         {results.length > 0 && isExpanded && (
          <div className='bg-dark-primary p-4 rounded-b-lg shadow-lg overflow-auto'>
           {results.map((result) => (
@@ -144,7 +144,7 @@ const DesktopNav: React.FC<DesktopNavProps> = ({ data }) => {
      Blog&nbsp;<span className='sm:hidden lg:block'>search...</span>
     </button>
 
-    <nav className='md:flex space-x-4 hidden whitespace-nowrap'>
+    <nav className='lg:flex space-x-4 hidden whitespace-nowrap'>
      <NavigationLinks />
     </nav>
     <MobileNav />

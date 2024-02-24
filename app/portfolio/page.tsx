@@ -17,7 +17,7 @@ export default function Page() {
     colorDetails={{ primary: baseColors.portfolio.primary }}
    />
 
-   <div className='grid grid-cols-2 md:grid-cols-3 gap-2'>
+   <div className='grid grid-cols-2 lg:grid-cols-3 gap-2'>
     {clientsDetails.map((client, index) => {
      return (
       <div key={index} className='flex gap-1 flex-col'>

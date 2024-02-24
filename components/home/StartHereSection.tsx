@@ -46,7 +46,7 @@ const StartHereSection: React.FC<StartHereSectionProps> = ({
       links={{
        primary: { src: "#", text: "Coming Soon" },
       }}
-      order='items-center justify-center p-2 md:p-6'
+      order='items-center justify-center p-2 lg:p-6'
      />
      <FreeResoursesSection
       headingTexts={{
@@ -64,7 +64,7 @@ const StartHereSection: React.FC<StartHereSectionProps> = ({
       links={{
        primary: { src: "#", text: "Coming Soon" },
       }}
-      order='items-center justify-center p-2 md:p-6'
+      order='items-center justify-center p-2 lg:p-6'
      />
      <FreeResoursesSection
       headingTexts={{
@@ -82,7 +82,7 @@ const StartHereSection: React.FC<StartHereSectionProps> = ({
       links={{
        primary: { src: "#", text: "Coming Soon" },
       }}
-      order='items-center justify-center p-2 md:p-6'
+      order='items-center justify-center p-2 lg:p-6'
      />
     </div>
    )}
@@ -104,7 +104,7 @@ const StartHereSection: React.FC<StartHereSectionProps> = ({
       links={{
        primary: { src: "#", text: "Coming Soon" },
       }}
-      order='items-center justify-center p-2 md:p-6'
+      order='items-center justify-center p-2 lg:p-6'
      />
      <FreeResoursesSection
       headingTexts={{
@@ -122,7 +122,7 @@ const StartHereSection: React.FC<StartHereSectionProps> = ({
       links={{
        primary: { src: "#", text: "Coming Soon" },
       }}
-      order='items-center justify-center p-2 md:p-6'
+      order='items-center justify-center p-2 lg:p-6'
      />
      <FreeResoursesSection
       headingTexts={{
@@ -140,7 +140,7 @@ const StartHereSection: React.FC<StartHereSectionProps> = ({
       links={{
        primary: { src: "#", text: "Coming Soon" },
       }}
-      order='items-center justify-center p-2 md:p-6'
+      order='items-center justify-center p-2 lg:p-6'
      />
     </div>
    )}

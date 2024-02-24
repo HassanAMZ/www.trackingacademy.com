@@ -16,8 +16,8 @@ const TwoGridContent: React.FC<TwoGridContentProps> = ({
  order,
 }) => (
  <div className='pb-2'>
-  <section className='backgroundOverlay md:p-10 p-4'>
-   <div className='md:grid md:grid-cols-1'>
+  <section className='backgroundOverlay lg:p-10 p-4'>
+   <div className='lg:grid lg:grid-cols-1'>
     {/* <div
      className={` order-${order} flex w-full items-center justify-center`}>
      <Image
@@ -28,7 +28,7 @@ const TwoGridContent: React.FC<TwoGridContentProps> = ({
      />
     </div> */}
     <div className=''>
-     <Heading4xl className='py-2 text-center md:text-left'>
+     <Heading4xl className='py-2 text-center lg:text-left'>
       {learnMoreHeader}
      </Heading4xl>
      <LearnMore detailsList={detailsList} />

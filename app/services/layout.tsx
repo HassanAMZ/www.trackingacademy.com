@@ -3,6 +3,7 @@ import { ReactNode } from "react";
 import { Metadata } from "next";
 import Footer from "@/components/footer/Footer";
 import NavBar from "@/components/navbar/Navbar";
+import React from "react";
 
 export const metadata: Metadata = {
  title: "Services we Offer - TrackingAcademy",
@@ -12,5 +13,5 @@ export const metadata: Metadata = {
  },
 };
 export default function Layout({ children }: { children: ReactNode }) {
- return <ContainerLayout>{children}</ContainerLayout>;
+ return <React.Fragment>{children}</React.Fragment>;
 }

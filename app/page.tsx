@@ -7,7 +7,6 @@ import Timeline from "@/components/home/Timeline";
 import Technologies from "@/components/home/Technologies";
 import ComparisonTable from "@/components/home/ComparisonTable";
 import FAQ from "@/components/home/FAQ";
-import Hero from "@/components/home/Hero";
 import WorkHistory from "@/components/home/WorkHistory";
 import ReasonsData from "@/components/home/ReasonsData";
 import ReasonsData02 from "@/components/home/ReasonsData02";
@@ -16,7 +15,6 @@ import AboutDetails from "@/components/about/AboutDetails";
 import LearnMoreHeader from "@/components/global/LearnMoreHeader";
 import SingleGridContent from "@/components/global/SingleGridContent";
 import TestimonialSlider from "@/components/home/TestimonialSlider";
-import ContactForm from "@/components/contact/ContactForm";
 import BookACall from "@/components/home/BookACall";
 
 const resultsData = [
@@ -50,8 +48,26 @@ function page() {
  return (
   <div>
    <main>
-    <section className='gap-4 py-10 flex items-center flex-col text-center container-primary'>
-     <Hero />
+    <section className='gap-4 py-16 flex items-center flex-col text-center container-primary'>
+     <React.Fragment>
+      <h1 className='title-primary lg:py-5 container-secondary'>
+       We configure tracking that{" "}
+       <span className='bg-gradient-to-r from-primary via-secondary to-primary inline-block text-transparent bg-clip-text animate-gradient-move'>
+        unlocks
+       </span>{" "}
+       more efficient advertising spend
+      </h1>
+      <p className='container-secondary paragraph-primary pb-4'>
+       We handle auditing, analytics, tracking tag's implementations and
+       reporting. You drive traffic with a higher conversion rate.
+      </p>
+      <div className='flex gap-x-4 py-4 w-full items-center justify-center '>
+       <BookACall />
+       <Link href='#why-us' className='link-secondary px-4 lg:px-16 py-3'>
+        Learn More
+       </Link>
+      </div>
+     </React.Fragment>
     </section>
 
     <section>
@@ -78,36 +94,39 @@ function page() {
 
     <section
      id='about'
-     className='grid md:grid-cols-2 pt-20 items-end justify-center container-primary'>
-     <div className='md:pr-10 md:pl-3 px-3'>
-      <p className='text-primary text-center md:text-left'>
+     className='flex flex-col pt-20 items-end justify-center container-primary'>
+     <div className='py-12'>
+      <p className='text-primary text-center'>
        Here's why you should trust Tracking Academy
       </p>
-      <h2 className='title-secondary text-light-primary text-center md:text-left'>
+      <h2 className='title-secondary text-light-primary text-center '>
        We are the experts in Analytics Integration that's Accurate.
       </h2>
-      <p className='py-6 paragraph-primary text-center md:text-left'>
-       Our founder, Ali Hassan, has configured and audited more than 1,000
-       websites for eCommerce brands and lead generation websites with Google
-       Analytics 4, Google Tag Manager, Facebook Pixel and more.
-      </p>
-      <p className='md:py-6 paragraph-primary text-center md:text-left'>
-       After making hundreds of tracking integration and system for clients and
-       agencies, Hassan put together a world-class team of strategists,
-       Analysts, marketers, developers, and a conversion tracking experts that
-       led to launch Tracking Academy — the most effective web analytics
-       integration agency used by category-defining brands and agencies.
-      </p>
      </div>
-
-     <div className='relative w-full pt-4'>
-      <Image
-       className='w-full grayscale'
-       width={1185}
-       height={1080}
-       src='/images/hero/about-image.png'
-       alt='Imtiaz Ahmed'
-      />
+     <div className='lg:pr-10 lg:pl-3 px-3 grid lg:grid-cols-2'>
+      <div>
+       <p className='py-6 paragraph-primary text-center lg:text-left'>
+        Our founder, Ali Hassan, has configured and audited more than 1,000
+        websites for eCommerce brands and lead generation websites with Google
+        Analytics 4, Google Tag Manager, Facebook Pixel and more.
+       </p>
+       <p className='paragraph-primary text-center lg:text-left'>
+        After making hundreds of tracking integration and system for clients and
+        agencies, Hassan put together a world-class team of strategists,
+        Analysts, marketers, developers, and a conversion tracking experts that
+        led to launch Tracking Academy — the most effective web analytics
+        integration agency used by category-defining brands and agencies.
+       </p>
+      </div>
+      <div className='relative w-full pt-4'>
+       <Image
+        className='w-full grayscale'
+        width={1185}
+        height={1080}
+        src='/images/hero/about-image.png'
+        alt='Imtiaz Ahmed'
+       />
+      </div>
      </div>
     </section>
     <section className='bg-light-primary '>
@@ -116,7 +135,7 @@ function page() {
       <h2 className='title-secondary text-center text-dark-primary container-secondary'>
        As you can see for yourself, we get results
       </h2>
-      <div className='grid md:grid-cols-4 sm:grid-cols-2 gap-2 pt-16 w-full'>
+      <div className='grid lg:grid-cols-4 sm:grid-cols-2 gap-2 pt-16 w-full'>
        {resultsData.map((result, index) => (
         <div key={index} className='bg-dark-primary border rounded-lg p-8'>
          <p className='title-primary pb-5'> {result.percentage}% </p>
@@ -142,7 +161,7 @@ function page() {
     </section>
     <section
      id='call-to-action'
-     className='grid md:grid-cols-2 gap-4 py-10 items-center justify-center container-primary'>
+     className='grid lg:grid-cols-2 gap-4 py-10 items-center justify-center container-primary'>
      <div className='space-y-4 '>
       <p className='text-primary'>Let's Enhance Your Digital Presence</p>
       <h2 className='title-primary'>Analytics & Tracking Solutions</h2>
@@ -170,7 +189,7 @@ function page() {
       </div>
       <div className='py-4 paragraph-secondary'>
        <p className='font-bold pt-3 pb-4'>What's Included</p>
-       <ul className='list-inside grid gap-4 sm:grid-cols-2 md:grid-cols-1 lg:grid-cols-2'>
+       <ul className='list-inside grid gap-4 sm:grid-cols-2 lg:grid-cols-2'>
         <li className='flex items-center'>✔ Google Analytics Setup</li>
         <li className='flex items-center'>
          ✔ Google Tag Manager Configuration
@@ -214,6 +233,15 @@ function page() {
 
     <section className='py-20 container-primary'>
      <TestimonialSlider />
+
+     <div className='flex lg:flex-row flex-col items-center justify-center gap-2 lg:gap-5 pt-10'>
+      <BookACall />
+      <Link
+       href='/services/web-analytics-and-tracking'
+       className='link-secondary flex py-4 px-8  w-full lg:w-fit text-light-primary'>
+       <div className='w-full text-center'>Setup my Analytics</div>
+      </Link>
+     </div>
     </section>
 
     <section className='bg-light-primary text-dark-primary py-20'>
@@ -233,7 +261,7 @@ function page() {
         "From setting up tracking tools to personalized consultations, discover how I can elevate your business's web analytics capabilities.",
       }}
      />
-     <div className='grid md:grid-cols-2 gap-2 '>
+     <div className='grid lg:grid-cols-2 gap-2 '>
       <SingleGridContent
        imagesData={{
         src: "/images/hero/001.png",
@@ -304,9 +332,9 @@ function page() {
     <AboutDetails />
 
     <section className='bg-light-primary py-20'>
-     <div className='grid md:grid-cols-2 gap-4 md:gap-8 container-primary'>
+     <div className='grid lg:grid-cols-2 gap-4 lg:gap-8 container-primary'>
       <div className='bg-primary rounded-lg flex flex-col justify-between text-dark-primary'>
-       <div className='p-4 md:p-8 items-center flex flex-col'>
+       <div className='p-4 lg:p-8 items-center flex flex-col'>
         <LearnMoreHeader
          headingTexts={{
           heading: <div>Ready to Enhance Your Analytics & Tracking?</div>,
@@ -337,7 +365,7 @@ function page() {
        </div>
       </div>
       <div className='bg-dark-primary rounded-lg text-light-primary flex flex-col justify-between  '>
-       <div className='p-4 md:p-8 items-center flex flex-col'>
+       <div className='p-4 lg:p-8 items-center flex flex-col'>
         <LearnMoreHeader
          headingTexts={{
           heading: <div>Not ready to start yet? Book a consultation 🤙</div>,

@@ -14,11 +14,11 @@ export default function CallToAction() {
      makes you happy?
     </h2>
 
-    <div className='flex gap-x-2 md:gap-x-4 py-4 '>
+    <div className='flex gap-x-2 lg:gap-x-4 py-4 '>
      <BookACall />
      <Link
       href='/services/web-analytics-and-tracking'
-      className='link-secondary px-4 md:px-16 py-3'>
+      className='link-secondary px-4 lg:px-16 py-3'>
       Setup my Analytics
      </Link>
     </div>

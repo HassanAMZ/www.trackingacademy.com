@@ -36,7 +36,7 @@ const CallToActionSections: React.FC<{ colorDetails: ColorDetails }> = ({
      links={{
       primary: { src: "/#start-here", text: "Start Here" },
      }}
-     order='order-last md:order-first items-end'
+     order='order-last lg:order-first items-end'
     />
     <FreeResoursesSection
      headingTexts={{
@@ -56,7 +56,7 @@ const CallToActionSections: React.FC<{ colorDetails: ColorDetails }> = ({
      links={{
       primary: { src: "/#start-here", text: "Start Here" },
      }}
-     order='order-last md:order-last items-end'
+     order='order-last lg:order-last items-end'
     />
    </section>
   </React.Fragment>

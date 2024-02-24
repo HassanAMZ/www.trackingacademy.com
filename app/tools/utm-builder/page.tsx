@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useState, useRef, useEffect } from "react";
-import baseColors from "@/data/base-colors";
 import {
  IsWebsiteURLValid,
  CanGenerateUTM,
@@ -10,13 +9,7 @@ import {
 } from "@/types/index";
 import InputField from "@/components/tools/InputField";
 import { ButtonData } from "@/types/index";
-import {
- Heading4xl,
- Paragraphlg,
- Paragraphmd,
-} from "@/components/typography/Heading";
-import YoutubeEmbed from "@/components/mdx/YoutubeEmbed";
-import Link from "next/link";
+
 import ToolsHeroSection from "@/components/tools/ToolsHeroSection";
 
 const Page: React.FC = () => {
@@ -229,7 +222,7 @@ const Page: React.FC = () => {
  return (
   <section className='flex flex-col rounded-lg pb-8'>
    <ToolsHeroSection />
-   <div className='flex flex-col md:flex-row gap-2 py-8' id='utm-builder'>
+   <div className='flex flex-col lg:flex-row gap-2 py-8' id='utm-builder'>
     {buttonsData.map((button) => (
      <div key={button.text} className='w-full'>
       <button

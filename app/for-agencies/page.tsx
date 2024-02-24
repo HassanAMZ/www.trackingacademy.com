@@ -94,7 +94,7 @@ const Page: React.FC = () => {
      }}
     />
 
-    <div className='hidden md:grid grid-cols-5 gap-2 pt-6 grayscale items-center justify-center'>
+    <div className='hidden lg:grid grid-cols-5 gap-2 pt-6 grayscale items-center justify-center'>
      {clientData.map((client, index) => (
       <Clients
        key={index}
@@ -181,7 +181,7 @@ const Page: React.FC = () => {
       }}
       colorDetails={{ primary: baseColors.forAgencies.primary }}
      />
-     <div className='grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1'>
+     <div className='grid lg:grid-cols-2 grid-cols-1'>
       <TestimonialCard
        person={{
         testimonial:
@@ -277,7 +277,7 @@ const Page: React.FC = () => {
       colorDetails={{ primary: baseColors.forAgencies.primary }}
      />
     </div>
-    <div className='grid md:grid-cols-2 gap-2'>
+    <div className='grid lg:grid-cols-2 gap-2'>
      <SingleGridContent
       headingTexts={{ heading: "🛠️ Google Tag Manager Configuration" }}
       paragraphTexts={{

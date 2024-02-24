@@ -11,14 +11,14 @@ const ImageSlider = () => {
   dots: false,
   infinite: true,
   speed: 8000,
-  slidesToShow: 3,
+  slidesToShow: 8,
   autoplay: true,
   cssEase: "linear",
   autoplaySpeed: 0,
   pauseOnHover: true,
   arrows: false,
   initialSlide: 0,
-  lazyLoad: "anticipated" as LazyLoadTypes,
+  //   lazyLoad: "progressive" as LazyLoadTypes,
   responsive: [
    {
     breakpoint: 2100,
@@ -26,30 +26,14 @@ const ImageSlider = () => {
      slidesToShow: 7,
     },
    },
-   {
-    breakpoint: 1600,
-    settings: {
-     slidesToShow: 6,
-    },
-   },
-   {
-    breakpoint: 1280,
-    settings: {
-     slidesToShow: 5,
-    },
-   },
+
    {
     breakpoint: 1024,
     settings: {
      slidesToShow: 4,
     },
    },
-   {
-    breakpoint: 768,
-    settings: {
-     slidesToShow: 3,
-    },
-   },
+
    {
     breakpoint: 480,
     settings: {
