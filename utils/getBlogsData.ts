@@ -21,7 +21,7 @@ export default async function getContentData(
   const data = extractMetaFromStringForBlog(content);
 
   const slug = path.dirname(fileName).split(path.sep).slice(-2).join("/");
-  const title = path
+  const pagePath = path
    .basename(path.dirname(fileName))
    .replace(/-/g, " ")
    .replace(/\b\w/g, (match) => match.toUpperCase());
@@ -29,7 +29,7 @@ export default async function getContentData(
   const id = fileName.replace(/\.mdx$/, "");
 
   if (data) {
-   contents.push({ ...data, id, slug, title });
+   contents.push({ ...data, id, slug, pagePath });
   }
  }
 

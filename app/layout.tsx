@@ -7,11 +7,9 @@ import GTMAnalytics from "@/components/analytics/GTMAnalytics";
 import React from "react";
 import VercelAnalytics from "@/components/analytics/VercelAnalytics";
 import Footer from "@/components/footer/Footer";
-import { ThemeProvider } from "@/context/ThemeContext";
 import { Suspense } from "react";
 import CanonicalTag from "@/components/seo/CanonicalTag";
 import { SpeedInsights } from "@vercel/speed-insights/next";
-import Navbar from "@/components/navbar/Navbar";
 import GlobalNavbar from "@/components/global/GlobalNavbar";
 import { Poppins } from "next/font/google";
 
@@ -40,13 +38,11 @@ export default function RootLayout({ children }: { children: ReactNode }) {
   <html lang='en'>
    <body
     className={` selection:text-light-primary selection:bg-secondary  bg-dark-primary paragraph-primary text-light-primary ${poppins.className}`}>
-    <ThemeProvider attribute='class' defaultTheme='dark'>
-     <AuthContextProvider>
-      <GlobalNavbar />
-      {children}
-      <Footer />
-     </AuthContextProvider>
-    </ThemeProvider>
+    <AuthContextProvider>
+     <GlobalNavbar />
+     {children}
+     <Footer />
+    </AuthContextProvider>
 
     <Suspense>
      <GTMAnalytics />

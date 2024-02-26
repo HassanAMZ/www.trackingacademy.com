@@ -14,7 +14,7 @@ const YoutubeEmbed: FC<YoutubeEmbedProps> = ({ embedId }) => {
  return (
   <div
    id='youtubeEmbedMdxComponents'
-   className='video-responsive shadow-md rounded-md'>
+   className='video-responsive shadow-md rounded-md w-full'>
    <iframe
     width={853}
     height={480}
