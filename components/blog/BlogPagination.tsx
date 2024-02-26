@@ -31,7 +31,7 @@ const BlogPagination: React.FC<BlogPaginationProps> = ({ sortedData }) => {
    <div className='grid lg:grid-cols-2 gap-2'>
     {currentPosts.map((blog, index) => (
      <Link
-      href={`blog/${blog.slug}`}
+      href={`/blog/${blog.slug}`}
       key={blog.blogId}
       className='flex flex-col gap-4 bg-dark-secondary rounded-md text-light-primary p-2 '>
       <Image

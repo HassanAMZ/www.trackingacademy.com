@@ -16,8 +16,6 @@ export default async function SingleBlogLayout({
   .filter((item) => item.draft === false)
   .sort((a, b) => b.blogId - a.blogId);
 
- const allTags = sortedData.slice(0, 20).flatMap((blog) => blog.tags);
- const uniqueTags = Array.from(new Set(allTags)).slice(0, 20);
  return (
   <div className='lg:grid-cols-10 grid '>
    <div className='lg:col-span-7'>{children}</div>
@@ -31,7 +29,7 @@ export default async function SingleBlogLayout({
        .slice(0, 10)
        .map((blog, index) => (
         <Link
-         href={`blog/${blog.slug}`}
+         href={`/blog/${blog.slug}`}
          key={index}
          className='grid grid-cols-3 gap-2 items-center justify-center bg-dark-secondary rounded-md text-light-primary p-2'>
          <Image

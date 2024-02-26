@@ -22,7 +22,7 @@ export default async function Page() {
     <Link
      className='p-2 bg-dark-secondary rounded-md text-light-primary flex flex-col gap-4'
      id='main-blog'
-     href={`blog/${sortedData[0].slug}`}>
+     href={`/blog/${sortedData[0].slug}`}>
      <Image
       src={sortedData[0].openGraph.images[0]}
       alt='Imtiaz Ahmed'
@@ -44,7 +44,7 @@ export default async function Page() {
     <section className='grid grid-rows-3 gap-2'>
      {sortedData.slice(1, 4).map((blog, index) => (
       <Link
-       href={`blog/${blog.slug}`}
+       href={`/blog/${blog.slug}`}
        key={index}
        className='grid grid-cols-3 gap-2 p-2 bg-dark-secondary rounded-md text-light-primary '>
        <div className='col-span-2 flex flex-col gap-2'>
@@ -85,7 +85,7 @@ export default async function Page() {
         .slice(0, 4)
         .map((blog, index) => (
          <Link
-          href={`blog/${blog.slug}`}
+          href={`/blog/${blog.slug}`}
           key={index}
           className='grid grid-cols-3 gap-2 items-center justify-center bg-dark-secondary rounded-md text-light-primary p-2'>
           <Image
