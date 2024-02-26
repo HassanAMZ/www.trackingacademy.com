@@ -46,9 +46,9 @@ export default async function Page() {
       <Link
        href={`blog/${blog.slug}`}
        key={index}
-       className='grid grid-cols-3 gap-2 p-2 bg-dark-secondary rounded-md text-light-primary items-center justify-center'>
+       className='grid grid-cols-3 gap-2 p-2 bg-dark-secondary rounded-md text-light-primary '>
        <div className='col-span-2 flex flex-col gap-2'>
-        <h3 className='title-tertiary line-clamp-2'>
+        <h3 className='paragraph-primary font-semibold line-clamp-2'>
          {sortedData[index + 1].title}
         </h3>
         <p className='paragraph-primary line-clamp-2'>
@@ -110,7 +110,7 @@ export default async function Page() {
         <Link
          key={index}
          href={`/tags/${tag.toLowerCase().replace(/\s+/g, "-")}`}
-         className='button bg-secondary rounded-lg p-1'>
+         className='button bg-secondary paragraph-secondary rounded-lg p-1'>
          {tag}
         </Link>
        ))}
