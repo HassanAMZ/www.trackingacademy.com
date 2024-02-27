@@ -31,7 +31,7 @@ const PricingCard: React.FC<PricingCardProps> = ({
 }) => {
  return (
   <div className='grid grid-rows-[1fr,auto]'>
-   <div className='grid lg:grid-auto-rows gap-4 w-full h-full bg-dark-primary text-light-primary rounded-lg py-12 px-6'>
+   <div className='grid lg:grid-auto-rows gap-4 w-full h-full bg-complementary text-dominant rounded-lg py-12 px-6'>
     <div className='flex justify-between items-center'>
      {packageType === "PRO" && <span className='badge'>Most Popular</span>}
     </div>
@@ -48,11 +48,11 @@ const PricingCard: React.FC<PricingCardProps> = ({
      )}
     </div>
 
-    <button className='link-primary w-full' type='button'>
+    <button className='link-primary px-4 lg:px-16 py-3 w-full' type='button'>
      Buy Now
     </button>
    </div>
-   <div className='bg-light-primary text-dark-primary py-4'>
+   <div className='bg-dominant text-complementary py-4'>
     <h4 className='paragraph-secondary'>
      Brands who bought {packageType} package
     </h4>
@@ -61,7 +61,7 @@ const PricingCard: React.FC<PricingCardProps> = ({
      {imageUrls.map((image, index) => (
       <div
        key={index}
-       className='rounded-lg filter object-contain overflow-hidden'>
+       className='rounded-lg filter object-contain overflow-hidden bg-complementary/10'>
        <Image
         src={image}
         alt={`Client ${index}`}
@@ -83,9 +83,9 @@ const BenefitItem: React.FC<BenefitItemProps> = ({
  icon,
 }) => {
  return (
-  <div className='flex flex-col gap-2 text-left bg-dark-secondary rounded-lg p-4'>
+  <div className='flex flex-col gap-2 text-left bg-complementary rounded-lg p-4'>
    <div className='flex items-center gap-2'>
-    <div className='w-10 h-10 bg-primary flex items-center justify-center rounded-full text-dark-primary'>
+    <div className='w-10 h-10 bg-accent flex items-center justify-center rounded-full text-complementary'>
      {icon}
     </div>
     <h3 className='paragraph-primary font-semibold'>{title}</h3>
@@ -227,7 +227,7 @@ function page() {
      </p>
 
      <div className='flex gap-x-4 py-4 w-full items-center justify-center '>
-      <Link href='#pricing' className='link-secondary'>
+      <Link href='#pricing' className='link-primary px-4 lg:px-16 py-3'>
        View Pricing
       </Link>
      </div>
@@ -239,10 +239,10 @@ function page() {
 
     <section className='py-32'>
      <div className='container-primary text-center'>
-      <p className='paragraph-primary text-primary'>
+      <p className='paragraph-primary text-accent'>
        Letting us help you with tracking and analytics
       </p>
-      <h2 className='title-secondary text-light-primary'>
+      <h2 className='title-secondary text-dominant'>
        Become familiar with your benefits
       </h2>
       <div className='grid sm:grid-cols-2 lg:grid-cols-3 gap-3 py-12'>
@@ -256,16 +256,16 @@ function page() {
        ))}
       </div>
       <div className=''>
-       <a href='#pricing' className='link-primary'>
+       <a href='#pricing' className='link-primary px-4 lg:px-16 py-3'>
         Choose Package
        </a>
       </div>
      </div>
     </section>
 
-    <section id='pricing' className='pt-20 bg-light-primary text-dark-primary'>
+    <section id='pricing' className='pt-20 bg-dominant text-complementary'>
      <div className='container-primary text-center'>
-      <p className='paragraph-primary text-secondary'>Our pricing </p>
+      <p className='paragraph-primary text-accent'>Our pricing </p>
       <h2 className='title-secondary'>Choose the right package for you</h2>
       <div className='grid lg:grid-cols-3 gap-4  py-12'>
        {pricingCardsData.map((card, index) => (
@@ -283,7 +283,7 @@ function page() {
      </div>
     </section>
 
-    <section className='bg-light-primary pb-12 text-dark-primary'>
+    <section className='bg-complementary pt-12 pb-20 text-dominant'>
      <div className='container-primary text-center'>
       <h2 className='title-primary py-12'>
        Every Web Analytics Service includes:
@@ -309,16 +309,17 @@ function page() {
       </div>
      </div>
     </section>
-    <section className='bg-light-primary text-dark-primary py-12'>
+
+    <section className='bg-dominant text-complementary py-20'>
      <div className='container-primary'>
       <h2 className='text-center title-secondary py-8'>
        What to Expect When You Engage Our Tracking & Analytics Services
       </h2>
 
-      <div className='relative border-dark-primary'>
+      <div className='relative border-complementary'>
        <article className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 py-10'>
         <div className='flex flex-col items-center'>
-         <div className='rounded-full bg-primary text-dark-primary w-12 h-12 flex items-center justify-center z-20'>
+         <div className='rounded-full bg-accent text-complementary w-12 h-12 flex items-center justify-center z-20'>
           <span className='title-secondary p-4'>1</span>
          </div>
          <h3 className='title-tertiary py-4 text-center'>
@@ -330,7 +331,7 @@ function page() {
          </p>
         </div>
         <div className='flex flex-col items-center'>
-         <div className='rounded-full bg-primary text-dark-primary w-12 h-12 flex items-center justify-center z-20'>
+         <div className='rounded-full bg-accent text-complementary w-12 h-12 flex items-center justify-center z-20'>
           <span className='title-secondary p-4'>2</span>
          </div>
          <h3 className='title-tertiary py-4 text-center'>
@@ -342,7 +343,7 @@ function page() {
          </p>
         </div>
         <div className='flex flex-col items-center'>
-         <div className='rounded-full bg-primary text-dark-primary w-12 h-12 flex items-center justify-center z-20'>
+         <div className='rounded-full bg-accent text-complementary w-12 h-12 flex items-center justify-center z-20'>
           <span className='title-secondary p-4'>3</span>
          </div>
          <h3 className='title-tertiary py-4 text-center'>
@@ -354,7 +355,7 @@ function page() {
          </p>
         </div>
         <div className='flex flex-col items-center'>
-         <div className='rounded-full bg-primary text-dark-primary w-12 h-12 flex items-center justify-center z-20'>
+         <div className='rounded-full bg-accent text-complementary w-12 h-12 flex items-center justify-center z-20'>
           <span className='title-secondary p-4'>4</span>
          </div>
          <h3 className='title-tertiary py-4 text-center'>
@@ -367,7 +368,7 @@ function page() {
         </div>
        </article>
 
-       <div className='absolute top-16 left-0 w-full border-t-8 rounded-lg border-dark-secondary'></div>
+       <div className='absolute top-16 left-0 w-full border-t-8 rounded-lg border-complementary'></div>
       </div>
      </div>
     </section>
@@ -376,12 +377,10 @@ function page() {
      <TestimonialSlider />
 
      <div className='flex lg:flex-row flex-col items-center justify-center gap-2 lg:gap-5 pt-10'>
-      <button className='link-secondary flex py-4 px-8  w-full lg:w-fit text-light-primary'>
-       Shop Now
-      </button>
+      <button className='link-primary px-4 lg:px-16 py-3'>Shop Now</button>
      </div>
     </section>
-    <section className='bg-light-primary text-dark-primary py-20'>
+    <section className='bg-dominant text-complementary py-20'>
      <h2 className='title-primary container-primary text-center py-12'>
       Frequently Asked Questions
      </h2>
@@ -390,30 +389,32 @@ function page() {
      </div>
     </section>
 
-    <section className='bg-light-primary text-dark-primary  pb-20'>
-     <div className='bg-primary rounded-lg flex items-center justify-center container-primary'>
-      <div className='p-4 lg:p-8 items-left flex flex-col'>
-       <LearnMoreHeader
-        headingTexts={{
-         heading: <div>Not ready to start yet? Book a consultation 🤙</div>,
-         subHeading: (
-          <div>
-           Schedule a call to discuss how our expertise in analytics and
-           tracking can boost your marketing efforts.
-          </div>
-         ),
-        }}
-       />
-       <BookACall />
-      </div>
-      <div className='relative w-2/3 pt-4'>
-       <Image
-        className='grayscale'
-        width={1185}
-        height={1080}
-        src='/images/hero/about-image.png'
-        alt='Imtiaz Ahmed'
-       />
+    <section className='bg-dominant text-complementary py-20'>
+     <div className='container-primary '>
+      <div className='bg-accent rounded-lg flex items-center justify-center '>
+       <div className='p-4 lg:p-8 items-left flex flex-col'>
+        <LearnMoreHeader
+         headingTexts={{
+          heading: <div>Not ready to start yet? Book a consultation 🤙</div>,
+          subHeading: (
+           <div>
+            Schedule a call to discuss how our expertise in analytics and
+            tracking can boost your marketing efforts.
+           </div>
+          ),
+         }}
+        />
+        <BookACall />
+       </div>
+       <div className='relative w-2/3 pt-4'>
+        <Image
+         className='grayscale'
+         width={1185}
+         height={1080}
+         src='/images/hero/about-image.png'
+         alt='Imtiaz Ahmed'
+        />
+       </div>
       </div>
      </div>
     </section>

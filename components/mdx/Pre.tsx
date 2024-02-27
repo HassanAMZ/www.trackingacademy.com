@@ -16,8 +16,8 @@ const Pre: React.FC<PreProps> = ({ language, children }) => {
 
  return (
   <div className='py-2 '>
-   <div className='rounded-md text-left text-light-primary   bg-dark-secondary'>
-    <div className='flex items-center relative border-2 border-dark-primary px-4 py-2 justify-between rounded-t-md'>
+   <div className='rounded-md text-left text-dominant   bg-complementary'>
+    <div className='flex items-center relative border-2 border-complementary px-4 py-2 justify-between rounded-t-md'>
      <span>{language}</span>
      <button onClick={onCopy} className='flex ml-auto gap-2 items-center '>
       <svg
@@ -36,7 +36,7 @@ const Pre: React.FC<PreProps> = ({ language, children }) => {
      </button>
     </div>
     <div
-     className='p-4 overflow-y-auto  border-2 border-dark-primary'
+     className='p-4 overflow-y-auto  border-2 border-complementary'
      ref={textInput}>
      <code>{children}</code>
     </div>

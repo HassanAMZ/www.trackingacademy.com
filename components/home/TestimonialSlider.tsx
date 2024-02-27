@@ -3,17 +3,20 @@
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import Link from "next/link";
 import TestimonialCard from "../testimonial/TestimonialCard";
 import React from "react";
-import BookACall from "./BookACall";
 
 const sliderSettings = {
- dots: true,
+ dots: false,
  infinite: true,
- speed: 500,
+ speed: 8000,
+ autoplay: true,
+ cssEase: "linear",
+ autoplaySpeed: 0,
+ pauseOnHover: true,
+ arrows: false,
+ initialSlide: 0,
  slidesToShow: 3,
- slidesToScroll: 3,
  responsive: [
   {
    breakpoint: 1024,

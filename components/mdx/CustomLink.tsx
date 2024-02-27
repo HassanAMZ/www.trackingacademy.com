@@ -18,9 +18,7 @@ let CustomLink: React.FC<CustomLinkProps> = ({
   href
  )}`;
 
- let classes = `underline curosr font-medium underline-offset-2  ${
-  className || ""
- }`;
+ let classes = `curosr font-medium ${className || ""}`;
 
  if (isInternalLink) {
   return (

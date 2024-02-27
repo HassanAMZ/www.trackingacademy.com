@@ -10,7 +10,7 @@ const SingleGridContent: React.FC<SingleGridContentProps> = ({
  paragraphTexts,
 }) => {
  return (
-  <section className='bg-dark-secondary rounded-lg grid p-6 lg:p-12'>
+  <section className='bg-dominant text-complementary rounded-lg grid p-6 lg:p-12'>
    <div className='order-1 flex w-full items-center justify-center'>
     {imagesData && (
      <Image

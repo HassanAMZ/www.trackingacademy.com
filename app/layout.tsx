@@ -37,7 +37,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
  return (
   <html lang='en'>
    <body
-    className={` selection:text-light-primary selection:bg-secondary  bg-dark-primary paragraph-primary text-light-primary ${poppins.className}`}>
+    className={` selection:text-complementary selection:bg-accent  bg-complementary paragraph-primary text-dominant ${poppins.className}`}>
     <AuthContextProvider>
      <GlobalNavbar />
      {children}

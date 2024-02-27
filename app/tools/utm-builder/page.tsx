@@ -227,11 +227,11 @@ const Page: React.FC = () => {
      <div key={button.text} className='w-full'>
       <button
        className={`
-       border border-light-secondary p-2 w-full transition font-semibold duration-300 ease-in-out rounded-md 
+       border border-dominant p-2 w-full transition font-semibold duration-300 ease-in-out rounded-md 
         ${
          selectedButton === button.id
-          ? ` text-primary   bg-dark-secondary border-light-secondary`
-          : ` text-ligth-primary hover:bg-secondary hover:text-dark-primary `
+          ? ` text-accent   bg-complementary border-dominant`
+          : ` text-ligth-primary hover:bg-accent hover:text-complementary `
         }
       `}
        onClick={() => {
@@ -308,8 +308,8 @@ const Page: React.FC = () => {
      readOnly
      value={generateUTM()}
      rows={4}
-     className={`p-1 border-2 border-light-primary rounded-md bg-transparent peer h-full w-full outline-none text-sm pr-2 ${
-      !canGenerateUTM() ? "opacity-50" : "border-2 border-primary animate-pulse"
+     className={`p-1 border-2 border-dominant rounded-md bg-transparent peer h-full w-full outline-none text-sm pr-2 ${
+      !canGenerateUTM() ? "opacity-50" : "border-2 border-accent animate-pulse"
      }`}
     />
     {!canGenerateUTM() && (
@@ -324,8 +324,8 @@ const Page: React.FC = () => {
      onClick={handleCopy}
      className={`p-2 w-full rounded-md  border-2 transition ${
       canGenerateUTM()
-       ? " bg-primary text-dark-primary"
-       : " cursor-not-allowed bg-dark-secondary"
+       ? " bg-accent text-complementary"
+       : " cursor-not-allowed bg-complementary"
      } ${copied ? "animate-shake" : ""} `}>
      <p className='paragraph-primary font-bold'>
       {copied ? "Copied!" : "Copy to Clipboard"}

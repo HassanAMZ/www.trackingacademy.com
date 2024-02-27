@@ -17,7 +17,7 @@ interface NavButtonProps {
 const NavItem: React.FC<NavItemProps> = ({ href, children, onClick }) => (
  <Link
   href={href}
-  className='rounded hover:text-primary px-2 py-5 w-full border-b-2 border-dark-secondary'
+  className='hover:text-complementary hover:bg-accent px-2 py-5 w-full border-b-2 border-dominant'
   onClick={onClick}>
   {children}
  </Link>
@@ -58,7 +58,7 @@ const MobileNavbar: React.FC = () => {
    <div
     className={`absolute inset-0 z-10 title-tertiary ${
      isOpen ? "flex" : "hidden"
-    } bg-dark-primary`}
+    } bg-complementary`}
     style={{ height: isOpen ? "100vh" : "0" }}>
     <div className='flex flex-col items-start justify-between py-3 px-5 gap-2 w-full'>
      <NavButton onClick={toggleMenu} label='Close Navigation Menu' />
@@ -87,7 +87,7 @@ const MobileNavbar: React.FC = () => {
       <BookACall />
       <Link
        href='/services/web-analytics-and-tracking'
-       className='text-center link-primary '
+       className='text-center link-primary px-4 lg:px-16 py-3'
        onClick={toggleMenu}>
        Get started
       </Link>

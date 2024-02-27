@@ -52,7 +52,7 @@ function page() {
      <React.Fragment>
       <h1 className='title-primary lg:py-5 container-secondary'>
        We configure tracking that{" "}
-       <span className='bg-gradient-to-r from-primary via-secondary to-primary inline-block text-transparent bg-clip-text animate-gradient-move'>
+       <span className='bg-gradient-to-r from-accent via-accent  to-accent inline-block text-transparent bg-clip-text animate-gradient-move'>
         unlocks
        </span>{" "}
        more efficient advertising spend
@@ -96,10 +96,10 @@ function page() {
      id='about'
      className='flex flex-col pt-20 items-end justify-center container-primary'>
      <div className='py-12'>
-      <p className='text-primary text-center'>
+      <p className='text-accent text-center'>
        Here's why you should trust Tracking Academy
       </p>
-      <h2 className='title-secondary text-light-primary text-center '>
+      <h2 className='title-secondary text-dominant text-center '>
        We are the experts in Analytics Integration that's Accurate.
       </h2>
      </div>
@@ -129,21 +129,21 @@ function page() {
       </div>
      </div>
     </section>
-    <section className='bg-light-primary '>
+    <section className='bg-dominant '>
      <div className='flex items-center flex-col container-primary px-4 py-20'>
-      <p className='text-secondary font-semibold'>It works, too</p>
-      <h2 className='title-secondary text-center text-dark-primary container-secondary'>
+      <p className='text-complementary font-semibold'>It works, too</p>
+      <h2 className='title-secondary text-center text-complementary container-secondary'>
        As you can see for yourself, we get results
       </h2>
       <div className='grid lg:grid-cols-4 sm:grid-cols-2 gap-2 pt-16 w-full'>
        {resultsData.map((result, index) => (
-        <div key={index} className='bg-dark-primary border rounded-lg p-8'>
+        <div key={index} className='bg-complementary border rounded-lg p-8'>
          <p className='title-primary pb-5'> {result.percentage}% </p>
          <p className='paragraph-secondary'>{result.detail} </p>
         </div>
        ))}
       </div>
-      <p className='pt-16 paragraph-tertiary text-dark-primary text-center'>
+      <p className='pt-16 paragraph-tertiary text-complementary text-center'>
        Results may vary*
       </p>
      </div>
@@ -156,14 +156,14 @@ function page() {
      <Timeline />
     </section>
 
-    <section id='case-studies' className='bg-light-primary'>
+    <section id='case-studies' className='bg-dominant'>
      <CaseStudies />
     </section>
     <section
      id='call-to-action'
      className='grid lg:grid-cols-2 gap-4 py-10 items-center justify-center container-primary'>
      <div className='space-y-4 '>
-      <p className='text-primary'>Let's Enhance Your Digital Presence</p>
+      <p className='text-accent'>Let's Enhance Your Digital Presence</p>
       <h2 className='title-primary'>Analytics & Tracking Solutions</h2>
       <p className='paragraph-primary'>
        We specialize in configuring advanced tracking and analytics for your
@@ -177,11 +177,11 @@ function page() {
       </p>
      </div>
 
-     <div className='bg-primary rounded-lg py-10 px-6 text-dark-primary divide-y divide-dark-secondary'>
+     <div className='bg-accent rounded-lg py-10 px-6 text-complementary divide-y divide-dark-secondary'>
       <div className='pb-3'>
        <h3 className='title-tertiary font-bold'>Analytics Setup Package</h3>
        <div className='py-4 flex items-center gap-4'>
-        <p className='paragraph-secondary font-bold'>$2,000</p>
+        <p className='paragraph-primary font-bold'>$2,000</p>
         <p className='paragraph-tertiary'>
          Comprehensive analytics and tracking setup
         </p>
@@ -205,19 +205,21 @@ function page() {
 
       <Link
        href='/services/web-analytics-and-tracking'
-       className='link-secondary flex mt-6 p-4 text-light-primary'>
+       className='link-secondary flex mt-6 p-4 text-dominant'>
        <div className='w-full text-center'>Setup my Analytics</div>
       </Link>
      </div>
     </section>
 
-    <section className=' bg-light-primary'>
-     <div className='container-primary py-20 text-dark-primary text-center '>
+    <section className=' bg-dominant'>
+     <div className='container-primary pt-20 text-complementary text-center '>
       <h2 className='title-secondary py-8'>We plug into your tech stack</h2>
       <Technologies />
      </div>
-     <div className='text-dark-primary'>
-      <h2 className='title-secondary text-center'>How we compare</h2>
+     <div className='text-dominant bg-complementary py-20'>
+      <h2 className='title-secondary text-center'>
+       How we compare to other solutions
+      </h2>
       <div className=' flex items-center justify-center py-6'>
        <p className='paragraph-primary container-secondary text-center'>
         At Tracking Academy, we understand the importance of seamless
@@ -231,20 +233,20 @@ function page() {
      </div>
     </section>
 
-    <section className='py-20 container-primary'>
+    <section className='pb-20'>
      <TestimonialSlider />
 
-     <div className='flex lg:flex-row flex-col items-center justify-center gap-2 lg:gap-5 pt-10'>
+     <div className='flex container-primary lg:flex-row flex-col items-center justify-center gap-2 lg:gap-5 pt-10'>
       <BookACall />
       <Link
        href='/services/web-analytics-and-tracking'
-       className='link-secondary flex py-4 px-8  w-full lg:w-fit text-light-primary'>
+       className='link-secondary px-4 lg:px-16 py-3'>
        <div className='w-full text-center'>Setup my Analytics</div>
       </Link>
      </div>
     </section>
 
-    <section className='bg-light-primary text-dark-primary py-20'>
+    <section className='bg-dominant text-complementary py-20'>
      <h2 className='title-primary container-primary text-center py-12'>
       Frequently Asked Questions
      </h2>
@@ -321,19 +323,19 @@ function page() {
       />
      </div>
     </section>
-    <section className='container-primary'>
+    <section className='container-primary pb-20'>
      <LearnMoreHeader
       headingTexts={{
        heading: "Our expertise in website tracking",
        subHeading: "We have mastered web analytics from every angle.",
       }}
      />
+     <AboutDetails />
     </section>
-    <AboutDetails />
 
-    <section className='bg-light-primary py-20'>
+    <section className='bg-dominant py-20'>
      <div className='grid lg:grid-cols-2 gap-4 lg:gap-8 container-primary'>
-      <div className='bg-primary rounded-lg flex flex-col justify-between text-dark-primary'>
+      <div className='bg-accent rounded-lg flex flex-col justify-between text-complementary'>
        <div className='p-4 lg:p-8 items-center flex flex-col'>
         <LearnMoreHeader
          headingTexts={{
@@ -349,7 +351,7 @@ function page() {
 
         <Link
          href='/services/web-analytics-and-tracking'
-         className='link-secondary'>
+         className='link-secondary px-4 lg:px-16 py-3'>
          Get Started
         </Link>
        </div>
@@ -364,7 +366,7 @@ function page() {
         />
        </div>
       </div>
-      <div className='bg-dark-primary rounded-lg text-light-primary flex flex-col justify-between  '>
+      <div className='bg-complementary rounded-lg text-dominant flex flex-col justify-between  '>
        <div className='p-4 lg:p-8 items-center flex flex-col'>
         <LearnMoreHeader
          headingTexts={{

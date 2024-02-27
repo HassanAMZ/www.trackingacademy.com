@@ -19,7 +19,7 @@ const NavigationLinks: React.FC = () => {
       <div key={`nav-link-${link.title}`} className='group relative'>
        <NavLink
         href={link.href}
-        className='hover:underline hover:text-primary transition-all duration-300'>
+        className='hover:underline hover:text-accent transition-all duration-300'>
         {link.title}
        </NavLink>
        <div className='nested-links absolute hidden group-hover:flex flex-row bg-gray-700 shadow-md p-2 rounded-md z-20'>
@@ -27,7 +27,7 @@ const NavigationLinks: React.FC = () => {
          <NavLink
           key={`nav-link-${childLink.title}`}
           href={childLink.href}
-          className='hover:underline hover:text-primary transition-all duration-300 mx-2'>
+          className='hover:underline hover:text-accent transition-all duration-300 mx-2'>
           {childLink.title}
          </NavLink>
         ))}
@@ -40,7 +40,7 @@ const NavigationLinks: React.FC = () => {
      <NavLink
       key={`nav-link-${link.title}`}
       href={link.href}
-      className='hover:underline hover:text-primary transition-all duration-300'>
+      className='hover:underline hover:text-accent transition-all duration-300'>
       {link.title}
      </NavLink>
     );

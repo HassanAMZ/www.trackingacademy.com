@@ -2,6 +2,28 @@ html {
  scroll-behavior: smooth;
 }
 
+:root {
+ font-size: 16px;
+}
+
+@media (max-width: 640px) {
+ :root {
+  font-size: 14px;
+ }
+}
+
+@media (min-width: 641px) {
+ :root {
+  font-size: 16px;
+ }
+}
+
+@media (min-width: 1025px) {
+ :root {
+  font-size: 18px;
+ }
+}
+
 .video-responsive {
  overflow: hidden;
  padding-bottom: 56.25%; // For 16:9 aspect ratio

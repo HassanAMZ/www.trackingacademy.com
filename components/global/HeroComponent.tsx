@@ -29,7 +29,7 @@ const HeroComponent: React.FC<HeroProps> = ({
 
  return (
   <React.Fragment>
-   <section className='relative bg-dark-secondary rounded-md flex flex-col shadow-md items-center justify-center'>
+   <section className='relative bg-complementary rounded-md flex flex-col shadow-md items-center justify-center'>
     {images?.background?.desktop && (
      <Image
       alt='Shahzada Ali Hassan'
@@ -60,7 +60,7 @@ const HeroComponent: React.FC<HeroProps> = ({
       }}
      />
     )}
-    <div className='relativ z-10 flex flex-col justify-center items-start px-4 sm:px-8 lg:px-10 lg:px-14 py-20 lg:py-24'>
+    <div className='relativ z-10 flex flex-col justify-center items-start px-4 sm:px-8 lg:px-14 py-20 lg:py-24'>
      <aside className='space-y-5 pb-6'>
       {images.group?.list && (
        <div className='relative h-10 w-10'>
@@ -99,11 +99,15 @@ const HeroComponent: React.FC<HeroProps> = ({
      </aside>
 
      <div className='flex gap-2 text-lg'>
-      <Link href={links.primary.src} className='link-primary'>
+      <Link
+       href={links.primary.src}
+       className='link-primary px-4 lg:px-16 py-3'>
        {links.primary.text}
       </Link>
       {links.secondary && (
-       <Link href={links.secondary.src} className='link-secondary'>
+       <Link
+        href={links.secondary.src}
+        className='link-secondary px-4 lg:px-16 py-3'>
         {links.secondary.text}
        </Link>
       )}

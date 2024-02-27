@@ -41,7 +41,7 @@ const TagContent: React.FC<TagContentProps> = ({ tags, type, blogsData }) => {
    {visibleTags < tagCounts.length && (
     <button
      onClick={loadMoreTags}
-     className='bg-dark-primary border w-full  py-2 px-4 rounded'>
+     className='bg-complementary border w-full  py-2 px-4 rounded'>
      <Headingxl>Load More Tags</Headingxl>
     </button>
    )}

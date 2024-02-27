@@ -26,7 +26,7 @@ const BlogContent: React.FC<BlogContentProps> = ({ data, type, rawData }) => {
    {visiblePosts < data.length && (
     <button
      onClick={loadMoreHandler}
-     className='bg-dark-primary backgroundOverlay border-2 shadow-md  py-2 px-4 rounded'>
+     className='bg-complementary backgroundOverlay border-2 shadow-md  py-2 px-4 rounded'>
      <Headingxl className='text-center'>Load More Blogs</Headingxl>
     </button>
    )}

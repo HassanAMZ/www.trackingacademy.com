@@ -31,7 +31,7 @@ const CourseContent: React.FC<CourseContentProps> = ({
    {visiblePosts < data.length && (
     <button
      onClick={loadMoreHandler}
-     className='bg-dark-primary border  py-2 px-4 rounded'>
+     className='bg-complementary border  py-2 px-4 rounded'>
      <Headingxl>Load More Courses</Headingxl>
     </button>
    )}

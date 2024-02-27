@@ -14,18 +14,9 @@ module.exports = {
    brightness: ["hover", "focus"], // This enables brightness adjustment
 
    colors: {
-    primary: "#BDFD6D",
-    secondary: "#89C64F",
-    tertiary: "",
-    danger: "#FF0000",
-    light: {
-     primary: "#ffffff",
-     secondary: "#FCFBFC",
-    },
-    dark: {
-     primary: "#262420",
-     secondary: "#403D37",
-    },
+    dominant: "#000000",
+    complementary: "#ffffff",
+    accent: "#4d148c",
    },
    animation: {
     fadeIn: "fadeIn 0.2s ease-in-out forwards",
@@ -36,7 +27,7 @@ module.exports = {
     xxs: "0.625rem", // 10px
     xs: "0.75rem", // 12px
     sm: "0.875rem", // 14px
-    base: "1rem", // 16px
+    md: "1rem", // 16px
     lg: "1.125rem", // 18px
     xl: "1.25rem", // 20px
     "2xl": "1.5rem", // 24px

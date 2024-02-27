@@ -41,7 +41,7 @@ const InputField: React.FC<InputFieldProps> = ({
      value={value}
      onChange={(e: ChangeEvent<HTMLInputElement>) => onChange(e.target.value)}
      required={required}
-     className={`p-2 border block w-full paragraph-primary rounded-md border-dark-secondary  text-light-primary ${
+     className={`p-2 border block w-full paragraph-primary rounded-md border-complementary  text-dominant ${
       required && !value ? "border-danger" : ""
      }`}
      aria-describedby={`${id}-helper-text`}
@@ -49,7 +49,7 @@ const InputField: React.FC<InputFieldProps> = ({
    </div>
    {helperText && (
     <p
-     className='mt-2 paragraph-secondary text-light-secondary'
+     className='mt-2 paragraph-secondary text-dominant'
      id={`${id}-helper-text`}>
      {helperText}
     </p>

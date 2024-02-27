@@ -15,13 +15,15 @@ export default function BookACall() {
 
  return (
   <React.Fragment>
-   <button className='link-primary ' onClick={() => setModalOpen(true)}>
+   <button
+    className='link-primary px-4 lg:px-16 py-3'
+    onClick={() => setModalOpen(true)}>
     Book a Call
    </button>
 
    <div
     id='modal-backdrop'
-    className={`bg-dark-primary z-20 fixed inset-0 flex justify-center items-center transition-opacity duration-300 ${
+    className={`bg-complementary z-20 fixed inset-0 flex justify-center items-center transition-opacity duration-300 ${
      isModalOpen ? "opacity-100" : "opacity-0 pointer-events-none"
     }`}
     onClick={handleClose}>

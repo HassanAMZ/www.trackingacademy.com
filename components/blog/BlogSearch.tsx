@@ -47,23 +47,23 @@ const BlogSearch: React.FC<BlogSearchProps> = ({ data, onSearch }) => {
  const displayText = formatText(params.blog || params.tag);
 
  return (
-  <div className='flex flex-col pt-6 pb-1 sm:py-12 items-left sm:items-center sm:text-center justify-center w-full gap-4'>
-   <Heading6xl className='!text-4xl sm:!text-6xl'>
+  <div className='flex flex-col py-12 text-center items-center justify-center w-full gap-4'>
+   <h1 className='title-primary'>
     {!isRootBlogPage && displayText && (
      <span className='capitalize'>{displayText} - </span>
     )}
     Articles, Ideas and Inspiration!{" "}
-   </Heading6xl>
-   <Paragraphsm className='sm:w-2/3 w-full'>
+   </h1>
+   <p className='container-secondary'>
     A helpful blog for web analysts, trying to make sense of marketing with{" "}
     {!isRootBlogPage && displayText && (
      <span className='capitalize'>{displayText}, </span>
     )}
     tag manager, analytics and tracking scripts.
-   </Paragraphsm>
+   </p>
    {isRootBlogPage && (
-    <div className='border relative flex sm:w-2/3 w-full items-center h-10 rounded-full focus-within:shadow-lg bg-dark-primary  overflow-hidden'>
-     <div className='grid place-items-center h-full w-12 text-gray-300'>
+    <div className='border relative flex container-secondary items-center h-10 rounded-full focus-within:shadow-md overflow-hidden'>
+     <div className='grid place-items-center h-full w-12'>
       <svg
        xmlns='http://www.w3.org/2000/svg'
        className='h-6 w-6'
@@ -83,7 +83,7 @@ const BlogSearch: React.FC<BlogSearchProps> = ({ data, onSearch }) => {
       placeholder='Search for a post...'
       value={searchTerm}
       onChange={(e) => setSearchTerm(e.target.value)}
-      className='p-1 rounded-full text-white bg-transparent peer h-full w-full outline-none text-sm  pr-2'
+      className='p-1 rounded-full  bg-transparent peer h-full w-full outline-none  pr-2'
      />
     </div>
    )}
@@ -92,13 +92,13 @@ const BlogSearch: React.FC<BlogSearchProps> = ({ data, onSearch }) => {
      <span role='img' aria-label='Thinking face' style={{ fontSize: "3rem" }}>
       😭
      </span>
-     <Paragraphlg className='mt-4  text-gray-300'>
+     <p className='mt-4'>
       We couldn't find any posts matching your search '{searchTerm}'.
       <span role='img' aria-label='Shrug'>
        {" "}
        🤷‍♂️
       </span>
-     </Paragraphlg>
+     </p>
     </div>
    )}
   </div>

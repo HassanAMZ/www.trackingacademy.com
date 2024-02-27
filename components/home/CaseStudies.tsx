@@ -57,9 +57,9 @@ const CaseStudies: React.FC = () => {
 
  return (
   <div className='flex flex-col items-center text-center py-10 container-primary'>
-   <p className='text-secondary font-semibold'>It works, too</p>
-   <h2 className='title-secondary text-dark-primary'>Case studies </h2>
-   <div className='text-dark-primary lg:grid lg:grid-cols-2 items-center justify-center gap-6 py-20'>
+   <p className='text-complementary font-semibold'>It works, too</p>
+   <h2 className='title-secondary text-complementary'>Case studies </h2>
+   <div className='text-complementary lg:grid lg:grid-cols-2 items-center justify-center gap-6 py-20'>
     <div className='col-span-1 p-6'>
      <Image src={imageSrc} alt='Desktop version' width={1000} height={1000} />
     </div>
@@ -74,7 +74,7 @@ const CaseStudies: React.FC = () => {
        </div>
       ))}
      </div>
-     <div className='flex lg:justify-start justify-center font-bold gap-4 items-center py-4 text-dark-primary'>
+     <div className='flex lg:justify-start justify-center font-bold gap-4 items-center py-4 text-complementary'>
       <button
        onClick={goToPrevious}
        className=''

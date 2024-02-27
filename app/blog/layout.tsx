@@ -25,7 +25,6 @@ export default function Layout({ children }: { children: ReactNode }) {
  return (
   <BlogLayout>
    <BlogNavbar />
-
    {children}
   </BlogLayout>
  );

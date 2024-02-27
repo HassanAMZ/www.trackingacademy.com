@@ -4,7 +4,7 @@ import MobileNav from "./MobileNav";
 
 export default function Navbar() {
  return (
-  <header className=' bg-dark-primary w-full '>
+  <header className='w-full'>
    <div className='container-primary'>
     <div className='hidden lg:block'>
      <DesktopNav />

@@ -20,7 +20,7 @@ const WhyUs: React.FC<WhyUsProps> = ({
 
  return (
   <React.Fragment>
-   <section className='backgroundOverlay lg:px-20 lg:py-16 py-12 px-5 space-y-5'>
+   <section className='lg:px-20 lg:py-16 py-12 px-5 space-y-5 rounded-lg bg-dominant text-complementary'>
     <div className='text-left space-y-2'>
      {headingTexts.heading && (
       <Heading4xl className='py-2'>{headingTexts.heading}</Heading4xl>
@@ -28,12 +28,12 @@ const WhyUs: React.FC<WhyUsProps> = ({
      {paragraphTexts && (
       <Headingxl>
        {paragraphTexts.primary}
-       <span className='textOpacity80'>{paragraphTexts.secondary}</span>
+       <span className=''>{paragraphTexts.secondary}</span>
       </Headingxl>
      )}
     </div>
-    <button className='p-2 rounded-md text-left border-2 border-gray-100'>
-     <Link className='font-semibold' href={links.primary.src}>
+    <button className='p-2 rounded-md text-left border-2 bg-complementary border-gray-100'>
+     <Link className='font-semibold text-accent ' href={links.primary.src}>
       {links.primary.text}
      </Link>
     </button>

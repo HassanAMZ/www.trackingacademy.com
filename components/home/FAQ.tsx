@@ -65,7 +65,7 @@ const FAQItem: React.FC<{ faq: FAQ; isOpen: boolean; toggle: () => void }> = ({
  toggle,
 }) => {
  return (
-  <div className='border-b-2 border-dark-primary overflow-hidden transition-all duration-500 ease-in-out paragraph-primary'>
+  <div className='border-b-2 border-complementary overflow-hidden transition-all duration-500 ease-in-out paragraph-primary'>
    <button
     className='flex justify-between w-full p-4 focus:outline-none'
     onClick={toggle}>

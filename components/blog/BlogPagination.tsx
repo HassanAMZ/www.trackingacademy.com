@@ -28,12 +28,13 @@ const BlogPagination: React.FC<BlogPaginationProps> = ({ sortedData }) => {
  const currentPosts = sortedData.slice(indexOfFirstPost, indexOfLastPost);
  return (
   <React.Fragment>
-   <div className='grid lg:grid-cols-2 gap-2'>
+   <div className='grid sm:grid-cols-2 gap-2'>
     {currentPosts.map((blog, index) => (
      <Link
       href={`/blog/${blog.slug}`}
-      key={blog.blogId}
-      className='flex flex-col gap-4 bg-dark-secondary rounded-md text-light-primary p-2 '>
+      key={index}
+      id={`${blog.blogId} ${index}`}
+      className='flex flex-col gap-4 shadow-md border bg-complementary rounded-md text-dominant p-2 '>
       <Image
        src={blog.openGraph.images[0]}
        alt={blog.title}
@@ -45,7 +46,7 @@ const BlogPagination: React.FC<BlogPaginationProps> = ({ sortedData }) => {
       <p className='paragraph-primary line-clamp-2'>{blog.description}</p>
       <div className='flex justify-between items-center'>
        <span className='paragraph-secondary'>By ShahzadaAliHassan</span>
-       <span className='paragraph-secondary border border-dashed rounded-full px-2'>
+       <span className='paragraph-secondary border border-dashed border-accent rounded-full px-2'>
         {blog.date}
        </span>
       </div>
@@ -58,8 +59,8 @@ const BlogPagination: React.FC<BlogPaginationProps> = ({ sortedData }) => {
      <button
       onClick={() => handlePageChange(currentPage - 1)}
       disabled={currentPage === 0}
-      className={`px-4 py-1 rounded-full hover:text-dark-primary ${
-       currentPage === 0 ? "cursor-not-allowed opacity-50" : "hover:bg-primary"
+      className={`px-4 py-1 rounded-full hover:text-complementary ${
+       currentPage === 0 ? "cursor-not-allowed opacity-50" : "hover:bg-accent"
       }`}>
       Previous
      </button>
@@ -69,9 +70,7 @@ const BlogPagination: React.FC<BlogPaginationProps> = ({ sortedData }) => {
        <button
         key={i}
         className={`px-4 py-1 rounded-full ${
-         i === currentPage
-          ? "bg-dark-secondary text-primary"
-          : "hover:bg-secondary"
+         i === currentPage ? "bg-complementary text-accent" : "hover:bg-accent"
         }`}
         onClick={() => handlePageChange(i)}>
         {i + 1}
@@ -80,10 +79,10 @@ const BlogPagination: React.FC<BlogPaginationProps> = ({ sortedData }) => {
      <button
       onClick={() => handlePageChange(currentPage + 1)}
       disabled={currentPage === pageCount - 1}
-      className={`px-4 py-1 rounded-full hover:text-dark-primary ${
+      className={`px-4 py-1 rounded-full hover:text-complementary ${
        currentPage === pageCount - 1
         ? "cursor-not-allowed opacity-50"
-        : "hover:bg-primary"
+        : "hover:bg-accent"
       }`}>
       Next
      </button>

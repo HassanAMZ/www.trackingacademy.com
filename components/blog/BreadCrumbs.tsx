@@ -21,10 +21,10 @@ const BreadCrumbs: React.FC = () => {
  const pathSegments = pathname.split("/").filter((path) => path.length > 0);
 
  return (
-  <nav aria-label='breadcrumbs' className='py-2 text-gray-300'>
+  <nav aria-label='breadcrumbs' className='py-2 text-dominant'>
    <ol className='flex flex-wrap lg:flex-nowrap space-x-2 lg:space-x-4'>
     <li>
-     <CustomLink href='/' className='text-gray-300'>
+     <CustomLink href='/' className='text-dominant'>
       Home
      </CustomLink>
     </li>
@@ -32,15 +32,15 @@ const BreadCrumbs: React.FC = () => {
      const path = `/${pathSegments.slice(0, index + 1).join("/")}`;
      const isLast = index === pathSegments.length - 1;
      return (
-      <li key={path} className='flex items-center gap-4'>
-       {!isLast && <span className='text-gray-400'>/</span>}
+      <li key={path} className='flex items-center gap-4 paragraph-secondary'>
+       {!isLast && <span className='text-dominant'>/</span>}
        {isLast ? (
         <React.Fragment>
-         <span className='text-gray-400'>/</span>
-         <span className='text-gray-400'>{formatSegment(segment)}</span>
+         <span className='text-dominant'>/</span>
+         <span className='text-dominant'>{formatSegment(segment)}</span>
         </React.Fragment>
        ) : (
-        <CustomLink href={path} className='text-gray-300'>
+        <CustomLink href={path} className='text-dominant'>
          {formatSegment(segment)}
         </CustomLink>
        )}

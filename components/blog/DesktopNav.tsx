@@ -46,7 +46,7 @@ const DesktopNav: React.FC<DesktopNavProps> = ({ data }) => {
        inputRef.current?.contains(event.target as Node) ||
        (event.target instanceof HTMLDivElement &&
         event.target.className.includes(
-         "block p-2 hover:bg-gray-700 hover:rounded-lg text-light-primary cursor-pointer"
+         "block p-2 hover:bg-gray-700 hover:rounded-lg text-dominant cursor-pointer"
         ))
       )))
    ) {
@@ -81,7 +81,7 @@ const DesktopNav: React.FC<DesktopNavProps> = ({ data }) => {
      ref={searchContainerRef}
      className={`${
       isExpanded
-       ? "fixed inset-0 z-50 bg-dark-secondary whitespace-nowrap bg-opacity-10 backdrop-blur-md transition-opacity duration-300 ease-in-out"
+       ? "fixed inset-0 z-50 bg-complementary whitespace-nowrap bg-opacity-10 backdrop-blur-md transition-opacity duration-300 ease-in-out"
        : ""
      }`}>
      {isExpanded && (
@@ -95,16 +95,16 @@ const DesktopNav: React.FC<DesktopNavProps> = ({ data }) => {
         placeholder='Search for a post...'
         value={searchTerm}
         onChange={(e) => setSearchTerm(e.target.value)}
-        className=' w-full lg:w-[75vw] rounded-t-lg h-12 bg-primary placeholder:text-dark-primary text-dark-primary pl-4 transition-all duration-300 ease-in-out'
+        className=' w-full lg:w-[75vw] rounded-t-lg h-12 bg-accent placeholder:text-complementary text-complementary pl-4 transition-all duration-300 ease-in-out'
        />
        <div className=' w-full lg:w-[75vw] '>
         {results.length > 0 && isExpanded && (
-         <div className='bg-dark-primary p-4 rounded-b-lg shadow-lg overflow-auto'>
+         <div className='bg-complementary p-4 rounded-b-lg shadow-md overflow-auto'>
           {results.map((result) => (
            <Link key={result.slug} href={`/blog/${result.slug}`}>
             <div
              onClick={closeSearch}
-             className='block p-2 hover:bg-gray-700 hover:rounded-lg text-light-primary cursor-pointer'>
+             className='block p-2 hover:bg-gray-700 hover:rounded-lg text-dominant cursor-pointer'>
              {result.title}
             </div>
            </Link>
@@ -119,7 +119,7 @@ const DesktopNav: React.FC<DesktopNavProps> = ({ data }) => {
     <button
      onClick={() => setIsExpanded(true)}
      type='button'
-     className='border-2 paragraph-secondary border-dark-secondary w-full flex items-center rounded-lg justify-start p-1'>
+     className='border-2 paragraph-secondary border-dominant w-full flex items-center rounded-lg justify-start p-1'>
      <svg viewBox='0 0 1024 1024' fill='currentColor' height='1em' width='1em'>
       <path d='M909.6 854.5L649.9 594.8C690.2 542.7 712 479 712 412c0-80.2-31.3-155.4-87.9-212.1-56.6-56.7-132-87.9-212.1-87.9s-155.5 31.3-212.1 87.9C143.2 256.5 112 331.8 112 412c0 80.1 31.3 155.5 87.9 212.1C256.5 680.8 331.8 712 412 712c67 0 130.6-21.8 182.7-62l259.7 259.6a8.2 8.2 0 0011.6 0l43.6-43.5a8.2 8.2 0 000-11.6zM570.4 570.4C528 612.7 471.8 636 412 636s-116-23.3-158.4-65.6C211.3 528 188 471.8 188 412s23.3-116.1 65.6-158.4C296 211.3 352.2 188 412 188s116.1 23.2 158.4 65.6S636 352.2 636 412s-23.3 116.1-65.6 158.4z' />
      </svg>

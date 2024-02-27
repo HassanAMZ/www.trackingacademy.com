@@ -59,7 +59,7 @@ export default function LinkTree() {
       <CustomLink
        key={idx}
        href={link.href}
-       className='w-full flex items-center justify-between px-6 py-1 font-bold border-2 !no-underline hover:!underline hover:bg-gray-300 hover:animate-pulse  rounded-full bg-white text-dark-primary space-x-3'>
+       className='w-full flex items-center justify-between px-6 py-1 font-bold border-2 !no-underline hover:!underline hover:bg-gray-300 hover:animate-pulse  rounded-full bg-white text-complementary space-x-3'>
        <span>{link.icon}</span>
        <span>{link.label}</span>
       </CustomLink>

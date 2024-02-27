@@ -34,28 +34,28 @@ const BlogCard: React.FC<SingleBlogCardProps> = ({
       href={`/${type}/${post.slug}`}
       className=''
       onClick={handleLinkClick}>
-      <section className='grid backgroundOverlay h-full w-full'>
+      <section className='grid h-full w-full rounded-lg'>
        <>
         <div
-         className={`backgroundOverlay !shadow-none border-b `}
+         className='p-4'
          style={{
           backgroundColor: generateBrightColor(0.15),
           position: "relative",
          }}>
          {isMain && (
-          <div className='absolute top-0 right-0 bg-green-500 text-white px-2 py-1 rounded-md'>
+          <div className='absolute top-0 right-0 bg-accent text-complementary px-2 py-1 rounded-lg'>
            New
           </div>
          )}
-         <Heading2xl className='line-clamp-2 !p-0 m-4'>{post.title}</Heading2xl>
+         <h2 className='line-clamp-2 title-tertiary '>{post.title}</h2>
         </div>
-        <div className='textOpacity80 border-md'>
-         <Paragraphsm className='line-clamp-3 text-left !p-0 m-4'>
+        <div className='p-4'>
+         <p className='line-clamp-3 text-left paragraph-primary'>
           {post.description}
-         </Paragraphsm>
-         <Paragraphxs className='p-4 text-left'>
-          {formatDate(post.date)} - ShahzadaAliHassan
-         </Paragraphxs>
+         </p>
+         <p className='py-4 text-left paragraph-secondary'>
+          {formatDate(post.date)}
+         </p>
         </div>
        </>
       </section>

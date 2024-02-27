@@ -22,7 +22,7 @@ export default function ToolsHeroSection() {
      </Link>
      <Link
       href='/blog/ga4/understanding-utm-builder-tool'
-      className='font-bold border-2 hidden lg:block rounded-md py-4 px-6 text-light-primary '
+      className='font-bold border-2 hidden lg:block rounded-md py-4 px-6 text-dominant '
       style={{ borderColor: baseColors.tools.primary }}>
       Read the Blog
      </Link>

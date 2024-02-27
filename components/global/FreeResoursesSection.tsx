@@ -18,7 +18,7 @@ const FreeResoursesSection: React.FC<
 > = ({ image, headingTexts, links, colorDetails, order }) => {
  return (
   <React.Fragment>
-   <div className='backgroundOverlay '>
+   <div className='bg-dominant text-complementary'>
     <div className='lg:grid lg:grid-cols-4 flex flex-col gap-5 lg:py-0'>
      <div className={`lg:col-span-1 flex w-full ${order} `}>
       <Image

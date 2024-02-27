@@ -14,15 +14,15 @@ const TimelineEvent: React.FC<TimelineEventProps> = ({
 }) => {
  return (
   <div
-   className={`relative flex items-center justify-between lg:justify-normal lg:even:flex-row-reverse group ${
+   className={`relative  flex items-center justify-between lg:justify-normal lg:even:flex-row-reverse group ${
     isActive ? "is-active" : ""
    }`}>
    <div
-    className={`flex  items-center justify-center w-10 h-10 rounded-full border border-dark-secondary ${
-     isActive ? "group-[.is-active]:bg-primary" : "text-dark-primary"
+    className={`flex   items-center justify-center w-10 h-10 rounded-full border border-complementary ${
+     isActive ? "group-[.is-active]:bg-accent" : "text-complementary"
     } shadow shrink-0 lg:order-1 lg:group-even:-translate-x-1/2 lg:group-odd:translate-x-1/2`}>
     <svg
-     className='fill-dark-primary'
+     className='fill-complementary'
      xmlns='http://www.w3.org/2000/svg'
      width='12'
      height={isActive ? "10" : "12"}>
@@ -36,7 +36,7 @@ const TimelineEvent: React.FC<TimelineEventProps> = ({
      )}
     </svg>
    </div>
-   <div className='w-[calc(100%-4rem)] lg:w-[calc(50%-2.5rem)] p-4 shadow grid lg:grid-cols-4 items-start lg:items-center justify-center'>
+   <div className='w-[calc(100%-4rem)] lg:w-[calc(50%-2.5rem)] p-4 shadow-md border rounded-lg grid lg:grid-cols-4 items-start lg:items-center justify-center'>
     <div className='col-span-1 object-contain overflow-hidden w-32 lg:w-full'>
      <Image
       className='grayscale '

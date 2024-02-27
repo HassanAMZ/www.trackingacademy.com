@@ -4,6 +4,7 @@ import { useState } from "react";
 import ContactForm from "../contact/ContactForm";
 import Link from "next/link";
 import React from "react";
+import NavLink from "../navbar/NavLink";
 
 const DesktopNav = () => {
  const [isModalOpen, setModalOpen] = useState(false);
@@ -15,30 +16,30 @@ const DesktopNav = () => {
  };
  return (
   <nav className='flex items-center justify-between py-5'>
-   <Link href='/' className='font-semibold'>
+   <NavLink href='/' className='font-semibold'>
     Tracking Academy
-   </Link>
-   <div className='flex items-center gap-x-6'>
-    <Link href='/#why-us' className='rounded hover:text-primary'>
+   </NavLink>
+   <div className='flex items-center gap-x-3'>
+    <NavLink href='/#why-us' className='rounded hover:text-accent'>
      Why TA
-    </Link>
-    <Link href='/#about' className='rounded hover:text-primary'>
+    </NavLink>
+    <NavLink href='/#about' className='rounded hover:text-accent'>
      About
-    </Link>
-    <Link href='/#case-studies' className='rounded hover:text-primary'>
+    </NavLink>
+    <NavLink href='/#case-studies' className='rounded hover:text-accent'>
      Case Studies
-    </Link>
+    </NavLink>
 
     <React.Fragment>
      <button
-      className='link-primary !px-2 !py-1 !border-primary'
+      className='link-secondary px-2 py-1 '
       onClick={() => setModalOpen(true)}>
       Book a Call
      </button>
 
      <div
       id='modal-backdrop'
-      className={`bg-dark-primary z-20 fixed inset-0 flex justify-center items-center transition-opacity duration-300 ${
+      className={`bg-complementary z-20 fixed inset-0 flex justify-center items-center transition-opacity duration-300 ${
        isModalOpen ? "opacity-100" : "opacity-0 pointer-events-none"
       }`}
       onClick={handleClose}>
@@ -56,11 +57,11 @@ const DesktopNav = () => {
       </div>
      </div>
     </React.Fragment>
-    <Link
+    <NavLink
      href='/services/web-analytics-and-tracking'
-     className='link-secondary !px-2 !py-1'>
+     className='link-primary px-2 py-1'>
      Get started
-    </Link>
+    </NavLink>
    </div>
   </nav>
  );

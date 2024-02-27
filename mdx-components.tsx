@@ -27,28 +27,13 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
   SopDetails,
   pre: AuthPre,
   a: CustomLink,
-  p: (props) => (
-   <p
-    {...props}
-    className='py-2 paragraph-primary leading-loose tracking-wide'
-   />
-  ),
-  h1: (props) => <h1 {...props} className='title-primary py-2 font-semibold' />,
-  h2: (props) => (
-   <h1 {...props} className='title-secondary py-2 font-semibold' />
-  ),
-  h3: (props) => (
-   <h1 {...props} className='title-tertiary py-2 font-semibold' />
-  ),
-  h4: (props) => (
-   <h1 {...props} className='title-tertiary py-2 font-semibold' />
-  ),
-  h5: (props) => (
-   <h1 {...props} className='title-tertiary py-2 font-semibold' />
-  ),
-  h6: (props) => (
-   <h1 {...props} className='title-tertiary py-2 font-semibold' />
-  ),
+  p: (props) => <p {...props} className='py-2 paragraph-primary' />,
+  h1: (props) => <h1 {...props} className='title-primary py-2' />,
+  h2: (props) => <h1 {...props} className='title-secondary py-2' />,
+  h3: (props) => <h1 {...props} className='title-tertiary py-2' />,
+  h4: (props) => <h1 {...props} className='title-tertiary py-2' />,
+  h5: (props) => <h1 {...props} className='title-tertiary py-2' />,
+  h6: (props) => <h1 {...props} className='title-tertiary py-2' />,
   li: ListItem,
   ol: OrderedList,
   ul: UnorderedList,

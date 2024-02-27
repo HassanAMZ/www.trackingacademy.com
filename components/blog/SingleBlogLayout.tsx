@@ -21,7 +21,7 @@ export default async function SingleBlogLayout({
    <div className='lg:col-span-7'>{children}</div>
 
    <section className='px-2 lg:col-span-3 hidden lg:block '>
-    <div id='popular-posts' className='sticky top-2 z-10'>
+    <div id='popular-posts'>
      <h3 className='title-tertiary py-4'>Recommeded Read</h3>
      <div className='grid grid-rows-4 gap-2'>
       {sortedData
@@ -31,7 +31,7 @@ export default async function SingleBlogLayout({
         <Link
          href={`/blog/${blog.slug}`}
          key={index}
-         className='grid grid-cols-3 gap-2 items-center justify-center bg-dark-secondary rounded-md text-light-primary p-2'>
+         className='flex flex-col gap-2 items-center justify-center shadown-lg border rounded-lg'>
          <Image
           src={sortedData[index].openGraph.images[0]}
           alt={sortedData[index].title}
@@ -39,9 +39,11 @@ export default async function SingleBlogLayout({
           height={1080}
           className='rounded-lg'
          />
-         <h3 className='paragraph-secondary line-clamp-2 col-span-2'>
-          {sortedData[index].title}
-         </h3>
+         <div className='p-2'>
+          <h3 className='title-tertiary line-clamp-2 col-span-2'>
+           {sortedData[index].title}
+          </h3>
+         </div>
         </Link>
        ))}
      </div>

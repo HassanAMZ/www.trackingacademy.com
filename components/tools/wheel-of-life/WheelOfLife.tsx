@@ -120,7 +120,7 @@ const WheelOfLife: React.FC = () => {
      </div>
     ))}
    </div>
-   <div className='container-secondary flex items-center justify-center lg:w-1/2 lg:h-1/2 w-full h-full bg-light-secondary rounded-lg'>
+   <div className='container-secondary flex items-center justify-center lg:w-1/2 lg:h-1/2 w-full h-full bg-dominant rounded-lg'>
     <Radar data={chartData} options={chartOptions} />
    </div>
   </div>

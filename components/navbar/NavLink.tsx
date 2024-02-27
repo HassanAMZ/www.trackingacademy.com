@@ -11,9 +11,9 @@ const NavLink: React.FC<NavLinkProps> = ({ href, children, className }) => {
  let active = href === `/${segments}`;
  return (
   <Link
-   className={`paragraph-primary hover:underline hover:underline-offset-2 hover:text-primary  ${
-    className || ""
-   }  ${active ? " font-bold text-primary" : "textOpacity80 font-semibold "}  `}
+   className={`paragraph-primary  ${className || ""}  ${
+    active ? " font-bold text-accent" : "font-semibold "
+   }  `}
    href={href}>
    {children}
   </Link>
