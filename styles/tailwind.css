@@ -7,7 +7,7 @@ code {
 }
 
 .primaryButton {
- @apply rounded-md px-3.5 py-2.5 font-medium shadow-md  border-2 bg-complementary border-gray-100  text-gray-100;
+ @apply rounded-md px-3.5 py-2.5 font-medium shadow-md border-2 bg-complementary border-gray-100 text-gray-100;
 }
 
 .primaryButton:focus-visible {
@@ -28,34 +28,34 @@ code {
 }
 
 .title-primary {
- @apply tracking-tight text-3xl lg:text-5xl leading-tight font-bold;
+ @apply tracking-tight text-[clamp(1.75rem,_2.5vw,_2rem)]  lg:text-[clamp(1.875rem,_3vw,_2.5rem)] leading-tight font-bold;
 }
 
 .title-secondary {
- @apply tracking-tight text-2xl lg:text-3xl leading-tight font-bold;
+ @apply tracking-tight text-[clamp(1.5rem,_2vw,_1.5rem)] lg:text-[clamp(1.75rem,_2.5vw,_2rem)] leading-tight font-bold;
 }
 
 .title-tertiary {
- @apply tracking-tight text-xl lg:text-2xl leading-tight font-bold;
+ @apply tracking-tight text-[clamp(1.125rem,_1.5vw,_1.25rem)] lg:text-[clamp(1.5rem,_2vw,_1.5rem)] leading-tight font-bold;
 }
 
 .paragraph-primary {
- @apply tracking-normal text-md lg:text-lg leading-normal;
+ @apply tracking-normal text-[clamp(0.825rem,_1.25vw,_1rem)] lg:text-[clamp(1.125rem,_1.5vw,_1.25rem)] leading-normal;
 }
 
 .paragraph-secondary {
- @apply tracking-normal text-sm lg:text-md leading-normal;
+ @apply tracking-normal text-[clamp(0.75rem,_1vw,_0.875rem)] lg:text-[clamp(0.825rem,_1.25vw,_1rem)] leading-normal;
 }
 .paragraph-tertiary {
- @apply tracking-normal text-xs lg:text-sm leading-normal;
+ @apply tracking-normal text-xs lg:text-[clamp(0.75rem,_1vw,_0.875rem)] leading-normal;
 }
 
 .link-primary {
- @apply rounded-full border-2 border-complementary hover:border-accent  bg-accent hover:bg-complementary text-complementary  hover:text-accent font-semibold;
+ @apply rounded-full border-2 border-complementary hover:border-accent bg-accent hover:bg-complementary text-complementary hover:text-accent font-semibold;
 }
 
 .link-secondary {
- @apply rounded-full border-2 border-accent hover:border-complementary  bg-complementary hover:bg-accent text-accent  hover:text-complementary font-semibold;
+ @apply rounded-full border-2 border-accent hover:border-complementary bg-complementary hover:bg-accent text-accent hover:text-complementary font-semibold;
 }
 
 .container-primary {

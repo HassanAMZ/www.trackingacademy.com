@@ -2,27 +2,27 @@ html {
  scroll-behavior: smooth;
 }
 
-:root {
- font-size: 16px;
-}
+// :root {
+//  font-size: 16px;
+// }
 
-@media (max-width: 640px) {
- :root {
-  font-size: 14px;
- }
-}
+// @media (max-width: 640px) {
+//  :root {
+//   font-size: 14px;
+//  }
+// }
 
-@media (min-width: 641px) {
- :root {
-  font-size: 16px;
- }
-}
+// @media (min-width: 641px) {
+//  :root {
+//   font-size: 16px;
+//  }
+// }
 
-@media (min-width: 1025px) {
- :root {
-  font-size: 18px;
- }
-}
+// @media (min-width: 1025px) {
+//  :root {
+//   font-size: 18px;
+//  }
+// }
 
 .video-responsive {
  overflow: hidden;
@@ -133,4 +133,24 @@ html {
  100% {
   background-position: 0% 50%;
  }
+}
+
+// pre and atuh pre
+.blur-effect {
+ overflow: hidden;
+ position: relative;
+}
+
+.blur-effect::before {
+ content: "";
+ position: absolute;
+ top: 0;
+ left: 0;
+ right: 0;
+ height: 3em; /* Adjust this value to control the number of lines blurred */
+ background: linear-gradient(
+  to bottom,
+  rgba(255, 255, 255, 0),
+  rgba(255, 255, 255, 1)
+ );
 }
