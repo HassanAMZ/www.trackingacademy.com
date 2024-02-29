@@ -22,7 +22,7 @@ const BreadCrumbs: React.FC = () => {
 
  return (
   <nav aria-label='breadcrumbs' className='py-2 text-dominant'>
-   <ol className='flex flex-wrap lg:flex-nowrap space-x-2 lg:space-x-4'>
+   <ol className='flex flex-wrap lg:flex-nowrap space-x-2'>
     <li>
      <CustomLink href='/' className='text-dominant'>
       Home

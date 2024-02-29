@@ -41,9 +41,11 @@ export const FirebaseAuth = () => {
  return (
   <React.Fragment>
    {loading ? null : !user ? (
-    <div className='backgroundOverlay p-2 flex flex-col items-center gap-2  h-[30vh] justify-center'>
+    <div className='bg-accent rounded-lg text-complementary p-2 flex flex-col items-center gap-2 h-[30vh] justify-center'>
      <div className='flex justify-center'>
-      <Paragraphsm>Signup for Free to view the Code Snippets</Paragraphsm>
+      <p className='animate-pulse font-bold paragraph-primary'>
+       Signup for Free to view the Code Snippets
+      </p>
      </div>
      <div className='flex flex-col sm:flex-row w-full sm:w-1/2 items-center gap-2 justify-center'>
       <button
@@ -70,13 +72,13 @@ export const FirebaseAuth = () => {
    ) : (
     <React.Fragment>
      {/* <div className='flex flex-row justify-center items-center h-[20vh] gap-2'>
-      <p>Welcome, {user.displayName}:</p>
-      <button
-       className='underline hover:font-semibold hover:cursor-pointer'
-       onClick={handleSignOut}>
-       Sign out
-      </button>
-     </div> */}
+   <p>Welcome, {user.displayName}:</p>
+   <button
+    className='underline hover:font-semibold hover:cursor-pointer'
+    onClick={handleSignOut}>
+    Sign out
+   </button>
+   </div> */}
     </React.Fragment>
    )}
   </React.Fragment>

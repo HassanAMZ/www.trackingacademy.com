@@ -14,7 +14,7 @@ const RecentClientSlider: React.FC = () => {
    <>
     {images.map((img) => (
      <div key={img.clientId} className={`${widthClass} `}>
-      <CustomLink href={`/portfolio/${img.clientId}`} className=''>
+      <CustomLink href={`/portfolio/${img.clientId}`}>
        <Image
         width={1920}
         height={540}

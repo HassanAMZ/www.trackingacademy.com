@@ -3,7 +3,6 @@ import Image from "next/image";
 import React from "react";
 import Link from "next/link";
 import LearnMoreHeader from "@/components/global/LearnMoreHeader";
-import baseColors from "@/data/base-colors";
 
 export default function Page() {
  return (
@@ -14,7 +13,6 @@ export default function Page() {
      subHeading:
       "From small projects to big challenges, our portfolio is a testament to our commitment to quality analytics.",
     }}
-    colorDetails={{ primary: baseColors.portfolio.primary }}
    />
 
    <div className='grid grid-cols-2 lg:grid-cols-3 gap-2'>
@@ -35,7 +33,6 @@ export default function Page() {
             />
            </div>
           </div>
-          {/* <p className='font-medium p-3 text-left'>{client.title}</p> */}
          </React.Fragment>
         </Link>
        </div>

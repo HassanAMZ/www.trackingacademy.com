@@ -30,7 +30,6 @@ export default function ReasonsData02() {
        alt='comparison image'
        width={400}
        height={525}
-       className=''
       />
      }>
      <video
@@ -55,7 +54,6 @@ export default function ReasonsData02() {
        alt='comparison image'
        width={400}
        height={525}
-       className=''
       />
      }>
      {/* Vertical video for screens smaller than md */}

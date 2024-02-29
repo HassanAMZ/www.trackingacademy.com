@@ -1,12 +1,8 @@
-import baseColors from "@/data/base-colors";
 import FreeResoursesSection from "./FreeResoursesSection";
 import React from "react";
 import LearnMoreHeader from "./LearnMoreHeader";
-import { ColorDetails } from "@/types/index";
 
-const CallToActionSections: React.FC<{ colorDetails: ColorDetails }> = ({
- colorDetails,
-}) => {
+const CallToActionSections = () => {
  return (
   <React.Fragment>
    <LearnMoreHeader
@@ -15,7 +11,6 @@ const CallToActionSections: React.FC<{ colorDetails: ColorDetails }> = ({
      subHeading:
       "Our programs were designed to guide you though launching or improving your web analytics freelance business.",
     }}
-    colorDetails={{ primary: colorDetails.primary }}
    />
    <section className='flex flex-col gap-2 items-center justify-center py-3'>
     <FreeResoursesSection
@@ -29,9 +24,6 @@ const CallToActionSections: React.FC<{ colorDetails: ColorDetails }> = ({
       alt: "Imtiaz Ahmed - Job Ready Programmer",
       height: 1920,
       width: 1080,
-     }}
-     colorDetails={{
-      primary: baseColors.home.primary,
      }}
      links={{
       primary: { src: "/#start-here", text: "Start Here" },
@@ -49,9 +41,6 @@ const CallToActionSections: React.FC<{ colorDetails: ColorDetails }> = ({
       alt: "Imtiaz Ahmed - Job Ready Programmer",
       height: 600,
       width: 600,
-     }}
-     colorDetails={{
-      primary: baseColors.home.primary,
      }}
      links={{
       primary: { src: "/#start-here", text: "Start Here" },

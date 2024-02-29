@@ -75,10 +75,7 @@ const CaseStudies: React.FC = () => {
       ))}
      </div>
      <div className='flex lg:justify-start justify-center font-bold gap-4 items-center py-4 text-complementary'>
-      <button
-       onClick={goToPrevious}
-       className=''
-       aria-label='Previous case study'>
+      <button onClick={goToPrevious} aria-label='Previous case study'>
        &lt;
       </button>
       <p>

@@ -1,16 +1,9 @@
 import React from "react";
 import { Paragraphmd } from "@/components/typography/Heading";
 import NavLink from "../navbar/NavLink";
-import { ThemeSwitcher } from "../theme/ThemeSwitcher";
-import {
- FacebookIcon,
- MonitorIcon,
- YouTubeIcon,
- InstagramIcon,
-} from "@/components/icons/SocialIcons";
+import { FacebookIcon, YouTubeIcon } from "@/components/icons/SocialIcons";
 import CustomLink from "@/components/mdx/CustomLink";
 import NavigationLinks from "../navbar/NavigationLinks";
-import ContainerLayout from "../layouts/ContainerLayout";
 
 const Footer: React.FC = () => {
  return (
@@ -43,14 +36,6 @@ const Footer: React.FC = () => {
       className='hover:text-accent transition-all duration-300 grayscale'>
       <FacebookIcon />
      </CustomLink>
-
-     {/* <CustomLink
-      href='https://www.instagram.com/shahzadaalihassan_/'
-      target='_blank'
-      rel='noopener noreferrer'
-      className='hover:text-accent transition-all duration-300'>
-      <InstagramIcon />
-     </CustomLink> */}
     </div>
 
     <Paragraphmd className='textOpacity80 pt-12'>

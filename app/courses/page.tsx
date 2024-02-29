@@ -1,5 +1,4 @@
 import HeroComponent from "@/components/global/HeroComponent";
-import baseColors from "@/data/base-colors";
 import React from "react";
 import CourseContainer from "@/components/courses/CourseContainer";
 import getCoursesData from "utils/getCoursesData";
@@ -29,7 +28,6 @@ export default async function Page() {
      }}
      links={{
       primary: { src: "#", text: "Coming Soon" },
-      //   secondary: { src: "/courses", text: "Coming Soon" },
      }}
      images={{
       group: {
@@ -53,11 +51,6 @@ export default async function Page() {
        desktop: "/images/hero/hero-image-md.png",
        mobile: "/images/hero/hero-image-sm.png",
       },
-     }}
-     colorDetails={{
-      primary: baseColors.courses.primary,
-      dark: { value: 80 },
-      light: { value: 10 },
      }}
     />
    </React.Fragment>

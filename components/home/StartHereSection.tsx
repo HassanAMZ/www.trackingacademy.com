@@ -3,12 +3,9 @@
 import React, { useState } from "react";
 import ContainerLayout from "@/layouts/ContainerLayout";
 import FreeResoursesSection from "@/components/global/FreeResoursesSection";
-import { StartHereSectionProps } from "@/types/index";
 import SelectionButton from "@/components/global/SelectionButton";
 
-const StartHereSection: React.FC<StartHereSectionProps> = ({
- colorDetails,
-}) => {
+const StartHereSection = () => {
  const [selectedButton, setSelectedButton] = useState<number>(1);
 
  return (
@@ -16,13 +13,11 @@ const StartHereSection: React.FC<StartHereSectionProps> = ({
    <div className='flex flex-row gap-2 items-center justify-center py-2'>
     <SelectionButton
      isSelected={selectedButton === 1}
-     color={colorDetails.primary}
      onClick={() => setSelectedButton(1)}>
      I'm new to Freelancing!
     </SelectionButton>
     <SelectionButton
      isSelected={selectedButton === 2}
-     color={colorDetails.primary}
      onClick={() => setSelectedButton(2)}>
      I'm already Freelancing!
     </SelectionButton>
@@ -42,7 +37,6 @@ const StartHereSection: React.FC<StartHereSectionProps> = ({
        height: 1920,
        width: 1080,
       }}
-      colorDetails={{ primary: colorDetails.primary }}
       links={{
        primary: { src: "#", text: "Coming Soon" },
       }}
@@ -60,7 +54,6 @@ const StartHereSection: React.FC<StartHereSectionProps> = ({
        height: 1920,
        width: 1080,
       }}
-      colorDetails={{ primary: colorDetails.primary }}
       links={{
        primary: { src: "#", text: "Coming Soon" },
       }}
@@ -78,7 +71,6 @@ const StartHereSection: React.FC<StartHereSectionProps> = ({
        height: 1920,
        width: 1080,
       }}
-      colorDetails={{ primary: colorDetails.primary }}
       links={{
        primary: { src: "#", text: "Coming Soon" },
       }}
@@ -100,7 +92,6 @@ const StartHereSection: React.FC<StartHereSectionProps> = ({
        height: 1920,
        width: 1080,
       }}
-      colorDetails={{ primary: colorDetails.primary }}
       links={{
        primary: { src: "#", text: "Coming Soon" },
       }}
@@ -118,7 +109,6 @@ const StartHereSection: React.FC<StartHereSectionProps> = ({
        height: 1920,
        width: 1080,
       }}
-      colorDetails={{ primary: colorDetails.primary }}
       links={{
        primary: { src: "#", text: "Coming Soon" },
       }}
@@ -136,7 +126,6 @@ const StartHereSection: React.FC<StartHereSectionProps> = ({
        height: 1920,
        width: 1080,
       }}
-      colorDetails={{ primary: colorDetails.primary }}
       links={{
        primary: { src: "#", text: "Coming Soon" },
       }}

@@ -1,4 +1,3 @@
-import baseColors from "@/data/base-colors";
 import HeroComponent from "../global/HeroComponent";
 
 export default function ThankYou() {
@@ -19,11 +18,6 @@ export default function ThankYou() {
      desktop: "/images/hero/hero-image-md.png",
      mobile: "/images/hero/hero-image-sm.png",
     },
-   }}
-   colorDetails={{
-    primary: baseColors.home.primary,
-    dark: { value: 80 },
-    light: { value: 10 },
    }}
   />
  );

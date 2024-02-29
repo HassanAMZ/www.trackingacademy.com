@@ -8,6 +8,7 @@ import Script from "next/script";
 import { GTMBlogViewEvent } from "@/components/analytics/GTMEvents";
 import BreadCrumbs from "./BreadCrumbs";
 import Image from "next/image";
+import YoutubeEmbed from "../mdx/YoutubeEmbed";
 
 const BlogHeader: React.FC<PostMetadataProps> = ({ metadata }) => {
  const schema = generateSchema(metadata);
@@ -23,20 +24,21 @@ const BlogHeader: React.FC<PostMetadataProps> = ({ metadata }) => {
     dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
    />
    <div className='rounded-lg'>
-    <h1 className='py-2 title-primary text-dominant transition duration-500 hover:text-accent'>
-     {metadata.title}
-    </h1>
+    <h1 className='py-2 title-primary'>{metadata.title}</h1>
     <p className='paragraph-secondary'>
      by ShahzadaAliHassan - {formatDate(metadata.date)}
     </p>
    </div>
-   <Image
-    src={backgroundImage}
-    alt={"blog image"}
-    width={1920}
-    height={1080}
-    className='rounded-lg'
-   />
+   {metadata.embedId === "" && (
+    <Image
+     src={backgroundImage}
+     alt={"blog image"}
+     width={1920}
+     height={1080}
+     className='rounded-lg'
+    />
+   )}
+   {metadata.embedId !== "" && <YoutubeEmbed embedId={metadata.embedId} />}
   </section>
  );
 };

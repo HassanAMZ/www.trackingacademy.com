@@ -1,6 +1,5 @@
 import HeroComponent from "@/components/global/HeroComponent";
 import React from "react";
-import baseColors from "@/data/base-colors";
 import TwoGridContent from "@/components/global/TwoGridContent";
 import SingleGridContent from "@/components/global/SingleGridContent";
 import LearnMoreHeader from "@/components/global/LearnMoreHeader";
@@ -50,21 +49,13 @@ export default function Page() {
       mobile: "/images/hero/hero-image-sm.png",
      },
     }}
-    colorDetails={{
-     primary: baseColors.forFreelancers.primary,
-     dark: { value: 80 },
-     light: { value: 10 },
-    }}
    />
-   <StartHereSection colorDetails={baseColors.forFreelancers} />
+   <StartHereSection />
    <LearnMoreHeader
     headingTexts={{
      heading: "What is Freelancing in 6 Weeks Program? 🚀",
      subHeading:
       "We don’t just hand you tools. We make sure you know how to use them.",
-    }}
-    colorDetails={{
-     primary: baseColors.forFreelancers.primary,
     }}
    />
    <TwoGridContent
@@ -113,7 +104,6 @@ export default function Page() {
      },
     ]}
     primaryLink={{ src: "#", text: "Enroll Here" }}
-    colorDetails={{ primary: baseColors.forFreelancers.primary }}
     order={1} // Grid order
    />
    <TwoGridContent
@@ -145,7 +135,6 @@ export default function Page() {
      },
     ]}
     primaryLink={{ src: "#", text: "Enroll Here" }}
-    colorDetails={{ primary: baseColors.forFreelancers.primary }}
     order={-1}
    />
 
@@ -155,7 +144,6 @@ export default function Page() {
      subHeading:
       "Writers, designers, developers, marketers, coaches and many other have all enjoyed the program!",
     }}
-    colorDetails={{ primary: baseColors.forFreelancers.primary }}
    />
    <div className='grid sm:grid-cols-2 grid-cols-1 gap-2'>
     <SingleGridContent
@@ -188,108 +176,8 @@ export default function Page() {
     />
    </div>
 
-   {/* <div className='grid lg:grid-cols-3 grid-cols-1'>
-    <TestimonialCard
-     person={{
-      testimonial:
-       "Professional, fast and efficient at GA4 ecommerce tracking. He took the lead and solved our problem and I would definitely recommend working with him.",
-      position: "GA4 ecommerce - bug fix - ecommerce tracking",
-      name: "Clarissa Jurumenha",
-      image: {
-       src: "/images/clients/001_1.jfif",
-       alt: "Imtiaz Ahmed - Job Ready Programmer",
-       width: 1920,
-       height: 1080,
-      },
-     }}
-    />
-    <TestimonialCard
-     person={{
-      testimonial:
-       "Fantastic job, did exactly what was asked and was very prompt with communication",
-      position: "GA4 & Proper Conversion Tracking",
-      name: "Clarissa Jurumenha",
-      image: {
-       src: "/images/clients/001.jpg",
-       alt: "Imtiaz Ahmed - Job Ready Programmer",
-       width: 1920,
-       height: 1080,
-      },
-     }}
-    />
-    <TestimonialCard
-     person={{
-      testimonial: "Very happy working with Hassan! Does a great job!",
-      position: "Gads Setup",
-      name: "Clarissa Jurumenha",
-      image: {
-       src: "/images/clients/JamieNorsa.jfif",
-       alt: "Imtiaz Ahmed - Job Ready Programmer",
-       width: 1920,
-       height: 1080,
-      },
-     }}
-    />
-    <TestimonialCard
-     person={{
-      testimonial:
-       "Well, this was not the first project we did with Hassan, but definitely not the last! It is always an absolute pleasure to work with him. Hassan is fast, precise and super patient with our queries. For anyone looking for a top notch tracking expert, Hassan is the man and we look forward to working with him in the future.",
-      position: "FixSet Up Advanced GA4 Reports",
-      name: "Clarissa Jurumenha",
-      image: {
-       src: "/images/clients/008.jfif",
-       alt: "Imtiaz Ahmed - Job Ready Programmer",
-       width: 1920,
-       height: 1080,
-      },
-     }}
-    />
-    <TestimonialCard
-     person={{
-      testimonial:
-       "Very thorough and professional. Identified a problem with our meta tracking and implemented a complete overhaul that has resolved the problem. Would recommend.",
-      position: "Audit Google Tag and FB/Tiktok Pixels",
-      name: "Clarissa Jurumenha",
-      image: {
-       src: "/images/clients/007.jfif",
-       alt: "Imtiaz Ahmed - Job Ready Programmer",
-       width: 1920,
-       height: 1080,
-      },
-     }}
-    />
-    <TestimonialCard
-     person={{
-      testimonial: "Another good experience from a high quality professional",
-      position: "FB, GA and Shopify set up",
-      name: "Clarissa Jurumenha",
-      image: {
-       src: "/images/clients/MalikOsama.jfif",
-       alt: "Imtiaz Ahmed - Job Ready Programmer",
-       width: 1920,
-       height: 1080,
-      },
-     }}
-    />
-   </div> */}
-   <CallToActionSections
-    colorDetails={{ primary: baseColors.forFreelancers.primary }}
-   />
-   {/* <TestimonialCard
-    className='!py-8'
-    person={{
-     testimonial:
-      "Hassan was shining a light on questions I never even asked myself!",
-     position: "Freelance Journalist",
-     name: "Clarissa Jurumenha",
-     image: {
-      src: "/images/clients/001_1.jfif",
-      alt: "Imtiaz Ahmed - Job Ready Programmer",
-      width: 1920,
-      height: 1080,
-     },
-    }}
-   /> */}
+   <CallToActionSections />
+
    <WhyUs
     headingTexts={{
      heading: "Why Web Analytics? 📊",
@@ -299,11 +187,8 @@ export default function Page() {
      secondary:
       "the foundational tools like GA4, Tag Manager, and web tracking are the land and terrain—but how you navigate and understand them defines your journey's success!",
     }}
-    colorDetails={{
-     primary: baseColors.home.primary,
-    }}
     links={{
-     primary: { src: "/#courses", text: "Explore Our Courses!" },
+     primary: { src: "/courses", text: "Explore Our Courses!" },
     }}
    />
   </React.Fragment>

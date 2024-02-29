@@ -94,7 +94,7 @@ const FAQ: React.FC = () => {
  };
 
  return (
-  <div className=''>
+  <div>
    {faqs.map((faq, index) => (
     <FAQItem
      key={index}

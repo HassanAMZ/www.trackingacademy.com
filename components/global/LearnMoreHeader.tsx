@@ -1,11 +1,6 @@
 // LearnMoreHeader.tsx
 
 import React from "react";
-import {
- Heading2xl,
- Heading4xl,
- Headingxl,
-} from "@/components/typography/Heading";
 import { LearnMoreHeaderProps } from "@/types/index"; // make sure to use the actual path
 
 const LearnMoreHeader: React.FC<LearnMoreHeaderProps> = ({ headingTexts }) => {

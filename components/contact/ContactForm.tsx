@@ -16,7 +16,7 @@ function SubmitButton() {
   <button
    type='submit'
    disabled={pending}
-   className={`bg-accent hover:bg-accent text-complementary title-tertiary py-4 px-4 rounded-lg mt-4 transition-all duration-300 ease-in-out ${
+   className={`bg-accent hover:bg-complementary border-2 border-dominant title-tertiary py-4 px-4 rounded-lg mt-4 transition-all duration-300 ease-in-out text-complementary hover:text-accent ${
     pending ? "opacity-50 cursor-not-allowed" : ""
    }`}>
    {pending ? "Submitting..." : "Submit Contact Form"}
@@ -56,7 +56,7 @@ export default function ContactForm() {
         id='userName'
         name='userName'
         required
-        className='p-3 border-2 border-dominant text-complementary rounded-lg'
+        className='p-3 border-2 border-dominant rounded-lg'
        />
       </div>
       <div className='flex flex-col'>
@@ -68,7 +68,7 @@ export default function ContactForm() {
         id='email'
         name='email'
         required
-        className='p-3 border-2 border-dominant text-complementary rounded-lg'
+        className='p-3 border-2 border-dominant rounded-lg'
        />
       </div>
      </div>
@@ -82,7 +82,7 @@ export default function ContactForm() {
        id='websiteLink'
        name='websiteLink'
        required
-       className='p-3 border-2 border-dominant text-complementary rounded-lg'
+       className='p-3 border-2 border-dominant rounded-lg'
       />
      </div>
 
@@ -94,7 +94,7 @@ export default function ContactForm() {
        id='integrationType'
        name='integrationType'
        required
-       className='p-3 border-2 border-dominant text-complementary rounded-lg'>
+       className='p-3 border-2 border-dominant rounded-lg'>
        <option value=''>Project Type...</option>
        <option value='gtm'>GTM setup</option>
        <option value='ga4'>GA4 integration</option>
@@ -113,7 +113,7 @@ export default function ContactForm() {
        id='budget'
        name='budget'
        required
-       className='p-3 border-2 border-dominant text-complementary rounded-lg'>
+       className='p-3 border-2 border-dominant rounded-lg'>
        <option value=''>Choose Your Budget...</option>
        {/* <option value='100'>100$ - 500$</option> */}
        <option value='500'>500$ - 1000$</option>
@@ -130,7 +130,7 @@ export default function ContactForm() {
       id='projectDescription'
       name='projectDescription'
       required
-      className='p-3 border-2 border-dominant text-complementary rounded-lg h-32'></textarea>
+      className='p-3 border-2 border-dominant rounded-lg h-32'></textarea>
 
      <SubmitButton />
 

@@ -72,9 +72,7 @@ const DesktopNav: React.FC<DesktopNavProps> = ({ data }) => {
  return (
   <React.Fragment>
    <div className='flex flex-row items-center justify-center gap-2'>
-    <NavLink href='/' className=''>
-     TrackingAcademy
-    </NavLink>
+    <NavLink href='/'>TrackingAcademy</NavLink>
    </div>
    <div className='flex items-center justify-center w-full gap-4'>
     <div

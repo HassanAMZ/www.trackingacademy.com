@@ -264,10 +264,6 @@ export interface ImagesProps {
  alt: string;
 }
 
-export interface ColorDetails {
- primary: string;
-}
-
 export interface TextGroup {
  welcomeText?: string;
  heading?: string;
@@ -291,12 +287,6 @@ export interface HeroProps {
    mobile?: string;
   };
  };
- colorDetails: ColorDetailsExtended;
-}
-
-export interface ColorDetailsExtended extends ColorDetails {
- light: { value: number; opacity?: number };
- dark: { value: number; opacity?: number };
 }
 
 export interface ImageData extends ImagesProps {
@@ -350,7 +340,6 @@ export interface TwoGridContentProps {
  detailsList: Detail[];
  primaryLink: Link;
  imagesData: ImageData;
- colorDetails: ColorDetails;
  order: number; // For grid order
 }
 export interface HeadingTextsProps {
@@ -364,26 +353,15 @@ export interface ParagraphTextsProps {
 
 export interface LearnMoreHeaderProps {
  headingTexts: HeadingTextsProps;
- colorDetails?: ColorDetails;
 }
 export interface WhyUsProps {
  headingTexts: HeadingTextsProps;
  paragraphTexts: ParagraphTextsProps;
- colorDetails?: ColorDetails;
  links: LinksGroupProps;
 }
-export interface StartHereSectionProps {
- colorDetails: ColorDetails;
-}
+
 export interface Color {
  primary: string;
-}
-export interface BaseColors {
- service: Color;
- aboutUs: Color;
- home: Color;
- forBusinesses: Color;
- [key: string]: Color;
 }
 
 export interface InputFieldProps {
@@ -423,7 +401,6 @@ export type ButtonData = {
 export type ButtonProps = {
  children: React.ReactNode;
  isSelected: boolean;
- color: string;
  onClick: () => void;
 };
 

@@ -1,11 +1,6 @@
 import HeroComponent from "@/components/global/HeroComponent";
 import ContainerLayout from "@/components/layouts/ContainerLayout";
-import baseColors from "@/data/base-colors";
-import Link from "next/link";
 import React from "react";
-import Head from "./head";
-import NavBar from "@/components/navbar/Navbar";
-import Footer from "@/components/footer/Footer";
 
 export default function NotFound() {
  return (
@@ -31,11 +26,6 @@ export default function NotFound() {
       desktop: "/images/hero/hero-image-md.png",
       mobile: "/images/hero/hero-image-sm.png",
      },
-    }}
-    colorDetails={{
-     primary: baseColors.notFound.primary,
-     dark: { value: 80 },
-     light: { value: 10 },
     }}
    />
   </ContainerLayout>

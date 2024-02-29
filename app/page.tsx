@@ -177,7 +177,7 @@ function page() {
       </p>
      </div>
 
-     <div className='bg-accent rounded-lg py-10 px-6 text-complementary divide-y divide-dark-secondary'>
+     <div className='bg-accent rounded-lg py-10 px-6 text-complementary divide-y divide-dominant'>
       <div className='pb-3'>
        <h3 className='title-tertiary font-bold'>Analytics Setup Package</h3>
        <div className='py-4 flex items-center gap-4'>

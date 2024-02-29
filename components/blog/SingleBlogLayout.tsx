@@ -1,9 +1,7 @@
 import React, { ReactNode } from "react";
 import getBlogsData from "utils/getBlogsData";
-import { GTMBlogListViewEvent } from "@/components/analytics/GTMEvents";
 import Image from "next/image";
 import Link from "next/link";
-import BlogPagination from "@/components/blog/BlogPagination";
 
 export default async function SingleBlogLayout({
  children,
@@ -31,7 +29,12 @@ export default async function SingleBlogLayout({
         <Link
          href={`/blog/${blog.slug}`}
          key={index}
-         className='flex flex-col gap-2 items-center justify-center shadown-lg border rounded-lg'>
+         className='grid grid-cols-3 gap-2 items-center justify-center shadow-md border rounded-lg'>
+         <div className='col-span-2 px-2'>
+          <h3 className='paragraph-secondary line-clamp-2 col-span-2 font-semibold text-left'>
+           {sortedData[index].title}
+          </h3>
+         </div>
          <Image
           src={sortedData[index].openGraph.images[0]}
           alt={sortedData[index].title}
@@ -39,11 +42,6 @@ export default async function SingleBlogLayout({
           height={1080}
           className='rounded-lg'
          />
-         <div className='p-2'>
-          <h3 className='title-tertiary line-clamp-2 col-span-2'>
-           {sortedData[index].title}
-          </h3>
-         </div>
         </Link>
        ))}
      </div>

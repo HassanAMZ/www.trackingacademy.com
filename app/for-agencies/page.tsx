@@ -1,6 +1,5 @@
 import TestimonialCard from "@/components/testimonial/TestimonialCard";
 import HeroComponent from "@/components/global/HeroComponent";
-import baseColors from "@/data/base-colors";
 import LearnMoreHeader from "@/components/global/LearnMoreHeader";
 import Clients from "@/components/home/Clients";
 import React from "react";
@@ -45,7 +44,7 @@ const Page: React.FC = () => {
  ];
 
  return (
-  <section className=''>
+  <section>
    <React.Fragment>
     <HeroComponent
      textGroup={{
@@ -87,11 +86,6 @@ const Page: React.FC = () => {
        mobile: "/images/hero/hero-image-sm.png",
       },
      }}
-     colorDetails={{
-      primary: baseColors.forAgencies.primary,
-      dark: { value: 80 },
-      light: { value: 10 },
-     }}
     />
 
     <div className='hidden lg:grid grid-cols-5 gap-2 pt-6 grayscale items-center justify-center'>
@@ -114,9 +108,6 @@ const Page: React.FC = () => {
        heading: "Data-Driven Insights for Digital Agencies🚀",
        subHeading:
         "I use advanced tools and strategies to give your agency the analytics capabilities it needs for smart decision-making and client success.",
-      }}
-      colorDetails={{
-       primary: baseColors.forAgencies.primary,
       }}
      />
      <div className='divide-y'>
@@ -166,8 +157,7 @@ const Page: React.FC = () => {
     <div className='flex'>
      <Link
       href='/contact'
-      className='font-semibold rounded-md p-3 w-full text-center'
-      style={{ backgroundColor: baseColors.forAgencies.primary }}>
+      className='font-semibold rounded-md p-3 w-full text-center'>
       Schedule a Quick Demo
      </Link>
     </div>
@@ -179,7 +169,6 @@ const Page: React.FC = () => {
        subHeading:
         "Marketing and web design agencies, along with developers, marketers, and creative professionals, consistently chooses me as their trusted partner.",
       }}
-      colorDetails={{ primary: baseColors.forAgencies.primary }}
      />
      <div className='grid lg:grid-cols-2 grid-cols-1'>
       <TestimonialCard
@@ -274,7 +263,6 @@ const Page: React.FC = () => {
        subHeading:
         "From setting up tracking tools to personalized consultations, discover how I can elevate your business's web analytics capabilities.",
       }}
-      colorDetails={{ primary: baseColors.forAgencies.primary }}
      />
     </div>
     <div className='grid lg:grid-cols-2 gap-2'>
@@ -372,8 +360,7 @@ const Page: React.FC = () => {
     <div className='flex'>
      <Link
       href='/contact'
-      className='font-semibold rounded-md p-3 w-full text-center'
-      style={{ backgroundColor: baseColors.forAgencies.primary }}>
+      className='font-semibold rounded-md p-3 w-full text-center'>
       Schedule a Quick Demo
      </Link>
     </div>
@@ -383,7 +370,6 @@ const Page: React.FC = () => {
       subHeading:
        "Because I've mastered web analytics from every angle and helped more than 250 Clients over last 4 years.",
      }}
-     colorDetails={{ primary: baseColors.forAgencies.primary }}
     />
     <AboutDetails />
    </React.Fragment>
@@ -396,9 +382,6 @@ const Page: React.FC = () => {
      primary: "Setup a quick demo: ",
      secondary:
       "Schedule a session and discover how tailored tracking configurations can elevate your clients website's performance and help your agency.",
-    }}
-    colorDetails={{
-     primary: baseColors.forAgencies.primary,
     }}
     links={{
      primary: { src: "/contact", text: "Schedule a session" },

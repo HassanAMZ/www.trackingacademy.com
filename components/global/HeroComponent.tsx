@@ -1,32 +1,10 @@
 import Image from "next/image";
 import React from "react";
-import {
- Heading2xl,
- Heading3xl,
- Heading5xl,
- Headingxl,
- Paragraphmd,
-} from "@/components/typography/Heading";
 import Link from "next/link";
-import lightenDarkenColor from "@/utils/lightenDarkenColor";
 import LearnMoreHeader from "@/components/global/LearnMoreHeader";
 import { HeroProps } from "@/types/index";
 
-const HeroComponent: React.FC<HeroProps> = ({
- textGroup,
- links,
- images,
- colorDetails,
-}) => {
- // Validations and color calculations
- const color = lightenDarkenColor(
-  colorDetails.primary,
-  colorDetails?.light.value || 10,
-  colorDetails?.dark.value || 90,
-  colorDetails?.light.opacity || 1,
-  colorDetails?.dark.opacity || 0.5
- );
-
+const HeroComponent: React.FC<HeroProps> = ({ textGroup, links, images }) => {
  return (
   <React.Fragment>
    <section className='relative bg-complementary rounded-md flex flex-col shadow-md items-center justify-center'>
@@ -89,7 +67,7 @@ const HeroComponent: React.FC<HeroProps> = ({
        <h1 className='title-primary'>{textGroup.heading}</h1>
       )}
       {textGroup.subHeading && (
-       <div className=''>
+       <div>
         <p className='title-tertiary'>
          {textGroup.subHeading.one}
          <span className='font-normal'>{textGroup.subHeading.two}</span>
@@ -120,7 +98,6 @@ const HeroComponent: React.FC<HeroProps> = ({
       heading: textGroup.learnMore.heading,
       subHeading: textGroup.learnMore.subHeading,
      }}
-     colorDetails={{ primary: colorDetails.primary }}
     />
    )}
   </React.Fragment>

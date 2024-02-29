@@ -27,15 +27,14 @@ const BlogLayout: FC<BlogLayoutProps> = async ({
     <div className='blog-metadata'>
      <h1>{metadata.title}</h1>
      <span>{metadata.date}</span>
-     {/* You can expand this to display other metadata details as required */}
     </div>
    )}
-   <main className=''>{children}</main>
+   <main>{children}</main>
 
    <GiscusComments />
 
    <div className='pt-4'>
-    <Heading2xl className=''>Other Related Blogs</Heading2xl>
+    <h4 className='title-tertiary'>Other Related Blogs</h4>
     <div className='mt-4 grid grid-cols-1 lg:grid-cols-2 gap-2'>
      {randomPosts.map((blog) => (
       <Link

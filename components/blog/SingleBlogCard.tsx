@@ -1,14 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import {
- Heading3xl,
- Heading2xl,
- Headingxl,
- Paragraphsm,
- Paragraphxs,
- Heading5xl,
-} from "@/components/typography/Heading";
+
 import Link from "next/link";
 import generateBrightColor from "utils/generateBrightColor";
 import formatDate from "@/components/seo/formatDate";
@@ -30,10 +23,7 @@ const BlogCard: React.FC<SingleBlogCardProps> = ({
   <React.Fragment>
    {post && (
     <div className={`shadow-md   ${className || ""}`}>
-     <Link
-      href={`/${type}/${post.slug}`}
-      className=''
-      onClick={handleLinkClick}>
+     <Link href={`/${type}/${post.slug}`} onClick={handleLinkClick}>
       <section className='grid h-full w-full rounded-lg'>
        <>
         <div

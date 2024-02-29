@@ -28,15 +28,15 @@ code {
 }
 
 .title-primary {
- @apply tracking-tight text-[clamp(1.75rem,_2.5vw,_2rem)]  lg:text-[clamp(1.875rem,_3vw,_2.5rem)] leading-tight font-bold;
+ @apply text-[clamp(1.75rem,_2.5vw,_2rem)] lg:text-[clamp(1.875rem,_3vw,_2.5rem)] font-bold tracking-normal leading-tight;
 }
 
 .title-secondary {
- @apply tracking-tight text-[clamp(1.5rem,_2vw,_1.5rem)] lg:text-[clamp(1.75rem,_2.5vw,_2rem)] leading-tight font-bold;
+ @apply text-[clamp(1.5rem,_2vw,_1.5rem)] lg:text-[clamp(1.75rem,_2.5vw,_2rem)] font-bold tracking-normal leading-tight;
 }
 
 .title-tertiary {
- @apply tracking-tight text-[clamp(1.125rem,_1.5vw,_1.25rem)] lg:text-[clamp(1.5rem,_2vw,_1.5rem)] leading-tight font-bold;
+ @apply text-[clamp(1.125rem,_1.5vw,_1.25rem)] lg:text-[clamp(1.5rem,_2vw,_1.5rem)] font-bold tracking-normal leading-tight;
 }
 
 .paragraph-primary {

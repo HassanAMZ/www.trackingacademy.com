@@ -23,7 +23,7 @@ const Page: React.FC<DynamicPortfolioPageProps> = ({ params }) => {
    (detail, index) => {
     return (
      <React.Fragment key={index}>
-      <Heading3xl className=''>{detail.heading}</Heading3xl>
+      <Heading3xl>{detail.heading}</Heading3xl>
       <Paragraphmd>{detail.description}</Paragraphmd>
      </React.Fragment>
     );
@@ -48,7 +48,7 @@ const Page: React.FC<DynamicPortfolioPageProps> = ({ params }) => {
       alt={clientObject.images[0].name}
      />
      <div className='flex flex-col gap-2 p-2 sm:p-4'>
-      <Heading3xl className=''> Project Details</Heading3xl>
+      <Heading3xl> Project Details</Heading3xl>
       {clientObject.project_details.map((project_detail, index) => {
        return (
         <React.Fragment key={index}>

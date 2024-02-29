@@ -11,7 +11,7 @@ const SingleCourseCard: React.FC<SingleCourseCardProps> = ({
  className = "",
 }) => {
  return (
-  <Link href={`/${type}/${course.slug}`} className=''>
+  <Link href={`/${type}/${course.slug}`}>
    <section className='border-2 rounded-md'>
     <Image
      alt={course.title}

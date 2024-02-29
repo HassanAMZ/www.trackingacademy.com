@@ -2,11 +2,7 @@
 
 import React, { useState } from "react";
 import Image from "next/image";
-import {
- ColorDetails,
- HeadingTextsProps,
- LinksGroupProps,
-} from "@/types/index";
+import { HeadingTextsProps, LinksGroupProps } from "@/types/index";
 import { Heading4xl, Paragraphlg } from "@/components/typography/Heading";
 import { ImageGeneralProps } from "@/types/index";
 import Link from "next/link";
@@ -14,8 +10,8 @@ import Link from "next/link";
 const FreeResoursesSection: React.FC<
  ImageGeneralProps & { headingTexts: HeadingTextsProps } & {
   links: LinksGroupProps;
- } & { colorDetails: ColorDetails } & { order?: string }
-> = ({ image, headingTexts, links, colorDetails, order }) => {
+ } & { order?: string }
+> = ({ image, headingTexts, links, order }) => {
  return (
   <React.Fragment>
    <div className='bg-dominant text-complementary'>
@@ -31,7 +27,7 @@ const FreeResoursesSection: React.FC<
      </div>
      <div
       className={`flex flex-col gap-3 lg:col-span-3 items-left justify-center px-4 py-8 `}>
-      <Heading4xl className=''>{headingTexts.heading}</Heading4xl>
+      <Heading4xl>{headingTexts.heading}</Heading4xl>
       <Paragraphlg className='textOpacity80 '>
        {headingTexts.subHeading}
       </Paragraphlg>

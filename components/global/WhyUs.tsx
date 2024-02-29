@@ -14,7 +14,6 @@ const WhyUs: React.FC<WhyUsProps> = ({
  links,
  headingTexts,
  paragraphTexts,
- colorDetails,
 }) => {
  if (!headingTexts.heading && !headingTexts.subHeading) return null;
 
@@ -28,7 +27,7 @@ const WhyUs: React.FC<WhyUsProps> = ({
      {paragraphTexts && (
       <Headingxl>
        {paragraphTexts.primary}
-       <span className=''>{paragraphTexts.secondary}</span>
+       <span>{paragraphTexts.secondary}</span>
       </Headingxl>
      )}
     </div>

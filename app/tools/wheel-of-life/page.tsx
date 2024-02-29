@@ -24,7 +24,9 @@ const page: NextPage = () => {
      can integrate into your web applications to help users perform this
      exercise digitally.
     </p>
+
     <YoutubeEmbed embedId='c_DOG_mXz5w' />
+
     <WheelOfLife />
 
     <h3 className='title-secondary pb-6'>What is the Wheel of Life?</h3>

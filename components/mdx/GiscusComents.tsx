@@ -68,7 +68,7 @@ function GiscusComments() {
  }, [pathname, theme]); // Added theme as a dependency
 
  return (
-  <section className=''>
+  <section>
    <div id='comment-section'></div>
   </section>
  );

@@ -255,7 +255,7 @@ function page() {
         />
        ))}
       </div>
-      <div className=''>
+      <div>
        <a href='#pricing' className='link-primary px-4 lg:px-16 py-3'>
         Choose Package
        </a>

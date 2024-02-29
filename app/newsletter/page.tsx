@@ -101,7 +101,7 @@ const Page: FC = () => {
   return (
    <div className={`py-3 ${className}`}>
     <Heading3xl className='uppercase pb-6 '>{title}</Heading3xl>
-    <Paragraphmd className=''>{description}</Paragraphmd>
+    <Paragraphmd>{description}</Paragraphmd>
    </div>
   );
  };
@@ -124,7 +124,7 @@ const Page: FC = () => {
 
  return (
   <div className='bg-black relative w-screen h-screen overflow-hidden py-4 px-6 flex flex-col justify-between'>
-   <header className=''>
+   <header>
     <div className='flex flex-row justify-between max-h-[5vh] '>
      <div className='flex gap-2 '>
       <h1> icon 01 </h1>
@@ -267,7 +267,7 @@ const Page: FC = () => {
     </div>
    </main>
    <Divider />
-   <footer className=''>bottom section</footer>
+   <footer>bottom section</footer>
   </div>
  );
 };

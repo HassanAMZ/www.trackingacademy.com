@@ -54,7 +54,7 @@ const Page: React.FC<DynamicServicesPageProps> = ({ params }) => {
   };
   return (
    <section>
-    <Heading3xl className=''>{serviceObject.title}</Heading3xl>
+    <Heading3xl>{serviceObject.title}</Heading3xl>
     <div className='gap-2 grid grid-cols-1 lg:grid-cols-5'>
      <div className='relative aspect-[4/3] col-span-1 lg:col-span-3'>
       <Image
