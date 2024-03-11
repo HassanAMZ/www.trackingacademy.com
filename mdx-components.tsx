@@ -14,12 +14,14 @@ import GiscusComments from "@/components/mdx/GiscusComents";
 import AuthPre from "@/components/mdx/AuthPre";
 import DataLayerCode from "./components/dataLayer/DataLayerCode";
 import SopDetails from "@/components/blog/SopDetails";
+import ToolsHeroSection from "./components/tools/ToolsHeroSection";
 
 export function useMDXComponents(components: MDXComponents): MDXComponents {
  return {
   GiscusComments,
   YoutubeEmbed,
   DataLayerCode,
+  ToolsHeroSection,
   BlogHeader,
   Note,
   AuthPre,

@@ -6,7 +6,6 @@ import { useTheme } from "next-themes";
 function GiscusComments() {
  const pathname = usePathname();
  const { theme } = useTheme();
-
  useEffect(() => {
   const script = document.createElement("script");
   script.src = process.env.NEXT_PUBLIC_GISCUS_SRC || "";

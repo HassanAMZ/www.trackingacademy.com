@@ -65,7 +65,7 @@ const Page: React.FC<DynamicPortfolioPageProps> = ({ params }) => {
       })}
      </div>
     </div>
-    <div className='gap-2 flex flex-col text-left  '>{clientSubDetails}</div>
+    <div className='gap-2 flex flex-col text-left '>{clientSubDetails}</div>
    </React.Fragment>
   );
  } else {

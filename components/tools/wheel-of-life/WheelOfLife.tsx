@@ -48,8 +48,8 @@ const WheelOfLife: React.FC = () => {
    {
     label: "Life Areas",
     data: values.map((category) => category.value),
-    backgroundColor: "rgba(255, 99, 132, 0.2)",
-    borderColor: "red",
+    backgroundColor: "rgba(11,20,140,0.4)",
+    borderColor: "rgba(11,20,140,1)",
     color: "black",
     borderWidth: 4,
    },
@@ -64,7 +64,7 @@ const WheelOfLife: React.FC = () => {
     max: 10,
 
     ticks: {
-     color: "black",
+     color: "#4D148C",
      backdropColor: "transparent",
      stepSize: 1,
      beginAtZero: true,
@@ -103,7 +103,7 @@ const WheelOfLife: React.FC = () => {
  };
 
  return (
-  <div className='flex flex-col items-center py-12 justify-center w-full '>
+  <div className='flex flex-col items-center py-8 justify-center w-full'>
    <div className='flex flex-wrap justify-center'>
     {values.map((category, index) => (
      <div key={category.name} className='p-2'>
@@ -114,13 +114,13 @@ const WheelOfLife: React.FC = () => {
        max='10'
        value={category.value}
        onChange={(e) => handleChange(index, parseInt(e.target.value))}
-       className='w-full h-2 rounded-lg appearance-none cursor-pointer'
+       className='w-full bg-black h-2 rounded-lg appearance-none cursor-pointer'
       />
       <div className='text-center'>{category.value}</div>
      </div>
     ))}
    </div>
-   <div className='container-secondary flex items-center justify-center lg:w-1/2 lg:h-1/2 w-full h-full bg-dominant rounded-lg'>
+   <div className=' container-secondary flex items-center justify-center w-full h-full lg:w-1/2 lg:h-1/2 border-2 border-accent rounded-lg'>
     <Radar data={chartData} options={chartOptions} />
    </div>
   </div>

@@ -100,7 +100,7 @@ const Page: FC = () => {
  }) => {
   return (
    <div className={`py-3 ${className}`}>
-    <Heading3xl className='uppercase pb-6 '>{title}</Heading3xl>
+    <Heading3xl className='uppercase pb-6'>{title}</Heading3xl>
     <Paragraphmd>{description}</Paragraphmd>
    </div>
   );
@@ -125,8 +125,8 @@ const Page: FC = () => {
  return (
   <div className='bg-black relative w-screen h-screen overflow-hidden py-4 px-6 flex flex-col justify-between'>
    <header>
-    <div className='flex flex-row justify-between max-h-[5vh] '>
-     <div className='flex gap-2 '>
+    <div className='flex flex-row justify-between max-h-[5vh]'>
+     <div className='flex gap-2'>
       <h1> icon 01 </h1>
       <h1> icon 02 </h1>
       <h1> icon 03 </h1>
@@ -189,7 +189,7 @@ const Page: FC = () => {
      {selectedClient ? (
       <div>
        <div className='flex flex-row justify-between items-center pb-6'>
-        <Heading3xl className='uppercase '>Project Details</Heading3xl>
+        <Heading3xl className='uppercase'>Project Details</Heading3xl>
         <div className='flex flex-row gap-4'>
          <button onClick={() => setShowDetails(!showDetails)}>
           <Paragraphxs className='text-[#00ff6a]'>
@@ -214,7 +214,7 @@ const Page: FC = () => {
           <Paragraphmd className='italic'>
            "{selectedClient.testimonial}" -- {selectedClient.clientName}
           </Paragraphmd>
-          <div className='grid grid-cols-2 '>
+          <div className='grid grid-cols-2'>
            <div>
             <Heading3xl className='uppercase py-6'>SERVICES</Heading3xl>
             <div className='flex gap-2 flex-wrap'>

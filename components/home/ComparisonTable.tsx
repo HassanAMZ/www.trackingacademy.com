@@ -52,7 +52,7 @@ const ComparisonTable: React.FC = () => (
    <p className='px-4 py-4 flex items-center justify-center border-b-2 paragraph-secondary border-dominant'>
     DIY
    </p>
-   <p className='px-4 py-4 hidden items-center justify-center border-b-2 paragraph-secondary border-dominant lg:flex '>
+   <p className='px-4 py-4 hidden items-center justify-center border-b-2 paragraph-secondary border-dominant lg:flex'>
     Freelancers
    </p>
   </div>

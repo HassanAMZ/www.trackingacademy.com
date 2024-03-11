@@ -26,7 +26,7 @@ export async function generateMetadata({ params }: any) {
 
 // const PaypalRender = ({ product }: any) => {
 //  return (
-//   <div className='py-2 grid justify-left items-center '>
+//   <div className='py-2 grid justify-left items-center'>
 //    <div className='lg:max-w-lg'>
 //     <PayPal product={product} />
 //    </div>
@@ -70,7 +70,7 @@ const Page: React.FC<DynamicServicesPageProps> = ({ params }) => {
         return (
          <React.Fragment key={index}>
           <p className='col-span-2 font-medium'>{service.name}</p>
-          <div className='col-span-1 '>{service.value}</div>
+          <div className='col-span-1'>{service.value}</div>
          </React.Fragment>
         );
        })}

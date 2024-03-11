@@ -15,10 +15,10 @@ export default async function SingleBlogLayout({
   .sort((a, b) => b.blogId - a.blogId);
 
  return (
-  <div className='lg:grid-cols-10 grid '>
+  <div className='lg:grid-cols-10 grid'>
    <div className='lg:col-span-7'>{children}</div>
 
-   <section className='px-2 lg:col-span-3 hidden lg:block '>
+   <section className='px-2 lg:col-span-3 hidden lg:block'>
     <div id='popular-posts'>
      <h3 className='title-tertiary py-4'>Recommeded Read</h3>
      <div className='grid grid-rows-4 gap-2'>

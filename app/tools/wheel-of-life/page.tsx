@@ -24,7 +24,6 @@ const page: NextPage = () => {
      can integrate into your web applications to help users perform this
      exercise digitally.
     </p>
-
     <YoutubeEmbed embedId='c_DOG_mXz5w' />
 
     <WheelOfLife />
@@ -36,11 +35,7 @@ const page: NextPage = () => {
      aspects, such as health, relationships, and work. Each section is rated on
      a scale from 0 to 10, indicating how satisfied or aligned one feels in that
      area. The goal is to identify areas that are thriving and others that may
-     require more attention. Creating the Interactive Component: Our interactive
-     "Wheel of Life" component is built using React, a popular JavaScript
-     library for building user interfaces, and Chart.js, a versatile charting
-     library. To make the wheel visually appealing and intuitive, we've used a
-     radar chart to plot the user's ratings for each life area.
+     require more attention.
     </p>
     <h3 className='title-secondary py-6'>How to Use the Component: </h3>
 

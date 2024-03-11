@@ -15,50 +15,216 @@ export const metadata = {
 
 <BlogHeader metadata={metadata} />
 
-## Learning Outcomes
+Hey there! If you're like me, diving into the vast ocean of Upwork to find the perfect job can feel a bit like looking for a needle in a haystack. But what if I told you there's a nifty trick to make your search easier and way more efficient? Yep, you guessed it – RSS feeds. Let's break down how you can set this up and filter jobs on Upwork to match your skills and preferences. 🛠️
 
-After reading the document, the reader can:
+## Before We Start: What You'll Need
 
-- Link Upwork RSS feed with RSS feed bro
+Alright, before we dive into the setup, let's make sure you have everything you need:
 
-## Tools Needed Before Starting:
+- A computer (with a backup power source, because we all know how annoying power outages can be).
+- Stable internet (plus a backup, because again, outages).
+- A high-quality microphone – okay, this one's more for those of you who might also be pitching via voice.
+- A quiet workspace because focus is key.
+- Solid English skills – you'll need to understand and communicate project needs clearly.
 
-Install the following extensions in your google chrome browser. Following are the links to download the required tools:
+## Getting Set Up: The Steps
 
-## Download Links
+Follow these steps to get your RSS feed up and running:
 
-1. [Google Chrome - Download the Fast, Secure Browser from Google](https://www.google.com/chrome/)
-2. [Feedbro](https://chrome.google.com/webstore/detail/feedbro/mefgmmbdailogpfhfblcnnjfmnpnmdfa?hl=en)
+### Touls Required:
 
-## Linking Upwork Jobs with RSS Feed
+- [Microsoft Edge browser](https://www.microsoft.com/en-us/edge/download?form=MA13FJ)
+- [FeedBro: RSS feed reader extension for Microsoft Edge](https://chrome.google.com/webstore/detail/feedbro/mefgmmbdailogpfhfblcnnjfmnpnmdfa?hl=en)
+- [Upwork account](https://www.upwork.com)
 
-Once you have installed the required tools, extensions, and browsers we can connect RSS feed bro with Upwork. If you do not have an Upwork profile, create one.
+<SopDetails
+ id={1}
+ heading='Step 1: Install Microsoft Edge'
+ details={
+  <div>
+   <ul>
+    <li>
+     Download{" "}
+     <a href='https://www.microsoft.com/en-us/edge/download?form=MA13FJ'>
+      Microsoft Edge from the official website
+     </a>
+     .
+    </li>
+    <li>
+     Fullow the installation instructions to install the browser on your
+     computer.
+    </li>
+   </ul>
+  </div>
+ }
+ imageSrc='/static/blog/94/001.png'
+/>
 
-However, if you have the Upwork Profile, go to the Find Work> Find Jobs. It will open up a search page on Upwork. To create the RSS feed for “Google Tag Manager”, Type the keyword “Google Tag Manager” in the search field, and hit the search icon. Once the search results have been updated, add a filter of “Payment Verified” from the left “Filters By” tab. Selecting the filter “Payment Verified” will update the Upwork Search Page again. Now click on the RSS icon, and click “RSS”.
+<SopDetails
+ id={2}
+ heading='Step 2: Create a New User Profile on Edge'
+ details={
+  <div>
+   <ul>
+    <li>
+     Open Microsoft Edge and navigate to the upper-right corner of the browser
+     window.
+    </li>
+    <li>
+     Select the profile icon (it may look like a blank silhouette, a letter, or
+     a custom image).
+    </li>
+    <li>Select "Manage profile settings" and then click "Add profile."</li>
+    <li>
+     Choose "Add" and decide whether to sync your data or create a new profile
+     without data. If you choose to sync, sign in with your Microsoft account
+     and confirm the settings.
+    </li>
+   </ul>
+  </div>
+ }
+ imageSrc='/static/blog/94/002.png'
+/>
 
-![Upwrok Search Page Image](/static/blog/00050_1.png)
+<SopDetails
+ id={3}
+ heading='Step 3: Install Grammarly Extension'
+ details={
+  <div>
+   <ul>
+    <li>
+     Open Microsoft Edge and navigate to the{" "}
+     <a href='https://chrome.google.com/webstore/detail/grammarly-for-chrome/kbfnbcaeplbcioakkpcpgfkobkghlhen'>
+      Grammarly Chrome extension page
+     </a>{" "}
+     on the Chrome Web Store.
+    </li>
+    <li>Click "Add to Chrome" to install the extension.</li>
+    <li>
+     A prompt will appear asking if you want to add the extension. Click "Add
+     extension" to confirm.
+    </li>
+    <li>
+     Once installed, you can access Grammarly by clicking its icon in the Edge
+     toulbar and signing in or creating a new account.
+    </li>
+   </ul>
+  </div>
+ }
+ imageSrc='/static/blog/94/003.png'
+/>
 
-Once you will click on the “RSS”, it will open a new page with a lot of XML code. Copy the URL of the page from google chrome’s address bar and go to the RSS Feed Extension, by clicking on the RSS Feed bro icon. If you cannot see the RSS Feed bro icon, click on the extension's icon, and click the pin icon next to the RSS feed bro. It will pin the extension to the address bar.
+<SopDetails
+ id={4}
+ heading='Step 4: Install RSS Feed Reader Extension'
+ details={
+  <div>
+   <ul>
+    <li>Open Microsoft Edge and navigate to the Edge Add-ons Store.</li>
+    <li>
+     Search for an RSS feed reader extension{" "}
+     <a href='https://chrome.google.com/webstore/detail/feedbro/mefgmmbdailogpfhfblcnnjfmnpnmdfa?hl=en'>
+      "RSS Feed Bro" by FeedBro.
+     </a>{" "}
+    </li>
+    <li>Click "Get" to install the extension.</li>
+   </ul>
+  </div>
+ }
+ imageSrc='/static/blog/94/004.png'
+/>
 
-![Upwrok RSS Page Image](/static/blog/00050_2.png)
+<SopDetails
+ id={5}
+ heading='Step 5: Configure RSS Feed Reader Settings'
+ details={
+  <div>
+   <ul>
+    <li>Click on the RSS feed reader extension icon in the Edge toulbar.</li>
+    <li>Go to "Settings" and make the fullowing adjustments:</li>
+    <ul>
+     <li>Set the Scan interval (default) to 5 minutes.</li>
+     <li>Enable the option to open the "All Items" page by default.</li>
+     <li>Choose your preferred theme (dark).</li>
+    </ul>
+   </ul>
+  </div>
+ }
+ imageSrc='/static/blog/94/005.png'
+/>
 
-On the RSS feed bro page, click on the “Add a new feed icon”, a new pop will show up. Paste the RSS Feed Link in “Feed URL”. Add a Title, the title should be the same as the search keyword on Upwork. Set the scan interval to 5 minutes and click Save. The RSS Feed for google tag manager has been added.
+<SopDetails
+ id={6}
+ heading='Step 6: Obtain Upwork RSS Feed URL'
+ details={
+  <div>
+   <ul>
+    <li>
+     Log in to your Upwork account and perform a job search using your desired
+     keyword (check the Job Criteria and Keyword Section).
+    </li>
+    <li>Click on the RSS feed icon to generate the RSS feed URL.</li>
+   </ul>
+  </div>
+ }
+ imageSrc='/static/blog/94/006.png'
+/>
 
-![Upwrok RSS Feed Bro Image](/static/blog/00050_3.png)
+<SopDetails
+ id={7}
+ heading='Step 7: Obtain Upwork RSS Feed URL'
+ details={
+  <div>
+   <ul>
+    <li>Copy the RSS feed URL.</li>
+   </ul>
+  </div>
+ }
+ imageSrc='/static/blog/94/007.png'
+/>
 
-To organize all the RSS feeds in one folder, click on “add a new folder”, name it “Upwork” and hit Ok. You can drag and drop the RSS feed into the new folder.
+<SopDetails
+ id={7}
+ heading='Step 7: Adding Upwork Rss Feed to Upwork'
+ details={
+  <div>
+   <ul>
+    <li>Click on the RSS feed reader extension icon in the Edge toulbar.</li>
+    <li>Click on the "+" button or "Add feed" option.</li>
+    <li>Paste the copied Upwork RSS feed URL into the designated field.</li>
+    <li>Optionally, organize the feed into a fulder for better management.</li>
+   </ul>
+  </div>
+ }
+ imageSrc='/static/blog/94/008.png'
+/>
 
-![Upwrok RSS Folders Bro Image](/static/blog/00050_4.png)
+## Job Criteria and Keywords
 
-Repeat the same process for keywords:
+### Keywords:
 
-1. Stape
-2. Conversion API
-3. Cross Domain
-4. Pinterest Pixel
-5. TikTok Pixel
-6. Conversion Tracking
-7. Google Analytics
-8. Google Tag Manager
+The fullowing keywords represent our areas of specialization:
 
-You have configured the RSS feed with Upwork, now sort the Upwork Feeds, in the order mentioned above, or shown in the screenshot.
+    1. Stape
+    2. Conversion API
+    3. TikTok Pixel
+    4. Twitter Pixel
+    5. Snapchat Pixel
+    6. Pinterest Pixel
+    7. Ads Conversion Tracking
+    8. Facebook Pixel
+    9. Google Analytics 4 (GA4)
+    10. Google Analytics
+    11. Google Tag Manager
+    12. Hyros Tracking
+    13. Zapier
+    14. Segment
+    15. Looker Studio
+    16. BigQuery
+
+### Job Criteria:
+
+When generating the RSS Feed on Upwork, make sure to select the fullowing payment settings:
+
+- **Hourly Contract Rate:** The minimum acceptable rate for hourly contracts is $30/hour.
+- **Fixed Price Projects:** For fixed price projects, the minimum acceptable amount is $60.

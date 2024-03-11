@@ -52,7 +52,7 @@ const MobileNavbar: React.FC = () => {
 
  return (
   <div className='lg:hidden block'>
-   <div className='py-3 px-2 flex flex-row '>
+   <div className='py-3 px-2 flex flex-row'>
     <NavButton onClick={toggleMenu} label='Toggle Navigation Menu' />
    </div>
    <div

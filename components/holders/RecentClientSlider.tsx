@@ -51,7 +51,7 @@ const RecentClientSlider: React.FC = () => {
   };
 
   return (
-   <div className='relative '>
+   <div className='relative'>
     {startIndex > 0 && (
      <button
       onClick={prevSlide}
@@ -107,7 +107,7 @@ const RecentClientSlider: React.FC = () => {
 
  return (
   <div className=' rounded-md'>
-   <div className='flex flex-col gap-2 '>
+   <div className='flex flex-col gap-2'>
     <ImageSlider images={clientObject.images} />
    </div>
   </div>

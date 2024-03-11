@@ -61,7 +61,7 @@ function page() {
        We handle auditing, analytics, tracking tag's implementations and
        reporting. You drive traffic with a higher conversion rate.
       </p>
-      <div className='flex gap-x-4 py-4 w-full items-center justify-center '>
+      <div className='flex gap-x-4 py-4 w-full items-center justify-center'>
        <BookACall />
        <Link href='#why-us' className='link-secondary px-4 lg:px-16 py-3'>
         Learn More
@@ -99,7 +99,7 @@ function page() {
       <p className='text-accent text-center'>
        Here's why you should trust Tracking Academy
       </p>
-      <h2 className='title-secondary text-dominant text-center '>
+      <h2 className='title-secondary text-dominant text-center'>
        We are the experts in Analytics Integration that's Accurate.
       </h2>
      </div>
@@ -120,7 +120,7 @@ function page() {
       </div>
       <div className='relative w-full pt-4'>
        <Image
-        className='w-full grayscale'
+        className='w-full'
         width={1185}
         height={1080}
         src='/images/hero/about-image.png'
@@ -129,7 +129,7 @@ function page() {
       </div>
      </div>
     </section>
-    <section className='bg-dominant '>
+    <section className='bg-dominant'>
      <div className='flex items-center flex-col container-primary px-4 py-20'>
       <p className='text-complementary font-semibold'>It works, too</p>
       <h2 className='title-secondary text-center text-complementary container-secondary'>
@@ -162,7 +162,7 @@ function page() {
     <section
      id='call-to-action'
      className='grid lg:grid-cols-2 gap-4 py-10 items-center justify-center container-primary'>
-     <div className='space-y-4 '>
+     <div className='space-y-4'>
       <p className='text-accent'>Let's Enhance Your Digital Presence</p>
       <h2 className='title-primary'>Analytics & Tracking Solutions</h2>
       <p className='paragraph-primary'>
@@ -212,7 +212,7 @@ function page() {
     </section>
 
     <section className=' bg-dominant'>
-     <div className='container-primary pt-20 text-complementary text-center '>
+     <div className='container-primary pt-20 text-complementary text-center'>
       <h2 className='title-secondary py-8'>We plug into your tech stack</h2>
       <Technologies />
      </div>
@@ -263,7 +263,7 @@ function page() {
         "From setting up tracking tools to personalized consultations, discover how I can elevate your business's web analytics capabilities.",
       }}
      />
-     <div className='grid lg:grid-cols-2 gap-2 '>
+     <div className='grid lg:grid-cols-2 gap-2'>
       <SingleGridContent
        imagesData={{
         src: "/images/hero/001.png",
@@ -358,7 +358,7 @@ function page() {
 
        <div className='relative w-full pt-4'>
         <Image
-         className='w-full grayscale'
+         className='w-full'
          width={1000}
          height={1000}
          src='/images/home/hassan-image-001.png'
@@ -366,7 +366,7 @@ function page() {
         />
        </div>
       </div>
-      <div className='bg-complementary rounded-lg text-dominant flex flex-col justify-between  '>
+      <div className='bg-complementary rounded-lg text-dominant flex flex-col justify-between '>
        <div className='p-4 lg:p-8 items-center flex flex-col'>
         <LearnMoreHeader
          headingTexts={{
@@ -383,7 +383,7 @@ function page() {
        </div>
        <div className='relative w-full pt-4'>
         <Image
-         className='w-full grayscale'
+         className='w-full'
          width={1185}
          height={1080}
          src='/images/hero/about-image.png'

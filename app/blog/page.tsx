@@ -71,7 +71,7 @@ export default async function Page() {
       ))}
      </div>
     </section>
-    <section className='grid sm:grid-cols-3 lg:grid-cols-1 lg:grid-rows-3 gap-2 lg:col-span-3 '>
+    <section className='grid sm:grid-cols-3 lg:grid-cols-1 lg:grid-rows-3 gap-2 lg:col-span-3'>
      {sortedData.slice(4, 7).map((blog, index) => (
       <Link
        href={`/blog/${blog.slug}`}

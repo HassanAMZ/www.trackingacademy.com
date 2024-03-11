@@ -7,9 +7,11 @@ import NavigationLinks from "../navbar/NavigationLinks";
 
 const Footer: React.FC = () => {
  return (
-  <div className='pb-1 pt-2'>
-   <footer className='bg-complementary py-12 px-5 flex flex-col justify-center items-center shadow-md'>
-    <NavLink href='/' className='hover:text-accent transition-all duration-300'>
+  <div className='pb-1 pt-2 text-complementary'>
+   <footer className='bg-accent py-12 px-5 flex flex-col justify-center items-center shadow-md'>
+    <NavLink
+     href='/'
+     className='hover:text-complementary transition-all duration-300'>
      TrackingAcademy
     </NavLink>
     <p className='paragraph-primary text-center sm:text-left py-2 animate__animated animate__fadeIn'>
@@ -25,7 +27,7 @@ const Footer: React.FC = () => {
       href='https://www.youtube.com/@trackingacademy_'
       target='_blank'
       rel='noopener noreferrer'
-      className='hover:text-accent transition-all duration-300 grayscale'>
+      className='hover:text-complementary transition-all duration-300'>
       <YouTubeIcon />
      </CustomLink>
 
@@ -33,7 +35,7 @@ const Footer: React.FC = () => {
       href='https://www.facebook.com/shahzadaalihassan/'
       target='_blank'
       rel='noopener noreferrer'
-      className='hover:text-accent transition-all duration-300 grayscale'>
+      className='hover:text-complementary transition-all duration-300'>
       <FacebookIcon />
      </CustomLink>
     </div>

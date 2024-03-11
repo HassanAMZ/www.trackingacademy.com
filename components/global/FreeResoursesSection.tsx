@@ -28,7 +28,7 @@ const FreeResoursesSection: React.FC<
      <div
       className={`flex flex-col gap-3 lg:col-span-3 items-left justify-center px-4 py-8 `}>
       <Heading4xl>{headingTexts.heading}</Heading4xl>
-      <Paragraphlg className='textOpacity80 '>
+      <Paragraphlg className='textOpacity80'>
        {headingTexts.subHeading}
       </Paragraphlg>
       <div className='p-2 rounded-md w-full text-center border-2 border-white  font-semibold'>

@@ -28,8 +28,8 @@ const InputField: React.FC<InputFieldProps> = ({
 }) => {
  return (
   <div className='space-y-1'>
-   <label htmlFor={id} className='block '>
-    <p className='font-semibold '>
+   <label htmlFor={id} className='block'>
+    <p className='font-semibold'>
      {label}
      {required && <span className='text-danger'>*</span>}
     </p>
@@ -41,7 +41,7 @@ const InputField: React.FC<InputFieldProps> = ({
      value={value}
      onChange={(e: ChangeEvent<HTMLInputElement>) => onChange(e.target.value)}
      required={required}
-     className={`p-2 border block w-full paragraph-primary rounded-md border-complementary  text-dominant ${
+     className={`p-2 border block w-full paragraph-primary rounded-md border-dominant  text-dominant ${
       required && !value ? "border-danger" : ""
      }`}
      aria-describedby={`${id}-helper-text`}

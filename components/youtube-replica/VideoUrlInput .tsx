@@ -17,7 +17,7 @@ const VideoUrlInput: React.FC<VideoUrlInputProps> = ({
 }) => {
  return (
   <>
-   <div className='flex w-full flex-col lg:flex-row gap-2 px-2 '>
+   <div className='flex w-full flex-col lg:flex-row gap-2 px-2'>
     <input
      type='text'
      value={videoInput}

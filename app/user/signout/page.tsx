@@ -50,7 +50,7 @@ const Page = () => {
       <button
        onClick={handleSignIn}
        type='button'
-       className='text-white w-full bg-blue-600 hover:bg-blue-700 focus:ring-4 focus:outline-none font-medium rounded-md paragraph-primary px-5 py-2.5 text-center inline-flex items-center justify-center '>
+       className='text-white w-full bg-blue-600 hover:bg-blue-700 focus:ring-4 focus:outline-none font-medium rounded-md paragraph-primary px-5 py-2.5 text-center inline-flex items-center justify-center'>
        <svg
         className='mr-2 -ml-1 w-4 h-4'
         aria-hidden='true'

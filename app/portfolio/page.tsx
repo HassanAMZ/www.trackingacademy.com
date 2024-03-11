@@ -22,7 +22,7 @@ export default function Page() {
        <div className='flex flex-col gap-1 backgroundOverlay !p-0'>
         <Link href={`/portfolio/${client.id}`}>
          <React.Fragment>
-          <div className='relative '>
+          <div className='relative'>
            <div className='flex flex-col gap-1 max-w-xl text-center items-center justify-center'>
             <Image
              className='rounded-md bg-gray-100 '

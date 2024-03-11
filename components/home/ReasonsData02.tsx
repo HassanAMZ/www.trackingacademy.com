@@ -6,7 +6,7 @@ import Image from "next/image";
 export default function ReasonsData02() {
  return (
   <div className='pt-10 pb-2 lg:py-10'>
-   <p className='text-accent text-center '>
+   <p className='text-accent text-center'>
     Configuring & Optimizing Website Tracking Setups 🚀
    </p>
    <h2 className='title-primary text-center py-4 container-secondary'>

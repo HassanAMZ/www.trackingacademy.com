@@ -17,6 +17,7 @@ module.exports = {
     dominant: "#000000",
     complementary: "#ffffff",
     accent: "#4d148c",
+    danger: "#ff0000",
    },
    animation: {
     fadeIn: "fadeIn 0.2s ease-in-out forwards",

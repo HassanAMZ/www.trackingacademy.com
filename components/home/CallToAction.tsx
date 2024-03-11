@@ -14,7 +14,7 @@ export default function CallToAction() {
      makes you happy?
     </h2>
 
-    <div className='flex gap-x-2 lg:gap-x-4 py-4 '>
+    <div className='flex gap-x-2 lg:gap-x-4 py-4'>
      <BookACall />
      <Link
       href='/services/web-analytics-and-tracking'

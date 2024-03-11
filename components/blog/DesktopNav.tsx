@@ -95,7 +95,7 @@ const DesktopNav: React.FC<DesktopNavProps> = ({ data }) => {
         onChange={(e) => setSearchTerm(e.target.value)}
         className=' w-full lg:w-[75vw] rounded-t-lg h-12 bg-accent placeholder:text-complementary text-complementary pl-4 transition-all duration-300 ease-in-out'
        />
-       <div className=' w-full lg:w-[75vw] '>
+       <div className=' w-full lg:w-[75vw]'>
         {results.length > 0 && isExpanded && (
          <div className='bg-complementary p-4 rounded-b-lg shadow-md overflow-auto'>
           {results.map((result) => (

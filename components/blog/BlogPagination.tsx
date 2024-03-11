@@ -34,7 +34,7 @@ const BlogPagination: React.FC<BlogPaginationProps> = ({ sortedData }) => {
       href={`/blog/${blog.slug}`}
       key={index}
       id={`${blog.blogId} ${index}`}
-      className='flex flex-col gap-4 shadow-md border bg-complementary rounded-md text-dominant p-2 '>
+      className='flex flex-col gap-4 shadow-md border bg-complementary rounded-md text-dominant p-2'>
       <Image
        src={blog.openGraph.images[0]}
        alt={blog.title}

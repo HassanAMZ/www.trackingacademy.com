@@ -69,10 +69,10 @@ const YoutubeVideo: React.FC<YoutubdeVideoProps> = ({ videoUrl, details }) => {
       <div className='flex flex-col'>
        <CustomLink
         href={videoUrl}
-        className='!no-underline text-sm font-medium text-dominant '>
+        className='!no-underline font-medium text-dominant'>
         {details.snippet.title}
        </CustomLink>
-       <p className='text-sm text-dominant'>
+       <p className='text-dominant'>
         {formatViews(details.statistics.viewCount)} views •{" "}
         {formatTimeSince(details.snippet.publishedAt)}
        </p>

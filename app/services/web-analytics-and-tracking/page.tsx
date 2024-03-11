@@ -226,7 +226,7 @@ function page() {
       services. We ensure precision, clarity, and growth.
      </p>
 
-     <div className='flex gap-x-4 py-4 w-full items-center justify-center '>
+     <div className='flex gap-x-4 py-4 w-full items-center justify-center'>
       <Link href='#pricing' className='link-primary px-4 lg:px-16 py-3'>
        View Pricing
       </Link>
@@ -390,8 +390,8 @@ function page() {
     </section>
 
     <section className='bg-dominant text-complementary py-20'>
-     <div className='container-primary '>
-      <div className='bg-accent rounded-lg flex items-center justify-center '>
+     <div className='container-primary'>
+      <div className='bg-accent rounded-lg flex items-center justify-center'>
        <div className='p-4 lg:p-8 items-left flex flex-col'>
         <LearnMoreHeader
          headingTexts={{

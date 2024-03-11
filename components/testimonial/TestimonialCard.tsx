@@ -14,7 +14,7 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({
 }) => {
  return (
   <section className={`text-center  ${(className || "") ?? ""}`}>
-   <div className='text-center py-3 '>
+   <div className='text-center py-3'>
     <blockquote className='overflow-hidden h-full items-center justify-center flex flex-col p-2 gap-5'>
      <span>★★★★★</span>
      <Image

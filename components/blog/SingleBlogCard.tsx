@@ -37,7 +37,7 @@ const BlogCard: React.FC<SingleBlogCardProps> = ({
            New
           </div>
          )}
-         <h2 className='line-clamp-2 title-tertiary '>{post.title}</h2>
+         <h2 className='line-clamp-2 title-tertiary'>{post.title}</h2>
         </div>
         <div className='p-4'>
          <p className='line-clamp-3 text-left paragraph-primary'>

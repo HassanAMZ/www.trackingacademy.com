@@ -308,12 +308,12 @@ const Page: React.FC = () => {
      readOnly
      value={generateUTM()}
      rows={4}
-     className={`p-1 border-2 border-dominant rounded-md bg-transparent peer h-full w-full outline-none text-sm pr-2 ${
-      !canGenerateUTM() ? "opacity-50" : "border-2 border-accent animate-pulse"
+     className={`p-1 border-2 border-dominant rounded-md bg-transparent peer h-full w-full outline-none pr-2 ${
+      !canGenerateUTM() ? "opacity-50" : "border-2 border-accent title-tertiary"
      }`}
     />
     {!canGenerateUTM() && (
-     <div className='text-danger'>
+     <div className='text-danger font-semibold'>
       {getErrorMessages().map((error, index) => (
        <p key={index}>{error}</p>
       ))}
