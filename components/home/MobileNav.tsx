@@ -75,13 +75,11 @@ const MobileNavbar: React.FC = () => {
      </div>
      <div>
       <blockquote className='title-tertiary text-center'>
-       Working with HOOX allowed us to quickly test new angles, copy, and
-       positioning without changing our homepage. We saw a significant increase
-       in CVR.
+       Very thorough and professional. Identified a problem with our meta
+       tracking and implemented a complete overhaul that has resolved the
+       problem. Would recommend.
       </blockquote>
-      <p className='paragraph-primary text-center py-4'>
-       COURTNEY TOLL CEO of Nori
-      </p>
+      <p className='paragraph-primary text-center py-4'>Clarissa Jurumenh</p>
      </div>
      <div className='flex w-full flex-col gap-2'>
       <BookACall />

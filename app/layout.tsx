@@ -11,18 +11,25 @@ import { Suspense } from "react";
 import CanonicalTag from "@/components/seo/CanonicalTag";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import GlobalNavbar from "@/components/global/GlobalNavbar";
-import { Poppins } from "next/font/google";
+import { Inter, Roboto_Mono, Poppins } from "next/font/google";
 
-const Roboto = localFont({
- src: "fonts/Roboto/Roboto-Regular.ttf",
+const inter = Inter({
+ subsets: ["latin"],
+ variable: "--font-inter",
  display: "swap",
 });
 
 const poppins = Poppins({
- subsets: ["latin"],
- display: "swap",
  variable: "--font-poppins",
  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
+ subsets: ["latin"],
+ display: "swap",
+});
+
+const roboto_mono = Roboto_Mono({
+ subsets: ["latin"],
+ variable: "--font-roboto-mono",
+ display: "swap",
 });
 
 export const metadata = {
@@ -35,9 +42,10 @@ export const metadata = {
 
 export default function RootLayout({ children }: { children: ReactNode }) {
  return (
-  <html lang='en'>
-   <body
-    className={` selection:text-complementary selection:bg-accent bg-complementary paragraph-primary text-dominant ${poppins.className}`}>
+  <html
+   lang='en'
+   className={`${inter.variable} ${roboto_mono.variable} ${poppins.variable}`}>
+   <body className='selection:text-complementary selection:bg-accent paragraph-primary '>
     <AuthContextProvider>
      <GlobalNavbar />
      {children}

@@ -57,11 +57,11 @@ function page() {
        </span>{" "}
        more efficient advertising spend
       </h1>
-      <p className='container-secondary paragraph-primary pb-4'>
+      <p className='container-secondary'>
        We handle auditing, analytics, tracking tag's implementations and
        reporting. You drive traffic with a higher conversion rate.
       </p>
-      <div className='flex gap-x-4 py-4 w-full items-center justify-center'>
+      <div className='flex gap-x-4 w-full items-center justify-center'>
        <BookACall />
        <Link href='#why-us' className='link-secondary px-4 lg:px-16 py-3'>
         Learn More
@@ -94,8 +94,8 @@ function page() {
 
     <section
      id='about'
-     className='flex flex-col pt-20 items-end justify-center container-primary'>
-     <div className='py-12'>
+     className='flex flex-col pt-20 items-center justify-center container-primary'>
+     <div className=''>
       <p className='text-accent text-center'>
        Here's why you should trust Tracking Academy
       </p>
@@ -104,13 +104,13 @@ function page() {
       </h2>
      </div>
      <div className='lg:pr-10 lg:pl-3 px-3 grid lg:grid-cols-2'>
-      <div>
-       <p className='py-6 paragraph-primary text-center lg:text-left'>
+      <div className='flex items-center justify-center flex-col py-6 space-y-6'>
+       <p className='text-center lg:text-left'>
         Our founder, Ali Hassan, has configured and audited more than 1,000
         websites for eCommerce brands and lead generation websites with Google
         Analytics 4, Google Tag Manager, Facebook Pixel and more.
        </p>
-       <p className='paragraph-primary text-center lg:text-left'>
+       <p className='text-center lg:text-left'>
         After making hundreds of tracking integration and system for clients and
         agencies, Hassan put together a world-class team of strategists,
         Analysts, marketers, developers, and a conversion tracking experts that
@@ -165,12 +165,12 @@ function page() {
      <div className='space-y-4'>
       <p className='text-accent'>Let's Enhance Your Digital Presence</p>
       <h2 className='title-primary'>Analytics & Tracking Solutions</h2>
-      <p className='paragraph-primary'>
+      <p>
        We specialize in configuring advanced tracking and analytics for your
        website, ensuring you capture every interaction and gain insights that
        drive growth.
       </p>
-      <p className='paragraph-primary'>
+      <p>
        Our solutions empower you to understand your audience, optimize your
        marketing strategies, and achieve higher conversion rates with
        data-driven decisions.
@@ -181,7 +181,7 @@ function page() {
       <div className='pb-3'>
        <h3 className='title-tertiary font-bold'>Analytics Setup Package</h3>
        <div className='py-4 flex items-center gap-4'>
-        <p className='paragraph-primary font-bold'>$2,000</p>
+        <p className='font-bold'>$2,000</p>
         <p className='paragraph-tertiary'>
          Comprehensive analytics and tracking setup
         </p>
@@ -221,7 +221,7 @@ function page() {
        How we compare to other solutions
       </h2>
       <div className=' flex items-center justify-center py-6'>
-       <p className='paragraph-primary container-secondary text-center'>
+       <p className='container-secondary text-center'>
         At Tracking Academy, we understand the importance of seamless
         integration with your existing tech stack. Our analytics and tracking
         solutions are designed to work effortlessly with your marketing tools,

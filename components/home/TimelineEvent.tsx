@@ -39,7 +39,7 @@ const TimelineEvent: React.FC<TimelineEventProps> = ({
    <div className='w-[calc(100%-4rem)] lg:w-[calc(50%-2.5rem)] p-4 shadow-md border rounded-lg grid lg:grid-cols-4 items-start lg:items-center justify-center'>
     <div className='col-span-1 object-contain overflow-hidden w-32 lg:w-full'>
      <Image
-      className='grayscale '
+      className=' '
       width={1000}
       height={1000}
       src={imageULR}

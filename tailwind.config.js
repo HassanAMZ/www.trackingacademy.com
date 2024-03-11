@@ -10,6 +10,11 @@ module.exports = {
    "right-10": "right 10rem",
   },
   extend: {
+   fontFamily: {
+    sans: ["var(--font-inter)"],
+    poppins: ["var(--font-poppins)"],
+    mono: ["var(--font-roboto-mono)"],
+   },
    filter: ["hover", "focus"], // This enables filters
    brightness: ["hover", "focus"], // This enables brightness adjustment
 

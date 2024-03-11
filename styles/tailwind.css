@@ -6,22 +6,6 @@ code {
  @apply overflow-hidden whitespace-pre-wrap;
 }
 
-.primaryButton {
- @apply rounded-md px-3.5 py-2.5 font-medium shadow-md border-2 bg-complementary border-gray-100 text-gray-100;
-}
-
-.primaryButton:focus-visible {
- @apply outline outline-2 outline-offset-2 outline-gray-100;
-}
-
-.backgroundOverlay {
- @apply bg-complementary;
-}
-
-.textOpacity80 {
- @apply text-white/80;
-}
-
 ::-webkit-scrollbar {
  height: 0px; /* Set the height for horizontal scrollbar */
  width: 0px; /* Set the width for vertical scrollbar */
@@ -59,7 +43,7 @@ code {
 }
 
 .container-primary {
- @apply container mx-auto max-w-7xl px-3;
+ @apply container mx-auto max-w-6xl px-3;
 }
 .container-secondary {
  @apply container max-w-4xl px-3 mx-auto;

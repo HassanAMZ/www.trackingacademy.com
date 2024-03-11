@@ -2,27 +2,26 @@ html {
  scroll-behavior: smooth;
 }
 
-// :root {
-//  font-size: 16px;
-// }
+/* Base font size for small screens (default) */
+:root {
+ font-size: 16px; /* Adjust to your preferred base font size for small screens */
+}
 
-// @media (max-width: 640px) {
-//  :root {
-//   font-size: 14px;
-//  }
-// }
+/* Medium screens (md) */
+@media (min-width: 768px) {
+ /* Adjust the breakpoint if needed */
+ :root {
+  font-size: 22px; /* Adjust to your preferred font size for medium screens */
+ }
+}
 
-// @media (min-width: 641px) {
-//  :root {
-//   font-size: 16px;
-//  }
-// }
-
-// @media (min-width: 1025px) {
-//  :root {
-//   font-size: 18px;
-//  }
-// }
+/* Large screens (lg) */
+@media (min-width: 1024px) {
+ /* Adjust the breakpoint if needed */
+ :root {
+  font-size: 17px; /* Adjust to your preferred font size for large screens */
+ }
+}
 
 .video-responsive {
  overflow: hidden;

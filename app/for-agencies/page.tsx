@@ -88,7 +88,7 @@ const Page: React.FC = () => {
      }}
     />
 
-    <div className='hidden lg:grid grid-cols-5 gap-2 pt-6 grayscale items-center justify-center'>
+    <div className='hidden lg:grid grid-cols-5 gap-2 pt-6  items-center justify-center'>
      {clientData.map((client, index) => (
       <Clients
        key={index}

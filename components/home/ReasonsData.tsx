@@ -50,14 +50,14 @@ export default function ReasonsData() {
     4 Reasons Why You Should Work with Us to Configure Your Website's Tracking
    </h2>
    <div className='grid lg:grid-cols-2 gap-2 lg:gap-4 py-10 w-full'>
-    <section className='pt-2 grid place-content-center'>
+    <section className='pt-2 grid items-center justify-center border-2 border-accent rounded-lg'>
      {activeId !== null && (
       <Image
        src={reasonsData.find((reason) => reason.id === activeId)!.imageUrl}
        alt='Reason Image'
        width={1080}
        height={1080}
-       className='rounded-lg grayscale'
+       className='rounded-lg w-1/2 lg:w-full mx-auto'
       />
      )}
     </section>
@@ -72,7 +72,7 @@ export default function ReasonsData() {
        } hover:bg-accent hover:text-complementary`}
        onClick={() => setActiveId(activeId === reason.id ? 1 : reason.id)}>
        <p
-        className={`title-primary font-black px-4 lg:pr-10 leading-none lg:leading-normal lg:row-span-2 ${
+        className={`title-primary font-black px-4 lg:pr-10 lg:row-span-2 ${
          activeId === reason.id ? "text-complementary" : "text-dominant"
         }`}>
         {reason.id}

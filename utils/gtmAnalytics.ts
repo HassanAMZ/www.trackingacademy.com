@@ -4,6 +4,19 @@ import {
  PostMetadata,
  PostMetadataProps,
 } from "@/types/index";
+interface OptionalUserData {
+ id?: string;
+ phone?: string;
+ email?: string;
+ address?: {
+  city?: string;
+  country?: string;
+  state?: string;
+  postal_code?: string;
+  first_name?: string;
+  last_name?: string;
+ };
+}
 
 const gtmCategoriesFromBlogs = ({ metadata }: PostMetadataProps) => {
  const sortedTags = [...metadata.tags].sort();

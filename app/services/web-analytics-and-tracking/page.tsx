@@ -67,7 +67,7 @@ const PricingCard: React.FC<PricingCardProps> = ({
         alt={`Client ${index}`}
         width={1920}
         height={540}
-        className='grayscale scale-125'
+        className=' scale-125'
        />
       </div>
      ))}
@@ -221,12 +221,12 @@ function page() {
      <h1 className='title-primary lg:py-5 container-secondary'>
       Expert Web Analytics & Tracking Integration
      </h1>
-     <p className='container-secondary paragraph-primary pb-4'>
+     <p className='container-secondary paragraph-primary '>
       Elevate your online strategy with our bespoke analytics and tracking
       services. We ensure precision, clarity, and growth.
      </p>
 
-     <div className='flex gap-x-4 py-4 w-full items-center justify-center'>
+     <div className='flex gap-x-4 w-full items-center justify-center'>
       <Link href='#pricing' className='link-primary px-4 lg:px-16 py-3'>
        View Pricing
       </Link>
@@ -408,7 +408,7 @@ function page() {
        </div>
        <div className='relative w-2/3 pt-4'>
         <Image
-         className='grayscale'
+         className=''
          width={1185}
          height={1080}
          src='/images/hero/about-image.png'
