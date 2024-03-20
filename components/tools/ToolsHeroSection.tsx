@@ -15,12 +15,12 @@ export default function ToolsHeroSection() {
     <div className='flex gap-x-4 justify-center'>
      <Link
       href='/tools/utm-builder#utm-builder'
-      className='font-bold py-4 px-6 link-secondary'>
+      className='font-bold link-secondary'>
       Start Creating UTMs
      </Link>
      <Link
       href='/blog/ga4/understanding-utm-builder-tool'
-      className='font-bold border-2 hidden lg:block rounded-md py-4 px-6 link-primary'>
+      className='font-bold border-2 hidden lg:block rounded-md link-primary'>
       Read the Blog
      </Link>
     </div>

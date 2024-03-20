@@ -6,10 +6,8 @@ export default function Navbar() {
  return (
   <header className='w-full'>
    <div className='container-primary'>
-    <div className='hidden lg:block'>
-     <DesktopNav />
-    </div>
-    <MobileNav />
+    <DesktopNav />
+    {/* <MobileNav /> */}
    </div>
   </header>
  );

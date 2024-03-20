@@ -85,7 +85,7 @@ const MobileNavbar: React.FC = () => {
       <BookACall />
       <Link
        href='/services/web-analytics-and-tracking'
-       className='text-center link-primary px-4 lg:px-16 py-3'
+       className='text-center link-primary'
        onClick={toggleMenu}>
        Get started
       </Link>

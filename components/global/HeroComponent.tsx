@@ -7,7 +7,7 @@ import { HeroProps } from "@/types/index";
 const HeroComponent: React.FC<HeroProps> = ({ textGroup, links, images }) => {
  return (
   <React.Fragment>
-   <section className='relative bg-complementary rounded-md flex flex-col shadow-md items-center justify-center'>
+   <section className='relative text-complementary bg-dominant rounded-md flex flex-col shadow-md items-center justify-center h-full md:h-[80vh]'>
     {images?.background?.desktop && (
      <Image
       alt='Shahzada Ali Hassan'
@@ -77,15 +77,11 @@ const HeroComponent: React.FC<HeroProps> = ({ textGroup, links, images }) => {
      </aside>
 
      <div className='flex gap-2 text-lg'>
-      <Link
-       href={links.primary.src}
-       className='link-primary px-4 lg:px-16 py-3'>
+      <Link href={links.primary.src} className='link-primary'>
        {links.primary.text}
       </Link>
       {links.secondary && (
-       <Link
-        href={links.secondary.src}
-        className='link-secondary px-4 lg:px-16 py-3'>
+       <Link href={links.secondary.src} className='link-secondary'>
         {links.secondary.text}
        </Link>
       )}

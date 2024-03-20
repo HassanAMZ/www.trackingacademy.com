@@ -24,7 +24,7 @@ code {
 }
 
 .paragraph-primary {
- @apply tracking-normal text-[clamp(0.825rem,_1.25vw,_1rem)] lg:text-[clamp(1.125rem,_1.5vw,_1.25rem)] leading-normal;
+ @apply tracking-normal text-[clamp(0.85rem,_1.125vw,_1rem)] lg:text-[clamp(0.8rem,_1vw,_1rem)]  leading-normal;
 }
 
 .paragraph-secondary {
@@ -35,11 +35,11 @@ code {
 }
 
 .link-primary {
- @apply rounded-full border-2 border-complementary hover:border-accent bg-accent hover:bg-complementary text-complementary hover:text-accent font-semibold;
+ @apply rounded-full border-2 border-complementary hover:border-accent bg-accent hover:bg-complementary text-complementary hover:text-accent font-semibold px-4 py-2 sm:px-8 lg:px-16;
 }
 
 .link-secondary {
- @apply rounded-full border-2 border-accent hover:border-complementary bg-complementary hover:bg-accent text-accent hover:text-complementary font-semibold;
+ @apply rounded-full border-2 border-accent hover:border-complementary bg-complementary hover:bg-accent text-accent hover:text-complementary font-semibold px-4 py-2 sm:px-8 lg:px-16;
 }
 
 .container-primary {

@@ -20,7 +20,7 @@ export default function WorkHistory() {
     {clientImages.map((image, index) => (
      <div
       key={index}
-      className='rounded-lg bg-dominant/20 filter object-contain overflow-hidden brightness-200 contrast-200'>
+      className='rounded-lg bg-dominant filter object-contain overflow-hidden brightness-200 contrast-200'>
       <Image
        src={image}
        alt={`Client ${index}`}

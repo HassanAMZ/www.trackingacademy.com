@@ -15,10 +15,10 @@ export default async function SingleBlogLayout({
   .sort((a, b) => b.blogId - a.blogId);
 
  return (
-  <div className='lg:grid-cols-10 grid'>
-   <div className='lg:col-span-7'>{children}</div>
+  <div className='flex lg:flex-row flex-col gap-6'>
+   <div className=''>{children}</div>
 
-   <section className='px-2 lg:col-span-3 hidden lg:block'>
+   <section className='px-2 w-full lg:min-w-[400px] paragraph-tertiary '>
     <div id='popular-posts'>
      <h3 className='title-tertiary py-4'>Recommeded Read</h3>
      <div className='grid grid-rows-4 gap-2'>
@@ -29,19 +29,17 @@ export default async function SingleBlogLayout({
         <Link
          href={`/blog/${blog.slug}`}
          key={index}
-         className='grid grid-cols-3 gap-2 items-center justify-center shadow-md border rounded-lg'>
-         <div className='col-span-2 px-2'>
-          <h3 className='paragraph-secondary line-clamp-2 col-span-2 font-semibold text-left'>
-           {sortedData[index].title}
-          </h3>
-         </div>
-         <Image
-          src={sortedData[index].openGraph.images[0]}
-          alt={sortedData[index].title}
-          width={1920}
-          height={1080}
-          className='rounded-lg'
-         />
+         className='shadow-md rounded-lg bg-dominant bg-opacity-5 p-6 space-y-1'>
+         <span className='line-clamp-1 text-dominant/50'>
+          {/* #{sortedData[index].tags[0]}  */}
+          {sortedData[index].date}
+         </span>
+         <h3 className='line-clamp-2 font-bold paragraph-primary'>
+          {sortedData[index].title}
+         </h3>
+         <p className='line-clamp-2 text-dominant text-opacity-50'>
+          {sortedData[index].description}
+         </p>
         </Link>
        ))}
      </div>

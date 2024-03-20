@@ -109,21 +109,21 @@ const Page: FC = () => {
  const Divider: React.FC<DividerProps> = ({ className }) => {
   return (
    <div
-    className={`flex items-center justify-between max-h-[2vh] ${
+    className={`flex items-center  justify-between max-h-[2vh] ${
      className || ""
     }`}>
-    <span className={`font-thin text-gray-400 ${className || ""}`}>+</span>
+    <span className={`font-thin text-complementary ${className || ""}`}>+</span>
     <div
-     className={`border-t border-gray-400 w-full mx-2 ${
+     className={`border-t border-complementary w-full mx-2 ${
       className || ""
      }`}></div>
-    <span className={`font-thin text-gray-400 ${className || ""}`}>+</span>
+    <span className={`font-thin text-complementary ${className || ""}`}>+</span>
    </div>
   );
  };
 
  return (
-  <div className='bg-black relative w-screen h-screen overflow-hidden py-4 px-6 flex flex-col justify-between'>
+  <div className='bg-dominant text-complementary relative w-screen h-screen overflow-hidden py-4 px-6 flex flex-col justify-between'>
    <header>
     <div className='flex flex-row justify-between max-h-[5vh]'>
      <div className='flex gap-2'>
@@ -143,7 +143,7 @@ const Page: FC = () => {
     <Divider />
    </header>
    <ContactForm isOpen={isFormOpen} closeForm={toggleForm} />
-   <main className='grid grid-cols-4 divide-x-2 divide-gray-400 gap-2'>
+   <main className='grid grid-cols-4 divide-x-2 divide-complementary gap-2'>
     <div className='col-span-1 overflow-auto hide-scrollbar max-h-[75vh] pr-6'>
      <DetailSection
       title='About'
@@ -176,7 +176,7 @@ const Page: FC = () => {
       <div
        className={`py-2 relative flex items-center  hover:cursor-pointer ${
         selectedClient && selectedClient.id === client.id
-         ? "selectedClient text-[#00ff6a] font-bold"
+         ? "selectedClient text-accent font-bold"
          : ""
        }`}
        key={client.id}
@@ -192,7 +192,7 @@ const Page: FC = () => {
         <Heading3xl className='uppercase'>Project Details</Heading3xl>
         <div className='flex flex-row gap-4'>
          <button onClick={() => setShowDetails(!showDetails)}>
-          <Paragraphxs className='text-[#00ff6a]'>
+          <Paragraphxs className='text-accent'>
            {showDetails ? "CLOSE" : "INFO"}
           </Paragraphxs>
          </button>
@@ -200,7 +200,7 @@ const Page: FC = () => {
           href={selectedClient.website}
           target='_blank'
           rel='noopener noreferrer'>
-          <Paragraphxs className='text-[#00ff6a]'>SITE</Paragraphxs>
+          <Paragraphxs className='text-accent'>SITE</Paragraphxs>
          </Link>
         </div>
        </div>

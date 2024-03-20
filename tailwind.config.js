@@ -10,14 +10,15 @@ module.exports = {
    "right-10": "right 10rem",
   },
   extend: {
-   fontFamily: {
-    sans: ["var(--font-inter)"],
-    poppins: ["var(--font-poppins)"],
-    mono: ["var(--font-roboto-mono)"],
-   },
    filter: ["hover", "focus"], // This enables filters
    brightness: ["hover", "focus"], // This enables brightness adjustment
 
+   //    colors: {
+   //     dominant: "#ffffff",
+   //     complementary: "#201F31",
+   //     accent: "#FFBADE",
+   //     danger: "#ff0000",
+   //    },
    colors: {
     dominant: "#000000",
     complementary: "#ffffff",

@@ -59,7 +59,7 @@ const ImageSlider = () => {
     {clientImages.map((image, index) => (
      <Image
       key={index}
-      src={`/images/home/client-${image}-mobile-home.png`}
+      src={`/images/for-businesses/client-${image}-mobile-home.png`}
       alt={"client-makescents-mobile-home.png"}
       className='px-1 rounded-lg'
       width={1080}

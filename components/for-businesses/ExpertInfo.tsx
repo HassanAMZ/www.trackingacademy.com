@@ -1,5 +1,5 @@
 import { ExpertInfoProps } from "@/types/index";
-import Divider from "@/components/home/Divider";
+import Divider from "@/components/for-businesses/Divider";
 import React from "react";
 import { Heading3xl } from "@/components/typography/Heading";
 

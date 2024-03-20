@@ -26,7 +26,7 @@ export default function ReasonsData02() {
     <Suspense
      fallback={
       <Image
-       src='/images/home/reason-comparison-horizontal.svg'
+       src='/images/for-businesses/reason-comparison-horizontal.svg'
        alt='comparison image'
        width={400}
        height={525}
@@ -41,7 +41,7 @@ export default function ReasonsData02() {
        e.currentTarget.playbackRate = 1;
       }}>
       <source
-       src='/videos/home/reason-comparison-horizontal.mp4'
+       src='/videos/for-businesses/reason-comparison-horizontal.mp4'
        type='video/mp4'
       />
      </video>
@@ -50,7 +50,7 @@ export default function ReasonsData02() {
     <Suspense
      fallback={
       <Image
-       src='/images/home/reason-comparison-vertical.svg'
+       src='/images/for-businesses/reason-comparison-vertical.svg'
        alt='comparison image'
        width={400}
        height={525}
@@ -66,7 +66,7 @@ export default function ReasonsData02() {
        e.currentTarget.playbackRate = 1;
       }}>
       <source
-       src='/videos/home/reason-comparison-vertical.mp4'
+       src='/videos/for-businesses/reason-comparison-vertical.mp4'
        type='video/mp4'
       />
      </video>

@@ -8,20 +8,22 @@ import React from "react";
 
 const sliderSettings = {
  dots: false,
+ //  rtl: true,
  infinite: true,
- speed: 8000,
+ speed: 10000,
  autoplay: true,
  cssEase: "linear",
  autoplaySpeed: 0,
  pauseOnHover: true,
  arrows: false,
  initialSlide: 0,
- slidesToShow: 3,
+
+ slidesToShow: 4,
  responsive: [
   {
    breakpoint: 1024,
    settings: {
-    slidesToShow: 2,
+    slidesToShow: 3,
     slidesToScroll: 2,
     infinite: true,
     dots: true,
@@ -30,7 +32,7 @@ const sliderSettings = {
   {
    breakpoint: 600,
    settings: {
-    slidesToShow: 1,
+    slidesToShow: 2,
     slidesToScroll: 1,
     initialSlide: 1,
    },
@@ -40,10 +42,7 @@ const sliderSettings = {
 
 export default function TestimonialSlider() {
  return (
-  <div className='px-8'>
-   <h2 className='title-primary container-primary py-12 text-center'>
-    What others have to say about working with Tracking Academy
-   </h2>
+  <div className=''>
    <Slider {...sliderSettings}>
     <TestimonialCard
      person={{

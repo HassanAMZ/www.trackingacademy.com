@@ -1,10 +1,10 @@
 import Link from "next/link";
 import React from "react";
-import ImageSlider from "@/components/home/ImageSlider";
+import ImageSlider from "@/components/for-businesses/ImageSlider";
 import Image from "next/image";
-import FAQ from "@/components/home/FAQ";
-import TestimonialSlider from "@/components/home/TestimonialSlider";
-import BookACall from "@/components/home/BookACall";
+import FAQ from "@/components/for-businesses/FAQ";
+import TestimonialSlider from "@/components/for-businesses/TestimonialSlider";
+import BookACall from "@/components/for-businesses/BookACall";
 import LearnMoreHeader from "@/components/global/LearnMoreHeader";
 
 interface BenefitItemProps {
@@ -48,7 +48,7 @@ const PricingCard: React.FC<PricingCardProps> = ({
      )}
     </div>
 
-    <button className='link-primary px-4 lg:px-16 py-3 w-full' type='button'>
+    <button className='link-primary' type='button'>
      Buy Now
     </button>
    </div>
@@ -227,15 +227,15 @@ function page() {
      </p>
 
      <div className='flex gap-x-4 w-full items-center justify-center'>
-      <Link href='#pricing' className='link-primary px-4 lg:px-16 py-3'>
+      <Link href='#pricing' className='link-primary'>
        View Pricing
       </Link>
      </div>
     </section>
 
-    <section>
-     <ImageSlider />
-    </section>
+    {/* <section className='p-20 bg-dominant text-complementary'> */}
+    <TestimonialSlider />
+    {/* </section> */}
 
     <section className='py-32'>
      <div className='container-primary text-center'>
@@ -256,7 +256,7 @@ function page() {
        ))}
       </div>
       <div>
-       <a href='#pricing' className='link-primary px-4 lg:px-16 py-3'>
+       <a href='#pricing' className='link-primary'>
         Choose Package
        </a>
       </div>
@@ -372,19 +372,11 @@ function page() {
       </div>
      </div>
     </section>
-
-    <section className='py-20 container-primary'>
-     <TestimonialSlider />
-
-     <div className='flex lg:flex-row flex-col items-center justify-center gap-2 lg:gap-5 pt-10'>
-      <button className='link-primary px-4 lg:px-16 py-3'>Shop Now</button>
-     </div>
-    </section>
-    <section className='bg-dominant text-complementary py-20'>
+    <section className='text-dominant bg-complementary py-20'>
      <h2 className='title-primary container-primary text-center py-12'>
       Frequently Asked Questions
      </h2>
-     <div className='container-secondary'>
+     <div className='container-secondary '>
       <FAQ />
      </div>
     </section>

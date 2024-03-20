@@ -18,7 +18,7 @@ export default function CallToAction() {
      <BookACall />
      <Link
       href='/services/web-analytics-and-tracking'
-      className='link-secondary px-4 lg:px-16 py-3'>
+      className='link-secondary'>
       Setup my Analytics
      </Link>
     </div>

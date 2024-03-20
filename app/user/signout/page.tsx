@@ -42,15 +42,15 @@ const Page = () => {
  return (
   <ContainerLayout>
    {loading ? null : !user ? (
-    <div className='backgroundOverlay p-2 flex flex-col items-center gap-2  h-[50vh] justify-center'>
+    <div className='p-2 flex flex-col items-center gap-2 h-[50vh] justify-center'>
      <div className='flex justify-center'>
-      <Paragraphsm>Signup for Free to view the Code Snippets</Paragraphsm>
+      <p>Signup for Free to view the Code Snippets</p>
      </div>
      <div className='flex flex-col sm:flex-row w-full sm:w-1/2 items-center gap-2 justify-center'>
       <button
        onClick={handleSignIn}
        type='button'
-       className='text-white w-full bg-blue-600 hover:bg-blue-700 focus:ring-4 focus:outline-none font-medium rounded-md paragraph-primary px-5 py-2.5 text-center inline-flex items-center justify-center'>
+       className='w-full text-complementary bg-blue-600 hover:bg-blue-700 focus:ring-4 focus:outline-none font-medium rounded-full px-5 py-2.5 text-center inline-flex items-center justify-center'>
        <svg
         className='mr-2 -ml-1 w-4 h-4'
         aria-hidden='true'

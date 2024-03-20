@@ -24,7 +24,7 @@ const BlogHeader: React.FC<PostMetadataProps> = ({ metadata }) => {
     dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
    />
    <div className='rounded-lg'>
-    <h1 className='py-2 title-primary'>{metadata.title}</h1>
+    <h1 className='py-2 title-secondary'>{metadata.title}</h1>
     <p className='paragraph-secondary'>
      by ShahzadaAliHassan - {formatDate(metadata.date)}
     </p>

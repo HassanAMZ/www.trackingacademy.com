@@ -19,7 +19,7 @@ const caseStudies: CaseStudy[] = [
  {
   title: "Google Analytics 4 using GTM and Gtag (Ecommerce Store)",
   description: `The objective to seamlessly transition to GA4 for Hama, ensuring that Google Ads and Ga4 tracking were not just maintained but optimized in the process, this transition was critical, as GA4 offers a more comprehensive view.`,
-  imageSrc: "/images/home/client-hama.png",
+  imageSrc: "/images/for-businesses/client-hama.png",
   stats: [
    {
     percentage: "86%",
@@ -31,7 +31,7 @@ const caseStudies: CaseStudy[] = [
  {
   title: "Facebook Pixel and Conversion API (Server Side Tracking)",
   description: `The primary goal was to ensure the precise tracking of purchase events and other significant user interactions directly to Facebook's servers, bypassing browser restrictions and enhancing data privacy and accuracy.`,
-  imageSrc: "/images/home/client-ticketonsale.png",
+  imageSrc: "/images/for-businesses/client-ticketonsale.png",
   stats: [
    {
     percentage: "71%",

@@ -3,22 +3,31 @@
 import React from "react";
 import { useSelectedLayoutSegments } from "next/navigation";
 import SiteNavbar from "@/components/navbar/Navbar";
-import HomeNavbar from "@/components/home/Navbar";
+import ForBusinessesNavbar from "@/components/for-businesses/Navbar";
+import ForFreelancersNavbar from "@/components/for-freelancers/Navbar";
 
-const GlobalNavbar = () => {
- let segments = useSelectedLayoutSegments();
- if (
-  segments[0] === undefined ||
-  (segments.length === 2 &&
-   segments[0] === "services" &&
-   segments[1] === "web-analytics-and-tracking")
- ) {
-  return <HomeNavbar />;
- } else if (segments[0] === "blog") {
+const GlobalNavbar: React.FC = () => {
+ const segments: string[] = useSelectedLayoutSegments();
+
+ if (segments[0] === "blog" || segments[0] === "newsletter") {
   return null;
- } else {
-  return <SiteNavbar />;
  }
+
+ const navbarMap: Record<string, JSX.Element | undefined> = {
+  "for-businesses": <ForBusinessesNavbar />,
+  "for-freelancers": <ForFreelancersNavbar />,
+  services:
+   segments[1] === "web-analytics-and-tracking" ? (
+    <ForBusinessesNavbar />
+   ) : (
+    <SiteNavbar />
+   ),
+ };
+
+ return (
+  navbarMap[segments[0]] ||
+  (segments[0] === undefined ? <ForFreelancersNavbar /> : <SiteNavbar />)
+ );
 };
 
 export default GlobalNavbar;
