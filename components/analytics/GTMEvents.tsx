@@ -159,6 +159,7 @@ const GTMSignOutEvent: React.FC<{ user: any }> = ({ user }) => {
 
  return null; // This component doesn't render anything
 };
+
 const GTMContactFormSubmission: React.FC = () => {
  useEffect(() => {
   initDataLayer();
@@ -171,10 +172,23 @@ const GTMContactFormSubmission: React.FC = () => {
 
  return null;
 };
+const GTMWaitlistFormSubmission: React.FC = () => {
+ useEffect(() => {
+  initDataLayer();
+
+  window.dataLayer.push({
+   event: "gtm_custom_event",
+   datalayer_event_name: "waitlist_form_submission",
+  });
+ }, []);
+
+ return null;
+};
 
 export {
  GTMContactFormSubmission,
  GTMBlogViewEvent,
+ GTMWaitlistFormSubmission,
  GTMBlogListViewEvent,
  GTMCourseListViewEvent,
  GTMSelectBlogEvent,

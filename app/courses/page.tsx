@@ -1,8 +1,9 @@
-import HeroComponent from "@/components/global/HeroComponent";
 import React from "react";
+import HeroComponent from "@/components/global/HeroComponent";
 import CourseContainer from "@/components/courses/CourseContainer";
 import getCoursesData from "utils/getCoursesData";
 import { GTMCourseListViewEvent } from "@/components/analytics/GTMEvents";
+import WaitlistForm from "@/components/courses/WaitlistForm";
 
 export default async function Page() {
  const data = await getCoursesData();
@@ -15,19 +16,19 @@ export default async function Page() {
   });
 
  return (
-  <div className='flex flex-col gap-2'>
-   <React.Fragment>
+  <div className='flex flex-col'>
+   {/* <React.Fragment>
     <HeroComponent
      textGroup={{
       welcomeText: "TrackingAcademy Courses",
       heading: "Learn from technical marketing experts",
       subHeading: {
-       one: "With TrackingAcademy, ",
-       two: "our courses are designed in task-based and bite-sized chunks so that you learn by doing. ",
+       one: "Sign up to join our waiting list and be the first to know when courses go live. ",
+       two: "Stay ahead in digital marketing with task-based learning from TrackingAcademy.",
       },
      }}
      links={{
-      primary: { src: "#", text: "Coming Soon" },
+      primary: { src: "#waiting-list", text: "Join Waiting List" },
      }}
      images={{
       group: {
@@ -53,11 +54,12 @@ export default async function Page() {
       },
      }}
     />
-   </React.Fragment>
-   {sortedData.length > 0 && (
+   </React.Fragment> */}
+   {sortedData.length === 0 && (
     <React.Fragment>
-     <GTMCourseListViewEvent courseList={sortedData} />
-     <CourseContainer rawData={data} data={sortedData} type='courses' />
+     <div className='text-left bg-gradient-to-t from-complementary via-slate-300 to-complementary py-8 h-[60vh] grid place-content-center'>
+      <WaitlistForm />
+     </div>
     </React.Fragment>
    )}
   </div>
