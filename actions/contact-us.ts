@@ -1,6 +1,6 @@
 "use server";
 
-import { collection, addDoc, Timestamp } from "firebase/firestore";
+import { collection, doc, setDoc, Timestamp } from "firebase/firestore";
 import { db } from "@/app/firebase";
 import { z } from "zod";
 import { Resend } from "resend";
@@ -8,6 +8,16 @@ import EmailTemplate from "@/components/emails/email-template";
 
 export async function createContact(prevState: any, formData: FormData) {
  const resend = new Resend(process.env.NEXT_PUBLIC_RESEND_API_KEY);
+
+ // Generate a timestamp ID based on the current time
+ const timestamp = new Date();
+ const timestampId =
+  timestamp.getFullYear().toString() +
+  (timestamp.getMonth() + 1).toString().padStart(2, "0") +
+  timestamp.getDate().toString().padStart(2, "0") +
+  timestamp.getHours().toString().padStart(2, "0") +
+  timestamp.getMinutes().toString().padStart(2, "0") +
+  timestamp.getSeconds().toString().padStart(2, "0");
 
  const contactsCollection = collection(db, "contacts");
 
@@ -32,7 +42,9 @@ export async function createContact(prevState: any, formData: FormData) {
  });
 
  try {
-  await addDoc(contactsCollection, data);
+  // Use `doc` and `setDoc` to specify the document ID
+  const contactDocRef = doc(contactsCollection, timestampId);
+  await setDoc(contactDocRef, data);
 
   await resend.emails.send({
    from: "support@trackingacademy.com",
