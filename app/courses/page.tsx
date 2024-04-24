@@ -57,7 +57,7 @@ export default async function Page() {
    </React.Fragment> */}
    {sortedData.length === 0 && (
     <React.Fragment>
-     <div className='text-left  py-8 h-[60vh] grid place-content-center'>
+     <div className='text-left w-screen py-8 min-h-[60vh] grid place-content-center'>
       <WaitlistForm />
      </div>
     </React.Fragment>

@@ -4,6 +4,7 @@ import { useFormState, useFormStatus } from "react-dom";
 import { createContact } from "@/actions/waitlist";
 import ThankYou from "@/components/courses/ThankYou";
 import { GTMWaitlistFormSubmission } from "../analytics/GTMEvents";
+import HeroComponent from "../global/HeroComponent";
 
 const initialState = {
  message: null,
@@ -35,7 +36,24 @@ export default function ContactForm() {
  if (formSubmitted) {
   return (
    <>
-    <ThankYou />
+    <HeroComponent
+     textGroup={{
+      welcomeText: "Thank You",
+      heading: "For Submitting the Waitlist Form",
+     }}
+     links={{
+      primary: {
+       src: "/", // You can adjust the redirect link if needed
+       text: "Back to Home",
+      },
+     }}
+     images={{
+      background: {
+       desktop: "/images/hero/hero-image-md.png",
+       mobile: "/images/hero/hero-image-sm.png",
+      },
+     }}
+    />
     <GTMWaitlistFormSubmission />
    </>
   );

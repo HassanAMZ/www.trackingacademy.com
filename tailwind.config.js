@@ -22,7 +22,8 @@ module.exports = {
    colors: {
     dominant: "#000000",
     complementary: "#ffffff",
-    accent: "#4d148c",
+    accent: "#008080", //teal
+    // accent: "#4d148c",// Purple
     danger: "#ff0000",
    },
    animation: {

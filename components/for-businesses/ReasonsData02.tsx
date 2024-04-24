@@ -41,7 +41,7 @@ export default function ReasonsData02() {
        e.currentTarget.playbackRate = 1;
       }}>
       <source
-       src='/videos/for-businesses/reason-comparison-horizontal.mp4'
+       src='/videos/home/reason-comparison-horizontal.mp4'
        type='video/mp4'
       />
      </video>
@@ -66,7 +66,7 @@ export default function ReasonsData02() {
        e.currentTarget.playbackRate = 1;
       }}>
       <source
-       src='/videos/for-businesses/reason-comparison-vertical.mp4'
+       src='/videos/home/reason-comparison-vertical.mp4'
        type='video/mp4'
       />
      </video>
