@@ -1,9 +1,9 @@
 "use client";
 import React, { useState } from "react";
 import { useFormState, useFormStatus } from "react-dom";
-import { createContact } from "@/actions/contact-us";
-import ThankYou from "@/components/contact/ThankYou";
-import { GTMContactFormSubmission } from "../analytics/GTMEvents";
+import { createContact } from "@/actions/waitlist";
+import ThankYou from "@/components/courses/ThankYou";
+import { GTMWaitlistFormSubmission } from "../analytics/GTMEvents";
 
 const initialState = {
  message: null,
@@ -36,7 +36,7 @@ export default function ContactForm() {
   return (
    <>
     <ThankYou />
-    <GTMContactFormSubmission />
+    <GTMWaitlistFormSubmission />
    </>
   );
  }
