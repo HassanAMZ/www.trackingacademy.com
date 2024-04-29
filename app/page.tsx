@@ -48,7 +48,7 @@ function page() {
  return (
   <div>
    <main>
-    <section className='gap-4 py-16 flex items-center flex-col text-center container-primary bg-gradient-to-t from-complementary via-slate-300 to-complementary mx-4'>
+    <section className='gap-4 py-16 flex items-center flex-col text-center bg-gradient-to-t from-complementary via-slate-300 to-complementary'>
      <React.Fragment>
       <h1 className='title-primary lg:py-5 container-secondary'>
        We equip you with Advanced Tracking Skills to{" "}
