@@ -269,46 +269,43 @@ document.addEventListener('DOMContentLoaded', () => {
   head: `<script>
     window.dataLayer = window.dataLayer || [];
 </script>
+{%- if template == 'cart' -%}
+  {%- render 'datalayer-cart' -%}
+{%- endif -%}
+`,
 
-{%- render 'datalayer-cart' -%}`,
+  main: `<script type="text/javascript">
+  console.log("datalayer-cart snippet is loaded")
+  cart_data = {{ cart | json}};
 
-  main: `<script>
-    // Script to run when the cart page is loaded or updated
-    document.addEventListener('DOMContentLoaded', () => {
-      // Fetch the latest cart data
-      fetch('/cart.js')
-        .then(response => response.json())
-        .then(cartData => {
-          // Format cart items for GA4
-          const productDetails = cartData.items.map(item => ({
+  var product_details = cart_data.items.map((item, index)=>{
+      return {
             item_id: item.id,
             id: item.id,
             item_name: item.product_title,
             item_brand: item.vendor,
             item_category: item.product_type,
             quantity: item.quantity,
-            currency: cartData.currency,
+            currency: {{ shop.currency | json }},
+            google_business_vertical: 'retail',
             price: parseFloat(item.price / 100.0)
-          }));
-    
-          // Calculate total cart value
-          const cartTotalValue = cartData.items.reduce((acc, item) => {
-            return acc + (item.price * item.quantity);
-          }, 0);
-    
-          // Update dataLayer with cart info
-          dataLayer.push({
-            event: "custom_view_cart",
-            ecommerce: {
-              items: productDetails,
-              value: parseFloat(cartTotalValue / 100.0),
-              currency: cartData.currency
-            }
-          });
-        })
-        .catch(error => console.error('Error fetching cart data:', error));
-    });
-    </script>`,
+          }
+      });
+
+  // Calculate the total value of the cart
+  var total_value = product_details.reduce((acc, item) => acc + (item.price * item.quantity), 0);
+
+  dataLayer.push({ ecommerce: null });  // Clear the previous ecommerce object.
+  dataLayer.push({
+      event: "custom_view_cart",
+      currency: {{ shop.currency | json }},
+      ecommerce: {
+          value: total_value,
+          currency: {{ shop.currency | json }},
+          items: product_details
+      }
+  });
+</script>`,
   theme: `{% render 'head-datalayer' %}`,
  },
  googleTagManager: {
