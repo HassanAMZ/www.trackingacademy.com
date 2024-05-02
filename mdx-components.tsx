@@ -15,6 +15,7 @@ import AuthPre from "@/components/mdx/AuthPre";
 import DataLayerCode from "./components/dataLayer/DataLayerCode";
 import SopDetails from "@/components/blog/SopDetails";
 import ToolsHeroSection from "./components/tools/ToolsHeroSection";
+import AuthenticatedLayout from "./components/layouts/AuthenticatedLayout";
 
 export function useMDXComponents(components: MDXComponents): MDXComponents {
  return {
@@ -25,17 +26,78 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
   BlogHeader,
   Note,
   AuthPre,
+  AuthenticatedLayout,
   CustomLink,
   SopDetails,
   pre: AuthPre,
   a: CustomLink,
   p: (props) => <p {...props} className='py-1' />,
-  h1: (props) => <h1 {...props} className='title-tertiary py-2' />,
-  h2: (props) => <h1 {...props} className='title-tertiary py-2' />,
-  h3: (props) => <h1 {...props} className='title-tertiary py-2' />,
-  h4: (props) => <h1 {...props} className='title-tertiary py-2' />,
-  h5: (props) => <h1 {...props} className='title-tertiary py-2' />,
-  h6: (props) => <h1 {...props} className='title-tertiary py-2' />,
+  h1: (props) => {
+   const content = props.children as string; // Get the content and trim whitespace
+   return (
+    <h1
+     {...props}
+     id={content.replace(/\s+/g, "-").toLowerCase()}
+     className='title-tertiary py-2'>
+     {content}
+    </h1>
+   );
+  },
+  h2: (props) => {
+   const content = props.children as string; // Get the content and trim whitespace
+   return (
+    <h2
+     {...props}
+     id={content.replace(/\s+/g, "-").toLowerCase()}
+     className='title-tertiary py-2'>
+     {content}
+    </h2>
+   );
+  },
+  h3: (props) => {
+   const content = props.children as string; // Get the content and trim whitespace
+   return (
+    <h3
+     {...props}
+     id={content.replace(/\s+/g, "-").toLowerCase()}
+     className='title-tertiary py-2'>
+     {content}
+    </h3>
+   );
+  },
+  h4: (props) => {
+   const content = props.children as string; // Get the content and trim whitespace
+   return (
+    <h4
+     {...props}
+     id={content.replace(/\s+/g, "-").toLowerCase()}
+     className='title-tertiary py-2'>
+     {content}
+    </h4>
+   );
+  },
+  h5: (props) => {
+   const content = props.children as string; // Get the content and trim whitespace
+   return (
+    <h5
+     {...props}
+     id={content.replace(/\s+/g, "-").toLowerCase()}
+     className='title-tertiary py-2'>
+     {content}
+    </h5>
+   );
+  },
+  h6: (props) => {
+   const content = props.children as string; // Get the content and trim whitespace
+   return (
+    <h6
+     {...props}
+     id={content.replace(/\s+/g, "-").toLowerCase()}
+     className='title-tertiary py-2'>
+     {content}
+    </h6>
+   );
+  },
   li: ListItem,
   ol: OrderedList,
   ul: UnorderedList,

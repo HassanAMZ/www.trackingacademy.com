@@ -18,7 +18,7 @@ let CustomLink: React.FC<CustomLinkProps> = ({
   href
  )}`;
 
- let classes = `curosr font-medium ${className || ""}`;
+ let classes = `curosr font-semibold underline text-accent ${className || ""}`;
 
  if (isInternalLink) {
   return (
