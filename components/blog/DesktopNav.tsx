@@ -6,7 +6,7 @@ import { PostMetadata } from "@/types/index";
 import Link from "next/link";
 import NavigationLinks from "../navbar/NavigationLinks";
 import MobileNav from "../navbar/MobileNav";
-
+import Image from "next/image";
 interface DesktopNavProps {
  data: PostMetadata[];
 }
@@ -72,7 +72,16 @@ const DesktopNav: React.FC<DesktopNavProps> = ({ data }) => {
  return (
   <React.Fragment>
    <div className='flex flex-row items-center justify-center gap-2'>
-    <NavLink href='/'>TrackingAcademy</NavLink>
+    <NavLink href='/'>
+     {" "}
+     <Image
+      src='logo.svg'
+      alt='TrackingAcademy'
+      width={500}
+      height={145}
+      className='w-32'
+     />
+    </NavLink>
    </div>
    <div className='flex items-center justify-center w-full gap-4'>
     <div

@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import BookACall from "./BookACall";
+import Image from "next/image";
 
 interface NavItemProps {
  href: string;
@@ -26,7 +27,13 @@ const NavItem: React.FC<NavItemProps> = ({ href, children, onClick }) => (
 const NavButton: React.FC<NavButtonProps> = ({ onClick, label }) => (
  <nav className='flex items-center justify-between w-full'>
   <Link href='/' className='font-semibold title-tertiary'>
-   Tracking Academy
+   <Image
+    src='logo.svg'
+    alt='TrackingAcademy'
+    width={500}
+    height={145}
+    className='w-32'
+   />
   </Link>
   <button
    onClick={onClick}

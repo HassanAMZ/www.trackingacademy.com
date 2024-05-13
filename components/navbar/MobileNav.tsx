@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import headerNavLinks from "@/data/header-nav-links";
 import NavLink from "@/components/navbar/NavLink";
-
+import Image from "next/image";
 const MobileNav = () => {
  const [navOpen, setNavOpen] = useState(false);
 
@@ -57,7 +57,13 @@ const MobileNav = () => {
       onClick={toggleNav}>
       <nav className='flex flex-col w-full'>
        <NavLink className='pb-5 ' href='/'>
-        TrackingAcademy
+        <Image
+         src='logo.svg'
+         alt='TrackingAcademy'
+         width={500}
+         height={145}
+         className='w-32'
+        />
        </NavLink>
        {headerNavLinks.map(({ href, title }) => (
         <NavLink className='pb-5' key={`nav-link-${title}`} href={href}>
