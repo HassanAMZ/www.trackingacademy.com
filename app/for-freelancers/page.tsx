@@ -1,7 +1,7 @@
 import Link from "next/link";
 import React from "react";
 import CaseStudies from "@/components/for-businesses/CaseStudies";
-import ImageSlider from "@/components/for-businesses/ImageSlider";
+import ImageSlider from "@/components/for-freelancers/ImageSlider";
 import Image from "next/image";
 import Timeline from "@/components/for-businesses/Timeline";
 import Technologies from "@/components/for-businesses/Technologies";
@@ -51,30 +51,30 @@ function page() {
     <section className='gap-4 py-16 flex items-center flex-col text-center bg-gradient-to-t from-complementary via-slate-300 to-complementary'>
      <React.Fragment>
       <h1 className='title-primary lg:py-5 container-secondary'>
-       We configure tracking that{" "}
+       We equip you with Advanced Tracking Skills to{" "}
        <span className='bg-gradient-to-r from-accent via-accent  to-accent inline-block text-transparent bg-clip-text animate-gradient-move'>
-        increases
+        Maximize
        </span>{" "}
-       return on advertising spend
+       Advertising Results
       </h1>
       <p className='container-secondary'>
-       We handle auditing, analytics, tracking tag's implementations and
-       reporting. You drive traffic with a higher conversion rate.
+       We offer comprehensive training in auditing, analytics, and tracking to
+       enhance campaign performance and conversion rates, simplifying Tracking &
+       Web Analytics for marketers, business owners, agencies, and freelancers.
       </p>
       <div className='flex gap-x-4 w-full items-center justify-center'>
-       <BookACall />
-       <Link href='#why-us' className='link-secondary'>
-        Learn More
+       <Link href='/courses' className='link-primary'>
+        Enroll Here
        </Link>
       </div>
      </React.Fragment>
     </section>
 
-    <section>
-     <ImageSlider />
+    <section className='pb-20'>
+     <TestimonialSlider />
     </section>
 
-    <section className='py-20 gap-5 flex items-center flex-col container-primary'>
+    <section className='pb-20 gap-5 flex items-center flex-col container-primary'>
      <WorkHistory />
     </section>
 
@@ -163,7 +163,9 @@ function page() {
      id='call-to-action'
      className='grid lg:grid-cols-2 gap-4 py-10 items-center justify-center container-primary'>
      <div className='space-y-4'>
-      <p className='text-accent'>Let's Enhance Your Digital Presence</p>
+      <p className='text-accent'>
+       Empower Your Future with Essential Analytics Skills
+      </p>
       <h2 className='title-primary'>Analytics & Tracking Solutions</h2>
       <p>
        We specialize in configuring advanced tracking and analytics for your

@@ -26,7 +26,7 @@ const GlobalNavbar: React.FC = () => {
 
  return (
   navbarMap[segments[0]] ||
-  (segments[0] === undefined ? <ForFreelancersNavbar /> : <SiteNavbar />)
+  (segments[0] === undefined ? <ForBusinessesNavbar /> : <SiteNavbar />)
  );
 };
 
