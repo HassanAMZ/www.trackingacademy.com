@@ -104,20 +104,18 @@ export default function ContactForm() {
 
      <div className='flex flex-col'>
       <label htmlFor='budget'>
-       <p className='text-left'> Budget</p>
+       <p className='text-left'> Budget (USD)</p>
       </label>
-      <select
+      <input
+       type='number'
        id='budget'
        name='budget'
        required
-       className='p-2 border-2 border-dominant rounded-lg'>
-       <option value=''>Choose Your Budget...</option>
-       {/* <option value='100'>100$ - 500$</option> */}
-       <option value='500'>500$ - 1000$</option>
-       <option value='1000'>1000$ - 2000$</option>
-       <option value='2000'>2000$-5000$</option>
-       <option value='5000'>5000$+</option>
-      </select>
+       min='0'
+       step='100'
+       placeholder='Enter Your Budget in USD'
+       className='p-2 border-2 border-dominant rounded-lg'
+      />
      </div>
 
      <label htmlFor='projectDescription'>
