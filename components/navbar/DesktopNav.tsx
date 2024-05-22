@@ -8,7 +8,7 @@ export default function DesktopNav() {
    <div className='flex flex-row items-center justify-center gap-1'>
     <NavLink href='/'>
      <Image
-      src='logo.svg'
+      src='/logo.svg'
       alt='TrackingAcademy'
       width={500}
       height={145}

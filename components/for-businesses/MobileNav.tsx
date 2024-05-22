@@ -28,7 +28,7 @@ const NavButton: React.FC<NavButtonProps> = ({ onClick, label }) => (
  <nav className='flex items-center justify-between w-full'>
   <Link href='/' className='font-semibold title-tertiary'>
    <Image
-    src='logo.svg'
+    src='/logo.svg'
     alt='TrackingAcademy'
     width={500}
     height={145}

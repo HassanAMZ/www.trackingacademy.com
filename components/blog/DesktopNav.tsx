@@ -75,7 +75,7 @@ const DesktopNav: React.FC<DesktopNavProps> = ({ data }) => {
     <NavLink href='/'>
      {" "}
      <Image
-      src='logo.svg'
+      src='/logo.svg'
       alt='TrackingAcademy'
       width={500}
       height={145}

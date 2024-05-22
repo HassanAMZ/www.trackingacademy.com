@@ -4,6 +4,8 @@ import { useFormState, useFormStatus } from "react-dom";
 import { createContact } from "@/actions/contact-us";
 import ThankYou from "@/components/contact/ThankYou";
 import { GTMContactFormSubmission } from "../analytics/GTMEvents";
+import { useEffect } from "react";
+import { useRouter } from "next/navigation";
 
 const initialState = {
  message: null,
@@ -27,19 +29,14 @@ function SubmitButton() {
 export default function ContactForm() {
  const [state, formAction] = useFormState(createContact, initialState);
  const [formSubmitted, setFormSubmitted] = useState(false);
+ const router = useRouter();
 
- if (state?.message && !formSubmitted) {
-  setFormSubmitted(true);
- }
-
- if (formSubmitted) {
-  return (
-   <>
-    <ThankYou />
-    <GTMContactFormSubmission />
-   </>
-  );
- }
+ useEffect(() => {
+  if (state?.message && !formSubmitted) {
+   setFormSubmitted(true);
+   router.push("/contact/thank-you");
+  }
+ }, [state?.message, formSubmitted, router]);
 
  return (
   <React.Fragment>

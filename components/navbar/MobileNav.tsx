@@ -58,7 +58,7 @@ const MobileNav = () => {
       <nav className='flex flex-col w-full'>
        <NavLink className='pb-5 ' href='/'>
         <Image
-         src='logo.svg'
+         src='/logo.svg'
          alt='TrackingAcademy'
          width={500}
          height={145}

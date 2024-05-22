@@ -7,7 +7,7 @@ const DesktopNav = () => {
   <nav className='flex items-center justify-between py-2'>
    <NavLink href='/for-businesses' className='font-semibold'>
     <Image
-     src='logo.svg'
+     src='/logo.svg'
      alt='TrackingAcademy'
      width={500}
      height={145}
