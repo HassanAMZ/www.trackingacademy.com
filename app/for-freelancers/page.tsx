@@ -8,7 +8,7 @@ import Technologies from "@/components/for-businesses/Technologies";
 import ComparisonTable from "@/components/for-businesses/ComparisonTable";
 import FAQ from "@/components/for-businesses/FAQ";
 import WorkHistory from "@/components/for-businesses/WorkHistory";
-import ReasonsData from "@/components/for-businesses/ReasonsData";
+import ReasonsData from "@/components/global/ReasonsData";
 import ReasonsData02 from "@/components/for-businesses/ReasonsData02";
 import CallToAction from "@/components/for-businesses/CallToAction";
 import AboutDetails from "@/components/about/AboutDetails";
@@ -44,6 +44,37 @@ const resultsData = [
  },
 ];
 
+const someReasonsData = [
+ {
+  id: 1,
+  title: "Comprehensive Analytics Training",
+  paragraph:
+   "Master the fundamentals of analytics with our structured courses designed for all skill levels. Learn how to make data-driven decisions to boost your business growth.",
+  imageUrl: "/images/for-businesses/reason-data-001.png",
+ },
+ {
+  id: 2,
+  title: "Advanced Tag Manager Workshops",
+  paragraph:
+   "Dive deep into Google Tag Manager with our hands-on workshops. Learn how to set up, manage, and troubleshoot tags efficiently to ensure accurate data tracking.",
+  imageUrl: "/images/for-businesses/reason-data-002.png",
+ },
+ {
+  id: 3,
+  title: "Expert Tracking Implementation",
+  paragraph:
+   "Gain practical skills in implementing and optimizing tracking solutions. Our training covers everything from basic setup to advanced tracking strategies.",
+  imageUrl: "/images/for-businesses/reason-data-003.png",
+ },
+ {
+  id: 4,
+  title: "Interactive Reporting Techniques",
+  paragraph:
+   "Learn how to create and interpret insightful reports that drive action. Our courses teach you to use various tools to generate reports that are clear and actionable.",
+  imageUrl: "/images/for-businesses/reason-data-004.png",
+ },
+];
+
 function page() {
  return (
   <div>
@@ -51,7 +82,7 @@ function page() {
     <section className='gap-4 py-16 flex items-center flex-col text-center bg-gradient-to-t from-complementary via-slate-300 to-complementary'>
      <React.Fragment>
       <h1 className='title-primary lg:py-5 container-secondary'>
-       We equip you with Advanced Tracking Skills to{" "}
+       We create courses that equips you with Advanced Tracking Skills to{" "}
        <span className='bg-gradient-to-r from-accent via-accent  to-accent inline-block text-transparent bg-clip-text animate-gradient-move'>
         Maximize
        </span>{" "}
@@ -81,7 +112,11 @@ function page() {
     <section
      id='why-us'
      className='pt-3 flex items-center flex-col container-primary'>
-     <ReasonsData />
+     <ReasonsData
+      title='4 Reasons Why You Should Enroll in Our Analytics and Tracking Courses'
+      reasons={someReasonsData}
+      intervalTime={5000} // optional, default is 2000 ms
+     />
     </section>
 
     <section className='container-primary'>

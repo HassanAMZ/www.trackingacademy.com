@@ -8,7 +8,7 @@ import Technologies from "@/components/for-businesses/Technologies";
 import ComparisonTable from "@/components/for-businesses/ComparisonTable";
 import FAQ from "@/components/for-businesses/FAQ";
 import WorkHistory from "@/components/for-businesses/WorkHistory";
-import ReasonsData from "@/components/for-businesses/ReasonsData";
+import ReasonsData from "@/components/global/ReasonsData";
 import ReasonsData02 from "@/components/for-businesses/ReasonsData02";
 import CallToAction from "@/components/for-businesses/CallToAction";
 import AboutDetails from "@/components/about/AboutDetails";
@@ -16,6 +16,7 @@ import LearnMoreHeader from "@/components/global/LearnMoreHeader";
 import SingleGridContent from "@/components/global/SingleGridContent";
 import TestimonialSlider from "@/components/for-businesses/TestimonialSlider";
 import BookACall from "@/components/for-businesses/BookACall";
+import YoutubeEmbed from "@/components/mdx/YoutubeEmbed";
 
 const resultsData = [
  {
@@ -44,30 +45,66 @@ const resultsData = [
  },
 ];
 
+const someReasonsData = [
+ {
+  id: 1,
+  title: "Clear, Actionable Insights",
+  paragraph:
+   "Get straightforward insights from your data without complex setups. We make your data work for you, providing clear, actionable insights for growth.",
+  imageUrl: "/images/for-businesses/reason-data-001.png",
+ },
+ {
+  id: 2,
+  title: "Unique Problems, Custom Solutions",
+  paragraph:
+   "We tailor solutions to your unique needs, from sensible ecommerce tracking to analytics for decision-making. Enjoy better decisions, more conversions, and clearer goals.",
+  imageUrl: "/images/for-businesses/reason-data-002.png",
+ },
+ {
+  id: 3,
+  title: "Fast, Efficient, and Transparent",
+  paragraph:
+   "We set up your tracking quickly, keep you informed, and ensure transparency in costs. No hidden fees, just honest work for your business growth.",
+  imageUrl: "/images/for-businesses/reason-data-003.png",
+ },
+ {
+  id: 4,
+  title: "Reports You'll Actually Read",
+  paragraph:
+   "Our reports are like a chat with a knowledgeable friend. Easy to read, understand, and use. No jargon or endless tables, just useful insights.",
+  imageUrl: "/images/for-businesses/reason-data-004.png",
+ },
+];
 function page() {
  return (
   <div>
    <main>
-    <section className='gap-4 py-16 flex items-center flex-col text-center bg-gradient-to-t from-complementary via-slate-300 to-complementary'>
-     <React.Fragment>
-      <h1 className='title-primary lg:py-5 container-secondary'>
-       We configure tracking that{" "}
-       <span className='bg-gradient-to-r from-accent via-accent  to-accent inline-block text-transparent bg-clip-text animate-gradient-move'>
-        increases
-       </span>{" "}
-       return on advertising spend
-      </h1>
-      <p className='container-secondary'>
-       We handle auditing, analytics, tracking tag's implementations and
-       reporting. You drive traffic with a higher conversion rate.
-      </p>
-      <div className='flex gap-x-4 w-full items-center justify-center'>
-       <BookACall />
-       <Link href='#why-us' className='link-secondary'>
-        Learn More
-       </Link>
+    <section className='bg-gradient-to-t from-complementary via-slate-300 to-complementary'>
+     <div className='grid grid-cols-1 lg:grid-cols-2 container-primary items-center justify-center py-16 gap-4'>
+      <div className='gap-4 flex items-center flex-col text-left justify-start'>
+       <h1 className='title-primary lg:py-5 '>
+        We configure tracking that{" "}
+        <span className='bg-gradient-to-r from-accent via-accent  to-accent inline-block text-transparent bg-clip-text animate-gradient-move'>
+         increases
+        </span>{" "}
+        return on advertising spend
+       </h1>
+       <p className=''>
+        We handle auditing, analytics, tracking tag's implementations and
+        reporting. You drive traffic with a higher conversion rate.
+       </p>
+       <div className='flex gap-x-4 w-full items-center justify-start'>
+        <BookACall />
+        <Link href='#why-us' className='link-secondary'>
+         Learn More
+        </Link>
+       </div>
       </div>
-     </React.Fragment>
+
+      <div className=''>
+       <YoutubeEmbed embedId={"9MGpL_AmEYM"} />
+      </div>
+     </div>
     </section>
 
     <section>
@@ -81,7 +118,11 @@ function page() {
     <section
      id='why-us'
      className='pt-3 flex items-center flex-col container-primary'>
-     <ReasonsData />
+     <ReasonsData
+      title='4 Reasons Why You Should Enroll in Our Analytics and Tracking Courses'
+      reasons={someReasonsData}
+      intervalTime={5000} // optional, default is 2000 ms
+     />
     </section>
 
     <section className='container-primary'>

@@ -18,7 +18,7 @@ const GlobalNavbar: React.FC = () => {
   "for-freelancers": <ForFreelancersNavbar />,
   services:
    segments[1] === "web-analytics-and-tracking" ? (
-    <ForBusinessesNavbar />
+    <ForFreelancersNavbar />
    ) : (
     <SiteNavbar />
    ),
@@ -26,7 +26,7 @@ const GlobalNavbar: React.FC = () => {
 
  return (
   navbarMap[segments[0]] ||
-  (segments[0] === undefined ? <ForBusinessesNavbar /> : <SiteNavbar />)
+  (segments[0] === undefined ? <ForFreelancersNavbar /> : <SiteNavbar />)
  );
 };
 
