@@ -20,13 +20,10 @@ export const metadata = {
 };
 
 <BlogHeader metadata={metadata} />
-Here is a blog post based on the video tutorial you provided:
-
-**Configure the View Category Event for Facebook Pixel on Your WooCommerce Store Using Google Tag Manager**
 
 Hey there, WooCommerce store owners! This blog post is for you if you want to target specific audiences with Facebook Ads or segment your website visitors based on the categories they browse. In this guide, we'll walk you through configuring the View Category event for Facebook Pixel using Google Tag Manager (GTM).
 
-**What You'll Learn**
+## What You'll Learn
 
 - The importance of GTM in configuring the View Category event
 - How to set up GTM on your WooCommerce store
@@ -34,18 +31,18 @@ Hey there, WooCommerce store owners! This blog post is for you if you want to ta
 - How to leverage the data layer to capture product information
 - How to create a tag to send the View Category event with product details to Facebook Pixel
 
-**Before We Begin**
+## Before We Begin
 
 This blog post assumes you have a basic understanding of Google Tag Manager. We'll also be skipping explanations on general e-commerce training, Facebook marketing strategies, and complex coding.
 
-**Getting the Most Out of This Guide**
+## Getting the Most Out of This Guide
 
 For the best learning experience, follow these recommendations:
 
 1. **Watch the video first:** This will give you a foundational understanding of the process.
 2. **Take notes:** Jot down any questions you have while watching the video. You can address them in the comments section below or reach out to the author through the website (contact information should be provided).
 
-**Setting Up Google Tag Manager**
+## Setting Up Google Tag Manager
 
 There are several ways to configure GTM on your WooCommerce store. Here, we'll use a common plugin called GTM4WP.
 
@@ -71,7 +68,7 @@ There are several ways to configure GTM on your WooCommerce store. Here, we'll u
    - In GTM, click "Preview" to connect a temporary debug window to your website.
    - Visit a shop page on your website to test the connection.
 
-**Setting Up Facebook Pixel Configuration Tag**
+## Setting Up Facebook Pixel Configuration Tag
 
 1. **Obtain Your Facebook Pixel ID:**
 
@@ -91,7 +88,7 @@ There are several ways to configure GTM on your WooCommerce store. Here, we'll u
 3. **Verify Facebook Pixel Connection (Optional):**
    - Use the GTM preview and a Facebook Pixel Helper browser extension to confirm the Facebook Pixel is firing on your website.
 
-**Introduction to Data Layer**
+## Introduction to Data Layer
 
 The data layer acts as a helper function, enabling you to track event parameters like product name, ID, price, and more. WooCommerce provides a built-in data layer that captures e-commerce events.
 
@@ -106,7 +103,7 @@ The data layer acts as a helper function, enabling you to track event parameters
    - Visit a category page on your website.
    - Use the GTM debug window to see if the "View Item List" event is firing.
 
-**Creating a Tag for the View Category Event (continued):**
+## Creating a Tag for the View Category Event:
 
 - **Create Variables for Content Information:**
   - Use the Data Layer to build dynamic variables that will populate the Facebook Pixel event with product details.
@@ -118,7 +115,7 @@ The data layer acts as a helper function, enabling you to track event parameters
     - Value: This will be the product price.
     - Currency: This will be the currency code (e.g., "USD").
 
-**Building Dynamic Variables from Data Layer:**
+## Building Dynamic Variables from Data Layer:
 
 - Utilize the built-in GTM "Facebook Parameter Generator" template to simplify variable creation.
 
@@ -140,30 +137,30 @@ The data layer acts as a helper function, enabling you to track event parameters
   - Use the "eCommerce_do_items" variable to create a variable for "Value."
   - Use the Data Layer to create a variable for "Currency" (assuming the currency code field is named "currency").
 
-**Renaming the Tag and Saving Changes:**
+## Renaming the Tag and Saving Changes:
 
 - Rename the tag to something clear, like "Facebook Pixel View Category."
 - Save your changes in GTM.
 
-**Previewing and Verifying the Tag Functionality**
+## Previewing and Verifying the Tag Functionality
 
 - Use the GTM preview mode to test the tag functionality.
 - Visit a category page on your website.
 - Verify that the "view_category" event fires in the GTM debug window.
 - Use a Facebook Pixel Helper browser extension to confirm all the information (content ID, name, price, etc.) is being sent to Facebook Pixel correctly.
 
-**Using Test Events for Final Verification**
+## Using Test Events for Final Verification
 
 - In GTM, navigate to the "Test Events" section.
 - Input your website URL and refresh the page. This should trigger the event and send test data to Facebook Pixel.
 - Go to Facebook Events Manager to verify the test event fired successfully with accurate information.
 
-**Publishing Changes and Bonus Section**
+## Publishing Changes and Bonus Section##
 
 - Once everything is verified, publish your changes in GTM.
 - Rename the published version for easy reference (e.g., "Facebook View Category Event").
 
-**Bonus Section: Downloading Container for Easy Setup**
+## Bonus Section: Downloading Container for Easy Setup
 
 A downloadable GTM container file containing the pre-configured tags and variables is available in the video description. This eliminates the need to recreate everything manually. Here's how to use it:
 
@@ -174,12 +171,17 @@ A downloadable GTM container file containing the pre-configured tags and variabl
 5. Select "Merge" to integrate the downloaded configuration without overriding your existing settings.
 6. Click "Confirm" to import the container.
 
+<AuthenticatedLayout>
+ [Download The GTM Container JSON
+ File](/static/json/FBWooCommerceGTMViewCategory.json).
+</AuthenticatedLayout>
+
 **Important Note:** You'll still need to update the Facebook Pixel ID within the imported container for it to function correctly.
 
-**Conclusion**
+## Conclusion
 
 Congratulations! You've successfully configured the View Category event for Facebook Pixel on your WooCommerce store using Google Tag Manager. This allows you to track which product categories visitors browse and leverage this data for targeted Facebook Ads and website visitor segmentation strategies.
 
-**Stay tuned for the next video!**
+## Stay tuned for the next video!
 
 This blog post provides a comprehensive guide on setting up the View Category event. Remember to refer to the video tutorial for a more visual explanation, and don't hesitate to leave comments or reach out to the author if you have any questions.
