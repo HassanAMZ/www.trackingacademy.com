@@ -119,7 +119,7 @@ function page() {
      id='why-us'
      className='pt-3 flex items-center flex-col container-primary'>
      <ReasonsData
-      title='4 Reasons Why You Should Enroll in Our Analytics and Tracking Courses'
+      title='4 Reasons Why You Should Work With Us for Analytics and Tracking Projects'
       reasons={someReasonsData}
       intervalTime={5000} // optional, default is 2000 ms
      />
