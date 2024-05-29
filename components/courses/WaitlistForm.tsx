@@ -8,6 +8,7 @@ import HeroComponent from "../global/HeroComponent";
 
 const initialState = {
  message: null,
+ amount: 0,
 };
 
 function SubmitButton() {
@@ -98,7 +99,7 @@ export default function ContactForm() {
 
      <div className='flex flex-col'>
       <label htmlFor='course'>
-       <p className='text-left'>What Course would like to get?</p>
+       <p className='text-left'>What Course would like to buy?</p>
       </label>
       <input
        type='text'

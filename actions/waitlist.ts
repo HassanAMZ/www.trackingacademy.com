@@ -30,11 +30,11 @@ export async function createWaitlist(prevState: any, formData: FormData) {
  });
 
  const data = schema.parse({
-  userName: formData.get("userName"),
-  email: formData.get("email"),
-  course: formData.get("course"), // New field: course
-  pricing: formData.get("pricing"), // New field: pricing
-  amount: formData.get("amount"), // New field: amount
+  userName: (formData.get("userName") as string) || "",
+  email: (formData.get("email") as string) || "",
+  course: (formData.get("course") as string) || "",
+  pricing: (formData.get("pricing") as string) || "fixed", // Default to 'fixed'
+  amount: parseFloat((formData.get("amount") as string) || "0"), // Default to 0
   createdAt: Timestamp.now(),
  });
 
