@@ -1,7 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import { useFormState, useFormStatus } from "react-dom";
-import { createContact } from "@/actions/waitlist";
+import { createWaitlist } from "@/actions/waitlist";
 import ThankYou from "@/components/courses/ThankYou";
 import { GTMWaitlistFormSubmission } from "../analytics/GTMEvents";
 import HeroComponent from "../global/HeroComponent";
@@ -26,7 +26,7 @@ function SubmitButton() {
 }
 
 export default function ContactForm() {
- const [state, formAction] = useFormState(createContact, initialState);
+ const [state, formAction] = useFormState(createWaitlist, initialState);
  const [formSubmitted, setFormSubmitted] = useState(false);
 
  if (state?.message && !formSubmitted) {
@@ -94,6 +94,50 @@ export default function ContactForm() {
         className='p-2 border-2 border-dominant rounded-lg'
        />
       </div>
+     </div>
+
+     <div className='flex flex-col'>
+      <label htmlFor='course'>
+       <p className='text-left'>What Course would like to get?</p>
+      </label>
+      <input
+       type='text'
+       id='course'
+       name='course'
+       placeholder='Enter course name'
+       required
+       className='p-2 border-2 border-dominant rounded-lg'
+      />
+     </div>
+
+     <div className='flex flex-col'>
+      <label htmlFor='pricing'>
+       <p className='text-left'>Which Pricing Model You Prefer?</p>
+      </label>
+      <select
+       id='pricing'
+       name='pricing'
+       required
+       className='p-2 border-2 border-dominant rounded-lg'>
+       <option value='fixed'>Fixed Price</option>
+       <option value='subscription'>Subscription</option>
+      </select>
+     </div>
+
+     <div className='flex flex-col'>
+      <label htmlFor='amount'>
+       <p className='text-left'>
+        How much You'd like to Pay for the course (USD)
+       </p>
+      </label>
+      <input
+       type='number'
+       id='amount'
+       name='amount'
+       placeholder='Enter amount in USD'
+       required
+       className='p-2 border-2 border-dominant rounded-lg'
+      />
      </div>
 
      <SubmitButton />

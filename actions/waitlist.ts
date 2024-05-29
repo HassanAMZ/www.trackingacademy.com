@@ -6,7 +6,7 @@ import { z } from "zod";
 import { Resend } from "resend";
 import WaitListEmail from "@/components/emails/waitlist-email";
 
-export async function createContact(prevState: any, formData: FormData) {
+export async function createWaitlist(prevState: any, formData: FormData) {
  const resend = new Resend(process.env.NEXT_PUBLIC_RESEND_API_KEY);
  // Generate a timestamp ID based on the current time
  const timestamp = new Date();
@@ -23,13 +23,18 @@ export async function createContact(prevState: any, formData: FormData) {
  const schema = z.object({
   userName: z.string().min(1),
   email: z.string().min(1),
-
+  course: z.string().min(1), // New field: course
+  pricing: z.enum(["fixed", "subscription"]), // New field: pricing
+  amount: z.number().min(0), // New field: amount
   createdAt: z.instanceof(Timestamp),
  });
 
  const data = schema.parse({
   userName: formData.get("userName"),
   email: formData.get("email"),
+  course: formData.get("course"), // New field: course
+  pricing: formData.get("pricing"), // New field: pricing
+  amount: formData.get("amount"), // New field: amount
   createdAt: Timestamp.now(),
  });
 
@@ -41,7 +46,7 @@ export async function createContact(prevState: any, formData: FormData) {
    from: "support@trackingacademy.com",
    to: data.email,
    cc: ["reactjswebdev@gmail.com", "analytics@shahzadaalihassan.com"],
-   subject: "Thank you for contacting us!",
+   subject: "Thank you for joining the Waitlist!",
    react: WaitListEmail({
     userName: data.userName,
     email: data.email,
@@ -49,9 +54,9 @@ export async function createContact(prevState: any, formData: FormData) {
    }),
   });
 
-  return { message: `Added contact ${data.userName}` };
+  return { message: `Added Waitlist ${data.userName}` };
  } catch (e) {
-  console.error("Failed to create contact or send email", e);
-  return { message: "Failed to create contact" };
+  console.error("Failed to create waitlist or send email", e);
+  return { message: "Failed to create Waitlist" };
  }
 }
