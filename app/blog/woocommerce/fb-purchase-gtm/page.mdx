@@ -1,0 +1,172 @@
+export const metadata = {
+ title:
+  "WooCommerce Facebook Pixel: Track Purchase Event using DataLayer & Google Tag Manager",
+ date: "2024-06-08",
+ blogId: 106,
+ Keywords:
+  "Facebook Pixel, Google Tag Manager, WooCommerce store, Facebook Ads, Website tracking, Purchase Event, Ecommerce Data Layer",
+ tags: [
+  "Facebook Pixel",
+  "Google Tag Manager",
+  "WooCommerce",
+  "Ecommerce Tracking",
+  "Purchase Event",
+ ],
+ draft: false,
+ description:
+  "Learn how to configure the Facebook Pixel Purchase event on your WooCommerce store using Google Tag Manager. This comprehensive guide covers setting up Google Tag Manager, adding the necessary data layers, and ensuring accurate event tracking for better Facebook Ads targeting.",
+ openGraph: {
+  images: ["/static/blog/00016.png"],
+ },
+ embedId: "0OUMRqg63_U",
+};
+
+<BlogHeader metadata={metadata} />
+
+By the end of this tutorial, you will be able to track purchase events on your WooCommerce store using Google Tag Manager, Data Layer, and Facebook Pixel. This will help you accurately track Facebook ads conversions, ensuring you capture all conversion events.
+
+Hey guys, welcome back to another guide! If you're new here, my name is H, and I have helped more than 1,000 websites and 25 different agencies configure Google Tag Manager, Google Analytics, Facebook Pixel, and all other tracking tools. In this guide, I’ll show you how to configure Facebook Pixel and track purchase events on a WooCommerce store using Google Tag Manager and the Data Layer.
+
+This tutorial is intended for:
+
+- Business owners configuring Facebook Pixel on their WooCommerce store themselves.
+- Agencies setting up tracking for their clients.
+- Freelancers looking to upgrade their skills to better track conversions for clients.
+
+This is not a coding-intensive tutorial, so I won’t be diving into PHP or theme templates. Also, this isn’t a general WooCommerce training session, so I won’t cover how coupons or product templates work. Instead, I’ll show you how to create a data layer inside your WooCommerce store using plugins to make your life easier.
+
+I’ve divided this guide into four sections:
+
+1. Configuring Google Tag Manager
+2. Configuring Facebook Pixel
+3. Enabling the Data Layer
+4. Creating Tags, Variables, and Tracking Purchase Events
+
+So, without further ado, let’s dive into it!
+
+## Section 1: Configuring Google Tag Manager
+
+### Step 1: Install the Plugin
+
+1. Go to your WooCommerce store’s backend.
+2. Navigate to the **Plugins** section and click on **Add New**.
+3. Search for the plugin **GTM4WP** (Google Tag Manager for WordPress) by Thomas Geiger.
+4. Click **Install Now** and then **Activate**.
+
+### Step 2: Configure Google Tag Manager
+
+1. Once the plugin is activated, go to the **Dashboard**.
+2. You will see a message prompting you to enter the GTM ID. Click on it or go to **Settings** and then **Google Tag Manager**.
+3. Enter your GTM Container ID. If you don’t have it, go to your Google Tag Manager account, create a container, and copy the ID.
+4. Paste the ID into the plugin settings and save changes. Make sure the container code is active by clicking save changes again if needed.
+
+### Step 3: Verify the Configuration
+
+1. Go to Google Tag Manager and click **Preview** to open a temporary debug window.
+2. Navigate to your website, ensuring the debug window is connected.
+3. Verify that Google Tag Manager is firing correctly by checking the green status in the Tag Assistant extension or the debug window’s connection status.
+
+## Section 2: Configuring Facebook Pixel
+
+### Step 1: Get Your Facebook Pixel ID
+
+1. Go to [Facebook Business](https://business.facebook.com).
+2. Click on **All Tools** and then **Event Manager**.
+3. Find or create a pixel under **Data Sources**. Copy the Pixel ID.
+
+### Step 2: Add Facebook Pixel Configuration Tag
+
+1. Go to Google Tag Manager, navigate to **Templates**, and search for the **Facebook Pixel** template created by the Facebook team.
+2. Add the template and create a new tag.
+3. Select the **Facebook Pixel** tag template, paste the Pixel ID, and configure the tag to fire on all pages.
+4. Save the tag with a name like **Facebook Configuration Tag**.
+
+### Step 3: Verify Facebook Pixel Configuration
+
+1. Click **Preview** in Google Tag Manager to open the debug window again.
+2. Go to your website, ensuring the Facebook Pixel fires correctly by using the **Facebook Pixel Helper** extension.
+3. Confirm the page view event is firing correctly in the Facebook Event Manager under the test section.
+
+## Section 3: Enabling the Data Layer
+
+### Step 1: Enable Data Layer in WooCommerce
+
+1. Go to the **Settings** of the GTM4WP plugin in your WooCommerce backend.
+2. Navigate to the **Integration** section and find the **WooCommerce** settings.
+3. Check the box to **Track enhanced e-commerce events**.
+4. Save changes and verify everything is working correctly by making a test purchase.
+
+### Step 2: Verify Data Layer Events
+
+1. Go to the **Cart** page and proceed to **Checkout**.
+2. Complete a test purchase to see the data layer events.
+3. Check the Google Tag Manager debug window for the **purchase** event, ensuring it contains all necessary details like currency, transaction ID, total value, and items purchased.
+
+## Section 4: Creating Tags, Variables, and Tracking Purchase Events
+
+### Step 1: Create Data Layer Variables
+
+1. Go to Google Tag Manager and navigate to **Variables**.
+2. Create new **Data Layer Variables** for each required field:
+   - Currency: `ecommerce.currency`
+   - Transaction ID: `ecommerce.transactionId`
+   - Affiliation: `ecommerce.affiliation`
+   - Value: `ecommerce.value`
+   - Shipping: `ecommerce.shipping`
+   - Coupon: `ecommerce.coupon`
+   - Items: `ecommerce.items`
+
+### Step 2: Generate Facebook Parameter Variables
+
+1. Go to **Templates** and search for the **Facebook Parameter Generator** by STAPE team.
+2. Create new variables for:
+   - `contents`
+   - `content_ids`
+   - `content_name`
+   - `num_items`
+
+### Step 3: Create the Facebook Pixel Purchase Tag
+
+1. Go to **Tags** and create a new tag using the **Facebook Pixel** template.
+2. Set the tag to fire on the custom event **purchase**.
+3. Add parameters to the tag using the data layer variables created:
+   - `value`: `ecommerce.value`
+   - `currency`: `ecommerce.currency`
+   - `order_id`: `ecommerce.transactionId`
+   - `contents`: `Facebook Parameter Generator - contents`
+   - `content_ids`: `Facebook Parameter Generator - content_ids`
+   - `content_type`: `product`
+   - `content_name`: `Facebook Parameter Generator - content_name`
+   - `num_items`: `Facebook Parameter Generator - num_items`
+   - `tax`: `ecommerce.tax`
+   - `shipping`: `ecommerce.shipping`
+   - `affiliation`: `ecommerce.affiliation`
+   - `coupon`: `ecommerce.coupon`
+
+### Step 4: Verify and Publish
+
+1. Click **Preview** in Google Tag Manager to connect the debug window.
+2. Complete a test purchase on your website to ensure the purchase event fires correctly.
+3. Verify the purchase event details in the Facebook Pixel Helper and Facebook Event Manager test section.
+4. If everything is correct, click **Submit** in Google Tag Manager to publish the changes.
+
+### Bonus section
+
+If you prefer not to manually configure everything, you can download the pre-configured container JSON file provided in the video description and import it into your Google Tag Manager workspace.
+
+<AuthenticatedLayout>
+ [Download The GTM Container JSON
+ File](/static/json/FBWooCommerceGTMPurchase.json).
+</AuthenticatedLayout>
+
+**Import the Container**:
+
+1. **Go to Admin > Import Container.**
+2. **Select the JSON file**.
+3. **Choose to merge or overwrite the existing container**.
+
+### Conclusion
+
+Congratulations! You’ve successfully configured your WooCommerce store to track purchase events using Google Tag Manager, Data Layer, and Facebook Pixel. This setup will help you track all Facebook ads conversions properly and ensure you capture all conversion events accurately.
+
+If you found this guide helpful, check out our other tutorials for more tracking and analytics tips!
