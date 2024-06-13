@@ -25,8 +25,7 @@ const GlobalNavbar: React.FC = () => {
  };
 
  return (
-  navbarMap[segments[0]] ||
-  (segments[0] === undefined ? <ForFreelancersNavbar /> : <SiteNavbar />)
+  navbarMap[segments[0]] || (segments[0] === undefined ? null : <SiteNavbar />)
  );
 };
 

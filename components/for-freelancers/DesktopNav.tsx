@@ -4,7 +4,7 @@ import Image from "next/image";
 const DesktopNav = () => {
  return (
   <nav className='flex items-center justify-between py-2'>
-   <NavLink href='/' className='font-semibold'>
+   <NavLink href='/for-freelancers' className='font-semibold'>
     <Image
      src='/logo.svg'
      alt='TrackingAcademy'
