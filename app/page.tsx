@@ -4,24 +4,31 @@ export default function Home() {
  return (
   <div className='flex flex-col items-center justify-center'>
    <div className='container-primary py-3'>
-    <div className='shadow-lg border rounded-md p-8 grid place-content-center transition duration-300 ease-in-out w-full bg-accent'>
-     <h2 className='title-secondary text-complementary '>
+    <div className='shadow-md border rounded-md p-4 grid place-content-center transition duration-300 ease-in-out w-full bg-accent'>
+     <div className='title-tertiary text-complementary flex gap-2'>
+      {/* <Image
+       src='/logo.svg'
+       alt='TrackingAcademy'
+       width={500}
+       height={145}
+       className='w-32'
+      /> */}
       TrackingAcademy.com
-     </h2>
+     </div>
     </div>
    </div>
-   <div className='py-6 text-center'>
+   <div className='pt-12 text-center'>
     <h1 className='font-bold title-secondary'>
-     DO YOU WANT TO FIX YOUR TRACKING?
+     DO YOU WANT TO <span className='text-accent'>FIX YOUR TRACKING?</span>
     </h1>
     <p>Click one of the two boxes below</p>
    </div>
-   <div className='container-primary'>
-    <div className='p-12 text-center shadow-lg rounded-md border'>
+   <div className='container-primary py-12'>
+    <div className='p-12 text-center shadow-md rounded-md border'>
      <h3 className='pb-6'>What best describes you?</h3>
      <div className='flex gap-5 sm:flex-row flex-col items-center justify-center'>
       <Link
-       className='shadow-lg border rounded-md p-8 flex flex-col items-center justify-center transition duration-300 ease-in-out hover:bg-accent hover:text-complementary hover:shadow-xl w-full'
+       className='shadow-md border rounded-md p-8 flex flex-col items-center justify-center transition duration-300 ease-in-out hover:bg-accent hover:text-complementary hover:shadow-xl w-full'
        href='/for-businesses'>
        <Image
         src='/static/icons/business-owner.png'
@@ -33,7 +40,7 @@ export default function Home() {
        I am a Business Owner
       </Link>
       <Link
-       className='shadow-lg border rounded-md p-8 flex flex-col items-center justify-center transition duration-300 ease-in-out hover:bg-accent hover:text-complementary hover:shadow-xl w-full'
+       className='shadow-md border rounded-md p-8 flex flex-col items-center justify-center transition duration-300 ease-in-out hover:bg-accent hover:text-complementary hover:shadow-xl w-full'
        href='/for-agencies'>
        <Image
         src='/static/icons/agency-owner.png'
@@ -45,7 +52,7 @@ export default function Home() {
        I am a Agency Owner
       </Link>
       <Link
-       className='shadow-lg border rounded-md p-8 flex flex-col items-center justify-center transition duration-300 ease-in-out hover:bg-accent hover:text-complementary hover:shadow-xl w-full'
+       className='shadow-md border rounded-md p-8 flex flex-col items-center justify-center transition duration-300 ease-in-out hover:bg-accent hover:text-complementary hover:shadow-xl w-full'
        href='/for-freelancers'>
        <Image
         src='/static/icons/freelancer.png'

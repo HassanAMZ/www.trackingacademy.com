@@ -4,33 +4,32 @@ import NavLink from "../navbar/NavLink";
 import { FacebookIcon, YouTubeIcon } from "@/components/icons/SocialIcons";
 import CustomLink from "@/components/mdx/CustomLink";
 import NavigationLinks from "../navbar/NavigationLinks";
-
+import Image from "next/image";
+import MobileNav from "../navbar/MobileNav";
+import DesktopNav from "../navbar/DesktopNav";
 const Footer: React.FC = () => {
  return (
   <div className='container-primary py-3'>
-   <div className='shadow-lg border rounded-md p-8 grid place-content-center transition duration-300 ease-in-out w-full'>
-    <footer className=' py-12 px-5 flex flex-col justify-center items-center shadow-md'>
-     <NavLink href='/' className=' transition-all duration-300'>
-      TrackingAcademy
-     </NavLink>
-
-     <nav className='flex flex-col sm:flex-row gap-2 items-center justify-between pt-12'>
-      <NavigationLinks />
-     </nav>
-
-     <div className='flex space-x-5 pt-5'>
-      <CustomLink
-       href='https://www.youtube.com/@trackingacademy_'
-       target='_blank'
-       rel='noopener noreferrer'
-       className=' transition-all duration-300'>
-       <YouTubeIcon />
-      </CustomLink>
+   <div className='shadow-md border rounded-md p-8 transition duration-300 ease-in-out w-full'>
+    <footer className='gap-4 flex flex-col'>
+     <div className='flex flex-row justify-between items-start w-full'>
+      <NavLink href='/'>
+       <Image
+        src='/logo.svg'
+        alt='TrackingAcademy'
+        width={500}
+        height={145}
+        className='w-32'
+       />
+      </NavLink>
+      <nav className='flex flex-col md:flex-row justify-end md:gap-3 items-end w-full'>
+       <NavigationLinks />
+      </nav>
      </div>
 
-     <Paragraphmd className='pt-12'>
+     <p className='paragraph-tertiary text-center'>
       © {new Date().getFullYear()} TrackingAcademy, All rights reserved
-     </Paragraphmd>
+     </p>
     </footer>
    </div>
   </div>
