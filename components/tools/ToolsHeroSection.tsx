@@ -20,7 +20,7 @@ export default function ToolsHeroSection() {
      </Link>
      <Link
       href='/blog/ga4/understanding-utm-builder-tool'
-      className='font-bold border-2 hidden lg:block rounded-md link-primary'>
+      className='font-bold border-2 hidden lg:block rounded-lg link-primary'>
       Read the Blog
      </Link>
     </div>

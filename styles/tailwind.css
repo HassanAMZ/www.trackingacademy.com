@@ -43,7 +43,7 @@ code {
 }
 
 .container-primary {
- @apply container mx-auto max-w-6xl px-3;
+ @apply container mx-auto max-w-7xl px-3;
 }
 .container-secondary {
  @apply container max-w-4xl px-3 mx-auto;

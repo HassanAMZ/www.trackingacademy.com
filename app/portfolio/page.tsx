@@ -25,7 +25,7 @@ export default function Page() {
           <div className='relative'>
            <div className='flex flex-col gap-1 max-w-xl text-center items-center justify-center'>
             <Image
-             className='rounded-md bg-gray-100 '
+             className='rounded-lg bg-gray-100 '
              width={1920}
              height={540}
              src={client.images[0].link}

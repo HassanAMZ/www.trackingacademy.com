@@ -157,7 +157,7 @@ const Page: React.FC = () => {
     <div className='flex'>
      <Link
       href='/contact'
-      className='font-semibold rounded-md p-3 w-full text-center'>
+      className='font-semibold rounded-lg p-3 w-full text-center'>
       Schedule a Quick Demo
      </Link>
     </div>
@@ -360,7 +360,7 @@ const Page: React.FC = () => {
     <div className='flex'>
      <Link
       href='/contact'
-      className='font-semibold rounded-md p-3 w-full text-center'>
+      className='font-semibold rounded-lg p-3 w-full text-center'>
       Schedule a Quick Demo
      </Link>
     </div>

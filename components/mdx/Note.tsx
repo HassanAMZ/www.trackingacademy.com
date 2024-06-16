@@ -9,7 +9,7 @@ interface NotesProps {
 const Note: React.FC<NotesProps> = ({ title, content }) => {
  return (
   <div className='py-2'>
-   <div className='p-2 lg:p-4 bg-complementary rounded-md'>
+   <div className='p-2 lg:p-4 bg-complementary rounded-lg'>
     <Paragraphmd className='text-dominant'>
      <strong>{title}:&nbsp; </strong>
      <span>{content}</span>

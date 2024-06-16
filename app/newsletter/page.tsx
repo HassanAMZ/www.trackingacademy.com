@@ -253,7 +253,7 @@ const Page: FC = () => {
              alt={`Image of ${selectedClient.name}`}
              width={1920}
              height={1080}
-             className='rounded-md bg-white'
+             className='rounded-lg bg-white'
             />
            </div>
           ))}

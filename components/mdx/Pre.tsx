@@ -16,7 +16,7 @@ const Pre: React.FC<PreProps> = ({ language, children }) => {
 
  return (
   <div className='py-2'>
-   <div className='rounded-md text-left text-complementary bg-dominant'>
+   <div className='rounded-lg text-left text-complementary bg-dominant'>
     <div className='flex items-center relative bg-accent px-4 py-2 justify-between rounded-t-md'>
      <span>{language}</span>
      <button onClick={onCopy} className='flex ml-auto gap-2 items-center'>

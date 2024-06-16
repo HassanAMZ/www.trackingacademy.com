@@ -58,7 +58,7 @@ const Page: React.FC<DynamicServicesPageProps> = ({ params }) => {
     <div className='gap-2 grid grid-cols-1 lg:grid-cols-5'>
      <div className='relative aspect-[4/3] col-span-1 lg:col-span-3'>
       <Image
-       className='rounded-md'
+       className='rounded-lg'
        fill
        src={serviceObject.featured_image_url}
        alt={serviceObject.title}

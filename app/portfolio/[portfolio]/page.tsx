@@ -43,7 +43,7 @@ const Page: React.FC<DynamicPortfolioPageProps> = ({ params }) => {
      <Image
       width={1920}
       height={540}
-      className={`rounded-md ${bgColor} border-2 `}
+      className={`rounded-lg ${bgColor} border-2 `}
       src={clientObject.images[0].link}
       alt={clientObject.images[0].name}
      />

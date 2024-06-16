@@ -31,7 +31,7 @@ const WhyUs: React.FC<WhyUsProps> = ({
       </Headingxl>
      )}
     </div>
-    <button className='p-2 rounded-md text-left border-2 bg-complementary border-gray-100'>
+    <button className='p-2 rounded-lg text-left border-2 bg-complementary border-gray-100'>
      <Link className='font-semibold text-accent ' href={links.primary.src}>
       {links.primary.text}
      </Link>

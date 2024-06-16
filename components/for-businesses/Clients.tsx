@@ -10,7 +10,7 @@ const Clients: React.FC<ImageGeneralProps> = ({ image }) => {
     alt={image.alt}
     width={image.width}
     height={image.height}
-    className='rounded-md'
+    className='rounded-lg'
    />
   </div>
  );

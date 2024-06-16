@@ -18,7 +18,7 @@ const RecentClientSlider: React.FC = () => {
        <Image
         width={1920}
         height={540}
-        className='rounded-md'
+        className='rounded-lg'
         src={img.link}
         alt={img.name}
        />
@@ -106,7 +106,7 @@ const RecentClientSlider: React.FC = () => {
  };
 
  return (
-  <div className=' rounded-md'>
+  <div className=' rounded-lg'>
    <div className='flex flex-col gap-2'>
     <ImageSlider images={clientObject.images} />
    </div>

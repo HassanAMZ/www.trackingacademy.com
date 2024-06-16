@@ -7,7 +7,7 @@ const SelectionButton: React.FC<ButtonProps> = ({
  onClick,
 }) => (
  <button
-  className={`p-4 w-full flex border-2 rounded-md ${
+  className={`p-4 w-full flex border-2 rounded-lg ${
    isSelected ? "text-accent bg-complementary" : "text-complementary bg-accent"
   }`}
   onClick={onClick}>

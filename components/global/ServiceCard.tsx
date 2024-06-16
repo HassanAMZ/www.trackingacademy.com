@@ -10,7 +10,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ service }) => {
   <>
    <div className='relative aspect-[4/3] sm:h-auto max-w-full'>
     <Image
-     className='rounded-md'
+     className='rounded-lg'
      width={1000}
      height={750}
      src={service.featured_image_url}

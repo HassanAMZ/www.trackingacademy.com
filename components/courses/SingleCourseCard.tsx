@@ -12,13 +12,13 @@ const SingleCourseCard: React.FC<SingleCourseCardProps> = ({
 }) => {
  return (
   <Link href={`/${type}/${course.slug}`}>
-   <section className='border-2 rounded-md'>
+   <section className='border-2 rounded-lg'>
     <Image
      alt={course.title}
      src={course.openGraph.images[0]}
      height={1920}
      width={1080}
-     className='w-fit rounded-md'
+     className='w-fit rounded-lg'
     />
     <div className='p-4'>
      <Heading2xl>{course.title}</Heading2xl>

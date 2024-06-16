@@ -227,7 +227,7 @@ const Page: React.FC = () => {
      <div key={button.text} className='w-full'>
       <button
        className={`
-       border border-dominant p-2 w-full transition font-semibold duration-300 ease-in-out rounded-md 
+       border border-dominant p-2 w-full transition font-semibold duration-300 ease-in-out rounded-lg 
         ${
          selectedButton === button.id
           ? ` text-accent   bg-complementary border-dominant`
@@ -308,7 +308,7 @@ const Page: React.FC = () => {
      readOnly
      value={generateUTM()}
      rows={4}
-     className={`p-1 border-2 border-dominant rounded-md bg-transparent peer h-full w-full outline-none pr-2 ${
+     className={`p-1 border-2 border-dominant rounded-lg bg-transparent peer h-full w-full outline-none pr-2 ${
       !canGenerateUTM() ? "opacity-50" : "border-2 border-accent title-tertiary"
      }`}
     />
@@ -322,7 +322,7 @@ const Page: React.FC = () => {
     <button
      disabled={!canGenerateUTM()}
      onClick={handleCopy}
-     className={`p-2 w-full rounded-md  border-2 transition ${
+     className={`p-2 w-full rounded-lg  border-2 transition ${
       canGenerateUTM()
        ? " bg-accent text-complementary"
        : " cursor-not-allowed bg-complementary"

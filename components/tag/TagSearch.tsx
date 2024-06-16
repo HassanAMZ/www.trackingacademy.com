@@ -20,7 +20,7 @@ const TagSearch: React.FC<TagSearchProps> = ({ tags, onSearch }) => {
     placeholder='Search for a tag...'
     value={searchTerm}
     onChange={(e) => setSearchTerm(e.target.value)}
-    className='p-2 border rounded-md mb-2 text-complementary'
+    className='p-2 border rounded-lg mb-2 text-complementary'
    />
   </div>
  );

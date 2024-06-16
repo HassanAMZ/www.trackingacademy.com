@@ -4,11 +4,17 @@ import { useState } from "react";
 import ContactForm from "../contact/ContactForm";
 import React from "react";
 
-export default function BookACall() {
+interface BookACallProps {
+ buttonText?: string;
+}
+
+const BookACall: React.FC<BookACallProps> = ({
+ buttonText = "Book A Call",
+}) => {
  const [isModalOpen, setModalOpen] = useState(false);
 
- const handleClose = (e: any) => {
-  if (e.target.id === "modal-backdrop") {
+ const handleClose = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
+  if ((e.target as HTMLDivElement).id === "modal-backdrop") {
    setModalOpen(false);
   }
  };
@@ -16,7 +22,7 @@ export default function BookACall() {
  return (
   <React.Fragment>
    <button className='link-primary' onClick={() => setModalOpen(true)}>
-    Book a Call
+    {buttonText}
    </button>
 
    <div
@@ -40,4 +46,6 @@ export default function BookACall() {
    </div>
   </React.Fragment>
  );
-}
+};
+
+export default BookACall;

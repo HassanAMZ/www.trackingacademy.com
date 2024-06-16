@@ -9,13 +9,14 @@ import ForFreelancersNavbar from "@/components/for-freelancers/Navbar";
 const GlobalNavbar: React.FC = () => {
  const segments: string[] = useSelectedLayoutSegments();
 
- if (segments[0] === "blog" || segments[0] === "newsletter") {
-  return null;
- }
+ // Define the mapping of segments to navbars
+ const navbarMap: Record<string, JSX.Element | null | undefined> = {
+  blog: null,
+  newsletter: null,
+  "for-businesses": null,
+  "for-freelancers": null,
+  "for-agencies": null,
 
- const navbarMap: Record<string, JSX.Element | undefined> = {
-  "for-businesses": <ForBusinessesNavbar />,
-  "for-freelancers": <ForFreelancersNavbar />,
   services:
    segments[1] === "web-analytics-and-tracking" ? (
     <ForFreelancersNavbar />
@@ -24,8 +25,14 @@ const GlobalNavbar: React.FC = () => {
    ),
  };
 
- return (
-  navbarMap[segments[0]] || (segments[0] === undefined ? null : <SiteNavbar />)
+ // Determine the appropriate navbar to display
+ const navbarToDisplay = navbarMap[segments[0]];
+
+ // Render the navbar if it exists, otherwise render SiteNavbar or null
+ return navbarToDisplay !== undefined ? (
+  navbarToDisplay
+ ) : segments[0] === undefined ? null : (
+  <SiteNavbar />
  );
 };
 

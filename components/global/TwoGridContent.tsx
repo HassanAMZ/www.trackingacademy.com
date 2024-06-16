@@ -18,7 +18,7 @@ const TwoGridContent: React.FC<TwoGridContentProps> = ({
      </Heading4xl>
      <LearnMore detailsList={detailsList} />
      <Link
-      className='font-semibold  rounded-md py-4 px-6 w-full flex items-center justify-center'
+      className='font-semibold  rounded-lg py-4 px-6 w-full flex items-center justify-center'
       href={primaryLink.src}>
       {primaryLink.text}
      </Link>

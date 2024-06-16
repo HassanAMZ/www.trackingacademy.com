@@ -56,7 +56,7 @@ const YoutubeVideo: React.FC<YoutubdeVideoProps> = ({ videoUrl, details }) => {
       <img
        src={details.snippet.thumbnails.medium.url}
        alt='Video Thumbnail'
-       className='absolute top-0 left-0 w-full h-full rounded-md object-cover'
+       className='absolute top-0 left-0 w-full h-full rounded-lg object-cover'
       />
      </div>
      <div className='flex flex-row items-start justify-start gap-3 mt-3'>
