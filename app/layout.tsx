@@ -13,7 +13,7 @@ import { SpeedInsights } from "@vercel/speed-insights/next";
 import GlobalNavbar from "@/components/global/GlobalNavbar";
 
 const inter = localFont({
- src: "fonts/Inter/Inter-font.ttf",
+ src: "./fonts/Inter/Inter-font.ttf",
  display: "swap",
 });
 const poppins = localFont({
