@@ -12,10 +12,6 @@ import CanonicalTag from "@/components/seo/CanonicalTag";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import GlobalNavbar from "@/components/global/GlobalNavbar";
 
-const inter = localFont({
- src: "./fonts/Inter/Inter-font.ttf",
- display: "swap",
-});
 const poppins = localFont({
  src: [
   { path: "fonts/Poppins/Poppins-Black.ttf", weight: "900", style: "normal" },
