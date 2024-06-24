@@ -9,29 +9,34 @@ import ForFreelancersNavbar from "@/components/for-freelancers/Navbar";
 const GlobalNavbar: React.FC = () => {
  const segments: string[] = useSelectedLayoutSegments();
 
- // Define the mapping of segments to navbars
- const navbarMap: Record<string, JSX.Element | null | undefined> = {
-  blog: null,
-  newsletter: null,
-  "for-businesses": null,
-  "for-freelancers": null,
-  "for-agencies": null,
-
-  services:
-   segments[1] === "web-analytics-and-tracking" ? (
-    <ForFreelancersNavbar />
-   ) : (
-    <SiteNavbar />
-   ),
- };
+ // Array mapping segment substrings to navbar components
+ const navbarMap = [
+  { substring: "blog", component: null },
+  { substring: "newsletter", component: null },
+  { substring: "for-businesses", component: <ForBusinessesNavbar /> },
+  { substring: "for-freelancers", component: <ForFreelancersNavbar /> },
+  { substring: "for-agencies", component: null },
+  { substring: "landing-pages", component: null },
+  {
+   substring: "services",
+   component:
+    segments[1] === "web-analytics-and-tracking" ? (
+     <ForFreelancersNavbar />
+    ) : (
+     <SiteNavbar />
+    ),
+  },
+ ];
 
  // Determine the appropriate navbar to display
- const navbarToDisplay = navbarMap[segments[0]];
+ const navbarToDisplay = navbarMap.find((mapping) =>
+  segments.some((segment) => segment.includes(mapping.substring))
+ )?.component;
 
  // Render the navbar if it exists, otherwise render SiteNavbar or null
- return navbarToDisplay !== undefined ? (
+ return segments[0] === undefined ? null : navbarToDisplay !== undefined ? (
   navbarToDisplay
- ) : segments[0] === undefined ? null : (
+ ) : (
   <SiteNavbar />
  );
 };

@@ -91,7 +91,7 @@ export const metadata = {
 export default function RootLayout({ children }: { children: ReactNode }) {
  return (
   <html lang='en' className={poppins.className}>
-   <body className='selection:text-complementary paragraph-primary selection:bg-accent text-dominant bg-complementary'>
+   <body className='selection:text-complementary font-medium selection:bg-accent text-dominant bg-complementary'>
     <AuthContextProvider>
      <GlobalNavbar />
      {children}

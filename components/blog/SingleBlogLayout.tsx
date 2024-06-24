@@ -16,11 +16,11 @@ export default async function SingleBlogLayout({
 
  return (
   <div className='flex lg:flex-row flex-col gap-6'>
-   <div className=''>{children}</div>
+   <div>{children}</div>
 
-   <section className='px-2 w-full lg:min-w-[400px] paragraph-tertiary '>
+   <section className='px-2 w-full lg:min-w-[400px] text-xs  '>
     <div id='popular-posts'>
-     <h3 className='title-tertiary py-4'>Recommeded Read</h3>
+     <h3 className='text-xl font-bold   py-4'>Recommeded Read</h3>
      <div className='grid grid-rows-4 gap-2'>
       {sortedData
        .sort(() => 0.5 - Math.random())
@@ -34,7 +34,7 @@ export default async function SingleBlogLayout({
           {/* #{sortedData[index].tags[0]}  */}
           {sortedData[index].date}
          </span>
-         <h3 className='line-clamp-2 font-bold paragraph-primary'>
+         <h3 className='line-clamp-2 font-bold   '>
           {sortedData[index].title}
          </h3>
          <p className='line-clamp-2 text-dominant text-opacity-50'>

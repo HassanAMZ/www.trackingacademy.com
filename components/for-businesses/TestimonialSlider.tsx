@@ -42,7 +42,7 @@ const sliderSettings = {
 
 export default function TestimonialSlider() {
  return (
-  <div className=''>
+  <div>
    <Slider {...sliderSettings}>
     <TestimonialCard
      person={{

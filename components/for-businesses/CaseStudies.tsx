@@ -58,23 +58,23 @@ const CaseStudies: React.FC = () => {
  return (
   <div className='flex flex-col items-center text-center py-10 container-primary'>
    <p className='text-complementary font-semibold'>It works, too</p>
-   <h2 className='title-secondary text-complementary'>Case studies </h2>
+   <h2 className='text-2xl font-bold  text-complementary'>Case studies </h2>
    <div className='text-complementary lg:grid lg:grid-cols-2 items-center justify-center gap-6 py-20'>
     <div className='col-span-1 p-6'>
      <Image src={imageSrc} alt='Desktop version' width={1000} height={1000} />
     </div>
     <div className=' col-span-1 text-left gap-5 flex flex-col'>
-     <h3 className='title-secondary'>{title}</h3>
-     <p className='paragraph-primary'>{description}</p>
+     <h3 className='text-2xl font-bold '>{title}</h3>
+     <p className=' '>{description}</p>
      <div className='grid grid-cols-2 gap-4'>
       {stats.map((stat, index) => (
        <div key={index}>
-        <p className='title-secondary'>{stat.percentage}</p>
-        <p className='paragraph-primary'>{stat.text}</p>
+        <p className='text-2xl font-bold '>{stat.percentage}</p>
+        <p className=' '>{stat.text}</p>
        </div>
       ))}
      </div>
-     <div className='flex lg:justify-start justify-center font-bold gap-4 items-center py-4 text-complementary'>
+     <div className='flex lg:justify-start justify-center font-bold  gap-4 items-center py-4 text-complementary'>
       <button onClick={goToPrevious} aria-label='Previous case study'>
        &lt;
       </button>

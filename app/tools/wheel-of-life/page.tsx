@@ -12,10 +12,10 @@ const page: NextPage = () => {
  return (
   <div className='container-primary'>
    <main className='flex flex-col items-left justify-center min-h-screen py-2'>
-    <h1 className='title-primary pt-12 text-center'>
+    <h1 className='text-3xl font-bold pt-12 text-center'>
      Wheel of Life by Ali Abdaal
     </h1>
-    <p className='paragraph-primary py-4 text-center'>
+    <p className='  py-4 text-center'>
      Reflection is a powerful tool for personal growth and self-awareness. One
      method that has gained popularity for its simplicity and effectiveness is
      the "Wheel of Life". It allows individuals to divide their life into key
@@ -28,18 +28,18 @@ const page: NextPage = () => {
 
     <WheelOfLife />
 
-    <h3 className='title-secondary pb-6'>What is the Wheel of Life?</h3>
+    <h3 className='text-2xl font-bold  pb-6'>What is the Wheel of Life?</h3>
 
-    <p className='paragraph-primary'>
+    <p className=' '>
      The Wheel of Life is a circular diagram that represents various life
      aspects, such as health, relationships, and work. Each section is rated on
      a scale from 0 to 10, indicating how satisfied or aligned one feels in that
      area. The goal is to identify areas that are thriving and others that may
      require more attention.
     </p>
-    <h3 className='title-secondary py-6'>How to Use the Component: </h3>
+    <h3 className='text-2xl font-bold  py-6'>How to Use the Component: </h3>
 
-    <p className='paragraph-primary'>
+    <p className=' '>
      To use the "Wheel of Life" component, follow these simple steps:
     </p>
     <OrderedList>
@@ -81,8 +81,8 @@ const page: NextPage = () => {
      </UnorderedList>
     </OrderedList>
 
-    <h3 className='title-secondary py-6'>Conclusion: </h3>
-    <p className='paragraph-primary'>
+    <h3 className='text-2xl font-bold  py-6'>Conclusion: </h3>
+    <p className=' '>
      The "Wheel of Life" is more than just a tool for reflection — it's a
      starting point for making tangible changes in your life. By transforming
      this exercise into an interactive experience, we make it easier for users

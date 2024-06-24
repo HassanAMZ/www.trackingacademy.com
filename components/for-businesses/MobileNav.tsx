@@ -26,7 +26,7 @@ const NavItem: React.FC<NavItemProps> = ({ href, children, onClick }) => (
 
 const NavButton: React.FC<NavButtonProps> = ({ onClick, label }) => (
  <nav className='flex items-center justify-between w-full'>
-  <Link href='/' className='font-semibold title-tertiary'>
+  <Link href='/' className='font-semibold text-xl font-bold  '>
    <Image
     src='/logo.svg'
     alt='TrackingAcademy'
@@ -37,7 +37,7 @@ const NavButton: React.FC<NavButtonProps> = ({ onClick, label }) => (
   </Link>
   <button
    onClick={onClick}
-   className='p-2 lg:hidden title-tertiary'
+   className='p-2 lg:hidden text-xl font-bold  '
    aria-label={label}>
    🍔
   </button>
@@ -63,7 +63,7 @@ const MobileNavbar: React.FC = () => {
     <NavButton onClick={toggleMenu} label='Toggle Navigation Menu' />
    </div>
    <div
-    className={`absolute inset-0 z-10 title-tertiary ${
+    className={`absolute inset-0 z-10 text-xl font-bold   ${
      isOpen ? "flex" : "hidden"
     } bg-complementary`}
     style={{ height: isOpen ? "100vh" : "0" }}>
@@ -81,12 +81,12 @@ const MobileNavbar: React.FC = () => {
       </NavItem>
      </div>
      <div>
-      <blockquote className='title-tertiary text-center'>
+      <blockquote className='text-xl font-bold   text-center'>
        Very thorough and professional. Identified a problem with our meta
        tracking and implemented a complete overhaul that has resolved the
        problem. Would recommend.
       </blockquote>
-      <p className='paragraph-primary text-center py-4'>Clarissa Jurumenh</p>
+      <p className='  text-center py-4'>Clarissa Jurumenh</p>
      </div>
      <div className='flex w-full flex-col gap-2'>
       <BookACall />

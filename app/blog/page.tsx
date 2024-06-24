@@ -31,13 +31,13 @@ export default async function Page() {
        height={1080}
        className='rounded-lg'
       />
-      <h3 className='title-tertiary line-clamp-2'>{sortedData[0].title}</h3>
-      <p className='paragraph-primary line-clamp-2'>
-       {sortedData[0].description}
-      </p>
+      <h3 className='text-xl font-bold   line-clamp-2'>
+       {sortedData[0].title}
+      </h3>
+      <p className='  line-clamp-2'>{sortedData[0].description}</p>
       <div className='flex justify-between items-center'>
-       <span className='paragraph-secondary'>By ShahzadaAliHassan</span>
-       <span className='paragraph-secondary border border-dashed border-accent rounded-full px-2'>
+       <span className='text-sm'>By ShahzadaAliHassan</span>
+       <span className='text-sm border border-dashed border-accent rounded-full px-2'>
         {sortedData[0].date}
        </span>
       </div>
@@ -55,15 +55,15 @@ export default async function Page() {
          height={1080}
          className='rounded-lg'
         />
-        <h3 className='paragraph-primary font-semibold line-clamp-2'>
+        <h3 className='  font-semibold line-clamp-2'>
          {sortedData[index + 1].title}
         </h3>
-        <p className='paragraph-primary line-clamp-2 hidden'>
+        <p className='  line-clamp-2 hidden'>
          {sortedData[index + 1].description}
         </p>
         <div className='flex flex-col justify-between items-start'>
-         <span className='paragraph-secondary pb-2'>By ShahzadaAliHassan</span>
-         <span className='paragraph-secondary border border-dashed border-accent rounded-full px-2'>
+         <span className='text-sm pb-2'>By ShahzadaAliHassan</span>
+         <span className='text-sm border border-dashed border-accent rounded-full px-2'>
           {sortedData[index + 1].date}
          </span>
         </div>
@@ -84,15 +84,15 @@ export default async function Page() {
         height={1080}
         className='rounded-lg'
        />
-       <h3 className='title-tertiary font-semibold line-clamp-2'>
+       <h3 className='text-xl font-bold   font-semibold line-clamp-2'>
         {sortedData[index + 4].title}
        </h3>
-       <p className='paragraph-primary line-clamp-2 hidden'>
+       <p className='  line-clamp-2 hidden'>
         {sortedData[index + 4].description}
        </p>
        <div className='flex justify-between items-start'>
-        <span className='paragraph-secondary hidden'>By ShahzadaAliHassan</span>
-        <span className='paragraph-secondary border border-dashed border-accent rounded-full px-2'>
+        <span className='text-sm hidden'>By ShahzadaAliHassan</span>
+        <span className='text-sm border border-dashed border-accent rounded-full px-2'>
          {sortedData[index + 4].date}
         </span>
        </div>
@@ -106,7 +106,7 @@ export default async function Page() {
     </div>
     <section className='p-2 w-full h-full'>
      <div id='popular-posts'>
-      <h3 className='title-tertiary py-2'>Recommended Posts</h3>
+      <h3 className='text-xl font-bold   py-2'>Recommended Posts</h3>
       <div className='grid sm:grid-cols-2 lg:grid-cols-1 gap-2'>
        {sortedData
         .sort(() => 0.5 - Math.random())
@@ -123,7 +123,7 @@ export default async function Page() {
            height={1080}
            className='rounded-lg'
           />
-          <h3 className='paragraph-primary font-medium line-clamp-2 col-span-2'>
+          <h3 className='  font-medium line-clamp-2 col-span-2'>
            {sortedData[index].title}
           </h3>
          </Link>
@@ -132,13 +132,13 @@ export default async function Page() {
      </div>
 
      <div id='category-list' className='py-4'>
-      <h3 className='title-tertiary line-clamp-2 py-4'>Categories</h3>
+      <h3 className='text-xl font-bold   line-clamp-2 py-4'>Categories</h3>
       <div className='flex flex-wrap gap-2'>
        {uniqueTags.map((tag, index) => (
         <Link
          key={index}
          href={`/tags/${tag.toLowerCase().replace(/\s+/g, "-")}`}
-         className='button bg-accent text-complementary paragraph-secondary rounded-lg p-1'>
+         className='button bg-accent text-complementary text-sm rounded-lg p-1'>
          {tag}
         </Link>
        ))}

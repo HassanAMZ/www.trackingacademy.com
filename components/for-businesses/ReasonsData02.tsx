@@ -5,11 +5,11 @@ import Image from "next/image";
 
 export default function ReasonsData02() {
  return (
-  <div className='pt-10 pb-2 lg:py-10'>
+  <div className='py-6'>
    <p className='text-accent text-center'>
     Configuring & Optimizing Website Tracking Setups 🚀
    </p>
-   <h2 className='title-primary text-center py-4 container-secondary'>
+   <h2 className='text-3xl font-bold text-center py-4 container-secondary'>
     Here's why you should trust our{" "}
     <div className='relative inline-block'>
      <span>expertise</span>
@@ -17,7 +17,7 @@ export default function ReasonsData02() {
     </div>{" "}
     in website tracking?
    </h2>
-   <p className='text-center container-secondary paragraph-primary py-8'>
+   <p className='text-center container-secondary   py-8'>
     For 240+ clients and 25+ agencies, from startups to multi-million-dollar
     websites, we have made setting up and fixing tracking systems simple, fast,
     efficient, and successful.

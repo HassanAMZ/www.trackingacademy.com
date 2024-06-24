@@ -43,11 +43,11 @@ export default function WaitListEmail({
        <Text>Join Date: {createdAt.toDate().toLocaleString()}</Text>
       </li>
      </ul>
-     <Text className='paragraph-secondary'>
+     <Text className='text-sm'>
       Stay tuned for updates, and feel free to contact us if you have any
       questions in the meantime.
      </Text>
-     <Text className='paragraph-secondary'>
+     <Text className='text-sm'>
       Best Regards,
       <br />
       The Tracking Academy Team

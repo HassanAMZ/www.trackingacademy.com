@@ -24,10 +24,10 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({
       src={person.image.src}
       alt={person.image.alt}
      />
-     <h6 className='line-clamp-3 paragraph-primary font-semibold text-center'>
+     <h6 className='line-clamp-3   font-semibold text-center'>
       {person.testimonial}
      </h6>
-     <p className='paragraph-secondary'>{person.position}</p>
+     <p className='text-sm'>{person.position}</p>
     </blockquote>
    </div>
   </section>

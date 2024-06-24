@@ -26,9 +26,7 @@ const InfoSection: React.FC<InfoSectionProps> = ({
     <section className='flex justify-center flex-col sm:w-1/2 w-full'>
      {embedId && <YoutubeEmbed embedId={embedId} />}
      {testimonial && (
-      <p className='hidden sm:flex py-1 text-left paragraph-primary'>
-       {testimonial}
-      </p>
+      <p className='hidden sm:flex py-1 text-left  '>{testimonial}</p>
      )}
     </section>
    </div>

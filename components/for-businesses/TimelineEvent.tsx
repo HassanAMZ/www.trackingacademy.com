@@ -47,8 +47,8 @@ const TimelineEvent: React.FC<TimelineEventProps> = ({
      />
     </div>
     <div className='col-span-3'>
-     <div className='font-bold title-tertiary py-2'>{title}</div>
-     <div className='paragraph-primary'>{description}</div>
+     <div className='font-bold  text-xl font-bold   py-2'>{title}</div>
+     <div className=' '>{description}</div>
     </div>
    </div>
   </div>

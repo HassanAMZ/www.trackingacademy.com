@@ -48,7 +48,7 @@ const BlogSearch: React.FC<BlogSearchProps> = ({ data, onSearch }) => {
 
  return (
   <div className='flex flex-col py-12 text-center items-center justify-center w-full gap-4'>
-   <h1 className='title-primary'>
+   <h1 className='text-3xl font-bold '>
     {!isRootBlogPage && displayText && (
      <span className='capitalize'>{displayText} - </span>
     )}

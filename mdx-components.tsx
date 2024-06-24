@@ -38,7 +38,7 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     <h1
      {...props}
      id={content.replace(/\s+/g, "-").toLowerCase()}
-     className='title-tertiary py-2'>
+     className='text-xl font-bold   py-2'>
      {content}
     </h1>
    );
@@ -49,7 +49,7 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     <h2
      {...props}
      id={content.replace(/\s+/g, "-").toLowerCase()}
-     className='title-tertiary py-2'>
+     className='text-xl font-bold   py-2'>
      {content}
     </h2>
    );
@@ -60,7 +60,7 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     <h3
      {...props}
      id={content.replace(/\s+/g, "-").toLowerCase()}
-     className='title-tertiary py-2'>
+     className='text-xl font-bold   py-2'>
      {content}
     </h3>
    );
@@ -71,7 +71,7 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     <h4
      {...props}
      id={content.replace(/\s+/g, "-").toLowerCase()}
-     className='title-tertiary py-2'>
+     className='text-xl font-bold   py-2'>
      {content}
     </h4>
    );
@@ -82,7 +82,7 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     <h5
      {...props}
      id={content.replace(/\s+/g, "-").toLowerCase()}
-     className='title-tertiary py-2'>
+     className='text-xl font-bold   py-2'>
      {content}
     </h5>
    );
@@ -93,7 +93,7 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     <h6
      {...props}
      id={content.replace(/\s+/g, "-").toLowerCase()}
-     className='title-tertiary py-2'>
+     className='text-xl font-bold   py-2'>
      {content}
     </h6>
    );

@@ -12,11 +12,7 @@ const clientImages = [
 export default function WorkHistory() {
  return (
   <React.Fragment>
-   {" "}
-   <h2 className='title-secondary text-center'>
-    Tracking Academy is trusted by
-   </h2>
-   <div className='grid grid-cols-2 lg:grid-cols-3 gap-2 pt-6 items-center justify-center'>
+   <div className='grid grid-cols-3 lg:grid-cols-6 gap-2 items-center justify-center'>
     {clientImages.map((image, index) => (
      <div
       key={index}

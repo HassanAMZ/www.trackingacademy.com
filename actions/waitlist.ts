@@ -43,7 +43,7 @@ export async function createWaitlist(prevState: any, formData: FormData) {
   await setDoc(waitlistDocRef, data);
 
   await resend.emails.send({
-   from: "support@trackingacademy.com",
+   from: "no-reply@trackingacademy.com",
    to: data.email,
    cc: ["reactjswebdev@gmail.com", "analytics@shahzadaalihassan.com"],
    subject: "Thank you for joining the Waitlist!",

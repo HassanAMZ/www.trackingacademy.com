@@ -32,7 +32,7 @@ const BreadCrumbs: React.FC = () => {
      const path = `/${pathSegments.slice(0, index + 1).join("/")}`;
      const isLast = index === pathSegments.length - 1;
      return (
-      <li key={path} className='flex items-center gap-4 paragraph-secondary'>
+      <li key={path} className='flex items-center gap-4 text-sm'>
        {!isLast && <span className='text-dominant'>/</span>}
        {isLast ? (
         <React.Fragment>

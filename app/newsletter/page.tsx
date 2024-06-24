@@ -176,7 +176,7 @@ const Page: FC = () => {
       <div
        className={`py-2 relative flex items-center  hover:cursor-pointer ${
         selectedClient && selectedClient.id === client.id
-         ? "selectedClient text-accent font-bold"
+         ? "selectedClient text-accent font-bold "
          : ""
        }`}
        key={client.id}

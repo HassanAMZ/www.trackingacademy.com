@@ -41,16 +41,14 @@ const InputField: React.FC<InputFieldProps> = ({
      value={value}
      onChange={(e: ChangeEvent<HTMLInputElement>) => onChange(e.target.value)}
      required={required}
-     className={`p-2 border block w-full paragraph-primary rounded-lg border-dominant  text-dominant ${
+     className={`p-2 border block w-full   rounded-lg border-dominant  text-dominant ${
       required && !value ? "border-danger" : ""
      }`}
      aria-describedby={`${id}-helper-text`}
     />
    </div>
    {helperText && (
-    <p
-     className='mt-2 paragraph-secondary text-dominant'
-     id={`${id}-helper-text`}>
+    <p className='mt-2 text-sm text-dominant' id={`${id}-helper-text`}>
      {helperText}
     </p>
    )}

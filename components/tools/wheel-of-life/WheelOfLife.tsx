@@ -107,7 +107,7 @@ const WheelOfLife: React.FC = () => {
    <div className='flex flex-wrap justify-center'>
     {values.map((category, index) => (
      <div key={category.name} className='p-2'>
-      <label className='title-tertiary text-center'>{category.name}</label>
+      <label className='text-xl font-bold   text-center'>{category.name}</label>
       <input
        type='range'
        min='0'

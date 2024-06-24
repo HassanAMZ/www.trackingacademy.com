@@ -9,7 +9,7 @@ export default function CallToAction() {
   <React.Fragment>
    {" "}
    <div className=' bg-accent rounded-lg py-10 flex items-center flex-col'>
-    <h2 className='title-tertiary text-complementary text-center py-5 container-secondary'>
+    <h2 className='text-xl font-bold   text-complementary text-center py-5 container-secondary'>
      Ready to get your analytics & tracking fixed that increases AOV, ROAS, and
      makes you happy?
     </h2>

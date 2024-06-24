@@ -58,10 +58,8 @@ export default function EmailTemplate({
        <Text>Timestamp: {createdAt.toDate().toLocaleString()}</Text>
       </li>
      </ul>
-     <Text className='paragraph-secondary'>
-      Our team will get back to you shortly.
-     </Text>
-     <Text className='paragraph-secondary'>
+     <Text className='text-sm'>Our team will get back to you shortly.</Text>
+     <Text className='text-sm'>
       Best Regards,
       <br />
       Shahzada Ali Hassan

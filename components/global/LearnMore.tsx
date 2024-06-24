@@ -11,7 +11,7 @@ const LearnMore: React.FC<DetailsProps> = ({ detailsList }) => {
       <div className='bg-accent rounded-full p-2'>{detail.icon}</div>
      </div>
      <div className='flex flex-col gap-2 pl-4'>
-      <p className='paragraph-primary font-semibold'>
+      <p className='  font-semibold'>
        {detail.header}:&nbsp;
        <span className='font-normal'>{detail.details}</span>
       </p>

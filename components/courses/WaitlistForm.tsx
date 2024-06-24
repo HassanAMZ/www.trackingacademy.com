@@ -18,7 +18,7 @@ function SubmitButton() {
   <button
    type='submit'
    disabled={pending}
-   className={`bg-accent hover:bg-complementary border-2 border-dominant title-tertiary py-4 px-4 rounded-lg mt-4 transition-all duration-300 ease-in-out text-complementary hover:text-accent ${
+   className={`bg-accent hover:bg-complementary border-2 border-dominant text-xl font-bold   py-4 px-4 rounded-lg mt-4 transition-all duration-300 ease-in-out text-complementary hover:text-accent ${
     pending ? "opacity-50 cursor-not-allowed" : ""
    }`}>
    {pending ? "Joining..." : "Join Waitlist"}
@@ -62,7 +62,7 @@ export default function ContactForm() {
 
  return (
   <React.Fragment>
-   <h2 className='title-secondary text-left py-4'>Join Our Waitlist</h2>
+   <h2 className='text-2xl font-bold  text-left py-4'>Join Our Waitlist</h2>
    <p className='pb-6'>
     Join our waiting list to get notified as soon as the courses are available.
    </p>

@@ -34,15 +34,15 @@ const SopDetails: React.FC<SopDetailsProps> = ({
     key={imageSrc}
     className='bg-complementary text-dominant shadow-md border rounded-lg flex flex-col text-left p-6 gap-4'>
     <div className='flex items-center justify-between gap-4'>
-     <span className='flex items-center justify-center w-10 h-10 bg-dominant text-complementary rounded-full font-bold'>
+     <span className='flex items-center justify-center w-10 h-10 bg-dominant text-complementary rounded-full font-bold '>
       {id}
      </span>
      <div className='flex flex-col lg:flex-row justify-between w-full items-start'>
-      <div className='paragraph-primary font-semibold'>{heading}</div>
+      <div className='  font-semibold'>{heading}</div>
       {(details || imageSrc) && (
        <button
         onClick={toggleImageVisibility}
-        className='flex items-center gap-2 paragraph-primary animate-pulse text-accent'>
+        className='flex items-center gap-2   animate-pulse text-accent'>
         See screenshot & details
         {showImage ? (
          <svg
@@ -65,7 +65,7 @@ const SopDetails: React.FC<SopDetailsProps> = ({
       )}
      </div>
     </div>
-    {showImage && <div className='paragraph-primary'>{details}</div>}
+    {showImage && <div className=' '>{details}</div>}
     {showImage && imageSrc && (
      <div className='transition ease-in duration-300'>
       <Image

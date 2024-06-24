@@ -47,7 +47,7 @@ export async function createContact(prevState: any, formData: FormData) {
   await setDoc(contactDocRef, data);
 
   await resend.emails.send({
-   from: "support@trackingacademy.com",
+   from: "no-reply@trackingacademy.com",
    to: data.email,
    cc: ["reactjswebdev@gmail.com", "analytics@shahzadaalihassan.com"],
    subject: "Thank you for contacting us!",

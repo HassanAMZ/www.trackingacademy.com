@@ -65,17 +65,14 @@ const FAQItem: React.FC<{ faq: FAQ; isOpen: boolean; toggle: () => void }> = ({
  toggle,
 }) => {
  return (
-  <div className='border-b-2 border-complementary overflow-hidden transition-all duration-500 ease-in-out paragraph-primary'>
+  <div className='border rounded-lg border-complementary overflow-hidden divide-y-2'>
    <button
     className='flex justify-between w-full p-4 focus:outline-none'
     onClick={toggle}>
     <span className='font-semibold text-left'>{faq.question}</span>
     <span>{isOpen ? "-" : "+"}</span>
    </button>
-   <div
-    className={`transition-all duration-500 ease-in-out ${
-     isOpen ? "max-h-96 p-4" : "max-h-0"
-    }`}>
+   <div className={isOpen ? "max-h-96 p-4" : "max-h-0"}>
     {isOpen && faq.answer}
    </div>
   </div>

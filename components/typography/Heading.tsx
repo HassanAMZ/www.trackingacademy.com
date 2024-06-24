@@ -33,9 +33,9 @@ const Heading2xl: React.FC<HeadingProps> = ({ children, className, style }) => {
 const Heading3xl: React.FC<HeadingProps> = ({ children, className, style }) => {
  return (
   <h2
-   className={`text-3xl text-left font-bold py-2 ${RobotoCondensed.className} ${
-    className || ""
-   }`}
+   className={`text-3xl text-left font-bold  py-2 ${
+    RobotoCondensed.className
+   } ${className || ""}`}
    style={style}>
    {children}
   </h2>
@@ -57,7 +57,7 @@ const Heading4xl: React.FC<HeadingProps> = ({ children, className, style }) => {
 const Heading5xl: React.FC<HeadingProps> = ({ children, className, style }) => {
  return (
   <h2
-   className={`text-5xl font-bold${RobotoCondensed.className} ${
+   className={`text-5xl font-bold ${RobotoCondensed.className} ${
     className || ""
    }`}
    style={style}>

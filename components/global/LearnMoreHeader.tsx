@@ -9,12 +9,10 @@ const LearnMoreHeader: React.FC<LearnMoreHeaderProps> = ({ headingTexts }) => {
  return (
   <div className='learnMoreHeader container-secondary py-8 text-center space-y-2'>
    {headingTexts.heading && (
-    <div className='py-2 title-secondary'>{headingTexts.heading}</div>
+    <div className='py-2 text-2xl font-bold '>{headingTexts.heading}</div>
    )}
    {headingTexts.subHeading && (
-    <div className='text-center paragraph-primary'>
-     {headingTexts.subHeading}
-    </div>
+    <div className='text-center  '>{headingTexts.subHeading}</div>
    )}
   </div>
  );

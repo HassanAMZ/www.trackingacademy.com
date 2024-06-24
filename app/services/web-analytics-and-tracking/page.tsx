@@ -36,15 +36,13 @@ const PricingCard: React.FC<PricingCardProps> = ({
      {packageType === "PRO" && <span className='badge'>Most Popular</span>}
     </div>
 
-    <h3 className='title-secondary'>{title}</h3>
-    <p className='paragraph-primary'>{description}</p>
+    <h3 className='text-2xl font-bold '>{title}</h3>
+    <p className=' '>{description}</p>
 
     <div className='flex justify-center items-center'>
-     <span className='title-secondary'>{price}</span>
+     <span className='text-2xl font-bold '>{price}</span>
      {originalPrice && (
-      <span className='paragraph-primary line-through text-danger'>
-       {originalPrice}
-      </span>
+      <span className='  line-through text-danger'>{originalPrice}</span>
      )}
     </div>
 
@@ -53,9 +51,7 @@ const PricingCard: React.FC<PricingCardProps> = ({
     </button>
    </div>
    <div className='bg-dominant text-complementary py-4'>
-    <h4 className='paragraph-secondary'>
-     Brands who bought {packageType} package
-    </h4>
+    <h4 className='text-sm'>Brands who bought {packageType} package</h4>
 
     <div className='grid grid-cols-2 gap-2 py-4 items-center justify-center'>
      {imageUrls.map((image, index) => (
@@ -88,9 +84,9 @@ const BenefitItem: React.FC<BenefitItemProps> = ({
     <div className='w-10 h-10 bg-accent flex items-center justify-center rounded-full text-complementary'>
      {icon}
     </div>
-    <h3 className='paragraph-primary font-semibold'>{title}</h3>
+    <h3 className='  font-semibold'>{title}</h3>
    </div>
-   <p className='paragraph-primary'>{description}</p>
+   <p className=' '>{description}</p>
   </div>
  );
 };
@@ -218,10 +214,10 @@ function page() {
   <React.Fragment>
    <main>
     <section className='gap-4 py-16 flex items-center flex-col text-center container-primary'>
-     <h1 className='title-primary lg:py-5 container-secondary'>
+     <h1 className='text-3xl font-bold lg:py-5 container-secondary'>
       Expert Web Analytics & Tracking Integration
      </h1>
-     <p className='container-secondary paragraph-primary '>
+     <p className='container-secondary   '>
       Elevate your online strategy with our bespoke analytics and tracking
       services. We ensure precision, clarity, and growth.
      </p>
@@ -239,10 +235,10 @@ function page() {
 
     <section className='py-32'>
      <div className='container-primary text-center'>
-      <p className='paragraph-primary text-accent'>
+      <p className='  text-accent'>
        Letting us help you with tracking and analytics
       </p>
-      <h2 className='title-secondary text-dominant'>
+      <h2 className='text-2xl font-bold  text-dominant'>
        Become familiar with your benefits
       </h2>
       <div className='grid sm:grid-cols-2 lg:grid-cols-3 gap-3 py-12'>
@@ -265,8 +261,8 @@ function page() {
 
     <section id='pricing' className='pt-20 bg-dominant text-complementary'>
      <div className='container-primary text-center'>
-      <p className='paragraph-primary text-accent'>Our pricing </p>
-      <h2 className='title-secondary'>Choose the right package for you</h2>
+      <p className='  text-accent'>Our pricing </p>
+      <h2 className='text-2xl font-bold '>Choose the right package for you</h2>
       <div className='grid lg:grid-cols-3 gap-4  py-12'>
        {pricingCardsData.map((card, index) => (
         <PricingCard
@@ -285,7 +281,7 @@ function page() {
 
     <section className='bg-complementary pt-12 pb-20 text-dominant'>
      <div className='container-primary text-center'>
-      <h2 className='title-primary py-12'>
+      <h2 className='text-3xl font-bold py-12'>
        Every Web Analytics Service includes:
       </h2>
       <div className='grid grid-cols-2 lg:grid-cols-3 gap-8 pt-6'>
@@ -303,7 +299,7 @@ function page() {
            stroke='#262420'
            strokeWidth='2'></path>
          </svg>
-         <p className='paragraph-primary'>{feature}</p>
+         <p className=' '>{feature}</p>
         </div>
        ))}
       </div>
@@ -312,7 +308,7 @@ function page() {
 
     <section className='bg-dominant text-complementary py-20'>
      <div className='container-primary'>
-      <h2 className='text-center title-secondary py-8'>
+      <h2 className='text-center text-2xl font-bold  py-8'>
        What to Expect When You Engage Our Tracking & Analytics Services
       </h2>
 
@@ -320,48 +316,48 @@ function page() {
        <article className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 py-10'>
         <div className='flex flex-col items-center'>
          <div className='rounded-full bg-accent text-complementary w-12 h-12 flex items-center justify-center z-20'>
-          <span className='title-secondary p-4'>1</span>
+          <span className='text-2xl font-bold  p-4'>1</span>
          </div>
-         <h3 className='title-tertiary py-4 text-center'>
+         <h3 className='text-xl font-bold   py-4 text-center'>
           Initial Consultation
          </h3>
-         <p className='paragraph-primary text-center'>
+         <p className='  text-center'>
           A quick discovery session to understand your business needs and
           analytics goals.
          </p>
         </div>
         <div className='flex flex-col items-center'>
          <div className='rounded-full bg-accent text-complementary w-12 h-12 flex items-center justify-center z-20'>
-          <span className='title-secondary p-4'>2</span>
+          <span className='text-2xl font-bold  p-4'>2</span>
          </div>
-         <h3 className='title-tertiary py-4 text-center'>
+         <h3 className='text-xl font-bold   py-4 text-center'>
           Custom Strategy Plan
          </h3>
-         <p className='paragraph-primary text-center'>
+         <p className='  text-center'>
           Crafting a tailored tracking and analytics strategy to capture the
           metrics that matter most.
          </p>
         </div>
         <div className='flex flex-col items-center'>
          <div className='rounded-full bg-accent text-complementary w-12 h-12 flex items-center justify-center z-20'>
-          <span className='title-secondary p-4'>3</span>
+          <span className='text-2xl font-bold  p-4'>3</span>
          </div>
-         <h3 className='title-tertiary py-4 text-center'>
+         <h3 className='text-xl font-bold   py-4 text-center'>
           Implementation & Setup
          </h3>
-         <p className='paragraph-primary text-center'>
+         <p className='  text-center'>
           Seamless integration of analytics and tracking systems on your website
           and digital platforms.
          </p>
         </div>
         <div className='flex flex-col items-center'>
          <div className='rounded-full bg-accent text-complementary w-12 h-12 flex items-center justify-center z-20'>
-          <span className='title-secondary p-4'>4</span>
+          <span className='text-2xl font-bold  p-4'>4</span>
          </div>
-         <h3 className='title-tertiary py-4 text-center'>
+         <h3 className='text-xl font-bold   py-4 text-center'>
           Ongoing Optimization
          </h3>
-         <p className='paragraph-primary text-center'>
+         <p className='  text-center'>
           Regular analysis and refinement to ensure your tracking systems evolve
           with your business.
          </p>
@@ -373,7 +369,7 @@ function page() {
      </div>
     </section>
     <section className='text-dominant bg-complementary py-20'>
-     <h2 className='title-primary container-primary text-center py-12'>
+     <h2 className='text-3xl font-bold container-primary text-center py-12'>
       Frequently Asked Questions
      </h2>
      <div className='container-secondary '>
@@ -400,7 +396,6 @@ function page() {
        </div>
        <div className='relative w-2/3 pt-4'>
         <Image
-         className=''
          width={1185}
          height={1080}
          src='/images/hero/about-image.png'

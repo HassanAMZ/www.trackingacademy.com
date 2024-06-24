@@ -11,7 +11,7 @@ const SelectionButton: React.FC<ButtonProps> = ({
    isSelected ? "text-accent bg-complementary" : "text-complementary bg-accent"
   }`}
   onClick={onClick}>
-  <Paragraphmd className='w-full font-bold'>{children}</Paragraphmd>
+  <Paragraphmd className='w-full font-bold '>{children}</Paragraphmd>
  </button>
 );
 

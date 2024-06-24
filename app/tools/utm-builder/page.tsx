@@ -309,7 +309,9 @@ const Page: React.FC = () => {
      value={generateUTM()}
      rows={4}
      className={`p-1 border-2 border-dominant rounded-lg bg-transparent peer h-full w-full outline-none pr-2 ${
-      !canGenerateUTM() ? "opacity-50" : "border-2 border-accent title-tertiary"
+      !canGenerateUTM()
+       ? "opacity-50"
+       : "border-2 border-accent text-xl font-bold  "
      }`}
     />
     {!canGenerateUTM() && (
@@ -327,9 +329,7 @@ const Page: React.FC = () => {
        ? " bg-accent text-complementary"
        : " cursor-not-allowed bg-complementary"
      } ${copied ? "animate-shake" : ""} `}>
-     <p className='paragraph-primary font-bold'>
-      {copied ? "Copied!" : "Copy to Clipboard"}
-     </p>
+     <p className='  font-bold '>{copied ? "Copied!" : "Copy to Clipboard"}</p>
     </button>
    </div>
   </section>

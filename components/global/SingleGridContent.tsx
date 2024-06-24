@@ -22,9 +22,9 @@ const SingleGridContent: React.FC<SingleGridContentProps> = ({
     )}
    </div>
    <div className='py-4'>
-    <h4 className='title-tertiary pb-2 lg:pb-4'>{headingTexts.heading}</h4>
+    <h4 className='text-xl font-bold   pb-2 lg:pb-4'>{headingTexts.heading}</h4>
     {paragraphTexts && (
-     <p className='paragraph-primary font-semibold py-1'>
+     <p className='  font-semibold py-1'>
       {paragraphTexts?.primary}&nbsp;
       <span className='textOpacity80 font-normal'>
        {paragraphTexts?.secondary}

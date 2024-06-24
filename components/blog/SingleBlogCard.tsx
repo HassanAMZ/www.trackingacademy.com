@@ -37,15 +37,11 @@ const BlogCard: React.FC<SingleBlogCardProps> = ({
            New
           </div>
          )}
-         <h2 className='line-clamp-2 title-tertiary'>{post.title}</h2>
+         <h2 className='line-clamp-2 text-xl font-bold  '>{post.title}</h2>
         </div>
         <div className='p-4'>
-         <p className='line-clamp-3 text-left paragraph-primary'>
-          {post.description}
-         </p>
-         <p className='py-4 text-left paragraph-secondary'>
-          {formatDate(post.date)}
-         </p>
+         <p className='line-clamp-3 text-left  '>{post.description}</p>
+         <p className='py-4 text-left text-sm'>{formatDate(post.date)}</p>
         </div>
        </>
       </section>

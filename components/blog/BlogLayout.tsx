@@ -34,7 +34,7 @@ const BlogLayout: FC<BlogLayoutProps> = async ({
    <GiscusComments />
 
    <div className='pt-4'>
-    <h4 className='title-tertiary'>Other Related Blogs</h4>
+    <h4 className='text-xl font-bold  '>Other Related Blogs</h4>
     <div className='mt-4 grid grid-cols-1 lg:grid-cols-2 gap-2'>
      {randomPosts.map((blog) => (
       <Link

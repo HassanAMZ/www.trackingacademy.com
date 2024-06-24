@@ -27,7 +27,7 @@ const Footer: React.FC = () => {
       </nav>
      </div>
 
-     <p className='paragraph-tertiary text-center pt-12'>
+     <p className='text-xs  text-center pt-12'>
       © {new Date().getFullYear()} TrackingAcademy, All rights reserved
      </p>
     </footer>

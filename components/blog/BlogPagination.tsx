@@ -42,11 +42,11 @@ const BlogPagination: React.FC<BlogPaginationProps> = ({ sortedData }) => {
        height={1080}
        className='rounded-lg'
       />
-      <h3 className='title-tertiary line-clamp-1'>{blog.title}</h3>
-      <p className='paragraph-primary line-clamp-2'>{blog.description}</p>
+      <h3 className='text-xl font-bold   line-clamp-1'>{blog.title}</h3>
+      <p className='  line-clamp-2'>{blog.description}</p>
       <div className='flex justify-between items-center'>
-       <span className='paragraph-secondary'>By ShahzadaAliHassan</span>
-       <span className='paragraph-secondary border border-dashed border-accent rounded-full px-2'>
+       <span className='text-sm'>By ShahzadaAliHassan</span>
+       <span className='text-sm border border-dashed border-accent rounded-full px-2'>
         {blog.date}
        </span>
       </div>

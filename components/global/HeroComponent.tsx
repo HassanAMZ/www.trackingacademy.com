@@ -61,14 +61,14 @@ const HeroComponent: React.FC<HeroProps> = ({ textGroup, links, images }) => {
        </div>
       )}
       {textGroup.welcomeText && (
-       <p className='paragraph-primary text-left'>{textGroup.welcomeText}</p>
+       <p className='  text-left'>{textGroup.welcomeText}</p>
       )}
       {textGroup.heading && (
-       <h1 className='title-primary'>{textGroup.heading}</h1>
+       <h1 className='text-3xl font-bold '>{textGroup.heading}</h1>
       )}
       {textGroup.subHeading && (
        <div>
-        <p className='title-tertiary'>
+        <p className='text-xl font-bold  '>
          {textGroup.subHeading.one}
          <span className='font-normal'>{textGroup.subHeading.two}</span>
         </p>

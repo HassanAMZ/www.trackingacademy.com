@@ -9,24 +9,35 @@ module.exports = {
   backgroundPosition: {
    "right-10": "right 10rem",
   },
+  //   fontSize: {
+  //    xs: "0.75em",
+  //    sm: "0.875em",
+  //    lg: "1.125em",
+  //    xl: "1.25em",
+  //    "2xl": "1.5em",
+  //    "3xl": "1.875em",
+  //    "4xl": "2.25em",
+  //    "5xl": "3em",
+  //    "6xl": "3.75em",
+  //    "7xl": "4.5em",
+  //   },
+
   extend: {
    filter: ["hover", "focus"], // This enables filters
    brightness: ["hover", "focus"], // This enables brightness adjustment
 
-   //    colors: {
-   //     dominant: "#ffffff",
-   //     complementary: "#201F31",
-   //     accent: "#FFBADE",
-   //     danger: "#ff0000",
-   //    },
    colors: {
     dominant: "#000000",
     complementary: "#ffffff",
-    // accent: "#008080", //teal
-    // accent: "#4d148c", // Purple
     accent: "#6F00FF",
-    danger: "#ff0000",
+    danger: "#E43B2C",
    },
+   //    colors: {
+   //     dominant: "#ffffff",
+   //     complementary: "#000000",
+   //     accent: "#ff0000",
+   //     danger: "#6F00FF",
+   //    },
    animation: {
     fadeIn: "fadeIn 0.2s ease-in-out forwards",
     "gradient-move": "gradient-animation 3s ease infinite",

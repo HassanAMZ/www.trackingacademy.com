@@ -18,6 +18,8 @@ import TestimonialSlider from "@/components/for-businesses/TestimonialSlider";
 import BookACall from "@/components/for-businesses/BookACall";
 import YoutubeEmbed from "@/components/mdx/YoutubeEmbed";
 import NavLink from "@/components/navbar/NavLink";
+import Navbar from "@/components/for-businesses/Navbar";
+import Hero from "@/components/for-businesses/Hero";
 
 const resultsData = [
  {
@@ -107,165 +109,8 @@ const someReasonsData = [
 function page() {
  return (
   <div>
-   <div className='m-3 sticky container-primary top-2 z-10'>
-    <nav className='bg-complementary shadow border rounded-lg p-2 justify-between items-center flex transition duration-300 ease-in-out w-full'>
-     <NavLink href='/for-businesses'>
-      <Image
-       src='/logo.svg'
-       alt='TrackingAcademy'
-       width={500}
-       height={145}
-       className='w-32'
-      />
-     </NavLink>
-     <div className='flex gap-x-4 w-full items-center justify-end'>
-      <BookACall />
-     </div>
-    </nav>
-   </div>
    <main>
-    <section className='lg:py-12 pb-6 container-primary flex flex-col-reverse lg:grid lg:grid-cols-2 gap-4 justify-center items-center'>
-     <div className='flex flex-col gap-2'>
-      <h2 className='title-primary'>
-       Achieve 99% Accurate Tracking and Boost Your ROAS in Just 2 Weeks
-      </h2>
-      <p className='font-semibold'>Dominate in a Post-iOS 17 World with Ease</p>
-      <div
-       className='relative bg-complementary/10 border p-6 rounded-lg w-full max-w-md'
-       id='testimonial'>
-       <div className='absolute -top-7 right-0 flex space-x-1 p-4'>
-        ⭐⭐⭐⭐⭐
-       </div>
-       <p className='italic font-semibold pt-2'>
-        “I don't understand how you can still be profitable without this Cloud
-        Tracking Solution.”
-       </p>
-       <p className=' pt-2 paragraph-tertiary'>
-        Wanchen Kaiser, <strong>CMO at Glamcor</strong>
-       </p>
-       <div className='absolute -bottom-6 right-0 flex space-x-4 mb-2 mr-2'>
-        <div className='bg-green-500 text-complementary font-semibold py-1 px-2 rounded-lg transform rotate-3'>
-         12.7 ROAS
-        </div>
-        <div className='bg-green-500 text-complementary font-semibold py-1 px-2 rounded-lg transform -rotate-3'>
-         +64% Conversions
-        </div>
-       </div>
-      </div>
-      <div className='py-4 flex flex-col gap-2 paragraph-secondary'>
-       <p>✔ Set up reliable tracking in just 1-2 DAYS</p>
-       <p>✔ See 20% more data in Ads Manager within two weeks</p>
-       <p>✔ Ongoing support to ensure smooth operation</p>
-      </div>
-      <div className='flex gap-x-4 w-full items-center justify-start'>
-       <BookACall buttonText='Schedule a Consultation' />
-      </div>
-      <div className='flex items-center gap-2 pt-2'>
-       <div className='relative h-8 w-8'>
-        {images.group.list.map((image, index) => (
-         <Image
-          src={image.src}
-          alt={image.alt}
-          width={1920}
-          height={1080}
-          key={index}
-          className={`rounded-full absolute opacity-90
-              ${index === 0 ? "left-0 top-0 z-1" : ""} 
-              ${index === 1 ? "left-6 top-0 z-2" : ""} 
-              ${index === 2 ? "left-12 top-0 z-3" : ""}
-            `}
-         />
-        ))}
-       </div>
-       <p className='pl-12 paragraph-secondary'>
-        73.492 billion events tracked by Madgicx Tracking
-       </p>
-      </div>
-     </div>
-
-     <div className='bg-complementary shadow-lg rounded-lg overflow-hidden w-full max-w-3xl'>
-      <div className='grid grid-cols-3 bg-dominant/10 text-dominant font-semibold lg:paragraph-primary paragraph-secondary'>
-       <div className='px-4 py-3 flex items-center'>
-        <p>Amount Spent</p>
-        <div className='pl-2 hidden lg:block'>
-         <Image
-          src={"/static/icons/angle-down.svg"}
-          width={20}
-          height={20}
-          className='w-3'
-          alt='arrow'
-         />
-        </div>
-       </div>
-       <div className='px-4 py-3 flex items-center'>
-        <p>ROAS Before</p>
-        <div className='pl-2 hidden lg:block'>
-         <Image
-          src={"/static/icons/angle-down.svg"}
-          width={20}
-          height={20}
-          className='w-3'
-          alt='arrow'
-         />
-        </div>
-       </div>
-       <div className='px-4 py-3 flex items-center'>
-        <p>ROAS After</p>
-        <div className='pl-2 hidden lg:block'>
-         <Image
-          src={"/static/icons/angle-down.svg"}
-          width={20}
-          height={20}
-          className='w-3'
-          alt='arrow'
-         />
-        </div>
-       </div>
-      </div>
-
-      <div className='divide-y divide-gray-200'>
-       <div className='hidden lg:grid lg:grid-cols-3'>
-        <div className='px-4 py-3'>$40,802</div>
-        <div className='px-4 py-3'>1.59</div>
-        <div className='px-4 py-3'>4.5</div>
-       </div>
-       <div className='grid grid-cols-3'>
-        <div className='px-4 py-3'>$31,668</div>
-        <div className='px-4 py-3'>1.75</div>
-        <div className='px-4 py-3'>3.7</div>
-       </div>
-       <div className='hidden lg:grid lg:grid-cols-3'>
-        <div className='px-4 py-3'>$27,277</div>
-        <div className='px-4 py-3'>1.98</div>
-        <div className='px-4 py-3'>3.2</div>
-       </div>
-       <div className='hidden lg:grid lg:grid-cols-3'>
-        <div className='px-4 py-3'>$28,751</div>
-        <div className='px-4 py-3'>1.84</div>
-        <div className='px-4 py-3'>2.7</div>
-       </div>
-       <div className='hidden lg:grid lg:grid-cols-3'>
-        <div className='px-4 py-3'>$31,756</div>
-        <div className='px-4 py-3'>1.93</div>
-        <div className='px-4 py-3'>2.7</div>
-       </div>
-       <div className='grid grid-cols-3'>
-        <div className='px-4 py-3'>$30,636</div>
-        <div className='px-4 py-3'>2.12</div>
-        <div className='px-4 py-3'>3.1</div>
-       </div>
-      </div>
-
-      {/* Table Footer */}
-      <div className='grid grid-cols-3'>
-       <div className='px-4 py-4 bg-blue-50 text-blue-600 font-bold'>
-        $318,375
-       </div>
-       <div className='px-4 py-4 bg-red-50 text-red-600 font-bold'>1.87</div>
-       <div className='px-4 py-4 bg-green-50 text-green-600 font-bold'>5.0</div>
-      </div>
-     </div>
-    </section>
+    <Hero />
 
     <section>
      <ImageSlider />
@@ -296,7 +141,7 @@ function page() {
     <section
      id='about'
      className='flex flex-col pt-20 items-center justify-center container-primary'>
-     <div className=''>
+     <div>
       <p className='text-accent text-center'>
        Here's why you should trust Tracking Academy
       </p>

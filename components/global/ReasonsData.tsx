@@ -36,7 +36,9 @@ const ReasonsData: React.FC<ReasonsDataProps> = ({
 
  return (
   <React.Fragment>
-   <h2 className='title-secondary text-center container-secondary'>{title}</h2>
+   <h2 className='text-2xl font-bold  text-center container-secondary'>
+    {title}
+   </h2>
    <div className='grid lg:grid-cols-2 gap-2 lg:gap-4 py-10 w-full'>
     <section className='flex flex-col gap-2 justify-between'>
      {reasons.map((reason) => (
@@ -49,15 +51,15 @@ const ReasonsData: React.FC<ReasonsDataProps> = ({
        } hover:bg-accent hover:text-complementary`}
        onClick={() => handleIdClick(reason.id)}>
        <p
-        className={`title-primary font-black px-4 lg:pr-10 lg:row-span-2 ${
+        className={`text-3xl font-bold font-black px-4 lg:pr-10 lg:row-span-2 ${
          activeId === reason.id ? "text-complementary" : "text-dominant"
         }`}>
         {reason.id}
        </p>
        <div className='flex flex-col'>
-        <h3 className='title-tertiary font-semibold'>{reason.title}</h3>
+        <h3 className='text-xl font-bold   font-semibold'>{reason.title}</h3>
         {activeId === reason.id && (
-         <p className='pb-2 col-span-2 lg:col-span-1 lg:pt-2 paragraph-secondary'>
+         <p className='pb-2 col-span-2 lg:col-span-1 lg:pt-2 text-sm'>
           {reason.paragraph}
          </p>
         )}

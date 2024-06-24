@@ -81,7 +81,7 @@ function page() {
    <main>
     <section className='gap-4 py-16 flex items-center flex-col text-center bg-gradient-to-t from-complementary via-slate-300 to-complementary'>
      <React.Fragment>
-      <h1 className='title-primary lg:py-5 container-secondary'>
+      <h1 className='text-3xl font-bold lg:py-5 container-secondary'>
        We create courses that equips you with Advanced Tracking Skills to{" "}
        <span className='bg-gradient-to-r from-accent via-accent  to-accent inline-block text-transparent bg-clip-text animate-gradient-move'>
         Maximize
@@ -130,11 +130,11 @@ function page() {
     <section
      id='about'
      className='flex flex-col pt-20 items-center justify-center container-primary'>
-     <div className=''>
+     <div>
       <p className='text-accent text-center'>
        Here's why you should trust Tracking Academy
       </p>
-      <h2 className='title-secondary text-dominant text-center'>
+      <h2 className='text-2xl font-bold  text-dominant text-center'>
        We are the experts in Analytics Integration that's Accurate.
       </h2>
      </div>
@@ -167,25 +167,25 @@ function page() {
     <section className='bg-dominant'>
      <div className='flex items-center flex-col container-primary px-4 py-20'>
       <p className='text-complementary font-semibold'>It works, too</p>
-      <h2 className='title-secondary text-center text-complementary container-secondary'>
+      <h2 className='text-2xl font-bold  text-center text-complementary container-secondary'>
        As you can see for yourself, we get results
       </h2>
       <div className='grid lg:grid-cols-4 sm:grid-cols-2 gap-2 pt-16 w-full'>
        {resultsData.map((result, index) => (
         <div key={index} className='bg-complementary border rounded-lg p-8'>
-         <p className='title-primary pb-5'> {result.percentage}% </p>
-         <p className='paragraph-secondary'>{result.detail} </p>
+         <p className='text-3xl font-bold pb-5'> {result.percentage}% </p>
+         <p className='text-sm'>{result.detail} </p>
         </div>
        ))}
       </div>
-      <p className='pt-16 paragraph-tertiary text-complementary text-center'>
+      <p className='pt-16 text-xs  text-complementary text-center'>
        Results may vary*
       </p>
      </div>
     </section>
 
     <section className='py-20 container-primary flex flex-col items-center'>
-     <h2 className='title-secondary text-center py-10 container-secondary'>
+     <h2 className='text-2xl font-bold  text-center py-10 container-secondary'>
       What happens when you purchase a Tracking Package
      </h2>
      <Timeline />
@@ -201,7 +201,7 @@ function page() {
       <p className='text-accent'>
        Empower Your Future with Essential Analytics Skills
       </p>
-      <h2 className='title-primary'>Analytics & Tracking Solutions</h2>
+      <h2 className='text-3xl font-bold '>Analytics & Tracking Solutions</h2>
       <p>
        We specialize in configuring advanced tracking and analytics for your
        website, ensuring you capture every interaction and gain insights that
@@ -216,16 +216,16 @@ function page() {
 
      <div className='bg-accent rounded-lg py-10 px-6 text-complementary divide-y divide-dominant'>
       <div className='pb-3'>
-       <h3 className='title-tertiary font-bold'>Analytics Setup Package</h3>
+       <h3 className='text-xl font-bold   font-bold '>
+        Analytics Setup Package
+       </h3>
        <div className='py-4 flex items-center gap-4'>
-        <p className='font-bold'>$2,000</p>
-        <p className='paragraph-tertiary'>
-         Comprehensive analytics and tracking setup
-        </p>
+        <p className='font-bold '>$2,000</p>
+        <p className='text-xs '>Comprehensive analytics and tracking setup</p>
        </div>
       </div>
-      <div className='py-4 paragraph-secondary'>
-       <p className='font-bold pt-3 pb-4'>What's Included</p>
+      <div className='py-4 text-sm'>
+       <p className='font-bold  pt-3 pb-4'>What's Included</p>
        <ul className='list-inside grid gap-4 sm:grid-cols-2 lg:grid-cols-2'>
         <li className='flex items-center'>✔ Google Analytics Setup</li>
         <li className='flex items-center'>
@@ -250,11 +250,11 @@ function page() {
 
     <section className=' bg-dominant'>
      <div className='container-primary pt-20 text-complementary text-center'>
-      <h2 className='title-secondary py-8'>We plug into your tech stack</h2>
+      <h2 className='text-2xl font-bold  py-8'>We plug into your tech stack</h2>
       <Technologies />
      </div>
      <div className='text-dominant bg-complementary py-20'>
-      <h2 className='title-secondary text-center'>
+      <h2 className='text-2xl font-bold  text-center'>
        How we compare to other solutions
       </h2>
       <div className=' flex items-center justify-center py-6'>
@@ -271,7 +271,7 @@ function page() {
     </section>
 
     <section className='pb-20'>
-     <h2 className='title-primary container-primary py-12 text-center'>
+     <h2 className='text-3xl font-bold container-primary py-12 text-center'>
       What others have to say about working with Tracking Academy
      </h2>
      <TestimonialSlider />
@@ -287,7 +287,7 @@ function page() {
     </section>
 
     <section className='bg-dominant text-complementary py-20'>
-     <h2 className='title-primary container-primary text-center py-12'>
+     <h2 className='text-3xl font-bold container-primary text-center py-12'>
       Frequently Asked Questions
      </h2>
      <div className='container-secondary'>

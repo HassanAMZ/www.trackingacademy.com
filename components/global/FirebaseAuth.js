@@ -43,7 +43,7 @@ export const FirebaseAuth = () => {
    {loading ? null : !user ? (
     <div className='bg-accent rounded-lg text-complementary p-2 flex flex-col items-center gap-2 h-[30vh] justify-center'>
      <div className='flex justify-center'>
-      <p className='animate-pulse font-bold paragraph-primary'>
+      <p className='animate-pulse font-bold   '>
        Signup for Free to view the Code Snippets
       </p>
      </div>
