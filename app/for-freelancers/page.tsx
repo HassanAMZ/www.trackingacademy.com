@@ -216,9 +216,7 @@ function page() {
 
      <div className='bg-accent rounded-lg py-10 px-6 text-complementary divide-y divide-dominant'>
       <div className='pb-3'>
-       <h3 className='text-xl font-bold   font-bold '>
-        Analytics Setup Package
-       </h3>
+       <h3 className='text-xl font-bold'>Analytics Setup Package</h3>
        <div className='py-4 flex items-center gap-4'>
         <p className='font-bold '>$2,000</p>
         <p className='text-xs '>Comprehensive analytics and tracking setup</p>

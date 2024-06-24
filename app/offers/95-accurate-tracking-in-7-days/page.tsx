@@ -2,9 +2,9 @@ import YoutubeEmbed from "@/components/mdx/YoutubeEmbed";
 import Link from "next/link";
 import Image from "next/image";
 import FAQ from "@/components/for-businesses/FAQ";
-import ClientTestimonial from "@/components/landing-pages/ClientTestimonial";
-import CallToAction from "@/components/landing-pages/CallToAction";
-import Divider from "@/components/landing-pages/Divider";
+import ClientTestimonial from "@/components/offers/ClientTestimonial";
+import CallToAction from "@/components/offers/CallToAction";
+import Divider from "@/components/offers/Divider";
 import Navbar from "@/components/for-businesses/Navbar";
 
 function page() {
@@ -112,7 +112,7 @@ function page() {
     </h3>
     <div className='text-center '>
      <Link
-      href='/landing-pages/offer-001/book-a-call'
+      href='/offers/95-accurate-tracking-in-7-days/submit-query'
       type='button'
       className='link-primary-danger text-2xl !px-12'>
       Apply Now
@@ -169,7 +169,7 @@ function page() {
 
     <div className='text-center py-2'>
      <Link
-      href='/landing-pages/offer-001/book-a-call'
+      href='/offers/95-accurate-tracking-in-7-days/submit-query'
       type='button'
       className='link-primary-danger text-2xl !px-12'>
       Schedule Your Call

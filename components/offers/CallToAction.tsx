@@ -11,7 +11,7 @@ export default function CallToAction() {
    </h2>
    <div className='text-center'>
     <Link
-     href='/landing-pages/offer-001/book-a-call'
+     href='/offers/95-accurate-tracking-in-7-days/submit-query'
      type='button'
      className='link-primary-danger text-2xl !px-12'>
      Book A Call
@@ -22,7 +22,7 @@ export default function CallToAction() {
    </div>
    <div className='text-center py-4'>
     <Link
-     href='/landing-pages/offer-001/book-a-call'
+     href='/offers/95-accurate-tracking-in-7-days/submit-query'
      type='button'
      className='link-primary-danger text-2xl !px-12'>
      Book A Call

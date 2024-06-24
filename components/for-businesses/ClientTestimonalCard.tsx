@@ -1,6 +1,6 @@
 import Image from "next/image";
 import React from "react";
-import Divider from "../landing-pages/Divider";
+import Divider from "../offers/Divider";
 
 interface ClientTestimonialCardProps {
  client: {

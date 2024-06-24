@@ -36,7 +36,7 @@ export default function Page() {
     <div className='space-y-4'>
      <motion.div whileHover='hover' whileTap='tap' variants={linkVariants}>
       <Link
-       href='/landing-pages/offer-001'
+       href='/offers/95-accurate-tracking-in-7-days'
        className='text-xl font-semibold link-primary'>
        Offer 001
       </Link>

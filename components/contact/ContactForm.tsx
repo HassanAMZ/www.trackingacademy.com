@@ -144,7 +144,6 @@ const ContactForm = ({ thankYouUrl = "/contact/thank-you" }) => {
          name='budget'
          required
          min='0'
-         step='100'
          placeholder='Enter Your Budget in USD'
          className='p-2 border text-dominant  border-dominant/10 rounded-lg placeholder:text-xs'
         />
