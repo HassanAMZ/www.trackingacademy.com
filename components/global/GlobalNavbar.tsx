@@ -16,7 +16,7 @@ const GlobalNavbar: React.FC = () => {
   { substring: "for-businesses", component: <ForBusinessesNavbar /> },
   { substring: "for-freelancers", component: <ForFreelancersNavbar /> },
   { substring: "for-agencies", component: null },
-  { substring: "landing-pages", component: null },
+  { substring: "offers", component: null },
   {
    substring: "services",
    component:
