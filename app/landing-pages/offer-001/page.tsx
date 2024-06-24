@@ -107,7 +107,7 @@ function page() {
     <div className='flex justify-center'>
      <YoutubeEmbed embedId={"9MGpL_AmEYM"} />
     </div>
-    <h3 className=' text-2xl md:text-3xl font-semibold text-center py-2'>
+    <h3 className=' text-2xl md:text-3xl font-bold text-center py-2'>
      Ready to see how it works? Watch the video and apply below!
     </h3>
     <div className='text-center '>
@@ -287,7 +287,7 @@ function page() {
    
         <div className='bg-danger rounded-lg py-10 px-6 text-complementary divide-y divide-dominant'>
          <div className='pb-3'>
-          <h3 className='text-3xl font-semibold   font-semibold '>
+          <h3 className='text-3xl font-bold   font-semibold '>
            Analytics Setup Package
           </h3>
           <div className='py-4 flex items-center gap-4'>

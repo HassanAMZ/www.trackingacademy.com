@@ -120,16 +120,6 @@ function page() {
      <WorkHistory />
     </section>
 
-    <section
-     id='why-us'
-     className='pt-3 flex items-center flex-col container-primary'>
-     <ReasonsData
-      title='4 Reasons Why You Should Work With Us for Analytics and Tracking Projects'
-      reasons={someReasonsData}
-      intervalTime={5000} // optional, default is 2000 ms
-     />
-    </section>
-
     <section className='container-primary'>
      <ReasonsData02 />
     </section>
@@ -145,7 +135,7 @@ function page() {
       <p className='text-accent text-center'>
        Here's why you should trust Tracking Academy
       </p>
-      <h2 className='title-secondary text-dominant text-center'>
+      <h2 className='text-2xl font-semibold text-dominant text-center'>
        We are the experts in Analytics Integration that's Accurate.
       </h2>
      </div>
@@ -175,17 +165,17 @@ function page() {
       </div>
      </div>
     </section>
-    <section className='bg-dominant'>
-     <div className='flex items-center flex-col container-primary px-4 py-30'>
+    <section className='bg-dominant py-12'>
+     <div className='flex items-center flex-col container-primary px-4'>
       <p className='text-complementary font-semibold'>It works, too</p>
-      <h2 className='title-secondary text-center text-complementary container-secondary'>
+      <h2 className='text-2xl font-semibold text-center text-complementary container-secondary'>
        As you can see for yourself, we get results
       </h2>
       <div className='grid lg:grid-cols-4 sm:grid-cols-2 gap-2 pt-16 w-full'>
        {resultsData.map((result, index) => (
         <div key={index} className='bg-complementary border rounded-lg p-8'>
-         <p className='title-primary pb-5'> {result.percentage}% </p>
-         <p className='paragraph-secondary'>{result.detail} </p>
+         <p className='text-3xl font-bold pb-5'> {result.percentage}% </p>
+         <p className=''>{result.detail} </p>
         </div>
        ))}
       </div>
@@ -196,7 +186,7 @@ function page() {
     </section>
 
     <section className='py-20 container-primary flex flex-col items-center'>
-     <h2 className='title-secondary text-center py-10 container-secondary'>
+     <h2 className='text-2xl font-semibold text-center py-10 container-secondary'>
       What happens when you purchase a Tracking Package
      </h2>
      <Timeline />
@@ -210,7 +200,7 @@ function page() {
      className='grid lg:grid-cols-2 gap-4 py-10 items-center justify-center container-primary'>
      <div className='space-y-4'>
       <p className='text-accent'>Let's Enhance Your Digital Presence</p>
-      <h2 className='title-primary'>Analytics & Tracking Solutions</h2>
+      <h2 className='text-3xl font-bold'>Analytics & Tracking Solutions</h2>
       <p>
        We specialize in configuring advanced tracking and analytics for your
        website, ensuring you capture every interaction and gain insights that
@@ -233,7 +223,7 @@ function page() {
         </p>
        </div>
       </div>
-      <div className='py-4 paragraph-secondary'>
+      <div className='py-4 '>
        <p className='font-bold pt-3 pb-4'>What's Included</p>
        <ul className='list-inside grid gap-4 sm:grid-cols-2 lg:grid-cols-2'>
         <li className='flex items-center'>✔ Google Analytics Setup</li>
@@ -259,11 +249,13 @@ function page() {
 
     <section className=' bg-dominant'>
      <div className='container-primary pt-20 text-complementary text-center'>
-      <h2 className='title-secondary py-8'>We plug into your tech stack</h2>
+      <h2 className='text-2xl font-semibold py-8'>
+       We plug into your tech stack
+      </h2>
       <Technologies />
      </div>
      <div className='text-dominant bg-complementary py-20'>
-      <h2 className='title-secondary text-center'>
+      <h2 className='text-2xl font-semibold text-center'>
        How we compare to other solutions
       </h2>
       <div className=' flex items-center justify-center py-6'>
@@ -280,7 +272,7 @@ function page() {
     </section>
 
     <section className='pb-20'>
-     <h2 className='title-primary container-primary py-12 text-center'>
+     <h2 className='text-3xl font-bold container-primary py-12 text-center'>
       What others have to say about working with Tracking Academy
      </h2>
      <TestimonialSlider />
@@ -296,14 +288,22 @@ function page() {
     </section>
 
     <section className='bg-dominant text-complementary py-20'>
-     <h2 className='title-primary container-primary text-center py-12'>
+     <h2 className='text-3xl font-bold container-primary text-center py-12'>
       Frequently Asked Questions
      </h2>
      <div className='container-secondary'>
       <FAQ />
      </div>
     </section>
-
+    <section
+     id='why-us'
+     className='pt-10 flex items-center flex-col container-primary'>
+     <ReasonsData
+      title='4 Reasons Why You Should Work With Us for Analytics and Tracking Projects'
+      reasons={someReasonsData}
+      intervalTime={5000} // optional, default is 2000 ms
+     />
+    </section>
     <section className='container-primary py-10'>
      <LearnMoreHeader
       headingTexts={{

@@ -2,11 +2,37 @@
 import { UserAuth } from "@/context/AuthContext";
 import React, { useState, useEffect } from "react";
 import { Paragraphsm } from "@/components/typography/Heading";
-
+import Image from "next/image";
 export const FirebaseAuth = () => {
  const { user, googleSignIn, facebookSignIn, logOut } = UserAuth();
  const [loading, setLoading] = useState(true);
-
+ const images = {
+  group: {
+   list: [
+    {
+     src: "/images/clients/001_1.jfif",
+     alt: "Imtiaz Ahmed - Job Ready Programmer",
+    },
+    { src: "/images/clients/007.jfif", alt: "Client" },
+    {
+     src: "/images/clients/008.jfif",
+     alt: "Pjipipp Herglotz - Kiss Agency",
+    },
+    {
+     src: "/images/clients/001.jpg",
+     alt: "Imtiaz Ahmed - Job Ready Programmer",
+    },
+    {
+     src: "/images/clients/JamieNorsa.jfif",
+     alt: "Imtiaz Ahmed - Job Ready Programmer",
+    },
+   ],
+  },
+  background: {
+   desktop: "/images/hero/hero-image-md.png",
+   mobile: "/images/hero/hero-image-sm.png",
+  },
+ };
  const handleSignIn = async () => {
   try {
    await googleSignIn();
@@ -41,13 +67,11 @@ export const FirebaseAuth = () => {
  return (
   <React.Fragment>
    {loading ? null : !user ? (
-    <div className='bg-accent rounded-lg text-complementary p-2 flex flex-col items-center gap-2 h-[30vh] justify-center'>
+    <div className='bg-danger rounded-lg text-complementary p-2 flex flex-col items-center gap-2 h-[30vh] justify-center'>
      <div className='flex justify-center'>
-      <p className='animate-pulse font-bold   '>
-       Signup for Free to view the Code Snippets
-      </p>
+      <p className='font-semibold'>Free Signup to view the Resourses</p>
      </div>
-     <div className='flex flex-col sm:flex-row w-full sm:w-1/2 items-center gap-2 justify-center'>
+     <div className='flex flex-col w-full sm:w-1/2 items-center gap-2 justify-center'>
       <button
        onClick={handleSignIn}
        type='button'
@@ -67,18 +91,38 @@ export const FirebaseAuth = () => {
        </svg>
        <div> Google</div>
       </button>
+      <div className='flex items-center text-sm gap-2 pt-2'>
+       <div className='relative h-6 w-6'>
+        {images.group.list.map((image, index) => (
+         <Image
+          src={image.src}
+          alt={image.alt}
+          width={1920}
+          height={1080}
+          key={index}
+          className={`rounded-full absolute opacity-90
+          ${index === 0 ? "left-0 top-0 z-1" : ""} 
+          ${index === 1 ? "left-4 top-0 z-2" : ""} 
+          ${index === 2 ? "left-8 top-0 z-3" : ""}
+          ${index === 3 ? "left-12 top-0 z-4" : ""}
+        `}
+         />
+        ))}
+       </div>
+       <p className='pl-12'>900+ users have signed up</p>
+      </div>
      </div>
     </div>
    ) : (
     <React.Fragment>
      {/* <div className='flex flex-row justify-center items-center h-[20vh] gap-2'>
-   <p>Welcome, {user.displayName}:</p>
-   <button
-    className='underline hover:font-semibold hover:cursor-pointer'
-    onClick={handleSignOut}>
-    Sign out
-   </button>
-   </div> */}
+      <p>Welcome, {user.displayName}:</p>
+      <button
+       className='underline hover:font-semibold hover:cursor-pointer'
+       onClick={handleSignOut}>
+       Sign out
+      </button>
+     </div> */}
     </React.Fragment>
    )}
   </React.Fragment>

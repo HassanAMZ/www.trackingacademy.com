@@ -32,7 +32,7 @@ export default function Hero() {
  };
 
  return (
-  <section className='py-4 container-primary flex flex-col lg:grid lg:grid-cols-2 gap-4 justify-center items-start '>
+  <section className='py-4 container-primary flex flex-col-reverse lg:grid lg:grid-cols-2 gap-4 justify-center items-start '>
    <div className='flex flex-col gap-2'>
     <h2 className='text-3xl font-bold '>
      Achieve 95% Conversion Tracking Accuracy in Just 7 Days – Guaranteed!
@@ -69,7 +69,7 @@ export default function Hero() {
      <p>✔ User-friendly interface requiring minimal technical knowledge.</p>
     </div>
     <div className='flex gap-x-4 w-full items-center justify-start'>
-     <BookACall />
+     <BookACall buttonText='Schedule A Meeting' />
     </div>
     <div className='flex items-center gap-2 pt-2'>
      <div className='relative h-6 w-6'>
@@ -89,7 +89,7 @@ export default function Hero() {
       ))}
      </div>
      <p className='pl-8 text-sm'>
-      73.492 billion events tracked by Madgicx Tracking
+      1034 websites configured wtih 95% accurate tracking
      </p>
     </div>
    </div>

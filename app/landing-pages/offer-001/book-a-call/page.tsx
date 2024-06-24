@@ -16,7 +16,7 @@ export default function page() {
    </section>
    <div className='flex items-center justify-center w-full'>
     <div className=' md:min-h-[70vh] md:min-w-[60vw] min-w-[95vw] min-h-[60vh] bg-complementary/10  p-4 rounded-md'>
-     <ContactForm thankYouUrl='/landing-pages/offer-001/book-a-call/thank-you' />
+     <ContactForm thankYouUrl='/landing-pages/offer-001/thank-you' />
     </div>
    </div>
    <Divider />
