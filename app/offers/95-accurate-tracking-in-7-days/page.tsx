@@ -113,7 +113,6 @@ function page() {
     <div className='text-center '>
      <Link
       href='/offers/95-accurate-tracking-in-7-days/submit-query'
-      type='button'
       className='link-primary-danger text-2xl !px-12'>
       Apply Now
      </Link>
@@ -170,7 +169,6 @@ function page() {
     <div className='text-center py-2'>
      <Link
       href='/offers/95-accurate-tracking-in-7-days/submit-query'
-      type='button'
       className='link-primary-danger text-2xl !px-12'>
       Schedule Your Call
      </Link>
