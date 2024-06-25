@@ -33,7 +33,7 @@ export default function EmailTemplate({
  return (
   <Html>
    <Head />
-   <Preview>Thank you for joining our waitlist and for your patience</Preview>
+   <Preview>Someone will reach out to you regarding your query...</Preview>
    <Body>
     <Container>
      <Heading>Thank you for contacting us!</Heading>
