@@ -1,12 +1,15 @@
-import BlogLayout from "@/components/blog/BlogLayout";
-import { ReactNode } from "react";
-import React from "react";
-import { PostMetadata } from "@/types/index";
-import getBlogsData from "utils/getBlogsData";
-import { AuthContextProvider } from "@/context/AuthContext";
-import BlogNavbar from "@/components/blog/BlogNavbar";
-import SingleBlogLayout from "@/components/blog/SingleBlogLayout";
+import Container from '@/components/ui/container';
+import { ReactNode } from 'react';
+import React from 'react';
+
+export const metadata = {
+  title: 'Blog Archieve- TrackingAcademy',
+  description: `Blog for Web Analysts and Marketing People`,
+  openGraph: {
+    images: ['/images/social-sharing.png'],
+  },
+};
 
 export default function Layout({ children }: { children: ReactNode }) {
- return <SingleBlogLayout>{children}</SingleBlogLayout>;
+  return <Container>{children}</Container>;
 }

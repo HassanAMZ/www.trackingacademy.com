@@ -1,59 +1,77 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
- content: [
-  "./app/**/*.{js,ts,jsx,tsx}",
-  "./pages/**/*.{js,ts,jsx,tsx}",
-  "./components/**/*.{js,ts,jsx,tsx}",
- ],
- theme: {
-  backgroundPosition: {
-   "right-10": "right 10rem",
-  },
-  //   fontSize: {
-  //    xs: "0.75em",
-  //    sm: "0.875em",
-  //    lg: "1.125em",
-  //    xl: "1.25em",
-  //    "2xl": "1.5em",
-  //    "3xl": "1.875em",
-  //    "4xl": "2.25em",
-  //    "5xl": "3em",
-  //    "6xl": "3.75em",
-  //    "7xl": "4.5em",
-  //   },
-
-  extend: {
-   filter: ["hover", "focus"], // This enables filters
-   brightness: ["hover", "focus"], // This enables brightness adjustment
-
-   colors: {
-    dominant: "#000000",
-    complementary: "#ffffff",
-    accent: "#6F00FF",
-    danger: "#E43B2C",
-   },
-   //    colors: {
-   //     dominant: "#ffffff",
-   //     complementary: "#000000",
-   //     accent: "#ff0000",
-   //     danger: "#6F00FF",
-   //    },
-   animation: {
-    fadeIn: "fadeIn 0.2s ease-in-out forwards",
-    "gradient-move": "gradient-animation 3s ease infinite",
-   },
-
-   keyframes: {
-    "gradient-animation": {
-     "0%, 100%": { backgroundPosition: "0% 50%" },
-     "50%": { backgroundPosition: "200% 50%" },
+  darkMode: ["class"],
+  content: [
+    './pages/**/*.{ts,tsx}',
+    './components/**/*.{ts,tsx}',
+    './app/**/*.{ts,tsx}',
+    './src/**/*.{ts,tsx}',
+  ],
+  prefix: "",
+  theme: {
+    container: {
+      center: true,
+      padding: "2rem",
+      screens: {
+        "2xl": "1400px",
+      },
     },
-    fadeIn: {
-     "0%": { opacity: 0 },
-     "100%": { opacity: 100 },
+    extend: {
+      colors: {
+        border: "hsl(var(--border))",
+        input: "hsl(var(--input))",
+        ring: "hsl(var(--ring))",
+        background: "hsl(var(--background))",
+        foreground: "hsl(var(--foreground))",
+        primary: {
+          DEFAULT: "hsl(var(--primary))",
+          foreground: "hsl(var(--primary-foreground))",
+        },
+        secondary: {
+          DEFAULT: "hsl(var(--secondary))",
+          foreground: "hsl(var(--secondary-foreground))",
+        },
+        destructive: {
+          DEFAULT: "hsl(var(--destructive))",
+          foreground: "hsl(var(--destructive-foreground))",
+        },
+        muted: {
+          DEFAULT: "hsl(var(--muted))",
+          foreground: "hsl(var(--muted-foreground))",
+        },
+        accent: {
+          DEFAULT: "hsl(var(--accent))",
+          foreground: "hsl(var(--accent-foreground))",
+        },
+        popover: {
+          DEFAULT: "hsl(var(--popover))",
+          foreground: "hsl(var(--popover-foreground))",
+        },
+        card: {
+          DEFAULT: "hsl(var(--card))",
+          foreground: "hsl(var(--card-foreground))",
+        },
+      },
+      borderRadius: {
+        lg: "var(--radius)",
+        md: "calc(var(--radius) - 2px)",
+        sm: "calc(var(--radius) - 4px)",
+      },
+      keyframes: {
+        "accordion-down": {
+          from: { height: "0" },
+          to: { height: "var(--radix-accordion-content-height)" },
+        },
+        "accordion-up": {
+          from: { height: "var(--radix-accordion-content-height)" },
+          to: { height: "0" },
+        },
+      },
+      animation: {
+        "accordion-down": "accordion-down 0.2s ease-out",
+        "accordion-up": "accordion-up 0.2s ease-out",
+      },
     },
-   },
   },
- },
- plugins: [require("@tailwindcss/typography"), require("tailwindcss-animate")],
-};
+  plugins: [require("tailwindcss-animate")],
+}

@@ -1,182 +1,173 @@
-"use client";
+'use client';
 
-import React, { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { useFormState, useFormStatus } from "react-dom";
-import { createContact } from "@/actions/contact-us";
-import { useRouter } from "next/navigation";
+import React, { useState, useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { useFormState, useFormStatus } from 'react-dom';
+import { createContact } from '@/actions/contact-us';
+import { useRouter } from 'next/navigation';
+import Container from '../ui/container';
+import TypographyH2 from '../ui/typography-h2';
+import TypographyP from '../ui/typography-p';
+import { Input } from '../ui/input';
+import { Label } from '../ui/label';
+import { Button } from '../ui/button';
+
+import {
+  Select,
+  SelectTrigger,
+  SelectContent,
+  SelectItem,
+  SelectValue,
+} from '@/components/ui/select';
+import { Textarea } from '../components/ui/textarea';
 
 const initialState = {
- message: null,
+  message: '',
 };
 
-const SubmitButton = () => {
- const { pending } = useFormStatus();
+function SubmitButton() {
+  const { pending } = useFormStatus();
 
- return (
-  <motion.button
-   type='submit'
-   disabled={pending}
-   className={`bg-accent hover:bg-complementary border border-dominant/10 py-4 px-4 rounded-lg mt-4 transition-all duration-300 ease-in-out text-complementary hover:text-accent ${
-    pending ? "opacity-50 cursor-not-allowed" : ""
-   }`}
-   whileHover={{ scale: 1.01 }}
-   whileTap={{ scale: 0.99 }}>
-   {pending ? "Submitting..." : "Submit Contact Form"}
-  </motion.button>
- );
-};
+  return (
+    <Button
+      type='submit'
+      disabled={pending}
+      className={`${pending ? 'opacity-50 cursor-not-allowed' : ''}`}>
+      {pending ? 'Submitting...' : 'Submit Contact Form'}
+    </Button>
+  );
+}
 
-const ContactForm = ({ thankYouUrl = "/contact/thank-you" }) => {
- const [state, formAction] = useFormState(createContact, initialState);
- const [formSubmitted, setFormSubmitted] = useState(false);
- const router = useRouter();
+export default function ContactForm({ thankYouUrl = '/contact/thank-you' }) {
+  const [state, formAction] = useFormState(createContact, initialState);
+  const [formSubmitted, setFormSubmitted] = useState(false);
+  const router = useRouter();
 
- useEffect(() => {
-  if (state?.message && !formSubmitted) {
-   setFormSubmitted(true);
-   router.push(thankYouUrl);
+  useEffect(() => {
+    if (state?.message && !formSubmitted) {
+      setFormSubmitted(true);
+      router.push(thankYouUrl);
+    }
+  }, [state?.message, formSubmitted, router, thankYouUrl]);
+
+  if (formSubmitted) {
+    return (
+      <TypographyP>Thank you! Your request has been submitted.</TypographyP>
+    );
   }
- }, [state?.message, formSubmitted, router, thankYouUrl]);
 
- return (
-  <motion.div
-   initial={{ opacity: 0 }}
-   animate={{ opacity: 1 }}
-   exit={{ opacity: 0 }}
-   transition={{ duration: 0.3 }}
-   className='w-full'>
-   <section className='w-full'>
-    <form action={formAction} className='flex flex-col space-y-3 '>
-     <AnimatePresence>
-      <motion.div
-       initial={{ opacity: 0, y: 20 }}
-       animate={{ opacity: 1, y: 0 }}
-       exit={{ opacity: 0, y: -20 }}
-       transition={{ duration: 0.5, delay: 0.1 }}>
-       <div className='grid grid-cols-1 sm:grid-cols-2 gap-3'>
-        <div className='flex flex-col'>
-         <label htmlFor='userName'>
-          <p className='text-left'> Name</p>
-         </label>
-         <input
-          type='text'
-          id='userName'
-          name='userName'
-          placeholder='John Doe'
-          required
-          className='p-2 border text-dominant  border-dominant/10 rounded-lg placeholder:text-xs'
-         />
-        </div>
-        <div className='flex flex-col'>
-         <label htmlFor='email'>
-          <p className='text-left'> Email</p>
-         </label>
-         <input
-          type='email'
-          id='email'
-          name='email'
-          placeholder='example@email.com'
-          required
-          className='p-2 border text-dominant  border-dominant/10 rounded-lg placeholder:text-xs'
-         />
-        </div>
-       </div>
-      </motion.div>
+  return (
+    <Container className='md:grid md:grid-cols-2 flex flex-col gap-2 py-4 lg:py-12'>
+      <div>
+        <TypographyH2>Contact Us</TypographyH2>
+        <TypographyP>
+          We are here to help you with your tracking setup. Fill out the form
+          below and we'll get in touch with you as soon as possible.
+        </TypographyP>
+      </div>
 
-      <motion.div
-       initial={{ opacity: 0, y: 20 }}
-       animate={{ opacity: 1, y: 0 }}
-       exit={{ opacity: 0, y: -20 }}
-       transition={{ duration: 0.5, delay: 0.2 }}>
-       <div className='flex flex-col'>
-        <label htmlFor='websiteLink'>
-         <p className='text-left'> Website URL</p>
-        </label>
-        <input
-         type='url'
-         id='websiteLink'
-         name='websiteLink'
-         placeholder='https://www.example.com'
-         required
-         className='p-2 border text-dominant  border-dominant/10 rounded-lg placeholder:text-xs'
-        />
-       </div>
-      </motion.div>
+      <section className='w-full rounded-lg'>
+        <form action={formAction} className='flex flex-col space-y-3'>
+          <div className='grid grid-cols-1 sm:grid-cols-2 gap-3'>
+            <div className='grid w-full items-center'>
+              <Label className='pb-2' htmlFor='userName'>
+                Name
+              </Label>
+              <Input
+                required
+                type='text'
+                name='userName'
+                placeholder='John Doe'
+              />
+            </div>
+            <div className='grid w-full items-center'>
+              <Label className='pb-2' htmlFor='email'>
+                Email
+              </Label>
+              <Input
+                required
+                type='email'
+                id='email'
+                name='email'
+                placeholder='example@email.com'
+              />
+            </div>
+          </div>
 
-      <motion.div
-       initial={{ opacity: 0, y: 20 }}
-       animate={{ opacity: 1, y: 0 }}
-       exit={{ opacity: 0, y: -20 }}
-       transition={{ duration: 0.5, delay: 0.3 }}>
-       <div className='flex flex-col'>
-        <label htmlFor='integrationType'>
-         <p className='text-left'> I want help with...</p>
-        </label>
-        <select
-         id='integrationType'
-         name='integrationType'
-         required
-         className='p-2 border text-dominant  border-dominant/10 rounded-lg placeholder:text-xs'>
-         <option value='audit'>Audit my tracking setup</option>
-         <option value='gtm'>GTM setup</option>
-         <option value='ga4'>GA4 integration</option>
-         <option value='fbPixel'>FB Pixel integration</option>
-         <option value='ttPixel'>TT Pixel integration</option>
-         <option value='s2s'>Server to Server Tracking</option>
-         <option value='other'>Others</option>
-        </select>
-       </div>
-      </motion.div>
+          <div className='flex flex-col'>
+            <div className='grid w-full items-center'>
+              <Label className='pb-2' htmlFor='websiteLink'>
+                Website URL
+              </Label>
+              <Input
+                required
+                type='url'
+                id='websiteLink'
+                name='websiteLink'
+                placeholder='https://www.example.com'
+              />
+            </div>
+          </div>
 
-      <motion.div
-       initial={{ opacity: 0, y: 20 }}
-       animate={{ opacity: 1, y: 0 }}
-       exit={{ opacity: 0, y: -20 }}
-       transition={{ duration: 0.5, delay: 0.4 }}>
-       <div className='flex flex-col'>
-        <label htmlFor='budget'>
-         <p className='text-left'> Expected Budget (USD)</p>
-        </label>
-        <input
-         type='number'
-         id='budget'
-         name='budget'
-         required
-         min='0'
-         placeholder='Enter Your Budget in USD'
-         className='p-2 border text-dominant  border-dominant/10 rounded-lg placeholder:text-xs'
-        />
-       </div>
-      </motion.div>
+          <div className='flex flex-col'>
+            <div className='grid w-full items-center'>
+              <Label className='pb-2' htmlFor='integrationType'>
+                I want help with...
+              </Label>
+              <Select>
+                <SelectTrigger className='w-full'>
+                  <SelectValue placeholder='Select an option' />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value='audit'>Audit my tracking setup</SelectItem>
+                  <SelectItem value='gtm'>GTM setup</SelectItem>
+                  <SelectItem value='ga4'>GA4 integration</SelectItem>
+                  <SelectItem value='fbPixel'>FB Pixel integration</SelectItem>
+                  <SelectItem value='ttPixel'>TT Pixel integration</SelectItem>
+                  <SelectItem value='s2s'>Server to Server Tracking</SelectItem>
+                  <SelectItem value='other'>Others</SelectItem>
+                </SelectContent>
+              </Select>
+            </div>
+          </div>
 
-      <motion.div
-       initial={{ opacity: 0, y: 20 }}
-       animate={{ opacity: 1, y: 0 }}
-       exit={{ opacity: 0, y: -20 }}
-       transition={{ duration: 0.5, delay: 0.5 }}>
-       <div>
-        <label htmlFor='projectDescription'>
-         <p className='text-left'> Project Description</p>
-        </label>
-        <textarea
-         id='projectDescription'
-         name='projectDescription'
-         required
-         className='p-2 border text-dominant  border-dominant/10 rounded-lg h-32 w-full'></textarea>
-       </div>
-      </motion.div>
-     </AnimatePresence>
+          <div className='flex flex-col'>
+            <div className='grid w-full items-center'>
+              <Label className='pb-2' htmlFor='budget'>
+                Expected Budget (USD)
+              </Label>
+              <Input
+                required
+                type='number'
+                id='budget'
+                name='budget'
+                placeholder='Enter Your Budget in USD'
+                min='0'
+              />
+            </div>
+          </div>
 
-     <SubmitButton />
+          <div className='flex flex-col'>
+            <div className='grid w-full items-center'>
+              <Label className='pb-2' htmlFor='projectDescription'>
+                Project Description
+              </Label>
+              <Textarea
+                id='projectDescription'
+                name='projectDescription'
+                required
+                className='h-32'
+              />
+            </div>
+          </div>
 
-     <p aria-live='polite' className='sr-only' role='status'>
-      {state?.message}
-     </p>
-    </form>
-   </section>
-  </motion.div>
- );
-};
+          <SubmitButton />
 
-export default ContactForm;
+          <TypographyP aria-live='polite' className='sr-only'>
+            {state?.message}
+          </TypographyP>
+        </form>
+      </section>
+    </Container>
+  );
+}

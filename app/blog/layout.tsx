@@ -1,31 +1,26 @@
-import BlogLayout from "@/components/blog/BlogLayout";
-import { ReactNode } from "react";
-import React from "react";
-import { PostMetadata } from "@/types/index";
-import getBlogsData from "utils/getBlogsData";
-import { AuthContextProvider } from "@/context/AuthContext";
-import BlogNavbar from "@/components/blog/BlogNavbar";
+import { ReactNode } from 'react';
+import React from 'react';
+import { PostMetadata } from '@/types/index';
+import getBlogsData from 'utils/getBlogsData';
+import { AuthContextProvider } from '@/context/AuthContext';
+import Container from '@/components/ui/container';
+import BlogContainer from '@/components/blog/container';
 
 export const metadata = {
- title: "Blog Archieve- TrackingAcademy",
- description: `Blog for Web Analysts and Marketing People`,
- openGraph: {
-  images: ["/images/social-sharing.png"],
- },
+  title: 'Blog Archieve- TrackingAcademy',
+  description: `Blog for Web Analysts and Marketing People`,
+  openGraph: {
+    images: ['/images/social-sharing.png'],
+  },
 };
 
 export async function generateStaticParams(): Promise<
- (PostMetadata & { id: string; slug: string })[]
+  (PostMetadata & { id: string; slug: string })[]
 > {
- let allPostsData = await getBlogsData("app/blog");
+  let allPostsData = await getBlogsData('app/blog');
 
- return allPostsData;
+  return allPostsData;
 }
 export default function Layout({ children }: { children: ReactNode }) {
- return (
-  <BlogLayout>
-   <BlogNavbar />
-   {children}
-  </BlogLayout>
- );
+  return <React.Fragment>{children}</React.Fragment>;
 }

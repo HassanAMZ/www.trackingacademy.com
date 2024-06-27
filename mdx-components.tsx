@@ -1,112 +1,78 @@
-import type { MDXComponents } from "mdx/types";
-import Pre from "@/components/mdx/Pre";
-import YoutubeEmbed from "@/components/mdx/YoutubeEmbed";
-import BlogHeader from "@/components/blog/BlogHeader";
-import CustomLink from "@/components/mdx/CustomLink";
-import Note from "@/components/mdx/Note";
-import {
- ListItem,
- OrderedList,
- UnorderedList,
-} from "@/components/typography/Heading";
-import Image from "next/image";
-import GiscusComments from "@/components/mdx/GiscusComents";
-import AuthPre from "@/components/mdx/AuthPre";
-import DataLayerCode from "./components/dataLayer/DataLayerCode";
-import SopDetails from "@/components/blog/SopDetails";
-import ToolsHeroSection from "./components/tools/ToolsHeroSection";
-import AuthenticatedLayout from "./components/layouts/AuthenticatedLayout";
+import type { MDXComponents } from 'mdx/types';
+import Pre from '@/components/mdx/Pre';
+import YoutubeEmbed from '@/components/mdx/YoutubeEmbed';
+import BlogHeader from '@/components/blog/header';
+import CustomLink from '@/components/mdx/CustomLink';
+import Note from '@/components/mdx/Note';
+import GiscusComments from '@/components/mdx/GiscusComents';
+import AuthPre from '@/components/mdx/AuthPre';
+import DataLayerCode from './components/dataLayer/DataLayerCode';
+import AuthenticatedLayout from './components/layouts/AuthenticatedLayout';
+import TypographyH1 from './components/ui/typography-h1';
+import TypographyH2 from './components/ui/typography-h2';
+import TypographyH3 from './components/ui/typography-h3';
+import TypographyH4 from './components/ui/typography-h4';
+import TypographyP from './components/ui/typography-p';
+import TypographyListItem from './components/ui/typography-list-item';
+import TypographyUnorderedList from './components/ui/typography-unordered-list';
+import TypographyOrderedList from './components/ui/typography-ordered-list';
+import Image from 'next/image';
+import ToolsHeroSection from './components/tools/ToolsHeroSection';
 
 export function useMDXComponents(components: MDXComponents): MDXComponents {
- return {
-  GiscusComments,
-  YoutubeEmbed,
-  DataLayerCode,
-  ToolsHeroSection,
-  BlogHeader,
-  Note,
-  AuthPre,
-  AuthenticatedLayout,
-  CustomLink,
-  SopDetails,
-  pre: AuthPre,
-  a: CustomLink,
-  p: (props) => <p {...props} className='py-1' />,
-  h1: (props) => {
-   const content = props.children as string; // Get the content and trim whitespace
-   return (
-    <h1
-     {...props}
-     id={content.replace(/\s+/g, "-").toLowerCase()}
-     className='text-xl font-bold   py-2'>
-     {content}
-    </h1>
-   );
-  },
-  h2: (props) => {
-   const content = props.children as string; // Get the content and trim whitespace
-   return (
-    <h2
-     {...props}
-     id={content.replace(/\s+/g, "-").toLowerCase()}
-     className='text-xl font-bold   py-2'>
-     {content}
-    </h2>
-   );
-  },
-  h3: (props) => {
-   const content = props.children as string; // Get the content and trim whitespace
-   return (
-    <h3
-     {...props}
-     id={content.replace(/\s+/g, "-").toLowerCase()}
-     className='text-xl font-bold   py-2'>
-     {content}
-    </h3>
-   );
-  },
-  h4: (props) => {
-   const content = props.children as string; // Get the content and trim whitespace
-   return (
-    <h4
-     {...props}
-     id={content.replace(/\s+/g, "-").toLowerCase()}
-     className='text-xl font-bold   py-2'>
-     {content}
-    </h4>
-   );
-  },
-  h5: (props) => {
-   const content = props.children as string; // Get the content and trim whitespace
-   return (
-    <h5
-     {...props}
-     id={content.replace(/\s+/g, "-").toLowerCase()}
-     className='text-xl font-bold   py-2'>
-     {content}
-    </h5>
-   );
-  },
-  h6: (props) => {
-   const content = props.children as string; // Get the content and trim whitespace
-   return (
-    <h6
-     {...props}
-     id={content.replace(/\s+/g, "-").toLowerCase()}
-     className='text-xl font-bold   py-2'>
-     {content}
-    </h6>
-   );
-  },
-  li: ListItem,
-  ol: OrderedList,
-  ul: UnorderedList,
+  const createId = (content: string) =>
+    content.replace(/\s+/g, '-').toLowerCase();
 
-  img: (props) => {
-   // @ts-ignore
-   return <Image src={props.src} width={1920} height={1080} {...props} />;
-  },
-
-  ...components,
- };
+  return {
+    ToolsHeroSection,
+    GiscusComments,
+    YoutubeEmbed,
+    DataLayerCode,
+    BlogHeader,
+    Note,
+    AuthPre,
+    AuthenticatedLayout,
+    CustomLink,
+    pre: AuthPre,
+    a: (props) => <CustomLink {...props} href={props.href || ''} />, // Ensuring href is always a string
+    p: (props) => <TypographyP {...props} />,
+    h1: (props) => (
+      <TypographyH1 {...props} id={createId(props.children as string)}>
+        {props.children}
+      </TypographyH1>
+    ),
+    h2: (props) => (
+      <TypographyH2 {...props} id={createId(props.children as string)}>
+        {props.children}
+      </TypographyH2>
+    ),
+    h3: (props) => (
+      <TypographyH3 {...props} id={createId(props.children as string)}>
+        {props.children}
+      </TypographyH3>
+    ),
+    h4: (props) => (
+      <TypographyH4 {...props} id={createId(props.children as string)}>
+        {props.children}
+      </TypographyH4>
+    ),
+    h5: (props) => (
+      <TypographyH4 {...props} id={createId(props.children as string)}>
+        {props.children}
+      </TypographyH4>
+    ),
+    h6: (props) => (
+      <TypographyH4 {...props} id={createId(props.children as string)}>
+        {props.children}
+      </TypographyH4>
+    ),
+    li: (props) => <TypographyListItem {...props} />,
+    ol: (props) => <TypographyOrderedList {...props} />,
+    ul: (props) => <TypographyUnorderedList {...props} />,
+    img: (props) => (
+      // @ts-ignore
+      <Image src={props.src} width={1920} height={1080} {...props} />
+    ),
+    ...components,
+  };
 }

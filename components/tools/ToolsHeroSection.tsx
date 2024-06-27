@@ -1,30 +1,30 @@
-import React from "react";
-import { Heading4xl, Paragraphmd } from "@/components/typography/Heading";
-import Link from "next/link";
+import React from 'react';
+import Link from 'next/link';
+import { Card, CardContent } from '@/components/ui/card';
+import { Button } from '@/components/ui/button';
+import TypographyH3 from '../ui/typography-h3';
+import TypographyP from '../ui/typography-p';
 
 export default function ToolsHeroSection() {
- return (
-  <div className='py-24 bg-accent shadow-md text-complementary flex flex-col text-center justify-center items-center space-y-6 rounded-lg'>
-   <div className='space-y-6'>
-    <h2 className='text-2xl font-bold '>UTM Builder Tools</h2>
-    <p className='px-6'>
-     Start building your UTMs for Google Ads, Facebook Ads, TikTok, or custom,
-     all at one place
-    </p>
-
-    <div className='flex gap-x-4 justify-center'>
-     <Link
-      href='/tools/utm-builder#utm-builder'
-      className='font-bold  link-secondary'>
-      Start Creating UTMs
-     </Link>
-     <Link
-      href='/blog/ga4/understanding-utm-builder-tool'
-      className='font-bold  border-2 hidden lg:block rounded-lg link-primary'>
-      Read the Blog
-     </Link>
-    </div>
-   </div>
-  </div>
- );
+  return (
+    <Card className='rounded-t-lg'>
+      <CardContent className='flex flex-col justify-center items-start space-y-4 p-6'>
+        <TypographyH3>UTM Builder Tools</TypographyH3>
+        <TypographyP>
+          Start building your UTMs for Google Ads, Facebook Ads, TikTok, or
+          custom, all at one place
+        </TypographyP>
+        <div className='flex gap-x-4 justify-center'>
+          <Link href='/tools/utm-builder#utm-builder' passHref>
+            <Button className='font-bold'>Start Creating UTMs</Button>
+          </Link>
+          <Link href='/blog/ga4/understanding-utm-builder-tool' passHref>
+            <Button variant={'link'} className='font-bold'>
+              Read the Blog
+            </Button>
+          </Link>
+        </div>
+      </CardContent>
+    </Card>
+  );
 }
