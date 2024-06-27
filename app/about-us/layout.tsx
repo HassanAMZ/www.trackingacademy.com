@@ -1,8 +1,6 @@
-import Footer from "@/components/footer/Footer";
-import ContainerLayout from "@/components/layouts/ContainerLayout";
-import NavBar from "@/components/navbar/Navbar";
-import { ReactNode } from "react";
+import { ReactNode } from 'react';
+import Container from '@/components/ui/container';
 
 export default function Layout({ children }: { children: ReactNode }) {
- return <ContainerLayout>{children}</ContainerLayout>;
+  return <Container>{children}</Container>;
 }

@@ -1,33 +1,30 @@
-import HeroComponent from "@/components/global/HeroComponent";
-import ContainerLayout from "@/components/layouts/ContainerLayout";
-import React from "react";
+import React from 'react';
+import Container from '@/components/ui/container';
+import { Button } from '@/components/ui/button';
+import Link from 'next/link';
+import TypographyH1 from '@/components/ui/typography-h1';
+import TypographyP from '@/components/ui/typography-p';
 
 export default function NotFound() {
- return (
-  <ContainerLayout>
-   <HeroComponent
-    textGroup={{
-     welcomeText: "Lost? Let us help you.",
-     heading: "404 - Page Not Found 😢",
-     subHeading: {
-      one: "Oops! ",
-      two: "It seems the page you're looking for doesn't exist. You can return to our homepage or explore other offerings",
-     },
-    }}
-    links={{
-     primary: { src: "/", text: "Go to Homepage" },
-     secondary: { src: "/courses", text: "Explore Courses" },
-    }}
-    images={{
-     group: {
-      list: [],
-     },
-     background: {
-      desktop: "/images/hero/hero-image-md.png",
-      mobile: "/images/hero/hero-image-sm.png",
-     },
-    }}
-   />
-  </ContainerLayout>
- );
+  return (
+    <Container className='flex flex-col items-center justify-center h-screen text-center space-y-6'>
+      <TypographyH1 className='text-6xl font-bold text-primary'>
+        404 - Tracking Error
+      </TypographyH1>
+      <TypographyP>
+        Oops! Looks like the tracking pixel went AWOL. The page you're looking
+        for doesn't exist. But don't worry, we've already notified our data
+        analysts to look into this. In the meantime, let's get you back on
+        track.
+      </TypographyP>
+      <div className='flex gap-6'>
+        <Link href='/' passHref>
+          <Button className='mt-4'>Go Back Home</Button>
+        </Link>
+        <Link href='/blog' passHref>
+          <Button className='mt-4'>Or Go Blogs</Button>
+        </Link>
+      </div>
+    </Container>
+  );
 }

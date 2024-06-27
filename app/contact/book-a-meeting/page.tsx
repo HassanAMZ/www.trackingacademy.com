@@ -2,57 +2,65 @@ import ContactForm from '@/components/contact/ContactForm';
 import CallToAction from '@/components/offers/CallToAction';
 import ClientTestimonial from '@/components/offers/ClientTestimonial';
 import Divider from '@/components/offers/Divider';
-import YoutubeEmbed from '@/components/mdx/YoutubeEmbed';
 import React from 'react';
+import { GTMContactFormSubmission } from '@/components/analytics/GTMEvents';
+import YoutubeEmbed from '@/components/global/youtube-embed';
+import { Card, CardContent } from '@/components/ui/card';
+import TypographyH1 from '@/components/ui/typography-h1';
+import TypographyP from '@/components/ui/typography-p';
+import Container from '@/components/ui/container';
 
-export default function page() {
+export default function Page() {
   return (
-    <main className='container-secondary'>
+    <Container>
       <section className='pt-6 pb-2 space-y-2'>
-        <h1 className='text-center text-3xl md:text-4xl font-semibold '>
-          <span className='text-danger'>Final Step</span> Book a Call Below ...
-        </h1>
+        <TypographyH1 className='text-center'>
+          <span className='text-primary'>Final Step</span> Book a Call Below ...
+        </TypographyH1>
       </section>
 
-      <div className='flex items-center justify-center w-full py-4'>
-        <div className=' md:min-h-[70vh] md:min-w-[60vw] min-w-[95vw] min-h-[60vh] bg-complementary  p-4 rounded-md'>
+      <div className='flex items-center justify-center w-full py-4 '>
+        <div className=' md:min-h-[70vh] md:min-w-[60vw] min-w-[92vw] min-h-[60vh] bg-complementary rounded-md bg-secondary'>
           <iframe
             src='https://calendar.google.com/calendar/appointments/schedules/AcZssZ0wgUDGuk7YMLv1IcsYbgeQwVYnRt39plBBMKmO55fulvLIeQ2ZZqBOGm1IpXYK7zvyl7YBLnlq?gv=true'
             className=' md:min-h-[70vh] md:min-w-[60vw] min-w-[95vw] min-h-[60vh] '></iframe>
         </div>
       </div>
+
       <div className='flex flex-col gap-y-4 text-xl leading-normal pb-4'>
         <div>
-          <span className='text-danger'>✅ Step 1:</span>
-          <span>
+          <TypographyP>
+            <span className='text-primary'>✅ Step 1:</span>
             You will receive an email with a meeting invite for your scheduled
             time. Make sure to accept the invite so it shows up in your
             calendar.
-          </span>
+          </TypographyP>
         </div>
         <div>
-          <span className='text-danger'>✅ Step 2:</span>
-          <span>
+          <TypographyP>
+            <span className='text-primary'>✅ Step 2:</span>
             You will also receive a Zoom link in the meeting invite, which is
             where the meeting will be held.
-          </span>
+          </TypographyP>
         </div>
         <div>
-          <span className='text-danger'>✅ Step 3:</span>
-          <span>
+          <TypographyP>
+            <span className='text-primary'>✅ Step 3:</span>
             Please be at your computer for the meeting, as we may share our
             screen with you to review your business.
-          </span>
+          </TypographyP>
         </div>
         <div>
-          <span className='text-danger'>✅ Step 4:</span>
-          <span>
+          <TypographyP>
+            <span className='text-primary'>✅ Step 4:</span>
             Watch the video below to prepare for our call and learn what we will
             cover during our session.
-          </span>
+          </TypographyP>
         </div>
       </div>
-      <YoutubeEmbed embedId={'9MGpL_AmEYM'} />
-    </main>
+
+      <YoutubeEmbed embedId='9MGpL_AmEYM' />
+      <GTMContactFormSubmission />
+    </Container>
   );
 }

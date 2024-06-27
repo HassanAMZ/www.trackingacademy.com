@@ -11,15 +11,7 @@ import TypographyP from '../ui/typography-p';
 import { Input } from '../ui/input';
 import { Label } from '../ui/label';
 import { Button } from '../ui/button';
-
-import {
-  Select,
-  SelectTrigger,
-  SelectContent,
-  SelectItem,
-  SelectValue,
-} from '@/components/ui/select';
-import { Textarea } from '../components/ui/textarea';
+import { Textarea } from '@/components/ui/textarea';
 
 const initialState = {
   message: '',
@@ -38,7 +30,9 @@ function SubmitButton() {
   );
 }
 
-export default function ContactForm({ thankYouUrl = '/contact/thank-you' }) {
+export default function ContactForm({
+  thankYouUrl = '/contact/book-a-meeting',
+}) {
   const [state, formAction] = useFormState(createContact, initialState);
   const [formSubmitted, setFormSubmitted] = useState(false);
   const router = useRouter();

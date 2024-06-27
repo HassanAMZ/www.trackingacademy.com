@@ -11,7 +11,7 @@ import TypographyH2 from '../ui/typography-h2';
 
 export default function Hero() {
   return (
-    <Container>
+    <Container className='md:py-12 py-4'>
       <div className='md:grid md:grid-cols-3 flex flex-col items-start text-center md:text-left justify-center gap-4'>
         <div className='space-y-3 md:col-span-2'>
           <TypographyH1>

@@ -6,18 +6,18 @@ import CustomLink from '@/components/mdx/CustomLink';
 import Note from '@/components/mdx/Note';
 import GiscusComments from '@/components/mdx/GiscusComents';
 import AuthPre from '@/components/mdx/AuthPre';
-import DataLayerCode from './components/dataLayer/DataLayerCode';
-import AuthenticatedLayout from './components/layouts/AuthenticatedLayout';
-import TypographyH1 from './components/ui/typography-h1';
-import TypographyH2 from './components/ui/typography-h2';
-import TypographyH3 from './components/ui/typography-h3';
-import TypographyH4 from './components/ui/typography-h4';
-import TypographyP from './components/ui/typography-p';
-import TypographyListItem from './components/ui/typography-list-item';
-import TypographyUnorderedList from './components/ui/typography-unordered-list';
-import TypographyOrderedList from './components/ui/typography-ordered-list';
+import DataLayerCode from '@/components/dataLayer/DataLayerCode';
+import AuthenticatedLayout from '@/components/layouts/AuthenticatedLayout';
+import TypographyH1 from '@/components/ui/typography-h1';
+import TypographyH2 from '@/components/ui/typography-h2';
+import TypographyH3 from '@/components/ui/typography-h3';
+import TypographyH4 from '@/components/ui/typography-h4';
+import TypographyP from '@/components/ui/typography-p';
+import TypographyListItem from '@/components/ui/typography-list-item';
+import TypographyUnorderedList from '@/components/ui/typography-unordered-list';
+import TypographyOrderedList from '@/components/ui/typography-ordered-list';
 import Image from 'next/image';
-import ToolsHeroSection from './components/tools/ToolsHeroSection';
+import ToolsHeroSection from '@/components/tools/ToolsHeroSection';
 
 export function useMDXComponents(components: MDXComponents): MDXComponents {
   const createId = (content: string) =>

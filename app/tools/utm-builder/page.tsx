@@ -16,7 +16,7 @@ import TypographyH1 from '@/components/ui/typography-h1';
 import TypographyP from '@/components/ui/typography-p';
 import { Separator } from '@/components/ui/separator';
 import { cn } from '@/lib/utils';
-import { Textarea } from '@/components/components/ui/textarea';
+import { Textarea } from '@/components/ui/textarea';
 
 const Page: React.FC = () => {
   const [websiteURL, setWebsiteURL] = useState<string>('');
