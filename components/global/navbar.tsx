@@ -65,10 +65,15 @@ const ListItem = React.forwardRef<
 ListItem.displayName = 'ListItem';
 
 export default function Navbar() {
+  const [isSheetOpen, setSheetOpen] = React.useState(false);
   const segment = useSelectedLayoutSegment();
 
   const isActive = (path: string) => {
     return segment === path;
+  };
+
+  const handleLinkClick = () => {
+    setSheetOpen(false);
   };
 
   const renderCallToAction = () => {
@@ -94,9 +99,10 @@ export default function Navbar() {
   return (
     <div className='pt-4 pb-2 sticky top-0 z-10 w-full lg:text-sm'>
       <Container>
-        <div className='bg-secondary rounded-lg '>
-          <NavigationMenu className='h-14 px-3'>
-            <NavigationMenuList className='hidden flex-col gap-4 text-lg font-medium lg:flex lg:flex-row lg:items-center lg:gap-2 lg:text-sm'>
+        <div className='bg-secondary rounded-lg'>
+          {/* Desktop Menu */}
+          <NavigationMenu className='hidden lg:flex h-14 px-3'>
+            <NavigationMenuList className='flex flex-col gap-4 text-lg font-medium lg:flex-row lg:items-center lg:gap-2 lg:text-sm'>
               <NavigationMenuItem>
                 <Link href='/' legacyBehavior passHref>
                   <NavigationMenuLink
@@ -110,7 +116,7 @@ export default function Navbar() {
                 </Link>
               </NavigationMenuItem>
               <NavigationMenuItem>
-                <Link href='/' legacyBehavior passHref>
+                <Link href='/for-businesses' legacyBehavior passHref>
                   <NavigationMenuLink
                     className={cn(
                       navigationMenuTriggerStyle(),
@@ -161,7 +167,14 @@ export default function Navbar() {
                 </NavigationMenuContent>
               </NavigationMenuItem>
             </NavigationMenuList>
-            <Sheet>
+            <div className='flex gap-2'>
+              <ModeToggle />
+              {renderCallToAction()}
+            </div>
+          </NavigationMenu>
+
+          <Sheet open={isSheetOpen} onOpenChange={setSheetOpen}>
+            <div className=' flex h-14 px-3 items-center justify-between gap-2 lg:hidden'>
               <SheetTrigger asChild>
                 <Button
                   variant='outline'
@@ -171,98 +184,102 @@ export default function Navbar() {
                   <span className='sr-only'>Toggle navigation menu</span>
                 </Button>
               </SheetTrigger>
-              <div className='lg:hidden pl-2'>
-                <Link href='/' legacyBehavior passHref>
-                  <NavigationMenuLink
-                    className={cn(
-                      navigationMenuTriggerStyle(),
-                      !segment &&
-                        'bg-secondary text-accent-foreground border border-primary'
-                    )}>
-                    TrackingAcademy.com
-                  </NavigationMenuLink>
-                </Link>
-              </div>
+              <Link
+                href='/'
+                className={cn(
+                  navigationMenuTriggerStyle(),
+                  !segment &&
+                    'bg-secondary text-accent-foreground border border-primary text-sm'
+                )}
+                onClick={handleLinkClick}>
+                TrackingAcademy.com
+              </Link>
+              {renderCallToAction()}
+            </div>
 
-              <SheetContent
-                side='right'
-                className='flex flex-col justify-between'>
-                <nav className='flex flex-col space-y-4 py-4 w-full'>
-                  <Link
-                    href='/'
-                    className={cn(
-                      navigationMenuTriggerStyle(),
-                      isActive('for-businesses') &&
-                        'bg-secondary text-accent-foreground border border-primary'
-                    )}>
-                    TrackingAcademy.com
-                  </Link>
-                  <Link
-                    href='/'
-                    className={cn(
-                      navigationMenuTriggerStyle(),
-                      !segment &&
-                        'bg-secondary text-accent-foreground border border-primary'
-                    )}>
-                    For Businesses
-                  </Link>
-                  <Link
-                    href='/for-freelancers'
-                    className={cn(
-                      navigationMenuTriggerStyle(),
-                      isActive('for-freelancers') &&
-                        'bg-secondary text-accent-foreground border border-primary'
-                    )}>
-                    For Freelancers
-                  </Link>
-                  <Link
-                    href='/blog'
-                    className={cn(
-                      navigationMenuTriggerStyle(),
-                      isActive('blog') &&
-                        'bg-secondary text-accent-foreground border border-primary'
-                    )}>
-                    Blogs
-                  </Link>
-                  <Link
-                    href='/tools'
-                    className={cn(
-                      navigationMenuTriggerStyle(),
-                      isActive('tools') &&
-                        'bg-secondary text-accent-foreground border border-primary'
-                    )}>
-                    Tools
-                  </Link>
-
-                  {segment === 'for-freelancers' ? (
-                    <Link
-                      passHref
-                      legacyBehavior
-                      href='/for-freelancers/enroll-now'>
-                      <Button className='min-w-full font-medium text-secondary'>
-                        Enroll Now
-                      </Button>
-                    </Link>
-                  ) : (
-                    <Link
-                      passHref
-                      legacyBehavior
-                      href='/contact'
-                      className='w-full'>
-                      <Button className='w-full font-medium text-secondary'>
-                        <span>Book a Call</span>
-                      </Button>
-                    </Link>
+            <SheetContent
+              side='right'
+              className='flex flex-col justify-between'>
+              <nav className='flex flex-col space-y-4 py-4 w-full'>
+                <Link
+                  href='/'
+                  className={cn(
+                    navigationMenuTriggerStyle(),
+                    !segment &&
+                      'bg-secondary text-accent-foreground border border-primary'
                   )}
-                </nav>
-                <ModeToggle />
-              </SheetContent>
-              <div className='flex w-full items-center justify-end gap-2'>
-                <ModeToggle className='hidden lg:block' />
-                {renderCallToAction()}
-              </div>
-            </Sheet>
-          </NavigationMenu>
+                  onClick={handleLinkClick}>
+                  TrackingAcademy.com
+                </Link>
+                <Link
+                  href='/for-businesses'
+                  className={cn(
+                    navigationMenuTriggerStyle(),
+                    isActive('for-businesses') &&
+                      'bg-secondary text-accent-foreground border border-primary'
+                  )}
+                  onClick={handleLinkClick}>
+                  For Businesses
+                </Link>
+                <Link
+                  href='/for-freelancers'
+                  className={cn(
+                    navigationMenuTriggerStyle(),
+                    isActive('for-freelancers') &&
+                      'bg-secondary text-accent-foreground border border-primary'
+                  )}
+                  onClick={handleLinkClick}>
+                  For Freelancers
+                </Link>
+                <Link
+                  href='/blog'
+                  className={cn(
+                    navigationMenuTriggerStyle(),
+                    isActive('blog') &&
+                      'bg-secondary text-accent-foreground border border-primary'
+                  )}
+                  onClick={handleLinkClick}>
+                  Blogs
+                </Link>
+                <Link
+                  href='/tools'
+                  className={cn(
+                    navigationMenuTriggerStyle(),
+                    isActive('tools') &&
+                      'bg-secondary text-accent-foreground border border-primary'
+                  )}
+                  onClick={handleLinkClick}>
+                  Tools
+                </Link>
+
+                {segment === 'for-freelancers' ? (
+                  <Link
+                    passHref
+                    legacyBehavior
+                    href='/for-freelancers/enroll-now'>
+                    <Button
+                      className='min-w-full font-medium text-secondary'
+                      onClick={handleLinkClick}>
+                      Enroll Now
+                    </Button>
+                  </Link>
+                ) : (
+                  <Link
+                    passHref
+                    legacyBehavior
+                    href='/contact'
+                    className='w-full'>
+                    <Button
+                      className='w-full font-medium text-secondary'
+                      onClick={handleLinkClick}>
+                      <span>Book a Call</span>
+                    </Button>
+                  </Link>
+                )}
+              </nav>
+              <ModeToggle />
+            </SheetContent>
+          </Sheet>
         </div>
       </Container>
     </div>
