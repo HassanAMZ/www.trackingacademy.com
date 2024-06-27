@@ -19,7 +19,7 @@ function SubmitButton() {
   const { pending } = useFormStatus();
 
   return (
-    <Button type='submit' disabled={pending}>
+    <Button type='submit' disabled={pending} className='w-full'>
       {pending ? 'Submitting...' : 'Request Blog'}
     </Button>
   );
@@ -44,10 +44,7 @@ const RequestABlogForm: React.FC<RequestABlogFormProps> = ({ searchTerm }) => {
   }
 
   return (
-    <form action={formAction} className='mt-4 w-full max-w-md'>
-      <TypographyP className='text-center'>
-        Request a blog on this topic and get notified when it's published:
-      </TypographyP>
+    <form action={formAction} className='mt-4 space-y-4 w-full max-w-md'>
       <Input
         type='email'
         name='email'

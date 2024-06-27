@@ -74,7 +74,7 @@ export default function Navbar() {
   const renderCallToAction = () => {
     if (segment === 'for-freelancers') {
       return (
-        <Link href='/for-freelancers/enroll-now'>
+        <Link passHref legacyBehavior href='/for-freelancers/enroll-now'>
           <Button className='w-full font-medium text-secondary sm:w-max'>
             Enroll Now
           </Button>
@@ -82,7 +82,7 @@ export default function Navbar() {
       );
     }
     return (
-      <Link href='/contact'>
+      <Link passHref legacyBehavior href='/contact'>
         <Button className='w-full font-medium text-secondary sm:w-max px-2 sm:px-4'>
           <span className='sm:block hidden'>Book a Call</span>
           <span className='block sm:hidden'>Contact</span>
@@ -235,13 +235,20 @@ export default function Navbar() {
                   </Link>
 
                   {segment === 'for-freelancers' ? (
-                    <Link href='/for-freelancers/enroll-now'>
+                    <Link
+                      passHref
+                      legacyBehavior
+                      href='/for-freelancers/enroll-now'>
                       <Button className='min-w-full font-medium text-secondary'>
                         Enroll Now
                       </Button>
                     </Link>
                   ) : (
-                    <Link href='/contact' className='w-full'>
+                    <Link
+                      passHref
+                      legacyBehavior
+                      href='/contact'
+                      className='w-full'>
                       <Button className='w-full font-medium text-secondary'>
                         <span>Book a Call</span>
                       </Button>

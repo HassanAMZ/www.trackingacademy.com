@@ -3,19 +3,17 @@
 import React, { useState, useEffect } from 'react';
 import { PostMetadata } from '@/types/index';
 import { BlogSearchProps } from '@/types/index';
-import { usePathname } from 'next/navigation';
-import { useParams } from 'next/navigation';
-import TypographyH1 from '../ui/typography-h1';
-import { Card, CardContent, CardHeader } from '../ui/card';
-import { Input } from '../ui/input';
-import { Button } from '../ui/button';
-import TypographyP from '../ui/typography-p';
+import { usePathname, useParams } from 'next/navigation';
+import { Card, CardContent, CardHeader } from '@/components/ui/card';
+import { Input } from '@/components/ui/input';
+import { Button } from '@/components/ui/button';
+import TypographyH1 from '@/components/ui/typography-h1';
+import TypographyP from '@/components/ui/typography-p';
 import RequestABlogForm from './request-a-blog';
 
 const BlogSearch: React.FC<BlogSearchProps> = ({ data, onSearch }) => {
   const [searchTerm, setSearchTerm] = useState('');
   const [results, setResults] = useState<PostMetadata[]>(data);
-
   useEffect(() => {
     const searchWords = searchTerm
       .toLowerCase()
@@ -25,7 +23,8 @@ const BlogSearch: React.FC<BlogSearchProps> = ({ data, onSearch }) => {
       const matchesSearchTerm = searchWords.every(
         (word) =>
           post.title.toLowerCase().includes(word) ||
-          post.description.toLowerCase().includes(word)
+          post.description.toLowerCase().includes(word) ||
+          post.tags.some((tag) => tag.toLowerCase().includes(word))
       );
 
       return matchesSearchTerm;
@@ -33,7 +32,7 @@ const BlogSearch: React.FC<BlogSearchProps> = ({ data, onSearch }) => {
 
     setResults(filtered);
     onSearch(filtered);
-  }, [searchTerm, data, onSearch]);
+  }, [searchTerm]);
 
   const formatText = (text?: string) => {
     if (text) {
@@ -103,6 +102,7 @@ const BlogSearch: React.FC<BlogSearchProps> = ({ data, onSearch }) => {
                 {' '}
                 🤷‍♂️
               </span>
+              Request a blog on this topic and get notified when it's published:
             </TypographyP>
             <RequestABlogForm searchTerm={searchTerm} />
           </div>

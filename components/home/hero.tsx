@@ -8,8 +8,8 @@ import TypographyH1 from '@/components/ui/typography-h1';
 
 export default function Hero() {
   return (
-    <Container>
-      <div className='md:grid md:grid-cols-5 flex flex-col items-start text-center md:text-left justify-center gap-4'>
+    <Container className='md:py-12 py-4'>
+      <div className='md:grid md:grid-cols-5 flex flex-col items-start text-center md:text-left justify-center gap-4 '>
         <div className='space-y-3 md:col-span-3'>
           <TypographyH1>
             <span className='text-primary'>Get 95% Accurate Tracking</span> in 7
@@ -68,7 +68,7 @@ export default function Hero() {
           </div>
         </div>
 
-        <div className='w-full overflow-y-auto rounded-xl text-sm border md:col-span-2'>
+        <div className='w-full overflow-y-auto rounded-xl text-sm border md:col-span-2 overflow-hidden'>
           <table className='w-full'>
             <thead>
               <tr className='m-0 p-0 even:bg-muted'>
