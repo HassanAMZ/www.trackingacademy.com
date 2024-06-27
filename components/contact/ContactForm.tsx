@@ -114,20 +114,13 @@ export default function ContactForm({ thankYouUrl = '/contact/thank-you' }) {
               <Label className='pb-2' htmlFor='integrationType'>
                 I want help with...
               </Label>
-              <Select>
-                <SelectTrigger className='w-full'>
-                  <SelectValue placeholder='Select an option' />
-                </SelectTrigger>
-                <SelectContent>
-                  <SelectItem value='audit'>Audit my tracking setup</SelectItem>
-                  <SelectItem value='gtm'>GTM setup</SelectItem>
-                  <SelectItem value='ga4'>GA4 integration</SelectItem>
-                  <SelectItem value='fbPixel'>FB Pixel integration</SelectItem>
-                  <SelectItem value='ttPixel'>TT Pixel integration</SelectItem>
-                  <SelectItem value='s2s'>Server to Server Tracking</SelectItem>
-                  <SelectItem value='other'>Others</SelectItem>
-                </SelectContent>
-              </Select>
+              <Input
+                required
+                type='text'
+                id='integrationType'
+                name='integrationType'
+                placeholder='Setting up google analytics 4'
+              />
             </div>
           </div>
 

@@ -1,7 +1,9 @@
 'use client';
+
 import { handleEnrollNowForm } from '@/actions/handle-enroll-now';
 import React, { useState } from 'react';
 import { useFormState, useFormStatus } from 'react-dom';
+import { useRouter } from 'next/navigation'; // Import useRouter
 import Container from '../ui/container';
 import TypographyH2 from '../ui/typography-h2';
 import TypographyP from '../ui/typography-p';
@@ -29,15 +31,12 @@ function SubmitButton() {
 
 export default function EnrollNowForm() {
   const [state, formAction] = useFormState(handleEnrollNowForm, initialState);
-
+  const router = useRouter(); // Initialize useRouter
   const [formSubmitted, setFormSubmitted] = useState(false);
 
   if (state?.message && !formSubmitted) {
     setFormSubmitted(true);
-  }
-
-  if (formSubmitted) {
-    return <p>Thanks for joining the waitlist!</p>;
+    router.push('/for-freelancers/enroll-now/waitlist-joined'); // Redirect after submission
   }
 
   return (
