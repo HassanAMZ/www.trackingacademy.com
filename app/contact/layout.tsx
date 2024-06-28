@@ -1,9 +1,12 @@
-import Footer from '@/components/footer/Footer';
-import ContainerLayout from '@/components/layouts/ContainerLayout';
-import NavBar from '@/components/navbar/Navbar';
+import React, { ReactNode } from 'react';
 import Container from '@/components/ui/container';
-import { ReactNode } from 'react';
+import Navbar from '@/components/global/navbar';
 
 export default function Layout({ children }: { children: ReactNode }) {
-  return <Container>{children}</Container>;
+ return (
+  <React.Fragment>
+   <Navbar />
+   <Container>{children}</Container>;
+  </React.Fragment>
+ );
 }

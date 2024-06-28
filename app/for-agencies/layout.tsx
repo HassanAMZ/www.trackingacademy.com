@@ -1,16 +1,18 @@
-import Footer from "@/components/footer/Footer";
-import ContainerLayout from "@/components/layouts/ContainerLayout";
-import NavBar from "@/components/navbar/Navbar";
-import { ReactNode } from "react";
-
+import React, { ReactNode } from 'react';
+import Container from '@/components/ui/container';
+import Navbar from '@/components/global/navbar';
 export const metadata = {
- title: "TrackingAcademy - For Agencies ",
+ title: 'TrackingAcademy - For Agencies ',
  description: `Services for Agencies`,
  openGraph: {
-  images: ["/images/social-sharing.png"],
+  images: ['/images/social-sharing.png'],
  },
 };
-
 export default function Layout({ children }: { children: ReactNode }) {
- return <ContainerLayout>{children}</ContainerLayout>;
+ return (
+  <React.Fragment>
+   <Navbar />
+   <Container>{children}</Container>;
+  </React.Fragment>
+ );
 }

@@ -1,10 +1,9 @@
-"use client";
-import React, { useState } from "react";
-import { useFormState, useFormStatus } from "react-dom";
-import { createWaitlist } from "@/actions/waitlist";
-import ThankYou from "@/components/courses/ThankYou";
-import { GTMWaitlistFormSubmission } from "../analytics/GTMEvents";
-import HeroComponent from "../global/HeroComponent";
+'use client';
+import React, { useState } from 'react';
+import { useFormState, useFormStatus } from 'react-dom';
+import { createWaitlist } from '@/actions/waitlist';
+import { GTMWaitlistFormSubmission } from '../analytics/GTMEvents';
+import HeroComponent from '../global/HeroComponent';
 
 const initialState = {
  message: null,
@@ -19,9 +18,9 @@ function SubmitButton() {
    type='submit'
    disabled={pending}
    className={`bg-accent hover:bg-complementary border-2 border-dominant text-xl font-bold   py-4 px-4 rounded-lg mt-4 transition-all duration-300 ease-in-out text-complementary hover:text-accent ${
-    pending ? "opacity-50 cursor-not-allowed" : ""
+    pending ? 'opacity-50 cursor-not-allowed' : ''
    }`}>
-   {pending ? "Joining..." : "Join Waitlist"}
+   {pending ? 'Joining...' : 'Join Waitlist'}
   </button>
  );
 }
@@ -39,19 +38,19 @@ export default function ContactForm() {
    <>
     <HeroComponent
      textGroup={{
-      welcomeText: "Thank You",
-      heading: "For Submitting the Waitlist Form",
+      welcomeText: 'Thank You',
+      heading: 'For Submitting the Waitlist Form',
      }}
      links={{
       primary: {
-       src: "/", // You can adjust the redirect link if needed
-       text: "Back to Home",
+       src: '/', // You can adjust the redirect link if needed
+       text: 'Back to Home',
       },
      }}
      images={{
       background: {
-       desktop: "/images/hero/hero-image-md.png",
-       mobile: "/images/hero/hero-image-sm.png",
+       desktop: '/images/hero/hero-image-md.png',
+       mobile: '/images/hero/hero-image-sm.png',
       },
      }}
     />

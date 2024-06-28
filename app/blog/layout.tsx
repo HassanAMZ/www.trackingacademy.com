@@ -5,22 +5,29 @@ import getBlogsData from 'utils/getBlogsData';
 import { AuthContextProvider } from '@/context/AuthContext';
 import Container from '@/components/ui/container';
 import BlogContainer from '@/components/blog/container';
+import Navbar from '@/components/global/navbar';
 
 export const metadata = {
-  title: 'Blog Archieve- TrackingAcademy',
-  description: `Blog for Web Analysts and Marketing People`,
-  openGraph: {
-    images: ['/images/social-sharing.png'],
-  },
+ title: 'Blog Archieve- TrackingAcademy',
+ description: `Blog for Web Analysts and Marketing People`,
+ openGraph: {
+  images: ['/images/social-sharing.png'],
+ },
 };
 
 export async function generateStaticParams(): Promise<
-  (PostMetadata & { id: string; slug: string })[]
+ (PostMetadata & { id: string; slug: string })[]
 > {
-  let allPostsData = await getBlogsData('app/blog');
+ let allPostsData = await getBlogsData('app/blog');
 
-  return allPostsData;
+ return allPostsData;
 }
+
 export default function Layout({ children }: { children: ReactNode }) {
-  return <React.Fragment>{children}</React.Fragment>;
+ return (
+  <React.Fragment>
+   <Navbar />
+   <Container>{children}</Container>;
+  </React.Fragment>
+ );
 }

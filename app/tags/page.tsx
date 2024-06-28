@@ -1,9 +1,6 @@
-import React from "react";
-import TagsContainer from "@/components/tag/TagsContainer";
-import getBlogAndTagsData from "utils/getBlogAndTagsData";
-import Footer from "@/components/footer/Footer";
-import ContainerLayout from "@/components/layouts/ContainerLayout";
-import NavBar from "@/components/navbar/Navbar";
+import React from 'react';
+import TagsContainer from '@/components/tag/TagsContainer';
+import getBlogAndTagsData from 'utils/getBlogAndTagsData';
 
 export default async function Page() {
  const { tags, blogs } = await getBlogAndTagsData();

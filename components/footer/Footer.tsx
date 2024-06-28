@@ -1,12 +1,7 @@
-import React from "react";
-import { Paragraphmd } from "@/components/typography/Heading";
-import NavLink from "../navbar/NavLink";
-import { FacebookIcon, YouTubeIcon } from "@/components/icons/SocialIcons";
-import CustomLink from "@/components/mdx/CustomLink";
-import NavigationLinks from "../navbar/NavigationLinks";
-import Image from "next/image";
-import MobileNav from "../navbar/MobileNav";
-import DesktopNav from "../navbar/DesktopNav";
+import React from 'react';
+import NavLink from '../navbar/NavLink';
+import NavigationLinks from '../navbar/NavigationLinks';
+import Image from 'next/image';
 const Footer: React.FC = () => {
  return (
   <div className='container-primary py-3'>

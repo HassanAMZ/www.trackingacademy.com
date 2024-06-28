@@ -1,9 +1,8 @@
-"use client";
+'use client';
 
-import Navbar from "@/components/for-businesses/Navbar";
-import Link from "next/link";
-import React from "react";
-import { motion } from "framer-motion";
+import Link from 'next/link';
+import React from 'react';
+import { motion } from 'framer-motion';
 
 const linkVariants = {
  hover: {

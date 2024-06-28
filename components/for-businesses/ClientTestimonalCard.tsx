@@ -1,6 +1,6 @@
-import Image from "next/image";
-import React from "react";
-import Divider from "../offers/Divider";
+import Image from 'next/image';
+import React from 'react';
+import Divider from '../offers/Divider';
 
 interface ClientTestimonialCardProps {
  client: {
@@ -26,7 +26,7 @@ const ClientTestimonialCard: React.FC<ClientTestimonialCardProps> = ({
   <section>
    <div className='space-y-4'>
     <div>
-     <span className='text-xl font-bold text-danger'>
+     <span className='text-xl font-bold text-primary'>
       {client.businessName} ({category}: {cms})
      </span>
 
@@ -43,7 +43,7 @@ const ClientTestimonialCard: React.FC<ClientTestimonialCardProps> = ({
     </div>
 
     <div>
-     <span className='text-xl font-bold text-danger'>Results:&nbsp;</span>
+     <span className='text-xl font-bold text-primary'>Results:&nbsp;</span>
      <span>"{results}"</span>
     </div>
    </div>

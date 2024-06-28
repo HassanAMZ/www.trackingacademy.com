@@ -1,8 +1,5 @@
-"use client"; // Error components must be Client Components
-
-import Footer from "@/components/footer/Footer";
-import NavBar from "@/components/navbar/Navbar";
-import { useEffect } from "react";
+'use client'; // Error components must be Client Components
+import { useEffect } from 'react';
 
 export default function Error({
  error,

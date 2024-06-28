@@ -1,9 +1,17 @@
-import Footer from "@/components/footer/Footer";
-import ContainerLayout from "@/components/layouts/ContainerLayout";
-import NavBar from "@/components/navbar/Navbar";
-import React from "react";
-import { ReactNode } from "react";
+import { ReactNode } from 'react';
+import React from 'react';
+import Container from '@/components/ui/container';
+import Navbar from '@/components/global/navbar';
+
+export const metadata = {
+ title: 'Newsletter - TrackingAcademy',
+};
 
 export default function Layout({ children }: { children: ReactNode }) {
- return <React.Fragment>{children}</React.Fragment>;
+ return (
+  <React.Fragment>
+   <Navbar />
+   <Container>{children}</Container>;
+  </React.Fragment>
+ );
 }
