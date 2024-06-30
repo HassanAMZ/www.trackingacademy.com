@@ -9,20 +9,29 @@ import { cookies } from 'next/headers';
 
 export default function Page() {
  const cookieStore = cookies();
- const user_data = cookieStore.get('user_data');
+ const userCookie = cookieStore.get('user_data');
+ let user_data = {};
+
+ if (userCookie) {
+  try {
+   const decodedValue = decodeURIComponent(userCookie.value);
+   user_data = JSON.parse(decodedValue.replace(/\\/g, ''));
+  } catch (e) {
+   console.error('Failed to parse user_data cookie:', e);
+  }
+ }
+
  return (
-  <Container>
-   <section className='pt-6 pb-2 space-y-2'>
-    <TypographyH1 className='text-center'>
-     <span className='text-primary'>Final Step</span> Book a Call Below ...
-    </TypographyH1>
-   </section>
+  <section className='pt-6 pb-2 space-y-2'>
+   <TypographyH1 className='text-center'>
+    <span className='text-primary'>Final Step</span> Book a Call Below ...
+   </TypographyH1>
 
    <div className='flex items-center justify-center w-full py-4 '>
-    <div className=' md:min-h-[70vh] md:min-w-[60vw] min-w-[92vw] min-h-[60vh] bg-complementary rounded-md bg-secondary'>
+    <div className='md:min-h-[70vh] md:min-w-[60vw] min-w-[92vw] min-h-[60vh] bg-complementary rounded-md bg-secondary'>
      <iframe
       src='https://calendar.google.com/calendar/appointments/schedules/AcZssZ0wgUDGuk7YMLv1IcsYbgeQwVYnRt39plBBMKmO55fulvLIeQ2ZZqBOGm1IpXYK7zvyl7YBLnlq?gv=true'
-      className=' md:min-h-[70vh] md:min-w-[60vw] min-w-[95vw] min-h-[60vh] '></iframe>
+      className='md:min-h-[70vh] md:min-w-[60vw] min-w-[95vw] min-h-[60vh]'></iframe>
     </div>
    </div>
 
@@ -60,11 +69,8 @@ export default function Page() {
    <YoutubeEmbed embedId='9MGpL_AmEYM' />
    <GTMCustomEvent
     eventName={'contact_form_submitted'}
-    eventDetails={[
-     { user_data: { ...user_data } },
-     { offer_details: { name: 'Offer 001' } },
-    ]}
+    eventDetails={[{ ...user_data }, { offer_details: { name: 'Offer 001' } }]}
    />
-  </Container>
+  </section>
  );
 }
