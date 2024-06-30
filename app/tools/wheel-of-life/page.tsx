@@ -1,12 +1,12 @@
-import YoutubeEmbed from "@/components/mdx/YoutubeEmbed";
-import WheelOfLife from "@/components/tools/wheel-of-life/WheelOfLife";
+import YoutubeEmbed from '@/components/global/youtube-embed';
+import WheelOfLife from '@/components/tools/wheel-of-life/WheelOfLife';
 import {
  UnorderedList,
  ListItem,
  OrderedList,
-} from "@/components/typography/Heading";
-import type { NextPage } from "next";
-import Head from "next/head";
+} from '@/components/typography/Heading';
+import type { NextPage } from 'next';
+import Head from 'next/head';
 
 const page: NextPage = () => {
  return (

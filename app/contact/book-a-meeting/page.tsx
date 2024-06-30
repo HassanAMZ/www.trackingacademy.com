@@ -1,11 +1,6 @@
-import ContactForm from '@/components/contact/ContactForm';
-import CallToAction from '@/components/offers/CallToAction';
-import ClientTestimonial from '@/components/offers/ClientTestimonial';
-import Divider from '@/components/offers/Divider';
 import React from 'react';
 import { GTMContactFormSubmission } from '@/components/analytics/GTMEvents';
 import YoutubeEmbed from '@/components/global/youtube-embed';
-import { Card, CardContent } from '@/components/ui/card';
 import TypographyH1 from '@/components/ui/typography-h1';
 import TypographyP from '@/components/ui/typography-p';
 import Container from '@/components/ui/container';

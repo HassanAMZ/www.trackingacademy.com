@@ -23,7 +23,7 @@ export default function Hero() {
      </TypographyP>
 
      <div className='relative border px-6 py-2 rounded-lg w-full max-w-xl bg-secondary space-y-1'>
-      <div className='absolute -top-7 right-0 flex space-x-2'>⭐⭐⭐⭐⭐</div>
+      <div className='absolute -top-3 right-0 flex space-x-2'>⭐⭐⭐⭐⭐</div>
       <TypographyP applyMargin={false} className='italic font-semibold'>
        “Shahzada is great and extremely knowledgable and friendly. He Helped us
        out tremendously.”
@@ -48,7 +48,9 @@ export default function Hero() {
      </div>
 
      <Button asChild className='px-10 py-4 w-full md:w-max'>
-      <Link href='/contact'>Schedule Your Call</Link>
+      <Link href='/offers/95-accurate-tracking-in-7-days/submit-query'>
+       Schedule Your Call
+      </Link>
      </Button>
 
      <div className='flex items-center justify-start gap-2'>

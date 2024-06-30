@@ -10,7 +10,7 @@ import {
  Tooltip,
  Legend,
 } from "chart.js";
-import YoutubeEmbed from "@/components/mdx/YoutubeEmbed";
+import YoutubeEmbed from '@/components/global/youtube-embed";
 
 ChartJS.register(
  RadialLinearScale,

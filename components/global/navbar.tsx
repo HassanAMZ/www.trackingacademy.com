@@ -97,9 +97,9 @@ export default function Navbar() {
  };
 
  return (
-  <div className='pt-4 pb-2 w-full lg:text-sm'>
+  <div className={cn('pt-4 pb-2 w-full lg:text-sm')}>
    <Container>
-    <div className='bg-secondary rounded-lg'>
+    <div className='bg-secondary rounded-lg border border-primary/10'>
      {/* Desktop Menu */}
      <NavigationMenu className='hidden lg:flex h-14 px-3'>
       <NavigationMenuList className='flex flex-col gap-4 text-lg font-medium lg:flex-row lg:items-center lg:gap-2 lg:text-sm'>
@@ -115,7 +115,7 @@ export default function Navbar() {
          </NavigationMenuLink>
         </Link>
        </NavigationMenuItem>
-       {/* <NavigationMenuItem>
+       <NavigationMenuItem>
         <Link href='/' legacyBehavior passHref>
          <NavigationMenuLink
           className={cn(
@@ -138,7 +138,7 @@ export default function Navbar() {
           For Freelancers
          </NavigationMenuLink>
         </Link>
-       </NavigationMenuItem> */}
+       </NavigationMenuItem>
        <NavigationMenuItem>
         <Link href='/blog' legacyBehavior passHref>
          <NavigationMenuLink
@@ -206,7 +206,7 @@ export default function Navbar() {
          onClick={handleLinkClick}>
          TrackingAcademy.com
         </Link>
-        {/* <Link
+        <Link
          href='/'
          className={cn(
           navigationMenuTriggerStyle(),
@@ -225,7 +225,7 @@ export default function Navbar() {
          )}
          onClick={handleLinkClick}>
          For Freelancers
-        </Link> */}
+        </Link>
         <Link
          href='/blog'
          className={cn(

@@ -20,7 +20,7 @@ const CustomLink: React.FC<CustomLinkProps> = ({
   href
  )}`;
 
- const classes = clsx('p-0', className);
+ const classes = clsx('!p-0 !text-base ', className);
 
  if (isInternalLink) {
   return (

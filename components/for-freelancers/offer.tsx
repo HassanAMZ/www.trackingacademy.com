@@ -34,9 +34,7 @@ export default function ForFreelancersOffer() {
     <span className='text-primary'>Watch the video</span>
    </TypographyH2>
 
-   <div className='flex justify-center items-center min-h-max'>
-    <YoutubeEmbed embedId='9MGpL_AmEYM' className='max-w-4xl w-full' />
-   </div>
+   <YoutubeEmbed embedId='9MGpL_AmEYM' />
    <TypographyH1>Master Analytics and Tracking in 12 Weeks!</TypographyH1>
 
    <TypographyP>

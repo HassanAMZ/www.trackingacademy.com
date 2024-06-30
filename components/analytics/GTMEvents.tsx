@@ -1,20 +1,20 @@
 // sendBlogViewEvent.ts
-"use client";
+'use client';
 
-import { PostMetadata, PostMetadataProps } from "@/types/index";
+import { PostMetadata, PostMetadataProps } from '@/types/index';
 import {
  GTMBlogViewProps,
  GTMBlogListViewEventProps,
  GTMCourseListViewEventProps,
-} from "@/types/index";
-import React, { useEffect } from "react";
+} from '@/types/index';
+import React, { useEffect } from 'react';
 import {
  initDataLayer,
  createItemFromBlog,
  gtmCategoriesFromBlogs,
  createItemFromCourses,
  gtmCategoriesFromCourses,
-} from "utils/gtmAnalytics";
+} from 'utils/gtmAnalytics';
 
 const GTMSelectBlogEvent: React.FC<{ metadata: PostMetadata }> = ({
  metadata,
@@ -25,8 +25,8 @@ const GTMSelectBlogEvent: React.FC<{ metadata: PostMetadata }> = ({
   const item = createItemFromBlog(metadata);
 
   window.dataLayer.push({
-   event: "gtm_custom_event",
-   datalayer_event_name: "select_item",
+   event: 'gtm_custom_event',
+   datalayer_event_name: 'select_item',
    items: [item],
   });
  }, [metadata]);
@@ -41,8 +41,8 @@ const GTMBlogViewEvent: React.FC<GTMBlogViewProps> = ({ metadata }) => {
   const item = createItemFromBlog(metadata); // Use utility function
 
   window.dataLayer.push({
-   event: "gtm_custom_event",
-   datalayer_event_name: "view_item",
+   event: 'gtm_custom_event',
+   datalayer_event_name: 'view_item',
    event_id: Date.now(),
    ecommerce: {
     items: [item],
@@ -62,8 +62,8 @@ const GTMBlogListViewEvent: React.FC<GTMBlogListViewEventProps> = ({
   const items = blogList.map((blog) => createItemFromBlog(blog));
 
   window.dataLayer.push({
-   event: "gtm_custom_event",
-   datalayer_event_name: "view_item_list",
+   event: 'gtm_custom_event',
+   datalayer_event_name: 'view_item_list',
    event_id: Date.now(),
    ecommerce: {
     items,
@@ -82,8 +82,8 @@ const GTMCourseListViewEvent: React.FC<GTMCourseListViewEventProps> = ({
   const items = courseList.map((course) => createItemFromCourses(course));
 
   window.dataLayer.push({
-   event: "gtm_custom_event",
-   datalayer_event_name: "view_item_list",
+   event: 'gtm_custom_event',
+   datalayer_event_name: 'view_item_list',
    event_id: Date.now(),
    ecommerce: {
     items,
@@ -98,8 +98,8 @@ const GTMSignInFailedEvent: React.FC<{ error: any }> = ({ error }) => {
  useEffect(() => {
   initDataLayer();
   window.dataLayer.push({
-   event: "gtm_custom_event",
-   datalayer_event_name: "signin_failed",
+   event: 'gtm_custom_event',
+   datalayer_event_name: 'signin_failed',
    error_message: error,
   });
  }, [error]);
@@ -118,14 +118,14 @@ const GTMSignInSuccessEvent: React.FC<{ user: any }> = ({ user }) => {
     state: undefined,
     country: undefined,
     postal_code: undefined,
-    first_name: user.displayName ? user.displayName.split(" ")[0] : undefined,
-    last_name: user.displayName ? user.displayName.split(" ")[1] : undefined,
+    first_name: user.displayName ? user.displayName.split(' ')[0] : undefined,
+    last_name: user.displayName ? user.displayName.split(' ')[1] : undefined,
    },
   };
 
   window.dataLayer.push({
-   event: "gtm_custom_event",
-   datalayer_event_name: "signin_successful",
+   event: 'gtm_custom_event',
+   datalayer_event_name: 'signin_successful',
    user_data: userData,
   });
  }, [user]);
@@ -146,13 +146,13 @@ const GTMSignOutEvent: React.FC<{ user: any }> = ({ user }) => {
     state: undefined,
     country: undefined,
     postal_code: undefined,
-    first_name: user.displayName ? user.displayName.split(" ")[0] : undefined,
-    last_name: user.displayName ? user.displayName.split(" ")[1] : undefined,
+    first_name: user.displayName ? user.displayName.split(' ')[0] : undefined,
+    last_name: user.displayName ? user.displayName.split(' ')[1] : undefined,
    },
   };
   window.dataLayer.push({
-   event: "gtm_custom_event",
-   datalayer_event_name: "signout",
+   event: 'gtm_custom_event',
+   datalayer_event_name: 'signout',
    user_data: userData,
   });
  }, []);
@@ -165,8 +165,8 @@ const GTMContactFormSubmission: React.FC = () => {
   initDataLayer();
 
   window.dataLayer.push({
-   event: "gtm_custom_event",
-   datalayer_event_name: "contact_form_submission",
+   event: 'gtm_custom_event',
+   datalayer_event_name: 'contact_form_submission',
   });
  }, []);
 
@@ -177,15 +177,40 @@ const GTMWaitlistFormSubmission: React.FC = () => {
   initDataLayer();
 
   window.dataLayer.push({
-   event: "gtm_custom_event",
-   datalayer_event_name: "waitlist_form_submission",
+   event: 'gtm_custom_event',
+   datalayer_event_name: 'waitlist_form_submission',
   });
  }, []);
 
  return null;
 };
 
+interface GTMCustomEventProps {
+ eventName: string;
+ eventDetails: Array<{ [key: string]: any }>;
+}
+
+const GTMCustomEvent: React.FC<GTMCustomEventProps> = ({
+ eventName,
+ eventDetails,
+}) => {
+ useEffect(() => {
+  initDataLayer();
+
+  const eventPayload = {
+   event: 'gtm_custom_event',
+   datalayer_event_name: eventName,
+   ...eventDetails.reduce((acc, detail) => ({ ...acc, ...detail }), {}),
+  };
+
+  window.dataLayer.push(eventPayload);
+ }, [eventName, eventDetails]);
+
+ return null;
+};
+
 export {
+ GTMCustomEvent,
  GTMContactFormSubmission,
  GTMBlogViewEvent,
  GTMWaitlistFormSubmission,

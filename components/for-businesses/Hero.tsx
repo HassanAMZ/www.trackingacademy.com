@@ -1,33 +1,33 @@
-import React from "react";
-import BookACall from "./BookACall";
-import Image from "next/image";
+import React from 'react';
+import BookACall from './BookACall';
+import Image from 'next/image';
 
 export default function Hero() {
  const images = {
   group: {
    list: [
     {
-     src: "/images/clients/001_1.jfif",
-     alt: "Imtiaz Ahmed - Job Ready Programmer",
+     src: '/images/clients/001_1.jfif',
+     alt: 'Imtiaz Ahmed - Job Ready Programmer',
     },
-    { src: "/images/clients/007.jfif", alt: "Client" },
+    { src: '/images/clients/007.jfif', alt: 'Client' },
     {
-     src: "/images/clients/008.jfif",
-     alt: "Pjipipp Herglotz - Kiss Agency",
-    },
-    {
-     src: "/images/clients/001.jpg",
-     alt: "Imtiaz Ahmed - Job Ready Programmer",
+     src: '/images/clients/008.jfif',
+     alt: 'Pjipipp Herglotz - Kiss Agency',
     },
     {
-     src: "/images/clients/001.jpg",
-     alt: "Imtiaz Ahmed - Job Ready Programmer",
+     src: '/images/clients/001.jpg',
+     alt: 'Imtiaz Ahmed - Job Ready Programmer',
+    },
+    {
+     src: '/images/clients/001.jpg',
+     alt: 'Imtiaz Ahmed - Job Ready Programmer',
     },
    ],
   },
   background: {
-   desktop: "/images/hero/hero-image-md.png",
-   mobile: "/images/hero/hero-image-sm.png",
+   desktop: '/images/hero/hero-image-md.png',
+   mobile: '/images/hero/hero-image-sm.png',
   },
  };
 
@@ -69,7 +69,7 @@ export default function Hero() {
      <p>✔ User-friendly interface requiring minimal technical knowledge.</p>
     </div>
     <div className='flex gap-x-4 w-full items-center justify-start'>
-     <BookACall buttonText='Schedule A Meeting' />
+     <BookACall buttonText='Schedule Your Call' />
     </div>
     <div className='flex items-center gap-2 pt-2'>
      <div className='relative h-6 w-6'>
@@ -81,9 +81,9 @@ export default function Hero() {
         height={1080}
         key={index}
         className={`rounded-full absolute opacity-90
-          ${index === 0 ? "left-0 top-0 z-1" : ""} 
-          ${index === 1 ? "left-4 top-0 z-2" : ""} 
-          ${index === 2 ? "left-8 top-0 z-3" : ""}
+          ${index === 0 ? 'left-0 top-0 z-1' : ''} 
+          ${index === 1 ? 'left-4 top-0 z-2' : ''} 
+          ${index === 2 ? 'left-8 top-0 z-3' : ''}
         `}
        />
       ))}
@@ -94,13 +94,13 @@ export default function Hero() {
     </div>
    </div>
 
-   <div className='bg-complementary border rounded-lg overflow-hidden w-full max-w-3xl'>
+   <div className='bg-complementary border rounded-lg overflow-hidden w-full max-w-4xl'>
     <div className='grid grid-cols-3 bg-dominant/10 text-dominant font-semibold lg:  text-sm'>
      <div className='px-4 py-3 flex items-center'>
       <p>Amount Spent</p>
       <div className='pl-2 hidden lg:block'>
        <Image
-        src={"/static/icons/angle-down.svg"}
+        src={'/static/icons/angle-down.svg'}
         width={20}
         height={20}
         className='w-3'
@@ -112,7 +112,7 @@ export default function Hero() {
       <p>ROAS Before</p>
       <div className='pl-2 hidden lg:block'>
        <Image
-        src={"/static/icons/angle-down.svg"}
+        src={'/static/icons/angle-down.svg'}
         width={20}
         height={20}
         className='w-3'
@@ -124,7 +124,7 @@ export default function Hero() {
       <p>ROAS After</p>
       <div className='pl-2 hidden lg:block'>
        <Image
-        src={"/static/icons/angle-down.svg"}
+        src={'/static/icons/angle-down.svg'}
         width={20}
         height={20}
         className='w-3'
@@ -160,7 +160,7 @@ export default function Hero() {
       <div className='px-4 py-3'>1.93</div>
       <div className='px-4 py-3'>2.7</div>
      </div>
-     <div className='grid grid-cols-3'>
+     <div className='hidden lg:grid lg:grid-cols-3'>
       <div className='px-4 py-3'>$30,636</div>
       <div className='px-4 py-3'>2.12</div>
       <div className='px-4 py-3'>3.1</div>

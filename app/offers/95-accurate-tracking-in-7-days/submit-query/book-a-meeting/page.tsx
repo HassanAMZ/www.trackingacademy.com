@@ -1,16 +1,15 @@
-import ContactForm from '@/components/contact/ContactForm';
-import CallToAction from '@/components/offers/CallToAction';
-import ClientTestimonial from '@/components/offers/ClientTestimonial';
-import Divider from '@/components/offers/Divider';
 import React from 'react';
-import { GTMContactFormSubmission } from '@/components/analytics/GTMEvents';
+import { GTMCustomEvent } from '@/components/analytics/GTMEvents';
 import YoutubeEmbed from '@/components/global/youtube-embed';
 import { Card, CardContent } from '@/components/ui/card';
 import TypographyH1 from '@/components/ui/typography-h1';
 import TypographyP from '@/components/ui/typography-p';
 import Container from '@/components/ui/container';
+import { cookies } from 'next/headers';
 
 export default function Page() {
+ const cookieStore = cookies();
+ const user_data = cookieStore.get('user_data');
  return (
   <Container>
    <section className='pt-6 pb-2 space-y-2'>
@@ -59,7 +58,13 @@ export default function Page() {
    </div>
 
    <YoutubeEmbed embedId='9MGpL_AmEYM' />
-   <GTMContactFormSubmission />
+   <GTMCustomEvent
+    eventName={'contact_form_submitted'}
+    eventDetails={[
+     { user_data: { ...user_data } },
+     { offer_details: { name: 'Offer 001' } },
+    ]}
+   />
   </Container>
  );
 }

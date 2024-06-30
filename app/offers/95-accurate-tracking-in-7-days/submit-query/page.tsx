@@ -1,27 +1,26 @@
 import ContactForm from '@/components/contact/ContactForm';
-import CallToAction from '@/components/offers/CallToAction';
-import ClientTestimonial from '@/components/offers/ClientTestimonial';
-import Divider from '@/components/offers/Divider';
-import TypographyH1 from '@/components/ui/typography-h1';
+import CallToAction from '@/components/home/call-to-action';
+import FrequentlyAskedQuestions from '@/components/home/frequently-asked-questions';
+import ClientTestimonial from '@/components/home/testimonaials';
+import { Separator } from '@/components/ui/separator';
 import React from 'react';
+import Hero from '@/components/offers/offer-001/submit-query/hero';
 
 export default function page() {
  return (
-  <main>
-   <section className='pt-6 pb-2 space-y-2'>
-    <TypographyH1 className='text-center'>
-     <span className='text-primary'>Get 95% Accurate Tracking</span> in 7 Days –
-     Guaranteed! Turn your data into{' '}
-     <span className='text-primary'>easy-to-use insights </span>.{' '}
-     <span className='text-primary'>Submit your query </span>to Get Started...
-    </TypographyH1>
-   </section>
-
-   <ContactForm />
-
-   <Divider />
+  <main className='space-y-4 sm:space-y-8 lg:space-y-12'>
+   <Hero />
+   <Separator className='my-6' />
    <ClientTestimonial />
-   <CallToAction />
+   <CallToAction
+    presetNumber={4}
+    href={'/offers/95-accurate-tracking-in-7-days/submit-query'}
+   />
+   <FrequentlyAskedQuestions />
+   <CallToAction
+    presetNumber={5}
+    href={'/offers/95-accurate-tracking-in-7-days/submit-query'}
+   />
   </main>
  );
 }

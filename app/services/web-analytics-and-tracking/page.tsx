@@ -2,7 +2,6 @@ import Link from 'next/link';
 import React from 'react';
 import ImageSlider from '@/components/for-businesses/ImageSlider';
 import Image from 'next/image';
-import FAQ from '@/components/for-businesses/FAQ';
 import TestimonialSlider from '@/components/for-businesses/TestimonialSlider';
 import BookACall from '@/components/for-businesses/BookACall';
 import LearnMoreHeader from '@/components/global/LearnMoreHeader';
@@ -372,9 +371,7 @@ function page() {
      <h2 className='text-3xl font-bold container-primary text-center py-12'>
       Frequently Asked Questions
      </h2>
-     <div className='container-secondary '>
-      <FAQ />
-     </div>
+     <div className='container-secondary '></div>
     </section>
 
     <section className='bg-dominant text-complementary py-20'>

@@ -1,6 +1,6 @@
 import type { MDXComponents } from 'mdx/types';
 import Pre from '@/components/mdx/Pre';
-import YoutubeEmbed from '@/components/mdx/YoutubeEmbed';
+import YoutubeEmbed from '@/components/global/youtube-embed';
 import BlogHeader from '@/components/blog/header';
 import CustomLink from '@/components/mdx/CustomLink';
 import Note from '@/components/mdx/Note';
@@ -20,59 +20,59 @@ import Image from 'next/image';
 import ToolsHeroSection from '@/components/tools/ToolsHeroSection';
 
 export function useMDXComponents(components: MDXComponents): MDXComponents {
-  const createId = (content: string) =>
-    content.replace(/\s+/g, '-').toLowerCase();
+ const createId = (content: string) =>
+  content.replace(/\s+/g, '-').toLowerCase();
 
-  return {
-    ToolsHeroSection,
-    GiscusComments,
-    YoutubeEmbed,
-    DataLayerCode,
-    BlogHeader,
-    Note,
-    AuthPre,
-    AuthenticatedLayout,
-    CustomLink,
-    pre: AuthPre,
-    a: (props) => <CustomLink {...props} href={props.href || ''} />, // Ensuring href is always a string
-    p: (props) => <TypographyP {...props} />,
-    h1: (props) => (
-      <TypographyH1 {...props} id={createId(props.children as string)}>
-        {props.children}
-      </TypographyH1>
-    ),
-    h2: (props) => (
-      <TypographyH2 {...props} id={createId(props.children as string)}>
-        {props.children}
-      </TypographyH2>
-    ),
-    h3: (props) => (
-      <TypographyH3 {...props} id={createId(props.children as string)}>
-        {props.children}
-      </TypographyH3>
-    ),
-    h4: (props) => (
-      <TypographyH4 {...props} id={createId(props.children as string)}>
-        {props.children}
-      </TypographyH4>
-    ),
-    h5: (props) => (
-      <TypographyH4 {...props} id={createId(props.children as string)}>
-        {props.children}
-      </TypographyH4>
-    ),
-    h6: (props) => (
-      <TypographyH4 {...props} id={createId(props.children as string)}>
-        {props.children}
-      </TypographyH4>
-    ),
-    li: (props) => <TypographyListItem {...props} />,
-    ol: (props) => <TypographyOrderedList {...props} />,
-    ul: (props) => <TypographyUnorderedList {...props} />,
-    img: (props) => (
-      // @ts-ignore
-      <Image src={props.src} width={1920} height={1080} {...props} />
-    ),
-    ...components,
-  };
+ return {
+  ToolsHeroSection,
+  GiscusComments,
+  YoutubeEmbed,
+  DataLayerCode,
+  BlogHeader,
+  Note,
+  AuthPre,
+  AuthenticatedLayout,
+  CustomLink,
+  pre: AuthPre,
+  a: (props) => <CustomLink {...props} href={props.href || ''} />, // Ensuring href is always a string
+  p: (props) => <TypographyP {...props} />,
+  h1: (props) => (
+   <TypographyH1 {...props} id={createId(props.children as string)}>
+    {props.children}
+   </TypographyH1>
+  ),
+  h2: (props) => (
+   <TypographyH2 {...props} id={createId(props.children as string)}>
+    {props.children}
+   </TypographyH2>
+  ),
+  h3: (props) => (
+   <TypographyH3 {...props} id={createId(props.children as string)}>
+    {props.children}
+   </TypographyH3>
+  ),
+  h4: (props) => (
+   <TypographyH4 {...props} id={createId(props.children as string)}>
+    {props.children}
+   </TypographyH4>
+  ),
+  h5: (props) => (
+   <TypographyH4 {...props} id={createId(props.children as string)}>
+    {props.children}
+   </TypographyH4>
+  ),
+  h6: (props) => (
+   <TypographyH4 {...props} id={createId(props.children as string)}>
+    {props.children}
+   </TypographyH4>
+  ),
+  li: (props) => <TypographyListItem {...props} />,
+  ol: (props) => <TypographyOrderedList {...props} />,
+  ul: (props) => <TypographyUnorderedList {...props} />,
+  img: (props) => (
+   // @ts-ignore
+   <Image src={props.src} width={1920} height={1080} {...props} />
+  ),
+  ...components,
+ };
 }

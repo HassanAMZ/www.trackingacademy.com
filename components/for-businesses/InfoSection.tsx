@@ -1,7 +1,7 @@
 import React from "react";
 import { InfoSectionProps } from "@/types/index";
 import ContainerLayout from "@/components/layouts/ContainerLayout";
-import YoutubeEmbed from "@/components/mdx/YoutubeEmbed";
+import YoutubeEmbed from '@/components/global/youtube-embed";
 import ExpertInfo from "@/components/for-businesses/ExpertInfo";
 
 const InfoSection: React.FC<InfoSectionProps> = ({
