@@ -73,7 +73,6 @@ export async function createContact(prevState: any, formData: FormData) {
   cookies().set(
    'user_data',
    JSON.stringify({
-    id: timestampId,
     email: data.email,
     phone: data.phone,
     address: {
