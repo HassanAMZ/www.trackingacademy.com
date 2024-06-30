@@ -1,7 +1,7 @@
-"use client";
+'use client';
 
-import React, { useState, useEffect } from "react";
-import Image from "next/image";
+import React, { useState, useEffect } from 'react';
+import Image from 'next/image';
 
 interface Reason {
  id: number;
@@ -13,31 +13,31 @@ interface Reason {
 const reasonsData: Reason[] = [
  {
   id: 1,
-  title: "Comprehensive Analytics Training",
+  title: 'Comprehensive Analytics Training',
   paragraph:
-   "Master the fundamentals of analytics with our structured courses designed for all skill levels. Learn how to make data-driven decisions to boost your business growth.",
-  imageUrl: "/images/for-businesses/reason-data-001.png",
+   'Master the fundamentals of analytics with our structured courses designed for all skill levels. Learn how to make data-driven decisions to boost your business growth.',
+  imageUrl: '/images/for-businesses/reason-data-001.png',
  },
  {
   id: 2,
-  title: "Advanced Tag Manager Workshops",
+  title: 'Advanced Tag Manager Workshops',
   paragraph:
-   "Dive deep into Google Tag Manager with our hands-on workshops. Learn how to set up, manage, and troubleshoot tags efficiently to ensure accurate data tracking.",
-  imageUrl: "/images/for-businesses/reason-data-002.png",
+   'Dive deep into Google Tag Manager with our hands-on workshops. Learn how to set up, manage, and troubleshoot tags efficiently to ensure accurate data tracking.',
+  imageUrl: '/images/for-businesses/reason-data-002.png',
  },
  {
   id: 3,
-  title: "Expert Tracking Implementation",
+  title: 'Expert Tracking Implementation',
   paragraph:
-   "Gain practical skills in implementing and optimizing tracking solutions. Our training covers everything from basic setup to advanced tracking strategies.",
-  imageUrl: "/images/for-businesses/reason-data-003.png",
+   'Gain practical skills in implementing and optimizing tracking solutions. Our training covers everything from basic setup to advanced tracking strategies.',
+  imageUrl: '/images/for-businesses/reason-data-003.png',
  },
  {
   id: 4,
-  title: "Interactive Reporting Techniques",
+  title: 'Interactive Reporting Techniques',
   paragraph:
-   "Learn how to create and interpret insightful reports that drive action. Our courses teach you to use various tools to generate reports that are clear and actionable.",
-  imageUrl: "/images/for-businesses/reason-data-004.png",
+   'Learn how to create and interpret insightful reports that drive action. Our courses teach you to use various tools to generate reports that are clear and actionable.',
+  imageUrl: '/images/for-businesses/reason-data-004.png',
  },
 ];
 
@@ -67,18 +67,18 @@ export default function ReasonsData() {
        key={reason.id}
        className={`py-8 px-4 items-center border-2 flex cursor-pointer rounded-lg transition-colors duration-300 ${
         activeId === reason.id
-         ? "bg-accent text-complementary"
-         : "bg-complementary hover:text-complementary"
+         ? 'bg-accent text-complementary'
+         : 'bg-complementary hover:text-complementary'
        } hover:bg-accent hover:text-complementary`}
        onClick={() => handleIdClick(reason.id)}>
        <p
-        className={`text-3xl font-bold font-black px-4 lg:pr-10 lg:row-span-2 ${
-         activeId === reason.id ? "text-complementary" : "text-dominant"
+        className={`text-3xl font-bold px-4 lg:pr-10 lg:row-span-2 ${
+         activeId === reason.id ? 'text-complementary' : 'text-dominant'
         }`}>
         {reason.id}
        </p>
        <div className='flex flex-col'>
-        <h3 className='text-xl font-bold   font-semibold'>{reason.title}</h3>
+        <h3 className='text-xl font-bold'>{reason.title}</h3>
         {activeId === reason.id && (
          <p className='pb-2 col-span-2 lg:col-span-1 lg:pt-2 text-sm'>
           {reason.paragraph}

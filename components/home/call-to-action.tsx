@@ -9,7 +9,7 @@ interface CallToActionProps {
  headingText?: string;
  buttonText?: string;
  href?: string;
- presetNumber?: number;
+ presetNumber: number;
  className?: string;
 }
 

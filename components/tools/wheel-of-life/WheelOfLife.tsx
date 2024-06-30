@@ -1,6 +1,6 @@
-"use client";
-import React, { useState } from "react";
-import { Radar } from "react-chartjs-2";
+'use client';
+import React, { useState } from 'react';
+import { Radar } from 'react-chartjs-2';
 import {
  Chart as ChartJS,
  RadialLinearScale,
@@ -9,8 +9,7 @@ import {
  Filler,
  Tooltip,
  Legend,
-} from "chart.js";
-import YoutubeEmbed from '@/components/global/youtube-embed";
+} from 'chart.js';
 
 ChartJS.register(
  RadialLinearScale,
@@ -23,15 +22,15 @@ ChartJS.register(
 
 const WheelOfLife: React.FC = () => {
  const categories = [
-  { name: "Body", value: 0 },
-  { name: "Mind", value: 0 },
-  { name: "Soul", value: 0 },
-  { name: "Romance", value: 0 },
-  { name: "Family", value: 0 },
-  { name: "Friends", value: 0 },
-  { name: "Mission", value: 0 },
-  { name: "Money", value: 0 },
-  { name: "Growth", value: 0 },
+  { name: 'Body', value: 0 },
+  { name: 'Mind', value: 0 },
+  { name: 'Soul', value: 0 },
+  { name: 'Romance', value: 0 },
+  { name: 'Family', value: 0 },
+  { name: 'Friends', value: 0 },
+  { name: 'Mission', value: 0 },
+  { name: 'Money', value: 0 },
+  { name: 'Growth', value: 0 },
  ];
 
  const [values, setValues] = useState(categories);
@@ -46,11 +45,11 @@ const WheelOfLife: React.FC = () => {
   labels: values.map((category) => category.name),
   datasets: [
    {
-    label: "Life Areas",
+    label: 'Life Areas',
     data: values.map((category) => category.value),
-    backgroundColor: "rgba(11,20,140,0.4)",
-    borderColor: "rgba(11,20,140,1)",
-    color: "black",
+    backgroundColor: 'rgba(11,20,140,0.4)',
+    borderColor: 'rgba(11,20,140,1)',
+    color: 'black',
     borderWidth: 4,
    },
   ],
@@ -64,8 +63,8 @@ const WheelOfLife: React.FC = () => {
     max: 10,
 
     ticks: {
-     color: "#4D148C",
-     backdropColor: "transparent",
+     color: '#4D148C',
+     backdropColor: 'transparent',
      stepSize: 1,
      beginAtZero: true,
      min: 0,
@@ -75,7 +74,7 @@ const WheelOfLife: React.FC = () => {
      },
     },
     pointLabels: {
-     color: "black",
+     color: 'black',
      font: {
       size: 16,
      },
@@ -85,7 +84,7 @@ const WheelOfLife: React.FC = () => {
   plugins: {
    legend: {
     labels: {
-     color: "black",
+     color: 'black',
      font: {
       size: 14,
      },

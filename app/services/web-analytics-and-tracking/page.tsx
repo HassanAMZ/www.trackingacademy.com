@@ -1,10 +1,9 @@
 import Link from 'next/link';
 import React from 'react';
-import ImageSlider from '@/components/for-businesses/ImageSlider';
 import Image from 'next/image';
-import TestimonialSlider from '@/components/for-businesses/TestimonialSlider';
-import BookACall from '@/components/for-businesses/BookACall';
 import LearnMoreHeader from '@/components/global/LearnMoreHeader';
+import ClientTestimonial from '@/components/home/testimonaials';
+import CallToAction from '@/components/home/call-to-action';
 
 interface BenefitItemProps {
  title: string;
@@ -228,9 +227,7 @@ function page() {
      </div>
     </section>
 
-    {/* <section className='p-20 bg-dominant text-complementary'> */}
-    <TestimonialSlider />
-    {/* </section> */}
+    <ClientTestimonial />
 
     <section className='py-32'>
      <div className='container-primary text-center'>
@@ -389,7 +386,7 @@ function page() {
           ),
          }}
         />
-        <BookACall />
+        <CallToAction presetNumber={5} />
        </div>
        <div className='relative w-2/3 pt-4'>
         <Image
