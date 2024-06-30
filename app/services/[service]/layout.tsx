@@ -14,7 +14,7 @@ export const metadata: Metadata = {
 export default function Layout({ children }: { children: ReactNode }) {
  return (
   <React.Fragment>
-   <Container>{children}</Container>;
+   <Container>{children}</Container>
   </React.Fragment>
  );
 }

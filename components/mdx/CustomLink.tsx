@@ -4,49 +4,49 @@ import clsx from 'clsx';
 import { Button } from '../ui/button';
 
 type CustomLinkProps = {
-  href: string;
-  className?: string;
-  [key: string]: any; // for rest props
+ href: string;
+ className?: string;
+ [key: string]: any; // for rest props
 };
 
 const CustomLink: React.FC<CustomLinkProps> = ({
-  href,
-  className,
-  ...rest
+ href,
+ className,
+ ...rest
 }) => {
-  const isInternalLink = href.startsWith('/');
-  const isAnchorLink = href.startsWith('#');
-  const isExternal = `${href}?utm_source=TrackingAcademy.com&utm_medium=affiliate&utm_campaign=InternalLink&utm_term=website&utm_content=${encodeURIComponent(
-    href
-  )}`;
+ const isInternalLink = href.startsWith('/');
+ const isAnchorLink = href.startsWith('#');
+ const isExternal = `${href}?utm_source=TrackingAcademy.com&utm_medium=affiliate&utm_campaign=InternalLink&utm_term=website&utm_content=${encodeURIComponent(
+  href
+ )}`;
 
-  const classes = clsx('', className);
+ const classes = clsx('p-0', className);
 
-  if (isInternalLink) {
-    return (
-      <Button className='p-0' asChild variant={'link'}>
-        <Link href={href} className={classes} {...rest}>
-          {rest.children}
-        </Link>
-      </Button>
-    );
-  }
-
-  if (isAnchorLink) {
-    return <a href={href} className={classes} {...rest} />;
-  }
-
+ if (isInternalLink) {
   return (
-    <Button asChild variant={'link'}>
-      <a
-        target='_blank'
-        rel='noopener noreferrer'
-        className={classes}
-        href={isExternal}
-        {...rest}
-      />
-    </Button>
+   <Button asChild className={classes} variant={'link'}>
+    <Link href={href} {...rest}>
+     {rest.children}
+    </Link>
+   </Button>
   );
+ }
+
+ if (isAnchorLink) {
+  return <a href={href} className={classes} {...rest} />;
+ }
+
+ return (
+  <Button asChild variant={'link'}>
+   <a
+    target='_blank'
+    rel='noopener noreferrer'
+    className={classes}
+    href={isExternal}
+    {...rest}
+   />
+  </Button>
+ );
 };
 
 export default CustomLink;

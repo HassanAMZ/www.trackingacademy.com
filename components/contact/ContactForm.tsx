@@ -49,7 +49,7 @@ export default function ContactForm({
  }
 
  return (
-  <section className='grid place-content-center'>
+  <section className='md:grid md:place-content-center'>
    <div className='rounded-lg'>
     <form action={formAction} className='flex flex-col space-y-3'>
      <div className='grid grid-cols-1 sm:grid-cols-2 gap-3'>

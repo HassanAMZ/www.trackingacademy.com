@@ -15,9 +15,9 @@ export default async function Page() {
  const uniqueTags = Array.from(new Set(allTags)).slice(0, 12);
 
  return (
-  <React.Fragment>
+  <Container>
    <GTMBlogListViewEvent blogList={sortedData} />
    <BlogContainer data={sortedData} type={'blog'} />
-  </React.Fragment>
+  </Container>
  );
 }

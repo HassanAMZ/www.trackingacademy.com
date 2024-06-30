@@ -20,12 +20,14 @@ export default function NotFound() {
      look into this. In the meantime, let's get you back on track.
     </TypographyP>
     <div className='flex gap-6'>
-     <Link href='/' passHref>
-      <Button className='mt-4'>Go Back Home</Button>
-     </Link>
-     <Link href='/blog' passHref>
-      <Button className='mt-4'>Or Go Blogs</Button>
-     </Link>
+     <Button asChild>
+      <Link href='/'>Go Back Home</Link>
+     </Button>
+     <Button asChild>
+      <Link href='/blog' passHref>
+       Or Go Blogs
+      </Link>
+     </Button>
     </div>
    </Container>
   </React.Fragment>
