@@ -1,5 +1,4 @@
 import React from 'react';
-import { GTMContactFormSubmission } from '@/components/analytics/GTMEvents';
 import YoutubeEmbed from '@/components/global/youtube-embed';
 import TypographyH1 from '@/components/ui/typography-h1';
 import TypographyP from '@/components/ui/typography-p';
@@ -54,7 +53,7 @@ export default function Page() {
    </div>
 
    <YoutubeEmbed embedId='9MGpL_AmEYM' />
-   <GTMContactFormSubmission />
+   <GTMCustomEvent eventName={'contact_form_submission'} eventDetails={[]} />
   </Container>
  );
 }

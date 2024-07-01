@@ -69,7 +69,7 @@ export default function Page() {
    </Container>
    <YoutubeEmbed embedId='9MGpL_AmEYM' />
    <GTMCustomEvent
-    eventName={'contact_form_submitted'}
+    eventName={'offer_001_submission'}
     eventDetails={[
      { user_data: user_data },
      { offer_details: { name: 'Offer 001' } },

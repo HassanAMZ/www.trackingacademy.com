@@ -1,7 +1,6 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import BlogContainer from '@/components/blog/container';
 import getBlogsData from 'utils/getBlogsData';
-import { GTMBlogListViewEvent } from '@/components/analytics/GTMEvents';
 
 export default async function Page() {
  const data = await getBlogsData('app/blog/google-ads');
@@ -16,7 +15,6 @@ export default async function Page() {
 
  return (
   <div className='flex flex-col gap-2'>
-   <GTMBlogListViewEvent blogList={sortedData} />
    <BlogContainer rawData={data} data={sortedData} type='blog' />
   </div>
  );

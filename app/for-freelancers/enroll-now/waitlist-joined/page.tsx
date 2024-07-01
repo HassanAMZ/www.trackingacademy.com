@@ -4,7 +4,7 @@ import TypographyH1 from '@/components/ui/typography-h1';
 import TypographyP from '@/components/ui/typography-p';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
-import { GTMWaitlistFormSubmission } from '@/components/analytics/GTMEvents';
+import { GTMCustomEvent } from '@/components/analytics/GTMEvents';
 
 const WaitlistJoined: React.FC = () => {
  return (
@@ -17,7 +17,7 @@ const WaitlistJoined: React.FC = () => {
    <Button asChild className='mt-6'>
     <Link href='/'>Go to Homepage</Link>
    </Button>
-   <GTMWaitlistFormSubmission />
+   <GTMCustomEvent eventName={'waitlist_form_submission'} eventDetails={[]} />
   </Container>
  );
 };
