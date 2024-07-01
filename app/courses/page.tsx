@@ -2,7 +2,6 @@ import React from 'react';
 import HeroComponent from '@/components/global/HeroComponent';
 import CourseContainer from '@/components/courses/CourseContainer';
 import getCoursesData from 'utils/getCoursesData';
-import { GTMCourseListViewEvent } from '@/components/analytics/GTMEvents';
 import WaitlistForm from '@/components/courses/WaitlistForm';
 
 export default async function Page() {

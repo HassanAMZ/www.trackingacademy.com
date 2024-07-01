@@ -17,7 +17,11 @@ export default function GoogleTagManager() {
 
    <noscript
     dangerouslySetInnerHTML={{
-     __html: `<iframe src="https://load.road.trackingacademy.com/ns.html?id=GTM-MCKP7JK" height="0" width="0" style="display:none;visibility:hidden"></iframe>`,
+     __html: `<iframe
+       src='https://load.road.trackingacademy.com/ns.html?id=GTM-MCKP7JK'
+       height='0'
+       width='0'
+       style='display:none;visibility:hidden'></iframe>`,
     }}
    />
   </>

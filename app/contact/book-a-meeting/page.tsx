@@ -3,6 +3,7 @@ import YoutubeEmbed from '@/components/global/youtube-embed';
 import TypographyH1 from '@/components/ui/typography-h1';
 import TypographyP from '@/components/ui/typography-p';
 import Container from '@/components/ui/container';
+import { GTMCustomEvent } from '@/components/analytics/GTMEvents';
 
 export default function Page() {
  return (

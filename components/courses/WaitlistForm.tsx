@@ -2,8 +2,8 @@
 import React, { useState } from 'react';
 import { useFormState, useFormStatus } from 'react-dom';
 import { createWaitlist } from '@/actions/waitlist';
-import { GTMWaitlistFormSubmission } from '../analytics/GTMEvents';
 import HeroComponent from '../global/HeroComponent';
+import { GTMCustomEvent } from '../analytics/GTMEvents';
 
 const initialState = {
  message: null,
@@ -54,7 +54,7 @@ export default function ContactForm() {
       },
      }}
     />
-    <GTMWaitlistFormSubmission />
+    <GTMCustomEvent eventName={'waitlist_form_submission'} eventDetails={[]} />
    </>
   );
  }
