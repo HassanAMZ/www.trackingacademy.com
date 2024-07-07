@@ -41,7 +41,7 @@ const testimonials = [
 
 export function TestimonialsCarousel() {
  const [emblaRef] = useEmblaCarousel({ loop: true }, [
-  Autoplay({ delay: 40000, stopOnInteraction: true }),
+  Autoplay({ delay: 2000, stopOnInteraction: true }),
  ]);
 
  return (
