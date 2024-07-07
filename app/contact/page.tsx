@@ -1,5 +1,4 @@
 import ContactForm from '@/components/contact/ContactForm';
-import CallToAction from '@/components/home/call-to-action';
 import ClientTestimonial from '@/components/home/testimonaials';
 import Container from '@/components/ui/container';
 import { Separator } from '@/components/ui/separator';

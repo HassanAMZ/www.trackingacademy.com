@@ -8,7 +8,6 @@ import Container from '@/components/ui/container';
 import TypographyH2 from '@/components/ui/typography-h2';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
-import CallToAction from './call-to-action';
 import React from 'react';
 interface FrequentlyAskedQuestionsProps {
  question: string;
@@ -131,6 +130,9 @@ const frequentlyAskedQuestions: FrequentlyAskedQuestionsProps[] = [
 export function FrequentlyAskedQuestions() {
  return (
   <React.Fragment>
+   <TypographyH2 className='text-center'>
+    Have questions in your mind?
+   </TypographyH2>
    <Container>
     <Accordion type='single' collapsible className='w-full'>
      {frequentlyAskedQuestions.map((faq, index) => (

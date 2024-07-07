@@ -54,8 +54,8 @@ export default function ContactForm({
  }
 
  return (
-  <section className={cn('max-w-4xl mx-auto w-full', className)}>
-   <div className='bg-card rounded-lg p-4'>
+  <section className={cn(' w-full', className)}>
+   <div className='rounded-lg p-4'>
     <form action={formAction} className='flex flex-col space-y-3'>
      <div className='grid grid-cols-1 sm:grid-cols-2 gap-3'>
       <div className='grid w-full items-center'>

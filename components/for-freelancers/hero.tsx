@@ -12,7 +12,7 @@ import TypographyH2 from '../ui/typography-h2';
 export default function Hero() {
  return (
   <Container className='md:py-12 py-4'>
-   <div className='md:grid md:grid-cols-3 flex flex-col items-start text-center md:text-left justify-center gap-4'>
+   <div className='md:grid md:grid-cols-3 flex flex-col items-start justify-center gap-4'>
     <div className='space-y-3 md:col-span-2'>
      <TypographyH1>
       <span className='text-primary'>Master Analytics and Tracking</span> in 12
@@ -24,8 +24,31 @@ export default function Hero() {
       Our expert-led training ensures you master conversion tracking and
       analytics, with hands-on practice and real-world projects.
      </TypographyP>
-
-     <div className='grid grid-cols-1 md:grid-cols-1 md:text-left text-center pb-4'>
+     <div className='relative border px-6 py-2 rounded-lg w-full max-w-xl bg-secondary space-y-1'>
+      <div className='absolute -top-4 right-0 flex space-x-1'>
+       <Star />
+       <Star />
+       <Star />
+       <Star />
+       <Star />
+      </div>
+      <TypographyP applyMargin={false} className='italic font-semibold'>
+       “Shahzada is great and extremely knowledgable and friendly. He Helped us
+       out tremendously.”
+      </TypographyP>
+      <TypographyP applyMargin={false} className='text-xs pb-2'>
+       Mark, <strong>CMO at LemonLawFirm </strong>
+      </TypographyP>
+      <div className='absolute -bottom-4 right-0 flex space-x-4 mb-2 mr-2'>
+       <Button className='p-1 m-0 h-max font-semibold rounded-lg transform rotate-3 text-sm'>
+        12.7 ROAS
+       </Button>
+       <Button className='p-1 m-0 h-max font-semibold rounded-lg transform -rotate-3 text-sm'>
+        +64% Conversions
+       </Button>
+      </div>
+     </div>
+     <div className='grid grid-cols-1 md:grid-cols-1'>
       <div className='space-y-1 '>
        <TypographyP>✔ Setup and optimized within 7 days.</TypographyP>
        <TypographyP>✔ Achieve 95% tracking accuracy.</TypographyP>

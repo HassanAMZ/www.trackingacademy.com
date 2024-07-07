@@ -1,7 +1,7 @@
-'use client';
+"use client";
 
-import React, { useState, useEffect } from 'react';
-import Image from 'next/image';
+import React, { useState, useEffect } from "react";
+import Image from "next/image";
 
 interface Reason {
  id: number;
@@ -46,18 +46,18 @@ const ReasonsData: React.FC<ReasonsDataProps> = ({
        key={reason.id}
        className={`py-8 px-4 items-center border-2 flex cursor-pointer rounded-lg transition-colors duration-300 ${
         activeId === reason.id
-         ? 'bg-accent text-complementary'
-         : 'bg-complementary hover:text-complementary'
+         ? "bg-accent text-complementary"
+         : "bg-complementary hover:text-complementary"
        } hover:bg-accent hover:text-complementary`}
        onClick={() => handleIdClick(reason.id)}>
        <p
-        className={`text-3xl font-bold px-4 lg:pr-10 lg:row-span-2 ${
-         activeId === reason.id ? 'text-complementary' : 'text-dominant'
+        className={`text-3xl font-bold font-black px-4 lg:pr-10 lg:row-span-2 ${
+         activeId === reason.id ? "text-complementary" : "text-dominant"
         }`}>
         {reason.id}
        </p>
        <div className='flex flex-col'>
-        <h3 className='text-xl font-bold'>{reason.title}</h3>
+        <h3 className='text-xl font-bold   font-semibold'>{reason.title}</h3>
         {activeId === reason.id && (
          <p className='pb-2 col-span-2 lg:col-span-1 lg:pt-2 text-sm'>
           {reason.paragraph}

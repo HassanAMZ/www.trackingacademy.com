@@ -6,6 +6,8 @@ import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import Container from '@/components/ui/container';
 import TypographyH1 from '@/components/ui/typography-h1';
 import TypographyH2 from '@/components/ui/typography-h2';
+import { Star } from 'lucide-react';
+import CallToAction from '../contact/call-to-action';
 
 export default function Hero() {
  return (
@@ -23,7 +25,13 @@ export default function Hero() {
      </TypographyP>
 
      <div className='relative border px-6 py-2 rounded-lg w-full max-w-xl bg-secondary space-y-1'>
-      <div className='absolute -top-7 right-0 flex space-x-2'>⭐⭐⭐⭐⭐</div>
+      <div className='absolute -top-5 right-0 flex space-x-1'>
+       <Star />
+       <Star />
+       <Star />
+       <Star />
+       <Star />
+      </div>
       <TypographyP applyMargin={false} className='italic font-semibold'>
        “Shahzada is great and extremely knowledgable and friendly. He Helped us
        out tremendously.”
@@ -47,9 +55,7 @@ export default function Hero() {
       <TypographyP>✔ Setup and optimized within 7 days.</TypographyP>
      </div>
 
-     <Button asChild className='px-10 py-4 w-full md:w-max'>
-      <Link href='/contact'>Schedule Your Call</Link>
-     </Button>
+     <CallToAction buttonText='Schedule a Meeting' />
 
      <div className='flex items-center justify-start gap-2'>
       <div className='relative h-8 w-8'>

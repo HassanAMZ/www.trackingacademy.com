@@ -8,6 +8,7 @@ import {
 } from '@/components/typography/Heading';
 import Navbar from '@/components/global/navbar';
 import Container from '@/components/ui/container';
+import CallToAction from '@/components/contact/call-to-action';
 
 const TOSPage = () => {
  return (
@@ -64,7 +65,7 @@ const TOSPage = () => {
      <Heading3xl>Contact Us</Heading3xl>
      <Paragraphmd>
       If you have any questions regarding these Terms of Service, please
-      <Link href='/contact'> contact us</Link>.
+      <CallToAction buttonText='Schedule a Meeting' />
      </Paragraphmd>
     </section>
    </Container>

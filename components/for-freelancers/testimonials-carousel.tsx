@@ -41,7 +41,7 @@ const testimonials = [
 
 export function TestimonialsCarousel() {
  const [emblaRef] = useEmblaCarousel({ loop: true }, [
-  Autoplay({ delay: 2000, stopOnInteraction: true }),
+  Autoplay({ delay: 5000, stopOnInteraction: true }),
  ]);
 
  return (
@@ -53,6 +53,7 @@ export function TestimonialsCarousel() {
        src={testimonial.image}
        alt={testimonial.author}
        className='rounded-t-lg object-cover'
+       layout='responsive'
        width={500}
        height={200}
       />
