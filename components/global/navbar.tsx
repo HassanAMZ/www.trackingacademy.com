@@ -109,7 +109,7 @@ export default function Navbar() {
          </NavigationMenuLink>
         </Link>
        </NavigationMenuItem>
-       <NavigationMenuItem>
+       {/* <NavigationMenuItem>
         <CustomLink
          href='https://shahzadaalihassan.com'
          className='!p-0 !text-popover-foreground'>
@@ -122,7 +122,7 @@ export default function Navbar() {
           Services
          </NavigationMenuLink>
         </CustomLink>
-       </NavigationMenuItem>
+       </NavigationMenuItem> */}
        <NavigationMenuItem>
         <NavigationMenuTrigger>Tools</NavigationMenuTrigger>
         <NavigationMenuContent>
