@@ -18,6 +18,7 @@ import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 import { ModeToggle } from './theme-switch';
 import { Button } from '@/components/ui/button';
 import Container from '@/components/ui/container';
+import CustomLink from '../mdx/CustomLink';
 
 const components = [
  {
@@ -76,26 +77,6 @@ export default function Navbar() {
   setSheetOpen(false);
  };
 
- const renderCallToAction = () => {
-  if (pathname === '/for-freelancers') {
-   return (
-    <Button asChild>
-     <Link href='/for-freelancers/enroll-now'>Enroll Now</Link>
-    </Button>
-   );
-  }
-  return (
-   <Button asChild>
-    <Link href='/contact'>
-     <React.Fragment>
-      <span className='sm:block hidden'>Book a Call</span>
-      <span className='block sm:hidden'>Contact</span>
-     </React.Fragment>
-    </Link>
-   </Button>
-  );
- };
-
  return (
   <div className={cn('pt-4 pb-2 w-full lg:text-sm')}>
    <Container>
@@ -115,30 +96,7 @@ export default function Navbar() {
          </NavigationMenuLink>
         </Link>
        </NavigationMenuItem>
-       <NavigationMenuItem>
-        <Link href='/' legacyBehavior passHref>
-         <NavigationMenuLink
-          className={cn(
-           navigationMenuTriggerStyle(),
-           isActive('/for-businesses') &&
-            'bg-secondary text-accent-foreground border border-primary'
-          )}>
-          For Businesses
-         </NavigationMenuLink>
-        </Link>
-       </NavigationMenuItem>
-       <NavigationMenuItem>
-        <Link href='/for-freelancers' legacyBehavior passHref>
-         <NavigationMenuLink
-          className={cn(
-           navigationMenuTriggerStyle(),
-           isActive('/for-freelancers') &&
-            'bg-secondary text-accent-foreground border border-primary'
-          )}>
-          For Freelancers
-         </NavigationMenuLink>
-        </Link>
-       </NavigationMenuItem>
+
        <NavigationMenuItem>
         <Link href='/blog' legacyBehavior passHref>
          <NavigationMenuLink
@@ -150,6 +108,20 @@ export default function Navbar() {
           Blogs
          </NavigationMenuLink>
         </Link>
+       </NavigationMenuItem>
+       <NavigationMenuItem>
+        <CustomLink
+         href='https://shahzadaalihassan.com'
+         className='!p-0 !text-popover-foreground'>
+         <NavigationMenuLink
+          className={cn(
+           navigationMenuTriggerStyle(),
+           isActive('/blog') &&
+            'bg-secondary text-accent-foreground border border-primary'
+          )}>
+          Services
+         </NavigationMenuLink>
+        </CustomLink>
        </NavigationMenuItem>
        <NavigationMenuItem>
         <NavigationMenuTrigger>Tools</NavigationMenuTrigger>
@@ -169,7 +141,9 @@ export default function Navbar() {
       </NavigationMenuList>
       <div className='flex gap-2'>
        <ModeToggle />
-       {renderCallToAction()}
+       <Button asChild>
+        <Link href='/for-freelancers/enroll-now'>Enroll Now</Link>
+       </Button>
       </div>
      </NavigationMenu>
 
@@ -191,7 +165,9 @@ export default function Navbar() {
         onClick={handleLinkClick}>
         TrackingAcademy.com
        </Link>
-       {renderCallToAction()}
+       <Button asChild>
+        <Link href='/for-freelancers/enroll-now'>Enroll Now</Link>
+       </Button>
       </div>
 
       <SheetContent side='right' className='flex flex-col justify-between'>
@@ -206,26 +182,7 @@ export default function Navbar() {
          onClick={handleLinkClick}>
          TrackingAcademy.com
         </Link>
-        <Link
-         href='/'
-         className={cn(
-          navigationMenuTriggerStyle(),
-          isActive('/for-businesses') &&
-           'bg-secondary text-accent-foreground border border-primary'
-         )}
-         onClick={handleLinkClick}>
-         For Businesses
-        </Link>
-        <Link
-         href='/for-freelancers'
-         className={cn(
-          navigationMenuTriggerStyle(),
-          isActive('/for-freelancers') &&
-           'bg-secondary text-accent-foreground border border-primary'
-         )}
-         onClick={handleLinkClick}>
-         For Freelancers
-        </Link>
+
         <Link
          href='/blog'
          className={cn(
@@ -247,23 +204,13 @@ export default function Navbar() {
          Tools
         </Link>
 
-        {pathname === '/for-freelancers' ? (
-         <Link passHref legacyBehavior href='/for-freelancers/enroll-now'>
-          <Button
-           className='min-w-full font-medium text-secondary'
-           onClick={handleLinkClick}>
-           Enroll Now
-          </Button>
-         </Link>
-        ) : (
-         <Link passHref legacyBehavior href='/contact' className='w-full'>
-          <Button
-           className='w-full font-medium text-secondary'
-           onClick={handleLinkClick}>
-           <span>Book a Call</span>
-          </Button>
-         </Link>
-        )}
+        <Link passHref legacyBehavior href='/for-freelancers/enroll-now'>
+         <Button
+          className='min-w-full font-medium text-secondary'
+          onClick={handleLinkClick}>
+          Enroll Now
+         </Button>
+        </Link>
        </nav>
        <ModeToggle />
       </SheetContent>

@@ -1,26 +1,16 @@
-import Hero from '@/components/home/hero';
-import WorkHistory from '@/components/home/work-history';
-import Offer from '@/components/home/offer';
-import ClientTestimonial from '@/components/home/testimonaials';
-import FrequentlyAskedQuestions from '@/components/home/frequently-asked-questions';
+import Hero from '@/components/for-freelancers/hero';
+import Offer from '@/components/for-freelancers/offer';
 import Navbar from '@/components/global/navbar';
-import Services from '@/components/home/services';
-import CallToAction from '@/components/home/call-to-action';
+import WorkHistory from '@/components/home/work-history';
+import React from 'react';
 
-export default function Home() {
+export default function ForFreelancers() {
  return (
   <main>
    <Navbar />
-   <div className='space-y-4 sm:space-y-8 lg:space-y-12'>
-    <Hero />
-    <WorkHistory />
-    <Offer />
-    <Services />
-    <CallToAction presetNumber={8} />
-
-    <ClientTestimonial />
-    <FrequentlyAskedQuestions />
-   </div>
+   <Hero />
+   <WorkHistory />
+   <Offer />
   </main>
  );
 }
