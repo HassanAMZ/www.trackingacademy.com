@@ -19,6 +19,7 @@ import { cn } from '../lib/utils';
 import Container from '../ui/container';
 import TypographyH1 from '../ui/typography-h1';
 import Link from 'next/link';
+import { GTMCustomEvent } from '../analytics/GTMEvents';
 
 interface FormData {
  firstName: string;
@@ -211,10 +212,51 @@ export default function ContactForm({
    formAction(formDataToSubmit);
   }
  };
- if (formSubmitted) {
-  return <TypographyP>Thank you! Your request has been submitted.</TypographyP>;
- }
 
+ if (formSubmitted) {
+  const userData = {
+   email: formData.email,
+   phone: formData.phone,
+   address: {
+    first_name: formData.firstName,
+    last_name: formData.lastName,
+   },
+  };
+
+  return (
+   <Container>
+    <GTMCustomEvent
+     userData={{
+      email: formData.email,
+      phone: formData.phone,
+      address: {
+       first_name: formData.firstName,
+       last_name: formData.lastName,
+      },
+     }}
+     eventName={'contact_form_submission'}
+     eventDetails={{
+      website_link: formData.websiteLink,
+      integration_type: formData.integrationType,
+      project_description: formData.projectDescription,
+      budget: formData.budget,
+      current_setup: formData.currentSetup,
+      meeting_preference: formData.meetingPreference,
+      monthly_visitors: formData.monthlyVisitors,
+      business_model: formData.businessModel,
+      topMarketing_channels: formData.topMarketingChannels,
+      current_challenges: formData.currentChallenges,
+      conversion_rate_changes: formData.conversionRateChanges,
+      tagManagement_system: formData.tagManagementSystem,
+      tracking_goal: formData.trackingGoal,
+      specific_requirements: formData.specificRequirements,
+      implementation_timeline: formData.implementationTimeline,
+     }}
+    />
+    <TypographyP>Thank you! Your request has been submitted.</TypographyP>;
+   </Container>
+  );
+ }
  const renderNavigation = () => {
   const steps = ['Meeting', 'Account', 'Project', 'Tracking'];
   return (

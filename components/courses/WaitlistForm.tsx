@@ -17,7 +17,7 @@ function SubmitButton() {
   <button
    type='submit'
    disabled={pending}
-   className={`bg-accent hover:bg-complementary border-2 border-dominant text-xl font-bold   py-4 px-4 rounded-lg mt-4 transition-all duration-300 ease-in-out text-complementary hover:text-accent ${
+   className={`bg-accent hover:bg-complementary border-2 border-dominant text-xl font-bold py-4 px-4 rounded-lg mt-4 transition-all duration-300 ease-in-out text-complementary hover:text-accent ${
     pending ? 'opacity-50 cursor-not-allowed' : ''
    }`}>
    {pending ? 'Joining...' : 'Join Waitlist'}
@@ -34,6 +34,8 @@ export default function ContactForm() {
  }
 
  if (formSubmitted) {
+  const formData = state?.data; // Assuming state contains form data after submission
+
   return (
    <>
     <HeroComponent
@@ -54,7 +56,21 @@ export default function ContactForm() {
       },
      }}
     />
-    <GTMCustomEvent eventName={'waitlist_form_submission'} eventDetails={[]} />
+    <GTMCustomEvent
+     userData={{
+      email: formData.email,
+      address: {
+       first_name: formData.userName.split(' ')[0],
+       last_name: formData.userName.split(' ')[1] || '',
+      },
+     }}
+     eventName={'waitlist_form_submission'}
+     eventDetails={{
+      course: formData.course,
+      pricing: formData.pricing,
+      amount: formData.amount,
+     }}
+    />
    </>
   );
  }

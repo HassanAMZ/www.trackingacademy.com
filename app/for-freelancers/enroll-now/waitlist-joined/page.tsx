@@ -17,7 +17,7 @@ const WaitlistJoined: React.FC = () => {
    <Button asChild className='mt-6'>
     <Link href='/'>Go to Homepage</Link>
    </Button>
-   <GTMCustomEvent eventName={'waitlist_form_submission'} eventDetails={[]} />
+   <GTMCustomEvent eventName={'waitlist_form_submission'} />
   </Container>
  );
 };

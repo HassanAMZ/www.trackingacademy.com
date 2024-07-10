@@ -54,7 +54,6 @@ export default function Page() {
    </div>
 
    <YoutubeEmbed embedId='9MGpL_AmEYM' />
-   <GTMCustomEvent eventName={'contact_form_submission'} eventDetails={[]} />
   </Container>
  );
 }
