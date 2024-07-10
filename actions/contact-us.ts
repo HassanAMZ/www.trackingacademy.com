@@ -23,37 +23,20 @@ export async function createContact(prevState: any, formData: FormData) {
  const contactsCollection = collection(db, 'contacts');
 
  const schema = z.object({
-  firstName: z.string().min(1, 'First name must contain at least 1 character'),
-  lastName: z.string().min(1, 'Last name must contain at least 1 character'),
-  companyName: z.string().optional(),
-  companySize: z.string().optional(),
-  jobTitle: z.string().optional(),
-  email: z.string().email('Invalid email format'),
-  phone: z.string().min(1, 'Phone must contain at least 1 character'),
-  websiteLink: z.string().url('Invalid URL format'),
-  integrationType: z
-   .string()
-   .min(1, 'Integration type must contain at least 1 character'),
-  budget: z.string().min(1, 'Budget must contain at least 1 character'),
-  projectDescription: z
-   .string()
-   .min(1, 'Project description must contain at least 1 character'),
-  currentSetup: z
-   .string()
-   .min(1, 'Current setup must contain at least 1 character'),
-  meetingPreference: z.string().optional(),
-  monthlyVisitors: z
-   .string()
-   .min(1, 'Monthly visitors must contain at least 1 character'),
-  businessModel: z
-   .string()
-   .min(1, 'Business model must contain at least 1 character'),
-  topMarketingChannels: z
-   .string()
-   .min(1, 'Top marketing channels must contain at least 1 character'),
-  currentChallenges: z
-   .string()
-   .min(1, 'Current challenges must contain at least 1 character'),
+  firstName: z.string().min(1),
+  lastName: z.string().min(1),
+  email: z.string().email(),
+  phone: z.string().min(1),
+  websiteLink: z.string().url(),
+  integrationType: z.string().min(1),
+  projectDescription: z.string().min(1),
+  budget: z.string().min(1),
+  currentSetup: z.string().min(1),
+  meetingPreference: z.string().min(1),
+  monthlyVisitors: z.string().min(1),
+  businessModel: z.string().min(1),
+  topMarketingChannels: z.string().min(1),
+  currentChallenges: z.string().min(1),
   conversionRateChanges: z.string().optional(),
   tagManagementSystem: z.string().optional(),
   trackingGoal: z.string().optional(),
@@ -62,9 +45,30 @@ export async function createContact(prevState: any, formData: FormData) {
   createdAt: z.instanceof(Timestamp),
  });
 
- try {
-  const data = schema.parse(formData);
+ const data = schema.parse({
+  firstName: formData.get('firstName'),
+  lastName: formData.get('lastName'),
+  email: formData.get('email'),
+  phone: formData.get('phone'),
+  websiteLink: formData.get('websiteLink'),
+  integrationType: formData.get('integrationType'),
+  projectDescription: formData.get('projectDescription'),
+  budget: formData.get('budget'),
+  currentSetup: formData.get('currentSetup'),
+  meetingPreference: formData.get('meetingPreference'),
+  monthlyVisitors: formData.get('monthlyVisitors'),
+  businessModel: formData.get('businessModel'),
+  topMarketingChannels: formData.get('topMarketingChannels'),
+  currentChallenges: formData.get('currentChallenges'),
+  conversionRateChanges: formData.get('conversionRateChanges'),
+  tagManagementSystem: formData.get('tagManagementSystem'),
+  trackingGoal: formData.get('trackingGoal'),
+  specificRequirements: formData.get('specificRequirements'),
+  implementationTimeline: formData.get('implementationTimeline'),
+  createdAt: Timestamp.now(),
+ });
 
+ try {
   // Use `doc` and `setDoc` to specify the document ID
   const contactDocRef = doc(contactsCollection, timestampId);
   await setDoc(contactDocRef, data);
@@ -74,7 +78,28 @@ export async function createContact(prevState: any, formData: FormData) {
    to: data.email,
    cc: ['reactjswebdev@gmail.com', 'analytics@shahzadaalihassan.com'],
    subject: 'Thank you for contacting us!',
-   react: ContactUsEmail(data),
+   react: ContactUsEmail({
+    firstName: data.firstName,
+    lastName: data.lastName,
+    email: data.email,
+    phone: data.phone,
+    websiteLink: data.websiteLink,
+    integrationType: data.integrationType,
+    projectDescription: data.projectDescription,
+    budget: data.budget,
+    currentSetup: data.currentSetup,
+    meetingPreference: data.meetingPreference,
+    monthlyVisitors: data.monthlyVisitors,
+    businessModel: data.businessModel,
+    topMarketingChannels: data.topMarketingChannels,
+    currentChallenges: data.currentChallenges,
+    conversionRateChanges: data.conversionRateChanges,
+    tagManagementSystem: data.tagManagementSystem,
+    trackingGoal: data.trackingGoal,
+    specificRequirements: data.specificRequirements,
+    implementationTimeline: data.implementationTimeline,
+    createdAt: data.createdAt,
+   }),
   });
 
   // Store user data in cookies
