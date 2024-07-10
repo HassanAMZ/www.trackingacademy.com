@@ -18,8 +18,6 @@ import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 import { ModeToggle } from './theme-switch';
 import { Button } from '@/components/ui/button';
 import Container from '@/components/ui/container';
-import { TypographyH2 } from '@/components/ui/typography';
-import CallToAction from '@/components/contact/call-to-action';
 
 const components = [
  {
@@ -86,7 +84,14 @@ export default function Navbar() {
     </Button>
    );
   }
-  return <CallToAction />;
+  return (
+   <Button asChild>
+    <Link href='/contact'>
+     <span className='sm:block hidden'> Schedule a Meeting</span>
+     <span className='block sm:hidden'>Contact</span>
+    </Link>
+   </Button>
+  );
  };
 
  return (
@@ -167,7 +172,7 @@ export default function Navbar() {
      </NavigationMenu>
 
      <Sheet open={isSheetOpen} onOpenChange={setSheetOpen}>
-      <div className=' flex h-14 px-3 items-center justify-between gap-2 lg:hidden'>
+      <div className=' flex h-14 px-1 sm:px-3 items-center justify-between gap-1 sm:gap-2 lg:hidden'>
        <SheetTrigger asChild>
         <Button variant='outline' size='icon' className='shrink-0 lg:hidden'>
          <Menu className='h-5 w-5' />
@@ -179,7 +184,7 @@ export default function Navbar() {
         className={cn(
          navigationMenuTriggerStyle(),
          pathname === '/' &&
-          'bg-secondary text-accent-foreground border border-primary text-sm'
+          'bg-secondary text-accent-foreground border border-primary text-xs sm:text-sm'
         )}
         onClick={handleLinkClick}>
         TrackingAcademy.com

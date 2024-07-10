@@ -8,8 +8,9 @@ import Services from '@/components/home/services';
 
 import YoutubeEmbed from '@/components/global/youtube-embed';
 import { TypographyH2 } from '@/components/ui/typography';
-import CallToAction from '@/components/contact/call-to-action';
 import Container from '@/components/ui/container';
+import Link from 'next/link';
+import { Button } from '@/components/ui/button';
 
 export default function Home() {
  return (
@@ -25,11 +26,25 @@ export default function Home() {
      <TypographyH2 className='text-center'>
       Optimize Your Tracking in 7 Days! Get Started with No Risk.
      </TypographyH2>
-     <CallToAction buttonText={'Get Started'} />
+     <Container>
+      <Button asChild className='w-full'>
+       <Link href='contact'>Schedule a Meeting</Link>
+      </Button>
+     </Container>
     </Container>
 
     <ClientTestimonial />
+    <Container>
+     <Button asChild className='w-full'>
+      <Link href='contact'>Schedule a Meeting</Link>
+     </Button>
+    </Container>
     <FrequentlyAskedQuestions />
+    <Container>
+     <Button asChild className='w-full'>
+      <Link href='contact'>Schedule a Meeting</Link>
+     </Button>
+    </Container>
    </div>
   </main>
  );

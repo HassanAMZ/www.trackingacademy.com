@@ -1,20 +1,17 @@
-import React from "react";
-import LearnMore from "@/components/global/LearnMore";
-import LearnMoreHeader from "@/components/global/LearnMoreHeader";
-import AboutDetails from "@/components/about/AboutDetails";
-import ContainerLayout from "@/components/layouts/ContainerLayout";
-import Image from "next/image";
+import React from 'react';
+import LearnMore from '@/components/global/LearnMore';
+import LearnMoreHeader from '@/components/global/LearnMoreHeader';
+import Image from 'next/image';
+import TypographyH1 from '@/components/ui/typography-h1';
+import TypographyP from '@/components/ui/typography-p';
 
 export default function Page() {
  return (
   <section>
-   <LearnMoreHeader
-    headingTexts={{
-     heading: "Hey, I'm Hassan 👋 ",
-     subHeading:
-      "I'm a Top Rated Freelancer on Upwork, here's what you should know about me.",
-    }}
-   />
+   <TypographyH1 className='text-center'>Hey, I'm Hassan 👋</TypographyH1>
+   <TypographyP>
+    I'm a Top Rated Freelancer on Upwork, here's what you should know about me.
+   </TypographyP>
 
    <section className='pt-2'>
     <Image
@@ -25,7 +22,30 @@ export default function Page() {
      className='rounded-lg'
     />
    </section>
-   <AboutDetails />
+   <div className='divide-y p-4 container-secondary'>
+    <LearnMore
+     detailsList={[
+      {
+       icon: '📚',
+       header: 'Top Rated Web Analytics Experts',
+       details:
+        'With 100% Job Success, We specialize in web analytics, providing expertise in tools like GA4, Snapchat, Gads, FB Pixel, and CAPI server-side tracking, and have worked with renowned clients like BookOnline.com and TruelyBeauty.com',
+      },
+      {
+       icon: '🌎',
+       header: 'Global Impact',
+       details:
+        'Our work has not only spanned 270+ diverse clients but has also been featured in substantial corporations, enabling me to navigate and understand varied industry landscapes and cultural nuances in business.',
+      },
+      {
+       icon: '🔧',
+       header: '1000+ Total Jobs Completed',
+       details:
+        'Successfully completed a spectrum of 263 jobs, delving into diverse challenges in web analytics and tracking setups, always dedicated to delivering value and tangible solutions to clients across various industries.',
+      },
+     ]}
+    />
+   </div>
   </section>
  );
 }

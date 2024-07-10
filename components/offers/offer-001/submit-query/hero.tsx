@@ -1,5 +1,5 @@
 import React from 'react';
-import ContactForm from '@/components/contact/ContactForm';
+import ContactForm from '@/components/contact/contact-form';
 import FrequentlyAskedQuestions from '@/components/home/frequently-asked-questions';
 import ClientTestimonial from '@/components/home/testimonaials';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';

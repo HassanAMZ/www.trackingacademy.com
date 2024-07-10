@@ -8,7 +8,7 @@ import {
 } from '@/components/typography/Heading';
 import Navbar from '@/components/global/navbar';
 import Container from '@/components/ui/container';
-import CallToAction from '@/components/contact/call-to-action';
+import { Button } from '@/components/ui/button';
 
 const TOSPage = () => {
  return (
@@ -65,9 +65,12 @@ const TOSPage = () => {
      <Heading3xl>Contact Us</Heading3xl>
      <Paragraphmd>
       If you have any questions regarding these Terms of Service, please
-      <CallToAction buttonText='Schedule a Meeting' />
      </Paragraphmd>
     </section>
+
+    <Button asChild className='w-full'>
+     <Link href='contact'>Schedule a Meeting</Link>
+    </Button>
    </Container>
   </React.Fragment>
  );

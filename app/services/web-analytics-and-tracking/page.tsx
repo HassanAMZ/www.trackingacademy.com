@@ -4,8 +4,8 @@ import Image from 'next/image';
 import LearnMoreHeader from '@/components/global/LearnMoreHeader';
 import ClientTestimonial from '@/components/home/testimonaials';
 import { TypographyH2 } from '@/components/ui/typography';
-import CallToAction from '@/components/contact/call-to-action';
 import Container from '@/components/ui/container';
+import { Button } from '@/components/ui/button';
 interface BenefitItemProps {
  title: string;
  description: string;
@@ -391,7 +391,9 @@ function page() {
          <TypographyH2 className='text-center'>
           Optimize Your Tracking in 7 Days! Get Started with No Risk.
          </TypographyH2>
-         <CallToAction buttonText={'Get Started'} />
+         <Button asChild className='w-full'>
+          <Link href='contact'>Schedule a Meeting</Link>
+         </Button>
         </Container>
        </div>
        <div className='relative w-2/3 pt-4'>

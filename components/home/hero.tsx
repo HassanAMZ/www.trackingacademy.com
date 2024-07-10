@@ -5,9 +5,7 @@ import TypographyP from '@/components/ui/typography-p';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import Container from '@/components/ui/container';
 import TypographyH1 from '@/components/ui/typography-h1';
-import TypographyH2 from '@/components/ui/typography-h2';
 import { Star } from 'lucide-react';
-import CallToAction from '../contact/call-to-action';
 
 export default function Hero() {
  return (
@@ -55,7 +53,9 @@ export default function Hero() {
       <TypographyP>✔ Setup and optimized within 7 days.</TypographyP>
      </div>
 
-     <CallToAction buttonText='Schedule a Meeting' />
+     <Button asChild>
+      <Link href='contact'>Schedule a Meeting</Link>
+     </Button>
 
      <div className='flex items-center justify-start gap-2'>
       <div className='relative h-8 w-8'>

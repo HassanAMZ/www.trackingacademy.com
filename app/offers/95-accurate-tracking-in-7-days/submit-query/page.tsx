@@ -1,12 +1,13 @@
-import ContactForm from '@/components/contact/ContactForm';
+import ContactForm from '@/components/contact/contact-form';
 import FrequentlyAskedQuestions from '@/components/home/frequently-asked-questions';
 import ClientTestimonial from '@/components/home/testimonaials';
 import { Separator } from '@/components/ui/separator';
 import React from 'react';
 import Hero from '@/components/offers/offer-001/submit-query/hero';
 import { TypographyH2 } from '@/components/ui/typography';
-import CallToAction from '@/components/contact/call-to-action';
 import Container from '@/components/ui/container';
+import { Button } from '@/components/ui/button';
+import Link from 'next/link';
 
 export default function page() {
  return (
@@ -18,14 +19,18 @@ export default function page() {
     <TypographyH2 className='text-center'>
      Optimize Your Tracking in 7 Days! Get Started with No Risk.
     </TypographyH2>
-    <CallToAction buttonText={'Get Started'} />
+    <Button asChild className='w-full'>
+     <Link href='contact'>Schedule a Meeting</Link>
+    </Button>
    </Container>
    <FrequentlyAskedQuestions />
    <Container>
     <TypographyH2 className='text-center'>
      Optimize Your Tracking in 7 Days! Get Started with No Risk.
     </TypographyH2>
-    <CallToAction buttonText={'Get Started'} />
+    <Button asChild className='w-full'>
+     <Link href='contact'>Schedule a Meeting</Link>
+    </Button>
    </Container>
   </main>
  );

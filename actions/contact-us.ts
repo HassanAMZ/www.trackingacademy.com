@@ -23,30 +23,48 @@ export async function createContact(prevState: any, formData: FormData) {
  const contactsCollection = collection(db, 'contacts');
 
  const schema = z.object({
-  firstName: z.string().min(1),
-  lastName: z.string().min(1),
-  email: z.string().email(),
-  phone: z.string().min(1),
-  websiteLink: z.string().url(),
-  integrationType: z.string().min(1),
-  projectDescription: z.string().min(1),
-  budget: z.string().min(1),
+  firstName: z.string().min(1, 'First name must contain at least 1 character'),
+  lastName: z.string().min(1, 'Last name must contain at least 1 character'),
+  companyName: z.string().optional(),
+  companySize: z.string().optional(),
+  jobTitle: z.string().optional(),
+  email: z.string().email('Invalid email format'),
+  phone: z.string().min(1, 'Phone must contain at least 1 character'),
+  websiteLink: z.string().url('Invalid URL format'),
+  integrationType: z
+   .string()
+   .min(1, 'Integration type must contain at least 1 character'),
+  budget: z.string().min(1, 'Budget must contain at least 1 character'),
+  projectDescription: z
+   .string()
+   .min(1, 'Project description must contain at least 1 character'),
+  currentSetup: z
+   .string()
+   .min(1, 'Current setup must contain at least 1 character'),
+  meetingPreference: z.string().optional(),
+  monthlyVisitors: z
+   .string()
+   .min(1, 'Monthly visitors must contain at least 1 character'),
+  businessModel: z
+   .string()
+   .min(1, 'Business model must contain at least 1 character'),
+  topMarketingChannels: z
+   .string()
+   .min(1, 'Top marketing channels must contain at least 1 character'),
+  currentChallenges: z
+   .string()
+   .min(1, 'Current challenges must contain at least 1 character'),
+  conversionRateChanges: z.string().optional(),
+  tagManagementSystem: z.string().optional(),
+  trackingGoal: z.string().optional(),
+  specificRequirements: z.string().optional(),
+  implementationTimeline: z.string().optional(),
   createdAt: z.instanceof(Timestamp),
  });
 
- const data = schema.parse({
-  firstName: formData.get('firstName'),
-  lastName: formData.get('lastName'),
-  email: formData.get('email'),
-  phone: formData.get('phone'),
-  websiteLink: formData.get('websiteLink'),
-  integrationType: formData.get('integrationType'),
-  projectDescription: formData.get('projectDescription'),
-  budget: formData.get('budget'),
-  createdAt: Timestamp.now(),
- });
-
  try {
+  const data = schema.parse(formData);
+
   // Use `doc` and `setDoc` to specify the document ID
   const contactDocRef = doc(contactsCollection, timestampId);
   await setDoc(contactDocRef, data);
@@ -56,17 +74,7 @@ export async function createContact(prevState: any, formData: FormData) {
    to: data.email,
    cc: ['reactjswebdev@gmail.com', 'analytics@shahzadaalihassan.com'],
    subject: 'Thank you for contacting us!',
-   react: ContactUsEmail({
-    firstName: data.firstName,
-    lastName: data.lastName,
-    email: data.email,
-    phone: data.phone,
-    websiteLink: data.websiteLink,
-    integrationType: data.integrationType,
-    projectDescription: data.projectDescription,
-    budget: data.budget,
-    createdAt: data.createdAt,
-   }),
+   react: ContactUsEmail(data),
   });
 
   // Store user data in cookies

@@ -8,7 +8,6 @@ import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 import Container from '@/components/ui/container';
 import { TypographyH2 } from '@/components/ui/typography';
-import CallToAction from '@/components/contact/call-to-action';
 
 export default function Home() {
  return (
@@ -20,7 +19,9 @@ export default function Home() {
     <TypographyH2 className='text-center'>
      Optimize Your Tracking in 7 Days! Get Started with No Risk.
     </TypographyH2>
-    <CallToAction buttonText={'Get Started'} />
+    <Button asChild className='w-full'>
+     <Link href='contact'>Schedule a Meeting</Link>
+    </Button>
    </Container>
 
    <Separator className='my-6' />
@@ -30,7 +31,9 @@ export default function Home() {
     <TypographyH2 className='text-center'>
      Optimize Your Tracking in 7 Days! Get Started with No Risk.
     </TypographyH2>
-    <CallToAction buttonText={'Get Started'} />
+    <Button asChild className='w-full'>
+     <Link href='contact'>Schedule a Meeting</Link>
+    </Button>
    </Container>
 
    <Separator className='my-6' />
@@ -40,7 +43,9 @@ export default function Home() {
     <TypographyH2 className='text-center'>
      Optimize Your Tracking in 7 Days! Get Started with No Risk.
     </TypographyH2>
-    <CallToAction buttonText={'Get Started'} />
+    <Button asChild className='w-full'>
+     <Link href='contact'>Schedule a Meeting</Link>
+    </Button>
    </Container>
 
    <FrequentlyAskedQuestions />
@@ -49,7 +54,9 @@ export default function Home() {
     <TypographyH2 className='text-center'>
      Optimize Your Tracking in 7 Days! Get Started with No Risk.
     </TypographyH2>
-    <CallToAction buttonText={'Get Started'} />
+    <Button asChild className='w-full'>
+     <Link href='contact'>Schedule a Meeting</Link>
+    </Button>
    </Container>
   </main>
  );

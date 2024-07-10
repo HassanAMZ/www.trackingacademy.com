@@ -15,7 +15,7 @@ import {
  DialogTitle,
  DialogTrigger,
 } from '@/components/ui/dialog';
-import ContactForm from '../contact/ContactForm';
+import ContactForm from './contact-form';
 
 interface CallToActionProps {
  buttonText?: string;
@@ -29,7 +29,7 @@ export default function CallToAction({
  return (
   <Dialog>
    <DialogTrigger asChild>
-    <Button>
+    <Button className='w-full'>
      <span className='sm:block hidden'>{buttonText}</span>
      <span className='block sm:hidden'>Contact</span>
     </Button>
