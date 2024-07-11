@@ -1,5 +1,11 @@
+import ClientTestimonial from '@/components/home/testimonaials';
+import Container from '@/components/ui/container';
 import React from 'react';
 
 export default function page() {
- return <div>page</div>;
+ return (
+  <Container>
+   <ClientTestimonial />
+  </Container>
+ );
 }
