@@ -20,7 +20,14 @@ import Container from '../ui/container';
 import TypographyH1 from '../ui/typography-h1';
 import Link from 'next/link';
 import { GTMCustomEvent } from '../analytics/GTMEvents';
-
+import {
+ Card,
+ CardContent,
+ CardDescription,
+ CardFooter,
+ CardHeader,
+ CardTitle,
+} from '@/components/ui/card';
 interface FormData {
  firstName: string;
  lastName: string;
@@ -105,6 +112,7 @@ export default function ContactForm({
  const [state, formAction] = useFormState(createContact, initialState);
  const [formSubmitted, setFormSubmitted] = useState(false);
  const [currentStep, setCurrentStep] = useState(1);
+ const [maxStep, setMaxStep] = useState(1);
  const [formData, setFormData] = useState<FormData>({
   firstName: '',
   lastName: '',
@@ -186,7 +194,9 @@ export default function ContactForm({
  const nextStep = (e: React.MouseEvent<HTMLButtonElement>) => {
   e.preventDefault();
   if (validateStep(currentStep)) {
-   setCurrentStep(currentStep + 1);
+   const newStep = currentStep + 1;
+   setCurrentStep(newStep);
+   setMaxStep(Math.max(maxStep, newStep));
   }
  };
 
@@ -253,10 +263,19 @@ export default function ContactForm({
       implementation_timeline: formData.implementationTimeline,
      }}
     />
-    <TypographyP>Thank you! Your request has been submitted.</TypographyP>;
+    <TypographyH1 className='text-center'>Thank you!</TypographyH1>
+    <TypographyP>Your request has been submitted.</TypographyP>
+    <TypographyP>
+     You'll be redirected to Book a Meeting Page. If the redirects does not
+     happen,{' '}
+     <Button asChild variant={'link'} className='p-0'>
+      <Link href={'/contact/book-a-meeting'}>click here</Link>
+     </Button>
+    </TypographyP>
    </Container>
   );
  }
+
  const renderNavigation = () => {
   const steps = ['Meeting', 'Account', 'Project', 'Tracking'];
   return (
@@ -266,7 +285,13 @@ export default function ContactForm({
       key={index}
       className={`flex items-center flex-row md:flex-col ${
        index + 1 === currentStep ? 'text-primary' : 'text-foreground'
-      }`}>
+      } ${index + 1 <= maxStep ? 'cursor-pointer' : 'cursor-default'}`}
+      onClick={() => {
+       if (index + 1 <= maxStep) {
+        setCurrentStep(index + 1);
+       }
+      }}
+      style={{ cursor: index + 1 <= maxStep ? 'pointer' : 'default' }}>
       <div
        className={`rounded-full h-8 w-8 flex items-center justify-center border-2 ${
         index + 1 === currentStep
@@ -439,7 +464,7 @@ export default function ContactForm({
        </div>
       </div>
       <div className='flex justify-between'>
-       <Button type='button' onClick={prevStep}>
+       <Button type='button' variant={'outline'} onClick={prevStep}>
         Previous
        </Button>
        <Button type='button' onClick={nextStep}>
@@ -581,7 +606,7 @@ export default function ContactForm({
        </div>
       </div>
       <div className='flex justify-between'>
-       <Button type='button' onClick={prevStep}>
+       <Button type='button' variant={'outline'} onClick={prevStep}>
         Previous
        </Button>
 
@@ -717,7 +742,7 @@ export default function ContactForm({
        </div>
       </div>
       <div className='flex justify-between'>
-       <Button type='button' onClick={prevStep}>
+       <Button type='button' variant={'outline'} onClick={prevStep}>
         Previous
        </Button>
 
@@ -734,13 +759,18 @@ export default function ContactForm({
   <Container className={cn('w-full py-2', className)}>
    <div className='rounded-lg'>
     {renderNavigation()}
-    <section className='mx-auto min-h-[70vh] max-w-3xl grid items-center'>
-     <form onSubmit={handleSubmit} className='flex flex-col space-y-3'>
-      {renderStep()}
-      <TypographyP aria-live='polite' className='sr-only'>
-       {state?.message}
-      </TypographyP>
-     </form>
+    <section className='mx-auto max-w-3xl '>
+     <Card className='w-full rounded-t-lg'>
+      <CardHeader></CardHeader>
+      <CardContent>
+       <form onSubmit={handleSubmit} className='flex flex-col space-y-3'>
+        {renderStep()}
+        <TypographyP aria-live='polite' className='sr-only'>
+         {state?.message}
+        </TypographyP>
+       </form>
+      </CardContent>
+     </Card>
     </section>
    </div>
   </Container>

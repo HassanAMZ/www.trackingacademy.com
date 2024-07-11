@@ -23,7 +23,7 @@ export default function Hero() {
      </TypographyP>
 
      <div className='relative border px-6 py-2 rounded-lg w-full max-w-xl bg-secondary space-y-1'>
-      <div className='absolute -top-5 right-0 flex space-x-1'>
+      <div className='absolute -top-4 right-0 flex space-x-1'>
        <Star />
        <Star />
        <Star />
@@ -38,10 +38,14 @@ export default function Hero() {
        Mark, <strong>CMO at LemonLawFirm </strong>
       </TypographyP>
       <div className='absolute -bottom-4 right-0 flex space-x-4 mb-2 mr-2'>
-       <Button className='p-1 m-0 h-max font-semibold rounded-lg transform rotate-3 text-sm'>
+       <Button
+        variant={'outline'}
+        className='p-1 m-0 h-max font-semibold rounded-lg transform rotate-3 text-sm'>
         12.7 ROAS
        </Button>
-       <Button className='p-1 m-0 h-max font-semibold rounded-lg transform -rotate-3 text-sm'>
+       <Button
+        variant={'outline'}
+        className='p-1 m-0 h-max font-semibold rounded-lg transform -rotate-3 text-sm'>
         +64% Conversions
        </Button>
       </div>
