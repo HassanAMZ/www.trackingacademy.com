@@ -58,7 +58,7 @@ export default function Hero() {
      </div>
 
      <Button asChild>
-      <Link href='contact'>Schedule a Meeting</Link>
+      <Link href='/contact'>Schedule a Meeting</Link>
      </Button>
 
      <div className='flex items-center justify-start gap-2'>

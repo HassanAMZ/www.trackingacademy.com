@@ -69,7 +69,7 @@ const TOSPage = () => {
     </section>
 
     <Button asChild className='w-full'>
-     <Link href='contact'>Schedule a Meeting</Link>
+     <Link href='/contact'>Schedule a Meeting</Link>
     </Button>
    </Container>
   </React.Fragment>

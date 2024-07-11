@@ -11,7 +11,7 @@ import Link from 'next/link';
 
 export default function page() {
  return (
-  <main className='space-y-4 sm:space-y-8 lg:space-y-12'>
+  <main className='space-y-4 sm:space-y-8 lg:space-y-12 '>
    <Hero />
    <Separator className='my-6' />
    <ClientTestimonial />
@@ -20,7 +20,9 @@ export default function page() {
      Optimize Your Tracking in 7 Days! Get Started with No Risk.
     </TypographyH2>
     <Button asChild className='w-full'>
-     <Link href='contact'>Schedule a Meeting</Link>
+     <Link href='/offers/95-accurate-tracking-in-7-days/submit-query'>
+      Schedule a Meeting
+     </Link>
     </Button>
    </Container>
    <FrequentlyAskedQuestions />
@@ -29,7 +31,9 @@ export default function page() {
      Optimize Your Tracking in 7 Days! Get Started with No Risk.
     </TypographyH2>
     <Button asChild className='w-full'>
-     <Link href='contact'>Schedule a Meeting</Link>
+     <Link href='/offers/95-accurate-tracking-in-7-days/submit-query'>
+      Schedule a Meeting
+     </Link>
     </Button>
    </Container>
   </main>

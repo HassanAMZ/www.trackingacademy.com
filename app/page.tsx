@@ -28,7 +28,7 @@ export default function Home() {
      </TypographyH2>
      <Container>
       <Button asChild className='w-full'>
-       <Link href='contact'>Schedule a Meeting</Link>
+       <Link href='/contact'>Schedule a Meeting</Link>
       </Button>
      </Container>
     </Container>
@@ -36,13 +36,13 @@ export default function Home() {
     <ClientTestimonial />
     <Container>
      <Button asChild className='w-full'>
-      <Link href='contact'>Schedule a Meeting</Link>
+      <Link href='/contact'>Schedule a Meeting</Link>
      </Button>
     </Container>
     <FrequentlyAskedQuestions />
     <Container>
      <Button asChild className='w-full'>
-      <Link href='contact'>Schedule a Meeting</Link>
+      <Link href='/contact'>Schedule a Meeting</Link>
      </Button>
     </Container>
    </div>

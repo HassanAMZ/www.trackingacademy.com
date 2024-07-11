@@ -102,11 +102,15 @@ function SubmitButton({ validateStep }: { validateStep: () => boolean }) {
 
 interface ContactFormProps {
  thankYouUrl?: string;
+ gtmCustomEventName?: string;
+ isItAFit?: boolean;
  className?: string;
 }
 
 export default function ContactForm({
  thankYouUrl = '/contact/book-a-meeting',
+ gtmCustomEventName = 'contact_form_submission',
+ isItAFit = true,
  className,
 }: ContactFormProps) {
  const [state, formAction] = useFormState(createContact, initialState);
@@ -244,7 +248,7 @@ export default function ContactForm({
        last_name: formData.lastName,
       },
      }}
-     eventName={'contact_form_submission'}
+     eventName={gtmCustomEventName}
      eventDetails={{
       website_link: formData.websiteLink,
       integration_type: formData.integrationType,
@@ -313,7 +317,7 @@ export default function ContactForm({
     return (
      <>
       <div className='text-left md:text-center py-6'>
-       <TypographyH1>Work with TrackingAcademy </TypographyH1>
+       <TypographyH1>Work with Tracking Academy </TypographyH1>
        <TypographyP>
         Enter your business email and select your preferred meeting type.
        </TypographyP>
@@ -362,14 +366,16 @@ export default function ContactForm({
       <Button className='w-max self-end' type='button' onClick={nextStep}>
        Continue
       </Button>
-      <TypographyP className='text-sm text-left md:text-center py-12'>
-       Have a project but not quite ready to contact us?{' '}
-       <Button asChild variant={'link'} className='p-0 inline'>
-        <Link href='/contact/is-tracking-academy-a-fit-for-you'>
-         See if Tracking Academy is a fit for you.
-        </Link>
-       </Button>
-      </TypographyP>
+      {isItAFit && (
+       <TypographyP className='text-sm text-left md:text-center py-12'>
+        Have a project but not quite ready to contact us?{' '}
+        <Button asChild variant={'link'} className='p-0 inline'>
+         <Link href='/contact/is-tracking-academy-a-fit-for-you'>
+          See if Tracking Academy is a fit for you.
+         </Link>
+        </Button>
+       </TypographyP>
+      )}
      </>
     );
    case 2:
@@ -756,7 +762,7 @@ export default function ContactForm({
  };
 
  return (
-  <Container className={cn('w-full py-2', className)}>
+  <section className={cn('w-full py-2', className)}>
    <div className='rounded-lg'>
     {renderNavigation()}
     <section className='mx-auto max-w-3xl '>
@@ -773,6 +779,6 @@ export default function ContactForm({
      </Card>
     </section>
    </div>
-  </Container>
+  </section>
  );
 }

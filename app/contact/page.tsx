@@ -1,10 +1,11 @@
 import ContactForm from '@/components/contact/contact-form';
+import Container from '@/components/ui/container';
 import React from 'react';
 
 export default function page() {
  return (
-  <main>
+  <Container>
    <ContactForm />
-  </main>
+  </Container>
  );
 }

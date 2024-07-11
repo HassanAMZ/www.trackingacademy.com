@@ -5,7 +5,7 @@ import TypographyP from '@/components/ui/typography-p';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import Container from '@/components/ui/container';
 import TypographyH1 from '@/components/ui/typography-h1';
-import TypographyH2 from '@/components/ui/typography-h2';
+import { Star } from 'lucide-react';
 
 export default function Hero() {
  return (
@@ -23,7 +23,13 @@ export default function Hero() {
      </TypographyP>
 
      <div className='relative border px-6 py-2 rounded-lg w-full max-w-xl bg-secondary space-y-1'>
-      <div className='absolute -top-3 right-0 flex space-x-2'>⭐⭐⭐⭐⭐</div>
+      <div className='absolute -top-4 right-0 flex space-x-1'>
+       <Star />
+       <Star />
+       <Star />
+       <Star />
+       <Star />
+      </div>
       <TypographyP applyMargin={false} className='italic font-semibold'>
        “Shahzada is great and extremely knowledgable and friendly. He Helped us
        out tremendously.”
@@ -32,10 +38,14 @@ export default function Hero() {
        Mark, <strong>CMO at LemonLawFirm </strong>
       </TypographyP>
       <div className='absolute -bottom-4 right-0 flex space-x-4 mb-2 mr-2'>
-       <Button className='p-1 m-0 h-max font-semibold rounded-lg transform rotate-3 text-sm'>
+       <Button
+        variant={'outline'}
+        className='p-1 m-0 h-max font-semibold rounded-lg transform rotate-3 text-sm'>
         12.7 ROAS
        </Button>
-       <Button className='p-1 m-0 h-max font-semibold rounded-lg transform -rotate-3 text-sm'>
+       <Button
+        variant={'outline'}
+        className='p-1 m-0 h-max font-semibold rounded-lg transform -rotate-3 text-sm'>
         +64% Conversions
        </Button>
       </div>
@@ -47,9 +57,9 @@ export default function Hero() {
       <TypographyP>✔ Setup and optimized within 7 days.</TypographyP>
      </div>
 
-     <Button asChild className='px-10 py-4 w-full md:w-max'>
+     <Button asChild>
       <Link href='/offers/95-accurate-tracking-in-7-days/submit-query'>
-       Schedule Your Call
+       Schedule a Meeting
       </Link>
      </Button>
 

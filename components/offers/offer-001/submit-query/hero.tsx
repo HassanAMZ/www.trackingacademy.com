@@ -8,12 +8,13 @@ import { Separator } from '@/components/ui/separator';
 import TypographyH1 from '@/components/ui/typography-h1';
 import TypographyP from '@/components/ui/typography-p';
 import { Button } from '@/components/ui/button';
+import { Star } from 'lucide-react';
 
 export default function Hero() {
  return (
   <Container>
-   <div className='md:grid md:grid-cols-5 flex flex-col items-start text-left justify-center gap-4 pt-4 lg:pt-8'>
-    <div className='col-span-3 space-y-4'>
+   <div className='grid lg:grid-cols-5 items-center justify-center gap-4 pt-4 '>
+    <div className=' lg:col-span-3 space-y-4'>
      <TypographyH1>
       <span>Submit the Form now and</span>{' '}
       <span className='text-primary'>Maximize Every Click </span>- Achieve 95%
@@ -22,7 +23,13 @@ export default function Hero() {
      </TypographyH1>
 
      <div className='relative border px-6 py-2 rounded-lg w-full max-w-xl bg-secondary space-y-1'>
-      <div className='absolute -top-3 right-0 flex space-x-2'>⭐⭐⭐⭐⭐</div>
+      <div className='absolute -top-4 right-0 flex space-x-1'>
+       <Star />
+       <Star />
+       <Star />
+       <Star />
+       <Star />
+      </div>
       <TypographyP applyMargin={false} className='italic font-semibold'>
        “Shahzada's knowledge of everything Google Tag manager is at a very
        advanced level. He is also easy to communicate with. I'd work with him
@@ -32,10 +39,14 @@ export default function Hero() {
        Kiran Kumar, <strong>Founder at GoVisually </strong>
       </TypographyP>
       <div className='absolute -bottom-4 right-0 flex space-x-4 mb-2 mr-2'>
-       <Button className='p-1 m-0 h-max font-semibold rounded-lg transform rotate-3 text-sm'>
+       <Button
+        variant={'outline'}
+        className='p-1 m-0 h-max font-semibold rounded-lg transform rotate-3 text-sm'>
         12.7x ROAS
        </Button>
-       <Button className='p-1 m-0 h-max font-semibold rounded-lg transform -rotate-3 text-sm'>
+       <Button
+        variant={'outline'}
+        className='p-1 m-0 h-max font-semibold rounded-lg transform -rotate-3 text-sm'>
         +64% Conversions
        </Button>
       </div>
@@ -80,8 +91,10 @@ export default function Hero() {
      </div>
     </div>
     <ContactForm
-     className='col-span-2'
+     className='lg:col-span-2 -order-1 lg:order-1'
      thankYouUrl='/offers/95-accurate-tracking-in-7-days/submit-query/book-a-meeting'
+     gtmCustomEventName='offer_form_submission'
+     isItAFit={false}
     />
    </div>
   </Container>

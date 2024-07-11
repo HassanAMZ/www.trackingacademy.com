@@ -20,7 +20,9 @@ export default function Home() {
      Optimize Your Tracking in 7 Days! Get Started with No Risk.
     </TypographyH2>
     <Button asChild className='w-full'>
-     <Link href='contact'>Schedule a Meeting</Link>
+     <Link href='/offers/95-accurate-tracking-in-7-days/submit-query'>
+      Schedule a Meeting
+     </Link>
     </Button>
    </Container>
 
@@ -32,7 +34,9 @@ export default function Home() {
      Optimize Your Tracking in 7 Days! Get Started with No Risk.
     </TypographyH2>
     <Button asChild className='w-full'>
-     <Link href='contact'>Schedule a Meeting</Link>
+     <Link href='/offers/95-accurate-tracking-in-7-days/submit-query'>
+      Schedule a Meeting
+     </Link>
     </Button>
    </Container>
 
@@ -44,7 +48,9 @@ export default function Home() {
      Optimize Your Tracking in 7 Days! Get Started with No Risk.
     </TypographyH2>
     <Button asChild className='w-full'>
-     <Link href='contact'>Schedule a Meeting</Link>
+     <Link href='/offers/95-accurate-tracking-in-7-days/submit-query'>
+      Schedule a Meeting
+     </Link>
     </Button>
    </Container>
 
@@ -55,7 +61,9 @@ export default function Home() {
      Optimize Your Tracking in 7 Days! Get Started with No Risk.
     </TypographyH2>
     <Button asChild className='w-full'>
-     <Link href='contact'>Schedule a Meeting</Link>
+     <Link href='/offers/95-accurate-tracking-in-7-days/submit-query'>
+      Schedule a Meeting
+     </Link>
     </Button>
    </Container>
   </main>
