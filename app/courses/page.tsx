@@ -1,22 +1,22 @@
-import React from 'react';
-import HeroComponent from '@/components/global/HeroComponent';
-import CourseContainer from '@/components/courses/CourseContainer';
-import getCoursesData from 'utils/getCoursesData';
-import WaitlistForm from '@/components/courses/WaitlistForm';
+import React from "react";
+import HeroComponent from "@/components/global/HeroComponent";
+import CourseContainer from "@/components/courses/CourseContainer";
+import getCoursesData from "utils/getCoursesData";
+import WaitlistForm from "@/components/courses/WaitlistForm";
 
 export default async function Page() {
- const data = await getCoursesData();
- const sortedData = (await Promise.all(data))
-  .filter((data) => data.draft === false)
-  .sort((a, b) => {
-   const dateA = new Date(a.date);
-   const dateB = new Date(b.date);
-   return dateB.getTime() - dateA.getTime();
-  });
+  const data = await getCoursesData();
+  const sortedData = (await Promise.all(data))
+    .filter((data) => data.draft === false)
+    .sort((a, b) => {
+      const dateA = new Date(a.date);
+      const dateB = new Date(b.date);
+      return dateB.getTime() - dateA.getTime();
+    });
 
- return (
-  <div className='flex flex-col'>
-   {/* <React.Fragment>
+  return (
+    <div className="flex flex-col">
+      {/* <React.Fragment>
     <HeroComponent
      textGroup={{
       welcomeText: "TrackingAcademy Courses",
@@ -54,13 +54,13 @@ export default async function Page() {
      }}
     />
    </React.Fragment> */}
-   {sortedData.length === 0 && (
-    <React.Fragment>
-     <div className='text-left py-8 min-h-[60vh] grid place-content-center'>
-      <WaitlistForm />
-     </div>
-    </React.Fragment>
-   )}
-  </div>
- );
+      {sortedData.length === 0 && (
+        <React.Fragment>
+          <div className="grid min-h-[60vh] place-content-center py-8 text-left">
+            <WaitlistForm />
+          </div>
+        </React.Fragment>
+      )}
+    </div>
+  );
 }

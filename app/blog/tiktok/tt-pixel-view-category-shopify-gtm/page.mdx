@@ -1,21 +1,21 @@
 export const metadata = {
- title: "Master TikTok Ads: Track View Category Events on Shopify with GTM",
- date: "2023-12-15",
- blogId: 85,
- Keywords: `TikTok Pixel, View Category Events, Shopify, Google Tag Manager Integration, TikTok Ads Management, Customer Interactions, Online Marketing Strategy, E-commerce Success, Event Tracking`,
- tags: [
-  "View Category Event",
-  "Shopify Tracking",
-  "TikTok Ads Management",
-  "Google Tag Manager",
-  "TikTok Pixel Setup",
- ],
- draft: false,
- description: `Explore essential techniques for tracking view category events on Shopify using Google Tag Manager and TikTok Pixel. This in-depth blog post provides a step-by-step guide to integrating TikTok Pixel with your Shopify store, enabling you to understand and optimize your TikTok ad performance. Learn how to set up, script, and trigger events effectively with GTM for detailed insights into customer interactions, crucial for enhancing your online marketing strategy and boosting your e-commerce success.`,
- openGraph: {
-  images: ["/static/blog/00034.png"],
- },
- embedId: "KAyOAjyd_vA",
+  title: "Master TikTok Ads: Track View Category Events on Shopify with GTM",
+  date: "2023-12-15",
+  blogId: 85,
+  Keywords: `TikTok Pixel, View Category Events, Shopify, Google Tag Manager Integration, TikTok Ads Management, Customer Interactions, Online Marketing Strategy, E-commerce Success, Event Tracking`,
+  tags: [
+    "View Category Event",
+    "Shopify Tracking",
+    "TikTok Ads Management",
+    "Google Tag Manager",
+    "TikTok Pixel Setup",
+  ],
+  draft: false,
+  description: `Explore essential techniques for tracking view category events on Shopify using Google Tag Manager and TikTok Pixel. This in-depth blog post provides a step-by-step guide to integrating TikTok Pixel with your Shopify store, enabling you to understand and optimize your TikTok ad performance. Learn how to set up, script, and trigger events effectively with GTM for detailed insights into customer interactions, crucial for enhancing your online marketing strategy and boosting your e-commerce success.`,
+  openGraph: {
+    images: ["/static/blog/00034.png"],
+  },
+  embedId: "KAyOAjyd_vA",
 };
 
 <BlogHeader metadata={metadata} />
@@ -43,11 +43,11 @@ Proceed by embedding the head and body scripts from your Google Tag Manager cont
 
 #### Code for GTM Container Head
 
-<DataLayerCode type='googleTagManager' subType='head' />
+<DataLayerCode type="googleTagManager" subType="head" />
 
 #### Code for GTM Container Body
 
-<DataLayerCode type='googleTagManager' subType='body' />
+<DataLayerCode type="googleTagManager" subType="body" />
 
 Post-script insertion, it's vital to check the setup to confirm that Google Tag Manager operates effectively on your Shopify store.
 
@@ -116,7 +116,7 @@ By meticulously following these enhanced steps, you will successfully implement 
 
 The script initiates by setting up the `dataLayer` array. Its first task is to determine if it's on a product page, and if so, it activates the 'datalayer-collection' snippet.
 
-<DataLayerCode type='viewItemList' subType='head' />
+<DataLayerCode type="viewItemList" subType="head" />
 
 ## Script for DataLayer on Collection Pages
 
@@ -127,13 +127,13 @@ This script's main role is to add detailed product information to the `dataLayer
 3. As the document loads, these details are incorporated into the `dataLayer`.
 4. The file should be saved as `datalayer-collection.liquid`.
 
-<DataLayerCode type='viewItemList' subType='main' />
+<DataLayerCode type="viewItemList" subType="main" />
 
 ## DataLayer Script for Shopify Themes
 
 This script runs the `head-datalayer` snippet, typically embedded in the head section of a Shopify theme. It's essential for embedding the head datalayer code and should be integrated with the GTM Body Code.
 
-<DataLayerCode type='viewItemList' subType='theme' />
+<DataLayerCode type="viewItemList" subType="theme" />
 
 ## Guidelines for Implementing DataLayer Scripts in Shopify:
 

@@ -1,8 +1,8 @@
-import React from 'react';
-import formatString from 'utils/formatString';
-import BlogContainer from '@/components/blog/container';
+import React from "react";
+import formatString from "utils/formatString";
+import BlogContainer from "@/components/blog/container";
 
-import getTagsData from 'utils/getTagsData';
+import getTagsData from "utils/getTagsData";
 
 export default async function Page({ params }: { params: { tag: string } }) {
   let tag = params.tag;
@@ -12,8 +12,8 @@ export default async function Page({ params }: { params: { tag: string } }) {
     ? data.filter((post) => post.tags?.some((t) => formatString(t) === tag))
     : data;
   return (
-    <div className='flex flex-col gap-2'>
-      <BlogContainer rawData={data} data={filteredData} type='blog' />
+    <div className="flex flex-col gap-2">
+      <BlogContainer rawData={data} data={filteredData} type="blog" />
     </div>
   );
 }

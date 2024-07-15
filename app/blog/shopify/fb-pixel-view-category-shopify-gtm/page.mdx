@@ -1,16 +1,16 @@
 export const metadata = {
- title:
-  "Tracking View Category Events in Facebook Pixel Using Google Tag Manager and Shopify",
- date: "2023-11-17",
- blogId: 77,
- keywords: `facebook pixel, shopify, google tag manager, view category, e-commerce tracking, user engagement, targeted audiences, data-driven marketing, shopify store, facebook pixel setup, google tag manager container, event manager, pixel base tag, variable creation, constant variable, pixel template, custom event trigger, data layer variables, event parameter mapping, tag configuration, preview mode, pixel helper extension, retargeting audience, custom reports, track facebook pixel view category events on shopify, google tag manager for shopify e-commerce tracking, optimize facebook ads with user category data, improve marketing strategies with detailed insights`,
- tags: ["Facebook Pixel", "Shopify", "Google Tag Manger", "View Item List"],
- draft: false,
- description: `How you can effectively track "View Category" events in Facebook Pixel. This capability is crucial for understanding user engagement on category pages of your website and can be pivotal for creating targeted audiences or data-related events. We'll be utilizing Google Tag Manager and a Shopify store for this project.`,
- openGraph: {
-  images: ["/static/blog/00017.png"],
- },
- embedId: "meh1hdnCsn8",
+  title:
+    "Tracking View Category Events in Facebook Pixel Using Google Tag Manager and Shopify",
+  date: "2023-11-17",
+  blogId: 77,
+  keywords: `facebook pixel, shopify, google tag manager, view category, e-commerce tracking, user engagement, targeted audiences, data-driven marketing, shopify store, facebook pixel setup, google tag manager container, event manager, pixel base tag, variable creation, constant variable, pixel template, custom event trigger, data layer variables, event parameter mapping, tag configuration, preview mode, pixel helper extension, retargeting audience, custom reports, track facebook pixel view category events on shopify, google tag manager for shopify e-commerce tracking, optimize facebook ads with user category data, improve marketing strategies with detailed insights`,
+  tags: ["Facebook Pixel", "Shopify", "Google Tag Manger", "View Item List"],
+  draft: false,
+  description: `How you can effectively track "View Category" events in Facebook Pixel. This capability is crucial for understanding user engagement on category pages of your website and can be pivotal for creating targeted audiences or data-related events. We'll be utilizing Google Tag Manager and a Shopify store for this project.`,
+  openGraph: {
+    images: ["/static/blog/00017.png"],
+  },
+  embedId: "meh1hdnCsn8",
 };
 
 <BlogHeader metadata={metadata} />
@@ -52,7 +52,7 @@ Before diving into the tutorial, ensure you have the following:
 
 This script begins by ensuring the `dataLayer` array is established. It then identifies if the webpage is a product page and, if so, implements the 'datalayer-collection' snippet.
 
-<DataLayerCode type='viewItemList' subType='head' />
+<DataLayerCode type="viewItemList" subType="head" />
 
 ## Collection Page DataLayer Script
 
@@ -63,13 +63,13 @@ The primary function of this script is to enrich the `dataLayer` object with pro
 3. Upon the document's loading, this information is added to the `dataLayer` object.
 4. Save the file with name `datalayer-collection.liquid`
 
-<DataLayerCode type='viewItemList' subType='main' />
+<DataLayerCode type="viewItemList" subType="main" />
 
 ## Theme-Level DataLayer Script
 
 This script executes the `head-datalayer` snippet. Typically found in the head section of your Shopify theme's setup, this snippet is key for integrating the head datalayer code. Incorporate this within the GTM Body Code.
 
-<DataLayerCode type='viewItemList' subType='theme' />
+<DataLayerCode type="viewItemList" subType="theme" />
 
 ## Steps for Implementing DataLayer Scripts in Shopify:
 

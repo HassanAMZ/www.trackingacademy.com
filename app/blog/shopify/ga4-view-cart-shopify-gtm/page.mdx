@@ -1,22 +1,22 @@
 export const metadata = {
- title: "Mastering Cart Tracking in Shopify with Google Analytics 4 using GTM",
- date: "2023-11-08",
- blogId: 70,
- Keywords: `Google Analytics 4, Shopify, Google Tag Manager, View Cart Event, E-commerce Reporting, Measurement ID, Data Streams, Data Layer Scripts, Developer Instructions, Google Tag Manager Code Snippet, Data Layer Snippet, Creating Tags and Triggers, Testing Setup, Google Analytics Debug View, Real-Time Report, E-commerce Performance, User Behavior, Tracking, Shopify Store`,
- tags: [
-  "Google Analytics",
-  "Shopify",
-  "Google Tag Manager",
-  "Tutorial",
-  "View Cart",
-  "Google Tag",
- ],
- draft: false,
- description: `Welcome to our detailed guide on configuring the "View Cart" event in Shopify using Google Analytics 4. This functionality is a game-changer for e-commerce reporting, allowing you to track how many visitors are engaging with your cart page and the items they're considering purchasing. Let's dive into the process.`,
- openGraph: {
-  images: ["/static/blog/00010.png"],
- },
- embedId: "uZPbcBnJfYg",
+  title: "Mastering Cart Tracking in Shopify with Google Analytics 4 using GTM",
+  date: "2023-11-08",
+  blogId: 70,
+  Keywords: `Google Analytics 4, Shopify, Google Tag Manager, View Cart Event, E-commerce Reporting, Measurement ID, Data Streams, Data Layer Scripts, Developer Instructions, Google Tag Manager Code Snippet, Data Layer Snippet, Creating Tags and Triggers, Testing Setup, Google Analytics Debug View, Real-Time Report, E-commerce Performance, User Behavior, Tracking, Shopify Store`,
+  tags: [
+    "Google Analytics",
+    "Shopify",
+    "Google Tag Manager",
+    "Tutorial",
+    "View Cart",
+    "Google Tag",
+  ],
+  draft: false,
+  description: `Welcome to our detailed guide on configuring the "View Cart" event in Shopify using Google Analytics 4. This functionality is a game-changer for e-commerce reporting, allowing you to track how many visitors are engaging with your cart page and the items they're considering purchasing. Let's dive into the process.`,
+  openGraph: {
+    images: ["/static/blog/00010.png"],
+  },
+  embedId: "uZPbcBnJfYg",
 };
 
 <BlogHeader metadata={metadata} />
@@ -44,8 +44,8 @@ Our first step is to set up the base configuration tag for Google Analytics. Thi
 - Copy the 'Measurement ID' from the top right corner.
 
 <Note
- title='Tip'
- content='Remember to create a user-defined constant variable for your Measurement ID in Google Tag Manager to avoid repeated copying and pasting.'
+  title="Tip"
+  content="Remember to create a user-defined constant variable for your Measurement ID in Google Tag Manager to avoid repeated copying and pasting."
 />
 
 Now, let's create a variable in Google Tag Manager to hold our Measurement ID, which is unique for each data stream.
@@ -56,8 +56,8 @@ Now, let's create a variable in Google Tag Manager to hold our Measurement ID, w
 2. You can find the script and instructions below. Make sure to download the PDF and forward it to your developer.
 
 <Note
- title='Tip'
- content='Ensure that your developer follows the instructions carefully and tests the implementation to confirm that the data layer event is firing correctly on the cart page.'
+  title="Tip"
+  content="Ensure that your developer follows the instructions carefully and tests the implementation to confirm that the data layer event is firing correctly on the cart page."
 />
 
 ## Instructions for Developer
@@ -76,11 +76,11 @@ In the next section, we write the script that will trigger the "View Cart" event
 
 Here's the script you'll be adding:
 
-<DataLayerCode type='viewCart' subType='main' />
+<DataLayerCode type="viewCart" subType="main" />
 
 <Note
- title='Tip'
- content="It's essential to format your code correctly to ensure it runs without issues. Use the 'Format code' option in Shopify's code editor."
+  title="Tip"
+  content="It's essential to format your code correctly to ensure it runs without issues. Use the 'Format code' option in Shopify's code editor."
 />
 
 ## Creating Tags and Triggers in GTM
@@ -102,8 +102,8 @@ Finally, it's time to test everything to ensure proper tracking.
 - Check the Google Analytics 4 debug view to confirm the event is captured.
 
 <Note
- title='Tip'
- content='Use the Real-Time report in Google Analytics to verify if the event is firing correctly, especially when you have low traffic.'
+  title="Tip"
+  content="Use the Real-Time report in Google Analytics to verify if the event is firing correctly, especially when you have low traffic."
 />
 
 ## Conclusion

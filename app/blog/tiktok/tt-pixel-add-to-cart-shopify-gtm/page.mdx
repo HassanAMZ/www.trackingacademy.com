@@ -1,22 +1,22 @@
 export const metadata = {
- title:
-  "Tracking TikTok Pixel Add to Cart Events on Shopify with Google Tag Manager",
- date: "2023-12-11",
- blogId: 81,
- Keywords: ` TikTok Ads Manager, Traffic Acquisition, Data Sharing, Opt-out, Opt-in, ttclid Parameter, Conversion Tracking, Custom Reports, UA, GA4, UTM Code, Ad Set Level, Destination URL, Ad Tracking URLs, Campaign Name, AID, AID Name, CID Name, Review`,
- tags: [
-  "Add to Cart",
-  "Shopify",
-  "E-commerce Conversions",
-  "Google Tag Manager",
-  "Online Retail Analytics",
- ],
- draft: false,
- description: `In this comprehensive blog post, we explore how to effectively track Add to Cart events in Shopify stores using Google Tag Manager. Understanding and capturing these events is pivotal for e-commerce analytics, providing valuable insights into consumer purchasing behavior. Implementing accurate tracking of these events is essential for optimizing conversion rates, enhancing customer experience, and refining marketing strategies.`,
- openGraph: {
-  images: ["/static/blog/00031.png"],
- },
- embedId: "Wmpl-NyoUro",
+  title:
+    "Tracking TikTok Pixel Add to Cart Events on Shopify with Google Tag Manager",
+  date: "2023-12-11",
+  blogId: 81,
+  Keywords: ` TikTok Ads Manager, Traffic Acquisition, Data Sharing, Opt-out, Opt-in, ttclid Parameter, Conversion Tracking, Custom Reports, UA, GA4, UTM Code, Ad Set Level, Destination URL, Ad Tracking URLs, Campaign Name, AID, AID Name, CID Name, Review`,
+  tags: [
+    "Add to Cart",
+    "Shopify",
+    "E-commerce Conversions",
+    "Google Tag Manager",
+    "Online Retail Analytics",
+  ],
+  draft: false,
+  description: `In this comprehensive blog post, we explore how to effectively track Add to Cart events in Shopify stores using Google Tag Manager. Understanding and capturing these events is pivotal for e-commerce analytics, providing valuable insights into consumer purchasing behavior. Implementing accurate tracking of these events is essential for optimizing conversion rates, enhancing customer experience, and refining marketing strategies.`,
+  openGraph: {
+    images: ["/static/blog/00031.png"],
+  },
+  embedId: "Wmpl-NyoUro",
 };
 
 <BlogHeader metadata={metadata} />
@@ -44,11 +44,11 @@ Next, insert the head and body scripts from the Google Tag Manager container int
 
 ### GTM container head script
 
-<DataLayerCode type='googleTagManager' subType='head' />
+<DataLayerCode type="googleTagManager" subType="head" />
 
 ### GTM container body script
 
-<DataLayerCode type='googleTagManager' subType='body' />
+<DataLayerCode type="googleTagManager" subType="body" />
 
 After inserting the scripts, it’s important to validate the setup to ensure that Google Tag Manager is functioning correctly on your Shopify store.
 
@@ -121,7 +121,7 @@ This section outlines how to enable a `dataLayer` object for Google Tag Manager 
 
 The following code sets up the `dataLayer` array if it's not already active. It specifically checks for 'product' page templates and applies a 'datalayer-product' snippet.
 
-<DataLayerCode type='addToCart' subType='head' />
+<DataLayerCode type="addToCart" subType="head" />
 
 ### Product Page DataLayer Script
 
@@ -131,13 +131,13 @@ This snippet is the core for injecting product details into the `dataLayer` when
 2. Creating an `itemObject` with extensive product information.
 3. Pushing this data to the `dataLayer` on document load.
 
-<DataLayerCode type='addToCart' subType='main' />
+<DataLayerCode type="addToCart" subType="main" />
 
 ### Integration of Theme DataLayer
 
 This script calls the `head-datalayer` snippet. Depending on your Shopify theme setup, this is likely the location for the head datalayer script. Incorporate this into the GTM Body Code.
 
-<DataLayerCode type='addToCart' subType='theme' />
+<DataLayerCode type="addToCart" subType="theme" />
 
 Procedures for Embedding DataLayer Scripts in Shopify:
 

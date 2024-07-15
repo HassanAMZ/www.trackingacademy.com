@@ -1,29 +1,29 @@
 export const metadata = {
- title:
-  "Tracking TikTok Pixel View Content Events on Shopify with Google Tag Manager",
- date: "2023-12-10",
- blogId: 80,
- Keywords: `TikTok Pixel, View Content Events, Shopify, Google Tag Manager Integration, E-commerce Analytics, User Interactions, Ad Campaign Effectiveness`,
- tags: [
-  "TikTok Pixel",
-  "Shopify",
-  "View Content Event",
-  "Google Tag Manager",
-  "E-commerce Analytics",
- ],
- draft: false,
- description: `This blog post delves into the intricacies of tracking the View Content event using TikTok Pixel on Shopify stores via Google Tag Manager. Understanding this event is crucial for e-commerce analytics, as it provides insights into user interactions with product pages. Implementing this tracking method enhances the precision of TikTok's ad targeting and optimizes ad campaign effectiveness by aligning with customer behavior and interests.`,
- openGraph: {
-  images: ["/static/blog/00030.png"],
- },
- embedId: "D_KuqmBLzQI",
+  title:
+    "Tracking TikTok Pixel View Content Events on Shopify with Google Tag Manager",
+  date: "2023-12-10",
+  blogId: 80,
+  Keywords: `TikTok Pixel, View Content Events, Shopify, Google Tag Manager Integration, E-commerce Analytics, User Interactions, Ad Campaign Effectiveness`,
+  tags: [
+    "TikTok Pixel",
+    "Shopify",
+    "View Content Event",
+    "Google Tag Manager",
+    "E-commerce Analytics",
+  ],
+  draft: false,
+  description: `This blog post delves into the intricacies of tracking the View Content event using TikTok Pixel on Shopify stores via Google Tag Manager. Understanding this event is crucial for e-commerce analytics, as it provides insights into user interactions with product pages. Implementing this tracking method enhances the precision of TikTok's ad targeting and optimizes ad campaign effectiveness by aligning with customer behavior and interests.`,
+  openGraph: {
+    images: ["/static/blog/00030.png"],
+  },
+  embedId: "D_KuqmBLzQI",
 };
 
 <BlogHeader metadata={metadata} />
-In this Blog , we'll explore how to effectively integrate TikTok Pixel View Content
-Event with your Shopify store using Google Tag Manager (GTM). This integration is
-crucial for leveraging TikTok's dynamic ad capabilities based on user interactions
-on your site.
+In this Blog , we'll explore how to effectively integrate TikTok Pixel View
+Content Event with your Shopify store using Google Tag Manager (GTM). This
+integration is crucial for leveraging TikTok's dynamic ad capabilities based on
+user interactions on your site.
 
 ## Section 1: Configuring Google Tag Manager on Shopify
 
@@ -45,11 +45,11 @@ Proceed to embed the head and body scripts of the GTM container within the theme
 
 For the head script:
 
-<DataLayerCode type='googleTagManager' subType='head' />
+<DataLayerCode type="googleTagManager" subType="head" />
 
 And for the body script:
 
-<DataLayerCode type='googleTagManager' subType='body' />
+<DataLayerCode type="googleTagManager" subType="body" />
 
 Post-script insertion, confirm the setup's accuracy to ensure GTM's optimal performance on your Shopify site.
 
@@ -124,7 +124,7 @@ In the third section, we script the View Content event trigger in the Shopify st
 
 Initially, we establish the `dataLayer` array, ensuring it exists before proceeding. This includes checking if the current page is a 'product' page and, if so, activates a specific snippet named 'datalayer-product'.
 
-<DataLayerCode type='viewItem' subType='head' />
+<DataLayerCode type="viewItem" subType="head" />
 
 ### Gathering Product Information
 
@@ -134,13 +134,13 @@ The 'datalayer-product' snippet's role is to gather key product details when a p
 2. Creating an `itemObject` containing detailed product information.
 3. Pushing this data into the `dataLayer` upon the document's loading.
 
-<DataLayerCode type='viewItem' subType='main' />
+<DataLayerCode type="viewItem" subType="main" />
 
 ### Embedding Theme-Specific DataLayer Code
 
 To incorporate the dataLayer code specific to your theme, embed the 'head-datalayer' snippet in the GTM Body Code section, adapting it to fit your Shopify theme's setup.
 
-<DataLayerCode type='viewItem' subType='theme' />
+<DataLayerCode type="viewItem" subType="theme" />
 
 ### Steps for Shopify DataLayer Code Implementation:
 

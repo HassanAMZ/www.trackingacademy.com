@@ -1,22 +1,22 @@
 export const metadata = {
- title:
-  "Tracking TikTok Pixel Initiate Checkout Events on Shopify with Google Tag Manager",
- date: "2023-12-12",
- blogId: 82,
- Keywords: `Tracking, TikTok Pixel, Initiate Checkout Events, Shopify, Google Tag Manager, Checkout Optimization, E-commerce Conversions, Custom Initiate Checkout Tag, Debugging Tools, Currency Parameter, Event Data, Validation`,
- tags: [
-  "Initiate Checkout",
-  "Shopify",
-  "E-commerce Conversions",
-  "Google Tag Manager",
-  "Checkout Optimization",
- ],
- draft: false,
- description: `This detailed blog post discusses the strategies for tracking Initiate Checkout events in Shopify stores using Google Tag Manager. Capturing these events is crucial for understanding the checkout process and enhancing e-commerce analytics. It offers insights into customer progression from cart to checkout, aiding in optimizing the checkout experience, improving conversion rates, and developing effective marketing tactics.`,
- openGraph: {
-  images: ["/static/blog/00032.png"],
- },
- embedId: "sijCpwr2UZI",
+  title:
+    "Tracking TikTok Pixel Initiate Checkout Events on Shopify with Google Tag Manager",
+  date: "2023-12-12",
+  blogId: 82,
+  Keywords: `Tracking, TikTok Pixel, Initiate Checkout Events, Shopify, Google Tag Manager, Checkout Optimization, E-commerce Conversions, Custom Initiate Checkout Tag, Debugging Tools, Currency Parameter, Event Data, Validation`,
+  tags: [
+    "Initiate Checkout",
+    "Shopify",
+    "E-commerce Conversions",
+    "Google Tag Manager",
+    "Checkout Optimization",
+  ],
+  draft: false,
+  description: `This detailed blog post discusses the strategies for tracking Initiate Checkout events in Shopify stores using Google Tag Manager. Capturing these events is crucial for understanding the checkout process and enhancing e-commerce analytics. It offers insights into customer progression from cart to checkout, aiding in optimizing the checkout experience, improving conversion rates, and developing effective marketing tactics.`,
+  openGraph: {
+    images: ["/static/blog/00032.png"],
+  },
+  embedId: "sijCpwr2UZI",
 };
 
 <BlogHeader metadata={metadata} />
@@ -48,11 +48,11 @@ The following steps involve implementing GTM container scripts in your Shopify t
 
 ### Code for GTM Container Head
 
-<DataLayerCode type='googleTagManager' subType='head' />
+<DataLayerCode type="googleTagManager" subType="head" />
 
 ### Code for GTM Container Body
 
-<DataLayerCode type='googleTagManager' subType='body' />
+<DataLayerCode type="googleTagManager" subType="body" />
 
 Ensure to check your setup post-implementation, confirming that GTM operates correctly on your Shopify site.
 
@@ -125,7 +125,7 @@ This segment is dedicated to those looking to gather comprehensive data such as 
 
 This script sets up the `dataLayer` array if it isn't already in place. It then verifies if the current page is a 'product' page and implements a specific snippet named 'datalayer-checkout' across all pages.
 
-<DataLayerCode type='beginCheckout' subType='head' />
+<DataLayerCode type="beginCheckout" subType="head" />
 
 ## Core Checkout DataLayer Script
 
@@ -136,13 +136,13 @@ This portion of code is pivotal for adding product specifics to the `dataLayer` 
 3. Total Cart Value Calculation: Determines the overall value of the cart items.
 4. Checkout Event Monitoring: Observes the page load and locates checkout buttons. For each button: Resets the `dataLayer` ecommerce information upon click and inputs new ecommerce data into the `dataLayer` for tracking via Google Tag Manager.
 
-<DataLayerCode type='beginCheckout' subType='main' />
+<DataLayerCode type="beginCheckout" subType="main" />
 
 ## Theme Integration DataLayer Script
 
 This code includes the `head-datalayer` snippet. Depending on your Shopify theme configuration, this script is typically found within the head datalayer code. Incorporate this into the GTM Body Code.
 
-<DataLayerCode type='beginCheckout' subType='theme' />
+<DataLayerCode type="beginCheckout" subType="theme" />
 
 ## Guidelines for Implementing DataLayer Scripts in Shopify:
 

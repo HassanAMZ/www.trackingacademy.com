@@ -1,6 +1,6 @@
 // components/EmailTemplate.tsx
-import React from 'react';
-import { Timestamp } from 'firebase/firestore';
+import React from "react";
+import { Timestamp } from "firebase/firestore";
 import {
   Body,
   Container,
@@ -9,7 +9,7 @@ import {
   Html,
   Preview,
   Text,
-} from '@react-email/components';
+} from "@react-email/components";
 
 type EmailTemplateProps = {
   searchTerm: string;
@@ -47,11 +47,11 @@ export default function RequestABlogEmail({
               <Text>Request Date: {createdAt.toDate().toLocaleString()}</Text>
             </li>
           </ul>
-          <Text className='text-sm'>
+          <Text className="text-sm">
             Stay tuned for updates, and feel free to contact us if you have any
             questions in the meantime.
           </Text>
-          <Text className='text-sm'>
+          <Text className="text-sm">
             Best Regards,
             <br />
             The Tracking Academy Team

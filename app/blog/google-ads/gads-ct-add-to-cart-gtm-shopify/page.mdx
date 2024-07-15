@@ -1,22 +1,22 @@
 export const metadata = {
- title:
-  "A Comprehensive Guide on Adding Products to Cart and Tracking Conversions with Google Ads and Shopify",
- date: "2024-01-05",
- blogId: 90,
- Keywords: `Google Ads Dynamic Marketing, Shopify Integration, Google Tag Manager Setup, E-commerce Event Tracking, Add To Cart Event Tags, Data Layer Configuration, Conversion Action Setup, Google Ads Conversion Tracking, Debugging in GTM`,
- tags: [
-  "Google Ads",
-  "Shopify",
-  "Google Ads Conversion Tracking",
-  "Google Tag Manager",
-  "Add To Cart",
- ],
- draft: false,
- description: `Google Ads Dynamic Marketing is exceptionally effective in utilizing e-commerce event data, including product details, IDs, and names, for creating precise and efficient marketing strategies. By the end of this guide, you'll learn how to set up Add To Cart event tracking and transmit dynamic parameters to Google Ads.`,
- openGraph: {
-  images: ["/static/blog/00030.png"],
- },
- embedId: "lfshe17W88U",
+  title:
+    "A Comprehensive Guide on Adding Products to Cart and Tracking Conversions with Google Ads and Shopify",
+  date: "2024-01-05",
+  blogId: 90,
+  Keywords: `Google Ads Dynamic Marketing, Shopify Integration, Google Tag Manager Setup, E-commerce Event Tracking, Add To Cart Event Tags, Data Layer Configuration, Conversion Action Setup, Google Ads Conversion Tracking, Debugging in GTM`,
+  tags: [
+    "Google Ads",
+    "Shopify",
+    "Google Ads Conversion Tracking",
+    "Google Tag Manager",
+    "Add To Cart",
+  ],
+  draft: false,
+  description: `Google Ads Dynamic Marketing is exceptionally effective in utilizing e-commerce event data, including product details, IDs, and names, for creating precise and efficient marketing strategies. By the end of this guide, you'll learn how to set up Add To Cart event tracking and transmit dynamic parameters to Google Ads.`,
+  openGraph: {
+    images: ["/static/blog/00030.png"],
+  },
+  embedId: "lfshe17W88U",
 };
 
 <BlogHeader metadata={metadata} />
@@ -41,7 +41,7 @@ The provided code snippets aim to integrate the `dataLayer` object for Google Ta
 
 This code initializes the `dataLayer` array if it hasn't been already. It then checks if the current page template is a 'product' page and renders a specific snippet called 'datalayer-product'.
 
-<DataLayerCode type='addToCart' subType='head' />
+<DataLayerCode type="addToCart" subType="head" />
 
 ### Product DataLayer Code
 
@@ -51,13 +51,13 @@ This code snippet contains the main logic for populating the `dataLayer` object 
 2. It constructs an `itemObject` containing various product details.
 3. On document load, it pushes this data to the `dataLayer` object.
 
-<DataLayerCode type='addToCart' subType='main' />
+<DataLayerCode type="addToCart" subType="main" />
 
 ### Theme DataLayer Code
 
 This code renders the `head-datalayer` snippet. Depending on the setup of your Shopify theme, this is likely where the head datalayer code resides. Add this code GTM Body Code.
 
-<DataLayerCode type='addToCart' subType='theme' />
+<DataLayerCode type="addToCart" subType="theme" />
 
 Steps to Add the DataLayer Code Snippets in Shopify:
 

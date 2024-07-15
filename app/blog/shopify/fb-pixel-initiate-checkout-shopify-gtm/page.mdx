@@ -1,18 +1,18 @@
 export const metadata = {
- title:
-  "Setting Up Facebook Pixel's Initiate Checkout Event on Shopify with Google Tag Manager.",
- date: "2023-11-15",
- blogId: 76,
- keywords:
-  "Setting Up, Facebook Pixel, Initiate Checkout Event, Shopify, Google Tag Manager, Tutorial, Insights, Customers' Shopping Behaviors, Step 1, Setting Up Google Tag Manager on Shopify, GTM dashboard, container ID, head and body tracking snippets, Online Store, theme file, head code, body code, theme.liquid file, Step 2, Configuring Page View Event, Facebook Event Manager, Pixel ID, Facebook Pixel tag template, tag for Facebook Pixel, constant variable, Pixel Helper, Step 3, Setting Up Initiate Checkout Script, Step 4, Finalizing Tags, Triggers, Variables, custom event trigger, e-commerce data, items, value, currency, Facebook parameter generator variable, GTM tag, Step 5, Testing and Publishing, preview mode, event firing, GTM container, detailed scripts, video description",
- tags: ["Facebook Pixel", "Shopify", "Google Tag Manager", "Begin Checkout"],
- draft: false,
- description:
-  "This setup will allow you to effectively track the Initiate Checkout event on your Shopify store via Facebook Pixel, providing valuable insights into your customers' shopping behaviors. For detailed scripts and more information, refer to the video description.",
- openGraph: {
-  images: ["/static/blog/00016.png"],
- },
- embedId: "gJ3Ve6OJuAE",
+  title:
+    "Setting Up Facebook Pixel's Initiate Checkout Event on Shopify with Google Tag Manager.",
+  date: "2023-11-15",
+  blogId: 76,
+  keywords:
+    "Setting Up, Facebook Pixel, Initiate Checkout Event, Shopify, Google Tag Manager, Tutorial, Insights, Customers' Shopping Behaviors, Step 1, Setting Up Google Tag Manager on Shopify, GTM dashboard, container ID, head and body tracking snippets, Online Store, theme file, head code, body code, theme.liquid file, Step 2, Configuring Page View Event, Facebook Event Manager, Pixel ID, Facebook Pixel tag template, tag for Facebook Pixel, constant variable, Pixel Helper, Step 3, Setting Up Initiate Checkout Script, Step 4, Finalizing Tags, Triggers, Variables, custom event trigger, e-commerce data, items, value, currency, Facebook parameter generator variable, GTM tag, Step 5, Testing and Publishing, preview mode, event firing, GTM container, detailed scripts, video description",
+  tags: ["Facebook Pixel", "Shopify", "Google Tag Manager", "Begin Checkout"],
+  draft: false,
+  description:
+    "This setup will allow you to effectively track the Initiate Checkout event on your Shopify store via Facebook Pixel, providing valuable insights into your customers' shopping behaviors. For detailed scripts and more information, refer to the video description.",
+  openGraph: {
+    images: ["/static/blog/00016.png"],
+  },
+  embedId: "gJ3Ve6OJuAE",
 };
 
 <BlogHeader metadata={metadata} />
@@ -51,7 +51,7 @@ This section is for those who wish to capture more data, like the item_id, item_
 
 This code initializes the `dataLayer` array if it hasn't been already. It then checks if the current page template is a 'product' page and renders a specific snippet called 'datalayer-checkout' on all pages.
 
-<DataLayerCode type='beginCheckout' subType='head' />
+<DataLayerCode type="beginCheckout" subType="head" />
 
 ## Checkout DataLayer Code
 
@@ -62,13 +62,13 @@ This code snippet contains the main logic for populating the `dataLayer` object 
 3. Cart Total Value: Computes the total value of items in the cart.
 4. Begin Checkout Event Listener: Waits for the page to load and then identifies checkout buttons. For each button: Clears previous `dataLayer` ecommerce data on click and pushes new ecommerce data to the `dataLayer` for Google Tag Manager tracking.
 
-<DataLayerCode type='beginCheckout' subType='main' />
+<DataLayerCode type="beginCheckout" subType="main" />
 
 ## Theme DataLayer Code
 
 This code renders the `head-datalayer` snippet. Depending on the setup of your Shopify theme, this is likely where the head datalayer code resides. Add this code GTM Body Code.
 
-<DataLayerCode type='beginCheckout' subType='theme' />
+<DataLayerCode type="beginCheckout" subType="theme" />
 
 ## Steps to Add the DataLayer Code Snippets in Shopify:
 

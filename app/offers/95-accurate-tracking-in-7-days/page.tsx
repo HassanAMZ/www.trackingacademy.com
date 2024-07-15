@@ -1,71 +1,94 @@
-import Offer from '@/components/home/offer';
-import ClientTestimonial from '@/components/home/testimonaials';
-import FrequentlyAskedQuestions from '@/components/home/frequently-asked-questions';
-import YoutubeEmbed from '@/components/global/youtube-embed';
-import { Separator } from '@/components/ui/separator';
-import Hero from '@/components/offers/offer-001/hero';
-import { Button } from '@/components/ui/button';
-import Link from 'next/link';
-import Container from '@/components/ui/container';
-import { TypographyH2 } from '@/components/ui/typography';
+import { motion } from "framer-motion";
+import Offer from "@/components/home/offer";
+import ClientTestimonial from "@/components/home/testimonaials";
+import FrequentlyAskedQuestions from "@/components/home/frequently-asked-questions";
+import YoutubeEmbed from "@/components/global/youtube-embed";
+import { Separator } from "@/components/ui/separator";
+import Hero from "@/components/offers/offer-001/hero";
+import Link from "next/link";
+import { TypographyH2 } from "@/components/ui/typography";
+import Container from "@/components/ui/container";
+import {
+  containerVariants,
+  itemVariants,
+  MotionButton,
+  MotionContainer,
+  MotionDiv,
+  MotionSeparator,
+  MotionTypographyH2,
+} from "@/utils/framerMotion";
 
 export default function Home() {
- return (
-  <main className='space-y-4 sm:space-y-8 lg:space-y-12'>
-   <Hero />
-   <YoutubeEmbed embedId='9MGpL_AmEYM' />
+  return (
+    <MotionDiv
+      className="space-y-4 sm:space-y-8 lg:space-y-12"
+      initial="hidden"
+      animate="visible"
+      variants={containerVariants}
+    >
+      <Hero />
+      <YoutubeEmbed embedId="9MGpL_AmEYM" />
 
-   <Container>
-    <TypographyH2 className='text-center'>
-     Optimize Your Tracking in 7 Days! Get Started with No Risk.
-    </TypographyH2>
-    <Button asChild className='w-full'>
-     <Link href='/offers/95-accurate-tracking-in-7-days/submit-query'>
-      Schedule a Meeting
-     </Link>
-    </Button>
-   </Container>
+      <MotionContainer variants={itemVariants}>
+        <MotionTypographyH2 className="text-center">
+          Watched the video? <span className="text-primary">Contact now</span>{" "}
+          and leverage accurate tracking
+        </MotionTypographyH2>
+        <MotionButton asChild className="w-full">
+          <Link href="/offers/95-accurate-tracking-in-7-days/submit-query">
+            Schedule a Meeting
+          </Link>
+        </MotionButton>
+      </MotionContainer>
 
-   <Separator className='my-6' />
-   <Offer />
+      <MotionSeparator className="my-6" variants={itemVariants} />
 
-   <Container>
-    <TypographyH2 className='text-center'>
-     Optimize Your Tracking in 7 Days! Get Started with No Risk.
-    </TypographyH2>
-    <Button asChild className='w-full'>
-     <Link href='/offers/95-accurate-tracking-in-7-days/submit-query'>
-      Schedule a Meeting
-     </Link>
-    </Button>
-   </Container>
+      <MotionDiv variants={itemVariants}>
+        <Offer />
+      </MotionDiv>
 
-   <Separator className='my-6' />
-   <ClientTestimonial />
+      <MotionContainer variants={itemVariants}>
+        <MotionTypographyH2 className="text-center">
+          Optimize Your Tracking in 7 Days! Get Started with No Risk.
+        </MotionTypographyH2>
+        <MotionButton asChild className="w-full">
+          <Link href="/offers/95-accurate-tracking-in-7-days/submit-query">
+            Schedule a Meeting
+          </Link>
+        </MotionButton>
+      </MotionContainer>
 
-   <Container>
-    <TypographyH2 className='text-center'>
-     Optimize Your Tracking in 7 Days! Get Started with No Risk.
-    </TypographyH2>
-    <Button asChild className='w-full'>
-     <Link href='/offers/95-accurate-tracking-in-7-days/submit-query'>
-      Schedule a Meeting
-     </Link>
-    </Button>
-   </Container>
+      <MotionSeparator className="my-6" variants={itemVariants} />
 
-   <FrequentlyAskedQuestions />
+      <MotionDiv variants={itemVariants}>
+        <ClientTestimonial />
+      </MotionDiv>
 
-   <Container>
-    <TypographyH2 className='text-center'>
-     Optimize Your Tracking in 7 Days! Get Started with No Risk.
-    </TypographyH2>
-    <Button asChild className='w-full'>
-     <Link href='/offers/95-accurate-tracking-in-7-days/submit-query'>
-      Schedule a Meeting
-     </Link>
-    </Button>
-   </Container>
-  </main>
- );
+      <MotionContainer variants={itemVariants}>
+        <MotionTypographyH2 className="text-center">
+          Optimize Your Tracking in 7 Days! Get Started with No Risk.
+        </MotionTypographyH2>
+        <MotionButton asChild className="w-full">
+          <Link href="/offers/95-accurate-tracking-in-7-days/submit-query">
+            Schedule a Meeting
+          </Link>
+        </MotionButton>
+      </MotionContainer>
+
+      <MotionDiv variants={itemVariants}>
+        <FrequentlyAskedQuestions />
+      </MotionDiv>
+
+      <MotionContainer variants={itemVariants}>
+        <MotionTypographyH2 className="text-center">
+          Optimize Your Tracking in 7 Days! Get Started with No Risk.
+        </MotionTypographyH2>
+        <MotionButton asChild className="w-full">
+          <Link href="/offers/95-accurate-tracking-in-7-days/submit-query">
+            Schedule a Meeting
+          </Link>
+        </MotionButton>
+      </MotionContainer>
+    </MotionDiv>
+  );
 }

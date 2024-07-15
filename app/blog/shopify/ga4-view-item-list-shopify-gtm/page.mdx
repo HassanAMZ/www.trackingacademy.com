@@ -1,21 +1,21 @@
 export const metadata = {
- title: "GA4 ViewItemList Event on Shopify using Google Tag Manager",
- date: "2023-11-28",
- blogId: 78,
- Keywords: `Google Analytics 4, Shopify, Google Tag Manager, View Item List Event, E-commerce Tracking, Data Layer Event Scripts, Data Layer Variables, Debug View, Real-Time Reports, Event Tracking, GTM Snippets, GA4 Configuration Tag, Preview Mode, Tracking Scripts, Measurement ID, Web Data Stream, Currency Parameters, Custom Reports, Google Looker Studio, Data Points, Google Analytics Debug View, Real-Time Reporting`,
- tags: [
-  "Google Analytics",
-  "Shopify",
-  "Google Tag Manager",
-  "Tutorial",
-  "View Item List",
- ],
- draft: false,
- description: `This blog post will guide you through configuring the "View Item List" event in Google Analytics 4 (GA4) using Google Tag Manager for your Shopify store. This new event, introduced in e-commerce tracking, resembles the impression event from Universal Analytics. GA4 simplifies the process, making it more intuitive to build different reports.`,
- openGraph: {
-  images: ["/static/blog/00018.png"],
- },
- embedId: "dsH3NrWw124",
+  title: "GA4 ViewItemList Event on Shopify using Google Tag Manager",
+  date: "2023-11-28",
+  blogId: 78,
+  Keywords: `Google Analytics 4, Shopify, Google Tag Manager, View Item List Event, E-commerce Tracking, Data Layer Event Scripts, Data Layer Variables, Debug View, Real-Time Reports, Event Tracking, GTM Snippets, GA4 Configuration Tag, Preview Mode, Tracking Scripts, Measurement ID, Web Data Stream, Currency Parameters, Custom Reports, Google Looker Studio, Data Points, Google Analytics Debug View, Real-Time Reporting`,
+  tags: [
+    "Google Analytics",
+    "Shopify",
+    "Google Tag Manager",
+    "Tutorial",
+    "View Item List",
+  ],
+  draft: false,
+  description: `This blog post will guide you through configuring the "View Item List" event in Google Analytics 4 (GA4) using Google Tag Manager for your Shopify store. This new event, introduced in e-commerce tracking, resembles the impression event from Universal Analytics. GA4 simplifies the process, making it more intuitive to build different reports.`,
+  openGraph: {
+    images: ["/static/blog/00018.png"],
+  },
+  embedId: "dsH3NrWw124",
 };
 
 <BlogHeader metadata={metadata} />
@@ -59,7 +59,7 @@ This blog post will guide you through configuring the "View Item List" event in 
 
 This script initiates by setting up the `dataLayer` array. It detects if the user is on a product page and, in such cases, activates the 'datalayer-collection' snippet.
 
-<DataLayerCode type='viewItemList' subType='head' />
+<DataLayerCode type="viewItemList" subType="head" />
 
 ### Collection Page DataLayer Code
 
@@ -70,13 +70,13 @@ This script’s main role is to enhance the `dataLayer` object with detailed inf
 3. Adds this information to the `dataLayer` object once the document loads.
 4. The file should be saved as `datalayer-collection.liquid`.
 
-<DataLayerCode type='viewItemList' subType='main' />
+<DataLayerCode type="viewItemList" subType="main" />
 
 ### Theme DataLayer Code
 
 This script activates the `head-datalayer` snippet, a crucial component in the head section for integrating head datalayer code in your Shopify theme. Include it in the GTM Body Code.
 
-<DataLayerCode type='viewItemList' subType='theme' />
+<DataLayerCode type="viewItemList" subType="theme" />
 
 ## Guidelines for DataLayer Script Implementation in Shopify:
 

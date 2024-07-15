@@ -1,22 +1,22 @@
 export const metadata = {
- title:
-  "A Comprehensive Guide on Begin Checkout Remarketing Tracking on Google Ads and Shopify",
- date: "2024-01-03",
- blogId: 89,
- Keywords: ``,
- tags: [
-  "Google Ads",
-  "Shopify",
-  "Google Ads Remarketing Tracking",
-  "Google Tag Manager",
-  "Begin Checkout",
- ],
- draft: false,
- description: `In this guide, we explore the process of setting up a remarketing tag for the 'begin_checkout' event in Google Ads, using a data layer script on your Shopify store. We'll walk through creating a conversion action in Google Ads and configuring the remarketing conversion tag in your Google Tag Manager container. Before we start, ensure that your Google Tag Manager container is correctly firing on all pages of your Shopify store.`,
- openGraph: {
-  images: ["/static/blog/00031.png"],
- },
- embedId: "g-q2MvQXvNs",
+  title:
+    "A Comprehensive Guide on Begin Checkout Remarketing Tracking on Google Ads and Shopify",
+  date: "2024-01-03",
+  blogId: 89,
+  Keywords: ``,
+  tags: [
+    "Google Ads",
+    "Shopify",
+    "Google Ads Remarketing Tracking",
+    "Google Tag Manager",
+    "Begin Checkout",
+  ],
+  draft: false,
+  description: `In this guide, we explore the process of setting up a remarketing tag for the 'begin_checkout' event in Google Ads, using a data layer script on your Shopify store. We'll walk through creating a conversion action in Google Ads and configuring the remarketing conversion tag in your Google Tag Manager container. Before we start, ensure that your Google Tag Manager container is correctly firing on all pages of your Shopify store.`,
+  openGraph: {
+    images: ["/static/blog/00031.png"],
+  },
+  embedId: "g-q2MvQXvNs",
 };
 
 <BlogHeader metadata={metadata} />
@@ -67,7 +67,7 @@ This section is for those who wish to capture more data, like the `item_id`, `it
 
 This code initializes the `dataLayer` array if it hasn't been already. It then checks if the current page template is a 'product' page and renders a specific snippet called 'datalayer-checkout' on all pages.
 
-<DataLayerCode type='beginCheckout' subType='head' />
+<DataLayerCode type="beginCheckout" subType="head" />
 
 ### Checkout DataLayer Code
 
@@ -78,13 +78,13 @@ This code snippet contains the main logic for populating the `dataLayer` object 
 3. **Cart Total Value**: Computes the total value of items in the cart.
 4. **Begin Checkout Event Listener**: It waits for the page to load and then identifies checkout buttons. For each button: Clears previous `dataLayer` ecommerce data on click and pushes new ecommerce data to the `dataLayer` for Google Tag Manager tracking.
 
-<DataLayerCode type='beginCheckout' subType='main' />
+<DataLayerCode type="beginCheckout" subType="main" />
 
 ### Theme DataLayer Code
 
 This code renders the `head-datalayer` snippet. Depending on the setup of your Shopify theme, this is likely where the head datalayer code resides. Add this code GTM Body Code.
 
-<DataLayerCode type='beginCheckout' subType='theme' />
+<DataLayerCode type="beginCheckout" subType="theme" />
 
 ### Steps to Add the DataLayer Code Snippets in Shopify:
 

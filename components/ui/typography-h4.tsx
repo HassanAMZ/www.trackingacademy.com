@@ -1,5 +1,5 @@
-import React from 'react';
-import clsx from 'clsx';
+import React from "react";
+import clsx from "clsx";
 
 interface TypographyH4Props {
   children?: React.ReactNode;
@@ -16,9 +16,10 @@ export default function TypographyH4({
     <h2
       id={id}
       className={clsx(
-        'scroll-m-20 text-xl font-semibold tracking-tight',
-        className
-      )}>
+        "scroll-m-20 text-xl font-semibold tracking-tight",
+        className,
+      )}
+    >
       {children}
     </h2>
   );

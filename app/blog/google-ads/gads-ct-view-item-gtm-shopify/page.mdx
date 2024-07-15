@@ -1,22 +1,22 @@
 export const metadata = {
- title:
-  "Maximizing Google Ads Success for Shopify Stores: A Comprehensive Guide on View Item Conversion Tracking",
- date: "2023-12-19",
- blogId: 86,
- Keywords: `Google Ads, View Item Conversion, Shopify, Google Tag Manager, Conversion Tracking, E-commerce Analytics, Digital Marketing Strategy, Online Store Optimization, Data Layer Scripting`,
- tags: [
-  "Google Ads",
-  "Shopify",
-  "Google Ads Conversion Tracking",
-  "Google Tag Manager",
-  "View Item",
- ],
- draft: false,
- description: `Dive into the intricacies of tracking view item conversions in Google Ads for Shopify stores. This comprehensive guide covers everything from setting up Google Tag Manager on your Shopify site to scripting and firing data layers for enhanced tracking. Learn how to create conversion actions in Google Ads and apply them to your campaigns for refined ad targeting and improved e-commerce performance. Essential reading for anyone looking to optimize their online store's marketing strategy.`,
- openGraph: {
-  images: ["/static/blog/00006.png"],
- },
- embedId: "qN1ZMH7R_3A",
+  title:
+    "Maximizing Google Ads Success for Shopify Stores: A Comprehensive Guide on View Item Conversion Tracking",
+  date: "2023-12-19",
+  blogId: 86,
+  Keywords: `Google Ads, View Item Conversion, Shopify, Google Tag Manager, Conversion Tracking, E-commerce Analytics, Digital Marketing Strategy, Online Store Optimization, Data Layer Scripting`,
+  tags: [
+    "Google Ads",
+    "Shopify",
+    "Google Ads Conversion Tracking",
+    "Google Tag Manager",
+    "View Item",
+  ],
+  draft: false,
+  description: `Dive into the intricacies of tracking view item conversions in Google Ads for Shopify stores. This comprehensive guide covers everything from setting up Google Tag Manager on your Shopify site to scripting and firing data layers for enhanced tracking. Learn how to create conversion actions in Google Ads and apply them to your campaigns for refined ad targeting and improved e-commerce performance. Essential reading for anyone looking to optimize their online store's marketing strategy.`,
+  openGraph: {
+    images: ["/static/blog/00006.png"],
+  },
+  embedId: "qN1ZMH7R_3A",
 };
 
 <BlogHeader metadata={metadata} />
@@ -54,7 +54,7 @@ This set of code snippets is responsible for managing the initialization and pop
 
 To begin, we have a code snippet designed to initialize the `dataLayer` array if it hasn't been initialized already. It also includes logic to identify whether the current page template corresponds to a 'product' page. If so, it triggers the rendering of a specific snippet called 'datalayer-product'.
 
-<DataLayerCode type='viewItem' subType='head' />
+<DataLayerCode type="viewItem" subType="head" />
 
 ### Capturing Product Data
 
@@ -64,13 +64,13 @@ The primary focus of the 'datalayer-product' snippet is to capture essential pro
 2. Constructs an `itemObject` that holds various product details.
 3. Upon document load, it pushes this data into the `dataLayer` object.
 
-<DataLayerCode type='viewItem' subType='main' />
+<DataLayerCode type="viewItem" subType="main" />
 
 ### Integrating Theme DataLayer Code
 
 Lastly, to integrate the theme-level dataLayer code, you need to render the 'head-datalayer' snippet. Depending on your Shopify theme setup, this is where the head datalayer code typically resides. You should insert this code into the GTM Body Code section.
 
-<DataLayerCode type='viewItem' subType='theme' />
+<DataLayerCode type="viewItem" subType="theme" />
 
 ### Steps to Implement DataLayer Code in Shopify:
 

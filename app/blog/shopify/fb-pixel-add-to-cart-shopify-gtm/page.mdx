@@ -1,18 +1,18 @@
 export const metadata = {
- title:
-  "Tracking 'Add to Cart' Event in Shopify Using Google Tag Manager and Facebook Pixel🚀",
- date: "2023-11-14",
- blogId: 74,
- keywords:
-  "Tracking, Add to Cart Event, Shopify, Google Tag Manager, Facebook Pixel, Tutorial, Analytics, Marketing Strategies, Prerequisites, Configuring Google Tag Manager, Page View Tracking, Event Manager, Facebook Business Manager, Facebook Pixel ID, Facebook Pixel template, All Pages trigger, Adding Add to Cart Script, Head Data Layer, Product Data Layer, Data Layer Code Snippets, item ID, name, value, quantity, Finalizing Add to Cart Event Tracking, custom event trigger, Facebook Parameter Generator, mapping event parameters, variables, e-commerce do currency, event firing, Facebook Pixel Event Manager, Conclusion, data accuracy",
- tags: ["Facebook Pixel", "Shopify", "Google Tag Manager", "Add to Cart"],
- draft: false,
- description:
-  "track the 'Add to Cart' events in your Shopify store, using Google Tag Manager and Facebook Pixel. This setup helps in detailed analytics and marketing strategies. Remember, always preview your changes before going live to ensure proper tracking and data accuracy.",
- openGraph: {
-  images: ["/static/blog/00014.png"],
- },
- embedId: "qTnvBPPSE6Y",
+  title:
+    "Tracking 'Add to Cart' Event in Shopify Using Google Tag Manager and Facebook Pixel🚀",
+  date: "2023-11-14",
+  blogId: 74,
+  keywords:
+    "Tracking, Add to Cart Event, Shopify, Google Tag Manager, Facebook Pixel, Tutorial, Analytics, Marketing Strategies, Prerequisites, Configuring Google Tag Manager, Page View Tracking, Event Manager, Facebook Business Manager, Facebook Pixel ID, Facebook Pixel template, All Pages trigger, Adding Add to Cart Script, Head Data Layer, Product Data Layer, Data Layer Code Snippets, item ID, name, value, quantity, Finalizing Add to Cart Event Tracking, custom event trigger, Facebook Parameter Generator, mapping event parameters, variables, e-commerce do currency, event firing, Facebook Pixel Event Manager, Conclusion, data accuracy",
+  tags: ["Facebook Pixel", "Shopify", "Google Tag Manager", "Add to Cart"],
+  draft: false,
+  description:
+    "track the 'Add to Cart' events in your Shopify store, using Google Tag Manager and Facebook Pixel. This setup helps in detailed analytics and marketing strategies. Remember, always preview your changes before going live to ensure proper tracking and data accuracy.",
+  openGraph: {
+    images: ["/static/blog/00014.png"],
+  },
+  embedId: "qTnvBPPSE6Y",
 };
 
 <BlogHeader metadata={metadata} />
@@ -65,8 +65,8 @@ In today's blog, we'll cover tracking the 'Add to Cart' event for Facebook Pixel
 This section we will see how to capture more data, like the item ID, name, value, quantity, etc., when the "Add to Cart" event is triggered.
 
 <Note
- title='Tip'
- content="For this section, some programming knowledge is beneficial. If that's not your strength, you can share our document with your developer."
+  title="Tip"
+  content="For this section, some programming knowledge is beneficial. If that's not your strength, you can share our document with your developer."
 />
 
 ### DataLayer Code Snippets Overview
@@ -77,7 +77,7 @@ This section provides code examples for integrating Google Tag Manager's `dataLa
 
 This snippet ensures the `dataLayer` array is set up. It detects if the user is on a 'product' page and, if so, implements a 'datalayer-product' snippet.
 
-<DataLayerCode type='addToCart' subType='head' />
+<DataLayerCode type="addToCart" subType="head" />
 
 ### Capturing Product Page Details in DataLayer
 
@@ -87,13 +87,13 @@ Here, the code snippet captures essential product information when a product pag
 2. It constructs an `itemObject` filled with product specifics.
 3. Upon document loading, it sends this information to the `dataLayer` object.
 
-<DataLayerCode type='addToCart' subType='main' />
+<DataLayerCode type="addToCart" subType="main" />
 
 ### Integrating DataLayer with Shopify Theme
 
 This snippet places the `head-datalayer` code within the Shopify theme. Typically, this should be added to the GTM Body Code section.
 
-<DataLayerCode type='addToCart' subType='theme' />
+<DataLayerCode type="addToCart" subType="theme" />
 
 Steps for Implementing DataLayer Snippets in Shopify:
 

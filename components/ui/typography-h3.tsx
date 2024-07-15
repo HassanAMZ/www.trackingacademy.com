@@ -1,5 +1,5 @@
-import React from 'react';
-import clsx from 'clsx';
+import React from "react";
+import clsx from "clsx";
 
 interface TypographyH3Props {
   children?: React.ReactNode;
@@ -16,9 +16,10 @@ export default function TypographyH3({
     <h2
       id={id}
       className={clsx(
-        'scroll-m-20 text-2xl font-semibold tracking-tight',
-        className
-      )}>
+        "scroll-m-20 text-2xl font-semibold tracking-tight",
+        className,
+      )}
+    >
       {children}
     </h2>
   );

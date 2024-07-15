@@ -1,22 +1,22 @@
 export const metadata = {
- title:
-  " A Comprehensive Guide on Begin Checkout Conversion Tracking on Google Ads and Shopify",
- date: "2024-01-01",
- blogId: 88,
- Keywords: `Google Ads Dynamic Marketing, Shopify Integration, Google Tag Manager Setup, E-commerce Event Tracking, conversion Tags, Data Layer Configuration, Conversion Action Setup, Google Ads Conversion Tracking, Debugging in GTM`,
- tags: [
-  "Google Ads",
-  "Shopify",
-  "Google Ads Conversion Tracking",
-  "Google Tag Manager",
-  "Begin Checkout",
- ],
- draft: false,
- description: `Google Ads Dynamic Marketing stands out for its ability to utilize e-commerce event data, such as item details, IDs, and names, to create targeted and efficient marketing strategies. By the end of this guide, you'll understand how to set up these conversion tags and send dynamic parameters back to Google Ads.`,
- openGraph: {
-  images: ["/static/blog/00009.png"],
- },
- embedId: "TiQGowdXHy8",
+  title:
+    " A Comprehensive Guide on Begin Checkout Conversion Tracking on Google Ads and Shopify",
+  date: "2024-01-01",
+  blogId: 88,
+  Keywords: `Google Ads Dynamic Marketing, Shopify Integration, Google Tag Manager Setup, E-commerce Event Tracking, conversion Tags, Data Layer Configuration, Conversion Action Setup, Google Ads Conversion Tracking, Debugging in GTM`,
+  tags: [
+    "Google Ads",
+    "Shopify",
+    "Google Ads Conversion Tracking",
+    "Google Tag Manager",
+    "Begin Checkout",
+  ],
+  draft: false,
+  description: `Google Ads Dynamic Marketing stands out for its ability to utilize e-commerce event data, such as item details, IDs, and names, to create targeted and efficient marketing strategies. By the end of this guide, you'll understand how to set up these conversion tags and send dynamic parameters back to Google Ads.`,
+  openGraph: {
+    images: ["/static/blog/00009.png"],
+  },
+  embedId: "TiQGowdXHy8",
 };
 
 <BlogHeader metadata={metadata} />
@@ -59,7 +59,7 @@ This section is crafted for those aiming to deepen their data capture during the
 
 The provided script ensures the initialization of the `dataLayer` array if it hasn't occurred yet. It checks whether the current page template aligns with a 'product' page and subsequently activates a specified snippet named 'datalayer-checkout' across all pages.
 
-<DataLayerCode type='beginCheckout' subType='head' />
+<DataLayerCode type="beginCheckout" subType="head" />
 
 ### Crafting the Checkout DataLayer Script
 
@@ -70,13 +70,13 @@ This script plays a crucial role in enriching the `dataLayer` object with essent
 3. **Determining Cart's Total Value**: Calculates the aggregate value of cart items.
 4. **Event Listener for Begin Checkout**: After page load completion, it identifies checkout buttons and, upon each click, refreshes the `dataLayer` ecommerce data, followed by injecting updated ecommerce information for GTM tracking.
 
-<DataLayerCode type='beginCheckout' subType='main' />
+<DataLayerCode type="beginCheckout" subType="main" />
 
 ### Implementing the Theme DataLayer Code
 
 This segment of code activates the `head-datalayer` snippet. Depending on your Shopify theme's configuration, this is typically where the head datalayer code is positioned. Incorporate this within the GTM Body Code.
 
-<DataLayerCode type='beginCheckout' subType='theme' />
+<DataLayerCode type="beginCheckout" subType="theme" />
 
 ### Procedural Steps for Integrating DataLayer Code Snippets in Shopify:
 

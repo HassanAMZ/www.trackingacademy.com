@@ -1,8 +1,8 @@
-import React, { ChangeEvent } from 'react';
-import { Input } from '@/components/ui/input';
-import { Label } from '@/components/ui/label';
-import { cn } from '@/lib/utils';
-import TypographyP from '@/components/ui/typography-p';
+import React, { ChangeEvent } from "react";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { cn } from "@/lib/utils";
+import TypographyP from "@/components/ui/typography-p";
 
 interface InputFieldProps {
   label: string;
@@ -18,16 +18,16 @@ const InputField: React.FC<InputFieldProps> = ({
   label,
   helperText,
   id,
-  type = 'text',
+  type = "text",
   required = false,
   value,
   onChange,
 }) => {
   return (
-    <div className='space-y-1'>
+    <div className="space-y-1">
       <Label htmlFor={id}>
         {label}
-        {required && <span className='text-red-500'>*</span>}
+        {required && <span className="text-red-500">*</span>}
       </Label>
       <Input
         type={type}
@@ -37,11 +37,11 @@ const InputField: React.FC<InputFieldProps> = ({
           onChange(e.target.value)
         }
         required={required}
-        className={cn(required && !value && 'border-red-500')}
+        className={cn(required && !value && "border-red-500")}
         aria-describedby={`${id}-helper-text`}
       />
       {helperText && (
-        <TypographyP className='mt-2 text-sm'>{helperText}</TypographyP>
+        <TypographyP className="mt-2 text-sm">{helperText}</TypographyP>
       )}
     </div>
   );

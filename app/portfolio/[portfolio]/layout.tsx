@@ -5,15 +5,15 @@ import React, { useState } from "react";
 import Image from "next/image";
 
 export default function Layout({ children }: { children: ReactNode }) {
- return (
-  <React.Fragment>
-   <main>{children}</main>
-   <div>
-    <h3 className='text-2xl font-medium py-4'>
-     Recent Web Analytics & Tracking Projects
-    </h3>
-    <RecentClientSlider />
-   </div>
-  </React.Fragment>
- );
+  return (
+    <React.Fragment>
+      <main>{children}</main>
+      <div>
+        <h3 className="py-4 text-2xl font-medium">
+          Recent Web Analytics & Tracking Projects
+        </h3>
+        <RecentClientSlider />
+      </div>
+    </React.Fragment>
+  );
 }

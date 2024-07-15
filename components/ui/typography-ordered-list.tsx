@@ -1,5 +1,5 @@
-import React from 'react';
-import clsx from 'clsx';
+import React from "react";
+import clsx from "clsx";
 
 interface TypographyOrderedListProps {
   children?: React.ReactNode;
@@ -13,7 +13,7 @@ const TypographyOrderedList: React.FC<TypographyOrderedListProps> = ({
   id,
 }) => {
   return (
-    <ol id={id} className={clsx('my-6 ml-6 list-disc [&>li]:mt-2', className)}>
+    <ol id={id} className={clsx("my-6 ml-6 list-disc [&>li]:mt-2", className)}>
       {children}
     </ol>
   );

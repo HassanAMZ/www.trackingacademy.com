@@ -1,13 +1,13 @@
 const datalayerCode = {
- viewItem: {
-  head: `<script>
+  viewItem: {
+    head: `<script>
   window.dataLayer = window.dataLayer || [];
 </script>
 
 {%- if template contains 'product' -%}
   {%- render 'datalayer-product', product: product -%}
 {%- endif -%}`,
-  main: `{%- liquid assign current_variant = product.selected_or_first_available_variant -%}
+    main: `{%- liquid assign current_variant = product.selected_or_first_available_variant -%}
 
 <script>
 console.log("datalayer-product snippet is loaded")
@@ -36,10 +36,10 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 })
 </script>`,
-  theme: `{% render 'head-datalayer' %}`,
- },
- addToCart: {
-  head: `
+    theme: `{% render 'head-datalayer' %}`,
+  },
+  addToCart: {
+    head: `
     <script>
         window.dataLayer = window.dataLayer || [];
     </script>
@@ -48,7 +48,7 @@ document.addEventListener('DOMContentLoaded', () => {
         {%- render 'datalayer-product', product: product -%}
     {%- endif -%}
      `,
-  main: `
+    main: `
     {%- liquid
         assign current_variant = product.selected_or_first_available_variant
       -%}
@@ -83,12 +83,12 @@ document.addEventListener('DOMContentLoaded', () => {
         })
       </script>
      `,
-  theme: `
+    theme: `
      {% render 'head-datalayer' %}
      `,
- },
- viewItemList: {
-  head: `
+  },
+  viewItemList: {
+    head: `
     <script>
         window.dataLayer = window.dataLayer || [];
     </script>
@@ -97,7 +97,7 @@ document.addEventListener('DOMContentLoaded', () => {
         {%- render 'datalayer-collection', collection: collection -%}
     {%- endif -%}
        `,
-  main: `<script>
+    main: `<script>
          console.log("datalayer-collection snippet is loaded")
     dataLayer.push({ ecommerce: null });  
     dataLayer.push({
@@ -124,19 +124,19 @@ document.addEventListener('DOMContentLoaded', () => {
     });
     </script>
 `,
-  theme: `
+    theme: `
        {% render 'head-datalayer' %}
        `,
- },
- beginCheckout: {
-  head: `
+  },
+  beginCheckout: {
+    head: `
       <script>
           window.dataLayer = window.dataLayer || [];
       </script>
     
       {%- render 'datalayer-checkout' -%}
          `,
-  main: `<script>
+    main: `<script>
 
   document.addEventListener('DOMContentLoaded', () => {
     const checkoutButtons = document.querySelectorAll('[name="checkout"]');
@@ -179,10 +179,10 @@ document.addEventListener('DOMContentLoaded', () => {
   });
   </script>
   `,
-  theme: `{% render 'head-datalayer' %}`,
- },
- purchase: {
-  main: `<script>
+    theme: `{% render 'head-datalayer' %}`,
+  },
+  purchase: {
+    main: `<script>
     window.dataLayer = window.dataLayer || [];
     {% if customer %}
       dataLayer.push({
@@ -264,9 +264,9 @@ document.addEventListener('DOMContentLoaded', () => {
 </script>
 
 {% endif %}`,
- },
- viewCart: {
-  head: `<script>
+  },
+  viewCart: {
+    head: `<script>
     window.dataLayer = window.dataLayer || [];
 </script>
 {%- if template == 'cart' -%}
@@ -274,7 +274,7 @@ document.addEventListener('DOMContentLoaded', () => {
 {%- endif -%}
 `,
 
-  main: `<script type="text/javascript">
+    main: `<script type="text/javascript">
   console.log("datalayer-cart snippet is loaded")
   cart_data = {{ cart | json}};
 
@@ -306,22 +306,22 @@ document.addEventListener('DOMContentLoaded', () => {
       }
   });
 </script>`,
-  theme: `{% render 'head-datalayer' %}`,
- },
- googleTagManager: {
-  head: `<!-- Google Tag Manager -->
+    theme: `{% render 'head-datalayer' %}`,
+  },
+  googleTagManager: {
+    head: `<!-- Google Tag Manager -->
   <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
   new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
   j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
   })(window,document,'script','dataLayer','GTM-XXXX');</script>
   <!-- End Google Tag Manager -->`,
-  body: `<!-- Google Tag Manager (noscript) -->
+    body: `<!-- Google Tag Manager (noscript) -->
   <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-XXXX"
   height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <!-- End Google Tag Manager (noscript) -->
   `,
- },
+  },
 };
 
 export default datalayerCode;

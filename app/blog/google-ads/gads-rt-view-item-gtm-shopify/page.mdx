@@ -1,22 +1,22 @@
 export const metadata = {
- title:
-  "Google Ads Remarketing: View Item event for Shopify using Google Tag Manager",
- date: "2023-12-20",
- blogId: 87,
- Keywords: `Google Ads Dynamic Marketing, Shopify Integration, Google Tag Manager Setup, E-commerce Event Tracking, Remarketing Tags, Data Layer Configuration, Conversion Action Setup, Google Ads Conversion Tracking, Debugging in GTM`,
- tags: [
-  "Google Ads",
-  "Shopify",
-  "Google Ads Remarketing Tracking",
-  "Google Tag Manager",
-  "View Item",
- ],
- draft: false,
- description: `This comprehensive guide delves into the nuances of integrating Google Ads Dynamic Marketing with Shopify. Learn how to set up Google Tag Manager, configure data layers, create and track conversion actions in Google Ads, and ensure accurate data transmission for effective remarketing. Essential for those seeking to enhance their e-commerce strategies with precise analytics and targeted advertising.`,
- openGraph: {
-  images: ["/static/blog/00032.png"],
- },
- embedId: "O5clDfQRAxE",
+  title:
+    "Google Ads Remarketing: View Item event for Shopify using Google Tag Manager",
+  date: "2023-12-20",
+  blogId: 87,
+  Keywords: `Google Ads Dynamic Marketing, Shopify Integration, Google Tag Manager Setup, E-commerce Event Tracking, Remarketing Tags, Data Layer Configuration, Conversion Action Setup, Google Ads Conversion Tracking, Debugging in GTM`,
+  tags: [
+    "Google Ads",
+    "Shopify",
+    "Google Ads Remarketing Tracking",
+    "Google Tag Manager",
+    "View Item",
+  ],
+  draft: false,
+  description: `This comprehensive guide delves into the nuances of integrating Google Ads Dynamic Marketing with Shopify. Learn how to set up Google Tag Manager, configure data layers, create and track conversion actions in Google Ads, and ensure accurate data transmission for effective remarketing. Essential for those seeking to enhance their e-commerce strategies with precise analytics and targeted advertising.`,
+  openGraph: {
+    images: ["/static/blog/00032.png"],
+  },
+  embedId: "O5clDfQRAxE",
 };
 
 <BlogHeader metadata={metadata} />
@@ -60,7 +60,7 @@ This set of code snippets is responsible for managing the initialization and pop
 
 To start, we have a code snippet designed to initialize the `dataLayer` array if it hasn't been initialized already. It also includes logic to identify whether the current page template corresponds to a 'product' page. If it does, it triggers the rendering of a specific snippet called 'datalayer-product'.
 
-<DataLayerCode type='viewItem' subType='head' />
+<DataLayerCode type="viewItem" subType="head" />
 
 ### Capturing Product Data
 
@@ -70,13 +70,13 @@ The primary focus of the 'datalayer-product' snippet is to capture essential pro
 2. Constructs an `itemObject` that holds various product details.
 3. Upon document load, it pushes this data into the `dataLayer` object.
 
-<DataLayerCode type='viewItem' subType='main' />
+<DataLayerCode type="viewItem" subType="main" />
 
 ### Integrating Theme DataLayer Code
 
 Lastly, to integrate the theme-level dataLayer code, you need to render the 'head-datalayer' snippet. Typically, this is where the head datalayer code resides in your Shopify theme setup. You should insert this code into the GTM Body Code section.
 
-<DataLayerCode type='viewItem' subType='theme' />
+<DataLayerCode type="viewItem" subType="theme" />
 
 ### Steps to Implement DataLayer Code in Shopify:
 

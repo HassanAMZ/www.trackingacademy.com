@@ -1,22 +1,22 @@
 export const metadata = {
- title: "GA4 Purchase Event on Shopify using Google Tag Manager",
- date: "2023-11-06",
- blogId: 67,
- Keywords: `GA4 Purchase event tracking, Google Tag Manager setup, Shopify e-commerce analytics, Google Analytics 4 configuration, Purchase event configuration, Tracking user behavior, Marketing strategy optimization, ROI improvement, User experience enhancement, GTM Configuration Tag, Event parameters in GTM, Enhanced event tracking in GTM, Tracking checkout routes, Testing event tracking, Verifying tracking data, Debug View in Google Analytics, Real-time reports in Google Analytics, Publishing GTM changes`,
- tags: [
-  "Google Analytics",
-  "Shopify",
-  "Google Tag Manager",
-  "Tutorial",
-  "Purchase",
- ],
- draft: false,
- description:
-  "The 'purchase' event in GA4 is a pivotal data point. It’s the culmination of a user's journey from a potential visitor to a confirmed buyer. Tracking this on your Shopify store provides invaluable insights, helping optimize your marketing strategies, improve your ROI, and enhance the overall user experience.",
- openGraph: {
-  images: ["/static/blog/00007.png"],
- },
- embedId: "V7FHcp8weDA",
+  title: "GA4 Purchase Event on Shopify using Google Tag Manager",
+  date: "2023-11-06",
+  blogId: 67,
+  Keywords: `GA4 Purchase event tracking, Google Tag Manager setup, Shopify e-commerce analytics, Google Analytics 4 configuration, Purchase event configuration, Tracking user behavior, Marketing strategy optimization, ROI improvement, User experience enhancement, GTM Configuration Tag, Event parameters in GTM, Enhanced event tracking in GTM, Tracking checkout routes, Testing event tracking, Verifying tracking data, Debug View in Google Analytics, Real-time reports in Google Analytics, Publishing GTM changes`,
+  tags: [
+    "Google Analytics",
+    "Shopify",
+    "Google Tag Manager",
+    "Tutorial",
+    "Purchase",
+  ],
+  draft: false,
+  description:
+    "The 'purchase' event in GA4 is a pivotal data point. It’s the culmination of a user's journey from a potential visitor to a confirmed buyer. Tracking this on your Shopify store provides invaluable insights, helping optimize your marketing strategies, improve your ROI, and enhance the overall user experience.",
+  openGraph: {
+    images: ["/static/blog/00007.png"],
+  },
+  embedId: "V7FHcp8weDA",
 };
 
 <BlogHeader metadata={metadata} />
@@ -36,8 +36,8 @@ Before we dive into the setup, make sure you have the following accounts and con
 If you haven't set these up yet, you can refer to [this page](/blog/shopify/configure-google-tag-manager-on-your-shopify-store).
 
 <Note
- title='Tip'
- content='Ensure you have your prerequisites in place for a smooth setup process.'
+  title="Tip"
+  content="Ensure you have your prerequisites in place for a smooth setup process."
 />
 
 ## Section 01: Configuring GA4 Configuration Tag
@@ -70,7 +70,7 @@ The provided guidelines detail the integration process of the `dataLayer` object
 3. It establishes the `dataLayer` object, if not already in place, and fills it with transactional information such as transaction ID, total amount, shipping costs, taxes, currency, and details of the purchased items.
 4. Information captured includes specific product details like product ID, SKU, name, cost, brand, variation, quantity, and other pertinent details.
 
-<DataLayerCode type='purchase' subType='main' />
+<DataLayerCode type="purchase" subType="main" />
 
 ### Procedure for Implementing DataLayer Code Snippets in Shopify:
 
@@ -125,8 +125,8 @@ For additional tracking details, such as items, revenue, etc., Google Tag Manage
 7. Similarly, establish variables for `tax` and `shipping`. By setting these up in GTM, it ensures that these values get tracked without needing additional processing in G4. Other crucial details include `items`, `value`, `currency`, `tax`, `shipping`, and `transaction_id`.
 
 <Note
- title='Tip'
- content='Ensure all necessary parameters are sent correctly to Ga4. When done right, GA4 will handle report generation and conversions automatically.'
+  title="Tip"
+  content="Ensure all necessary parameters are sent correctly to Ga4. When done right, GA4 will handle report generation and conversions automatically."
 />
 
 ### Setting Up the Trigger
@@ -137,8 +137,8 @@ For additional tracking details, such as items, revenue, etc., Google Tag Manage
 4. Name the custom event as `CE custom_purchase` and set the value to "custom_purchase".
 
 <Note
- title='Tip'
- content="Using a 'custom_' prefix ensures that the 'purchase' does not mix with any other events on your website."
+  title="Tip"
+  content="Using a 'custom_' prefix ensures that the 'purchase' does not mix with any other events on your website."
 />
 
 ### Creating an Event Tag for Google Analytics 4
@@ -171,8 +171,8 @@ While on the `/checkout` page, note that this isn't tracked by default in Ga4. O
 In Google Analytics, under `Admin > Debug View`, you can check recent events. The purchase event should show with a flag, signifying its role as a default conversion.
 
 <Note
- title='Tip'
- content="The purchase event is a default conversion in G4. There's no need for additional configurations."
+  title="Tip"
+  content="The purchase event is a default conversion in G4. There's no need for additional configurations."
 />
 
 ## Checking Real-time Reports

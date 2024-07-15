@@ -1,9 +1,9 @@
-import Image from 'next/image';
-import React from 'react';
-import { Separator } from '@/components/ui/separator';
-import Container from '@/components/ui/container';
-import TypographyP from '@/components/ui/typography-p';
-import TypographyH3 from '@/components/ui/typography-h3';
+import Image from "next/image";
+import React from "react";
+import { Separator } from "@/components/ui/separator";
+import Container from "@/components/ui/container";
+import TypographyP from "@/components/ui/typography-p";
+import TypographyH3 from "@/components/ui/typography-h3";
 
 interface ClientTestimonialCardProps {
   client: {
@@ -27,25 +27,25 @@ const ClientTestimonialCard: React.FC<ClientTestimonialCardProps> = ({
 }) => {
   return (
     <React.Fragment>
-      <div className='space-y-4 pb-2'>
+      <div className="space-y-4 pb-2">
         <TypographyP>
-          <span className='text-primary'>
+          <span className="text-primary">
             {client.businessName} ({category}: {cms})
           </span>
           <span>: {businessDetails}</span>
         </TypographyP>
-        <div className='rounded-md border border-secondary shadow-md filter object-contain overflow-hidden bg-secondary'>
+        <div className="overflow-hidden rounded-md border border-secondary bg-secondary object-contain shadow-md filter">
           <Image
             src={imageUrl}
             alt={`Client ${client.name}`}
             width={1920}
             height={1080}
-            className='aspect-video'
+            className="aspect-video"
           />
         </div>
 
         <TypographyP>
-          <span className='text-primary'>Results:&nbsp;</span>
+          <span className="text-primary">Results:&nbsp;</span>
           <span>"{results}"</span>
         </TypographyP>
       </div>

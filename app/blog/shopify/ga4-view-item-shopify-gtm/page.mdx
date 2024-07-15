@@ -1,22 +1,22 @@
 export const metadata = {
- title: "GA4 ViewItem Event on Shopify using Google Tag Manager",
- date: "2023-11-01",
- blogId: 64,
- Keywords: `Google Analytics 4, Shopify, Google Tag Manager, View Item Event, E-commerce Tracking, Enhanced E-commerce Parameters, GTM Preview Mode, Shopify Store Configuration, GA4 Configuration Tag, Google Tag Event Settings, Event Parameter, Data Layer Variable, Code Snippets, Product Pages, User Behavior, Tutorial, E-commerce Event Tracking, Insights, User Engagement, Session Starts, Data Streams, Measurement ID`,
- tags: [
-  "Google Analytics",
-  "Shopify",
-  "Google Tag Manager",
-  "Tutorial",
-  "View Item",
- ],
- draft: false,
- description:
-  "The 'ViewItem Event' is more than just a number. It's an insight into what catches a user's eye, what holds their interest, and potentially, what nudges them towards making a purchase. Monitoring this event allows you to understand product performance, optimize listings, and craft targeted marketing campaigns.",
- openGraph: {
-  images: ["/static/blog/00004.png"],
- },
- embedId: "RT8gI98IW84",
+  title: "GA4 ViewItem Event on Shopify using Google Tag Manager",
+  date: "2023-11-01",
+  blogId: 64,
+  Keywords: `Google Analytics 4, Shopify, Google Tag Manager, View Item Event, E-commerce Tracking, Enhanced E-commerce Parameters, GTM Preview Mode, Shopify Store Configuration, GA4 Configuration Tag, Google Tag Event Settings, Event Parameter, Data Layer Variable, Code Snippets, Product Pages, User Behavior, Tutorial, E-commerce Event Tracking, Insights, User Engagement, Session Starts, Data Streams, Measurement ID`,
+  tags: [
+    "Google Analytics",
+    "Shopify",
+    "Google Tag Manager",
+    "Tutorial",
+    "View Item",
+  ],
+  draft: false,
+  description:
+    "The 'ViewItem Event' is more than just a number. It's an insight into what catches a user's eye, what holds their interest, and potentially, what nudges them towards making a purchase. Monitoring this event allows you to understand product performance, optimize listings, and craft targeted marketing campaigns.",
+  openGraph: {
+    images: ["/static/blog/00004.png"],
+  },
+  embedId: "RT8gI98IW84",
 };
 
 <BlogHeader metadata={metadata} />
@@ -42,8 +42,8 @@ Before we dive in, ensure you have the following:
 - If you haven't set up a web stream, do so now. Otherwise, find your "Measurement ID".
 
 <Note
- title='Tip'
- content='The Measurement ID is crucial for configuring GA4 in Google Tag Manager. Make sure to copy it.'
+  title="Tip"
+  content="The Measurement ID is crucial for configuring GA4 in Google Tag Manager. Make sure to copy it."
 />
 
 ## Set up Variables in Google Tag Manager:
@@ -87,7 +87,7 @@ This section outlines the process of setting up and integrating the `dataLayer` 
 
 The initial step involves a code snippet that activates the `dataLayer` array. This snippet also checks if the page is a product page. On identifying a product page, it triggers a special code segment, 'datalayer-product'.
 
-<DataLayerCode type='viewItem' subType='head' />
+<DataLayerCode type="viewItem" subType="head" />
 
 ### Gathering Product Information
 
@@ -97,13 +97,13 @@ The core functionality of the 'datalayer-product' snippet lies in capturing key 
 2. Builds an `itemObject` containing detailed product information.
 3. Pushes this data into the `dataLayer` upon the document’s load.
 
-<DataLayerCode type='viewItem' subType='main' />
+<DataLayerCode type="viewItem" subType="main" />
 
 ### Embedding Theme-Level Data Layer Code
 
 For complete integration, include the 'head-datalayer' snippet in your theme. Typically, this part of the code is placed in the GTM Body Code area, depending on your Shopify theme's configuration.
 
-<DataLayerCode type='viewItem' subType='theme' />
+<DataLayerCode type="viewItem" subType="theme" />
 
 ### Steps for Data Layer Implementation in Shopify:
 
@@ -131,8 +131,8 @@ Although the basic "view item" event is now configured, to get detailed e-commer
 4. Save and rename it for clarity.
 
 <Note
- title='Review'
- content="Before implementing, ensure that you've correctly followed each step, double-check your codes, variable names, and ensure that you're seeing the expected results in both GTM and GA4. Proper setup will ensure accurate data tracking and invaluable insights for your e-commerce business."
+  title="Review"
+  content="Before implementing, ensure that you've correctly followed each step, double-check your codes, variable names, and ensure that you're seeing the expected results in both GTM and GA4. Proper setup will ensure accurate data tracking and invaluable insights for your e-commerce business."
 />
 
 ## Conclusion

@@ -1,22 +1,22 @@
 export const metadata = {
- title: "GA4 BeginCheckout Event on Shopify using Google Tag Manager",
- date: "2023-11-03",
- blogId: 66,
- Keywords: `GA4 BeginCheckout event tracking, Google Tag Manager setup, Shopify e-commerce analytics, Google Analytics 4 configuration, Begin Checkout event configuration, Tracking user intent, Enhancing shopping experience, Insights into user behavior, Google Analytics for e-commerce, GTM for Shopify, Shopify GA4 setup, Step-by-step event tracking in GA4, Precise tracking of Begin Checkout events, Capturing enhanced e-commerce data, DataLayer implementation for Shopify, Event parameters in GTM, Validating events in GA4, E-commerce optimization strategies`,
- tags: [
-  "Google Analytics",
-  "Shopify",
-  "Google Tag Manager",
-  "Tutorial",
-  "Begin Checkout",
- ],
- draft: false,
- description:
-  "In the e-commerce universe, the journey from mere interest to a committed purchase is filled with crucial touchpoints. One of the most telling moments in this journey is when a user initiates the checkout process. The 'BeginCheckout Event' in Google Analytics 4 (GA4) offers an unparalleled perspective into this decisive phase, capturing the transition of a browsing user to a potential buyer.",
- openGraph: {
-  images: ["/static/blog/00006.png"],
- },
- embedId: "2LK4QYctRwQ",
+  title: "GA4 BeginCheckout Event on Shopify using Google Tag Manager",
+  date: "2023-11-03",
+  blogId: 66,
+  Keywords: `GA4 BeginCheckout event tracking, Google Tag Manager setup, Shopify e-commerce analytics, Google Analytics 4 configuration, Begin Checkout event configuration, Tracking user intent, Enhancing shopping experience, Insights into user behavior, Google Analytics for e-commerce, GTM for Shopify, Shopify GA4 setup, Step-by-step event tracking in GA4, Precise tracking of Begin Checkout events, Capturing enhanced e-commerce data, DataLayer implementation for Shopify, Event parameters in GTM, Validating events in GA4, E-commerce optimization strategies`,
+  tags: [
+    "Google Analytics",
+    "Shopify",
+    "Google Tag Manager",
+    "Tutorial",
+    "Begin Checkout",
+  ],
+  draft: false,
+  description:
+    "In the e-commerce universe, the journey from mere interest to a committed purchase is filled with crucial touchpoints. One of the most telling moments in this journey is when a user initiates the checkout process. The 'BeginCheckout Event' in Google Analytics 4 (GA4) offers an unparalleled perspective into this decisive phase, capturing the transition of a browsing user to a potential buyer.",
+  openGraph: {
+    images: ["/static/blog/00006.png"],
+  },
+  embedId: "2LK4QYctRwQ",
 };
 
 <BlogHeader metadata={metadata} />
@@ -35,8 +35,8 @@ Before we jump in, ensure you have the following:
 If you haven't set these up yet, you can refer to [this page](/blog/shopify/configure-google-tag-manager-on-your-shopify-store).
 
 <Note
- title='Tip'
- content='Ensure you have your prerequisites in place for a smooth setup process.'
+  title="Tip"
+  content="Ensure you have your prerequisites in place for a smooth setup process."
 />
 
 ## Sections Covered
@@ -90,7 +90,7 @@ This segment is designed for users who want to enhance data capture during the "
 
 Here, we set up the `dataLayer` array, ensuring its initialization. The code assesses if the user is on a 'product' page and accordingly deploys a 'datalayer-checkout' snippet across all pages.
 
-<DataLayerCode type='beginCheckout' subType='head' />
+<DataLayerCode type="beginCheckout" subType="head" />
 
 ## Main Checkout DataLayer Script
 
@@ -101,13 +101,13 @@ This section details the key steps in loading product information into the `data
 3. Calculating Cart Total: Determines the overall value of the cart's contents.
 4. Checkout Button Monitoring: Post-page load, it locates checkout buttons, clears any existing `dataLayer` ecommerce data upon click, and inputs new ecommerce data into the `dataLayer` for GTM tracking.
 
-<DataLayerCode type='beginCheckout' subType='main' />
+<DataLayerCode type="beginCheckout" subType="main" />
 
 ## Theme-Related DataLayer Implementation
 
 This script implements the `head-datalayer` snippet, typically found within your Shopify theme setup. This should be incorporated into your GTM Body Code.
 
-<DataLayerCode type='beginCheckout' subType='theme' />
+<DataLayerCode type="beginCheckout" subType="theme" />
 
 ## Guidelines for Implementing DataLayer Snippets in Shopify:
 
@@ -146,8 +146,8 @@ To accurately track these events, we need to set up appropriate triggers and tag
 4. Name the custom event as `CE custom_begin_checkout` and set the value to "custom_begin_checkout".
 
 <Note
- title='Tip'
- content="Using a 'custom_' prefix ensures that the 'begin checkout' does not mix with any other events on your website."
+  title="Tip"
+  content="Using a 'custom_' prefix ensures that the 'begin checkout' does not mix with any other events on your website."
 />
 
 ## Setting Up Event Parameters
@@ -161,8 +161,8 @@ For additional tracking details, such as items, revenue, etc., Google Tag Manage
 5. Name this event setting as `GTES GA4 EEC Event parameters`.
 
 <Note
- title='Tip'
- content="Ensure you use the correct notations, whether it's a dot for objects or indexes for arrays, to avoid errors."
+  title="Tip"
+  content="Ensure you use the correct notations, whether it's a dot for objects or indexes for arrays, to avoid errors."
 />
 
 ## Creating an Event Tag for Google Analytics 4
