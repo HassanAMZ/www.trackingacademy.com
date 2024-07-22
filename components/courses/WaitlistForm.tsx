@@ -1,9 +1,9 @@
 "use client";
 import React, { useState } from "react";
 import { useFormState, useFormStatus } from "react-dom";
-import { createWaitlist } from "@/actions/waitlist";
 import HeroComponent from "../global/HeroComponent";
 import { GTMCustomEvent } from "../analytics/GTMEvents";
+import { createWaitlist } from "@/actions/handle-enroll-now";
 
 const initialState = {
   message: null,

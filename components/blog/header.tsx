@@ -55,7 +55,7 @@ const BlogHeader: React.FC<PostMetadataProps> = ({ metadata }) => {
           className="w-full rounded-lg"
         />
       ) : (
-        <YoutubeEmbed embedId={metadata.embedId} />
+        <YoutubeEmbed embedId={metadata.embedId} className="p-0" />
       )}
     </section>
   );

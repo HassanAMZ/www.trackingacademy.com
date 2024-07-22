@@ -51,7 +51,7 @@ const ListItem = React.forwardRef<
           ref={ref}
           className={cn(
             "block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground",
-            className,
+            className
           )}
           {...props}
         >
@@ -79,19 +79,9 @@ export default function Navbar() {
   };
 
   const renderCallToAction = () => {
-    if (pathname === "/for-freelancers") {
-      return (
-        <Button asChild>
-          <Link href="/for-freelancers/enroll-now">Enroll Now</Link>
-        </Button>
-      );
-    }
     return (
       <Button asChild>
-        <Link href="/contact">
-          <span className="hidden sm:block"> Schedule a Meeting</span>
-          <span className="block sm:hidden">Contact</span>
-        </Link>
+        <Link href="/for-freelancers/enroll-now">Enroll Now</Link>
       </Button>
     );
   };
@@ -109,46 +99,21 @@ export default function Navbar() {
                     className={cn(
                       navigationMenuTriggerStyle(),
                       pathname === "/" &&
-                        "border border-primary bg-card text-accent-foreground",
+                        "border border-primary bg-card text-accent-foreground"
                     )}
                   >
                     TrackingAcademy.com
                   </NavigationMenuLink>
                 </Link>
               </NavigationMenuItem>
-              <NavigationMenuItem>
-                <Link href="/" legacyBehavior passHref>
-                  <NavigationMenuLink
-                    className={cn(
-                      navigationMenuTriggerStyle(),
-                      isActive("/for-businesses") &&
-                        "border border-primary bg-card text-accent-foreground",
-                    )}
-                  >
-                    For Businesses
-                  </NavigationMenuLink>
-                </Link>
-              </NavigationMenuItem>
-              <NavigationMenuItem>
-                <Link href="/for-freelancers" legacyBehavior passHref>
-                  <NavigationMenuLink
-                    className={cn(
-                      navigationMenuTriggerStyle(),
-                      isActive("/for-freelancers") &&
-                        "border border-primary bg-card text-accent-foreground",
-                    )}
-                  >
-                    For Freelancers
-                  </NavigationMenuLink>
-                </Link>
-              </NavigationMenuItem>
+
               <NavigationMenuItem>
                 <Link href="/blog" legacyBehavior passHref>
                   <NavigationMenuLink
                     className={cn(
                       navigationMenuTriggerStyle(),
                       isActive("/blog") &&
-                        "border border-primary bg-card text-accent-foreground",
+                        "border border-primary bg-card text-accent-foreground"
                     )}
                   >
                     Blogs
@@ -170,6 +135,20 @@ export default function Navbar() {
                     ))}
                   </ul>
                 </NavigationMenuContent>
+              </NavigationMenuItem>
+
+              <NavigationMenuItem>
+                <Link href="/about-us" legacyBehavior passHref>
+                  <NavigationMenuLink
+                    className={cn(
+                      navigationMenuTriggerStyle(),
+                      isActive("/about-us") &&
+                        "border border-primary bg-card text-accent-foreground"
+                    )}
+                  >
+                    About
+                  </NavigationMenuLink>
+                </Link>
               </NavigationMenuItem>
             </NavigationMenuList>
             <div className="flex gap-2">
@@ -195,7 +174,7 @@ export default function Navbar() {
                 className={cn(
                   navigationMenuTriggerStyle(),
                   pathname === "/" &&
-                    "border border-primary bg-card text-accent-foreground",
+                    "border border-primary bg-card text-accent-foreground"
                 )}
                 onClick={handleLinkClick}
               >
@@ -214,40 +193,18 @@ export default function Navbar() {
                   className={cn(
                     navigationMenuTriggerStyle(),
                     pathname === "/" &&
-                      "border border-primary bg-card text-accent-foreground",
+                      "border border-primary bg-card text-accent-foreground"
                   )}
                   onClick={handleLinkClick}
                 >
                   TrackingAcademy.com
                 </Link>
                 <Link
-                  href="/"
-                  className={cn(
-                    navigationMenuTriggerStyle(),
-                    isActive("/for-businesses") &&
-                      "border border-primary bg-card text-accent-foreground",
-                  )}
-                  onClick={handleLinkClick}
-                >
-                  For Businesses
-                </Link>
-                <Link
-                  href="/for-freelancers"
-                  className={cn(
-                    navigationMenuTriggerStyle(),
-                    isActive("/for-freelancers") &&
-                      "border border-primary bg-card text-accent-foreground",
-                  )}
-                  onClick={handleLinkClick}
-                >
-                  For Freelancers
-                </Link>
-                <Link
                   href="/blog"
                   className={cn(
                     navigationMenuTriggerStyle(),
                     isActive("/blog") &&
-                      "border border-primary bg-card text-accent-foreground",
+                      "border border-primary bg-card text-accent-foreground"
                   )}
                   onClick={handleLinkClick}
                 >
@@ -258,41 +215,37 @@ export default function Navbar() {
                   className={cn(
                     navigationMenuTriggerStyle(),
                     isActive("/tools") &&
-                      "border border-primary bg-card text-accent-foreground",
+                      "border border-primary bg-card text-accent-foreground"
                   )}
                   onClick={handleLinkClick}
                 >
                   Tools
                 </Link>
 
-                {pathname === "/for-freelancers" ? (
-                  <Link
-                    passHref
-                    legacyBehavior
-                    href="/for-freelancers/enroll-now"
+                <Link
+                  passHref
+                  legacyBehavior
+                  href="/for-freelancers/enroll-now"
+                >
+                  <Button
+                    className="min-w-full font-medium text-card"
+                    onClick={handleLinkClick}
                   >
-                    <Button
-                      className="min-w-full font-medium text-card"
-                      onClick={handleLinkClick}
-                    >
-                      Enroll Now
-                    </Button>
-                  </Link>
-                ) : (
-                  <Link
-                    passHref
-                    legacyBehavior
-                    href="/contact"
-                    className="w-full"
-                  >
-                    <Button
-                      className="w-full font-medium text-card"
-                      onClick={handleLinkClick}
-                    >
-                      <span>Book a Call</span>
-                    </Button>
-                  </Link>
-                )}
+                    Enroll Now
+                  </Button>
+                </Link>
+
+                <Link
+                  href="/about-us"
+                  className={cn(
+                    navigationMenuTriggerStyle(),
+                    isActive("/about-us") &&
+                      "border border-primary bg-card text-accent-foreground"
+                  )}
+                  onClick={handleLinkClick}
+                >
+                  About Us
+                </Link>
               </nav>
               <ModeToggle />
             </SheetContent>

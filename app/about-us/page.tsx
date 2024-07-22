@@ -7,14 +7,14 @@ import TypographyP from "@/components/ui/typography-p";
 
 export default function Page() {
   return (
-    <section>
+    <section className="py-8">
       <TypographyH1 className="text-center">Hey, I'm Hassan 👋</TypographyH1>
-      <TypographyP>
+      <TypographyP className="text-center">
         I'm a Top Rated Freelancer on Upwork, here's what you should know about
         me.
       </TypographyP>
 
-      <section className="pt-2">
+      {/* <section className="pt-2">
         <Image
           src="/images/social-sharing.png"
           alt="Imtiaz Ahmed"
@@ -22,7 +22,7 @@ export default function Page() {
           height={1080}
           className="rounded-lg"
         />
-      </section>
+      </section> */}
       <div className="container-secondary divide-y p-4">
         <LearnMore
           detailsList={[
@@ -36,13 +36,13 @@ export default function Page() {
               icon: "🌎",
               header: "Global Impact",
               details:
-                "Our work has not only spanned 270+ diverse clients but has also been featured in substantial corporations, enabling me to navigate and understand varied industry landscapes and cultural nuances in business.",
+                "Our work has not only spanned 300+ diverse clients but has also been featured in substantial corporations, enabling me to navigate and understand varied industry landscapes and cultural nuances in business.",
             },
             {
               icon: "🔧",
               header: "1000+ Total Jobs Completed",
               details:
-                "Successfully completed a spectrum of 263 jobs, delving into diverse challenges in web analytics and tracking setups, always dedicated to delivering value and tangible solutions to clients across various industries.",
+                "Successfully completed a spectrum of 300+ jobs, delving into diverse challenges in web analytics and tracking setups, always dedicated to delivering value and tangible solutions to clients across various industries.",
             },
           ]}
         />

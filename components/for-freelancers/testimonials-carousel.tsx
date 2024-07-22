@@ -53,7 +53,6 @@ export function TestimonialsCarousel() {
               src={testimonial.image}
               alt={testimonial.author}
               className="rounded-t-lg object-cover"
-              layout="responsive"
               width={500}
               height={200}
             />
