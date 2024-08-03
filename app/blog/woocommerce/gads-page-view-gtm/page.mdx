@@ -1,0 +1,128 @@
+export const metadata = {
+  title:
+    "How to Set Up Google Tag Manager and Track Page View Events on Your WooCommerce Store",
+  date: "2024-07-23",
+  blogId: 107,
+  keywords:
+    "Google Tag Manager, WooCommerce store, Google Ads, Website tracking, Page View Event, Ecommerce Data Layer",
+  tags: [
+    "Google Tag Manager",
+    "WooCommerce",
+    "Ecommerce Tracking",
+    "Page View Event",
+    "Google Ads",
+  ],
+  draft: false,
+  description:
+    "Learn how to configure Google Tag Manager on your WooCommerce store to track page view events. This guide covers setting up Google Tag Manager, adding the necessary data layers, and ensuring accurate event tracking for better Google Ads targeting.",
+  openGraph: {
+    images: ["/static/blog/00017.png"],
+  },
+  embedId: "Rerc8X5lFEw",
+};
+
+<BlogHeader metadata={metadata} />
+
+In this guide, we'll walk you through the process of setting up Google Ads page view events using Google Tag Manager (GTM) on a WordPress website. This setup will enable you to track user activity across all pages and ensure accurate conversion tracking.
+
+#### Step 1: Verify Access Permissions
+
+1. **WordPress Access**:
+
+   - Log in to your WordPress backend.
+   - Navigate to the "Users" tab.
+   - Ensure you have "Administrator" access.
+
+2. **Google Tag Manager Access**:
+
+   - Go to [Google Tag Manager](https://tagmanager.google.com/).
+   - Access the container's "Admin" section and click on "User Management".
+   - Verify that you have "Publish" level permissions.
+
+3. **Google Ads Access**:
+   - Go to the "Admin" section in your Google Ads account.
+   - Under "Access and security," confirm that you have either "Admin" or "Standard" access.
+
+#### Step 2: Install the GTM for WP Plugin
+
+1. **Install the Plugin**:
+
+   - In your WordPress backend, go to the "Plugins" tab and click on "Add New".
+   - Search for "GTM for WP" by Thomas Greer.
+   - Install and activate the plugin.
+
+2. **Configure the Plugin**:
+   - Once activated, go to the plugin's settings.
+   - Retrieve your Google Tag Manager container ID from the GTM admin section (look for an ID starting with "GTM-").
+   - Enter this container ID into the plugin settings and save changes.
+   - Ensure the container code is turned on.
+
+#### Step 3: Test Google Tag Manager Configuration
+
+1. **Open GTM Debug Mode**:
+
+   - In Google Tag Manager, go to the "Workspace" section and click "Preview".
+   - Connect to any page of your website to open the temporary debug window.
+
+2. **Verify Tag Firing**:
+   - Use the [Tag Assistant Legacy extension](https://tagassistant.google.com/) to check if the GTM container is firing correctly.
+   - Ensure there are no errors or warnings in the debug window.
+
+#### Step 4: Set Up Conversion Actions in Google Ads
+
+1. **Create a Conversion Action**:
+
+   - In Google Ads, go to "Tools & Settings" and click on "Conversions".
+   - Click the blue "+" button to create a new conversion action.
+   - Choose "Website" as the conversion source.
+   - Enter your website URL and hit "Scan".
+
+2. **Configure the Conversion Action**:
+
+   - Select "Page View" as the category.
+   - Name the conversion action using snake_case (e.g., `page_view_conversion`).
+   - Select "Don't use a value for this conversion".
+   - Choose to count every conversion and save.
+
+3. **Retrieve Conversion ID and Label**:
+   - After saving, copy the conversion ID and label from the conversion action summary.
+
+#### Step 5: Create Tags in Google Tag Manager
+
+1. **Create a Conversion Tag**:
+
+   - In GTM, click "New" in the "Tags" section.
+   - Choose "Google Ads Conversion Tracking" as the tag type.
+   - Enter the conversion ID and label.
+   - Set the trigger to "All Pages".
+
+2. **Optimize with Variables**:
+
+   - Create constant variables for the conversion ID and label.
+   - Use these variables in the tag configuration for easier management.
+
+3. **Add a Conversion Linker Tag**:
+
+   - Create a new tag for "Conversion Linker".
+   - Set the trigger to "All Pages".
+   - Save the tag.
+
+4. **Create a Remarketing Tag**:
+   - Similar to the conversion tag, create a new tag for "Google Ads Remarketing".
+   - Use the same conversion ID and label variables.
+   - Set the trigger to "All Pages".
+
+#### Step 6: Test and Publish Changes
+
+1. **Test Tags in Debug Mode**:
+
+   - Enter preview mode in GTM again and check that all tags fire correctly on your website.
+   - Verify the tags using the Tag Assistant extension and the GTM debug window.
+
+2. **Publish Changes**:
+   - Once confirmed, publish the container changes in GTM.
+   - Add a version name (e.g., "Added all page view events for GA").
+
+#### Conclusion
+
+By following these steps, you will have successfully configured Google Ads page view events using Google Tag Manager on your WordPress site. This setup ensures accurate tracking and allows for better analysis of user behavior and conversion performance. In the next guide, we'll cover tracking specific events such as product page views.
