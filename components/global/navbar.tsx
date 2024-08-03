@@ -223,6 +223,18 @@ export default function Navbar() {
                 </Link>
 
                 <Link
+                  href="/about-us"
+                  className={cn(
+                    navigationMenuTriggerStyle(),
+                    isActive("/about-us") &&
+                      "border border-primary bg-card text-accent-foreground"
+                  )}
+                  onClick={handleLinkClick}
+                >
+                  About Us
+                </Link>
+
+                <Link
                   passHref
                   legacyBehavior
                   href="/for-freelancers/enroll-now"
@@ -233,18 +245,6 @@ export default function Navbar() {
                   >
                     Enroll Now
                   </Button>
-                </Link>
-
-                <Link
-                  href="/about-us"
-                  className={cn(
-                    navigationMenuTriggerStyle(),
-                    isActive("/about-us") &&
-                      "border border-primary bg-card text-accent-foreground"
-                  )}
-                  onClick={handleLinkClick}
-                >
-                  About Us
                 </Link>
               </nav>
               <ModeToggle />

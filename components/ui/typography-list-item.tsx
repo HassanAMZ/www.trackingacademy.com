@@ -1,5 +1,6 @@
 import React from "react";
 import clsx from "clsx";
+import { cn } from "@/lib/utils";
 
 interface TypographyListItemPorps {
   children?: React.ReactNode;
@@ -13,7 +14,7 @@ const TypographyListItem: React.FC<TypographyListItemPorps> = ({
   id,
 }) => {
   return (
-    <li id={id} className={clsx("", className)}>
+    <li id={id} className={cn("", className)}>
       {children}
     </li>
   );
