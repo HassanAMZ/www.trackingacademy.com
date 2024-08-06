@@ -1,0 +1,139 @@
+export const metadata = {
+  title:
+    "How to Set Up Google Tag Manager and Track View Cart Conversion Actions on Your WooCommerce Store",
+  date: "2024-07-27",
+  blogId: 111,
+  keywords:
+    "Google Tag Manager, WooCommerce store, Google Ads, Website tracking, View Cart Event, Ecommerce Data Layer",
+  tags: [
+    "Google Tag Manager",
+    "WooCommerce",
+    "Ecommerce Tracking",
+    "View Cart Event",
+    "Google Ads",
+  ],
+  draft: false,
+  description:
+    "Learn how to configure Google Tag Manager on your WooCommerce store to track view cart conversion actions. This guide covers setting up Google Tag Manager, adding the necessary data layers, and ensuring accurate event tracking for better Google Ads targeting.",
+  openGraph: {
+    images: ["/static/blog/00011.png"],
+  },
+  embedId: "S3rTpSQ3jLU",
+};
+
+<BlogHeader metadata={metadata} />
+
+### Overview
+
+This document outlines the steps to set up View Cart event tracking in Google Ads for a WooCommerce store using Google Tag Manager (GTM). The process involves ensuring proper access to WordPress, GTM, and Google Ads, installing and configuring the necessary plugins, and creating and testing the required tags, triggers, and variables.
+
+### Summary
+
+1. **Verify Access Levels**:
+   - WordPress: Admin access is required.
+   - GTM: Publish access is required.
+   - Google Ads: Standard or Admin access is required.
+2. **Install GTM on WordPress**:
+   - Use the "GTM for WP" plugin.
+3. **Configure Data Layer for View Cart Event**:
+   - Enable e-commerce tracking in the plugin.
+4. **Create Tags, Triggers, and Variables in GTM**:
+   - Conversion Linker tag
+   - View Cart event trigger
+   - Data Layer variables
+   - Conversion tracking and remarketing tags
+5. **Test and Debug**:
+   - Use GTM's Preview mode and Google Tag Assistant.
+6. **Publish Changes**:
+   - Name and publish the container.
+
+### Detailed Steps
+
+#### 1. Verify Access Levels
+
+**WordPress**:
+
+- Ensure admin access by navigating to `Users` in the WordPress backend and verifying your email address has administrator privileges.
+
+**Google Tag Manager**:
+
+- Verify publish access by going to the GTM container, clicking on `User Management` under container settings, and ensuring your email address has publish access.
+
+**Google Ads**:
+
+- Verify standard or admin access by going to `Admin` > `Access and Security` in your Google Ads account and checking your email address access level.
+
+#### 2. Install GTM on WordPress
+
+- Install the "GTM for WP" plugin:
+  1. Go to `Plugins` > `Add New` in WordPress.
+  2. Search for "GTM for WP" by Thomas Gregor.
+  3. Install and activate the plugin.
+  4. Navigate to the plugin settings, enter your GTM container ID, and ensure the container code is set to "On". Save changes.
+
+#### 3. Configure Data Layer for View Cart Event
+
+- In the plugin settings, enable e-commerce tracking:
+  1. Go to `Settings` > `GTM for WP`.
+  2. Under the `Integration` tab, find the e-commerce section.
+  3. Enable `Track e-commerce events`.
+  4. Add `View Cart` event and enable `Clear e-commerce objects before new event`.
+
+#### 4. Create Tags, Triggers, and Variables in GTM
+
+**Conversion Linker Tag**:
+
+1. Create a new tag in GTM.
+2. Select `Tag Configuration` > `Google Ads` > `Conversion Linker`.
+3. Set the trigger to `All Pages`.
+4. Save the tag as `Google Ads Conversion Linker`.
+
+**View Cart Event Trigger**:
+
+1. Create a new trigger.
+2. Select `Trigger Configuration` > `Custom Event`.
+3. Set the event name to `view_cart`.
+4. Save the trigger as `Custom Event for View Cart`.
+
+**Data Layer Variables**:
+
+1. Create new user-defined variables for:
+   - Currency: `dlv.ecommerce.currency`
+   - Value: `dlv.ecommerce.value`
+   - Items: `dlv.ecommerce.items`
+2. Create constant variables for:
+   - Google Ads Conversion ID
+   - Google Ads Conversion Label
+
+**Conversion Tracking Tag**:
+
+1. Create a new tag.
+2. Select `Tag Configuration` > `Google Ads` > `Conversion Tracking`.
+3. Enter the conversion ID and label using the variables created.
+4. Map the conversion value and currency from the data layer.
+5. Set the trigger to `Custom Event for View Cart`.
+6. Save the tag as `Google Ads Conversion Tracking for View Cart`.
+
+**Remarketing Tag**:
+
+1. Create a new tag.
+2. Select `Tag Configuration` > `Google Ads` > `Remarketing`.
+3. Enter the conversion ID and label using the variables created.
+4. Include dynamic remarketing data (value and items array).
+5. Set the trigger to `Custom Event for View Cart`.
+6. Save the tag as `Google Ads Remarketing Tag for View Cart`.
+
+#### 5. Test and Debug
+
+- Use GTM's Preview mode and navigate to the cart page on your website.
+- Verify that the `View Cart` event fires and the appropriate tags are triggered.
+- Use the Google Tag Assistant Chrome extension to ensure the tags are functioning correctly.
+
+#### 6. Publish Changes
+
+- Rename the container to reflect the new configuration (e.g., `Tracking Academy Google Ads View Cart Remarketing and Conversion Tracking`).
+- Publish the container to apply the changes.
+
+### Conclusion
+
+By following these steps, you have successfully set up the View Cart event tracking for your WooCommerce store using Google Tag Manager. This configuration allows you to capture detailed information about users who view their cart, facilitating enhanced tracking and remarketing in Google Ads.
