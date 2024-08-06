@@ -23,90 +23,139 @@ export const metadata = {
 
 <BlogHeader metadata={metadata} />
 
-This guide details the process of configuring the Google Ads "Add to Cart" event for a WooCommerce store using Google Tag Manager (GTM). The configuration involves ensuring proper access, setting up the GTM container, creating conversion actions in Google Ads, and verifying the setup.
+In this guide, you'll learn how to set up tracking for the "Add to Cart" event on your WooCommerce store using Google Tag Manager (GTM) and Google Ads. By following these steps, you can optimize your advertising campaigns by understanding user behavior on your site.
 
-### Summary
+## Table of Contents
 
-1. **Ensure Proper Access**: Confirm admin access on WordPress, GTM, and Google Ads.
-2. **GTM Container Setup**: Install and configure the GTM for WordPress plugin.
-3. **Create Conversion Actions in Google Ads**: Set up the "Add to Cart" conversion action and generate conversion IDs and labels.
-4. **Enable Data Layer in WooCommerce**: Configure the plugin to track e-commerce events.
-5. **Set Up Conversion and Remarketing Tags in GTM**: Create and configure tags and triggers for tracking the "Add to Cart" event.
-6. **Final Testing and Verification**: Test the configuration to ensure events are firing correctly.
-7. **Publish Changes**: Make the changes live on the website.
+1. [Introduction](#introduction)
+2. [Ensuring Proper Access](#ensuring-proper-access)
+3. [Installing GTM Plugin on WordPress](#installing-gtm-plugin-on-wordpress)
+4. [Verifying GTM Container Installation](#verifying-gtm-container-installation)
+5. [Creating Conversion Action in Google Ads](#creating-conversion-action-in-google-ads)
+6. [Enabling Data Layer in WooCommerce](#enabling-data-layer-in-woocommerce)
+7. [Testing Add to Cart Event](#testing-add-to-cart-event)
+8. [Setting Up Conversion Linker Tag](#setting-up-conversion-linker-tag)
+9. [Creating Custom Event Trigger](#creating-custom-event-trigger)
+10. [Adding Google Ads Conversion Tracking Tag](#adding-google-ads-conversion-tracking-tag)
+11. [Creating Remarketing Tag](#creating-remarketing-tag)
+12. [Final Testing and Verification](#final-testing-and-verification)
+13. [Publishing Changes](#publishing-changes)
+14. [Conclusion](#conclusion)
 
-### Detailed Documentation
+## Introduction
 
-#### 1. Ensuring Proper Access
+By the end of this guide, you'll be able to track the "Add to Cart" event on your Google Ads account for your WooCommerce store using Google Tag Manager. This will help you see which users are adding items to their cart and what those items are.
 
-- **WordPress Access**: Ensure admin access in the WordPress backend under Users.
-- **GTM Access**: Ensure published access in GTM under User Management in the Admin section.
-- **Google Ads Access**: Ensure admin or standard access in Google Ads under Admin and Access and Security.
+## Ensuring Proper Access
 
-#### 2. GTM Container Setup
+1. **WordPress:**
 
-- **Install GTM Plugin**:
+   - Go to the back end of your WordPress site.
+   - Click on "Users" and find your email address.
+   - Ensure you have administrator access.
 
-  1. Go to WordPress backend, navigate to Plugins, and add a new plugin.
-  2. Search for "GTM for WordPress" by Thomas Greger and install it.
-  3. Activate the plugin and go to the plugin settings.
-  4. Copy the GTM container ID and paste it into the plugin settings.
-  5. Save changes and ensure the container code is enabled.
+2. **Google Tag Manager:**
 
-- **Verify Installation**:
-  1. Use the GTM preview mode to check if the container is firing correctly.
-  2. Use the Tag Assistant Chrome extension for additional verification.
+   - Open your GTM container.
+   - Click on "Admin," then "User Management."
+   - Ensure your email has publish access to the container.
 
-#### 3. Create Conversion Actions in Google Ads
+3. **Google Ads:**
+   - Go to your Google Ads account.
+   - Navigate to "Admin" and click on "Access and Security."
+   - Verify you have either standard or admin access.
 
-- **Set Up Conversion Action**:
-  1. Go to Google Ads account, navigate to Goals, and click on Conversions.
-  2. Create a new conversion action, select Website, and enter the URL.
-  3. Manually create the conversion action, select Sales category, and name it "Add to Cart".
-  4. Save and continue to get the conversion ID and label.
+## Installing GTM Plugin on WordPress
 
-#### 4. Enable Data Layer in WooCommerce
+1. **Add GTM Plugin:**
 
-- **Configure Plugin**:
-  1. In the WordPress backend, go to plugin settings under Settings > Google Tag Manager.
-  2. Navigate to the Integration tab and enable e-commerce tracking.
-  3. Save changes and verify the setup by triggering an "Add to Cart" event.
+   - Go to your WordPress backend, click on "Plugins," then "Add New."
+   - Search for "GTM for WP" by Thomas Geiger.
+   - Install and activate the plugin.
 
-#### 5. Set Up Conversion and Remarketing Tags in GTM
+2. **Configure GTM Plugin:**
+   - Navigate to the plugin settings.
+   - Enter your GTM container ID (found in GTM under "Admin").
+   - Save changes. Ensure the container code is on and save again if needed.
 
-- **Create Conversion Linker Tag**:
+## Verifying GTM Container Installation
 
-  1. Create a new tag in GTM for Google Ads Conversion Linker.
-  2. Set the trigger to fire on all pages.
+1. **Use GTM Preview Mode:**
 
-- **Create Custom Event Trigger**:
+   - Go to your GTM account, click on "Workspaces," then "Preview."
+   - Connect the debug session to your website to check if tags are firing correctly.
 
-  1. Create a new custom event trigger for "Add to Cart".
-  2. Name it appropriately and save.
+2. **Google Tag Assistant Chrome Extension:**
+   - Install the extension and check if the GTM container is firing properly.
 
-- **Create Conversion Tracking Tag**:
+## Creating Conversion Action in Google Ads
 
-  1. Create a new tag for Google Ads Conversion Tracking.
-  2. Use the conversion ID and label obtained earlier.
-  3. Create data layer variables for value and currency.
-  4. Assign the custom event trigger and save.
+1. **Create Conversion Action:**
 
-- **Create Remarketing Tag**:
-  1. Create a new tag for Google Ads Remarketing.
-  2. Use the same trigger and data layer variables as the conversion tracking tag.
-  3. Save the tag.
+   - Go to your Google Ads account, click on "Goals," then "Summary."
+   - Click the plus button to create a new conversion action.
+   - Select "Website" and enter your website URL.
 
-#### 6. Final Testing and Verification
+2. **Configure Conversion Action:**
+   - Create a manual action named "Add to Cart."
+   - Set it to track dynamic values and save.
 
-- **Test Setup**:
-  1. Use GTM preview mode to test the "Add to Cart" event on a product page.
-  2. Verify that both conversion and remarketing tags are firing correctly.
+## Enabling Data Layer in WooCommerce
 
-#### 7. Publish Changes
+1. **Enable WooCommerce Events:**
+   - In your WordPress backend, go to the GTM plugin settings.
+   - Click on the "Integration" tab, then "WooCommerce."
+   - Enable "Track e-commerce events" and "Clear previous object before new event."
+   - Save changes.
 
-- **Publish GTM Container**:
-  1. After successful testing, publish the changes in GTM to make them live on the website.
+## Testing Add to Cart Event
 
-### Conclusion
+1. **Test the Event:**
+   - Go to your WooCommerce product page.
+   - Click "Add to Cart."
+   - In the GTM debug window, verify that the "Add to Cart" event is firing.
 
-By following these steps, the "Add to Cart" event for a WooCommerce store is successfully configured using Google Tag Manager. This setup ensures that conversion tracking and remarketing are accurately implemented, enabling effective Google Ads campaigns. For further tracking such as "View Item" events, follow similar steps outlined in this guide.
+## Setting Up Conversion Linker Tag
+
+1. **Add Conversion Linker Tag:**
+   - In GTM, go to "Tags," click on "New," and select "Conversion Linker."
+   - Set it to fire on all pages and save.
+
+## Creating Custom Event Trigger
+
+1. **Create Custom Event Trigger:**
+   - Create a new trigger with a custom event named "Add to Cart."
+   - Configure the necessary variables: value, currency, and items array.
+
+## Adding Google Ads Conversion Tracking Tag
+
+1. **Set Up Conversion Tracking Tag:**
+   - Create a new tag for Google Ads Conversion Tracking.
+   - Use the conversion ID and label from your Google Ads account.
+   - Configure the tag to fire on the "Add to Cart" event.
+
+## Creating Remarketing Tag
+
+1. **Add Remarketing Tag:**
+   - Create a new tag for Google Ads Remarketing.
+   - Configure it with the conversion ID and label, and set it to fire on the "Add to Cart" event.
+
+## Final Testing and Verification
+
+1. **Use GTM Preview Mode:**
+
+   - Open the debug window and test the "Add to Cart" event on your WooCommerce site.
+   - Verify that the conversion tracking and remarketing tags are firing correctly.
+
+2. **Check Tag Assistant:**
+   - Ensure the Google Ads tag is firing and the event data is accurate.
+
+## Publishing Changes
+
+1. **Submit GTM Container:**
+   - In GTM, click on "Submit" to publish your changes.
+   - Name the version and describe the changes made.
+
+## Conclusion
+
+By following these steps, you'll have successfully configured the "Add to Cart" event tracking for your WooCommerce store using GTM and Google Ads. This setup will help you track important conversion actions and optimize your ad campaigns effectively. If you want to learn how to track the "View Item" event, click here.
