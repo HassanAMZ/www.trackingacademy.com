@@ -2,18 +2,19 @@ import React from "react";
 import Link from "next/link";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import TypographyH3 from "../ui/typography-h3";
-import TypographyP from "../ui/typography-p";
+import Text from "@/components/ui/text";
 
 export default function ToolsHeroSection() {
   return (
     <Card className="rounded-t-lg">
       <CardContent className="flex flex-col items-start justify-center space-y-4 p-6">
-        <TypographyH3>UTM Builder Tools</TypographyH3>
-        <TypographyP>
+        <Text as="h3" variant="headingXl">
+          UTM Builder Tools
+        </Text>
+        <Text as="p" variant="bodyMd">
           Start building your UTMs for Google Ads, Facebook Ads, TikTok, or
           custom, all at one place
-        </TypographyP>
+        </Text>
         <div className="flex justify-center gap-x-4">
           <Button asChild className="font-bold">
             <Link href="/tools/utm-builder#utm-builder">

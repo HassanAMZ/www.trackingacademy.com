@@ -1,73 +1,79 @@
 import Link from "next/link";
 import React from "react";
-import ContainerLayout from "@/components/layouts/ContainerLayout";
-import {
-  Heading4xl,
-  Heading3xl,
-  Paragraphmd,
-} from "@/components/typography/Heading";
-
-import Navbar from "@/components/global/navbar";
 import Container from "@/components/ui/container";
 import { Button } from "@/components/ui/button";
-import { TypographyH3, TypographyH4 } from "@/components/ui/typography";
+import Text from "@/components/ui/text";
 
 const TOSPage = () => {
   return (
     <React.Fragment>
       <Container className="tos-container space-y-4">
         <header className="tos-header">
-          <Heading4xl>Terms of Service</Heading4xl>
+          <Text as="h4" variant="headingLg">
+            Terms of Service
+          </Text>
         </header>
 
         <section className="tos-section">
-          <Heading3xl>Acceptance of Terms</Heading3xl>
-          <Paragraphmd>
+          <Text as="h4" variant="headingLg">
+            Acceptance of Terms
+          </Text>
+          <Text as="p" variant="bodyMd">
             By accessing and using TrackingAcademy.com, you accept and agree to
             be bound by the terms and provision of this agreement.
-          </Paragraphmd>
+          </Text>
         </section>
 
         <section className="tos-section">
-          <Heading3xl>Provision of Services</Heading3xl>
-          <Paragraphmd>
+          <Text as="h4" variant="headingLg">
+            Provision of Services
+          </Text>
+          <Text as="p" variant="bodyMd">
             TrackingAcademy.com provides educational content on digital tracking
             technologies. We reserve the right to modify or discontinue our
             services at any time.
-          </Paragraphmd>
+          </Text>
         </section>
 
         <section className="tos-section">
-          <Heading3xl>Intellectual Property</Heading3xl>
-          <Paragraphmd>
+          <Text as="h4" variant="headingLg">
+            Intellectual Property
+          </Text>
+          <Text as="p" variant="bodyMd">
             All content, including videos and blogs, on TrackingAcademy.com are
             the exclusive property of TrackingAcademy.com and are protected by
             copyright and other intellectual property laws.
-          </Paragraphmd>
+          </Text>
         </section>
 
         <section className="tos-section">
-          <Heading3xl>User Conduct</Heading3xl>
-          <Paragraphmd>
+          <Text as="h4" variant="headingLg">
+            User Conduct
+          </Text>
+          <Text as="p" variant="bodyMd">
             Users are expected to use TrackingAcademy.com responsibly and to
             respect the rights and dignity of others.
-          </Paragraphmd>
+          </Text>
         </section>
 
         <section className="tos-section">
-          <Heading3xl>Disclaimer of Warranties</Heading3xl>
-          <Paragraphmd>
+          <Text as="h4" variant="headingLg">
+            Disclaimer of Warranties
+          </Text>
+          <Text as="p" variant="bodyMd">
             The services and content on TrackingAcademy.com are provided "as
             is". We disclaim all warranties, express or implied, regarding the
             accuracy or reliability of content.
-          </Paragraphmd>
+          </Text>
         </section>
 
         <section className="tos-section">
-          <Heading3xl>Contact Us</Heading3xl>
-          <Paragraphmd>
+          <Text as="h4" variant="headingLg">
+            Contact Us
+          </Text>
+          <Text as="p" variant="bodyMd">
             If you have any questions regarding these Terms of Service, please
-          </Paragraphmd>
+          </Text>
         </section>
 
         <Button asChild className="w-full">

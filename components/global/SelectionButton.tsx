@@ -1,5 +1,5 @@
 import { ButtonProps } from "@/types/index";
-import { Paragraphmd } from "@/components/typography/Heading";
+import Text from "@/components/ui/text";
 
 const SelectionButton: React.FC<ButtonProps> = ({
   children,
@@ -14,7 +14,9 @@ const SelectionButton: React.FC<ButtonProps> = ({
     }`}
     onClick={onClick}
   >
-    <Paragraphmd className="w-full font-bold">{children}</Paragraphmd>
+    <Text as="p" variant="bodyMd" className="w-full font-bold">
+      {children}
+    </Text>
   </button>
 );
 

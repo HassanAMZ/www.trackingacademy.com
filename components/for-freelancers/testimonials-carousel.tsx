@@ -3,7 +3,7 @@ import React from "react";
 import useEmblaCarousel from "embla-carousel-react";
 import Autoplay from "embla-carousel-autoplay";
 import { Card, CardContent } from "@/components/ui/card";
-import TypographyP from "../ui/typography-p";
+import Text from "@/components/ui/text";
 import { Star } from "lucide-react";
 import Image from "next/image";
 import clients from "@/data/clients";
@@ -26,7 +26,7 @@ const testimonials: TestimonialsProps[] = clients.map((client) => ({
 
 export function TestimonialsCarousel() {
   const [emblaRef] = useEmblaCarousel({ loop: true }, [
-    Autoplay({ delay: 5000, stopOnInteraction: true }),
+    Autoplay({ delay: 10000, stopOnInteraction: true }),
   ]);
 
   return (
@@ -50,13 +50,13 @@ export function TestimonialsCarousel() {
                 <Star className="text-primary fill-primary" />
               </div>
               <CardContent>
-                <TypographyP className="font-semibold italic">
+                <Text as="p" variant="bodyMd" className="font-semibold italic">
                   {testimonial.testimonialText}
-                </TypographyP>
-                <TypographyP className="mt-4 text-xs">
+                </Text>
+                <Text as="p" variant="bodyMd" className="mt-4 text-xs">
                   {testimonial.clientName}, {testimonial.clientTitle} at{" "}
                   {testimonial.businessName}
-                </TypographyP>
+                </Text>
               </CardContent>
             </Card>
           </div>

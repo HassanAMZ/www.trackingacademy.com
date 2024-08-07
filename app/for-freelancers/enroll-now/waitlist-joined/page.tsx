@@ -1,7 +1,6 @@
 import React from "react";
 import Container from "@/components/ui/container";
-import TypographyH1 from "@/components/ui/typography-h1";
-import TypographyP from "@/components/ui/typography-p";
+import Text from "@/components/ui/text";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { GTMCustomEvent } from "@/components/analytics/GTMEvents";
@@ -9,11 +8,13 @@ import { GTMCustomEvent } from "@/components/analytics/GTMEvents";
 const WaitlistJoined: React.FC = () => {
   return (
     <Container className="py-12 text-center">
-      <TypographyH1>Thank You for Joining the Waitlist!</TypographyH1>
-      <TypographyP className="mt-4">
+      <Text as="h1" variant="heading3xl">
+        Thank You for Joining the Waitlist!
+      </Text>
+      <Text as="p" variant="bodyMd" className="mt-4">
         We appreciate your interest. You will be among the first to know when
         our courses are available. Stay tuned for updates and exclusive content.
-      </TypographyP>
+      </Text>
       <Button asChild className="mt-6">
         <Link href="/">Go to Homepage</Link>
       </Button>

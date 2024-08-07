@@ -6,9 +6,7 @@ import Link from "next/link";
 import generateBrightColor from "utils/generateBrightColor";
 import formatDate from "@/components/seo/formatDate";
 import { SingleBlogCardProps } from "@/types/index";
-import TypographyP from "../ui/typography-p";
-import TypographyH2 from "../ui/typography-h2";
-import TypographyH4 from "../ui/typography-h4";
+import Text from "@/components/ui/text";
 
 const BlogCard: React.FC<SingleBlogCardProps> = ({
   post,
@@ -33,14 +31,16 @@ const BlogCard: React.FC<SingleBlogCardProps> = ({
               height={1080}
               className="rounded-lg"
             />
-            <TypographyH4 className="line-clamp-2 pt-2">
+            <Text as="h4" variant="headingLg" className="line-clamp-2 pt-2">
               {post.title}
-            </TypographyH4>
-            <TypographyP className="line-clamp-2">
+            </Text>
+            <Text as="p" variant="bodyMd" className="line-clamp-2">
               {post.description}
-            </TypographyP>
+            </Text>
             <div className="flex flex-row items-center justify-between whitespace-nowrap pt-2 text-xs">
-              <TypographyP applyMargin={false}>{post.date}</TypographyP>
+              <Text as="p" variant="bodyMd" applyMargin={false}>
+                {post.date}
+              </Text>
             </div>
           </Link>
         </div>

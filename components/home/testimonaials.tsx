@@ -1,7 +1,8 @@
 import React from "react";
 import ClientTestimonialCard from "./testimonial-card";
 import Container from "@/components/ui/container";
-import TypographyH2 from "@/components/ui/typography-h2";
+import Text from "@/components/ui/text";
+
 import { Separator } from "@/components/ui/separator";
 
 export default function ClientTestimonial() {
@@ -116,9 +117,9 @@ export default function ClientTestimonial() {
   ];
   return (
     <Container className="space-y-2">
-      <TypographyH2 className="text-center">
+      <Text as="h2" variant="heading2xl" className="text-center">
         Results From Major Brands:
-      </TypographyH2>
+      </Text>
 
       <div className="flex flex-col items-center justify-center space-y-4 py-2">
         {clientDetails.map((client, index) => (

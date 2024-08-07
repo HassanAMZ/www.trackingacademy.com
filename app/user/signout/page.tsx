@@ -1,7 +1,6 @@
 "use client";
 import { UserAuth } from "@/context/AuthContext";
 import React, { useState, useEffect } from "react";
-import { Paragraphsm } from "@/components/typography/Heading";
 import ContainerLayout from "@/components/layouts/ContainerLayout";
 
 const Page = () => {

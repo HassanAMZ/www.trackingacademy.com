@@ -1,6 +1,5 @@
 import React from "react";
 import { DetailsProps } from "@/types/index";
-import { Paragraphlg } from "@/components/typography/Heading";
 
 const LearnMore: React.FC<DetailsProps> = ({ detailsList }) => {
   return (

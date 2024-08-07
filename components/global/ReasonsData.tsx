@@ -52,7 +52,7 @@ const ReasonsData: React.FC<ReasonsDataProps> = ({
               onClick={() => handleIdClick(reason.id)}
             >
               <p
-                className={`px-4 text-3xl font-black font-bold lg:row-span-2 lg:pr-10 ${
+                className={`px-4 text-3xl font-black lg:row-span-2 lg:pr-10 ${
                   activeId === reason.id
                     ? "text-complementary"
                     : "text-dominant"
@@ -61,9 +61,7 @@ const ReasonsData: React.FC<ReasonsDataProps> = ({
                 {reason.id}
               </p>
               <div className="flex flex-col">
-                <h3 className="text-xl font-bold font-semibold">
-                  {reason.title}
-                </h3>
+                <h3 className="text-xl font-bold ">{reason.title}</h3>
                 {activeId === reason.id && (
                   <p className="col-span-2 pb-2 text-sm lg:col-span-1 lg:pt-2">
                     {reason.paragraph}

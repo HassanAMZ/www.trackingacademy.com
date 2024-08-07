@@ -8,8 +8,7 @@ import Script from "next/script";
 import BreadCrumbs from "./bread-crumb";
 import Image from "next/image";
 import YoutubeEmbed from "../global/youtube-embed";
-import TypographyH1 from "../ui/typography-h1";
-import TypographyP from "../ui/typography-p";
+import Text from "@/components/ui/text";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import Link from "next/link";
@@ -29,10 +28,16 @@ const BlogHeader: React.FC<PostMetadataProps> = ({ metadata }) => {
       <Card className="rounded-t-lg">
         <CardContent className="p-6">
           <div className="flex flex-col items-start space-y-4">
-            <TypographyH1>{metadata.title}</TypographyH1>
-            <TypographyP className="text-sm text-muted-foreground">
+            <Text as="h1" variant="heading3xl">
+              {metadata.title}
+            </Text>
+            <Text
+              as="p"
+              variant="bodyMd"
+              className="text-sm text-muted-foreground"
+            >
               by ShahzadaAliHassan - {formatDate(metadata.date)}
-            </TypographyP>
+            </Text>
             <div className="flex flex-wrap gap-2">
               {metadata.tags.map((tag, index) => (
                 <Link

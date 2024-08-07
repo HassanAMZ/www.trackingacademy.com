@@ -7,8 +7,7 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "../ui/dialog";
-import TypographyH3 from "../ui/typography-h3";
-import TypographyP from "../ui/typography-p";
+import Text from "@/components/ui/text";
 
 interface FeatureCardPorps {
   icon: React.ReactElement;
@@ -30,8 +29,12 @@ const FeatureCard: FC<FeatureCardPorps> = ({
       <DialogTrigger asChild>
         <div className="flex cursor-pointer flex-col items-center rounded-lg border p-6 shadow-sm">
           {icon}
-          <TypographyH3 className="mb-2 text-primary">{title}</TypographyH3>
-          <TypographyP applyMargin={false}>{description}</TypographyP>
+          <Text as="h3" variant="headingXl" className="mb-2 text-primary">
+            {title}
+          </Text>
+          <Text as="p" variant="bodyMd" applyMargin={false}>
+            {description}
+          </Text>
         </div>
       </DialogTrigger>
       <DialogContent className="sm:max-w-md">

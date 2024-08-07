@@ -5,7 +5,7 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import Container from "@/components/ui/container";
-import TypographyH2 from "@/components/ui/typography-h2";
+import Text from "@/components/ui/text";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import React from "react";
@@ -130,9 +130,9 @@ const frequentlyAskedQuestions: FrequentlyAskedQuestionsProps[] = [
 export function FrequentlyAskedQuestions() {
   return (
     <React.Fragment>
-      <TypographyH2 className="text-center">
+      <Text as="h2" variant="heading2xl" className="text-center">
         Have questions in your mind?
-      </TypographyH2>
+      </Text>
       <Container>
         <Accordion type="single" collapsible className="w-full">
           {frequentlyAskedQuestions.map((faq, index) => (

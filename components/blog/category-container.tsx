@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import SingleBlogCard from "@/components/blog/single-card";
 import { BlogContentProps } from "@/types/index";
-import TypographyH2 from "../ui/typography-h2";
 import { Button } from "../ui/button";
 
 const BlogContent: React.FC<BlogContentProps> = ({ data, type, rawData }) => {

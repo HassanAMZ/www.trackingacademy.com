@@ -9,8 +9,8 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import Container from "@/components/ui/container";
-import TypographyH3 from "@/components/ui/typography-h3";
 import Navbar from "@/components/global/navbar";
+import Text from "@/components/ui/text";
 
 const Loading: React.FC = () => {
   return (
@@ -20,7 +20,9 @@ const Loading: React.FC = () => {
         <Card className="w-full max-w-md">
           <CardHeader>
             <CardTitle>
-              <TypographyH3 className="py-4 text-center">Loading</TypographyH3>
+              <Text as="h3" variant="headingXl">
+                Loading
+              </Text>
             </CardTitle>
           </CardHeader>
           <CardContent className="flex flex-col items-center">

@@ -4,7 +4,7 @@ import React, { useState, useEffect } from "react";
 import { useFormState, useFormStatus } from "react-dom";
 import { Input } from "../ui/input";
 import { Button } from "../ui/button";
-import TypographyP from "../ui/typography-p";
+import Text from "@/components/ui/text";
 import { handleRequestABlogForm } from "@/actions/handle-request-a-blog";
 
 const initialState = {
@@ -28,7 +28,7 @@ function SubmitButton() {
 const RequestABlogForm: React.FC<RequestABlogFormProps> = ({ searchTerm }) => {
   const [state, formAction] = useFormState(
     handleRequestABlogForm,
-    initialState,
+    initialState
   );
 
   const [formSubmitted, setFormSubmitted] = useState(false);
@@ -48,7 +48,9 @@ const RequestABlogForm: React.FC<RequestABlogFormProps> = ({ searchTerm }) => {
 
   if (formSubmitted) {
     return (
-      <TypographyP>Thank you! Your request has been submitted.</TypographyP>
+      <Text as="p" variant="bodyMd">
+        Thank you! Your request has been submitted.
+      </Text>
     );
   }
 
@@ -69,9 +71,9 @@ const RequestABlogForm: React.FC<RequestABlogFormProps> = ({ searchTerm }) => {
         className="mt-2"
       />
       <SubmitButton />
-      <TypographyP aria-live="polite" className="sr-only">
+      <Text as="p" variant="bodyMd" aria-live="polite" className="sr-only">
         {state?.message}
-      </TypographyP>
+      </Text>
     </form>
   );
 };

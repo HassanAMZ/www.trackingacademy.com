@@ -3,15 +3,11 @@
 import React from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { Button } from "@/components/ui/button";
-import TypographyP from "@/components/ui/typography-p";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import Text from "@/components/ui/text";
+import { AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import Container from "@/components/ui/container";
-import TypographyH1 from "@/components/ui/typography-h1";
-import { Star } from "lucide-react";
 import TestimonialsCarousel from "../offer-002/testimonial-carousal";
 import { cn } from "@/lib/utils";
-import { TypographyH3, TypographyH4 } from "@/components/ui/typography";
 import {
   containerVariants,
   itemVariants,
@@ -19,8 +15,7 @@ import {
   MotionButton,
   MotionDiv,
   MotionTableRow,
-  MotionTypographyH1,
-  MotionTypographyP,
+  MotionText,
   rowVariants,
   tableVariants,
 } from "@/utils/framerMotion";
@@ -85,7 +80,7 @@ interface TrackingData {
 }
 
 const calculateAverage = (
-  data: TrackingData[],
+  data: TrackingData[]
 ): { avgBefore: string; avgAfter: string } => {
   const totalBefore = data.reduce((sum, entry) => sum + entry.before, 0);
   const totalAfter = data.reduce((sum, entry) => sum + entry.after, 0);
@@ -109,19 +104,19 @@ export default function Hero() {
           className="space-y-1 md:col-span-3 md:space-y-3"
           variants={itemVariants}
         >
-          <MotionTypographyH1>
+          <MotionText as="h1" variant="heading3xl">
             <span className="text-primary">Never Miss a Sale Again </span>-
             Track 95% of your Conversions -{" "}
             <span className="text-primary"> Guaranteed!</span>
-          </MotionTypographyH1>
+          </MotionText>
 
-          <MotionTypographyP applyMargin={false}>
+          <MotionText as="p" variant="bodyMd" applyMargin={false}>
             Our <strong className="text-primary">PrecisionTrack </strong>
             system helps you get the most accurate data for your ads platforms (
             Meta, Google, TikTok, SnapChat etc.) and analytics tools (Ga4,
             PiwikPro, Segment etc.) with 0% effort and no disruption to your
             current setup.
-          </MotionTypographyP>
+          </MotionText>
 
           <div className="max-w-2xl self-start pt-4 md:pt-2">
             <TestimonialsCarousel />
@@ -131,9 +126,15 @@ export default function Hero() {
             className="grid grid-cols-1 space-y-1 py-2 text-left"
             variants={itemVariants}
           >
-            <TypographyP>✔ 95% accuracy or full refund.</TypographyP>
-            <TypographyP>✔ Improve Conversion Rates by 30%</TypographyP>
-            <TypographyP>✔ Setup and optimized within 7 days.</TypographyP>
+            <Text as="p" variant="bodyMd">
+              ✔ 95% accuracy or full refund.
+            </Text>
+            <Text as="p" variant="bodyMd">
+              ✔ Improve Conversion Rates by 30%
+            </Text>
+            <Text as="p" variant="bodyMd">
+              ✔ Setup and optimized within 7 days.
+            </Text>
           </MotionDiv>
 
           <MotionButton asChild variants={itemVariants}>
@@ -180,9 +181,14 @@ export default function Hero() {
                 <AvatarFallback>IA</AvatarFallback>
               </MotionAvatar>
             </div>
-            <TypographyP applyMargin={false} className="pl-8 text-sm">
+            <Text
+              as="p"
+              variant="bodyMd"
+              applyMargin={false}
+              className="pl-8 text-sm"
+            >
               1032+ websites configured with 95% accuracy
-            </TypographyP>
+            </Text>
           </MotionDiv>
         </MotionDiv>
 
@@ -209,7 +215,7 @@ export default function Hero() {
                 <MotionTableRow
                   className={cn(
                     "m-0 whitespace-nowrap p-0 even:bg-muted",
-                    index < trackingData.length - 3 && "hidden md:table-row",
+                    index < trackingData.length - 3 && "hidden md:table-row"
                   )}
                   key={index}
                   variants={rowVariants}

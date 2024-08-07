@@ -2,7 +2,7 @@ import React, { ChangeEvent } from "react";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { cn } from "@/lib/utils";
-import TypographyP from "@/components/ui/typography-p";
+import Text from "@/components/ui/text";
 
 interface InputFieldProps {
   label: string;
@@ -41,7 +41,9 @@ const InputField: React.FC<InputFieldProps> = ({
         aria-describedby={`${id}-helper-text`}
       />
       {helperText && (
-        <TypographyP className="mt-2 text-sm">{helperText}</TypographyP>
+        <Text as="p" variant="bodyMd" className="mt-2 text-sm">
+          {helperText}
+        </Text>
       )}
     </div>
   );

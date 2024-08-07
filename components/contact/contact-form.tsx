@@ -4,8 +4,7 @@ import { useFormState, useFormStatus } from "react-dom";
 import { createContact } from "@/actions/contact-us";
 import { useRouter } from "next/navigation";
 import {
-  MotionTypographyP,
-  MotionTypographyH1,
+  MotionText,
   MotionButton,
   MotionDiv,
   MotionCard,
@@ -264,13 +263,18 @@ export default function ContactForm({
             implementation_timeline: formData.implementationTimeline,
           }}
         />
-        <MotionTypographyH1 className="text-center" variants={itemVariants}>
+        <MotionText
+          as="h2"
+          variant="heading2xl"
+          className="text-center"
+          variants={itemVariants}
+        >
           Thank you!
-        </MotionTypographyH1>
-        <MotionTypographyP variants={itemVariants}>
+        </MotionText>
+        <MotionText as="p" variant="bodyMd" variants={itemVariants}>
           Your request has been submitted.
-        </MotionTypographyP>
-        <MotionTypographyP variants={itemVariants}>
+        </MotionText>
+        <MotionText as="p" variant="bodyMd" variants={itemVariants}>
           You'll be redirected to Book a Meeting Page. If the redirects does not
           happen,{" "}
           <MotionButton
@@ -281,7 +285,7 @@ export default function ContactForm({
           >
             <Link href={"/contact/book-a-meeting"}>click here</Link>
           </MotionButton>
-        </MotionTypographyP>
+        </MotionText>
       </MotionContainer>
     );
   }
@@ -334,14 +338,18 @@ export default function ContactForm({
               variants={itemVariants}
             >
               {formHeader && (
-                <MotionTypographyH1 variants={itemVariants}>
+                <MotionText
+                  as="h1"
+                  variant="heading3xl"
+                  variants={itemVariants}
+                >
                   Work with Tracking Academy{" "}
-                </MotionTypographyH1>
+                </MotionText>
               )}
-              <MotionTypographyP variants={itemVariants}>
+              <MotionText as="p" variant="bodyMd" variants={itemVariants}>
                 Enter your business email and select your preferred meeting
                 type.
-              </MotionTypographyP>
+              </MotionText>
             </MotionDiv>
 
             <MotionDiv className="grid gap-3" variants={itemVariants}>
@@ -399,7 +407,9 @@ export default function ContactForm({
               Continue
             </MotionButton>
             {isItAFit && (
-              <MotionTypographyP
+              <MotionText
+                as="p"
+                variant="bodyMd"
                 className="py-12 text-left text-sm md:text-center"
                 variants={itemVariants}
               >
@@ -414,7 +424,7 @@ export default function ContactForm({
                     See if Tracking Academy is a fit for you.
                   </Link>
                 </MotionButton>
-              </MotionTypographyP>
+              </MotionText>
             )}
           </>
         );
@@ -877,13 +887,15 @@ export default function ContactForm({
           {renderNavigation()}
           <form onSubmit={handleSubmit} className="flex flex-col space-y-3">
             {renderStep()}
-            <MotionTypographyP
+            <MotionText
+              as="p"
+              variant="bodyMd"
               aria-live="polite"
               className="sr-only"
               variants={itemVariants}
             >
               {state?.message}
-            </MotionTypographyP>
+            </MotionText>
           </form>
         </MotionCardContent>
       </MotionCard>

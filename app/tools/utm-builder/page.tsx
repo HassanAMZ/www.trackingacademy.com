@@ -12,8 +12,7 @@ import { ButtonData } from "@/types/index";
 import ToolsHeroSection from "@/components/tools/ToolsHeroSection";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import TypographyH1 from "@/components/ui/typography-h1";
-import TypographyP from "@/components/ui/typography-p";
+import Text from "@/components/ui/text";
 import { Separator } from "@/components/ui/separator";
 import { cn } from "@/lib/utils";
 import { Textarea } from "@/components/ui/textarea";
@@ -68,7 +67,7 @@ const Page: React.FC = () => {
         return param
           .split("")
           .map((char) =>
-            ["{", "}", "_"].includes(char) ? char : encodeURIComponent(char),
+            ["{", "}", "_"].includes(char) ? char : encodeURIComponent(char)
           )
           .join("");
       }
@@ -118,7 +117,7 @@ const Page: React.FC = () => {
   };
 
   const handleModeChange = (
-    mode: "manual" | "facebook" | "pinterest" | "google" | "tiktok",
+    mode: "manual" | "facebook" | "pinterest" | "google" | "tiktok"
   ) => {
     setSelectedMode(mode);
     switch (mode) {
@@ -217,122 +216,120 @@ const Page: React.FC = () => {
         | "facebook"
         | "pinterest"
         | "google"
-        | "tiktok",
+        | "tiktok"
     );
     setSelectedButton(parseInt(savedSelectedButton, 10));
     setIsInitialLoad(false);
   }, []);
 
   return (
-    <section className="grid grid-cols-1 place-content-center gap-2 rounded-lg pb-8 lg:grid-cols-2">
-      <div className="col-start-1 row-start-1">
-        <ToolsHeroSection />
-      </div>
+    <section className="grid grid-cols-1 place-content-center gap-2 rounded-lg pb-8">
+      <ToolsHeroSection />
 
-      <div className="lg:col-start-2 lg:row-span-3 lg:row-start-1">
-        <div className="flex flex-row flex-wrap gap-4 pt-4" id="utm-builder">
-          {buttonsData.map((button) => (
-            <Button
-              key={button.text}
-              variant={selectedButton === button.id ? "default" : "outline"}
-              onClick={() => {
-                setSelectedButton(button.id);
-                handleModeChange(button.text.toLowerCase() as any);
-              }}
-            >
-              {button.text}
-            </Button>
-          ))}
-        </div>
-        <div className="space-y-4 py-4">
-          <InputField
-            required
-            label="Website URL"
-            value={websiteURL}
-            onChange={setWebsiteURL}
-            type="url"
-            id="website-url"
-            helperText="The full website URL (e.g., https://www.example.com)"
-          />
-          <InputField
-            label="Campaign ID"
-            value={campaignID}
-            onChange={setCampaignID}
-            id="campaign-id"
-            helperText="The unique ads campaign ID (e.g., V7FHcp8weDA)"
-          />
-          <InputField
-            required
-            label="Campaign Source"
-            value={campaignSource}
-            onChange={setCampaignSource}
-            id="campaign-source"
-            helperText="The referrer (e.g., google, newsletter)"
-          />
-          <InputField
-            required
-            label="Campaign Medium"
-            value={campaignMedium}
-            onChange={setCampaignMedium}
-            id="campaign-medium"
-            helperText="Marketing medium (e.g., cpc, banner, email)"
-          />
-          <InputField
-            required
-            label="Campaign Name"
-            value={campaignName}
-            onChange={setCampaignName}
-            id="campaign-name"
-            helperText="Product, promo code, or slogan (e.g., spring_sale). One of campaign name or campaign id is required."
-          />
-          <InputField
-            label="Campaign Term"
-            value={campaignTerm}
-            onChange={setCampaignTerm}
-            id="campaign-term"
-            helperText="Identify the paid keywords (e.g., V7FHcp8weDA)"
-          />
-          <InputField
-            label="Campaign Content"
-            value={campaignContent}
-            onChange={setCampaignContent}
-            id="campaign-content"
-            helperText="Use to differentiate ads (e.g., Use to differentiate between similar ads in the same campaign)"
-          />
-        </div>
-        <Separator className="my-6" />
+      <div className="flex flex-row flex-wrap gap-4 pt-4" id="utm-builder">
+        {buttonsData.map((button) => (
+          <Button
+            key={button.text}
+            variant={selectedButton === button.id ? "default" : "outline"}
+            onClick={() => {
+              setSelectedButton(button.id);
+              handleModeChange(button.text.toLowerCase() as any);
+            }}
+          >
+            {button.text}
+          </Button>
+        ))}
       </div>
-      <div className="lg:col-start-1 lg:row-start-2">
-        <Card className="rounded-t-lg py-4">
-          <CardContent className="space-y-4">
-            <TypographyH1>Generated UTM Link</TypographyH1>
-            <Textarea
-              ref={textareaRef}
-              readOnly
-              value={generateUTM()}
-              rows={4}
-              className={cn(
-                "rounded-md border p-3",
-                !canGenerateUTM() && "opacity-50",
-              )}
-            />
-            {!canGenerateUTM() && (
-              <div className="font-medium text-red-500">
-                {getErrorMessages().map((error, index) => (
-                  <TypographyP key={index}>{error}</TypographyP>
-                ))}
-              </div>
+      <div className="space-y-4 py-4">
+        <InputField
+          required
+          label="Website URL"
+          value={websiteURL}
+          onChange={setWebsiteURL}
+          type="url"
+          id="website-url"
+          helperText="The full website URL (e.g., https://www.example.com)"
+        />
+        <InputField
+          label="Campaign ID"
+          value={campaignID}
+          onChange={setCampaignID}
+          id="campaign-id"
+          helperText="The unique ads campaign ID (e.g., V7FHcp8weDA)"
+        />
+        <InputField
+          required
+          label="Campaign Source"
+          value={campaignSource}
+          onChange={setCampaignSource}
+          id="campaign-source"
+          helperText="The referrer (e.g., google, newsletter)"
+        />
+        <InputField
+          required
+          label="Campaign Medium"
+          value={campaignMedium}
+          onChange={setCampaignMedium}
+          id="campaign-medium"
+          helperText="Marketing medium (e.g., cpc, banner, email)"
+        />
+        <InputField
+          required
+          label="Campaign Name"
+          value={campaignName}
+          onChange={setCampaignName}
+          id="campaign-name"
+          helperText="Product, promo code, or slogan (e.g., spring_sale). One of campaign name or campaign id is required."
+        />
+        <InputField
+          label="Campaign Term"
+          value={campaignTerm}
+          onChange={setCampaignTerm}
+          id="campaign-term"
+          helperText="Identify the paid keywords (e.g., V7FHcp8weDA)"
+        />
+        <InputField
+          label="Campaign Content"
+          value={campaignContent}
+          onChange={setCampaignContent}
+          id="campaign-content"
+          helperText="Use to differentiate ads (e.g., Use to differentiate between similar ads in the same campaign)"
+        />
+      </div>
+      <Separator className="my-6" />
+      <Card className="rounded-t-lg py-4">
+        <CardContent className="space-y-4">
+          <Text as="h1" variant="heading3xl">
+            Generated UTM Link
+          </Text>
+          <Textarea
+            ref={textareaRef}
+            readOnly
+            value={generateUTM()}
+            rows={4}
+            className={cn(
+              "rounded-md border p-3",
+              !canGenerateUTM() && "opacity-50"
             )}
-            <Button
-              disabled={!canGenerateUTM()}
-              onClick={handleCopy}
-              className={cn(copied ? "animate-shake" : "")}
-            >
-              {copied ? "Copied!" : "Copy to Clipboard"}
-            </Button>
-          </CardContent>
-        </Card>
-      </div>
+          />
+          {!canGenerateUTM() && (
+            <div className="font-medium text-red-500">
+              {getErrorMessages().map((error, index) => (
+                <Text as="p" variant="bodyMd" key={index}>
+                  {error}
+                </Text>
+              ))}
+            </div>
+          )}
+          <Button
+            disabled={!canGenerateUTM()}
+            onClick={handleCopy}
+            className={cn(copied ? "animate-shake" : "")}
+          >
+            {copied ? "Copied!" : "Copy to Clipboard"}
+          </Button>
+        </CardContent>
+      </Card>
     </section>
   );
 };

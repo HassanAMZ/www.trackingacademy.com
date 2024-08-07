@@ -1,28 +1,18 @@
 import React from "react";
 import LearnMore from "@/components/global/LearnMore";
-import LearnMoreHeader from "@/components/global/LearnMoreHeader";
-import Image from "next/image";
-import TypographyH1 from "@/components/ui/typography-h1";
-import TypographyP from "@/components/ui/typography-p";
+import Text from "@/components/ui/text";
 
 export default function Page() {
   return (
     <section className="py-8">
-      <TypographyH1 className="text-center">Hey, I'm Hassan 👋</TypographyH1>
-      <TypographyP className="text-center">
+      <Text as="h1" variant="heading3xl" className="text-center">
+        Hey, I'm Hassan 👋
+      </Text>
+      <Text as="p" variant="bodyMd" className="text-center">
         I'm a Top Rated Freelancer on Upwork, here's what you should know about
         me.
-      </TypographyP>
+      </Text>
 
-      {/* <section className="pt-2">
-        <Image
-          src="/images/social-sharing.png"
-          alt="Imtiaz Ahmed"
-          width={1920}
-          height={1080}
-          className="rounded-lg"
-        />
-      </section> */}
       <div className="container-secondary divide-y p-4">
         <LearnMore
           detailsList={[

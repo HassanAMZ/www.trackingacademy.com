@@ -18,7 +18,6 @@ import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { ModeToggle } from "./theme-switch";
 import { Button } from "@/components/ui/button";
 import Container from "@/components/ui/container";
-import { TypographyH3, TypographyH4 } from "@/components/ui/typography";
 
 const components = [
   {

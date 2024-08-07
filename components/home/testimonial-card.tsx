@@ -1,9 +1,7 @@
 import Image from "next/image";
 import React from "react";
 import { Separator } from "@/components/ui/separator";
-import Container from "@/components/ui/container";
-import TypographyP from "@/components/ui/typography-p";
-import TypographyH3 from "@/components/ui/typography-h3";
+import Text from "@/components/ui/text";
 
 interface ClientTestimonialCardProps {
   client: {
@@ -28,12 +26,12 @@ const ClientTestimonialCard: React.FC<ClientTestimonialCardProps> = ({
   return (
     <React.Fragment>
       <div className="space-y-4 pb-2">
-        <TypographyP>
+        <Text as="p" variant="bodyMd">
           <span className="text-primary">
             {client.businessName} ({category}: {cms})
           </span>
           <span>: {businessDetails}</span>
-        </TypographyP>
+        </Text>
         <div className="overflow-hidden rounded-md border border-secondary bg-secondary object-contain shadow-md filter">
           <Image
             src={imageUrl}
@@ -44,10 +42,10 @@ const ClientTestimonialCard: React.FC<ClientTestimonialCardProps> = ({
           />
         </div>
 
-        <TypographyP>
+        <Text as="p" variant="bodyMd">
           <span className="text-primary">Results:&nbsp;</span>
           <span>"{results}"</span>
-        </TypographyP>
+        </Text>
       </div>
       <Separator />
     </React.Fragment>

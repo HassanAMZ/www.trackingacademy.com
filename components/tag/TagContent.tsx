@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import { TagContentProps } from "@/types/index";
 import Link from "next/link";
 import formatString from "utils/formatString";
-import { Headingxl, Paragraphmd } from "@/components/typography/Heading";
+import Text from "@/components/ui/text";
 
 const TagContent: React.FC<TagContentProps> = ({ tags, type, blogsData }) => {
   // Count the number of blogs for each tag
@@ -33,9 +33,9 @@ const TagContent: React.FC<TagContentProps> = ({ tags, type, blogsData }) => {
             href={`/tags/${formatString(tagCount.tag)}`}
             passHref
           >
-            <Paragraphmd>
+            <Text as="h2" variant="heading2xl">
               {tagCount.tag} ({tagCount.count})
-            </Paragraphmd>
+            </Text>
           </Link>
         ))}
       </div>
@@ -44,7 +44,9 @@ const TagContent: React.FC<TagContentProps> = ({ tags, type, blogsData }) => {
           onClick={loadMoreTags}
           className="bg-complementary w-full rounded border px-4 py-2"
         >
-          <Headingxl>Load More Tags</Headingxl>
+          <Text as="h3" variant="headingXl">
+            Load More Tags
+          </Text>
         </button>
       )}
     </section>

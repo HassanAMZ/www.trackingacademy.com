@@ -1,28 +1,26 @@
 import React from "react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import TypographyP from "@/components/ui/typography-p";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import Container from "@/components/ui/container";
-import TypographyH1 from "@/components/ui/typography-h1";
+import Text from "@/components/ui/text";
 import { Star } from "lucide-react";
-import { TypographyH3, TypographyH4 } from "@/components/ui/typography";
 
 export default function Hero() {
   return (
     <Container>
       <div className="flex flex-col items-start justify-center gap-4 pt-4 text-left md:grid md:grid-cols-5 lg:pt-8">
         <div className="space-y-1 md:col-span-3 md:space-y-3">
-          <TypographyH1>
+          <Text as="h1" variant="heading3xl">
             <span className="text-primary">Never Miss a Sale Again </span>-
             Track 95% of Your Conversions -{" "}
             <span className="text-primary"> Guaranteed!</span>
-          </TypographyH1>
+          </Text>
 
-          <TypographyP applyMargin={false}>
+          <Text as="p" variant="bodyMd" applyMargin={false}>
             Our proven system ensures you have the most accurate conversion
             data, with minimal effort and no disruption to your current setup.
-          </TypographyP>
+          </Text>
 
           <div className="relative w-full max-w-xl space-y-1 rounded-lg border bg-secondary px-6 py-2">
             <div className="absolute -top-4 right-0 flex space-x-1">
@@ -32,13 +30,23 @@ export default function Hero() {
               <Star />
               <Star />
             </div>
-            <TypographyP applyMargin={false} className="font-semibold italic">
+            <Text
+              as="p"
+              variant="bodyMd"
+              applyMargin={false}
+              className="font-semibold italic"
+            >
               “Shahzada is great and extremely knowledgable and friendly. He
               Helped us out tremendously.”
-            </TypographyP>
-            <TypographyP applyMargin={false} className="pb-2 text-xs">
+            </Text>
+            <Text
+              as="p"
+              variant="bodyMd"
+              applyMargin={false}
+              className="pb-2 text-xs"
+            >
               Mark, <strong>CMO at LemonLawFirm </strong>
-            </TypographyP>
+            </Text>
             <div className="absolute -bottom-4 right-0 mb-2 mr-2 flex space-x-4">
               <Button
                 variant={"outline"}
@@ -56,9 +64,15 @@ export default function Hero() {
           </div>
 
           <div className="grid grid-cols-1 space-y-1 py-2 text-left">
-            <TypographyP>✔ 95% accuracy or full refund.</TypographyP>
-            <TypographyP>✔ Improve Conversion Rates by 30%</TypographyP>
-            <TypographyP>✔ Setup and optimized within 7 days.</TypographyP>
+            <Text as="p" variant="bodyMd">
+              ✔ 95% accuracy or full refund.
+            </Text>
+            <Text as="p" variant="bodyMd">
+              ✔ Improve Conversion Rates by 30%
+            </Text>
+            <Text as="p" variant="bodyMd">
+              ✔ Setup and optimized within 7 days.
+            </Text>
           </div>
 
           <Button asChild>
@@ -91,9 +105,14 @@ export default function Hero() {
                 <AvatarFallback>IA</AvatarFallback>
               </Avatar>
             </div>
-            <TypographyP applyMargin={false} className="pl-8 text-sm">
+            <Text
+              as="p"
+              variant="bodyMd"
+              applyMargin={false}
+              className="pl-8 text-sm"
+            >
               1032+ websites configured with 95% accuracy
-            </TypographyP>
+            </Text>
           </div>
         </div>
 

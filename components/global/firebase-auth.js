@@ -3,7 +3,7 @@ import { UserAuth } from "@/context/AuthContext";
 import React, { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import TypographyP from "@/components/ui/typography-p";
+import Text from "@/components/ui/text";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 
 export const FirebaseAuth = () => {
@@ -47,9 +47,13 @@ export const FirebaseAuth = () => {
       {loading ? null : !user ? (
         <Card className="rounded-t-lg bg-primary">
           <CardContent className="flex h-[30vh] flex-col items-center justify-center gap-2">
-            <TypographyP className="text-center font-medium text-primary-foreground">
+            <Text
+              as="p"
+              variant="bodyMd"
+              className="text-center font-medium text-primary-foreground"
+            >
               Sign up for free to access.
-            </TypographyP>
+            </Text>
             <div className="flex w-full flex-col items-center justify-center gap-2">
               <Button
                 variant={"secondary"}
@@ -84,12 +88,14 @@ export const FirebaseAuth = () => {
                     <AvatarFallback>IA</AvatarFallback>
                   </Avatar>
                 </div>
-                <TypographyP
+                <Text
+                  as="p"
+                  variant="bodyMd"
                   applyMargin={false}
                   className="pl-4 font-medium text-primary-foreground"
                 >
                   900+ Users have Signed up
-                </TypographyP>
+                </Text>
               </div>
             </div>
           </CardContent>
@@ -97,7 +103,7 @@ export const FirebaseAuth = () => {
       ) : (
         <React.Fragment>
           {/* <div className='flex flex-row justify-center items-center h-[20vh] gap-2'>
-      <TypographyP>Welcome, {user.displayName}:</TypographyP>
+      <Text as="p" variant="bodyMd">Welcome, {user.displayName}:</Text >
       <Button
        className='underline hover:font-semibold hover:cursor-pointer'
        onClick={handleSignOut}>

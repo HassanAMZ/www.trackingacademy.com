@@ -1,7 +1,6 @@
 // pages/linktree.tsx
 import CustomLink from "@/components/mdx/CustomLink";
-import { Heading3xl } from "@/components/typography/Heading";
-import Link from "next/link";
+import Text from "@/components/ui/text";
 
 import {
   FacebookIcon,
@@ -55,7 +54,9 @@ export default function LinkTree() {
           key={categoryIdx}
           className="flex w-full flex-col items-center justify-center gap-3 p-4"
         >
-          <Heading3xl className="py-2">{category.heading}</Heading3xl>
+          <Text as="h3" variant="headingXl">
+            {category.heading}
+          </Text>
           {category.links.map((link, idx) => (
             <CustomLink
               key={idx}

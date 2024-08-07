@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 import SingleCourseCard from "@/components/courses/SingleCourseCard";
 import { CourseContentProps } from "@/types/index";
-import { Headingxl } from "@/components/typography/Heading";
+import Text from "@/components/ui/text";
 
 const CourseContent: React.FC<CourseContentProps> = ({
   data,
@@ -12,7 +12,7 @@ const CourseContent: React.FC<CourseContentProps> = ({
   const [visiblePosts, setVisiblePosts] = useState(9); // Display first 9 courses by default
 
   const mainCoursePost = rawData?.find(
-    (course) => course.courseId === "00001",
+    (course) => course.courseId === "00001"
   )!;
   const visibleCourseLinks = data
     .slice(0, visiblePosts)
@@ -37,7 +37,9 @@ const CourseContent: React.FC<CourseContentProps> = ({
           onClick={loadMoreHandler}
           className="bg-complementary rounded border px-4 py-2"
         >
-          <Headingxl>Load More Courses</Headingxl>
+          <Text as="p" variant="bodyMd">
+            Load More Courses
+          </Text>
         </button>
       )}
     </React.Fragment>

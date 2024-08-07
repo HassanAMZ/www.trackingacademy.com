@@ -3,20 +3,16 @@ import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import TypographyP from "@/components/ui/typography-p";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import Container from "@/components/ui/container";
-import TypographyH1 from "@/components/ui/typography-h1";
-import { Star } from "lucide-react";
 import YoutubeEmbed from "@/components/global/youtube-embed";
-import TestimonialsCarousel from "../offer-002/testimonial-carousal";
-import { TypographyH3, TypographyH4 } from "@/components/ui/typography";
-import { containerVariants, itemVariants } from "@/utils/framerMotion";
-
-const MotionTypographyH1 = motion(TypographyH1);
-const MotionTypographyP = motion(TypographyP);
-const MotionButton = motion(Button);
-const MotionDiv = motion.div;
+import {
+  containerVariants,
+  itemVariants,
+  MotionButton,
+  MotionDiv,
+  MotionText,
+} from "@/utils/framerMotion";
 
 export default function Hero() {
   const [daysLeft, setDaysLeft] = useState<number>(0);
@@ -44,22 +40,29 @@ export default function Hero() {
         initial="hidden"
         animate="visible"
       >
-        <MotionTypographyP
+        <MotionText
+          as="p"
+          variant="bodyMd"
           variants={itemVariants}
           className="w-max rounded-lg bg-accent p-2 text-center"
         >
           <strong>{daysLeft} days to upgrade to Checkout Extensibility.</strong>{" "}
           Act now to avoid disruptions.{" "}
-        </MotionTypographyP>
-        <MotionTypographyH1 variants={itemVariants}>
+        </MotionText>
+        <MotionText as="h1" variant="heading3xl" variants={itemVariants}>
           <span className="text-primary">Upgrade Your Shopify Checkout </span>
           with Tracking Academy
-        </MotionTypographyH1>
+        </MotionText>
 
-        <MotionTypographyP applyMargin={false} variants={itemVariants}>
+        <MotionText
+          as="p"
+          variant="bodyMd"
+          applyMargin={false}
+          variants={itemVariants}
+        >
           Don't wait until the last minute. Ensure your store is prepared for
           the future of e-commerce with Checkout Extensibility{" "}
-        </MotionTypographyP>
+        </MotionText>
 
         <YoutubeEmbed embedId="9MGpL_AmEYM" className="max-w-4xl p-0" />
 
@@ -67,31 +70,31 @@ export default function Hero() {
           className="grid grid-cols-2 space-y-1 py-2 text-left"
           variants={itemVariants}
         >
-          <MotionTypographyP variants={itemVariants}>
+          <MotionText as="p" variant="bodyMd" variants={itemVariants}>
             <span className="text-primary">✔ </span>
             95% accuracy guarantee or full refund policy
-          </MotionTypographyP>
-          <MotionTypographyP variants={itemVariants}>
+          </MotionText>
+          <MotionText as="p" variant="bodyMd" variants={itemVariants}>
             <span className="text-primary">✔ </span>
             Increase conversion rates by up to 30%
-          </MotionTypographyP>
-          <MotionTypographyP variants={itemVariants}>
+          </MotionText>
+          <MotionText as="p" variant="bodyMd" variants={itemVariants}>
             <span className="text-primary">✔ </span>
             Setup and optimization completed within 7 days
-          </MotionTypographyP>
-          <MotionTypographyP variants={itemVariants}>
+          </MotionText>
+          <MotionText as="p" variant="bodyMd" variants={itemVariants}>
             <span className="text-primary">✔ </span>
             Avoid losing sales with updated checkouts
-          </MotionTypographyP>
+          </MotionText>
 
-          <MotionTypographyP variants={itemVariants}>
+          <MotionText as="p" variant="bodyMd" variants={itemVariants}>
             <span className="text-primary">✔ </span>
             Checkout customizations and payment options
-          </MotionTypographyP>
-          <MotionTypographyP variants={itemVariants}>
+          </MotionText>
+          <MotionText as="p" variant="bodyMd" variants={itemVariants}>
             <span className="text-primary">✔ </span>
             More secure, faster, and safer checkouts
-          </MotionTypographyP>
+          </MotionText>
         </MotionDiv>
 
         <MotionButton
@@ -134,13 +137,15 @@ export default function Hero() {
               <AvatarFallback>IA</AvatarFallback>
             </Avatar>
           </motion.div>
-          <MotionTypographyP
+          <MotionText
+            as="p"
+            variant="bodyMd"
             applyMargin={false}
             className="pl-8 text-sm"
             variants={itemVariants}
           >
             1032+ websites configured with 95% accuracy
-          </MotionTypographyP>
+          </MotionText>
         </MotionDiv>
       </MotionDiv>
     </Container>

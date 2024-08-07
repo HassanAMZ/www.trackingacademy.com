@@ -5,12 +5,8 @@ import { Button } from "@/components/ui/button";
 import { Card, CardHeader, CardContent } from "@/components/ui/card";
 import Container from "@/components/ui/container";
 import { Separator } from "@/components/ui/separator";
-import {
-  TypographyH1,
-  TypographyP,
-  TypographyH2,
-} from "@/components/ui/typography";
 import { motion } from "framer-motion";
+import Text from "@/components/ui/text";
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -24,7 +20,7 @@ const containerVariants = {
 };
 
 const itemVariants = {
-  hidden: { opacity: 0, y: 20 },
+  hidden: { opacity: 1, y: 20 },
   visible: {
     opacity: 1,
     y: 0,
@@ -53,9 +49,7 @@ const rowVariants = {
   visible: { opacity: 1, y: 0 },
 };
 
-const MotionTypographyH1 = motion(TypographyH1);
-const MotionTypographyH2 = motion(TypographyH2);
-const MotionTypographyP = motion(TypographyP);
+const MotionText = motion(Text);
 const MotionButton = motion(Button);
 const MotionDiv = motion.div;
 const MotionAvatar = motion(Avatar);
@@ -79,8 +73,6 @@ export {
   MotionCard,
   MotionCardHeader,
   MotionCardContent,
-  MotionTypographyH1,
-  MotionTypographyH2,
-  MotionTypographyP,
+  MotionText,
   MotionTableRow,
 };

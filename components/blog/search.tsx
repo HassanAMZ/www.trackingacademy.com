@@ -7,8 +7,7 @@ import { usePathname, useParams } from "next/navigation";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
-import TypographyH1 from "@/components/ui/typography-h1";
-import TypographyP from "@/components/ui/typography-p";
+import Text from "@/components/ui/text";
 import RequestABlogForm from "./request-a-blog";
 
 const BlogSearch: React.FC<BlogSearchProps> = ({ data, onSearch }) => {
@@ -24,7 +23,7 @@ const BlogSearch: React.FC<BlogSearchProps> = ({ data, onSearch }) => {
         (word) =>
           post.title.toLowerCase().includes(word) ||
           post.description.toLowerCase().includes(word) ||
-          post.tags.some((tag) => tag.toLowerCase().includes(word)),
+          post.tags.some((tag) => tag.toLowerCase().includes(word))
       );
 
       return matchesSearchTerm;
@@ -49,22 +48,22 @@ const BlogSearch: React.FC<BlogSearchProps> = ({ data, onSearch }) => {
   return (
     <Card className="rounded-t-lg">
       <CardHeader>
-        <TypographyH1 className="text-center">
+        <Text as="h1" variant="heading3xl" className="text-center">
           {!isRootBlogPage && displayText && (
             <span className="capitalize">{displayText} - </span>
           )}
           Articles, Ideas and Inspiration!
-        </TypographyH1>
+        </Text>
       </CardHeader>
       <CardContent className="flex flex-col items-center">
-        <TypographyP className="text-center">
+        <Text as="p" variant="bodyMd" className="text-center">
           A helpful blog for web analysts, trying to make sense of marketing
           with{" "}
           {!isRootBlogPage && displayText && (
             <span className="capitalize">{displayText}, </span>
           )}
           tag manager, analytics and tracking scripts.
-        </TypographyP>
+        </Text>
         {isRootBlogPage && (
           <div className="relative mt-4 flex w-full max-w-md items-center">
             <Input
@@ -97,14 +96,14 @@ const BlogSearch: React.FC<BlogSearchProps> = ({ data, onSearch }) => {
             <span role="img" aria-label="Thinking face" className="text-6xl">
               😭
             </span>
-            <TypographyP className="mt-4 text-center">
+            <Text as="p" variant="bodyMd" className="mt-4 text-center">
               We couldn't find any posts matching your search '{searchTerm}'.
               <span role="img" aria-label="Shrug">
                 {" "}
                 🤷‍♂️
               </span>
               Request a blog on this topic and get notified when it's published:
-            </TypographyP>
+            </Text>
             <RequestABlogForm searchTerm={searchTerm} />
           </div>
         )}

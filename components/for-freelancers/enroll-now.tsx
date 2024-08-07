@@ -3,8 +3,7 @@ import React, { useState, useEffect, ChangeEvent } from "react";
 import { useFormState, useFormStatus } from "react-dom";
 import { useRouter } from "next/navigation";
 import {
-  MotionTypographyP,
-  MotionTypographyH1,
+  MotionText,
   MotionButton,
   MotionDiv,
   MotionCard,
@@ -235,12 +234,17 @@ export default function ContactForm({
   if (formSubmitted) {
     return (
       <MotionContainer variants={containerVariants}>
-        <MotionTypographyH1 className="text-center" variants={itemVariants}>
+        <MotionText
+          as="h1"
+          variant="heading3xl"
+          className="text-center"
+          variants={itemVariants}
+        >
           Thank you!
-        </MotionTypographyH1>
-        <MotionTypographyP variants={itemVariants}>
+        </MotionText>
+        <MotionText as="p" variant="bodyMd" variants={itemVariants}>
           Your request has been submitted.
-        </MotionTypographyP>
+        </MotionText>
       </MotionContainer>
     );
   }
@@ -293,13 +297,17 @@ export default function ContactForm({
               variants={itemVariants}
             >
               {formHeader && (
-                <MotionTypographyH1 variants={itemVariants}>
+                <MotionText
+                  as="h1"
+                  variant="heading3xl"
+                  variants={itemVariants}
+                >
                   Join Our Course Waitlist
-                </MotionTypographyH1>
+                </MotionText>
               )}
-              <MotionTypographyP variants={itemVariants}>
+              <MotionText as="p" variant="bodyMd" variants={itemVariants}>
                 Please provide your personal information.
-              </MotionTypographyP>
+              </MotionText>
             </MotionDiv>
 
             <MotionDiv className="grid gap-3" variants={itemVariants}>
@@ -812,13 +820,15 @@ export default function ContactForm({
           >
             <form onSubmit={handleSubmit} className="flex flex-col space-y-3">
               {renderStep()}
-              <MotionTypographyP
+              <MotionText
+                as="p"
+                variant="bodyMd"
                 aria-live="polite"
                 className="sr-only"
                 variants={itemVariants}
               >
                 {state?.message}
-              </MotionTypographyP>
+              </MotionText>
             </form>
           </MotionCardContent>
         </MotionCard>

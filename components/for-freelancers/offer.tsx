@@ -11,10 +11,7 @@ import {
   Globe,
 } from "lucide-react";
 import Link from "next/link";
-import TypographyH1 from "../ui/typography-h1";
-import TypographyH2 from "../ui/typography-h2";
-import TypographyH3 from "../ui/typography-h3";
-import TypographyP from "../ui/typography-p";
+import Text from "@/components/ui/text";
 import YoutubeEmbed from "../global/youtube-embed";
 import {
   Dialog,
@@ -29,17 +26,19 @@ import {
 export default function ForFreelancersOffer() {
   return (
     <Container className="space-y-6 pt-4 text-center">
-      <TypographyH2>
+      <Text as="h2" variant="heading2xl">
         Ready to see what you'll get?{" "}
         <span className="text-primary">Watch the video</span>
-      </TypographyH2>
+      </Text>
 
       <YoutubeEmbed embedId="9MGpL_AmEYM" />
-      <TypographyH1>Master Analytics and Tracking in 12 Weeks!</TypographyH1>
+      <Text as="h1" variant="heading3xl">
+        Master Analytics and Tracking in 12 Weeks!
+      </Text>
 
-      <TypographyP>
+      <Text as="p" variant="bodyMd">
         Learn from experts and boost your skills with real-world projects.
-      </TypographyP>
+      </Text>
 
       <div className="grid gap-6 md:grid-cols-3">
         <FeatureCard
@@ -65,7 +64,9 @@ export default function ForFreelancersOffer() {
         />
       </div>
 
-      <TypographyH2>Solve Your Tracking Problems</TypographyH2>
+      <Text as="h2" variant="heading2xl">
+        Solve Your Tracking Problems
+      </Text>
 
       <div className="grid gap-6 md:grid-cols-3">
         <FeatureCard
@@ -139,10 +140,10 @@ export default function ForFreelancersOffer() {
         />
       </div>
 
-      <TypographyH2>
+      <Text as="h2" variant="heading2xl">
         Enroll now to master conversion tracking and analytics! Take the next
         step and join our training program today.
-      </TypographyH2>
+      </Text>
 
       <Button asChild className="w-full px-10 py-4">
         <Link href="/for-freelancers/enroll-now">Enroll Now</Link>
@@ -173,8 +174,12 @@ const FeatureCard: FC<FeatureCardPorps> = ({
       <DialogTrigger asChild>
         <div className="flex cursor-pointer flex-col items-center rounded-lg border p-6 shadow-lg">
           {icon}
-          <TypographyH3 className="mb-2 text-primary">{title}</TypographyH3>
-          <TypographyP applyMargin={false}>{description}</TypographyP>
+          <Text as="h3" variant="headingXl" className="mb-2 text-primary">
+            {title}
+          </Text>
+          <Text as="p" variant="bodyMd" applyMargin={false}>
+            {description}
+          </Text>
         </div>
       </DialogTrigger>
       <DialogContent className="sm:max-w-md">

@@ -1,6 +1,6 @@
 import React from "react";
 import { SingleCourseCardProps } from "@/types/index";
-import { Heading2xl, Paragraphsm } from "@/components/typography/Heading";
+import Text from "@/components/ui/text";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -21,18 +21,28 @@ const SingleCourseCard: React.FC<SingleCourseCardProps> = ({
           className="w-fit rounded-lg"
         />
         <div className="p-4">
-          <Heading2xl>{course.title}</Heading2xl>
-          <Paragraphsm className="line-clamp-3">
+          <Text as="h2" variant="heading2xl">
+            {course.title}
+          </Text>
+          <Text as="p" variant="bodyMd" className="line-clamp-3">
             {course.description}
-          </Paragraphsm>
+          </Text>
           <div className="flex items-center justify-between py-5">
             <div className="flex py-2">
-              <Paragraphsm>{course.price}</Paragraphsm>
-              <Paragraphsm>{course.currency.symbol}</Paragraphsm>
+              <Text as="p" variant="bodyMd">
+                {course.price}
+              </Text>
+              <Text as="p" variant="bodyMd">
+                {course.currency.symbol}
+              </Text>
             </div>
-            <Paragraphsm className="rounded-full border-2 px-3 py-1 font-semibold">
+            <Text
+              as="p"
+              variant="bodyMd"
+              className="rounded-full border-2 px-3 py-1 font-semibold"
+            >
               Learn More
-            </Paragraphsm>
+            </Text>
           </div>
         </div>
       </section>

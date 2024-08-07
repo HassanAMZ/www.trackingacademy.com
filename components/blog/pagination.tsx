@@ -8,7 +8,8 @@ import {
   PaginationNext,
   PaginationPrevious,
 } from "@/components/ui/pagination";
-import TypographyH2 from "../ui/typography-h2";
+import Text from "@/components/ui/text";
+
 import SingleBlogCard from "./single-card";
 import { PostMetadata } from "@/types/index";
 
@@ -36,7 +37,9 @@ const BlogPagination: React.FC<BlogPaginationProps> = ({ sortedData }) => {
 
   return (
     <>
-      <TypographyH2>Latest Posts</TypographyH2>
+      <Text as="h2" variant="heading2xl">
+        Latest Posts
+      </Text>
 
       <div className="grid grid-cols-2 gap-4 md:grid-cols-3 md:gap-6">
         {currentPosts.map((post, index) => (

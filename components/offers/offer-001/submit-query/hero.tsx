@@ -1,21 +1,16 @@
 // components/offers/offer-001/submit-query/hero.js
 import React from "react";
 import {
-  MotionTypographyH1,
-  MotionTypographyP,
+  MotionText,
   MotionContainer,
   MotionDiv,
   MotionAvatar,
 } from "@/utils/framerMotion";
 import ContactForm from "@/components/contact/contact-form";
-import FrequentlyAskedQuestions from "@/components/home/frequently-asked-questions";
-import ClientTestimonial from "@/components/home/testimonaials";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { Separator } from "@/components/ui/separator";
-import { Star } from "lucide-react";
+import { AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import TestimonialsCarousel from "../../offer-002/testimonial-carousal";
 import { containerVariants, itemVariants } from "@/utils/framerMotion";
-import { TypographyP } from "@/components/ui/typography";
+import Text from "@/components/ui/text";
 
 export default function Hero() {
   return (
@@ -27,12 +22,12 @@ export default function Hero() {
     >
       <div className="grid items-center justify-center gap-4 pt-4 lg:grid-cols-5">
         <MotionDiv className="space-y-4 lg:col-span-3" variants={itemVariants}>
-          <MotionTypographyH1>
+          <MotionText as="h1" variant="heading3xl">
             <span>Submit the Form now and</span>{" "}
             <span className="text-primary">Maximize Every Click </span>- Achieve
             95% Accurate Tracking -{" "}
             <span className="text-primary">Guaranteed Results!</span>
-          </MotionTypographyH1>
+          </MotionText>
 
           <div className="max-w-2xl self-start pt-4 md:pt-2">
             <TestimonialsCarousel />
@@ -42,12 +37,18 @@ export default function Hero() {
             className="grid grid-cols-1 place-content-center space-y-1 self-center py-2"
             variants={itemVariants}
           >
-            <TypographyP>✔ GDPR-compliant secure tracking.</TypographyP>
-            <TypographyP>✔ 24/7 Expert Assistance.</TypographyP>
-            <TypographyP>✔ Weekly custom report delivery.</TypographyP>
-            <TypographyP>
+            <Text as="p" variant="bodyMd">
+              ✔ GDPR-compliant secure tracking.
+            </Text>
+            <Text as="p" variant="bodyMd">
+              ✔ 24/7 Expert Assistance.
+            </Text>
+            <Text as="p" variant="bodyMd">
+              ✔ Weekly custom report delivery.
+            </Text>
+            <Text as="p" variant="bodyMd">
               ✔ 95% tracking accuracy or your money back.
-            </TypographyP>
+            </Text>
           </MotionDiv>
 
           <MotionDiv
@@ -88,9 +89,14 @@ export default function Hero() {
                 <AvatarFallback>IA</AvatarFallback>
               </MotionAvatar>
             </div>
-            <MotionTypographyP applyMargin={false} className="pl-8 text-sm">
+            <MotionText
+              as="p"
+              variant="bodyMd"
+              applyMargin={false}
+              className="pl-8 text-sm"
+            >
               Over 1032 websites optimized with 95% accuracy
-            </MotionTypographyP>
+            </MotionText>
           </MotionDiv>
         </MotionDiv>
 

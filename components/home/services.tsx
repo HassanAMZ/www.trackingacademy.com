@@ -1,6 +1,5 @@
 import React from "react";
-import TypographyH2 from "../ui/typography-h2";
-import TypographyP from "../ui/typography-p";
+import Text from "@/components/ui/text";
 import FeatureCard from "./feature-card";
 import {
   BarChart,
@@ -15,12 +14,14 @@ import Container from "../ui/container";
 export default function Services() {
   return (
     <Container className="text-center">
-      <TypographyH2>Look at what we have worked with in the Past</TypographyH2>
-      {/* <TypographyP>
+      <Text as="h2" variant="heading2xl">
+        Look at what we have worked with in the Past
+      </Text>
+      {/* <Text as="p" variant="bodyMd">
     We have worked with all kinds of tech stacks such as Shopify, Google
     Analytics, and Salesforce. We know many tools and technologies to help you
     best.
-   </TypographyP> */}
+   </Text > */}
       <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
         <FeatureCard
           icon={<Globe className="mb-4 h-12 w-12 text-primary" />}

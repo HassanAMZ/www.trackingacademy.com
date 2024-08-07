@@ -2,12 +2,18 @@
 import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { Card, CardContent } from "@/components/ui/card";
-import TypographyP from "@/components/ui/typography-p";
+import Text from "@/components/ui/text";
 import { Star } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Container from "@/components/ui/container";
 import clients from "@/data/clients";
-import { containerVariants, itemVariants } from "@/utils/framerMotion";
+import {
+  containerVariants,
+  itemVariants,
+  MotionButton,
+  MotionDiv,
+  MotionText,
+} from "@/utils/framerMotion";
 
 interface Testimonial {
   testimonialText: string;
@@ -27,10 +33,6 @@ const clientTestimonials: Testimonial[] = clients.map((client) => ({
   conversions: `${client.results_details.conversions.value}${client.results_details.conversions.symbol} Conversions`,
 }));
 
-const MotionTypographyP = motion(TypographyP);
-const MotionButton = motion(Button);
-const MotionDiv = motion.div;
-
 const TestimonialsCarousel2: React.FC = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
@@ -39,7 +41,7 @@ const TestimonialsCarousel2: React.FC = () => {
       setCurrentIndex(
         (prevIndex) => (prevIndex + 1) % clientTestimonials.length
       );
-    }, 7000);
+    }, 10000);
 
     return () => clearInterval(interval);
   }, []);
@@ -61,22 +63,24 @@ const TestimonialsCarousel2: React.FC = () => {
         <Star />
         <Star />
       </div>
-      <MotionTypographyP
-        variants={itemVariants}
+      <Text
+        as="p"
+        variant="bodyMd"
         applyMargin={false}
         className="font-semibold italic"
       >
         "{currentTestimonial.testimonialText}"
-      </MotionTypographyP>
-      <MotionTypographyP
-        variants={itemVariants}
+      </Text>
+      <Text
+        as="p"
+        variant="bodyMd"
         applyMargin={false}
         className="pb-2 text-xs"
       >
         {currentTestimonial.clientName},{" "}
         <strong>{currentTestimonial.clientTitle}</strong> at{" "}
         <strong>{currentTestimonial.businessName}</strong>
-      </MotionTypographyP>
+      </Text>
       <div className="absolute -bottom-4 right-0 mb-2 mr-2 flex space-x-4">
         <MotionButton
           variants={itemVariants}

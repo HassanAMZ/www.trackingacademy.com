@@ -1,10 +1,6 @@
 import YoutubeEmbed from "@/components/global/youtube-embed";
 import WheelOfLife from "@/components/tools/wheel-of-life/WheelOfLife";
-import {
-  UnorderedList,
-  ListItem,
-  OrderedList,
-} from "@/components/typography/Heading";
+import Text from "@/components/ui/text";
 import type { NextPage } from "next";
 import Head from "next/head";
 
@@ -42,44 +38,44 @@ const page: NextPage = () => {
         <p className=" ">
           To use the "Wheel of Life" component, follow these simple steps:
         </p>
-        <OrderedList>
-          <ListItem>Rate Each Life Area:</ListItem>
-          <UnorderedList>
-            <ListItem>
+        <Text as="ol">
+          <Text as="li">Rate Each Life Area:</Text>
+          <Text as="ul">
+            <Text as="li">
               Reflect on each aspect of your life, namely Body, Mind, Soul,
               Romance, Family, Friends, Mission, Money, and Growth.
-            </ListItem>
-            <ListItem>
+            </Text>
+            <Text as="li">
               Use the slider to rate each area on a scale from 0 (least
               satisfied) to 10 (most satisfied).
-            </ListItem>
-          </UnorderedList>
-          <ListItem>View Your Life Balance:</ListItem>
-          <UnorderedList>
-            <ListItem>
+            </Text>
+          </Text>
+          <Text as="li">View Your Life Balance:</Text>
+          <Text as="ul">
+            <Text as="li">
               Once you have rated each area, the radar chart will update to
               reflect your scores.
-            </ListItem>
-            <ListItem>
+            </Text>
+            <Text as="li">
               The visual representation allows you to quickly assess which areas
               are balanced and which are not.
-            </ListItem>
-          </UnorderedList>
-          <ListItem>Identify Areas for Improvement:</ListItem>
-          <UnorderedList>
-            <ListItem>
+            </Text>
+          </Text>
+          <Text as="li">Identify Areas for Improvement:</Text>
+          <Text as="ul">
+            <Text as="li">
               Look for sections that have lower scores, as these are the areas
               where you might want to focus your improvement efforts.
-            </ListItem>
-          </UnorderedList>
-          <ListItem> Set Goals:</ListItem>
-          <UnorderedList>
-            <ListItem>
+            </Text>
+          </Text>
+          <Text as="li"> Set Goals:</Text>
+          <Text as="ul">
+            <Text as="li">
               With a clear view of where you stand, set actionable goals for the
               areas you want to improve.
-            </ListItem>
-          </UnorderedList>
-        </OrderedList>
+            </Text>
+          </Text>
+        </Text>
 
         <h3 className="py-6 text-2xl font-bold">Conclusion: </h3>
         <p className=" ">

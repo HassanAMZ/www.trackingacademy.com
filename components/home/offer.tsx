@@ -1,24 +1,22 @@
 import React from "react";
 import Container from "@/components/ui/container";
 import { Rocket, Target, Smile, ShieldCheck, Headset } from "lucide-react";
-import TypographyH2 from "../ui/typography-h2";
+import Text from "@/components/ui/text";
 import FeatureCard from "./feature-card";
-import { MotionContainer, itemVariants } from "@/utils/framerMotion";
 import VideoPlayer from "../offers/offer-001/video-player";
-import { TypographyP } from "../ui/typography";
-import Image from "next/image";
+
 export default function Offer() {
   return (
     <Container className="space-y-6">
       <div className="space-y-6 text-center">
-        <TypographyH2>
+        <Text as="h2" variant="heading2xl">
           Improve Your Tracking with Proven Results. Here's How:
-        </TypographyH2>
-        <TypographyP>
+        </Text>
+        <Text as="p" variant="bodyMd">
           We ensure your tracking is accurate with an easy setup, full testing,
           and low maintenance. Our system helps you make better decisions and
           increase your profits.
-        </TypographyP>
+        </Text>
 
         <div className="grid gap-6 md:grid-cols-3">
           <FeatureCard
@@ -56,14 +54,14 @@ export default function Offer() {
           className="block md:hidden"
         />
 
-        <TypographyH2 className="text-center">
+        <Text as="h2" variant="heading2xl" className="text-center">
           Enjoy the End Results
-        </TypographyH2>
-        <TypographyP>
+        </Text>
+        <Text as="p" variant="bodyMd">
           We make sure your tracking is 95% accurate so you get the right data
           every time. Plus, our support team is here to help you all day, every
           day.
-        </TypographyP>
+        </Text>
 
         <div className="grid gap-6 md:grid-cols-2">
           <FeatureCard

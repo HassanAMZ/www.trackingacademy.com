@@ -1,12 +1,5 @@
 import Image from "next/image";
 import { TestimonialCardProps } from "@/types/index";
-import ContainerLayout from "@/layouts/ContainerLayout";
-import {
-  Heading2xl,
-  Headingxl,
-  Paragraphmd,
-  Paragraphsm,
-} from "@/components/typography/Heading";
 
 const TestimonialCard: React.FC<TestimonialCardProps> = ({
   person,
