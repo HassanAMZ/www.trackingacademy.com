@@ -15,6 +15,7 @@ import Navbar from "@/components/global/navbar";
 const Loading: React.FC = () => {
   return (
     <React.Fragment>
+      <Navbar />
       <Container className="grid min-h-screen place-content-center">
         <Card className="w-full max-w-md">
           <CardHeader>

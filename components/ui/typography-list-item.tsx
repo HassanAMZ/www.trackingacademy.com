@@ -14,7 +14,7 @@ const TypographyListItem: React.FC<TypographyListItemPorps> = ({
   id,
 }) => {
   return (
-    <li id={id} className={cn("", className)}>
+    <li id={id} className={clsx("", className)}>
       {children}
     </li>
   );

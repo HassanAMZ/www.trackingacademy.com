@@ -27,7 +27,7 @@ export default function Layout({ children }: { children: ReactNode }) {
   return (
     <React.Fragment>
       <Navbar />
-      {children}
+      <main className="text-base">{children}</main>
     </React.Fragment>
   );
 }

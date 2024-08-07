@@ -18,16 +18,12 @@ const CustomLink: React.FC<CustomLinkProps> = ({
   const isInternalLink = href.startsWith("/");
   const isAnchorLink = href.startsWith("#");
   const isExternal = `${href}?utm_source=TrackingAcademy.com&utm_medium=affiliate&utm_campaign=InternalLink&utm_term=website&utm_content=${encodeURIComponent(
-    href,
+    href
   )}`;
 
   if (isInternalLink) {
     return (
-      <Button
-        asChild
-        className={cn("!p-0 !text-base", className)}
-        variant={"link"}
-      >
+      <Button asChild className={cn("!p-0", className)} variant={"link"}>
         <Link href={href} {...rest}>
           {rest.children}
         </Link>
@@ -37,7 +33,14 @@ const CustomLink: React.FC<CustomLinkProps> = ({
 
   if (isAnchorLink) {
     return (
-      <a href={href} className={cn("!p-0 !text-base", className)} {...rest} />
+      <a
+        href={href}
+        className={clsx(
+          "!p-0 whitespace-pre-wrap text-primary underline-offset-4 hover:underline",
+          className
+        )}
+        {...rest}
+      />
     );
   }
 
@@ -46,7 +49,7 @@ const CustomLink: React.FC<CustomLinkProps> = ({
       <a
         target="_blank"
         rel="noopener noreferrer"
-        className={cn("!p-0 !text-base", className)}
+        className={clsx("!p-0 ", className)}
         href={isExternal}
         {...rest}
       />
