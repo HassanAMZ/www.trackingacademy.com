@@ -17,7 +17,7 @@ export default function NotFound() {
         >
           404 - Tracking Error
         </Text>
-        <Text as="p" variant="bodyMd">
+        <Text as="p">
           Oops! Looks like the tracking pixel went AWOL. The page you're looking
           for doesn't exist. But don't worry, we've already notified our data
           analysts to look into this. In the meantime, let's get you back on

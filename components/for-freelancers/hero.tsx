@@ -4,23 +4,12 @@ import { Button } from "@/components/ui/button";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { TestimonialsCarousel } from "./testimonials-carousel";
 import Text from "@/components/ui/text";
-import { containerVariants, itemVariants } from "@/utils/framerMotion";
-import {
-  MotionText,
-  MotionContainer,
-  MotionDiv,
-  MotionAvatar,
-} from "@/utils/framerMotion";
 import TestimonialsCarousel2 from "./testimonials-carousal-2";
+import Container from "../ui/container";
 
 export default function Hero() {
   return (
-    <MotionContainer
-      className="sm:py py-2 lg:pt-8"
-      initial="hidden"
-      animate="visible"
-      variants={containerVariants}
-    >
+    <Container className="sm:py py-2 lg:pt-8">
       <div className="flex flex-col items-start justify-center gap-4 md:grid md:grid-cols-3">
         <div className="space-y-3 md:col-span-2">
           <Text as="h1" variant="heading3xl">
@@ -30,7 +19,7 @@ export default function Hero() {
             <span className="text-primary">actionable insights</span> and{" "}
             <span className="text-primary">grow your business</span>. */}
           </Text>
-          <Text as="p" variant="bodyMd" applyMargin={false}>
+          <Text as="p" applyMargin={false}>
             Learn how to turn your data into actionable insights and grow your
             business. Our expert-led training ensures you master conversion
             tracking and analytics, with hands-on practice and real-world
@@ -39,15 +28,9 @@ export default function Hero() {
           <TestimonialsCarousel2 />
           <div className="grid grid-cols-1 md:grid-cols-1">
             <div className="space-y-1">
-              <Text as="p" variant="bodyMd">
-                ✔ Setup and optimized within 7 days.
-              </Text>
-              <Text as="p" variant="bodyMd">
-                ✔ Achieve 95% tracking accuracy.
-              </Text>
-              <Text as="p" variant="bodyMd">
-                ✔ 95% accuracy or full refund.
-              </Text>
+              <Text as="p">✔ Setup and optimized within 7 days.</Text>
+              <Text as="p">✔ Achieve 95% tracking accuracy.</Text>
+              <Text as="p">✔ 95% accuracy or full refund.</Text>
             </div>
           </div>
 
@@ -81,7 +64,7 @@ export default function Hero() {
                 <AvatarFallback>IA</AvatarFallback>
               </Avatar>
             </div>
-            <Text as="p" variant="bodyMd" applyMargin={false} className="pl-10">
+            <Text as="p" applyMargin={false} className="pl-10">
               2 students trained & 2 success stories
             </Text>
           </div>
@@ -91,6 +74,6 @@ export default function Hero() {
           <TestimonialsCarousel />
         </div>
       </div>
-    </MotionContainer>
+    </Container>
   );
 }

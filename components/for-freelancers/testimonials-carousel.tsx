@@ -3,30 +3,46 @@ import React from "react";
 import useEmblaCarousel from "embla-carousel-react";
 import Autoplay from "embla-carousel-autoplay";
 import { Card, CardContent } from "@/components/ui/card";
-import Text from "@/components/ui/text";
 import { Star } from "lucide-react";
 import Image from "next/image";
-import clients from "@/data/clients";
+import Text from "../ui/text";
 
-interface TestimonialsProps {
-  testimonialText: string;
-  clientName: string;
-  clientTitle: string;
-  businessName: string;
-  image: string;
-}
-
-const testimonials: TestimonialsProps[] = clients.map((client) => ({
-  testimonialText: client.results_details.testimonial_details.testimonial,
-  clientName: client.client_details.name,
-  clientTitle: client.client_details.position,
-  businessName: client.business_details.name,
-  image: client.client_details.images[0].link,
-}));
+const testimonials = [
+  {
+    text: "“I learned more in a week than I did in years of trial and error.”",
+    author: "Greg Fisher, CMO at Atlantic Studio",
+    image: "/images/clients/malik-osama.jfif",
+  },
+  {
+    text: "“This program transformed our marketing approach completely.”",
+    author: "Sarah Lee, Marketing Director",
+    image: "/images/clients/philipp-herglotz.jfif",
+  },
+  {
+    text: "“Outstanding insights and practical tools for any business.”",
+    author: "Michael Brown, CEO at Innovatech",
+    image: "/images/clients/imtiaz-ahmad.jfif",
+  },
+  {
+    text: "“A must-have training for anyone serious about analytics.”",
+    author: "Emily Davis, Data Analyst",
+    image: "/images/clients/imtiaz-ahmad.jpg",
+  },
+  {
+    text: "“Incredible value and top-notch support from the team.”",
+    author: "James Wilson, Product Manager",
+    image: "/images/clients/jamie-norsa.jfif",
+  },
+  {
+    text: "“Our conversion rates have doubled since the training.”",
+    author: "Laura Johnson, E-commerce Specialist",
+    image: "/images/clients/david-bodnar.jfif",
+  },
+];
 
 export function TestimonialsCarousel() {
   const [emblaRef] = useEmblaCarousel({ loop: true }, [
-    Autoplay({ delay: 10000, stopOnInteraction: true }),
+    Autoplay({ delay: 5000, stopOnInteraction: true }),
   ]);
 
   return (
@@ -36,26 +52,26 @@ export function TestimonialsCarousel() {
           <div className="min-w-full" key={index}>
             <Image
               src={testimonial.image}
-              alt={testimonial.clientName}
-              className="rounded-t-lg object-cover w-full"
+              alt={testimonial.author}
+              className="rounded-t-lg object-cover"
+              layout="responsive"
               width={500}
               height={200}
             />
             <Card className="relative space-y-4 shadow-lg">
               <div className="absolute -top-4 right-4 flex space-x-1">
-                <Star className="text-primary fill-primary" />
-                <Star className="text-primary fill-primary" />
-                <Star className="text-primary fill-primary" />
-                <Star className="text-primary fill-primary" />
-                <Star className="text-primary fill-primary" />
+                <Star />
+                <Star />
+                <Star />
+                <Star />
+                <Star />
               </div>
               <CardContent>
-                <Text as="p" variant="bodyMd" className="font-semibold italic">
-                  {testimonial.testimonialText}
+                <Text as="p" className="font-semibold italic">
+                  {testimonial.text}
                 </Text>
-                <Text as="p" variant="bodyMd" className="mt-4 text-xs">
-                  {testimonial.clientName}, {testimonial.clientTitle} at{" "}
-                  {testimonial.businessName}
+                <Text as="p" className="mt-4 text-xs">
+                  {testimonial.author}
                 </Text>
               </CardContent>
             </Card>

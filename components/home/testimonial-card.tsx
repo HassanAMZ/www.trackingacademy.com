@@ -26,7 +26,7 @@ const ClientTestimonialCard: React.FC<ClientTestimonialCardProps> = ({
   return (
     <React.Fragment>
       <div className="space-y-4 pb-2">
-        <Text as="p" variant="bodyMd">
+        <Text as="p">
           <span className="text-primary">
             {client.businessName} ({category}: {cms})
           </span>
@@ -42,7 +42,7 @@ const ClientTestimonialCard: React.FC<ClientTestimonialCardProps> = ({
           />
         </div>
 
-        <Text as="p" variant="bodyMd">
+        <Text as="p">
           <span className="text-primary">Results:&nbsp;</span>
           <span>"{results}"</span>
         </Text>

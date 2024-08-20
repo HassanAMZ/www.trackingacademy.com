@@ -3,17 +3,6 @@ import React, { useState, useEffect, ChangeEvent } from "react";
 import { useFormState, useFormStatus } from "react-dom";
 import { createContact } from "@/actions/contact-us";
 import { useRouter } from "next/navigation";
-import {
-  MotionText,
-  MotionButton,
-  MotionDiv,
-  MotionCard,
-  MotionCardHeader,
-  MotionCardContent,
-  MotionContainer,
-  containerVariants,
-  itemVariants,
-} from "@/utils/framerMotion";
 import { Input } from "../ui/input";
 import { Label } from "../ui/label";
 import { Textarea } from "@/components/ui/textarea";
@@ -27,7 +16,10 @@ import {
 import { cn } from "../lib/utils";
 import Link from "next/link";
 import { GTMCustomEvent } from "../analytics/GTMEvents";
-
+import { Button } from "../ui/button";
+import Container from "../ui/container";
+import Text from "../ui/text";
+import { Card, CardContent, CardHeader } from "../ui/card";
 interface FormData {
   firstName: string;
   lastName: string;
@@ -90,15 +82,14 @@ function SubmitButton({ validateStep }: { validateStep: () => boolean }) {
   };
 
   return (
-    <MotionButton
+    <Button
       type="submit"
       disabled={pending}
       onClick={handleClick}
       className={`${pending ? "cursor-not-allowed opacity-50" : ""}`}
-      variants={itemVariants}
     >
       {pending ? "Submitting..." : "Submit Contact Form"}
-    </MotionButton>
+    </Button>
   );
 }
 
@@ -234,7 +225,7 @@ export default function ContactForm({
 
   if (formSubmitted) {
     return (
-      <MotionContainer variants={containerVariants}>
+      <Container>
         <GTMCustomEvent
           user_data={{
             email: formData.email,
@@ -263,42 +254,27 @@ export default function ContactForm({
             implementation_timeline: formData.implementationTimeline,
           }}
         />
-        <MotionText
-          as="h2"
-          variant="heading2xl"
-          className="text-center"
-          variants={itemVariants}
-        >
+        <Text as="h2" variant="heading2xl" className="text-center">
           Thank you!
-        </MotionText>
-        <MotionText as="p" variant="bodyMd" variants={itemVariants}>
-          Your request has been submitted.
-        </MotionText>
-        <MotionText as="p" variant="bodyMd" variants={itemVariants}>
+        </Text>
+        <Text as="p">Your request has been submitted.</Text>
+        <Text as="p">
           You'll be redirected to Book a Meeting Page. If the redirects does not
           happen,{" "}
-          <MotionButton
-            asChild
-            variant={"link"}
-            className="p-0"
-            variants={itemVariants}
-          >
+          <Button asChild variant={"link"} className="p-0">
             <Link href={"/contact/book-a-meeting"}>click here</Link>
-          </MotionButton>
-        </MotionText>
-      </MotionContainer>
+          </Button>
+        </Text>
+      </Container>
     );
   }
 
   const renderNavigation = () => {
     const steps = ["Meeting", "Account", "Project", "Tracking"];
     return (
-      <MotionDiv
-        className="grid grid-cols-2 items-end justify-center gap-4 py-2 pb-6 text-center sm:py-6 lg:grid-cols-4 lg:py-8"
-        variants={containerVariants}
-      >
+      <div className="grid grid-cols-2 items-end justify-center gap-4 py-2 pb-6 text-center sm:py-6 lg:grid-cols-4 lg:py-8">
         {steps.map((step, index) => (
-          <MotionDiv
+          <div
             key={index}
             className={`flex flex-row items-center md:flex-col ${
               index + 1 === currentStep ? "text-primary" : "text-foreground"
@@ -309,22 +285,20 @@ export default function ContactForm({
               }
             }}
             style={{ cursor: index + 1 <= maxStep ? "pointer" : "default" }}
-            variants={itemVariants}
           >
-            <MotionDiv
+            <div
               className={`flex h-8 w-8 items-center justify-center rounded-full border-2 ${
                 index + 1 === currentStep
                   ? "bg-primary text-secondary"
                   : "border-secondary"
               }`}
-              variants={itemVariants}
             >
               {index + 1}
-            </MotionDiv>
+            </div>
             <span className="ml-2">{step}</span>
-          </MotionDiv>
+          </div>
         ))}
-      </MotionDiv>
+      </div>
     );
   };
 
@@ -333,26 +307,19 @@ export default function ContactForm({
       case 1:
         return (
           <>
-            <MotionDiv
-              className="py-6 text-left md:text-center"
-              variants={itemVariants}
-            >
+            <div className="py-6 text-left md:text-center">
               {formHeader && (
-                <MotionText
-                  as="h1"
-                  variant="heading3xl"
-                  variants={itemVariants}
-                >
+                <Text as="h1" variant="heading3xl">
                   Work with Tracking Academy{" "}
-                </MotionText>
+                </Text>
               )}
-              <MotionText as="p" variant="bodyMd" variants={itemVariants}>
+              <Text as="p">
                 Enter your business email and select your preferred meeting
                 type.
-              </MotionText>
-            </MotionDiv>
+              </Text>
+            </div>
 
-            <MotionDiv className="grid gap-3" variants={itemVariants}>
+            <div className="grid gap-3">
               <div className="grid w-full items-center">
                 <Label className="pb-2" htmlFor="email">
                   Business Email Address
@@ -369,12 +336,9 @@ export default function ContactForm({
                   <span className="text-destructive">{errors.email}</span>
                 )}
               </div>
-            </MotionDiv>
+            </div>
 
-            <MotionDiv
-              className="grid w-full items-center"
-              variants={itemVariants}
-            >
+            <div className="grid w-full items-center">
               <Label className="pb-2" htmlFor="meetingPreference">
                 Select meeting type
               </Label>
@@ -397,44 +361,26 @@ export default function ContactForm({
                   {errors.meetingPreference}
                 </span>
               )}
-            </MotionDiv>
-            <MotionButton
-              className="w-max self-end"
-              type="button"
-              onClick={nextStep}
-              variants={itemVariants}
-            >
+            </div>
+            <Button className="w-max self-end" type="button" onClick={nextStep}>
               Continue
-            </MotionButton>
+            </Button>
             {isItAFit && (
-              <MotionText
-                as="p"
-                variant="bodyMd"
-                className="py-12 text-left text-sm md:text-center"
-                variants={itemVariants}
-              >
+              <Text as="p" className="py-12 text-left text-sm md:text-center">
                 Have a project but not quite ready to contact us?{" "}
-                <MotionButton
-                  asChild
-                  variant={"link"}
-                  className="inline p-0"
-                  variants={itemVariants}
-                >
+                <Button asChild variant={"link"} className="inline p-0">
                   <Link href="/contact/is-tracking-academy-a-fit-for-you">
                     See if Tracking Academy is a fit for you.
                   </Link>
-                </MotionButton>
-              </MotionText>
+                </Button>
+              </Text>
             )}
           </>
         );
       case 2:
         return (
           <>
-            <MotionDiv
-              className="flex flex-col space-y-3"
-              variants={itemVariants}
-            >
+            <div className="flex flex-col space-y-3">
               <div className="grid w-full items-center">
                 <Label className="pb-2" htmlFor="firstName">
                   First Name
@@ -521,33 +467,21 @@ export default function ContactForm({
                   <span className="text-destructive">{errors.phone}</span>
                 )}
               </div>
-            </MotionDiv>
+            </div>
             <div className="flex justify-between">
-              <MotionButton
-                type="button"
-                variant={"outline"}
-                onClick={prevStep}
-                variants={itemVariants}
-              >
+              <Button type="button" variant={"outline"} onClick={prevStep}>
                 Previous
-              </MotionButton>
-              <MotionButton
-                type="button"
-                onClick={nextStep}
-                variants={itemVariants}
-              >
+              </Button>
+              <Button type="button" onClick={nextStep}>
                 Continue
-              </MotionButton>
+              </Button>
             </div>
           </>
         );
       case 3:
         return (
           <>
-            <MotionDiv
-              className="flex flex-col space-y-3"
-              variants={itemVariants}
-            >
+            <div className="flex flex-col space-y-3">
               <div className="grid w-full items-center">
                 <Label className="pb-2" htmlFor="websiteLink">
                   Website URL
@@ -697,33 +631,21 @@ export default function ContactForm({
                   </span>
                 )}
               </div>
-            </MotionDiv>
+            </div>
             <div className="flex justify-between">
-              <MotionButton
-                type="button"
-                variant={"outline"}
-                onClick={prevStep}
-                variants={itemVariants}
-              >
+              <Button type="button" variant={"outline"} onClick={prevStep}>
                 Previous
-              </MotionButton>
-              <MotionButton
-                type="button"
-                onClick={nextStep}
-                variants={itemVariants}
-              >
+              </Button>
+              <Button type="button" onClick={nextStep}>
                 Continue
-              </MotionButton>
+              </Button>
             </div>
           </>
         );
       case 4:
         return (
           <>
-            <MotionDiv
-              className="flex flex-col space-y-3"
-              variants={itemVariants}
-            >
+            <div className="flex flex-col space-y-3">
               <div className="grid w-full items-center">
                 <Label className="pb-2" htmlFor="budget">
                   Expected Budget (USD)
@@ -851,16 +773,11 @@ export default function ContactForm({
                   </SelectContent>
                 </Select>
               </div>
-            </MotionDiv>
+            </div>
             <div className="flex justify-between">
-              <MotionButton
-                type="button"
-                variant={"outline"}
-                onClick={prevStep}
-                variants={itemVariants}
-              >
+              <Button type="button" variant={"outline"} onClick={prevStep}>
                 Previous
-              </MotionButton>
+              </Button>
 
               <SubmitButton validateStep={() => validateStep(currentStep)} />
             </div>
@@ -872,33 +789,19 @@ export default function ContactForm({
   };
 
   return (
-    <MotionDiv
-      className={cn("w-full", className)}
-      initial="hidden"
-      animate="visible"
-      variants={containerVariants}
-    >
-      <MotionCard className="rounded-t-lg" variants={itemVariants}>
-        <MotionCardHeader variants={itemVariants}></MotionCardHeader>
-        <MotionCardContent
-          className="mx-auto max-w-3xl"
-          variants={itemVariants}
-        >
+    <div className={cn("w-full", className)}>
+      <Card className="rounded-t-lg">
+        <CardHeader></CardHeader>
+        <CardContent className="mx-auto max-w-3xl">
           {renderNavigation()}
           <form onSubmit={handleSubmit} className="flex flex-col space-y-3">
             {renderStep()}
-            <MotionText
-              as="p"
-              variant="bodyMd"
-              aria-live="polite"
-              className="sr-only"
-              variants={itemVariants}
-            >
+            <Text as="p" aria-live="polite" className="sr-only">
               {state?.message}
-            </MotionText>
+            </Text>
           </form>
-        </MotionCardContent>
-      </MotionCard>
-    </MotionDiv>
+        </CardContent>
+      </Card>
+    </div>
   );
 }

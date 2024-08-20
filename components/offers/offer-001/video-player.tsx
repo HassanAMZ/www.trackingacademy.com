@@ -28,10 +28,8 @@ const VideoPlayer: React.FC<VideoPlayerProps> = ({
         />
       }
     >
-      <Card className="overflow-hidden rounded-t-lg">
-        <CardContent
-          className={cn(className, "overflow-hidden rounded-lg p-0")}
-        >
+      <Card className={cn(className, "overflow-hidden rounded-t-lg")}>
+        <CardContent className="overflow-hidden rounded-lg p-0 flex items-center justify-center">
           <video
             autoPlay
             loop

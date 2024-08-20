@@ -49,7 +49,7 @@ export const FirebaseAuth = () => {
           <CardContent className="flex h-[30vh] flex-col items-center justify-center gap-2">
             <Text
               as="p"
-              variant="bodyMd"
+
               className="text-center font-medium text-primary-foreground"
             >
               Sign up for free to access.
@@ -90,7 +90,7 @@ export const FirebaseAuth = () => {
                 </div>
                 <Text
                   as="p"
-                  variant="bodyMd"
+
                   applyMargin={false}
                   className="pl-4 font-medium text-primary-foreground"
                 >
@@ -103,7 +103,7 @@ export const FirebaseAuth = () => {
       ) : (
         <React.Fragment>
           {/* <div className='flex flex-row justify-center items-center h-[20vh] gap-2'>
-      <Text as="p" variant="bodyMd">Welcome, {user.displayName}:</Text >
+      <Text as="p" >Welcome, {user.displayName}:</Text >
       <Button
        className='underline hover:font-semibold hover:cursor-pointer'
        onClick={handleSignOut}>

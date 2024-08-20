@@ -12,7 +12,7 @@ export default function Offer() {
         <Text as="h2" variant="heading2xl">
           Improve Your Tracking with Proven Results. Here's How:
         </Text>
-        <Text as="p" variant="bodyMd">
+        <Text as="p">
           We ensure your tracking is accurate with an easy setup, full testing,
           and low maintenance. Our system helps you make better decisions and
           increase your profits.
@@ -57,7 +57,7 @@ export default function Offer() {
         <Text as="h2" variant="heading2xl" className="text-center">
           Enjoy the End Results
         </Text>
-        <Text as="p" variant="bodyMd">
+        <Text as="p">
           We make sure your tracking is 95% accurate so you get the right data
           every time. Plus, our support team is here to help you all day, every
           day.

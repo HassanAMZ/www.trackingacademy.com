@@ -13,11 +13,11 @@ import Container from "../ui/container";
 
 export default function Services() {
   return (
-    <Container className="text-center">
+    <Container className="text-center space-y-5">
       <Text as="h2" variant="heading2xl">
         Look at what we have worked with in the Past
       </Text>
-      {/* <Text as="p" variant="bodyMd">
+      {/* <Text as="p" >
     We have worked with all kinds of tech stacks such as Shopify, Google
     Analytics, and Salesforce. We know many tools and technologies to help you
     best.

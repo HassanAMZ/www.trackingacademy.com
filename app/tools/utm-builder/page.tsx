@@ -315,7 +315,7 @@ const Page: React.FC = () => {
           {!canGenerateUTM() && (
             <div className="font-medium text-red-500">
               {getErrorMessages().map((error, index) => (
-                <Text as="p" variant="bodyMd" key={index}>
+                <Text as="p" key={index}>
                   {error}
                 </Text>
               ))}

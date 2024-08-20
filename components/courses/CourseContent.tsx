@@ -37,9 +37,7 @@ const CourseContent: React.FC<CourseContentProps> = ({
           onClick={loadMoreHandler}
           className="bg-complementary rounded border px-4 py-2"
         >
-          <Text as="p" variant="bodyMd">
-            Load More Courses
-          </Text>
+          <Text as="p">Load More Courses</Text>
         </button>
       )}
     </React.Fragment>

@@ -56,7 +56,7 @@ const BlogSearch: React.FC<BlogSearchProps> = ({ data, onSearch }) => {
         </Text>
       </CardHeader>
       <CardContent className="flex flex-col items-center">
-        <Text as="p" variant="bodyMd" className="text-center">
+        <Text as="p" className="text-center">
           A helpful blog for web analysts, trying to make sense of marketing
           with{" "}
           {!isRootBlogPage && displayText && (
@@ -96,7 +96,7 @@ const BlogSearch: React.FC<BlogSearchProps> = ({ data, onSearch }) => {
             <span role="img" aria-label="Thinking face" className="text-6xl">
               😭
             </span>
-            <Text as="p" variant="bodyMd" className="mt-4 text-center">
+            <Text as="p" className="mt-4 text-center">
               We couldn't find any posts matching your search '{searchTerm}'.
               <span role="img" aria-label="Shrug">
                 {" "}

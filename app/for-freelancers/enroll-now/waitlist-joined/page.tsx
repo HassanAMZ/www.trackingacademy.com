@@ -11,7 +11,7 @@ const WaitlistJoined: React.FC = () => {
       <Text as="h1" variant="heading3xl">
         Thank You for Joining the Waitlist!
       </Text>
-      <Text as="p" variant="bodyMd" className="mt-4">
+      <Text as="p" className="mt-4">
         We appreciate your interest. You will be among the first to know when
         our courses are available. Stay tuned for updates and exclusive content.
       </Text>

@@ -34,11 +34,11 @@ const BlogCard: React.FC<SingleBlogCardProps> = ({
             <Text as="h4" variant="headingLg" className="line-clamp-2 pt-2">
               {post.title}
             </Text>
-            <Text as="p" variant="bodyMd" className="line-clamp-2">
+            <Text as="p" className="line-clamp-2">
               {post.description}
             </Text>
             <div className="flex flex-row items-center justify-between whitespace-nowrap pt-2 text-xs">
-              <Text as="p" variant="bodyMd" applyMargin={false}>
+              <Text as="p" applyMargin={false}>
                 {post.date}
               </Text>
             </div>

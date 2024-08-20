@@ -17,7 +17,7 @@ export default function Hero() {
             <span className="text-primary"> Guaranteed!</span>
           </Text>
 
-          <Text as="p" variant="bodyMd" applyMargin={false}>
+          <Text as="p" applyMargin={false}>
             Our proven system ensures you have the most accurate conversion
             data, with minimal effort and no disruption to your current setup.
           </Text>
@@ -30,21 +30,11 @@ export default function Hero() {
               <Star />
               <Star />
             </div>
-            <Text
-              as="p"
-              variant="bodyMd"
-              applyMargin={false}
-              className="font-semibold italic"
-            >
+            <Text as="p" applyMargin={false} className="font-semibold italic">
               “Shahzada is great and extremely knowledgable and friendly. He
               Helped us out tremendously.”
             </Text>
-            <Text
-              as="p"
-              variant="bodyMd"
-              applyMargin={false}
-              className="pb-2 text-xs"
-            >
+            <Text as="p" applyMargin={false} className="pb-2 text-xs">
               Mark, <strong>CMO at LemonLawFirm </strong>
             </Text>
             <div className="absolute -bottom-4 right-0 mb-2 mr-2 flex space-x-4">
@@ -64,15 +54,9 @@ export default function Hero() {
           </div>
 
           <div className="grid grid-cols-1 space-y-1 py-2 text-left">
-            <Text as="p" variant="bodyMd">
-              ✔ 95% accuracy or full refund.
-            </Text>
-            <Text as="p" variant="bodyMd">
-              ✔ Improve Conversion Rates by 30%
-            </Text>
-            <Text as="p" variant="bodyMd">
-              ✔ Setup and optimized within 7 days.
-            </Text>
+            <Text as="p">✔ 95% accuracy or full refund.</Text>
+            <Text as="p">✔ Improve Conversion Rates by 30%</Text>
+            <Text as="p">✔ Setup and optimized within 7 days.</Text>
           </div>
 
           <Button asChild>
@@ -105,12 +89,7 @@ export default function Hero() {
                 <AvatarFallback>IA</AvatarFallback>
               </Avatar>
             </div>
-            <Text
-              as="p"
-              variant="bodyMd"
-              applyMargin={false}
-              className="pl-8 text-sm"
-            >
+            <Text as="p" applyMargin={false} className="pl-8 text-sm">
               1032+ websites configured with 95% accuracy
             </Text>
           </div>

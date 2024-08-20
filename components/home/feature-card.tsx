@@ -8,10 +8,12 @@ import {
   DialogTrigger,
 } from "../ui/dialog";
 import Text from "@/components/ui/text";
+import { cn } from "@/lib/utils";
 
 interface FeatureCardPorps {
   icon: React.ReactElement;
   title: string;
+  className?: string;
   description: string;
   dialogTitle: string;
   dialogDescription: string;
@@ -20,6 +22,7 @@ interface FeatureCardPorps {
 const FeatureCard: FC<FeatureCardPorps> = ({
   icon,
   title,
+  className,
   description,
   dialogTitle,
   dialogDescription,
@@ -32,12 +35,12 @@ const FeatureCard: FC<FeatureCardPorps> = ({
           <Text as="h3" variant="headingXl" className="mb-2 text-primary">
             {title}
           </Text>
-          <Text as="p" variant="bodyMd" applyMargin={false}>
+          <Text as="p" applyMargin={false}>
             {description}
           </Text>
         </div>
       </DialogTrigger>
-      <DialogContent className="sm:max-w-md">
+      <DialogContent className={cn(className, "sm:max-w-md")}>
         <DialogHeader>
           <DialogTitle>{dialogTitle}</DialogTitle>
           <DialogDescription>{dialogDescription}</DialogDescription>
