@@ -3,8 +3,11 @@ import React, { useState, useEffect, ChangeEvent } from "react";
 import { useFormState, useFormStatus } from "react-dom";
 import { createContact } from "@/actions/contact-us";
 import { useRouter } from "next/navigation";
-import { Input } from "../ui/input";
-import { Label } from "../ui/label";
+import Container from "@/components/ui/container";
+import { Separator } from "@/components/ui/separator";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import {
   Select,
@@ -16,10 +19,9 @@ import {
 import { cn } from "../lib/utils";
 import Link from "next/link";
 import { GTMCustomEvent } from "../analytics/GTMEvents";
-import { Button } from "../ui/button";
-import Container from "../ui/container";
+import { Card, CardContent } from "../ui/card";
 import Text from "../ui/text";
-import { Card, CardContent, CardHeader } from "../ui/card";
+
 interface FormData {
   firstName: string;
   lastName: string;
@@ -254,7 +256,7 @@ export default function ContactForm({
             implementation_timeline: formData.implementationTimeline,
           }}
         />
-        <Text as="h2" variant="heading2xl" className="text-center">
+        <Text as="h1" variant="heading3xl" className="text-center">
           Thank you!
         </Text>
         <Text as="p">Your request has been submitted.</Text>
@@ -310,7 +312,7 @@ export default function ContactForm({
             <div className="py-6 text-left md:text-center">
               {formHeader && (
                 <Text as="h1" variant="heading3xl">
-                  Work with Tracking Academy{" "}
+                  Work with Track 95{" "}
                 </Text>
               )}
               <Text as="p">
@@ -368,9 +370,13 @@ export default function ContactForm({
             {isItAFit && (
               <Text as="p" className="py-12 text-left text-sm md:text-center">
                 Have a project but not quite ready to contact us?{" "}
-                <Button asChild variant={"link"} className="inline p-0">
+                <Button
+                  asChild
+                  variant={"link"}
+                  className="inline p-0 text-wrap"
+                >
                   <Link href="/contact/is-tracking-academy-a-fit-for-you">
-                    See if Tracking Academy is a fit for you.
+                    See if Track 95 is a fit for you.
                   </Link>
                 </Button>
               </Text>
@@ -433,7 +439,7 @@ export default function ContactForm({
                 <Input
                   type="text"
                   name="companyName"
-                  placeholder="TrackingAcademy"
+                  placeholder="Track95"
                   value={formData.companyName}
                   onChange={handleInputChange}
                 />
@@ -790,10 +796,9 @@ export default function ContactForm({
 
   return (
     <div className={cn("w-full", className)}>
+      {renderNavigation()}
       <Card className="rounded-t-lg">
-        <CardHeader></CardHeader>
         <CardContent className="mx-auto max-w-3xl">
-          {renderNavigation()}
           <form onSubmit={handleSubmit} className="flex flex-col space-y-3">
             {renderStep()}
             <Text as="p" aria-live="polite" className="sr-only">

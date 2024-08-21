@@ -2,7 +2,6 @@ import React from "react";
 import HeroComponent from "@/components/global/HeroComponent";
 import CourseContainer from "@/components/courses/CourseContainer";
 import getCoursesData from "utils/getCoursesData";
-import WaitlistForm from "@/components/courses/WaitlistForm";
 
 export default async function Page() {
   const data = await getCoursesData();
@@ -56,9 +55,7 @@ export default async function Page() {
    </React.Fragment> */}
       {sortedData.length === 0 && (
         <React.Fragment>
-          <div className="grid min-h-[60vh] place-content-center py-8 text-left">
-            <WaitlistForm />
-          </div>
+          <div className="grid min-h-[60vh] place-content-center py-8 text-left"></div>
         </React.Fragment>
       )}
     </div>

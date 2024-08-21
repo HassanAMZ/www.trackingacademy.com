@@ -5,6 +5,14 @@ const path = require("path");
 const nextConfig = {
   pageExtensions: ["js", "jsx", "ts", "tsx", "mdx", "md"],
   experimental: {
+    turbo: {
+      rules: {
+        '*.svg': {
+          loaders: ['@svgr/webpack'],
+          as: '*.js',
+        },
+      },
+    },
     mdxRs: true,
     optimizeServerReact: true,
     webpackBuildWorker: true,

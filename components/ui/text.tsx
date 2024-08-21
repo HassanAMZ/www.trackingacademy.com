@@ -80,17 +80,17 @@ const Text: React.FC<TextProps> = ({
   };
 
   const toneClasses = {
-    base: "text-gray-900",
-    disabled: "text-gray-400",
+    base: "text-[hsl(var(--foreground))]",
+    disabled: "text-[hsl(var(--muted-foreground))]",
     inherit: "text-inherit",
-    success: "text-green-600",
-    critical: "text-red-600",
-    caution: "text-yellow-600",
-    subdued: "text-gray-600",
-    "text-inverse": "text-white",
-    "text-inverse-secondary": "text-gray-300",
-    magic: "text-purple-600",
-    "magic-subdued": "text-purple-300",
+    success: "text-[hsl(var(--primary))]",
+    critical: "text-[hsl(var(--destructive))]",
+    caution: "text-[hsl(var(--accent))]",
+    subdued: "text-[hsl(var(--muted-foreground))]",
+    "text-inverse": "text-[hsl(var(--foreground))]",
+    "text-inverse-secondary": "text-[hsl(var(--secondary-foreground))]",
+    magic: "text-[hsl(var(--primary))]",
+    "magic-subdued": "text-[hsl(var(--secondary))]",
   };
 
   const fontWeightClasses = {
