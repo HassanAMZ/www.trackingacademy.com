@@ -82,7 +82,7 @@ export default function Page() {
         </section>
 
         <Button asChild className="flex text-lg font-semibold">
-          <Link href="join-the-team">Apply Now</Link>
+          <Link href="/career/join-the-team">Apply Now</Link>
         </Button>
       </Container>
     </React.Fragment>
