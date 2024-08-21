@@ -5,8 +5,17 @@ import Text from "@/components/ui/text";
 import getFolderData from "@/utils/getFolderData";
 import Link from "next/link";
 import React from "react";
+
 export default async function Page() {
   const folders = await getFolderData("app/career");
+
+  // Filter out pages that include "thank-you" or "join-the-team" in the slug
+  const filteredFolders = folders.filter(
+    (folder) =>
+      !folder.slug.includes("thank-you") &&
+      !folder.slug.includes("join-the-team")
+  );
+
   return (
     <div>
       <Container className="py-4 space-y-5">
@@ -14,7 +23,7 @@ export default async function Page() {
           Active Jobs
         </Text>
         <div className="space-y-4">
-          {folders.map((folder) => (
+          {filteredFolders.map((folder) => (
             <Button asChild key={folder.id}>
               <Link href={`/career/${folder.slug}`}>{folder.title}</Link>
             </Button>

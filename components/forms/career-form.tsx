@@ -23,6 +23,7 @@ import Text from "../ui/text";
 import { createCareerApplication } from "@/actions/handle-join-the-team";
 
 interface FormData {
+  email: string;
   firstName: string;
   lastName: string;
   dob: string;
@@ -35,12 +36,12 @@ interface FormData {
   phone: string;
   maritalStatus: string;
   degree: string;
-  hasGoodLaptopAndInternet: boolean;
+  hasGoodLaptopAndInternet: string;
   position: string;
   currentWorkStatus: string;
   lastJobDesignation: string;
   businessDevelopmentExperience: string;
-  experienceInYears: number;
+  experienceInYears: string;
   lastJobCompanyName: string;
   lastJobResponsibilities: string;
   professionalBackground: string;
@@ -52,12 +53,13 @@ interface FormData {
   loomVideo2: string;
   loomVideo3: string;
   lastSalaryAndCommission: string;
-  expectedSalary: number;
-  salaryTargetIn3Years: number;
+  expectedSalary: string;
+  salaryTargetIn3Years: string;
   futureInFiveYears: string;
 }
 
 interface Errors {
+  email?: string;
   firstName?: string;
   lastName?: string;
   dob?: string;
@@ -112,7 +114,7 @@ function SubmitButton({ validateStep }: { validateStep: () => boolean }) {
       onClick={handleClick}
       className={`${pending ? "cursor-not-allowed opacity-50" : ""}`}
     >
-      {pending ? "Submitting..." : "Submit Career Application"}
+      {pending ? "Submitting..." : "Submit Career Form"}
     </Button>
   );
 }
@@ -126,8 +128,8 @@ interface CareerFormProps {
 }
 
 export default function CareerForm({
-  thankYouUrl = "/careers/thank-you",
-  gtmCustomEventName = "career_application_submission",
+  thankYouUrl = "/career/thank-you",
+  gtmCustomEventName = "career_form_submission",
   isItAFit = true,
   formHeader = true,
   className,
@@ -140,6 +142,7 @@ export default function CareerForm({
   const [currentStep, setCurrentStep] = useState(1);
   const [maxStep, setMaxStep] = useState(1);
   const [formData, setFormData] = useState<FormData>({
+    email: "",
     firstName: "",
     lastName: "",
     dob: "",
@@ -152,12 +155,12 @@ export default function CareerForm({
     phone: "",
     maritalStatus: "",
     degree: "",
-    hasGoodLaptopAndInternet: false,
+    hasGoodLaptopAndInternet: "",
     position: "Upwork Business Developer",
     currentWorkStatus: "",
     lastJobDesignation: "",
     businessDevelopmentExperience: "",
-    experienceInYears: 0,
+    experienceInYears: "",
     lastJobCompanyName: "",
     lastJobResponsibilities: "",
     professionalBackground: "",
@@ -169,8 +172,8 @@ export default function CareerForm({
     loomVideo2: "",
     loomVideo3: "",
     lastSalaryAndCommission: "",
-    expectedSalary: 0,
-    salaryTargetIn3Years: 0,
+    expectedSalary: "",
+    salaryTargetIn3Years: "",
     futureInFiveYears: "",
   });
 
@@ -188,6 +191,7 @@ export default function CareerForm({
     const newErrors: Errors = {};
     switch (step) {
       case 1:
+        if (!formData.email) newErrors.email = "Email is required";
         if (!formData.firstName) newErrors.firstName = "First Name is required";
         if (!formData.lastName) newErrors.lastName = "Last Name is required";
         if (!formData.dob) newErrors.dob = "Date of Birth is required";
@@ -204,7 +208,7 @@ export default function CareerForm({
         if (!formData.maritalStatus)
           newErrors.maritalStatus = "Marital Status is required";
         if (!formData.degree) newErrors.degree = "Degree is required";
-        if (typeof formData.hasGoodLaptopAndInternet !== "boolean")
+        if (!formData.hasGoodLaptopAndInternet)
           newErrors.hasGoodLaptopAndInternet =
             "Laptop and Internet connection is required";
         break;
@@ -278,12 +282,8 @@ export default function CareerForm({
   const handleInputChange = (
     e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
   ) => {
-    const { name, value, type } = e.target;
-    if (type === "checkbox" && e.target instanceof HTMLInputElement) {
-      setFormData({ ...formData, [name]: e.target.checked });
-    } else {
-      setFormData({ ...formData, [name]: value });
-    }
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
   };
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
@@ -291,10 +291,7 @@ export default function CareerForm({
     if (validateStep(currentStep)) {
       const formDataToSubmit = new FormData();
       Object.entries(formData).forEach(([key, value]) => {
-        formDataToSubmit.append(
-          key,
-          typeof value === "boolean" ? value.toString() : value
-        );
+        formDataToSubmit.append(key, value);
       });
       formAction(formDataToSubmit);
     }
@@ -305,7 +302,7 @@ export default function CareerForm({
       <Container>
         <GTMCustomEvent
           user_data={{
-            email: formData.linkedinProfile,
+            email: formData.email,
             phone: formData.phone,
             address: {
               first_name: formData.firstName,
@@ -350,12 +347,12 @@ export default function CareerForm({
         <Text as="h1" variant="heading3xl" className="text-center">
           Thank you!
         </Text>
-        <Text as="p">Your career application has been submitted.</Text>
+        <Text as="p">Your request has been submitted.</Text>
         <Text as="p">
-          You'll be redirected to the Careers page. If the redirect does not
+          You'll be redirected to Book a Meeting Page. If the redirects does not
           happen,{" "}
           <Button asChild variant={"link"} className="p-0">
-            <Link href={"/careers"}>click here</Link>
+            <Link href={"/career/book-a-meeting"}>click here</Link>
           </Button>
         </Text>
       </Container>
@@ -363,7 +360,7 @@ export default function CareerForm({
   }
 
   const renderNavigation = () => {
-    const steps = ["Personal", "Work History", "Cover Letters", "Compensation"];
+    const steps = ["Meeting", "Account", "Project", "Tracking"];
     return (
       <div className="grid grid-cols-2 items-end justify-center gap-4 py-2 pb-6 text-center sm:py-6 lg:grid-cols-4 lg:py-8">
         {steps.map((step, index) => (
@@ -401,6 +398,22 @@ export default function CareerForm({
         return (
           <>
             <div className="grid grid-cols-2 gap-3">
+              <div className="grid w-full items-center">
+                <Label className="pb-2" htmlFor="email">
+                  Email Address
+                </Label>
+                <Input
+                  required
+                  type="text"
+                  name="email"
+                  placeholder="John@doe.com"
+                  value={formData.email}
+                  onChange={handleInputChange}
+                />
+                {errors.email && (
+                  <span className="text-destructive">{errors.email}</span>
+                )}
+              </div>
               <div className="grid w-full items-center">
                 <Label className="pb-2" htmlFor="firstName">
                   First Name
@@ -634,7 +647,7 @@ export default function CareerForm({
                   onValueChange={(value) =>
                     setFormData({
                       ...formData,
-                      hasGoodLaptopAndInternet: value === "true",
+                      hasGoodLaptopAndInternet: value,
                     })
                   }
                 >
@@ -653,15 +666,23 @@ export default function CareerForm({
                 )}
               </div>
             </div>
-
-            <div className="flex justify-between">
-              <Button type="button" variant={"outline"} onClick={prevStep}>
-                Previous
-              </Button>
-              <Button type="button" onClick={nextStep}>
-                Continue
-              </Button>
-            </div>
+            <Button className="w-max self-end" type="button" onClick={nextStep}>
+              Continue
+            </Button>
+            {isItAFit && (
+              <Text as="p" className="py-12 text-left text-sm md:text-center">
+                Have a project but not quite ready to contact us?{" "}
+                <Button
+                  asChild
+                  variant={"link"}
+                  className="inline p-0 text-wrap"
+                >
+                  <Link href="/contact/is-tracking-academy-a-fit-for-you">
+                    See if Track 95 is a fit for you.
+                  </Link>
+                </Button>
+              </Text>
+            )}
           </>
         );
       case 2:
@@ -857,178 +878,168 @@ export default function CareerForm({
         return (
           <>
             <div className="flex flex-col space-y-3">
-              <div className="grid w-full items-center space-y-4">
-                <Text as="h1" variant="heading3xl">
-                  Job Post 01
-                </Text>
-                <div className="border rounded-lg p-4">
-                  <Text as="p">
-                    We need to track purchase conversion data with values on our
-                    resort websites. <br />
-                    We have a set up done already but we need to verify whether
-                    data being pushed to Google Analytics, Google Ads and
-                    Facebook Pixel is accurate. <br />
-                    We have already set up server side Tracking using Stape.
-                    <br />
-                    We need a true expert to help with this and all our future
-                    projects. <br />
-                    Check out the website to understand the setup
-                    <br /> https://stayonera.com/ <br />
-                    https://spiritofsofia.com/
-                    <br /> https://www.missinghotel.com/
-                  </Text>
-                </div>
-                <Label className="pb-2" htmlFor="coverLetter1">
-                  Cover Letter for Job Post 01
-                </Label>
-                <Textarea
-                  name="coverLetter1"
-                  required
-                  className="h-32 bg-background"
-                  placeholder="Write your cover letter for Job Post 01"
-                  value={formData.coverLetter1}
-                  onChange={handleInputChange}
-                />
-                {errors.coverLetter1 && (
-                  <span className="text-destructive">
-                    {errors.coverLetter1}
-                  </span>
-                )}
-              </div>
-              <div className="grid w-full items-center space-y-4">
-                <Label className="pb-2" htmlFor="loomVideo1">
-                  Loom Video for Job Post 01
-                </Label>
-                <Input
-                  required
-                  type="text"
-                  name="loomVideo1"
-                  placeholder="Loom video URL for Job Post 01"
-                  value={formData.loomVideo1}
-                  onChange={handleInputChange}
-                />
-                {errors.loomVideo1 && (
-                  <span className="text-destructive">{errors.loomVideo1}</span>
-                )}
-              </div>
               <Text as="h1" variant="heading3xl">
-                Job Post 02
+                Job Post 01
               </Text>
               <div className="border rounded-lg p-4">
                 <Text as="p">
-                  Shopify recently introduced a new settings feature called
-                  "Customer Privacy." In certain countries, it's now mandatory
-                  to display a visible cookie banner that users must accept
-                  before their website behavior can be tracked. This requirement
-                  is causing significant issues with tracking accuracy with add
-                  to carts, reached checkouts and purchases in Shopify analytics
-                  and reports.
+                  We need to track purchase conversion data with values on our
+                  resort websites. <br />
+                  We have a set up done already but we need to verify whether
+                  data being pushed to Google Analytics, Google Ads and Facebook
+                  Pixel is accurate. <br />
+                  We have already set up server side Tracking using Stape.
                   <br />
-                  We need a solution whereby all customer data is being tracked
-                  wether they accept the cookie consent or not.
-                  <br />
-                  Please note: It hasn't nothing to do with Google ads!
+                  We need a true expert to help with this and all our future
+                  projects. <br />
+                  Check out the website to understand the setup
+                  <br /> https://stayonera.com/ <br />
+                  https://spiritofsofia.com/
+                  <br /> https://www.missinghotel.com/
                 </Text>
               </div>
-              <div className="grid w-full items-center space-y-4">
-                <Label className="pb-2" htmlFor="coverLetter2">
-                  Cover Letter for Job Post 02
-                </Label>
-                <Textarea
-                  name="coverLetter2"
-                  required
-                  className="h-32 bg-background"
-                  placeholder="Write your cover letter for Job Post 02"
-                  value={formData.coverLetter2}
-                  onChange={handleInputChange}
-                />
-                {errors.coverLetter2 && (
-                  <span className="text-destructive">
-                    {errors.coverLetter2}
-                  </span>
-                )}
-              </div>
-              <div className="grid w-full items-center">
-                <Label className="pb-2" htmlFor="loomVideo2">
-                  Loom Video for Job Post 02
-                </Label>
-                <Input
-                  required
-                  type="text"
-                  name="loomVideo2"
-                  placeholder="Loom video URL for Job Post 02"
-                  value={formData.loomVideo2}
-                  onChange={handleInputChange}
-                />
-                {errors.loomVideo2 && (
-                  <span className="text-destructive">{errors.loomVideo2}</span>
-                )}
-              </div>
-              <Text as="h1" variant="heading3xl">
-                Job Post 03
+              <Label className="pb-2" htmlFor="coverLetter1">
+                Cover Letter for Job Post 01
+              </Label>
+              <Textarea
+                name="coverLetter1"
+                required
+                className="h-32 bg-background"
+                placeholder="Write your cover letter for Job Post 01"
+                value={formData.coverLetter1}
+                onChange={handleInputChange}
+              />
+              {errors.coverLetter1 && (
+                <span className="text-destructive">{errors.coverLetter1}</span>
+              )}
+            </div>
+            <div className="grid w-full items-center space-y-4">
+              <Label className="pb-2" htmlFor="loomVideo1">
+                Loom Video for Job Post 01
+              </Label>
+              <Input
+                required
+                type="text"
+                name="loomVideo1"
+                placeholder="Loom video URL for Job Post 01"
+                value={formData.loomVideo1}
+                onChange={handleInputChange}
+              />
+              {errors.loomVideo1 && (
+                <span className="text-destructive">{errors.loomVideo1}</span>
+              )}
+            </div>
+            <Text as="h1" variant="heading3xl">
+              Job Post 02
+            </Text>
+            <div className="border rounded-lg p-4">
+              <Text as="p">
+                Shopify recently introduced a new settings feature called
+                "Customer Privacy." In certain countries, it's now mandatory to
+                display a visible cookie banner that users must accept before
+                their website behavior can be tracked. This requirement is
+                causing significant issues with tracking accuracy with add to
+                carts, reached checkouts and purchases in Shopify analytics and
+                reports.
+                <br />
+                We need a solution whereby all customer data is being tracked
+                wether they accept the cookie consent or not.
+                <br />
+                Please note: It hasn't nothing to do with Google ads!
               </Text>
-              <div className="border rounded-lg p-4">
-                <Text as="p">
-                  We are looking for a highly skilled Facebook Ads Conversion
-                  Tracking Specialist with expertise in setting up, testing, and
-                  validating Conversion API tracking to ensure optimal
-                  performance on our Shopify-based website. The ideal candidate
-                  will have a proven track record in fine-tuning Facebook Pixel
-                  configurations to achieve precise and reliable attribution.
-                  <br />
-                  Currently, our conversion tracking is underperforming, with
-                  attribution scores of 5.2/10 and 4.4/10 on some key metrics.
-                  We are actively running campaigns, but data is not accurately
-                  feeding back to Facebook. Your primary responsibility will be
-                  to diagnose and resolve these issues, ensuring seamless data
-                  flow and improved attribution accuracy on our Shopify
-                  platform.{" "}
-                </Text>
-              </div>
-              <div className="grid w-full items-center">
-                <Label className="pb-2" htmlFor="coverLetter3">
-                  Cover Letter for Job Post 03
-                </Label>
-                <Textarea
-                  name="coverLetter3"
-                  required
-                  className="h-32 bg-background"
-                  placeholder="Write your cover letter for Job Post 03"
-                  value={formData.coverLetter3}
-                  onChange={handleInputChange}
-                />
-                {errors.coverLetter3 && (
-                  <span className="text-destructive">
-                    {errors.coverLetter3}
-                  </span>
-                )}
-              </div>
+            </div>
+            <div className="grid w-full items-center space-y-4">
+              <Label className="pb-2" htmlFor="coverLetter2">
+                Cover Letter for Job Post 02
+              </Label>
+              <Textarea
+                name="coverLetter2"
+                required
+                className="h-32 bg-background"
+                placeholder="Write your cover letter for Job Post 02"
+                value={formData.coverLetter2}
+                onChange={handleInputChange}
+              />
+              {errors.coverLetter2 && (
+                <span className="text-destructive">{errors.coverLetter2}</span>
+              )}
+            </div>
+            <div className="grid w-full items-center">
+              <Label className="pb-2" htmlFor="loomVideo2">
+                Loom Video for Job Post 02
+              </Label>
+              <Input
+                required
+                type="text"
+                name="loomVideo2"
+                placeholder="Loom video URL for Job Post 02"
+                value={formData.loomVideo2}
+                onChange={handleInputChange}
+              />
+              {errors.loomVideo2 && (
+                <span className="text-destructive">{errors.loomVideo2}</span>
+              )}
+            </div>
+            <Text as="h1" variant="heading3xl">
+              Job Post 03
+            </Text>
+            <div className="border rounded-lg p-4">
+              <Text as="p">
+                We are looking for a highly skilled Facebook Ads Conversion
+                Tracking Specialist with expertise in setting up, testing, and
+                validating Conversion API tracking to ensure optimal performance
+                on our Shopify-based website. The ideal candidate will have a
+                proven track record in fine-tuning Facebook Pixel configurations
+                to achieve precise and reliable attribution.
+                <br />
+                Currently, our conversion tracking is underperforming, with
+                attribution scores of 5.2/10 and 4.4/10 on some key metrics. We
+                are actively running campaigns, but data is not accurately
+                feeding back to Facebook. Your primary responsibility will be to
+                diagnose and resolve these issues, ensuring seamless data flow
+                and improved attribution accuracy on our Shopify platform.{" "}
+              </Text>
+            </div>
+            <div className="grid w-full items-center">
+              <Label className="pb-2" htmlFor="coverLetter3">
+                Cover Letter for Job Post 03
+              </Label>
+              <Textarea
+                name="coverLetter3"
+                required
+                className="h-32 bg-background"
+                placeholder="Write your cover letter for Job Post 03"
+                value={formData.coverLetter3}
+                onChange={handleInputChange}
+              />
+              {errors.coverLetter3 && (
+                <span className="text-destructive">{errors.coverLetter3}</span>
+              )}
+            </div>
 
-              <div className="grid w-full items-center">
-                <Label className="pb-2" htmlFor="loomVideo3">
-                  Loom Video for Job Post 03
-                </Label>
-                <Input
-                  required
-                  type="text"
-                  name="loomVideo3"
-                  placeholder="Loom video URL for Job Post 03"
-                  value={formData.loomVideo3}
-                  onChange={handleInputChange}
-                />
-                {errors.loomVideo3 && (
-                  <span className="text-destructive">{errors.loomVideo3}</span>
-                )}
-              </div>
-
-              <div className="flex justify-between">
-                <Button type="button" variant={"outline"} onClick={prevStep}>
-                  Previous
-                </Button>
-                <Button type="button" onClick={nextStep}>
-                  Continue
-                </Button>
-              </div>
+            <div className="grid w-full items-center">
+              <Label className="pb-2" htmlFor="loomVideo3">
+                Loom Video for Job Post 03
+              </Label>
+              <Input
+                required
+                type="text"
+                name="loomVideo3"
+                placeholder="Loom video URL for Job Post 03"
+                value={formData.loomVideo3}
+                onChange={handleInputChange}
+              />
+              {errors.loomVideo3 && (
+                <span className="text-destructive">{errors.loomVideo3}</span>
+              )}
+            </div>
+            <div className="flex justify-between">
+              <Button type="button" variant={"outline"} onClick={prevStep}>
+                Previous
+              </Button>
+              <Button type="button" onClick={nextStep}>
+                Continue
+              </Button>
             </div>
           </>
         );
@@ -1113,6 +1124,7 @@ export default function CareerForm({
               <Button type="button" variant={"outline"} onClick={prevStep}>
                 Previous
               </Button>
+
               <SubmitButton validateStep={() => validateStep(currentStep)} />
             </div>
           </>
