@@ -109,19 +109,18 @@ const Text: React.FC<TextProps> = ({
     headingSm: "text-base lg:text-lg font-semibold",
     headingXs: "text-sm lg:text-base font-semibold",
     bodyLg: "text-lg font-normal",
-    bodyMd: `text-base font-normal ${
-      applyMargin && "[&:not(:first-child)]:mt-6"
-    }`,
+    bodyMd: `text-base font-normal`,
     bodySm: "text-sm font-normal",
     bodyXs: "text-xs font-normal",
   };
 
   const listClasses = {
-    ol: "list-decimal my-6 ml-6 [&>li]:mt-2",
-    ul: "list-disc list-inside my-3 ml-6 [&>li]:mt-2",
+    ol: "list-decimal my-3 ml-6 ",
+    ul: "list-disc list-inside my-3 ml-6 ",
   };
 
   const classes = clsx(
+    "pt-1",
     alignment && alignmentClasses[alignment],
     breakWord && "break-words",
     numeric && "tabular-nums",

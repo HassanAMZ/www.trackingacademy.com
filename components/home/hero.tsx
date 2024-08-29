@@ -32,7 +32,7 @@ const Hero: FC<HeroProps> = ({
   clients,
 }) => {
   return (
-    <Container className="flex flex-col items-start justify-center gap-4 text-left lg:grid lg:grid-cols-3 py-8">
+    <Container className="grid-cols-1 items-start justify-center gap-4 text-left grid lg:grid-cols-3 py-8">
       <div className="lg:col-span-2 space-y-5">
         {heading}
         {subheading && subheading}

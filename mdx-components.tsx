@@ -36,6 +36,7 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     h1: (props) => (
       <Text
         as="h1"
+        className="py-2"
         variant="heading3xl"
         {...props}
         id={createId(props.children as string)}
@@ -45,6 +46,7 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     ),
     h2: (props) => (
       <Text
+        className="py-2"
         as="h2"
         variant="heading2xl"
         {...props}
@@ -55,6 +57,7 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     ),
     h3: (props) => (
       <Text
+        className="py-2"
         as="h3"
         variant="headingXl"
         {...props}
@@ -65,6 +68,7 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     ),
     h4: (props) => (
       <Text
+        className="py-2"
         as="h4"
         variant="headingLg"
         {...props}
@@ -75,6 +79,7 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     ),
     h5: (props) => (
       <Text
+        className="py-2"
         as="h4"
         variant="headingLg"
         {...props}
@@ -85,6 +90,7 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     ),
     h6: (props) => (
       <Text
+        className="py-2"
         as="h4"
         variant="headingLg"
         {...props}
@@ -94,17 +100,17 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
       </Text>
     ),
     li: (props) => (
-      <Text as="li" {...props}>
+      <Text as="li" variant="bodyMd" {...props}>
         {props.children}
       </Text>
     ),
     ol: (props) => (
-      <Text as="ol" {...props}>
+      <Text as="ol" variant="bodyMd" {...props}>
         {props.children}
       </Text>
     ),
     ul: (props) => (
-      <Text as="ul" {...props}>
+      <Text as="ul" variant="bodyMd" {...props}>
         {props.children}
       </Text>
     ),
