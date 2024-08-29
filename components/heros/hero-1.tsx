@@ -27,7 +27,12 @@ const Hero: React.FC = () => {
         - Guaranteed
       </Text>
 
-      <Text as="p" applyMargin={false} className="font-semibold max-w-2xl">
+      <Text
+        as="p"
+        variant="bodyMd"
+        applyMargin={false}
+        className="font-semibold max-w-2xl"
+      >
         Get your tracking setup perfected with our one-time service. Boost your
         business performance in just 7 days.
       </Text>
@@ -72,7 +77,7 @@ const ClientAvatars: React.FC<{ clients: Client[] }> = ({ clients }) => (
         </Avatar>
       ))}
     </div>
-    <Text as="p" applyMargin={false} className="pl-8 text-sm">
+    <Text as="p" variant="bodyMd" applyMargin={false} className="pl-8 text-sm">
       1032 + websites configured with 95% accuracy
     </Text>
   </div>

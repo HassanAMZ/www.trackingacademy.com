@@ -4,8 +4,8 @@ import Container from "@/components/ui/container";
 import Navbar from "@/components/global/navbar";
 
 export const metadata = {
-  title: "For Freelancers - TrackingAcademy",
-  description: `Courses, Training and more.`,
+  title: "For Businesses - TrackingAcademy",
+  description: `Services, Training and more.`,
 };
 
 export default function Layout({ children }: { children: ReactNode }) {

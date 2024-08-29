@@ -8,7 +8,7 @@ export default function Page() {
       <Text as="h1" variant="heading3xl" className="text-center">
         Hey, I'm Hassan 👋
       </Text>
-      <Text as="p" className="text-center">
+      <Text as="p" variant="bodyMd" className="text-center">
         I'm a Top Rated Freelancer on Upwork, here's what you should know about
         me.
       </Text>

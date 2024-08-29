@@ -6,8 +6,10 @@ import { TestimonialsCarousel } from "./testimonials-carousel";
 import Text from "@/components/ui/text";
 import TestimonialsCarousel2 from "./testimonials-carousal-2";
 import Container from "../ui/container";
+import clients from "@/data/clients";
 
 export default function Hero() {
+  const topClients = clients.slice(0, 3);
   return (
     <Container className="sm:py py-2 lg:pt-8">
       <div className="flex flex-col items-start justify-center gap-4 md:grid md:grid-cols-3">
@@ -19,7 +21,7 @@ export default function Hero() {
             <span className="text-primary">actionable insights</span> and{" "}
             <span className="text-primary">grow your business</span>. */}
           </Text>
-          <Text as="p" applyMargin={false}>
+          <Text as="p" variant="bodyMd" applyMargin={false}>
             Learn how to turn your data into actionable insights and grow your
             business. Our expert-led training ensures you master conversion
             tracking and analytics, with hands-on practice and real-world
@@ -28,9 +30,15 @@ export default function Hero() {
           <TestimonialsCarousel2 />
           <div className="grid grid-cols-1 md:grid-cols-1">
             <div className="space-y-1">
-              <Text as="p">✔ Setup and optimized within 7 days.</Text>
-              <Text as="p">✔ Achieve 95% tracking accuracy.</Text>
-              <Text as="p">✔ 95% accuracy or full refund.</Text>
+              <Text as="p" variant="bodyMd">
+                ✔ Setup and optimized within 7 days.
+              </Text>
+              <Text as="p" variant="bodyMd">
+                ✔ Achieve 95% tracking accuracy.
+              </Text>
+              <Text as="p" variant="bodyMd">
+                ✔ 95% accuracy or full refund.
+              </Text>
             </div>
           </div>
 
@@ -40,31 +48,24 @@ export default function Hero() {
 
           <div className="flex items-center justify-center md:justify-start gap-2">
             <div className="relative h-8 w-8">
-              <Avatar className="absolute left-0 top-0 z-1">
-                <AvatarImage
-                  src="/images/clients/malik-osama.jfif"
-                  alt="@malik-osama"
-                />
-                <AvatarFallback>MO</AvatarFallback>
-              </Avatar>
-
-              <Avatar className="absolute left-4 top-0 z-2">
-                <AvatarImage
-                  src="/images/clients/philipp-herglotz.jfif"
-                  alt="@philipp-herglotz"
-                />
-                <AvatarFallback>PH</AvatarFallback>
-              </Avatar>
-
-              <Avatar className="absolute left-8 top-0 z-3">
-                <AvatarImage
-                  src="/images/clients/imtiaz-ahmad.jfif"
-                  alt="@imtiaz-ahmad"
-                />
-                <AvatarFallback>IA</AvatarFallback>
-              </Avatar>
+              {topClients.map((client, index) => (
+                <Avatar
+                  key={client.clientDetails.name}
+                  className={`absolute left-${index * 4} top-0 z-${index + 1}`}
+                >
+                  <AvatarImage
+                    src={client.clientDetails.images[0].url}
+                    alt={`@${client.clientDetails.name
+                      .toLowerCase()
+                      .replace(" ", "-")}`}
+                  />
+                  <AvatarFallback>
+                    {client.clientDetails.name[0]}
+                  </AvatarFallback>
+                </Avatar>
+              ))}
             </div>
-            <Text as="p" applyMargin={false} className="pl-10">
+            <Text as="p" variant="bodyMd" applyMargin={false} className="pl-10">
               2 students trained & 2 success stories
             </Text>
           </div>

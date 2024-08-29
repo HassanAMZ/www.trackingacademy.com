@@ -12,7 +12,7 @@ export default function Page() {
         <Text as="h1" variant="heading2xl" alignment="center" fontWeight="bold">
           We Are Hiring!
         </Text>
-        <Text as="p" variant="bodyLg" alignment="center" tone="subdued">
+        <Text as="p" variant="bodyMd" alignment="center" tone="subdued">
           Join our team as a full-time Upwork Business Developer and take your
           career to the next level.
         </Text>

@@ -158,12 +158,12 @@ export default function Offer() {
           – it's transformed hundreds.
         </Text>
 
-        <Text as="p">
+        <Text as="p" variant="bodyMd">
           If we haven't met before – hi, I'm Hassan, founder of Precision Track
           👋
         </Text>
 
-        <Text as="p">
+        <Text as="p" variant="bodyMd">
           I started Precision Track in 2020, after seeing countless businesses
           struggle with inaccurate data and lost revenue. We started with{" "}
           <span className="text-primary font-semibold">
@@ -173,7 +173,7 @@ export default function Offer() {
           research and development, we created something revolutionary.
         </Text>
 
-        <Text as="p">
+        <Text as="p" variant="bodyMd">
           Growing the business was challenging at first. We were{" "}
           <span className="font-semibold">working 80+ hours a week</span>,
           constantly iterating on our product, and trying to convince skeptical
@@ -190,7 +190,7 @@ export default function Offer() {
           95%+ tracking accuracy.
         </Text>
 
-        <Text as="p">
+        <Text as="p" variant="bodyMd">
           12 months later, we had helped over{" "}
           <span className="text-primary font-semibold">100 businesses</span>{" "}
           dramatically improve their ROAS and scale their ad spend with
@@ -202,7 +202,7 @@ export default function Offer() {
           thought possible.
         </Text>
 
-        <Text as="p">
+        <Text as="p" variant="bodyMd">
           Now,{" "}
           <span className="font-semibold">
             Precision Track is the go-to solution for businesses serious about
@@ -226,13 +226,13 @@ export default function Offer() {
           ))}
         </div>
 
-        <Text as="p" className=" font-semibold mb-4">
+        <Text as="p" variant="bodyMd" className=" font-semibold mb-4">
           I genuinely believe that with the right tracking, you can transform
           your marketing efforts and scale your business beyond what you thought
           possible.
         </Text>
 
-        <Text as="p" className="mb-6">
+        <Text as="p" variant="bodyMd" className="mb-6">
           So, how do you harness the power of precision tracking? How do you
           unlock the potential of your marketing data? Well, it starts with a
           conversation...
@@ -254,7 +254,7 @@ export default function Offer() {
           95%+ Tracking Accuracy
         </Text>
 
-        <Text as="p">
+        <Text as="p" variant="bodyMd">
           Over the last 5 years, I've learned a lot about what it takes to{" "}
           <span className="font-semibold">build reliable tracking systems</span>{" "}
           from scratch, <span className="font-semibold">provide value</span>{" "}
@@ -269,16 +269,22 @@ export default function Offer() {
           effectively and scale their growth.
         </Text>
 
-        <Text as="p">
+        <Text as="p" variant="bodyMd">
           And while I've learned a lot of things (more on that later), the
           biggest thing I've learned is this:
         </Text>
 
-        <Text as="p" className="text-xl font-semibold mb-4 text-center">
+        <Text
+          as="p"
+          variant="bodyMd"
+          className="text-xl font-semibold mb-4 text-center"
+        >
           There's no secret to building a life-changing tracking system.
         </Text>
 
-        <Text as="p">It's just a matter of:</Text>
+        <Text as="p" variant="bodyMd">
+          It's just a matter of:
+        </Text>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 my-8">
           {feature03.map((feature, index) => (
@@ -294,11 +300,11 @@ export default function Offer() {
           ))}
         </div>
 
-        <Text as="p" className=" font-semibold mb-4">
+        <Text as="p" variant="bodyMd" className=" font-semibold mb-4">
           That's all it takes.
         </Text>
 
-        <Text as="p">
+        <Text as="p" variant="bodyMd">
           I <span className="font-semibold">personally guarantee</span> that if
           you follow this 3-part formula,{" "}
           <span className="text-primary font-semibold">
@@ -307,7 +313,7 @@ export default function Offer() {
           in ways you can't imagine.
         </Text>
 
-        <Text as="p" className="mb-8">
+        <Text as="p" variant="bodyMd" className="mb-8">
           You'll gain{" "}
           <span className="font-semibold">incredibly valuable insights</span>,
           you'll make data-driven decisions that impress your team and clients,
@@ -337,11 +343,15 @@ export default function Offer() {
           with precision tracking?
         </Text>
 
-        <Text as="p" className="text-xl font-semibold mb-4 text-center">
+        <Text
+          as="p"
+          variant="bodyMd"
+          className="text-xl font-semibold mb-4 text-center"
+        >
           One word – complexity.
         </Text>
 
-        <Text as="p">
+        <Text as="p" variant="bodyMd">
           Implementing precise tracking is hard because it requires a deep
           understanding of multiple systems and platforms. And unless you're a
           full-time data analyst with no other responsibilities, tracking
@@ -349,7 +359,7 @@ export default function Offer() {
           on.
         </Text>
 
-        <Text as="p">
+        <Text as="p" variant="bodyMd">
           Sure, if you're a tech-savvy marketer with unlimited resources, you
           could probably figure it out given enough time. But if you're like
           most marketers, and you've got an actual business to run, or clients
@@ -357,7 +367,7 @@ export default function Offer() {
           perfecting your tracking setup, things are a lot harder.
         </Text>
 
-        <Text as="p" className="mb-8">
+        <Text as="p" variant="bodyMd" className="mb-8">
           To achieve 95%+ tracking accuracy, you've got to master a bunch of
           different skills, some of which have entire university courses built
           around them, which can take years to master.
@@ -381,24 +391,28 @@ export default function Offer() {
           ))}
         </div>
 
-        <Text as="p">
+        <Text as="p" variant="bodyMd">
           And whether you figure it out on your own or not, you'll also have to
           do all this while juggling your core business responsibilities, client
           relationships, and trying to avoid burnout.
         </Text>
 
-        <Text as="p">
+        <Text as="p" variant="bodyMd">
           I'm not saying that you can't figure all of this out on your own.
         </Text>
 
-        <Text as="p" className="mb-8">
+        <Text as="p" variant="bodyMd" className="mb-8">
           I did, but it took me 5 years, and $100k+ in courses and coaching.
           Yes, there are thousands of tutorials out there teaching you how to do
           all of these things, but all those videos will take you thousands of
           hours to watch, and thousands of hours to implement.
         </Text>
 
-        <Text as="p" className=" font-semibold mb-8 text-center">
+        <Text
+          as="p"
+          variant="bodyMd"
+          className=" font-semibold mb-8 text-center"
+        >
           And even then, you might still get it wrong and not see any results.
         </Text>
 
@@ -418,37 +432,45 @@ export default function Offer() {
           <span className="underline text-primary">95% Accurate Tracking</span>?
         </Text>
 
-        <Text as="p" className="text-center font-bold text-primary">
+        <Text
+          as="p"
+          variant="bodyMd"
+          className="text-center font-bold text-primary"
+        >
           You build a Precision Tracking System.
         </Text>
 
-        <Text as="p" className="font-medium">
+        <Text as="p" variant="bodyMd" className="font-medium">
           That's the secret.
         </Text>
 
-        <Text as="p">
+        <Text as="p" variant="bodyMd">
           If you can systemize and operationalize your tracking setup, you’ll be
           able to ensure that all your marketing efforts are accurately tracked,
           enabling you to make better decisions and maximize your ROI,{" "}
           <strong>without sacrificing your time.</strong>
         </Text>
 
-        <Text as="p">
+        <Text as="p" variant="bodyMd">
           Just like successful businesses have systemized their processes for
           consistent results, you want to build a system around your tracking
           setup that provides leverage.
         </Text>
 
-        <Text as="p" className="text-center font-bold text-primary">
+        <Text
+          as="p"
+          variant="bodyMd"
+          className="text-center font-bold text-primary"
+        >
           Systems provide leverage.
         </Text>
 
-        <Text as="p">
+        <Text as="p" variant="bodyMd">
           Leverage is how you increase your output while saving time. That's the
           true secret to achieving 95%+ tracking accuracy.
         </Text>
 
-        <Text as="p" className="">
+        <Text as="p" variant="bodyMd" className="">
           Build a system that allows you to:
         </Text>
 
@@ -459,18 +481,18 @@ export default function Offer() {
           <Text as="li">Iterate continuously for sustained growth</Text>
         </Text>
 
-        <Text as="p">
+        <Text as="p" variant="bodyMd">
           This doesn’t suck the creativity out of your business. Instead,{" "}
           <strong>it multiplies it</strong>, because you’re spending your time
           focusing on what matters—growing your business and achieving your
           goals.
         </Text>
 
-        <Text as="p" className="text-center font-semibold">
+        <Text as="p" variant="bodyMd" className="text-center font-semibold">
           If you build a system, it takes a lot less time.
         </Text>
 
-        <Text as="p" className="text-center">
+        <Text as="p" variant="bodyMd" className="text-center">
           I’ve built these systems for my clients, and I can help you build
           yours too.
         </Text>
@@ -490,7 +512,7 @@ export default function Offer() {
           Our <span className="text-primary">Precision Track</span> Solution
           Guarantees 95% Tracking Accuracy
         </Text>
-        <Text as="p" className="text-center mb-6">
+        <Text as="p" variant="bodyMd" className="text-center mb-6">
           We ensure your tracking is accurate with an easy setup, full testing,
           and low maintenance. Our system helps you make better decisions and
           increase your profits.
@@ -534,7 +556,7 @@ export default function Offer() {
         <Text as="h1" variant="heading3xl" className="text-center">
           Enjoy the End Results
         </Text>
-        <Text as="p" className="text-center mb-6">
+        <Text as="p" variant="bodyMd" className="text-center mb-6">
           We make sure your tracking is 95% accurate so you get the right data
           every time. Plus, our support team is here to help you all day, every
           day.

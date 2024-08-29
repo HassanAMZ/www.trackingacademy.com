@@ -92,7 +92,7 @@ export default function Hero() {
             <span className="text-primary"> Guaranteed!</span>
           </Text>
 
-          <Text as="p">
+          <Text as="p" variant="bodyMd">
             Our <strong className="text-primary">PrecisionTrack </strong>
             system helps you get the most accurate data for your ads platforms (
             Meta, Google, TikTok, SnapChat etc.) and analytics tools (Ga4,
@@ -105,9 +105,15 @@ export default function Hero() {
           </div>
 
           <div className="grid grid-cols-1 space-y-1 py-2 text-left">
-            <Text as="p">✔ 95% accuracy.</Text>
-            <Text as="p">✔ Improve Conversion Rates by 30%</Text>
-            <Text as="p">✔ Setup and optimized within 7 days.</Text>
+            <Text as="p" variant="bodyMd">
+              ✔ 95% accuracy.
+            </Text>
+            <Text as="p" variant="bodyMd">
+              ✔ Improve Conversion Rates by 30%
+            </Text>
+            <Text as="p" variant="bodyMd">
+              ✔ Setup and optimized within 7 days.
+            </Text>
           </div>
 
           <Button asChild>
@@ -142,7 +148,7 @@ export default function Hero() {
                 <AvatarFallback>IA</AvatarFallback>
               </Avatar>
             </div>
-            <Text as="p" className="pl-8 text-sm">
+            <Text as="p" variant="bodyMd" className="pl-8 text-sm">
               1032+ websites configured with 95% accuracy
             </Text>
           </div>

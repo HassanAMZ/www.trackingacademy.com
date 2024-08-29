@@ -24,13 +24,17 @@ const SingleCourseCard: React.FC<SingleCourseCardProps> = ({
           <Text as="h2" variant="heading2xl">
             {course.title}
           </Text>
-          <Text as="p" className="line-clamp-3">
+          <Text as="p" variant="bodyMd" className="line-clamp-3">
             {course.description}
           </Text>
           <div className="flex items-center justify-between py-5">
             <div className="flex py-2">
-              <Text as="p">{course.price}</Text>
-              <Text as="p">{course.currency.symbol}</Text>
+              <Text as="p" variant="bodyMd">
+                {course.price}
+              </Text>
+              <Text as="p" variant="bodyMd">
+                {course.currency.symbol}
+              </Text>
             </div>
             <Text
               as="p"

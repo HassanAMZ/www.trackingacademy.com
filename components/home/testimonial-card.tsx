@@ -26,13 +26,13 @@ const ClientTestimonialCard: React.FC<ClientTestimonialCardProps> = ({
   return (
     <React.Fragment>
       <div className="space-y-4 pb-2">
-        <Text as="p">
+        <Text as="p" variant="bodyMd">
           <span className="text-primary">
             {client.businessName} ({category}: {cms})
           </span>
           <span>: {businessDetails}</span>
         </Text>
-        <div className="overflow-hidden rounded-md border border-secondary bg-secondary object-contain shadow-md filter">
+        <div className="overflow-hidden rounded-md border border-secondary bg-secondary object-contain shadow filter">
           <Image
             src={imageUrl}
             alt={`Client ${client.name}`}
@@ -42,7 +42,7 @@ const ClientTestimonialCard: React.FC<ClientTestimonialCardProps> = ({
           />
         </div>
 
-        <Text as="p">
+        <Text as="p" variant="bodyMd">
           <span className="text-primary">Results:&nbsp;</span>
           <span>"{results}"</span>
         </Text>

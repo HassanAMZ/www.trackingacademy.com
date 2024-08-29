@@ -53,7 +53,12 @@ const TestimonialsCarousel: React.FC = () => {
           <Star key={index} />
         ))}
       </div>
-      <Text as="p" applyMargin={false} className="font-semibold italic">
+      <Text
+        as="p"
+        variant="bodyMd"
+        applyMargin={false}
+        className="font-semibold italic"
+      >
         "{currentTestimonial.testimonialText}"
       </Text>
       <div className="flex items-center gap-2 pt-4">
@@ -67,10 +72,10 @@ const TestimonialsCarousel: React.FC = () => {
           blurDataURL="/placeholder-image.png" // Optional placeholder image
         />
         <div className="text-xs">
-          <Text as="p" applyMargin={false}>
+          <Text as="p" variant="bodyMd" applyMargin={false}>
             {currentTestimonial.clientName}
           </Text>
-          <Text as="p" applyMargin={false}>
+          <Text as="p" variant="bodyMd" applyMargin={false}>
             <strong>{currentTestimonial.clientTitle}</strong> at{" "}
             <strong>{currentTestimonial.businessName}</strong>
           </Text>

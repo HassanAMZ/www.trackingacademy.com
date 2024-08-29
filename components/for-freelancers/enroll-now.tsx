@@ -227,7 +227,9 @@ export default function ContactForm({
         <Text as="h1" variant="heading3xl" className="text-center">
           Thank you!
         </Text>
-        <Text as="p">Your request has been submitted.</Text>
+        <Text as="p" variant="bodyMd">
+          Your request has been submitted.
+        </Text>
       </Container>
     );
   }
@@ -276,7 +278,9 @@ export default function ContactForm({
                   Join Our Course Waitlist
                 </Text>
               )}
-              <Text as="p">Please provide your personal information.</Text>
+              <Text as="p" variant="bodyMd">
+                Please provide your personal information.
+              </Text>
             </div>
 
             <div className="grid gap-3">
@@ -744,7 +748,12 @@ export default function ContactForm({
           <CardContent className="mx-auto max-w-3xl">
             <form onSubmit={handleSubmit} className="flex flex-col space-y-3">
               {renderStep()}
-              <Text as="p" aria-live="polite" className="sr-only">
+              <Text
+                as="p"
+                variant="bodyMd"
+                aria-live="polite"
+                className="sr-only"
+              >
                 {state?.message}
               </Text>
             </form>

@@ -41,7 +41,7 @@ const InputField: React.FC<InputFieldProps> = ({
         aria-describedby={`${id}-helper-text`}
       />
       {helperText && (
-        <Text as="p" className="mt-2 text-sm">
+        <Text as="p" variant="bodyMd" className="mt-2 text-sm">
           {helperText}
         </Text>
       )}

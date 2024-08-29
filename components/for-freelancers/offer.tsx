@@ -36,7 +36,7 @@ export default function ForFreelancersOffer() {
         Master Analytics and Tracking in 12 Weeks!
       </Text>
 
-      <Text as="p">
+      <Text as="p" variant="bodyMd">
         Learn from experts and boost your skills with real-world projects.
       </Text>
 
@@ -172,12 +172,12 @@ const FeatureCard: FC<FeatureCardPorps> = ({
   return (
     <Dialog>
       <DialogTrigger asChild>
-        <div className="flex cursor-pointer flex-col items-center rounded-lg border p-6 shadow-lg">
+        <div className="flex cursor-pointer flex-col items-center rounded-lg border p-6 shadow">
           {icon}
           <Text as="h3" variant="headingXl" className="mb-2 text-primary">
             {title}
           </Text>
-          <Text as="p" applyMargin={false}>
+          <Text as="p" variant="bodyMd" applyMargin={false}>
             {description}
           </Text>
         </div>

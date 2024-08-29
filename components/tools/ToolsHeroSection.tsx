@@ -11,7 +11,7 @@ export default function ToolsHeroSection() {
         <Text as="h3" variant="headingXl">
           UTM Builder Tools
         </Text>
-        <Text as="p">
+        <Text as="p" variant="bodyMd">
           Start building your UTMs for Google Ads, Facebook Ads, TikTok, or
           custom, all at one place
         </Text>

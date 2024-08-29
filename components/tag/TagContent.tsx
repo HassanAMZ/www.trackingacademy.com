@@ -5,6 +5,7 @@ import { TagContentProps } from "@/types/index";
 import Link from "next/link";
 import formatString from "utils/formatString";
 import Text from "@/components/ui/text";
+import { Button } from "../ui/button";
 
 const TagContent: React.FC<TagContentProps> = ({ tags, type, blogsData }) => {
   // Count the number of blogs for each tag
@@ -25,17 +26,17 @@ const TagContent: React.FC<TagContentProps> = ({ tags, type, blogsData }) => {
 
   return (
     <section>
-      <div className="flex flex-wrap gap-2 py-2">
+      <div className="flex flex-wrap gap-2">
         {tagCounts.slice(0, visibleTags).map((tagCount, index) => (
           <Link
-            className="backgroundOverlay textOpacity80 p-2 capitalize hover:text-white"
+            className="capitalize"
             key={index}
             href={`/tags/${formatString(tagCount.tag)}`}
             passHref
           >
-            <Text as="h2" variant="heading2xl">
+            <Button variant={"outline"}>
               {tagCount.tag} ({tagCount.count})
-            </Text>
+            </Button>
           </Link>
         ))}
       </div>

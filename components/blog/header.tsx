@@ -31,7 +31,11 @@ const BlogHeader: React.FC<PostMetadataProps> = ({ metadata }) => {
             <Text as="h1" variant="heading3xl">
               {metadata.title}
             </Text>
-            <Text as="p" className="text-sm text-muted-foreground">
+            <Text
+              as="p"
+              variant="bodyMd"
+              className="text-sm text-muted-foreground"
+            >
               by ShahzadaAliHassan - {formatDate(metadata.date)}
             </Text>
             <div className="flex flex-wrap gap-2">

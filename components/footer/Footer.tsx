@@ -5,7 +5,7 @@ import Image from "next/image";
 const Footer: React.FC = () => {
   return (
     <div className="container-primary py-3">
-      <div className="w-full rounded-lg border p-3 shadow-md transition duration-300 ease-in-out">
+      <div className="w-full rounded-lg border p-3 shadow transition duration-300 ease-in-out">
         <footer className="flex flex-col gap-4">
           <div className="flex w-full flex-row items-start justify-between py-6 lg:items-center">
             <NavLink href="/">

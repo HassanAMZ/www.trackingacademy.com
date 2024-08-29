@@ -23,7 +23,7 @@ const YouTubeSearch: FC<YouTubeSearchProps> = ({ onSearchComplete }) => {
     const apiKey = process.env.NEXT_PUBLIC_YOUTUBE_API_KEY; // Replace with your actual API key
     const maxResults = 20;
     const url = `https://www.googleapis.com/youtube/v3/search?part=snippet&q=${encodeURIComponent(
-      searchInput,
+      searchInput
     )}&maxResults=${maxResults}&key=${apiKey}&type=video`;
 
     try {
@@ -33,7 +33,7 @@ const YouTubeSearch: FC<YouTubeSearchProps> = ({ onSearchComplete }) => {
       }
       const data = await response.json();
       const searchResults = data.items.map(
-        (item: any) => `https://www.youtube.com/watch?v=${item.id.videoId}`,
+        (item: any) => `https://www.youtube.com/watch?v=${item.id.videoId}`
       );
       onSearchComplete(searchResults);
     } catch (error) {
@@ -49,7 +49,7 @@ const YouTubeSearch: FC<YouTubeSearchProps> = ({ onSearchComplete }) => {
         value={searchInput}
         onChange={(e) => setSearchInput(e.target.value)}
         placeholder="Enter search term"
-        className="w-full flex-1 rounded-full border border-gray-300 p-2 shadow-sm focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500"
+        className="w-full flex-1 rounded-full border border-gray-300 p-2 shadow focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500"
       />
       <button
         onClick={searchYouTube}

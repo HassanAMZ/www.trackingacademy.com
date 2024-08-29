@@ -35,16 +35,26 @@ const TestimonialsCarousel2: React.FC = () => {
   const currentTestimonial = clientTestimonials[currentIndex];
 
   return (
-    <div className="relative space-y-1 rounded-lg border bg-secondary px-6 py-2 max-w-xl">
+    <div className="relative space-y-1 rounded-lg border shadow px-6 py-2 max-w-xl">
       <div className="absolute -top-4 right-0 flex space-x-1">
         {[...Array(5)].map((_, i) => (
           <Star key={i} />
         ))}
       </div>
-      <Text as="p" applyMargin={false} className="font-semibold italic">
+      <Text
+        as="p"
+        variant="bodyMd"
+        applyMargin={false}
+        className="font-semibold italic"
+      >
         "{currentTestimonial.testimonialText}"
       </Text>
-      <Text as="p" applyMargin={false} className="pb-2 text-xs">
+      <Text
+        as="p"
+        variant="bodyMd"
+        applyMargin={false}
+        className="pb-2 text-xs"
+      >
         {currentTestimonial.clientName},{" "}
         <strong>{currentTestimonial.clientTitle}</strong> at{" "}
         <strong>{currentTestimonial.businessName}</strong>

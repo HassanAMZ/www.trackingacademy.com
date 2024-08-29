@@ -7,7 +7,7 @@ import { HeroProps } from "@/types/index";
 const HeroComponent: React.FC<HeroProps> = ({ textGroup, links, images }) => {
   return (
     <React.Fragment>
-      <section className="text-complementary bg-dominant relative flex h-full flex-col items-center justify-center rounded-lg shadow-md lg:h-[80vh]">
+      <section className="text-complementary bg-dominant relative flex h-full flex-col items-center justify-center rounded-lg shadow lg:h-[80vh]">
         {images?.background?.desktop && (
           <Image
             alt="Shahzada Ali Hassan"
@@ -49,7 +49,11 @@ const HeroComponent: React.FC<HeroProps> = ({ textGroup, links, images }) => {
                     width={1920}
                     height={1080}
                     key={index}
-                    className={`absolute rounded-full opacity-90 ${index === 0 ? "left-0 top-0 z-10" : ""} ${index === 1 ? "left-4 top-0 z-20" : ""} ${index === 2 ? "left-8 top-0 z-30" : ""} ${index === 3 ? "left-12 top-0 z-30" : ""} `}
+                    className={`absolute rounded-full opacity-90 ${
+                      index === 0 ? "left-0 top-0 z-10" : ""
+                    } ${index === 1 ? "left-4 top-0 z-20" : ""} ${
+                      index === 2 ? "left-8 top-0 z-30" : ""
+                    } ${index === 3 ? "left-12 top-0 z-30" : ""} `}
                   />
                 ))}
               </div>

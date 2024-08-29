@@ -2,7 +2,7 @@
 import * as React from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Menu, Briefcase, Wrench } from "lucide-react"; // Import relevant icons
+import { Menu, Briefcase, Wrench, FileText } from "lucide-react"; // Import relevant icons
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -49,8 +49,27 @@ const careers = [
   // {
   //   title: "Web Analyst",
   //   href: "/career/web-analyst",
-  //   description: "We're looking for a Web Analyst to help optimize our web presence.",
+  //   description:
+  //     "We're looking for a Web Analyst to help optimize our web presence.",
   // },
+];
+
+const blogs = [
+  {
+    title: "Google Tag Manager",
+    href: "/tags/google-tag-manager",
+    description: "Learn how to implement and optimize Google Tag Manager.",
+  },
+  {
+    title: "Shopify",
+    href: "/tags/shopify",
+    description: "Guides and tips for managing and growing your Shopify store.",
+  },
+  {
+    title: "WooCommerce",
+    href: "/tags/woocommerce",
+    description: "Explore our WooCommerce tutorials and best practices.",
+  },
 ];
 
 const ListItem = React.forwardRef<
@@ -150,7 +169,7 @@ export default function Navbar() {
                 <li className="row-span-3">
                   <NavigationMenuLink asChild>
                     <a
-                      className="flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-muted/50 to-muted p-6 no-underline outline-none focus:shadow-md"
+                      className="flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-muted/50 to-muted p-6 no-underline outline-none focus:shadow"
                       href="/tools/utm-builder"
                     >
                       <Wrench className="h-6 w-6" /> {/* UTM Builder Icon */}
@@ -185,7 +204,7 @@ export default function Navbar() {
                 <li className="row-span-3">
                   <NavigationMenuLink asChild>
                     <a
-                      className="flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-muted/50 to-muted p-6 no-underline outline-none focus:shadow-md"
+                      className="flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-muted/50 to-muted p-6 no-underline outline-none focus:shadow"
                       href="/career/upwork-business-developer"
                     >
                       <Briefcase className="h-6 w-6" />{" "}
@@ -213,17 +232,39 @@ export default function Navbar() {
             </NavigationMenuContent>
           </NavigationMenuItem>
 
+          {/* Blogs Dropdown */}
           <NavigationMenuItem>
-            <Link href="/blog" legacyBehavior passHref>
-              <NavigationMenuLink
-                className={clsx(
-                  navigationMenuTriggerStyle(),
-                  isActive("/blog") && "bg-secondary text-accent-foreground"
-                )}
-              >
-                Blogs
-              </NavigationMenuLink>
-            </Link>
+            <NavigationMenuTrigger>Blogs</NavigationMenuTrigger>
+            <NavigationMenuContent>
+              <ul className="grid gap-3 p-4 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]">
+                <li className="row-span-3">
+                  <NavigationMenuLink asChild>
+                    <a
+                      className="flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-muted/50 to-muted p-6 no-underline outline-none focus:shadow"
+                      href="/blog"
+                    >
+                      <FileText className="h-6 w-6" />{" "}
+                      {/* All Blog Posts Icon */}
+                      <div className="mb-2 mt-4 text-lg font-medium">
+                        All Blog Posts
+                      </div>
+                      <p className="text-sm leading-tight text-muted-foreground">
+                        Explore all our blog posts in one place.
+                      </p>
+                    </a>
+                  </NavigationMenuLink>
+                </li>
+                {blogs.map((blog) => (
+                  <ListItem
+                    key={blog.title}
+                    title={blog.title}
+                    href={blog.href}
+                  >
+                    {blog.description}
+                  </ListItem>
+                ))}
+              </ul>
+            </NavigationMenuContent>
           </NavigationMenuItem>
         </NavigationMenuList>
       </NavigationMenu>

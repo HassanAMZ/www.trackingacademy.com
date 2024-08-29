@@ -23,7 +23,7 @@ const VideoUrlInput: React.FC<VideoUrlInputProps> = ({
           value={videoInput}
           onChange={(e) => setVideoInput(e.target.value)}
           placeholder="Enter YouTube video URL"
-          className="w-full flex-1 rounded-full border border-gray-300 p-2 shadow-sm focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500"
+          className="w-full flex-1 rounded-full border border-gray-300 p-2 shadow focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500"
         />
         <button
           onClick={addVideo}

@@ -29,7 +29,7 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     pre: AuthPre,
     a: (props) => <CustomLink {...props} href={props.href || ""} />, // Ensuring href is always a string
     p: (props) => (
-      <Text as="p" {...props}>
+      <Text as="p" variant="bodyMd" {...props}>
         {props.children}
       </Text>
     ),

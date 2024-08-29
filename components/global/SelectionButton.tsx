@@ -14,7 +14,7 @@ const SelectionButton: React.FC<ButtonProps> = ({
     }`}
     onClick={onClick}
   >
-    <Text as="p" className="w-full font-bold">
+    <Text as="p" variant="bodyMd" className="w-full font-bold">
       {children}
     </Text>
   </button>

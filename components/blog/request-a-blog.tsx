@@ -47,7 +47,11 @@ const RequestABlogForm: React.FC<RequestABlogFormProps> = ({ searchTerm }) => {
   }
 
   if (formSubmitted) {
-    return <Text as="p">Thank you! Your request has been submitted.</Text>;
+    return (
+      <Text as="p" variant="bodyMd">
+        Thank you! Your request has been submitted.
+      </Text>
+    );
   }
 
   return (
@@ -67,7 +71,7 @@ const RequestABlogForm: React.FC<RequestABlogFormProps> = ({ searchTerm }) => {
         className="mt-2"
       />
       <SubmitButton />
-      <Text as="p" aria-live="polite" className="sr-only">
+      <Text as="p" variant="bodyMd" aria-live="polite" className="sr-only">
         {state?.message}
       </Text>
     </form>

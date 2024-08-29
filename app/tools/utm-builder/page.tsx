@@ -11,7 +11,7 @@ import InputField from "@/components/tools/InputField";
 import { ButtonData } from "@/types/index";
 import ToolsHeroSection from "@/components/tools/ToolsHeroSection";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
+import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import Text from "@/components/ui/text";
 import { Separator } from "@/components/ui/separator";
 import { cn } from "@/lib/utils";
@@ -224,8 +224,6 @@ const Page: React.FC = () => {
 
   return (
     <section className="grid grid-cols-1 place-content-center gap-2 rounded-lg pb-8">
-      <ToolsHeroSection />
-
       <div className="flex flex-row flex-wrap gap-4 pt-4" id="utm-builder">
         {buttonsData.map((button) => (
           <Button
@@ -240,7 +238,7 @@ const Page: React.FC = () => {
           </Button>
         ))}
       </div>
-      <div className="space-y-4 py-4">
+      <div className="py-4 grid gap-4 md:grid-cols-2">
         <InputField
           required
           label="Website URL"
@@ -296,12 +294,13 @@ const Page: React.FC = () => {
           helperText="Use to differentiate ads (e.g., Use to differentiate between similar ads in the same campaign)"
         />
       </div>
-      <Separator className="my-6" />
-      <Card className="rounded-t-lg py-4">
-        <CardContent className="space-y-4">
-          <Text as="h1" variant="heading3xl">
+      <Card className="rounded-t-lg">
+        <CardHeader>
+          <Text as="h2" variant="heading2xl">
             Generated UTM Link
           </Text>
+        </CardHeader>
+        <CardContent className="space-y-2">
           <Textarea
             ref={textareaRef}
             readOnly
@@ -315,7 +314,7 @@ const Page: React.FC = () => {
           {!canGenerateUTM() && (
             <div className="font-medium text-red-500">
               {getErrorMessages().map((error, index) => (
-                <Text as="p" key={index}>
+                <Text as="p" variant="bodyMd" key={index}>
                   {error}
                 </Text>
               ))}
@@ -324,7 +323,7 @@ const Page: React.FC = () => {
           <Button
             disabled={!canGenerateUTM()}
             onClick={handleCopy}
-            className={cn(copied ? "animate-shake" : "")}
+            className={cn("w-full", copied ? "animate-shake" : "")}
           >
             {copied ? "Copied!" : "Copy to Clipboard"}
           </Button>

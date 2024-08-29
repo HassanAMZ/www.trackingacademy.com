@@ -347,8 +347,10 @@ export default function CareerForm({
         <Text as="h1" variant="heading3xl" className="text-center">
           Thank you!
         </Text>
-        <Text as="p">Your request has been submitted.</Text>
-        <Text as="p">
+        <Text as="p" variant="bodyMd">
+          Your request has been submitted.
+        </Text>
+        <Text as="p" variant="bodyMd">
           You'll be redirected to Book a Meeting Page. If the redirects does not
           happen,{" "}
           <Button asChild variant={"link"} className="p-0">
@@ -360,7 +362,12 @@ export default function CareerForm({
   }
 
   const renderNavigation = () => {
-    const steps = ["Meeting", "Account", "Project", "Tracking"];
+    const steps = [
+      "Personal Info",
+      "Work Experince",
+      "Cover Letters",
+      "Compensation",
+    ];
     return (
       <div className="grid grid-cols-2 items-end justify-center gap-4 py-2 pb-6 text-center sm:py-6 lg:grid-cols-4 lg:py-8">
         {steps.map((step, index) => (
@@ -670,7 +677,11 @@ export default function CareerForm({
               Continue
             </Button>
             {isItAFit && (
-              <Text as="p" className="py-12 text-left text-sm md:text-center">
+              <Text
+                as="p"
+                variant="bodyMd"
+                className="py-12 text-left text-sm md:text-center"
+              >
                 Have a project but not quite ready to contact us?{" "}
                 <Button
                   asChild
@@ -882,7 +893,7 @@ export default function CareerForm({
                 Job Post 01
               </Text>
               <div className="border rounded-lg p-4">
-                <Text as="p">
+                <Text as="p" variant="bodyMd">
                   We need to track purchase conversion data with values on our
                   resort websites. <br />
                   We have a set up done already but we need to verify whether
@@ -933,7 +944,7 @@ export default function CareerForm({
               Job Post 02
             </Text>
             <div className="border rounded-lg p-4">
-              <Text as="p">
+              <Text as="p" variant="bodyMd">
                 Shopify recently introduced a new settings feature called
                 "Customer Privacy." In certain countries, it's now mandatory to
                 display a visible cookie banner that users must accept before
@@ -984,7 +995,7 @@ export default function CareerForm({
               Job Post 03
             </Text>
             <div className="border rounded-lg p-4">
-              <Text as="p">
+              <Text as="p" variant="bodyMd">
                 We are looking for a highly skilled Facebook Ads Conversion
                 Tracking Specialist with expertise in setting up, testing, and
                 validating Conversion API tracking to ensure optimal performance
@@ -1141,7 +1152,12 @@ export default function CareerForm({
         <CardContent className="mx-auto max-w-3xl">
           <form onSubmit={handleSubmit} className="flex flex-col space-y-3">
             {renderStep()}
-            <Text as="p" aria-live="polite" className="sr-only">
+            <Text
+              as="p"
+              variant="bodyMd"
+              aria-live="polite"
+              className="sr-only"
+            >
               {state?.message}
             </Text>
           </form>

@@ -151,6 +151,51 @@ const clients: Client[] = [
       },
     },
   },
+  {
+    id: 1,
+    projectDetails: {
+      name: "Job Ready Programmer",
+      url: "https://www.jobreadyprogrammer.com/",
+      timeline: "10 days",
+      budget: {
+        symbol: "$",
+        code: "USD",
+        value: 1000,
+      },
+      techStack: [
+        { name: "Teachable", url: "https://teachable.com/" },
+        { name: "WordPress", url: "https://wordpress.com/" },
+      ],
+    },
+    clientDetails: {
+      name: "Imtiaz Ahmed",
+      email: "imtiazahmad007@gmail.com",
+      position: "CEO",
+      images: [{ name: "profile", url: "/images/clients/imtiaz-ahmad.jfif" }],
+    },
+    businessDetails: {
+      email: "info@jobreadyprogrammer.com",
+      phone: "+17328413286",
+      name: "Job Ready Programmer",
+      url: "https://www.linkedin.com/in/imtiaz-ahmad-80117324/",
+      images: [
+        {
+          name: "website screenshot",
+          url: "/images/clients/website-screenshots/jobreadyprogrammer-mobile.png",
+        },
+      ],
+    },
+    tags: ["Subscriptions", "Teachable", "Online Courses"],
+    resultDetails: {
+      roas: { symbol: "%", code: "percentage", value: 36 },
+      conversions: { symbol: "%", code: "percentage", value: 25 },
+      testimonial: {
+        content:
+          "Shahzada's knowledge of everything Google Tag manager is at a very advanced level. He is also easy to communicate with.",
+        projectTitle: "Google tag manager and google ads expert needed",
+      },
+    },
+  },
 ];
 
 export default clients;

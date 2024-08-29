@@ -53,11 +53,11 @@ export function TestimonialsCarousel() {
             <Image
               src={testimonial.image}
               alt={testimonial.author}
-              className="rounded-t-lg object-cover"
+              className="rounded-t-lg object-cover w-full"
               width={500}
               height={200}
             />
-            <Card className="relative space-y-4 shadow-lg">
+            <Card className="relative space-y-4 shadow">
               <div className="absolute -top-4 right-4 flex space-x-1">
                 <Star />
                 <Star />
@@ -66,10 +66,10 @@ export function TestimonialsCarousel() {
                 <Star />
               </div>
               <CardContent>
-                <Text as="p" className="font-semibold italic">
+                <Text as="p" variant="bodyMd" className="font-semibold italic">
                   {testimonial.text}
                 </Text>
-                <Text as="p" className="mt-4 text-xs">
+                <Text as="p" variant="bodyMd" className="mt-4 text-xs">
                   {testimonial.author}
                 </Text>
               </CardContent>

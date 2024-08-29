@@ -23,10 +23,18 @@ export default function Hero() {
           </div>
 
           <div className="grid grid-cols-1 place-content-center space-y-1 self-center py-2">
-            <Text as="p">✔ GDPR-compliant secure tracking.</Text>
-            <Text as="p">✔ 24/7 Expert Assistance.</Text>
-            <Text as="p">✔ Weekly custom report delivery.</Text>
-            <Text as="p">✔ 95% tracking accuracy or your money back.</Text>
+            <Text as="p" variant="bodyMd">
+              ✔ GDPR-compliant secure tracking.
+            </Text>
+            <Text as="p" variant="bodyMd">
+              ✔ 24/7 Expert Assistance.
+            </Text>
+            <Text as="p" variant="bodyMd">
+              ✔ Weekly custom report delivery.
+            </Text>
+            <Text as="p" variant="bodyMd">
+              ✔ 95% tracking accuracy or your money back.
+            </Text>
           </div>
 
           <div className="flex items-center justify-start gap-2 self-center">
@@ -55,7 +63,7 @@ export default function Hero() {
                 <AvatarFallback>IA</AvatarFallback>
               </Avatar>
             </div>
-            <Text as="p" className="pl-8 text-sm">
+            <Text as="p" variant="bodyMd" className="pl-8 text-sm">
               Over 1032 websites optimized with 95% accuracy
             </Text>
           </div>

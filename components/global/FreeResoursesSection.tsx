@@ -31,7 +31,7 @@ const FreeResoursesSection: React.FC<
             <Text as="h4" variant="headingLg">
               {headingTexts.heading}
             </Text>
-            <Text as="p" className="textOpacity80">
+            <Text as="p" variant="bodyMd" className="textOpacity80">
               {headingTexts.subHeading}
             </Text>
             <div className="w-full rounded-lg border-2 border-white p-2 text-center font-semibold">

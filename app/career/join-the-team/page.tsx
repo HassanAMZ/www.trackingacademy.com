@@ -1,4 +1,3 @@
-import ContactForm from "@/components/contact/contact-form";
 import CareerForm from "@/components/forms/career-form";
 import Container from "@/components/ui/container";
 import React from "react";

@@ -103,7 +103,7 @@ export const FirebaseAuth = () => {
       ) : (
         <React.Fragment>
           {/* <div className='flex flex-row justify-center items-center h-[20vh] gap-2'>
-      <Text as="p" >Welcome, {user.displayName}:</Text >
+      <Text as="p" variant="bodyMd" >Welcome, {user.displayName}:</Text >
       <Button
        className='underline hover:font-semibold hover:cursor-pointer'
        onClick={handleSignOut}>

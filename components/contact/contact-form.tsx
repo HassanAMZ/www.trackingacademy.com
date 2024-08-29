@@ -259,8 +259,10 @@ export default function ContactForm({
         <Text as="h1" variant="heading3xl" className="text-center">
           Thank you!
         </Text>
-        <Text as="p">Your request has been submitted.</Text>
-        <Text as="p">
+        <Text as="p" variant="bodyMd">
+          Your request has been submitted.
+        </Text>
+        <Text as="p" variant="bodyMd">
           You'll be redirected to Book a Meeting Page. If the redirects does not
           happen,{" "}
           <Button asChild variant={"link"} className="p-0">
@@ -315,7 +317,7 @@ export default function ContactForm({
                   Work with Track 95{" "}
                 </Text>
               )}
-              <Text as="p">
+              <Text as="p" variant="bodyMd">
                 Enter your business email and select your preferred meeting
                 type.
               </Text>
@@ -368,7 +370,11 @@ export default function ContactForm({
               Continue
             </Button>
             {isItAFit && (
-              <Text as="p" className="py-12 text-left text-sm md:text-center">
+              <Text
+                as="p"
+                variant="bodyMd"
+                className="py-12 text-left text-sm md:text-center"
+              >
                 Have a project but not quite ready to contact us?{" "}
                 <Button
                   asChild
@@ -801,7 +807,12 @@ export default function ContactForm({
         <CardContent className="mx-auto max-w-3xl">
           <form onSubmit={handleSubmit} className="flex flex-col space-y-3">
             {renderStep()}
-            <Text as="p" aria-live="polite" className="sr-only">
+            <Text
+              as="p"
+              variant="bodyMd"
+              aria-live="polite"
+              className="sr-only"
+            >
               {state?.message}
             </Text>
           </form>
