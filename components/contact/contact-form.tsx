@@ -314,7 +314,7 @@ export default function ContactForm({
             <div className="py-6 text-left md:text-center">
               {formHeader && (
                 <Text as="h1" variant="heading3xl">
-                  Work with Track 95{" "}
+                  Work with us
                 </Text>
               )}
               <Text as="p" variant="bodyMd">
@@ -382,7 +382,7 @@ export default function ContactForm({
                   className="inline p-0 text-wrap"
                 >
                   <Link href="/contact/is-tracking-academy-a-fit-for-you">
-                    See if Track 95 is a fit for you.
+                    See if TrackingAcademy is a fit for you.
                   </Link>
                 </Button>
               </Text>

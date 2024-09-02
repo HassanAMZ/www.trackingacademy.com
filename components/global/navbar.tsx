@@ -112,18 +112,8 @@ export default function Navbar() {
 
   const renderCallToAction = () => (
     <Button asChild>
-      <Link
-        href={
-          pathname === "/for-freelancers" || pathname === "/"
-            ? "/for-freelancers/enroll-now"
-            : "/contact"
-        }
-      >
-        <span className="hidden sm:block">
-          {pathname === "/for-freelancers" || pathname === "/"
-            ? "Enroll Now"
-            : "Schedule a Meeting"}
-        </span>
+      <Link href={"/contact"}>
+        <span className="hidden sm:block">Schedule a Meeting</span>
         <span className="block sm:hidden">Contact</span>
       </Link>
     </Button>
@@ -147,7 +137,7 @@ export default function Navbar() {
       <HomeNavigationButton />
       <NavigationMenu>
         <NavigationMenuList className="w-full flex flex-col gap-4 text-lg font-medium lg:flex-row lg:items-center lg:gap-2 lg:text-sm">
-          <NavigationMenuItem>
+          {/* <NavigationMenuItem>
             <Link href="/for-businesses" legacyBehavior passHref>
               <NavigationMenuLink
                 className={clsx(
@@ -159,7 +149,7 @@ export default function Navbar() {
                 For Businesses
               </NavigationMenuLink>
             </Link>
-          </NavigationMenuItem>
+          </NavigationMenuItem> */}
 
           {/* Tools Dropdown */}
           <NavigationMenuItem>
@@ -300,7 +290,7 @@ export default function Navbar() {
           >
             TrackingAcademy
           </Link>
-          <Link
+          {/* <Link
             href="/for-businesses"
             className={clsx(
               navigationMenuTriggerStyle(),
@@ -310,7 +300,7 @@ export default function Navbar() {
             onClick={handleLinkClick}
           >
             For Businesses
-          </Link>
+          </Link> */}
           <Link
             href={"/tools"}
             className={clsx(

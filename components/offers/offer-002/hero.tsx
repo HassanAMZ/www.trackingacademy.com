@@ -38,7 +38,7 @@ export default function Hero() {
         </Text>
         <Text as="h1" variant="heading3xl">
           <span className="text-primary">Upgrade Your Shopify Checkout </span>
-          with Track 95
+          with us
         </Text>
 
         <Text as="p" variant="bodyMd" applyMargin={false}>
