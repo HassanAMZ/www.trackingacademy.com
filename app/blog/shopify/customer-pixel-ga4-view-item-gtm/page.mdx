@@ -1,0 +1,144 @@
+export const metadata = {
+  title:
+    "[Shopify Customer Pixel] How to Configure GA4 View Item Event Using Google Tag Manager",
+  date: "2024-09-03",
+  blogId: 120,
+  keywords:
+    "Google Tag Manager, Shopify, Google Analytics 4, View Item Event, Ecommerce Tracking, Data Layer, Conversion Tracking",
+  tags: [
+    "Google Tag Manager",
+    "Shopify",
+    "GA4",
+    "Ecommerce Tracking",
+    "View Item Event",
+    "Customer Pixel",
+  ],
+  draft: false,
+  description:
+    "Discover how to configure the GA4 View Item event on your Shopify store using Google Tag Manager. This step-by-step guide covers everything from setting up the data layer to verifying event tracking in GA4 for effective ecommerce analytics.",
+  openGraph: {
+    images: ["/static/blog/00020.png"],
+  },
+  embedId: "WCOMmdViMiQ",
+};
+
+<BlogHeader metadata={metadata} />
+
+If you're running a Shopify store and want to track your users' interactions effectively, setting up events in Google Analytics 4 (GA4) is crucial. This guide will walk you through configuring the "View Item" event using the new customer pixel option on Shopify, with the help of Google Tag Manager (GTM).
+
+We'll cover everything from the required access to the final verification of the event in GA4, ensuring that your e-commerce tracking is set up perfectly.
+
+## Table of Contents
+
+1. [Required Access for Shopify, GTM, and GA4](#required-access-for-shopify-gtm-and-ga4)
+2. [Configuring Data Layer for View Item Event](#configuring-data-layer-for-view-item-event)
+3. [Adding Custom Pixel in Shopify](#adding-custom-pixel-in-shopify)
+4. [Adjusting Google Tag Manager Container Script](#adjusting-google-tag-manager-container-script)
+5. [Adding Google Analytics 4 Configuration Tag](#adding-google-analytics-4-configuration-tag)
+6. [Verifying Tags and Events](#verifying-tags-and-events)
+7. [Creating View Item Event Trigger and Variables](#creating-view-item-event-trigger-and-variables)
+8. [Publishing and Testing the Configuration](#publishing-and-testing-the-configuration)
+9. [Verifying Events in Google Analytics 4](#verifying-events-in-google-analytics-4)
+10. [Reviewing E-commerce Reports](#reviewing-e-commerce-reports)
+
+## 1. Required Access for Shopify, GTM, and GA4
+
+Before starting the setup, ensure you have the following access:
+
+- **Shopify**: Access to settings and customer pixel events.
+- **Google Tag Manager (GTM)**: Published access to the container.
+- **Google Analytics 4 (GA4)**: Editor or Admin access.
+
+To verify your access:
+
+1. **GA4**: Navigate to Admin > Property Access Management.
+2. **GTM**: Go to Admin > Container > User Management.
+3. **Shopify**: Confirm access to the "Customer Pixel Events" under Settings.
+
+## 2. Configuring Data Layer for View Item Event
+
+The data layer is a key part of tracking user interactions. You'll need to configure it for the "View Item" event.
+
+1. Create a custom pixel in Shopify.
+2. Name this pixel "Data Layer Code."
+3. Copy the code provided (you can find it in the description of the video or source) and paste it into the custom pixel area.
+
+<DataLayerCodeBlock fileName="view_item.js" />
+
+**Important:** Ensure the pixel is set correctly as a data non-qualifier for sales data. Without this, your pixel codes won't fire.
+
+## 3. Adding Custom Pixel in Shopify
+
+Now that the data layer code is ready, add the custom pixel:
+
+1. Go to the Shopify store.
+2. Create a new custom pixel named "Data Layer Code."
+3. Paste the code you copied into this pixel.
+4. Adjust the code to include the correct Google Tag Manager (GTM) container ID.
+
+**Tip:** Replace any placeholder GTM IDs with your actual GTM container ID.
+
+## 4. Adjusting Google Tag Manager Container Script
+
+In GTM, you’ll need to:
+
+1. Retrieve your GTM container ID from the GTM admin page.
+2. Replace the placeholder ID in your Shopify custom pixel with this actual ID.
+3. Save your changes in Shopify.
+
+## 5. Adding Google Analytics 4 Configuration Tag
+
+Next, set up a GA4 configuration tag in GTM:
+
+1. Go to GTM and create a new tag.
+2. Use a built-in trigger to fire this tag on all pages.
+3. If you plan to use this configuration for other steps, consider creating a custom event trigger instead of a built-in one.
+
+## 6. Verifying Tags and Events
+
+Now, verify that your tags are working:
+
+1. Inspect your website using the browser’s developer tools.
+2. Filter events based on the data layer to check if the custom event is firing.
+
+**Testing Method:**
+
+- Use GTM's Legacy Assistant or the network tab in your browser's developer tools to see if the GA4 configuration tag is firing.
+
+## 7. Creating View Item Event Trigger and Variables
+
+To track the "View Item" event:
+
+1. Navigate to an item page in your store.
+2. Identify the event in the data layer named "View Item."
+3. In GTM, create a new trigger for this custom event.
+4. Also, create variables to capture the event data: currency, value, and items array.
+
+## 8. Publishing and Testing the Configuration
+
+Once everything is set up:
+
+1. Publish the changes in GTM.
+2. Test the setup by refreshing your website and checking if the "View Item" event fires correctly.
+
+**Verification:** Use the network tab and Google Tag Assistant to ensure that the event and its data are correctly captured.
+
+## 9. Verifying Events in Google Analytics 4
+
+To ensure everything is working:
+
+1. Go to the GA4 real-time view.
+2. Check if the "View Item" event is recorded.
+3. Verify that the event includes the necessary data, such as item array, currency, and value.
+
+## 10. Reviewing E-commerce Reports
+
+Over time, the data from the "View Item" event will populate your GA4 e-commerce reports. These reports will show how many users viewed a product, added it to the cart, and made a purchase.
+
+**Note:** Reports take some time to update, so check back after a few days of traffic.
+
+### Conclusion
+
+By following these steps, you've successfully set up the "View Item" event on your Shopify store using GA4 and GTM. This setup allows you to track valuable e-commerce interactions, helping you understand your customers' behavior and optimize your store for better conversions.
+
+Stay tuned for the next guide where we'll configure additional events like "Add to Cart" and "Purchase." Don't forget to subscribe for more tutorials!
