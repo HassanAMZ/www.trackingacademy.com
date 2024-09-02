@@ -86,7 +86,6 @@ analytics.subscribe("collection_viewed", (event) => {
 
   const dataLayerEvent = {
     event: "view_item_list",
-    datalayer_event_name: "view_item_list",
     page_data: page_data,
     user_data: user_data,
     event_data: event_data,
