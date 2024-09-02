@@ -93,7 +93,6 @@ analytics.subscribe("collection_viewed", (event) => {
     ecommerce: ecommerce_data,
   };
 
-
   const newUrl = new URL(
     dataLayerEvent.page_data.location_query_string,
     window.location.origin

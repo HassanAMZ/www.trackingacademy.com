@@ -16,7 +16,7 @@ const Pre: React.FC<PreProps> = ({ language, children }) => {
 
   return (
     <div className="border-2 border-primary rounded">
-      <div className="bg-primary relative flex items-center justify-between px-4 py-2">
+      <div className="bg-primary text-accent relative flex items-center justify-between px-4 py-2">
         <span>{language}</span>
         <button onClick={onCopy} className="ml-auto flex items-center gap-2">
           <svg
@@ -35,7 +35,7 @@ const Pre: React.FC<PreProps> = ({ language, children }) => {
           {copied ? "Code Copied!" : "Copy code"}
         </button>
       </div>
-      <div className="overflow-y-auto  p-4 text-sm" ref={textInput}>
+      <div className="overflow-y-auto p-4" ref={textInput}>
         <pre>
           <code>{children}</code>
         </pre>
