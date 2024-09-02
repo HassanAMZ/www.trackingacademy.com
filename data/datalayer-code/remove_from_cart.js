@@ -1,8 +1,16 @@
-// Initialize the dataLayer
 window.dataLayer = window.dataLayer || [];
-dataLayer.push({ ecommerce: null });
 
-// Function to log event to console with enhanced visibility
+(function (w, d, s, l, i) {
+  w[l] = w[l] || [];
+  w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
+  var f = d.getElementsByTagName(s)[0],
+    j = d.createElement(s),
+    dl = l != "dataLayer" ? "&l=" + l : "";
+  j.async = true;
+  j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
+  f.parentNode.insertBefore(j, f);
+})(window, document, "script", "dataLayer", "GTM-EXAMPLE");
+
 function logEventToConsole(dataLayerEvent) {
   const customStyle01 =
     "color: #FFFF00; background-color: #000000; font-size: 10px; font-weight: bold; padding: 2px 0;";
@@ -13,7 +21,6 @@ function logEventToConsole(dataLayerEvent) {
   );
 }
 
-// Subscribe to remove from cart events
 analytics.subscribe("product_removed_from_cart", (event) => {
   const getEventData = (obj, path, fallback = "") => {
     return (
@@ -27,7 +34,6 @@ analytics.subscribe("product_removed_from_cart", (event) => {
     );
   };
 
-  // Prepare data objects with safe fallbacks
   const page_data = {
     hostname: getEventData(event, "context.document.location.hostname"),
     location_query_string: getEventData(
@@ -41,8 +47,7 @@ analytics.subscribe("product_removed_from_cart", (event) => {
   };
 
   const user_data = {
-    id:
-      getEventData(event, "data.checkout.order.customer.id") || event.clientId,
+    id: event.clientId,
     language: getEventData(event, "context.navigator.language"),
     userAgent: getEventData(event, "context.navigator.userAgent"),
   };
@@ -52,7 +57,6 @@ analytics.subscribe("product_removed_from_cart", (event) => {
     id: event.id || "",
   };
 
-  // E-commerce data
   const ecommerce_data = {
     currency: getEventData(
       event,
@@ -99,19 +103,25 @@ analytics.subscribe("product_removed_from_cart", (event) => {
     ],
   };
 
-  // Combine all data into a single object
   const dataLayerEvent = {
-    event: "gtm_custom_event",
-    datalayer_event_name: "remove_from_cart",
+    event: "remove_from_cart",
     user_data: user_data,
     event_data: event_data,
     ecommerce: ecommerce_data,
     page_data: page_data,
   };
 
-  // Push the event to dataLayer
-  window.dataLayer.push(dataLayerEvent);
+  const newUrl = new URL(
+    dataLayerEvent.page_data.location_query_string,
+    window.location.origin
+  );
+  const newTitle = dataLayerEvent.page_data.page_title;
 
-  // Log the event with styled console output
+  if (newUrl && newTitle) {
+    history.pushState(null, newTitle, newUrl.toString());
+  }
+
+  dataLayer.push({ ecommerce: null });
+  window.dataLayer.push(dataLayerEvent);
   logEventToConsole(dataLayerEvent);
 });
