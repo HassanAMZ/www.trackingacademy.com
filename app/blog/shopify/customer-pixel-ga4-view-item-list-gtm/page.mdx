@@ -1,0 +1,161 @@
+export const metadata = {
+  title:
+    "[Shopify Customer Pixel] How to Configure GA4 View Item List Event Using Google Tag Manager",
+  date: "2024-08-30",
+  blogId: 117,
+  keywords:
+    "Google Tag Manager, Shopify, Google Analytics 4, View Item List Event, Ecommerce Tracking, Data Layer, Conversion Tracking",
+  tags: [
+    "Google Tag Manager",
+    "Shopify",
+    "GA4",
+    "Ecommerce Tracking",
+    "View Item List Event",
+    "Customer Pixel",
+  ],
+  draft: false,
+  description:
+    "Learn how to set up the GA4 View Item List event on your Shopify store using Google Tag Manager. This comprehensive guide walks you through configuring tags, triggers, and variables for precise ecommerce tracking.",
+  openGraph: {
+    images: ["/static/blog/00017.png"],
+  },
+  embedId: "Rdt44nb_XNg",
+};
+
+<BlogHeader metadata={metadata} />
+
+## Introduction
+
+In this guide, you'll learn how to configure the "View Item List" event on Shopify using Google Tag Manager (GTM) and Google Analytics 4 (GA4). This setup is essential for tracking which product lists users are viewing on your Shopify store.
+
+We'll walk you through the steps from verifying access permissions to setting up tags, triggers, and variables within GTM. By the end, you'll be able to ensure accurate event tracking in GA4.
+
+## Table of Contents
+
+1. [Prerequisites](#prerequisites)
+2. [Accessing Shopify and Google Tag Manager Setup](#accessing-shopify-and-google-tag-manager-setup)
+3. [DataLayer code for View Item List event](#dataLayer-code-for-view-item-list-event)
+4. [Creating the GA4 Configuration Tag](#creating-the-ga4-configuration-tag)
+5. [Setting Up the View Item List Event](#setting-up-the-view-item-list-event)
+   - [Creating Variables](#creating-variables)
+   - [Creating the Trigger](#creating-the-trigger)
+   - [Creating the Tag](#creating-the-tag)
+6. [Publishing and Testing the Setup](#publishing-and-testing-the-setup)
+7. [Conclusion](#conclusion)
+
+## Prerequisites
+
+Before starting, ensure that you have:
+
+- Admin access to your GA4 property and GTM container.
+- Access to the Shopify backend, specifically to manage Customer Pixels.
+
+## Accessing Shopify and Google Tag Manager Setup
+
+First, verify that you have the necessary permissions:
+
+1. **Google Analytics 4**: Go to the **Admin** section of your GA4 property. Click on **Property Access Management** to check your access level. You need admin access to make changes.
+2. **Google Tag Manager**: In GTM, navigate to the **Admin** section of your container. Ensure you have **Published** access under **User Management** to make live changes on the website.
+
+3. **Shopify**: Access the **Customer Pixels** settings in the Shopify backend. Ensure you can create, connect, and delete pixels as required.
+
+## DataLayer code for View Item List event
+
+To start, ensure that your GTM container is properly installed on your Shopify store:
+
+1. Copy the GTM container code provided in the video description.
+2. In Shopify, go to **Settings > Customer Pixels**.
+3. Click on **Add Custom Pixel**, name it something like "Data Layer Code", and add the pixel.
+4. Set permissions to "Not Required" and ensure the "Data Sale" setting is marked as "This does not qualify as a data sale".
+5. Paste the GTM container code, replace the placeholder with your GTM container ID, and save it.
+
+<DataLayerCodeBlock fileName="view_item_list.js" />
+
+After saving, connect the pixel to Shopify. This setup will allow you to track the "View Item List" event in GA4.
+
+## Creating the GA4 Configuration Tag
+
+To set up the "View Item List" event, you first need to create a GA4 configuration tag in GTM:
+
+1. Go to **Tags** in GTM and create a new tag.
+2. Name it something like "GA4 Configuration Tag".
+3. Select **Google Analytics: GA4 Configuration** as the tag type.
+4. Enter your GA4 Measurement ID. (You can find this in your GA4 property under **Admin > Data Streams**.)
+5. Save the tag.
+
+This tag will initialize GA4 tracking on your Shopify store.
+
+## Setting Up the View Item List Event
+
+### Creating Variables
+
+You'll need to create variables to capture key data from your Shopify store:
+
+1. **Currency**:
+
+   - Go to **Variables** in GTM and create a new **Data Layer Variable**.
+   - Name it `dlv.ecommerce.currency`.
+   - Set the data layer variable name to `ecommerce.currency`.
+
+2. **Value**:
+
+   - Repeat the steps above, but name this variable `dlv.ecommerce.value` and use `ecommerce.value`.
+
+3. **Items Array**:
+   - Similarly, create another variable named `dlv.ecommerce.items` using `ecommerce.items`.
+
+### Creating the Trigger
+
+Now, create a trigger that fires on the "View Item List" event:
+
+1. Go to **Triggers** in GTM and create a new trigger.
+2. Name it `Custom Event - View Item List`.
+3. Set the trigger type to **Custom Event** and enter the event name as `view_item_list`.
+
+### Creating the Tag
+
+Finally, create a tag that sends the "View Item List" event to GA4:
+
+1. Go to **Tags** in GTM and create a new tag.
+2. Name it `GA4 Event - View Item List`.
+3. Select **Google Analytics: GA4 Event** as the tag type.
+4. Set the event name to `view_item_list`.
+5. Add the following event parameters:
+
+   - **Value**: Set to `{{dlv.ecommerce.value}}`.
+   - **Currency**: Set to `{{dlv.ecommerce.currency}}`.
+   - **Items**: Set to `{{dlv.ecommerce.items}}`.
+
+6. Assign the `Custom Event - View Item List` trigger to this tag and save it.
+
+## Publishing and Testing the Setup
+
+Since Customer Pixels in Shopify don’t support the debug mode in GTM, you'll need to publish and then test the setup:
+
+1. Click on **Submit** in GTM to publish your changes.
+2. Refresh your Shopify store page and open the **Inspect** tool in your browser.
+3. In the **Network** tab, verify that the `view_item_list` event is firing correctly.
+
+You can also check real-time data in GA4 under **Realtime** to ensure the event is being tracked.
+
+## Conclusion
+
+By following these steps, you've successfully configured the "View Item List" event in GA4 using Google Tag Manager on your Shopify store. This setup will help you better understand how users interact with product lists on your site, enabling more accurate analytics and better decision-making.
+
+For further tracking, like setting up the "Add to Cart" event, continue following similar procedures in GTM. 6. Assign the `Custom Event - View Item List` trigger to this tag and save it.
+
+## Publishing and Testing the Setup
+
+Since Customer Pixels in Shopify don’t support the debug mode in GTM, you'll need to publish and then test the setup:
+
+1. Click on **Submit** in GTM to publish your changes.
+2. Refresh your Shopify store page and open the **Inspect** tool in your browser.
+3. In the **Network** tab, verify that the `view_item_list` event is firing correctly.
+
+You can also check real-time data in GA4 under **Realtime** to ensure the event is being tracked.
+
+## Conclusion
+
+By following these steps, you've successfully configured the "View Item List" event in GA4 using Google Tag Manager on your Shopify store. This setup will help you better understand how users interact with product lists on your site, enabling more accurate analytics and better decision-making.
+
+For further tracking, like setting up the "Add to Cart" event, continue following similar procedures in GTM.
