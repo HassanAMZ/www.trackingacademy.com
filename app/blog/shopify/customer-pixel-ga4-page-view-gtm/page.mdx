@@ -22,121 +22,100 @@ export const metadata = {
   embedId: "U-WX8dzmKKQ",
 };
 
-<BlogHeader metadata={metadata} />
+<BlogHeader metadata={metadata} /># How to Configure Google Analytics Page View
+Event Using Google Tag Manager and Shopify
 
-In this guide, you'll learn how to set up Google Analytics page view tracking on your Shopify store using Google Tag Manager (GTM). We'll walk through each step, ensuring your setup is efficient and effective.
+Setting up Google Analytics to track page views on your Shopify store is essential for understanding how visitors interact with your site. This blog post will guide you through configuring a page view event in Google Analytics using Google Tag Manager on a Shopify store. We’ll break down the process into simple steps that anyone can follow, even if you’re new to web analytics.
 
-## Step 1: Accessing Shopify and Setting Up Google Tag Manager
+## Table of Contents
 
-### 1.1. Ensure Proper Access to Shopify
+1. [Introduction](#introduction)
+2. [Accessing Shopify and Google Tag Manager Setup](#accessing-shopify-and-google-tag-manager-setup)
+3. [Creating and Configuring a Google Tag Manager Container](#creating-and-configuring-a-google-tag-manager-container)
+4. [Connecting Google Tag Manager to Shopify](#connecting-google-tag-manager-to-shopify)
+5. [Understanding Sandbox Environment and Customer Pixels](#understanding-sandbox-environment-and-customer-pixels)
+6. [Adding Google Analytics Page View Event](#adding-google-analytics-page-view-event)
+7. [Creating Tags, Triggers, and Variables](#creating-tags-triggers-and-variables)
+8. [Verifying Event Firing in Google Analytics](#verifying-event-firing-in-google-analytics)
+9. [Summary and Final Steps](#summary-and-final-steps)
 
-Before starting, you need to have the correct access rights in your Shopify store:
+## Introduction
 
-1. **Log into Shopify** and navigate to the **Settings** section.
-2. Verify that you have access to the **Customer Events** section, where you can create and manage customer pixels.
+By the end of this guide, you will know how to configure a Google Analytics page view event using Google Tag Manager on your Shopify store. This will allow you to track visitor interactions, giving you insights into user behavior on your site.
 
-### 1.2. Create a Google Tag Manager Container
+## Accessing Shopify and Google Tag Manager Setup
 
-If you don't already have a Google Tag Manager container, follow these steps:
+Before we start, ensure you have access to the Shopify backend and the Google Tag Manager (GTM) account you will use.
 
-1. **Log into your Google Tag Manager account.**
-2. Click on **Create Container**.
-3. **Name your container** and select "Web" as the platform.
-4. **Create the container**.
+1. **Shopify Access**: Log in to your Shopify admin panel. Navigate to **Settings > Customer Pixels** to ensure you have the necessary permissions to add or modify customer pixels.
+2. **Google Tag Manager Access**: If you already have a GTM container, that’s great! If not, create a new container in your GTM account. Make sure you have published access to this container by checking under **Admin > User Management**.
 
-If you're working with a client, ensure you have the necessary permissions (like publish access) by checking the **User Management** section under the container's settings.
+## Creating and Configuring a Google Tag Manager Container
 
-### 1.3. Verify Google Analytics Access
+If you need to create a new container:
 
-Make sure you have **admin or editor access** to the Google Analytics account you plan to use:
+1. In your GTM account, click **Create Container**.
+2. Name the container appropriately (e.g., "Shopify Store Container").
+3. Select **Web** as the platform.
+4. Hit **Create**.
 
-1. Go to the **Google Analytics** account.
-2. Click on the **Admin** section.
-3. Check your access level under **Property Access Management**.
+Make sure you also have editor or admin access to your Google Analytics account to configure the necessary settings.
 
-## Step 2: Connecting Google Tag Manager to Shopify
+## DataLayer code for Page View event
 
-### 2.1. Obtain the GTM Container Code
+Now, we need to ensure that the GTM container is firing correctly on your Shopify store.
 
-To link your GTM container to Shopify:
+1. Go to your GTM container and find the configuration code.
+2. Copy the code snippet for both the `<head>` and `<body>` sections.
+3. In Shopify, navigate to **Settings > Customer Pixels**, click on **Add Custom Pixel**, and paste the GTM code in the relevant section.
+4. Ensure your pixel settings are configured correctly: set permissions to "Not Required" and indicate that the data sale is "Not Selected".
 
-1. Open your **GTM container** and locate the **container code**.
-2. Copy the JavaScript code provided.
+<DataLayerCodeBlock fileName="page_view.js" />
 
-### 2.2. Add the GTM Code to Shopify
+Once configured, click **Save** and then **Connect** to link your GTM container with the Shopify store.
 
-1. Go back to the **Shopify backend**.
-2. Under **Settings**, navigate to **Customer Events** and click **Add Custom Pixel**.
-3. **Name the pixel** (e.g., "Data Layer Code for Google Tag Manager").
-4. **Paste the GTM code** into the code section.
-5. Ensure the settings are as follows:
-   - **Permissions:** Not required.
-   - **Data Sale:** Selected as "does not qualify as data sales".
-6. **Save and connect** the pixel.
+## Understanding Sandbox Environment and Customer Pixels
 
-### 2.3. Understanding Customer Pixels and the Sandbox Environment
+Shopify’s customer pixels operate in a sandbox environment, meaning they run within an iframe, limiting their interaction with the parent site. This setup enhances security but restricts traditional tracking methods like using liquid files.
 
-Customer pixels in Shopify operate inside a sandbox, which means:
+You can verify if your GTM container is firing correctly by using the Google Tag Legacy Assistant Chrome extension. Note that the standard GTM preview/debug mode does not work with Shopify’s sandboxed customer pixels.
 
-- The GTM code runs within an iframe.
-- Although the sandbox restricts access to the parent website, it still allows event tracking.
+## Adding Google Analytics Page View Event
 
-You can verify that the GTM container is firing correctly by using the **Google Tag Assistant Legacy Chrome extension**.
+Next, let’s add the Google Analytics page view event to your GTM container:
 
-## Step 3: Adding a Google Analytics Page View Event
+1. Go back to your GTM container and navigate to **Workspace**.
+2. Create a new tag, trigger, and variable for the page view event.
+3. For the tag:
+   - Select **New Tag** and choose **Google Analytics: GA4 Configuration**.
+   - Set it to fire on **All Pages**.
 
-### 3.1. Create the Required Tags, Triggers, and Variables
+However, since we are working with Shopify’s custom event, the process will differ slightly.
 
-Now that your GTM container is active on your Shopify site, the next step is to configure the page view event.
+4. Instead of the standard setup, configure the tag to fire based on the custom events created in the earlier steps.
 
-1. **Create a new tag** in GTM:
+## Creating Tags, Triggers, and Variables
 
-   - Click on **New** under the **Tags** section.
-   - Since this event is for all pages, use the trigger for **all pages**.
+For the custom page view event:
 
-2. **Configure the custom event trigger**:
+1. Copy the trigger name related to the page view event (e.g., "pageView").
+2. In GTM, go to **Triggers > New** and select **Custom Event**.
+3. Paste the trigger name and save it.
+4. Next, create a constant variable in GTM to store your GA4 measurement ID.
 
-   - Click the **+** button to create a new custom event trigger.
-   - Name the trigger (e.g., "Custom Event PageView").
-   - Save the trigger.
+Finally, create a configuration tag in GTM to fire the page view event.
 
-3. **Add the measurement ID from Google Analytics**:
+## Verifying Event Firing in Google Analytics
 
-   - Go to your **Google Analytics 4** account and find the **Measurement ID**.
-   - In GTM, create a new variable (e.g., "G4 Measurement ID Prod") using the constant variable type.
-   - Save the variable.
+To verify if your tag is working:
 
-4. **Create a Configuration Tag** in GTM:
-   - Use the **Measurement ID** variable you created.
-   - Save the configuration tag.
+1. Go to your website’s backend.
+2. Open the **Network** tab in your browser’s developer tools.
+3. Filter for requests named "collect" and refresh the page.
+4. You should see requests sent to Google Analytics indicating that the page view event has fired.
 
-### 3.2. Publish the GTM Container
+You can also check the real-time reports in Google Analytics to confirm the event was logged.
 
-Since the standard preview mode won't work with customer pixels, you need to **publish the container** to test it:
+## Summary and Final Steps
 
-1. Name the container (e.g., "G4 Page View Event").
-2. Click **Publish**.
-
-## Step 4: Verifying the Event Firing in Google Analytics
-
-To ensure your page view event is correctly firing:
-
-1. Go to the **Networks tab** on your website's backend.
-2. Filter for the request called **collect** and refresh the page.
-3. Check if the Google Analytics tag fired by using the **Legacy Chrome extension**.
-4. Alternatively, check the **Real-Time** view in Google Analytics to see if users are being tracked.
-
-## Summary
-
-Here's a quick recap of what we covered:
-
-- We added a Google Tag Manager container using a custom pixel in Shopify.
-- We configured a page view event to fire inside a sandbox.
-- We created the necessary tags, triggers, and variables in GTM.
-- Finally, we verified that the page view event was working properly in Google Analytics.
-
-For more details on tracking additional events, check out the code and pre-configured container provided in the video description.
-
----
-
-This step-by-step guide ensures that you can efficiently set up Google Analytics page view tracking using Google Tag Manager in Shopify. Follow these instructions carefully to ensure accurate event tracking on your website.
+In summary, you’ve configured a Google Analytics page view event using GTM on your Shopify store. The steps involved creating a GTM container, connecting it to Shopify via customer pixels, and setting up tags, triggers, and variables to track page views. Remember to replace the measurement ID with your GA4 ID when using pre-configured GTM containers.
