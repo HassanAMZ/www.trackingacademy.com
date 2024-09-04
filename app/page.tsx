@@ -31,10 +31,10 @@ export default function Home() {
           "Improved ROAS by 20%",
           "Scaleable Solution ",
         ]}
-        ctaText="Show me the web analytics portfolio"
-        ctaLink="/portfolio"
-        secondaryCtaLink="/contact"
-        secondaryCtaText="Schedule a Meeting"
+        ctaText="Schedule a Meeting"
+        ctaLink="/contact"
+        // secondaryCtaLink="/contact"
+        // secondaryCtaText="Schedule a Meeting"
         supportingComponent={<TrackingTable />}
         clients={clients}
         clientCountText="1032+ websites configured with 95% accuracy"

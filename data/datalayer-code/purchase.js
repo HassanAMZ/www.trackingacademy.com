@@ -1,15 +1,22 @@
-// Initialize the dataLayer
 window.dataLayer = window.dataLayer || [];
-dataLayer.push({ ecommerce: null });
 
-// Function to log event to console with enhanced visibility
+(function (w, d, s, l, i) {
+  w[l] = w[l] || [];
+  w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
+  var f = d.getElementsByTagName(s)[0],
+    j = d.createElement(s),
+    dl = l != "dataLayer" ? "&l=" + l : "";
+  j.async = true;
+  j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
+  f.parentNode.insertBefore(j, f);
+})(window, document, "script", "dataLayer", "GTM-EXAMPLE");
+
 function logEventToConsole(dataLayerEvent) {
   const customStyle01 =
     "color: #FFFF00; background-color: #000000; font-size: 10px; font-weight: bold; padding: 2px 0;";
   console.log("%cDataLayer Event: purchase ", customStyle01, dataLayerEvent);
 }
 
-// Subscribe to checkout completed events
 analytics.subscribe("checkout_completed", (event) => {
   const getEventData = (obj, path, fallback = "") => {
     return (
@@ -23,7 +30,6 @@ analytics.subscribe("checkout_completed", (event) => {
     );
   };
 
-  // Prepare data objects with safe fallbacks
   const page_data = {
     hostname: getEventData(event, "context.document.location.hostname"),
     location_query_string: getEventData(
@@ -37,7 +43,8 @@ analytics.subscribe("checkout_completed", (event) => {
   };
 
   const user_data = {
-    id: getEventData(event, "data.checkout.order.customer.id"),
+    id: event.clientId,
+    customer_id: getEventData(event, "data.checkout.order.customer.id"),
     phone: getEventData(event, "data.checkout.shippingAddress.phone"),
     email: getEventData(event, "data.checkout.email"),
     address: {
@@ -61,7 +68,6 @@ analytics.subscribe("checkout_completed", (event) => {
     id: event.id || "",
   };
 
-  // E-commerce data
   const ecommerce_data = {
     currency: getEventData(event, "data.checkout.currencyCode"),
     value: getEventData(event, "data.checkout.totalPrice.amount"),
@@ -96,19 +102,26 @@ analytics.subscribe("checkout_completed", (event) => {
     })),
   };
 
-  // Combine all data into a single object
   const dataLayerEvent = {
-    event: "gtm_custom_event",
-    datalayer_event_name: "purchase",
+    event: "purchase",
     user_data: user_data,
     event_data: event_data,
     ecommerce: ecommerce_data,
     page_data: page_data,
   };
+  const newUrl = new URL(
+    dataLayerEvent.page_data.location_query_string,
+    window.location.origin
+  );
+  const newTitle = dataLayerEvent.page_data.page_title;
 
-  // Push the event to dataLayer
+  if (newUrl && newTitle) {
+    history.pushState(null, newTitle, newUrl.toString());
+  }
+
+  dataLayer.push({ ecommerce: null });
+
   window.dataLayer.push(dataLayerEvent);
 
-  // Log the event with styled console output
   logEventToConsole(dataLayerEvent);
 });
