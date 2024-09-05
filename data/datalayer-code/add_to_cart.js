@@ -1,4 +1,3 @@
-window.dataLayer = window.dataLayer || [];
 
 (function (w, d, s, l, i) {
   w[l] = w[l] || [];
@@ -105,14 +104,15 @@ analytics.subscribe("product_added_to_cart", (event) => {
     ecommerce: ecommerce_data,
   };
   const newUrl = new URL(
-    dataLayerEvent.page_data.location_query_string,
+    page_data.location_query_string,
     window.location.origin
   );
-  const newTitle = dataLayerEvent.page_data.page_title;
+  const newTitle = page_data.page_title;
 
   if (newUrl && newTitle) {
     history.pushState(null, newTitle, newUrl.toString());
   }
+  window.dataLayer = window.dataLayer || [];
 
   dataLayer.push({ ecommerce: null });
 

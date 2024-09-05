@@ -1,5 +1,3 @@
-window.dataLayer = window.dataLayer || [];
-
 (function (w, d, s, l, i) {
   w[l] = w[l] || [];
   w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
@@ -43,10 +41,10 @@ analytics.subscribe("page_viewed", (event) => {
     id: event.id || "",
   };
   const newUrl = new URL(
-    dataLayerEvent.page_data.location_query_string,
+    page_data.location_query_string,
     window.location.origin
   );
-  const newTitle = dataLayerEvent.page_data.page_title;
+  const newTitle = page_data.page_title;
 
   if (newUrl && newTitle) {
     history.pushState(null, newTitle, newUrl.toString());
@@ -57,6 +55,8 @@ analytics.subscribe("page_viewed", (event) => {
     user_data: user_data,
     event_data: event_data,
   };
+
+  window.dataLayer = window.dataLayer || [];
   window.dataLayer.push(dataLayerEvent);
   logEventToConsole(dataLayerEvent);
 });
