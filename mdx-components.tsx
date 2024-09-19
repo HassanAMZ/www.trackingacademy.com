@@ -15,7 +15,10 @@ import { cn } from "./lib/utils";
 import DataLayerCodeBlock from "./components/mdx/datalayer-code";
 export function useMDXComponents(components: MDXComponents): MDXComponents {
   const createId = (content: string) =>
-    content.replace(/\s+/g, "-").toLowerCase();
+    content
+      .replace(/[^\w\s-]/g, "")
+      .replace(/\s+/g, "-")
+      .toLowerCase();
 
   return {
     ToolsHeroSection,
