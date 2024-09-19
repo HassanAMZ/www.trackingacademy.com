@@ -1,5 +1,6 @@
 import React, { FC, memo } from "react";
 import Container from "../ui/container";
+import clsx from "clsx";
 
 interface YoutubeEmbedProps {
   embedId: string;
@@ -13,7 +14,7 @@ const YoutubeEmbed: FC<YoutubeEmbedProps> = ({ embedId, className, id }) => {
   }
 
   return (
-    <Container className={className} id={id}>
+    <Container className={clsx(className)} id={id}>
       <div
         className="relative overflow-hidden rounded-lg"
         style={{ paddingTop: "56.25%" }}
