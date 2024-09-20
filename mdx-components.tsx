@@ -12,6 +12,7 @@ import Image from "next/image";
 import ToolsHeroSection from "@/components/tools/ToolsHeroSection";
 import Text from "@/components/ui/text";
 import { cn } from "./lib/utils";
+import { Button } from "@/components/ui/button";
 import DataLayerCodeBlock from "./components/mdx/datalayer-code";
 export function useMDXComponents(components: MDXComponents): MDXComponents {
   const createId = (content: string) =>
@@ -24,6 +25,7 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     ToolsHeroSection,
     GiscusComments,
     YoutubeEmbed,
+    Button,
     DataLayerCode,
     DataLayerCodeBlock,
     BlogHeader,
