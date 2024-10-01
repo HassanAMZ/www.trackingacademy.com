@@ -44,7 +44,7 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
       <Text
         as="h1"
         className="py-2"
-        variant="heading3xl"
+        variant="headingXl"
         {...props}
         id={createId(props.children as string)}
       >
@@ -55,7 +55,7 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
       <Text
         className="py-2"
         as="h2"
-        variant="heading2xl"
+        variant="headingXl"
         {...props}
         id={createId(props.children as string)}
       >
@@ -77,7 +77,7 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
       <Text
         className="py-2"
         as="h4"
-        variant="headingLg"
+        variant="headingXl"
         {...props}
         id={createId(props.children as string)}
       >
@@ -88,7 +88,7 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
       <Text
         className="py-2"
         as="h4"
-        variant="headingLg"
+        variant="headingXl"
         {...props}
         id={createId(props.children as string)}
       >
@@ -99,7 +99,7 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
       <Text
         className="py-2"
         as="h4"
-        variant="headingLg"
+        variant="headingXl"
         {...props}
         id={createId(props.children as string)}
       >

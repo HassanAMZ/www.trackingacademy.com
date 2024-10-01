@@ -132,3 +132,14 @@ html {
     rgba(255, 255, 255, 1)
   );
 }
+
+
+:root {
+  --chart-line-color: #0000ff; /* Light mode line color */
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --chart-line-color: #00ff00; /* Dark mode line color */
+  }
+}
