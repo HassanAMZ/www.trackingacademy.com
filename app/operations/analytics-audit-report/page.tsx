@@ -6,16 +6,18 @@ const Page = () => {
     <BotConversation
       model="gpt-4-turbo"
       systemMessage={OpenAiModels.AuditReports01}
-      botIntro={`**Audit Reports Bot:**
-        This bot is designed to assist with generating **detailed audit reports** based on a list of issues or input data. It is ideal for teams or individuals conducting audits who need clear, in-depth analysis of specific problems within a project. The bot follows a structured approach to reporting, breaking down each issue into multiple sections to provide a comprehensive understanding of each. 
+      botIntro={`
+### Audit Reports Bot
 
-        **Key Features:**
-        - **Overview:** A brief introduction and high-level summary of the audit findings.
-        - **To-Do List:** An actionable list of tasks based on the identified issues.
-        - **Detailed Analysis:** For each issue, the bot generates a detailed paragraph covering issue identification, proof/evidence, consequences of inaction, and potential solutions.
-        - **Grade 5 Readability:** Ensures that reports are easy to understand, using simple language while maintaining technical accuracy.
-        
-        **Ideal Use Case:** This bot is perfect for anyone needing to document issues and provide solutions in a clear, structured, and detailed manner.
+Welcome to the Audit Reports Bot — your go-to assistant for creating detailed audit reports. This tool is perfect for teams and individuals needing to conduct audits with clear, in-depth analyses of project-related issues. The bot is equipped to tackle each issue step-by-step, ensuring a comprehensive understanding. Whether you need to document project issues or provide structured solutions, this bot promises clarity, structure, and detail in every report.
+
+### Key Features
+**Overview**: Provides a concise introduction and high-level summary of audit findings.
+
+**To-Do List**: Offers an actionable list of tasks derived from identified issues.
+
+**Detailed Analysis**: Delivers an in-depth analysis for each problem, including: Issue Identification, Proof/Evidence, Consequences of Inaction, Potential Solutions
+
 `}
     />
   );

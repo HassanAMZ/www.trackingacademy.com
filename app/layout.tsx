@@ -9,6 +9,8 @@ import CanonicalTag from "@/components/seo/CanonicalTag";
 import { ReactNode, Suspense } from "react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import GTMAnalytics from "@/components/analytics/gtm";
+import { GeistSans } from "geist/font/sans";
+import { GeistMono } from "geist/font/mono";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -23,7 +25,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body className={GeistSans.className}>
         <AuthContextProvider>
           <ThemeProvider
             attribute="class"

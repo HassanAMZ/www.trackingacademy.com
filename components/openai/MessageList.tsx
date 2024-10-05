@@ -44,7 +44,8 @@ const MessageList: React.FC<MessageListProps> = ({
                 h1: ({ children }) => (
                   <Text
                     as="h1"
-                    className="py-2 text-semibold"
+                    className="py-2"
+                    fontWeight="bold"
                     variant="headingXl"
                   >
                     {children}
@@ -53,7 +54,8 @@ const MessageList: React.FC<MessageListProps> = ({
                 h2: ({ children }) => (
                   <Text
                     as="h2"
-                    className="py-2 text-semibold"
+                    className="py-2"
+                    fontWeight="bold"
                     variant="headingXl"
                   >
                     {children}
@@ -62,14 +64,15 @@ const MessageList: React.FC<MessageListProps> = ({
                 h3: ({ children }) => (
                   <Text
                     as="h3"
-                    className="py-2 text-semibold"
+                    className="py-2"
+                    fontWeight="bold"
                     variant="headingXl"
                   >
                     {children}
                   </Text>
                 ),
                 p: ({ children }) => (
-                  <Text as="p" variant="bodyMd">
+                  <Text as="p" className="pt-4" variant="bodyMd">
                     {children}
                   </Text>
                 ),
@@ -89,7 +92,7 @@ const MessageList: React.FC<MessageListProps> = ({
                   </Text>
                 ),
                 strong: ({ children }) => (
-                  <Text as="strong" fontWeight="bold">
+                  <Text as="strong" variant="bodyMd" className="!font-bold">
                     {children}
                   </Text>
                 ),

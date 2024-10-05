@@ -3,6 +3,8 @@
 const path = require("path");
 
 const nextConfig = {
+
+  transpilePackages: ["geist"],
   pageExtensions: ["js", "jsx", "ts", "tsx", "mdx", "md"],
   experimental: {
     turbo: {

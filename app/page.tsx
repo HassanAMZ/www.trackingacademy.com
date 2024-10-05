@@ -11,6 +11,7 @@ import TrackingTable from "@/components/global/tracking-table";
 import clients from "@/data/clients";
 import Navbar from "@/components/global/navbar";
 import AccuracyChart from "../components/global/AccuracyChart";
+import Footer from "@/components/global/footer";
 export default function Home() {
   return (
     <main className="space-y-5">
@@ -61,6 +62,7 @@ export default function Home() {
           <Link href="/contact">Book a Call</Link>
         </Button>
       </Container>
+      <Footer />
     </main>
   );
 }

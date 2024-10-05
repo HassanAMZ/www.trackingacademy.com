@@ -12,22 +12,37 @@ const BotIntro: React.FC<BotIntroProps> = ({ content }) => {
       <ReactMarkdown
         components={{
           h1: ({ children }) => (
-            <Text as="h1" className="py-2 text-semibold" variant="headingXl">
+            <Text
+              as="h1"
+              className="py-2"
+              fontWeight="bold"
+              variant="headingXl"
+            >
               {children}
             </Text>
           ),
           h2: ({ children }) => (
-            <Text as="h2" className="py-2 text-semibold" variant="headingXl">
+            <Text
+              as="h2"
+              className="py-2"
+              fontWeight="bold"
+              variant="headingXl"
+            >
               {children}
             </Text>
           ),
           h3: ({ children }) => (
-            <Text as="h3" className="py-2 text-semibold" variant="headingXl">
+            <Text
+              as="h3"
+              className="py-2"
+              fontWeight="bold"
+              variant="headingXl"
+            >
               {children}
             </Text>
           ),
           p: ({ children }) => (
-            <Text as="p" variant="bodyMd">
+            <Text as="p" className="pt-4" variant="bodyMd">
               {children}
             </Text>
           ),
@@ -47,7 +62,7 @@ const BotIntro: React.FC<BotIntroProps> = ({ content }) => {
             </Text>
           ),
           strong: ({ children }) => (
-            <Text as="strong" fontWeight="bold">
+            <Text as="strong" variant="bodyMd" className="!font-bold">
               {children}
             </Text>
           ),

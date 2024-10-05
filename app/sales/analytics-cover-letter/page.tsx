@@ -6,17 +6,22 @@ const Page = () => {
     <BotConversation
       model="gpt-4-turbo"
       systemMessage={OpenAiModels.UpworkModel01}
-      botIntro={`**Upwork Cover Letter Bot:**
+      botIntro={`
+## Upwork Cover Letter Bot:
 
-   This bot specializes in crafting **simple, direct, and client-focused cover letters** for job applications. It is perfect for freelancers applying for jobs on platforms like Upwork, aiming to write a personalized and concise cover letter that speaks directly to the client’s pain points and project needs. 
+Welcome to the Upwork Cover Letter Bot — your dedicated assistant for crafting personalized and client-centric cover letters tailored for job applications on platforms like Upwork. This tool is designed for freelancers who want to create clear and impactful cover letters that directly address client needs and project requirements. Perfect for freelancers aiming to apply for jobs with a personalized and structured approach, this bot guarantees clarity and relevance in every cover letter.
 
-   **Key Features:**
-   - **Client-Focused Tone:** The bot ensures the cover letter is focused on the client, avoiding self-centric language like "I" or "Me."
-   - **Simple and Readable:** The generated letters maintain a grade 5 readability level, making them easily understandable for a broad audience.
-   - **Structured Approach:** Each cover letter includes a greeting, a paragraph focused on the client’s needs, a brief section establishing authority, a call to action, and a closing.
-   - **Optional Portfolio Links:** If relevant, the bot can include portfolio items in a PS section to showcase previous work.
-   
-   **Ideal Use Case:** This bot is ideal for freelancers looking to apply for jobs with a personalized touch, while keeping the letter simple, clear, and focused on the client's needs.
+### Key Features:
+
+**Client-Centric Language**: Ensures the cover letter speaks directly to the client, emphasizing their needs and avoiding self-referential language.
+
+**Easy-to-Read Format**: Maintains a grade 5 readability level for clarity and accessibility to a wide audience.
+
+**Structured Layout**: Each letter includes: Greeting: A warm and professional opening. Client Needs Focus: A paragraph that clearly outlines the client's pain points and project expectations.
+
+**Establishing Credibility**: A brief section showcasing relevant experience or skills. Call to Action: Encouraging the client to engage further or ask questions. Closing: A professional sign-off.
+
+**Portfolio Inclusion**: Option to include links to relevant portfolio items in a PS section, allowing you to showcase your previous work.
 `}
     />
   );
