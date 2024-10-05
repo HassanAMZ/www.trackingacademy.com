@@ -4,7 +4,7 @@ import OpenAiModels from "@/data/gpt-models";
 const Page = () => {
   return (
     <BotConversation
-      model="gpt-4-turbo"
+      model="gpt-4o"
       systemMessage={OpenAiModels.UpworkModel01}
       botIntro={`
 ## Upwork Cover Letter Bot:
