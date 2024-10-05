@@ -10,6 +10,7 @@ import InputArea from "./InputArea";
 import Container from "../ui/container";
 import React from "react";
 
+export const maxDuration = 30;
 export interface BotConversationProps {
   model: string;
   systemMessage: string;
