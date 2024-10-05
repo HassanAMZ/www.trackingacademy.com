@@ -62,7 +62,7 @@ const BotConversation: React.FC<BotConversationProps> = ({
         ...prev,
         {
           role: "assistant",
-          content: "Sorry, an error occurred. Please try again.",
+          content: `Sorry, an error occurred. Please try again. ${error}`,
         },
       ]);
     } finally {
