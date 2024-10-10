@@ -72,7 +72,7 @@ const MessageList: React.FC<MessageListProps> = ({
                   </Text>
                 ),
                 p: ({ children }) => (
-                  <Text as="p" className="pt-4" variant="bodyMd">
+                  <Text as="p" className="py-4" variant="bodyMd">
                     {children}
                   </Text>
                 ),

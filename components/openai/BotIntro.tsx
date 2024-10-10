@@ -42,12 +42,12 @@ const BotIntro: React.FC<BotIntroProps> = ({ content }) => {
             </Text>
           ),
           p: ({ children }) => (
-            <Text as="p" className="pt-4" variant="bodyMd">
+            <Text as="p" className="py-4" variant="bodyMd">
               {children}
             </Text>
           ),
           ul: ({ children }) => (
-            <Text as="ul" variant="bodyMd">
+            <Text as="ul" className="!mt-0 " variant="bodyMd">
               {children}
             </Text>
           ),
