@@ -10,12 +10,13 @@ import TestimonialsCarousel2 from "@/components/for-freelancers/testimonials-car
 import TrackingTable from "@/components/global/tracking-table";
 import clients from "@/data/clients";
 import Navbar from "@/components/global/navbar";
-import AccuracyChart from "../components/global/AccuracyChart";
 import Footer from "@/components/global/footer";
+import AccuracyChart from "@/components/global/AccuracyChart";
 export default function Home() {
   return (
     <main className="space-y-5">
       <Navbar />
+
       <Hero
         heading={
           <Text as="h1" variant="heading3xl">
@@ -41,7 +42,6 @@ export default function Home() {
         clients={clients}
         clientCountText="1032+ websites configured with 95% accuracy"
       />
-      <AccuracyChart beforeNumber={50} afterNumber={92} />
 
       <Offer />
       <Services />

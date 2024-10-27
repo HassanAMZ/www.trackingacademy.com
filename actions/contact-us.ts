@@ -103,7 +103,7 @@ export async function createContact(prevState: any, formData: FormData) {
     });
 
     // Store user data in cookies
-    cookies().set(
+    (await cookies()).set(
       "user_data",
       JSON.stringify({
         email: data.email,

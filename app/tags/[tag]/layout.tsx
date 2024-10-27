@@ -3,7 +3,8 @@ import formatString from "utils/formatString";
 import React, { ReactNode } from "react";
 import reverseFormatString from "utils/reverseFormatString";
 
-export async function generateMetadata({ params }: any) {
+export async function generateMetadata(props: any) {
+  const params = await props.params;
   return {
     title: `${reverseFormatString(params.tag)} Archieve- TrackingAcademy`,
     description: `Blog for Web Analysts and Marketing People`,

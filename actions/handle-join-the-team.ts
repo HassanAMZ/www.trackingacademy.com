@@ -121,7 +121,7 @@ export async function createCareerApplication(
       }),
     });
 
-    cookies().set(
+    (await cookies()).set(
       "user_data",
       JSON.stringify({
         email: data.email,

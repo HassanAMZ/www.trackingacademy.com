@@ -3,7 +3,8 @@ import reverseFormatString from "utils/reverseFormatString";
 import getBlogsData from "utils/getBlogsData";
 import Container from "@/components/ui/container";
 
-export async function generateMetadata({ params }: any) {
+export async function generateMetadata(props: any) {
+  const params = await props.params;
   return {
     title: `${reverseFormatString(params.blog)} Archieve- TrackingAcademy`,
     description: `Blog for Web Analysts and Marketing People`,

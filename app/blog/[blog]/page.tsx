@@ -46,7 +46,8 @@ export async function generateStaticParams(): Promise<
   return sortedData;
 }
 
-export default async function Page({ params }: { params: { blog: string } }) {
+export default async function Page(props: { params: Promise<{ blog: string }> }) {
+  const params = await props.params;
   let blog = params.blog;
   const data = await generateStaticParams();
   const filteredData = blog

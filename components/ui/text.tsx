@@ -66,7 +66,7 @@ const Text: React.FC<TextProps> = ({
   id,
   numeric,
   truncate,
-  variant = "bodyLg",
+  variant = "bodyMd",
   visuallyHidden,
   textDecorationLine,
   className,
@@ -120,7 +120,6 @@ const Text: React.FC<TextProps> = ({
   };
 
   const classes = clsx(
-    "pt-1",
     alignment && alignmentClasses[alignment],
     breakWord && "break-words",
     numeric && "tabular-nums",

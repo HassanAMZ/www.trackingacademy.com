@@ -323,7 +323,7 @@ export default function Offer() {
         </Text>
 
         <Button asChild className="w-full  font-semibold">
-          <Link href="contact">
+          <Link href="contact" className="text-wrap text-center h-auto">
             It seems simple in theory, but the execution is slightly more
             difficult.
           </Link>

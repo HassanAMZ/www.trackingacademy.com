@@ -1,8 +1,6 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
 import "@/styles/global.css";
 import { ThemeProvider } from "@/components/global/theme-provider";
-import Navbar from "@/components/global/navbar";
 import { AuthContextProvider } from "./context/AuthContext";
 import VercelAnalytics from "@/components/analytics/vercel";
 import CanonicalTag from "@/components/seo/CanonicalTag";
@@ -10,9 +8,6 @@ import { ReactNode, Suspense } from "react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import GTMAnalytics from "@/components/analytics/gtm";
 import { GeistSans } from "geist/font/sans";
-import { GeistMono } from "geist/font/mono";
-
-const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "TrackingAcademy - Top Rated Web Analytics Agency",
