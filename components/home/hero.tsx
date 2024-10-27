@@ -69,7 +69,7 @@ const Hero: FC<HeroProps> = ({
           <div className="relative h-8 w-8">
             {clients.map((client, index) => (
               <Avatar
-                key={client.clientDetails.name}
+                key={index}
                 className={`absolute left-${index * 4} top-0 z-${index + 1}`}
               >
                 <AvatarImage

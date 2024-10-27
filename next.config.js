@@ -3,15 +3,14 @@
 const path = require("path");
 
 const nextConfig = {
-
   transpilePackages: ["geist"],
   pageExtensions: ["js", "jsx", "ts", "tsx", "mdx", "md"],
   experimental: {
     turbo: {
       rules: {
-        '*.svg': {
-          loaders: ['@svgr/webpack'],
-          as: '*.js',
+        "*.svg": {
+          loaders: ["@svgr/webpack"],
+          as: "*.js",
         },
       },
     },
@@ -49,8 +48,4 @@ const withMDX = require("@next/mdx")({
   },
 });
 
-const withBundleAnalyzer = require("@next/bundle-analyzer")({
-  enabled: process.env.ANALYZE === "false",
-});
-
-module.exports = withBundleAnalyzer(withMDX(nextConfig));
+module.exports = withMDX(nextConfig);

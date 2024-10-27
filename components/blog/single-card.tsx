@@ -3,8 +3,6 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import generateBrightColor from "utils/generateBrightColor";
-import formatDate from "@/components/seo/formatDate";
 import { SingleBlogCardProps } from "@/types/index";
 import Text from "@/components/ui/text";
 

@@ -1,7 +1,7 @@
 "use client";
 
 import { cn } from "@/lib/utils";
-import React, { useEffect, useState } from "react";
+import React from "react";
 
 interface TrackingData {
   date: string;
@@ -9,49 +9,24 @@ interface TrackingData {
   after: number;
 }
 
-const generateTrackingData = (numEntries: number): TrackingData[] => {
-  const today = new Date();
-  return Array.from({ length: numEntries }, (_, i) => {
-    const currentDate = new Date(today);
-    currentDate.setDate(today.getDate() - (i + 1) * 7);
-    return {
-      date: currentDate.toISOString().split("T")[0],
-      before: Math.floor(Math.random() * 15) + 60,
-      after: Math.floor(Math.random() * 5) + 95,
-    };
-  }).reverse();
-};
+// Predefined tracking data
+const trackingData: TrackingData[] = [
+  { date: "2023-10-01", before: 62, after: 96 },
+  { date: "2023-10-08", before: 64, after: 97 },
+  { date: "2023-10-15", before: 61, after: 95 },
+  { date: "2023-10-22", before: 63, after: 98 },
+  { date: "2023-10-29", before: 65, after: 99 },
+  { date: "2023-11-05", before: 66, after: 96 },
+  { date: "2023-11-12", before: 67, after: 97 },
+  { date: "2023-11-19", before: 62, after: 95 },
+  { date: "2023-11-26", before: 64, after: 98 },
+  { date: "2023-12-03", before: 63, after: 99 },
+];
 
-const calculateAverage = (
-  data: TrackingData[]
-): { avgBefore: string; avgAfter: string } => {
-  const total = data.reduce(
-    (acc, entry) => ({
-      before: acc.before + entry.before,
-      after: acc.after + entry.after,
-    }),
-    { before: 0, after: 0 }
-  );
-  const dataLength = data.length;
-  return {
-    avgBefore: (total.before / dataLength).toFixed(2),
-    avgAfter: (total.after / dataLength).toFixed(2),
-  };
-};
+// Precomputed averages
+const averages = { avgBefore: "63.7", avgAfter: "96.7" };
 
 const TrackingTable: React.FC = () => {
-  const [trackingData, setTrackingData] = useState<TrackingData[]>([]);
-  const [averages, setAverages] = useState<{
-    avgBefore: string;
-    avgAfter: string;
-  }>({ avgBefore: "0", avgAfter: "0" });
-
-  useEffect(() => {
-    const generatedData = generateTrackingData(10);
-    setTrackingData(generatedData);
-    setAverages(calculateAverage(generatedData));
-  }, []);
-
   return (
     <div className="w-full overflow-hidden rounded-xl border text-sm flex">
       <table className="w-full">

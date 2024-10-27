@@ -41,7 +41,7 @@ export default function Home() {
         clients={clients}
         clientCountText="1032+ websites configured with 95% accuracy"
       />
-      {/* <AccuracyChart beforeNumber={50} afterNumber={92} /> */}
+      <AccuracyChart beforeNumber={50} afterNumber={92} />
 
       <Offer />
       <Services />

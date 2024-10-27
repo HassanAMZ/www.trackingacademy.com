@@ -24,8 +24,8 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
-    <html lang="en">
-      <body className={GeistSans.className}>
+    <html lang="en" className={GeistSans.className}>
+      <body>
         <AuthContextProvider>
           <ThemeProvider
             attribute="class"

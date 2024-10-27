@@ -41,6 +41,7 @@ import {
   useState,
   ReactNode,
   ChangeEvent,
+  JSX,
 } from "react";
 
 export interface ServiceCardProps {
@@ -53,11 +54,6 @@ export interface AvatarCardProps {
   avatar: Avatar;
 }
 
-export interface DynamicPortfolioPageProps {
-  params: {
-    portfolio: string;
-  };
-}
 export interface ServiceDetails {
   id: string;
   title: string;
@@ -71,11 +67,6 @@ export interface ServiceDetails {
   href: string;
 }
 
-export interface DynamicServicesPageProps {
-  params: {
-    service: string;
-  };
-}
 export interface BlogSearchProps {
   data: PostMetadata[];
   onSearch: (filtered: PostMetadata[]) => void;
@@ -482,6 +473,6 @@ export interface AddVideoParams {
   setErrorMessage: SetStateFunction<string>;
   insertRandomly: (
     existingItems: VideoUrl[],
-    newItems: VideoUrl[],
+    newItems: VideoUrl[]
   ) => VideoUrl[];
 }

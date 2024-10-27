@@ -35,6 +35,12 @@ export default function CallToAction({
         </Button>
       </DialogTrigger>
       <DialogContent>
+        <DialogHeader>
+          <DialogTitle>Contact Form</DialogTitle>
+          <DialogDescription>
+            Fill out the contact form and team will reach out.
+          </DialogDescription>
+        </DialogHeader>
         <ContactForm thankYouUrl={thankYouUrl} />
       </DialogContent>
     </Dialog>

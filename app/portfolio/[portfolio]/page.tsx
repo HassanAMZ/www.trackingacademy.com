@@ -15,7 +15,7 @@ export async function generateStaticParams(): Promise<
 
   // remove non-mdx files
   const mdxFiles = allPostsFiles.filter(
-    (file) => path.extname(file) === ".mdx",
+    (file) => path.extname(file) === ".mdx"
   );
 
   const allPostsData = mdxFiles.map(async (fileName) => {

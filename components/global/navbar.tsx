@@ -32,11 +32,6 @@ const tools = [
     description:
       "It allows individuals to divide their life into key areas and rate their level of satisfaction",
   },
-  {
-    title: "Youtube Replica",
-    href: "/tools/youtube-replica",
-    description: "A simple tool to test the Thumbnails for Youtube",
-  },
 ];
 
 const careers = [
