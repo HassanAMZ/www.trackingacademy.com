@@ -4,6 +4,7 @@ import { Suspense } from "react";
 import Image from "next/image";
 import { cn } from "@/lib/utils";
 import { Card, CardContent } from "@/components/ui/card";
+import Container from "@/components/ui/container";
 
 interface VideoPlayerProps {
   src: string;
@@ -28,7 +29,7 @@ const VideoPlayer: React.FC<VideoPlayerProps> = ({
         />
       }
     >
-      <Card className={cn(className, "overflow-hidden rounded-t-lg")}>
+      <Card className={cn(className, "overflow-hidden rounded-t-lg my-4")}>
         <CardContent className="overflow-hidden rounded-lg p-0 flex items-center justify-center">
           <video
             autoPlay

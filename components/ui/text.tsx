@@ -115,8 +115,8 @@ const Text: React.FC<TextProps> = ({
   };
 
   const listClasses = {
-    ol: "list-decimal my-3 ml-6 ",
-    ul: "list-disc list-inside my-3 ml-6 ",
+    ol: "list-decimal my-2 ml-4 ",
+    ul: "list-disc list-inside my-2 ml-4",
   };
 
   const classes = clsx(

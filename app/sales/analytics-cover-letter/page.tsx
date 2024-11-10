@@ -1,6 +1,6 @@
 "use client";
 
-import OpenAiModels from "@/data/gpt-models";
+import OpenAiSystemMessages from "@/data/gpt-system-message";
 import { useChat } from "ai/react";
 import { useRef, useState } from "react";
 import Image from "next/image";
@@ -16,11 +16,11 @@ import ChatBot from "@/components/openai/ChatBot";
 
 export default function Page() {
   let model = "gpt-4o";
-  let systemMessage = OpenAiModels.UpworkModel01;
+  let systemMessage = OpenAiSystemMessages.UpworkModel01;
   return (
     <>
       <Navbar />
-      <ChatBot model={model} systemMessage={systemMessage} />
+      <ChatBot systemMessage={systemMessage} />
     </>
   );
 }

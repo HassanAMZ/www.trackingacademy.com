@@ -1,11 +1,11 @@
 "use client";
 
-import OpenAiSystemMessages from "@/data/gpt-system-message";
+import OpenAiModels from "@/data/gpt-system-message";
+import Navbar from "@/components/global/navbar";
 import ChatBot from "@/components/openai/ChatBot";
 
 export default function Page() {
-  let model = "gpt-4o";
-  let systemMessage = OpenAiSystemMessages.AuditReports01;
+  let systemMessage = "";
   return (
     <>
       <ChatBot systemMessage={systemMessage} />

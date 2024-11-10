@@ -10,7 +10,7 @@ const Container = forwardRef<HTMLDivElement, ContainerProps>(
     return (
       <div
         ref={ref}
-        className={clsx("container mx-auto  px-3", className)}
+        className={clsx("container mx-auto max-w-6xl  px-3", className)}
         {...props}
       >
         {children}

@@ -26,12 +26,6 @@ const tools = [
     description:
       "Start building your UTMs for Google Ads, Facebook Ads, TikTok, or custom, all at one place",
   },
-  {
-    title: "Wheel Of Life",
-    href: "/tools/wheel-of-life",
-    description:
-      "It allows individuals to divide their life into key areas and rate their level of satisfaction",
-  },
 ];
 
 const careers = [
@@ -96,6 +90,7 @@ ListItem.displayName = "ListItem";
 export default function Navbar() {
   const [isSheetOpen, setSheetOpen] = React.useState(false);
   const pathname = usePathname();
+
   const isActive = (path: string) => {
     if (path === "/") {
       return pathname === "/";
@@ -334,9 +329,9 @@ export default function Navbar() {
   );
 
   return (
-    <div className={clsx("w-full pb-2 pt-4 lg:text-sm")}>
+    <div className="w-full pb-2 pt-4 lg:text-sm ">
       <Container>
-        <div className="rounded-lg border flex">
+        <div className="rounded-lg flex bg-secondary/40 shadow-md">
           <MobileNavigationMenu />
           <DesktopNavigationMenu />
         </div>
