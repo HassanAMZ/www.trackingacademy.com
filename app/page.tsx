@@ -9,7 +9,7 @@ import VideoPlayer from "@/components/offers/offer-001/video-player";
 import Link from "next/link";
 
 // Hero Component
-export const Hero = () => {
+const Hero = () => {
   return (
     <section className="relative bg-gradient-to-b from-primary/5 to-background pt-24 pb-12">
       <Container>
@@ -70,7 +70,7 @@ export const Hero = () => {
 };
 
 // Problem Section Component
-export const ProblemSection = () => {
+const ProblemSection = () => {
   return (
     <section className="py-8">
       <Container>
@@ -91,7 +91,7 @@ export const ProblemSection = () => {
 };
 
 // Solution Section Component with 7-Step Process
-export const SolutionSection = () => {
+const SolutionSection = () => {
   const steps = [
     {
       title: "Precision Audit & Baseline Setup",
@@ -168,7 +168,7 @@ export const SolutionSection = () => {
 };
 
 // Benefits Section Component
-export const BenefitsSection = () => {
+const BenefitsSection = () => {
   const benefits = [
     {
       title: "See Every Dollar’s Impact",
@@ -226,7 +226,7 @@ export const BenefitsSection = () => {
 };
 
 // Guarantee Section Component
-export const GuaranteeSection = () => {
+const GuaranteeSection = () => {
   return (
     <section className="py-16">
       <Container>
@@ -260,7 +260,6 @@ export const GuaranteeSection = () => {
 export default function HomePage() {
   return (
     <main className="flex min-h-screen flex-col">
-      {/* <Navbar /> */}
       <Hero />
       <ProblemSection />
       <SolutionSection />
