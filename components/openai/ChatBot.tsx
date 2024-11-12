@@ -1,7 +1,7 @@
 "use client";
 
 import { useChat } from "ai/react";
-import { useRef, useState } from "react";
+import { ReactElement, useRef, useState } from "react";
 import Image from "next/image";
 import Container from "@/components/ui/container";
 import Markdown from "react-markdown";
@@ -11,15 +11,17 @@ import { Button } from "@/components/ui/button";
 import Text from "@/components/ui/text";
 import CustomLink from "../mdx/CustomLink";
 import OpenAiModels from "@/data/gpt-models";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "../ui/select";
+import OpenAiSystemMessages from "@/data/gpt-system-message";
 import Pre from "../mdx/Pre";
-import { Camera, Paperclip, Send, SettingsIcon } from "lucide-react";
+import {
+  BoxSelect,
+  Camera,
+  Paperclip,
+  Send,
+  Settings,
+  Settings2Icon,
+  SettingsIcon,
+} from "lucide-react";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -82,12 +84,11 @@ const CustomReactMarkdown = ({ children }: { children: string }) => (
   </Markdown>
 );
 
-interface ChatBotProps {
-  systemMessage: string;
-}
-
-export default function ChatBot({ systemMessage }: ChatBotProps) {
-  const [model, setModel] = useState(OpenAiModels[0]);
+export default function ChatBot() {
+  const [model, setModel] = useState(OpenAiModels[4]);
+  const [systemMessage, setSystemMessage] = useState(
+    OpenAiSystemMessages.DefaultModel01
+  );
   const { messages, input, handleInputChange, handleSubmit } = useChat({
     body: {
       systemMessage,
@@ -131,6 +132,7 @@ export default function ChatBot({ systemMessage }: ChatBotProps) {
         {messages.length === 0 ? (
           <Card className="shadow-sm rounded-t-lg">
             <CardContent className="p-4">
+              <CustomReactMarkdown>{model}</CustomReactMarkdown>
               <CustomReactMarkdown>{systemMessage}</CustomReactMarkdown>
             </CardContent>
           </Card>
@@ -208,6 +210,30 @@ export default function ChatBot({ systemMessage }: ChatBotProps) {
                     className={`${model === modelOption ? "bg-secondary" : ""}`}
                   >
                     {modelOption}
+                  </DropdownMenuItem>
+                ))}
+              </DropdownMenuContent>
+            </DropdownMenu>
+
+            {/* Improved System Message Selector using DropdownMenu */}
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                <Button variant="outline" size="icon" className="h-10 w-10">
+                  <Settings2Icon className="h-5 w-5" />
+                </Button>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent align="start" className="w-[200px]">
+                {/* Iterate over OpenAiSystemMessages with the correct key typing */}
+                {(
+                  Object.keys(OpenAiSystemMessages) as Array<
+                    keyof typeof OpenAiSystemMessages
+                  >
+                ).map((key) => (
+                  <DropdownMenuItem
+                    key={key}
+                    onClick={() => setSystemMessage(OpenAiSystemMessages[key])} // Set value based on key
+                  >
+                    {key} {/* Display the key as the label */}
                   </DropdownMenuItem>
                 ))}
               </DropdownMenuContent>
