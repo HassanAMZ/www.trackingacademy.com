@@ -8,7 +8,7 @@ import RequestABlogEmail from "@/components/emails/request-a-blog";
 
 export async function handleRequestABlogForm(
   prevState: any,
-  formData: FormData
+  formData: FormData,
 ) {
   const resend = new Resend(process.env.NEXT_PUBLIC_RESEND_API_KEY);
   // Generate a timestamp ID based on the current time

@@ -29,7 +29,7 @@ const TestimonialsCarousel: React.FC = () => {
           conversions: `${conversions.value}${conversions.symbol} Conversions`,
         };
       }),
-    []
+    [],
   );
 
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -37,7 +37,7 @@ const TestimonialsCarousel: React.FC = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentIndex(
-        (prevIndex) => (prevIndex + 1) % clientTestimonials.length
+        (prevIndex) => (prevIndex + 1) % clientTestimonials.length,
       );
     }, 5000);
 

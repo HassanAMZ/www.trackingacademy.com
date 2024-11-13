@@ -1,61 +1,57 @@
 {
-    "exportFormatVersion": 2,
-    "exportTime": "2024-07-19 05:17:48",
-    "containerVersion": {
-        "path": "accounts/6215670410/containers/176646283/versions/0",
+  "exportFormatVersion": 2,
+  "exportTime": "2024-07-19 05:17:48",
+  "containerVersion": {
+    "path": "accounts/6215670410/containers/176646283/versions/0",
+    "accountId": "6215670410",
+    "containerId": "176646283",
+    "containerVersionId": "0",
+    "container": {
+      "path": "accounts/6215670410/containers/176646283",
+      "accountId": "6215670410",
+      "containerId": "176646283",
+      "name": "demo.shahzadaalihassan.com",
+      "publicId": "GTM-5ZGLV2F8",
+      "usageContext": ["WEB"],
+      "fingerprint": "1708893343720",
+      "tagManagerUrl": "https://tagmanager.google.com/#/container/accounts/6215670410/containers/176646283/workspaces?apiLink=container",
+      "features": {
+        "supportUserPermissions": true,
+        "supportEnvironments": true,
+        "supportWorkspaces": true,
+        "supportGtagConfigs": false,
+        "supportBuiltInVariables": true,
+        "supportClients": false,
+        "supportFolders": true,
+        "supportTags": true,
+        "supportTemplates": true,
+        "supportTriggers": true,
+        "supportVariables": true,
+        "supportVersions": true,
+        "supportZones": true,
+        "supportTransformations": false
+      },
+      "tagIds": ["GTM-5ZGLV2F8"]
+    },
+    "fingerprint": "1721366268158",
+    "tagManagerUrl": "https://tagmanager.google.com/#/versions/accounts/6215670410/containers/176646283/versions/0?apiLink=version",
+    "customTemplate": [
+      {
         "accountId": "6215670410",
         "containerId": "176646283",
-        "containerVersionId": "0",
-        "container": {
-            "path": "accounts/6215670410/containers/176646283",
-            "accountId": "6215670410",
-            "containerId": "176646283",
-            "name": "demo.shahzadaalihassan.com",
-            "publicId": "GTM-5ZGLV2F8",
-            "usageContext": [
-                "WEB"
-            ],
-            "fingerprint": "1708893343720",
-            "tagManagerUrl": "https://tagmanager.google.com/#/container/accounts/6215670410/containers/176646283/workspaces?apiLink=container",
-            "features": {
-                "supportUserPermissions": true,
-                "supportEnvironments": true,
-                "supportWorkspaces": true,
-                "supportGtagConfigs": false,
-                "supportBuiltInVariables": true,
-                "supportClients": false,
-                "supportFolders": true,
-                "supportTags": true,
-                "supportTemplates": true,
-                "supportTriggers": true,
-                "supportVariables": true,
-                "supportVersions": true,
-                "supportZones": true,
-                "supportTransformations": false
-            },
-            "tagIds": [
-                "GTM-5ZGLV2F8"
-            ]
-        },
-        "fingerprint": "1721366268158",
-        "tagManagerUrl": "https://tagmanager.google.com/#/versions/accounts/6215670410/containers/176646283/versions/0?apiLink=version",
-        "customTemplate": [
-            {
-                "accountId": "6215670410",
-                "containerId": "176646283",
-                "templateId": "145",
-                "name": "Ecommerce Parameter Generator",
-                "fingerprint": "1721365620653",
-                "templateData": "___TERMS_OF_SERVICE___\n\nBy creating or modifying this file you agree to Google Tag Manager's Community\nTemplate Gallery Developer Terms of Service available at\nhttps://developers.google.com/tag-manager/gallery-tos (or such other URL as\nGoogle may provide), as modified from time to time.\n\n\n___INFO___\n\n{\n  \"type\": \"MACRO\",\n  \"id\": \"cvt_temp_public_id\",\n  \"version\": 1,\n  \"securityGroups\": [],\n  \"displayName\": \"Ecommerce Parameter Generator\",\n  \"description\": \"Generates the desired parameter from an array.\",\n  \"containerContexts\": [\n    \"WEB\"\n  ]\n}\n\n\n___TEMPLATE_PARAMETERS___\n\n[\n  {\n    \"type\": \"TEXT\",\n    \"name\": \"orderItems\",\n    \"displayName\": \"Array of Objects\",\n    \"simpleValueType\": true,\n    \"help\": \"For example, this can be Items array from enhanced ecommerce variable.\"\n  },\n  {\n    \"type\": \"SELECT\",\n    \"name\": \"task\",\n    \"displayName\": \"What to return\",\n    \"macrosInSelect\": false,\n    \"selectItems\": [\n      {\n        \"value\": \"meta\",\n        \"displayValue\": \"Meta Ecommerce Parameters\"\n      },\n      {\n        \"value\": \"tiktok\",\n        \"displayValue\": \"TikTok Ecommerce Parameters\"\n      },\n      {\n        \"value\": \"contents\",\n        \"displayValue\": \"contents [ {} ]\"\n      },\n      {\n        \"value\": \"ids\",\n        \"displayValue\": \"content_ids [ ]\"\n      },\n      {\n        \"value\": \"name\",\n        \"displayValue\": \"content_name \\u0027 \\u0027\"\n      },\n      {\n        \"value\": \"numitems\",\n        \"displayValue\": \"num_items\"\n      },\n      {\n        \"value\": \"value\",\n        \"displayValue\": \"value\"\n      }\n    ],\n    \"simpleValueType\": true\n  },\n  {\n    \"type\": \"GROUP\",\n    \"name\": \"keyGroup\",\n    \"displayName\": \"Array Keys\",\n    \"groupStyle\": \"ZIPPY_OPEN\",\n    \"subParams\": [\n      {\n        \"type\": \"TEXT\",\n        \"name\": \"keyId\",\n        \"displayName\": \"Product ID\",\n        \"simpleValueType\": true\n      },\n      {\n        \"type\": \"TEXT\",\n        \"name\": \"keyNm\",\n        \"displayName\": \"Product Name\",\n        \"simpleValueType\": true\n      },\n      {\n        \"type\": \"TEXT\",\n        \"name\": \"keyPr\",\n        \"displayName\": \"Product Price\",\n        \"simpleValueType\": true\n      },\n      {\n        \"type\": \"TEXT\",\n        \"name\": \"keyQt\",\n        \"displayName\": \"Product Quantity\",\n        \"simpleValueType\": true\n      }\n    ]\n  }\n]\n\n\n___SANDBOXED_JS_FOR_WEB_TEMPLATE___\n\nlet meta = '';\nlet tiktok = '';\nlet content_name = '';\nlet content_ids = [];\nlet contents = [];\nlet num_items = 0;\nlet value = 0;\n\nlet arr = data.orderItems;\nlet task = data.task;\n\nlet keyId = data.keyId;\nlet keyPr = data.keyPr;\nlet keyNm = data.keyNm;\nlet keyQt = data.keyQt;\n\nif (arr && arr.length) {\n    if (task === 'name') {\n        for (let i = 0; i < arr.length; i++) {\n            if (i === 0) {\n                content_name = arr[0][keyNm] || arr[0][keyId];\n            } else {\n                content_name = content_name + ', ' + (arr[i][keyNm] || arr[i][keyId]);\n            }\n        }\n    \n        return content_name;\n    }\n    \n    if (task === 'contents') {\n        for (let i = 0; i < arr.length; i++) {\n            let id = arr[i][keyId] || arr[i][keyNm];\n            let name = arr[i][keyNm] || arr[i][keyId];\n            let quantity = arr[i][keyQt];\n            if (quantity == null || quantity === '') quantity = 1;\n            let item_price = arr[i][keyPr];\n            if (item_price == null || item_price === '') item_price = 0;\n            \n            contents.push({\n                'id': id,\n                'name': name,\n                'quantity': quantity,\n                'item_price': item_price\n            });\n        }\n    \n        return contents;\n    }\n    \n    if (task === 'ids') {\n        for (let i = 0; i < arr.length; i++) {\n            let id = arr[i][keyId] || arr[i][keyNm];\n            content_ids.push(id);\n        }\n    \n        return content_ids;\n    }\n  \n    if (task === 'numitems') {\n        for (let i = 0; i < arr.length; i++) {\n            let quantity = arr[i][keyQt];\n            if (quantity == null || quantity === '') quantity = 1;\n            num_items = num_items + quantity;\n        }\n    \n        return num_items;\n    }\n\n    if (task === 'value') {\n        for (let i = 0; i < arr.length; i++) {\n            let quantity = arr[i][keyQt];\n            if (quantity == null || quantity === '') quantity = 1;\n            let item_price = arr[i][keyPr];\n            if (item_price == null || item_price === '') item_price = 0;\n            value = value + quantity * item_price;\n        }\n    \n        return value;\n    }\n\n    if (task === 'meta') {\n        for (let i = 0; i < arr.length; i++) {\n            let id = arr[i][keyId] || arr[i][keyNm];\n            let name = arr[i][keyNm] || arr[i][keyId];\n            let quantity = arr[i][keyQt];\n            if (quantity == null || quantity === '') quantity = 1;\n            let item_price = arr[i][keyPr];\n            if (item_price == null || item_price === '') item_price = 0;\n            \n            contents.push({\n                'id': id,\n                'quantity': quantity,\n                'item_price': item_price\n            });\n\n            content_ids.push(id);\n            value += quantity * item_price;\n        }\n\n        content_name = contents.map(item => item.name).join(', ');\n\n        return {\n            content_ids: content_ids,\n            content_name: content_name,\n            content_type: 'product',\n            value: value,\n            contents: contents\n        };\n    }\n\n    if (task === 'tiktok') {\n        for (let i = 0; i < arr.length; i++) {\n            let id = arr[i][keyId] || arr[i][keyNm];\n            let name = arr[i][keyNm] || arr[i][keyId];\n            let quantity = arr[i][keyQt];\n            if (quantity == null || quantity === '') quantity = 1;\n            let item_price = arr[i][keyPr];\n            if (item_price == null || item_price === '') item_price = 0;\n            \n            contents.push({\n                'id': id,\n                'quantity': quantity,\n                'price': item_price\n            });\n\n            content_ids.push(id);\n            value += quantity * item_price;\n        }\n\n        content_name = contents.map(item => item.name).join(', ');\n\n        return {\n            content_type: 'product',\n            contents: contents\n        };\n    }\n}\n\nreturn task === 'name' ? '' : [];\n\n\n___TESTS___\n\nscenarios: []\n\n\n___NOTES___\n\nCreated on 12/10/2021, 11:11:20\n\n\n",
-                "galleryReference": {
-                    "host": "github.com",
-                    "owner": "stape-io",
-                    "repository": "facebook-parameter-generator-variable",
-                    "version": "eef195fea14a7cb8f269ee9e2b223b540cbc264a",
-                    "isModified": true,
-                    "signature": "98d597cbacf0e3cf1ec15b7c69d1ffd258ca862edff82f4a169ef70e11c60779"
-                }
-            }
-        ]
-    }
+        "templateId": "145",
+        "name": "Ecommerce Parameter Generator",
+        "fingerprint": "1721365620653",
+        "templateData": "___TERMS_OF_SERVICE___\n\nBy creating or modifying this file you agree to Google Tag Manager's Community\nTemplate Gallery Developer Terms of Service available at\nhttps://developers.google.com/tag-manager/gallery-tos (or such other URL as\nGoogle may provide), as modified from time to time.\n\n\n___INFO___\n\n{\n  \"type\": \"MACRO\",\n  \"id\": \"cvt_temp_public_id\",\n  \"version\": 1,\n  \"securityGroups\": [],\n  \"displayName\": \"Ecommerce Parameter Generator\",\n  \"description\": \"Generates the desired parameter from an array.\",\n  \"containerContexts\": [\n    \"WEB\"\n  ]\n}\n\n\n___TEMPLATE_PARAMETERS___\n\n[\n  {\n    \"type\": \"TEXT\",\n    \"name\": \"orderItems\",\n    \"displayName\": \"Array of Objects\",\n    \"simpleValueType\": true,\n    \"help\": \"For example, this can be Items array from enhanced ecommerce variable.\"\n  },\n  {\n    \"type\": \"SELECT\",\n    \"name\": \"task\",\n    \"displayName\": \"What to return\",\n    \"macrosInSelect\": false,\n    \"selectItems\": [\n      {\n        \"value\": \"meta\",\n        \"displayValue\": \"Meta Ecommerce Parameters\"\n      },\n      {\n        \"value\": \"tiktok\",\n        \"displayValue\": \"TikTok Ecommerce Parameters\"\n      },\n      {\n        \"value\": \"contents\",\n        \"displayValue\": \"contents [ {} ]\"\n      },\n      {\n        \"value\": \"ids\",\n        \"displayValue\": \"content_ids [ ]\"\n      },\n      {\n        \"value\": \"name\",\n        \"displayValue\": \"content_name \\u0027 \\u0027\"\n      },\n      {\n        \"value\": \"numitems\",\n        \"displayValue\": \"num_items\"\n      },\n      {\n        \"value\": \"value\",\n        \"displayValue\": \"value\"\n      }\n    ],\n    \"simpleValueType\": true\n  },\n  {\n    \"type\": \"GROUP\",\n    \"name\": \"keyGroup\",\n    \"displayName\": \"Array Keys\",\n    \"groupStyle\": \"ZIPPY_OPEN\",\n    \"subParams\": [\n      {\n        \"type\": \"TEXT\",\n        \"name\": \"keyId\",\n        \"displayName\": \"Product ID\",\n        \"simpleValueType\": true\n      },\n      {\n        \"type\": \"TEXT\",\n        \"name\": \"keyNm\",\n        \"displayName\": \"Product Name\",\n        \"simpleValueType\": true\n      },\n      {\n        \"type\": \"TEXT\",\n        \"name\": \"keyPr\",\n        \"displayName\": \"Product Price\",\n        \"simpleValueType\": true\n      },\n      {\n        \"type\": \"TEXT\",\n        \"name\": \"keyQt\",\n        \"displayName\": \"Product Quantity\",\n        \"simpleValueType\": true\n      }\n    ]\n  }\n]\n\n\n___SANDBOXED_JS_FOR_WEB_TEMPLATE___\n\nlet meta = '';\nlet tiktok = '';\nlet content_name = '';\nlet content_ids = [];\nlet contents = [];\nlet num_items = 0;\nlet value = 0;\n\nlet arr = data.orderItems;\nlet task = data.task;\n\nlet keyId = data.keyId;\nlet keyPr = data.keyPr;\nlet keyNm = data.keyNm;\nlet keyQt = data.keyQt;\n\nif (arr && arr.length) {\n    if (task === 'name') {\n        for (let i = 0; i < arr.length; i++) {\n            if (i === 0) {\n                content_name = arr[0][keyNm] || arr[0][keyId];\n            } else {\n                content_name = content_name + ', ' + (arr[i][keyNm] || arr[i][keyId]);\n            }\n        }\n    \n        return content_name;\n    }\n    \n    if (task === 'contents') {\n        for (let i = 0; i < arr.length; i++) {\n            let id = arr[i][keyId] || arr[i][keyNm];\n            let name = arr[i][keyNm] || arr[i][keyId];\n            let quantity = arr[i][keyQt];\n            if (quantity == null || quantity === '') quantity = 1;\n            let item_price = arr[i][keyPr];\n            if (item_price == null || item_price === '') item_price = 0;\n            \n            contents.push({\n                'id': id,\n                'name': name,\n                'quantity': quantity,\n                'item_price': item_price\n            });\n        }\n    \n        return contents;\n    }\n    \n    if (task === 'ids') {\n        for (let i = 0; i < arr.length; i++) {\n            let id = arr[i][keyId] || arr[i][keyNm];\n            content_ids.push(id);\n        }\n    \n        return content_ids;\n    }\n  \n    if (task === 'numitems') {\n        for (let i = 0; i < arr.length; i++) {\n            let quantity = arr[i][keyQt];\n            if (quantity == null || quantity === '') quantity = 1;\n            num_items = num_items + quantity;\n        }\n    \n        return num_items;\n    }\n\n    if (task === 'value') {\n        for (let i = 0; i < arr.length; i++) {\n            let quantity = arr[i][keyQt];\n            if (quantity == null || quantity === '') quantity = 1;\n            let item_price = arr[i][keyPr];\n            if (item_price == null || item_price === '') item_price = 0;\n            value = value + quantity * item_price;\n        }\n    \n        return value;\n    }\n\n    if (task === 'meta') {\n        for (let i = 0; i < arr.length; i++) {\n            let id = arr[i][keyId] || arr[i][keyNm];\n            let name = arr[i][keyNm] || arr[i][keyId];\n            let quantity = arr[i][keyQt];\n            if (quantity == null || quantity === '') quantity = 1;\n            let item_price = arr[i][keyPr];\n            if (item_price == null || item_price === '') item_price = 0;\n            \n            contents.push({\n                'id': id,\n                'quantity': quantity,\n                'item_price': item_price\n            });\n\n            content_ids.push(id);\n            value += quantity * item_price;\n        }\n\n        content_name = contents.map(item => item.name).join(', ');\n\n        return {\n            content_ids: content_ids,\n            content_name: content_name,\n            content_type: 'product',\n            value: value,\n            contents: contents\n        };\n    }\n\n    if (task === 'tiktok') {\n        for (let i = 0; i < arr.length; i++) {\n            let id = arr[i][keyId] || arr[i][keyNm];\n            let name = arr[i][keyNm] || arr[i][keyId];\n            let quantity = arr[i][keyQt];\n            if (quantity == null || quantity === '') quantity = 1;\n            let item_price = arr[i][keyPr];\n            if (item_price == null || item_price === '') item_price = 0;\n            \n            contents.push({\n                'id': id,\n                'quantity': quantity,\n                'price': item_price\n            });\n\n            content_ids.push(id);\n            value += quantity * item_price;\n        }\n\n        content_name = contents.map(item => item.name).join(', ');\n\n        return {\n            content_type: 'product',\n            contents: contents\n        };\n    }\n}\n\nreturn task === 'name' ? '' : [];\n\n\n___TESTS___\n\nscenarios: []\n\n\n___NOTES___\n\nCreated on 12/10/2021, 11:11:20\n\n\n",
+        "galleryReference": {
+          "host": "github.com",
+          "owner": "stape-io",
+          "repository": "facebook-parameter-generator-variable",
+          "version": "eef195fea14a7cb8f269ee9e2b223b540cbc264a",
+          "isModified": true,
+          "signature": "98d597cbacf0e3cf1ec15b7c69d1ffd258ca862edff82f4a169ef70e11c60779"
+        }
+      }
+    ]
+  }
 }

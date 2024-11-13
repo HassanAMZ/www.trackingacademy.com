@@ -25,7 +25,7 @@ const TestimonialsCarousel2: React.FC = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentIndex(
-        (prevIndex) => (prevIndex + 1) % clientTestimonials.length
+        (prevIndex) => (prevIndex + 1) % clientTestimonials.length,
       );
     }, 10000);
 

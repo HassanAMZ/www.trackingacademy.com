@@ -113,7 +113,7 @@ export async function createContact(prevState: any, formData: FormData) {
           last_name: data.lastName,
         },
       }),
-      { httpOnly: true, path: "/", maxAge: 60 * 60 * 24 * 7 }
+      { httpOnly: true, path: "/", maxAge: 60 * 60 * 24 * 7 },
     ); // Expires in 7 days
 
     return { message: `Added contact ${data.firstName} ${data.lastName}` };

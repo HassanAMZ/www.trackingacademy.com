@@ -136,7 +136,7 @@ export default function CareerForm({
 }: CareerFormProps) {
   const [state, formAction] = useFormState(
     createCareerApplication,
-    initialState
+    initialState,
   );
   const [formSubmitted, setFormSubmitted] = useState(false);
   const [currentStep, setCurrentStep] = useState(1);
@@ -280,7 +280,7 @@ export default function CareerForm({
   };
 
   const handleInputChange = (
-    e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
+    e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>,
   ) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });

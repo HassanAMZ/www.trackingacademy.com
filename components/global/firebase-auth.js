@@ -49,7 +49,6 @@ export const FirebaseAuth = () => {
           <CardContent className="flex h-[30vh] flex-col items-center justify-center gap-2">
             <Text
               as="p"
-
               className="text-center font-medium text-primary-foreground"
             >
               Sign up for free to access.
@@ -90,7 +89,6 @@ export const FirebaseAuth = () => {
                 </div>
                 <Text
                   as="p"
-
                   applyMargin={false}
                   className="pl-4 font-medium text-primary-foreground"
                 >

@@ -72,7 +72,7 @@ const ListItem = React.forwardRef<
           ref={ref}
           className={clsx(
             "block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground",
-            className
+            className,
           )}
           {...props}
         >
@@ -115,7 +115,7 @@ export default function Navbar() {
       className={clsx(
         navigationMenuTriggerStyle(),
         "p-2 text-accent-foreground flex items-center justify-center font-extrabold",
-        isActive("/") && "text-accent-foreground bg-secondary"
+        isActive("/") && "text-accent-foreground bg-secondary",
       )}
     >
       TrackingAcademy
@@ -274,7 +274,7 @@ export default function Navbar() {
             href="/"
             className={clsx(
               navigationMenuTriggerStyle(),
-              pathname === "/" && "bg-secondary text-accent-foreground"
+              pathname === "/" && "bg-secondary text-accent-foreground",
             )}
             onClick={handleLinkClick}
           >
@@ -295,7 +295,7 @@ export default function Navbar() {
             href={"/tools"}
             className={clsx(
               navigationMenuTriggerStyle(),
-              isActive("/tools") && "bg-secondary text-accent-foreground"
+              isActive("/tools") && "bg-secondary text-accent-foreground",
             )}
             onClick={handleLinkClick}
           >
@@ -305,7 +305,7 @@ export default function Navbar() {
             href="/career"
             className={clsx(
               navigationMenuTriggerStyle(),
-              isActive("/career") && "bg-secondary text-accent-foreground"
+              isActive("/career") && "bg-secondary text-accent-foreground",
             )}
             onClick={handleLinkClick}
           >
@@ -315,7 +315,7 @@ export default function Navbar() {
             href="/blog"
             className={clsx(
               navigationMenuTriggerStyle(),
-              isActive("/blog") && "bg-secondary text-accent-foreground"
+              isActive("/blog") && "bg-secondary text-accent-foreground",
             )}
             onClick={handleLinkClick}
           >

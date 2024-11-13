@@ -1,4 +1,3 @@
-
 (function (w, d, s, l, i) {
   w[l] = w[l] || [];
   w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
@@ -33,7 +32,7 @@ analytics.subscribe("checkout_completed", (event) => {
     hostname: getEventData(event, "context.document.location.hostname"),
     location_query_string: getEventData(
       event,
-      "context.document.location.href"
+      "context.document.location.href",
     ),
     path: getEventData(event, "context.document.location.pathname"),
     referrer: getEventData(event, "context.document.referrer"),
@@ -54,7 +53,7 @@ analytics.subscribe("checkout_completed", (event) => {
       postal_code: getEventData(event, "data.checkout.shippingAddress.zip"),
       first_name: getEventData(
         event,
-        "data.checkout.shippingAddress.firstName"
+        "data.checkout.shippingAddress.firstName",
       ),
       last_name: getEventData(event, "data.checkout.shippingAddress.lastName"),
     },
@@ -76,7 +75,7 @@ analytics.subscribe("checkout_completed", (event) => {
     coupon: getEventData(
       event,
       "data.checkout.discountApplications[0].code",
-      ""
+      "",
     ),
     items: event.data.checkout.lineItems.map((item, index) => ({
       item_id: getEventData(item, "variant.product.id"),
@@ -94,7 +93,7 @@ analytics.subscribe("checkout_completed", (event) => {
       product_url: getEventData(item, "variant.product.url"),
       product_untranslatedTitle: getEventData(
         item,
-        "variant.product.untranslatedTitle"
+        "variant.product.untranslatedTitle",
       ),
       product_sku: getEventData(item, "variant.sku"),
       quantity: getEventData(item, "quantity"),
@@ -110,7 +109,7 @@ analytics.subscribe("checkout_completed", (event) => {
   };
   const newUrl = new URL(
     page_data.location_query_string,
-    window.location.origin
+    window.location.origin,
   );
   const newTitle = page_data.page_title;
 

@@ -18,7 +18,7 @@ const CustomLink: React.FC<CustomLinkProps> = ({
   const isInternalLink = href.startsWith("/");
   const isAnchorLink = href.startsWith("#");
   const isExternal = `${href}?utm_source=TrackingAcademy.com&utm_medium=affiliate&utm_campaign=InternalLink&utm_term=website&utm_content=${encodeURIComponent(
-    href
+    href,
   )}`;
 
   if (isInternalLink) {
@@ -37,7 +37,7 @@ const CustomLink: React.FC<CustomLinkProps> = ({
         href={href}
         className={clsx(
           "!p-0 whitespace-pre-wrap text-primary underline-offset-4 hover:underline",
-          className
+          className,
         )}
         {...rest}
       />

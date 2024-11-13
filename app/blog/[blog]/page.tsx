@@ -15,7 +15,7 @@ export async function generateStaticParams(): Promise<
 
   // remove non-mdx files
   const mdxFiles = allPostsFiles.filter(
-    (file) => path.extname(file) === ".mdx"
+    (file) => path.extname(file) === ".mdx",
   );
 
   const allPostsData = mdxFiles.map(async (fileName) => {
@@ -46,7 +46,9 @@ export async function generateStaticParams(): Promise<
   return sortedData;
 }
 
-export default async function Page(props: { params: Promise<{ blog: string }> }) {
+export default async function Page(props: {
+  params: Promise<{ blog: string }>;
+}) {
   const params = await props.params;
   let blog = params.blog;
   const data = await generateStaticParams();

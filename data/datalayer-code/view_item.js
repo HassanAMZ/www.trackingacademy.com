@@ -1,4 +1,3 @@
-
 (function (w, d, s, l, i) {
   w[l] = w[l] || [];
   w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
@@ -32,7 +31,7 @@ analytics.subscribe("product_viewed", (event) => {
     hostname: getEventData(event, "context.document.location.hostname"),
     location_query_string: getEventData(
       event,
-      "context.document.location.href"
+      "context.document.location.href",
     ),
     path: getEventData(event, "context.document.location.pathname"),
     referrer: getEventData(event, "context.document.referrer"),
@@ -69,7 +68,7 @@ analytics.subscribe("product_viewed", (event) => {
         product_url: getEventData(event, "data.productVariant.product.url"),
         product_untranslatedTitle: getEventData(
           event,
-          "data.productVariant.untranslatedTitle"
+          "data.productVariant.untranslatedTitle",
         ),
         product_sku: getEventData(event, "data.productVariant.sku"),
         quantity: 1,
@@ -87,7 +86,7 @@ analytics.subscribe("product_viewed", (event) => {
 
   const newUrl = new URL(
     page_data.location_query_string,
-    window.location.origin
+    window.location.origin,
   );
   const newTitle = page_data.page_title;
 

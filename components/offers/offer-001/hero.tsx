@@ -70,7 +70,7 @@ interface TrackingData {
 }
 
 const calculateAverage = (
-  data: TrackingData[]
+  data: TrackingData[],
 ): { avgBefore: string; avgAfter: string } => {
   const totalBefore = data.reduce((sum, entry) => sum + entry.before, 0);
   const totalAfter = data.reduce((sum, entry) => sum + entry.after, 0);
@@ -174,7 +174,7 @@ export default function Hero() {
                 <tr
                   className={cn(
                     "m-0 whitespace-nowrap p-0 even:bg-muted",
-                    index < trackingData.length - 3 && "hidden md:table-row"
+                    index < trackingData.length - 3 && "hidden md:table-row",
                   )}
                   key={index}
                 >

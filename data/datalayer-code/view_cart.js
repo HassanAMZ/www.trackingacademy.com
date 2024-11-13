@@ -34,7 +34,7 @@ analytics.subscribe("cart_viewed", (event) => {
     hostname: getEventData(event, "context.document.location.hostname"),
     location_query_string: getEventData(
       event,
-      "context.document.location.href"
+      "context.document.location.href",
     ),
     path: getEventData(event, "context.document.location.pathname"),
     referrer: getEventData(event, "context.document.referrer"),
@@ -72,7 +72,7 @@ analytics.subscribe("cart_viewed", (event) => {
       product_url: getEventData(line, "merchandise.product.url"),
       product_untranslatedTitle: getEventData(
         line,
-        "merchandise.product.untranslatedTitle"
+        "merchandise.product.untranslatedTitle",
       ),
       product_sku: getEventData(line, "merchandise.sku"),
       quantity: getEventData(line, "quantity"),
@@ -89,7 +89,7 @@ analytics.subscribe("cart_viewed", (event) => {
 
   const newUrl = new URL(
     page_data.location_query_string,
-    window.location.origin
+    window.location.origin,
   );
   const newTitle = page_data.page_title;
 

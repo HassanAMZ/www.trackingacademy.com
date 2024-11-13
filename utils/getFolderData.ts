@@ -3,7 +3,7 @@ import path from "path";
 import getFiles from "@/utils/getFiles"; // Ensure this path is correct
 
 export default async function getFolderData(
-  contentDirectoryPath: string = "app/offers" // Default value assigned here
+  contentDirectoryPath: string = "app/offers", // Default value assigned here
 ): Promise<{ id: string; slug: string; title: string }[]> {
   const baseDirectory = path.join(process.cwd(), contentDirectoryPath);
   const allPostsFiles = getFiles(baseDirectory);

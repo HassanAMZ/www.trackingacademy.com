@@ -9,7 +9,7 @@ import { cookies } from "next/headers";
 
 export async function createCareerApplication(
   prevState: any,
-  formData: FormData
+  formData: FormData,
 ) {
   const resend = new Resend(process.env.NEXT_PUBLIC_RESEND_API_KEY);
 
@@ -81,7 +81,7 @@ export async function createCareerApplication(
     currentWorkStatus: formData.get("currentWorkStatus"),
     lastJobDesignation: formData.get("lastJobDesignation"),
     businessDevelopmentExperience: formData.get(
-      "businessDevelopmentExperience"
+      "businessDevelopmentExperience",
     ),
     experienceInYears: formData.get("experienceInYears"),
     lastJobCompanyName: formData.get("lastJobCompanyName"),
@@ -131,7 +131,7 @@ export async function createCareerApplication(
           last_name: data.lastName,
         },
       }),
-      { httpOnly: true, path: "/", maxAge: 60 * 60 * 24 * 7 }
+      { httpOnly: true, path: "/", maxAge: 60 * 60 * 24 * 7 },
     );
 
     return {

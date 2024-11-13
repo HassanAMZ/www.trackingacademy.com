@@ -28,7 +28,7 @@ function SubmitButton() {
 const RequestABlogForm: React.FC<RequestABlogFormProps> = ({ searchTerm }) => {
   const [state, formAction] = useFormState(
     handleRequestABlogForm,
-    initialState
+    initialState,
   );
 
   const [formSubmitted, setFormSubmitted] = useState(false);

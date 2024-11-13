@@ -1,4 +1,3 @@
-
 (function (w, d, s, l, i) {
   w[l] = w[l] || [];
   w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
@@ -16,7 +15,7 @@ function logEventToConsole(dataLayerEvent) {
   console.log(
     "%cDataLayer Event: view_item_list ",
     customStyle01,
-    dataLayerEvent
+    dataLayerEvent,
   );
 }
 
@@ -36,7 +35,7 @@ analytics.subscribe("collection_viewed", (event) => {
     hostname: getEventData(event, "context.document.location.hostname"),
     location_query_string: getEventData(
       event,
-      "context.document.location.href"
+      "context.document.location.href",
     ),
     path: getEventData(event, "context.document.location.pathname"),
     referrer: getEventData(event, "context.document.referrer"),
@@ -58,7 +57,7 @@ analytics.subscribe("collection_viewed", (event) => {
   const ecommerce_data = {
     currency: getEventData(
       event,
-      "data.collection.productVariants[0].price.currencyCode"
+      "data.collection.productVariants[0].price.currencyCode",
     ),
     value: event.data.collection.productVariants
       .reduce((total, variant) => total + variant.price.amount, 0)
@@ -93,7 +92,7 @@ analytics.subscribe("collection_viewed", (event) => {
 
   const newUrl = new URL(
     page_data.location_query_string,
-    window.location.origin
+    window.location.origin,
   );
   const newTitle = page_data.page_title;
 

@@ -116,7 +116,7 @@ const Text: React.FC<TextProps> = ({
 
   const listClasses = {
     ol: "list-decimal my-2 ml-4 ",
-    ul: "list-disc list-inside my-2 ml-4",
+    ul: "list-disc pl-6 space-y-1",
   };
 
   const classes = clsx(
@@ -131,7 +131,7 @@ const Text: React.FC<TextProps> = ({
     variant && variantClasses[variant],
     Component === "ol" && listClasses.ol,
     Component === "ul" && listClasses.ul,
-    className
+    className,
   );
 
   return (

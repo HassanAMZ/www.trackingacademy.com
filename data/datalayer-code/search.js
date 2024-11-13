@@ -28,7 +28,7 @@ analytics.subscribe("search_submitted", (event) => {
     hostname: getEventData(event, "context.document.location.hostname"),
     location_query_string: getEventData(
       event,
-      "context.document.location.href"
+      "context.document.location.href",
     ),
     path: getEventData(event, "context.document.location.pathname"),
     referrer: getEventData(event, "context.document.referrer"),
@@ -67,7 +67,7 @@ analytics.subscribe("search_submitted", (event) => {
       product_url: getEventData(variant, "product.url"),
       product_untranslatedTitle: getEventData(
         variant,
-        "product.untranslatedTitle"
+        "product.untranslatedTitle",
       ),
       product_sku: getEventData(variant, "sku"),
     })),

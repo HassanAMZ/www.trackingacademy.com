@@ -473,6 +473,6 @@ export interface AddVideoParams {
   setErrorMessage: SetStateFunction<string>;
   insertRandomly: (
     existingItems: VideoUrl[],
-    newItems: VideoUrl[]
+    newItems: VideoUrl[],
   ) => VideoUrl[];
 }

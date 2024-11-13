@@ -1,7 +1,7 @@
 "use client";
 
 import { useChat } from "ai/react";
-import { ReactElement, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import Image from "next/image";
 import Container from "@/components/ui/container";
 import Markdown from "react-markdown";
@@ -14,11 +14,9 @@ import OpenAiModels from "@/data/gpt-models";
 import OpenAiSystemMessages from "@/data/gpt-system-message";
 import Pre from "../mdx/Pre";
 import {
-  BoxSelect,
   Camera,
   Paperclip,
   Send,
-  Settings,
   Settings2Icon,
   SettingsIcon,
 } from "lucide-react";
@@ -28,6 +26,9 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import { YoutubeMetadata } from "./YoutubeMetadata";
+import { AuditReport } from "./AuditReport";
+import { UpworkCoverLetter } from "./CoverLetter";
 
 const CustomReactMarkdown = ({ children }: { children: string }) => (
   <Markdown
@@ -49,32 +50,32 @@ const CustomReactMarkdown = ({ children }: { children: string }) => (
         </Text>
       ),
       p: ({ children }) => (
-        <Text as="p" variant="bodySm">
+        <Text as="p" variant="bodyMd">
           {children}
         </Text>
       ),
       ul: ({ children }) => (
-        <Text as="ul" variant="bodySm">
+        <Text as="ul" variant="bodyMd">
           {children}
         </Text>
       ),
       ol: ({ children }) => (
-        <Text as="ol" variant="bodySm">
+        <Text as="ol" variant="bodyMd">
           {children}
         </Text>
       ),
       li: ({ children }) => (
-        <Text as="li" variant="bodySm">
+        <Text as="li" variant="bodyMd">
           {children}
         </Text>
       ),
       strong: ({ children }) => (
-        <Text as="strong" variant="bodySm" fontWeight="semibold">
+        <Text as="strong" variant="bodyMd" fontWeight="semibold">
           {children}
         </Text>
       ),
       a: ({ children, href }) => (
-        <CustomLink variant="bodySm" fontWeight="semibold" href={href}>
+        <CustomLink variant="bodyMd" fontWeight="semibold" href={href}>
           {children}
         </CustomLink>
       ),
@@ -87,7 +88,10 @@ const CustomReactMarkdown = ({ children }: { children: string }) => (
 export default function ChatBot() {
   const [model, setModel] = useState(OpenAiModels[4]);
   const [systemMessage, setSystemMessage] = useState(
-    OpenAiSystemMessages.DefaultModel01
+    OpenAiSystemMessages.DefaultModel01,
+  );
+  const [systemMessageKey, setSystemMessageKey] = useState(
+    Object.keys(OpenAiSystemMessages)[2],
   );
   const { messages, input, handleInputChange, handleSubmit } = useChat({
     body: {
@@ -102,13 +106,13 @@ export default function ChatBot() {
 
   const handleFileAttachment = (
     event: React.ChangeEvent<HTMLInputElement>,
-    type: "file" | "image"
+    type: "file" | "image",
   ) => {
     if (event.target.files) {
       if (type === "image") {
         // Filter only image files
         const imageFiles = Array.from(event.target.files).filter((file) =>
-          file.type.startsWith("image/")
+          file.type.startsWith("image/"),
         );
         if (imageFiles.length) {
           setFiles(event.target.files);
@@ -127,33 +131,38 @@ export default function ChatBot() {
 
   return (
     <Container className="flex flex-col h-screen max-h-screen py-4">
-      {/* Messages Container */}
-      <div className="flex-1 overflow-y-auto py-2 space-y-6">
-        {messages.length === 0 ? (
-          <Card className="shadow-sm rounded-t-lg">
-            <CardContent className="p-4">
-              <CustomReactMarkdown>{model}</CustomReactMarkdown>
-              <CustomReactMarkdown>{systemMessage}</CustomReactMarkdown>
-            </CardContent>
-          </Card>
-        ) : (
-          messages.map((m) => (
-            <div
-              key={m.id}
-              className={`flex ${
-                m.role === "user" ? "justify-end" : "justify-start"
-              }`}
+      <div
+        className="flex-1 overflow-y-auto py-2 space-y-4 flex-wrap"
+        style={{
+          scrollbarWidth: "none",
+          msOverflowStyle: "none",
+        }}
+      >
+        <style jsx>{`
+          .flex-1::-webkit-scrollbar {
+            display: none;
+          }
+        `}</style>
+        <Card className="shadow-sm rounded-t-lg bg-shadcn-color1">
+          <CardContent className="p-4">
+            <CustomReactMarkdown>{model}</CustomReactMarkdown>
+            <CustomReactMarkdown>{systemMessageKey}</CustomReactMarkdown>
+          </CardContent>
+        </Card>
+        {messages.map((m) => (
+          <div
+            key={m.id}
+            className={`${m.role === "user" ? "justify-end" : "justify-start"}`}
+          >
+            <Card
+              className={`rounded-lg ${m.role === "user" ? "bg-muted" : ""}`}
             >
-              <div
-                className={` rounded-lg p-4 ${
-                  m.role === "user" ? "" : "shadow-sm"
-                }`}
-              >
+              <CardContent className="p-4">
                 <CustomReactMarkdown>{m.content}</CustomReactMarkdown>
-                <div className="mt-2 space-y-2">
+                <div className="space-y-2">
                   {m?.experimental_attachments
                     ?.filter((attachment) =>
-                      attachment?.contentType?.startsWith("image/")
+                      attachment?.contentType?.startsWith("image/"),
                     )
                     .map((attachment, index) => (
                       <Image
@@ -165,11 +174,40 @@ export default function ChatBot() {
                         className="rounded"
                       />
                     ))}
+                  {m.toolInvocations?.map((toolInvocation) => {
+                    const { toolName, toolCallId, state } = toolInvocation;
+                    if (state === "result") {
+                      const { result } = toolInvocation;
+                      return (
+                        <div key={toolCallId}>
+                          {toolName === "generateYouTubeMetadata" ? (
+                            <YoutubeMetadata metadata={result} />
+                          ) : toolName === "generateAuditReport" ? (
+                            <AuditReport report={result} />
+                          ) : toolName === "generateUpworkCoverLetter" ? (
+                            <UpworkCoverLetter letter={result} />
+                          ) : null}
+                        </div>
+                      );
+                    } else {
+                      return (
+                        <div key={toolCallId}>
+                          {toolName === "generateYouTubeMetadata" ? (
+                            <div>Generating metadata...</div>
+                          ) : toolName === "generateAuditReport" ? (
+                            <div>Generating audit report...</div>
+                          ) : toolName === "generateUpworkCoverLetter" ? (
+                            <div>Generating cover letter...</div>
+                          ) : null}
+                        </div>
+                      );
+                    }
+                  })}
                 </div>
-              </div>
-            </div>
-          ))
-        )}
+              </CardContent>
+            </Card>
+          </div>
+        ))}
       </div>
 
       {/* Input Container */}
@@ -223,7 +261,6 @@ export default function ChatBot() {
                 </Button>
               </DropdownMenuTrigger>
               <DropdownMenuContent align="start" className="w-[200px]">
-                {/* Iterate over OpenAiSystemMessages with the correct key typing */}
                 {(
                   Object.keys(OpenAiSystemMessages) as Array<
                     keyof typeof OpenAiSystemMessages
@@ -231,9 +268,15 @@ export default function ChatBot() {
                 ).map((key) => (
                   <DropdownMenuItem
                     key={key}
-                    onClick={() => setSystemMessage(OpenAiSystemMessages[key])} // Set value based on key
+                    onClick={() => {
+                      setSystemMessageKey(key);
+                      setSystemMessage(OpenAiSystemMessages[key]);
+                    }}
                   >
-                    {key} {/* Display the key as the label */}
+                    {key.replace(/([A-Z])|(\d+)/g, (match, p1, p2) =>
+                      p1 ? ` ${p1}` : ` ${p2}`,
+                    )}{" "}
+                    {/* Display the key with spaces */}
                   </DropdownMenuItem>
                 ))}
               </DropdownMenuContent>

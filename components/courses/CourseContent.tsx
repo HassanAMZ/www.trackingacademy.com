@@ -12,7 +12,7 @@ const CourseContent: React.FC<CourseContentProps> = ({
   const [visiblePosts, setVisiblePosts] = useState(9); // Display first 9 courses by default
 
   const mainCoursePost = rawData?.find(
-    (course) => course.courseId === "00001"
+    (course) => course.courseId === "00001",
   )!;
   const visibleCourseLinks = data
     .slice(0, visiblePosts)

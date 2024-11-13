@@ -13,7 +13,7 @@ export default async function Page() {
   const filteredFolders = folders.filter(
     (folder) =>
       !folder.slug.includes("thank-you") &&
-      !folder.slug.includes("join-the-team")
+      !folder.slug.includes("join-the-team"),
   );
 
   return (

@@ -67,7 +67,7 @@ const Page: React.FC = () => {
         return param
           .split("")
           .map((char) =>
-            ["{", "}", "_"].includes(char) ? char : encodeURIComponent(char)
+            ["{", "}", "_"].includes(char) ? char : encodeURIComponent(char),
           )
           .join("");
       }
@@ -117,7 +117,7 @@ const Page: React.FC = () => {
   };
 
   const handleModeChange = (
-    mode: "manual" | "facebook" | "pinterest" | "google" | "tiktok"
+    mode: "manual" | "facebook" | "pinterest" | "google" | "tiktok",
   ) => {
     setSelectedMode(mode);
     switch (mode) {
@@ -216,7 +216,7 @@ const Page: React.FC = () => {
         | "facebook"
         | "pinterest"
         | "google"
-        | "tiktok"
+        | "tiktok",
     );
     setSelectedButton(parseInt(savedSelectedButton, 10));
     setIsInitialLoad(false);
@@ -308,7 +308,7 @@ const Page: React.FC = () => {
             rows={4}
             className={cn(
               "rounded-md border p-3",
-              !canGenerateUTM() && "opacity-50"
+              !canGenerateUTM() && "opacity-50",
             )}
           />
           {!canGenerateUTM() && (

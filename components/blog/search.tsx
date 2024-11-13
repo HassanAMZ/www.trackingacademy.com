@@ -23,7 +23,7 @@ const BlogSearch: React.FC<BlogSearchProps> = ({ data, onSearch }) => {
         (word) =>
           post.title.toLowerCase().includes(word) ||
           post.description.toLowerCase().includes(word) ||
-          post.tags.some((tag) => tag.toLowerCase().includes(word))
+          post.tags.some((tag) => tag.toLowerCase().includes(word)),
       );
 
       return matchesSearchTerm;

@@ -1,4 +1,3 @@
-
 (function (w, d, s, l, i) {
   w[l] = w[l] || [];
   w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
@@ -16,7 +15,7 @@ function logEventToConsole(dataLayerEvent) {
   console.log(
     "%cDataLayer Event: remove_from_cart ",
     customStyle01,
-    dataLayerEvent
+    dataLayerEvent,
   );
 }
 
@@ -37,7 +36,7 @@ analytics.subscribe("product_removed_from_cart", (event) => {
     hostname: getEventData(event, "context.document.location.hostname"),
     location_query_string: getEventData(
       event,
-      "context.document.location.href"
+      "context.document.location.href",
     ),
     path: getEventData(event, "context.document.location.pathname"),
     referrer: getEventData(event, "context.document.referrer"),
@@ -59,7 +58,7 @@ analytics.subscribe("product_removed_from_cart", (event) => {
   const ecommerce_data = {
     currency: getEventData(
       event,
-      "data.cartLine.cost.totalAmount.currencyCode"
+      "data.cartLine.cost.totalAmount.currencyCode",
     ),
     value: getEventData(event, "data.cartLine.cost.totalAmount.amount"),
     items: [
@@ -67,15 +66,15 @@ analytics.subscribe("product_removed_from_cart", (event) => {
         item_id: getEventData(event, "data.cartLine.merchandise.product.id"),
         item_name: getEventData(
           event,
-          "data.cartLine.merchandise.product.untranslatedTitle"
+          "data.cartLine.merchandise.product.untranslatedTitle",
         ),
         item_brand: getEventData(
           event,
-          "data.cartLine.merchandise.product.vendor"
+          "data.cartLine.merchandise.product.vendor",
         ),
         item_category: getEventData(
           event,
-          "data.cartLine.merchandise.product.type"
+          "data.cartLine.merchandise.product.type",
         ),
         price: getEventData(event, "data.cartLine.merchandise.price.amount"),
         item_variant:
@@ -86,15 +85,15 @@ analytics.subscribe("product_removed_from_cart", (event) => {
         product_id: getEventData(event, "data.cartLine.merchandise.id"),
         product_image: getEventData(
           event,
-          "data.cartLine.merchandise.image.src"
+          "data.cartLine.merchandise.image.src",
         ),
         product_url: getEventData(
           event,
-          "data.cartLine.merchandise.product.url"
+          "data.cartLine.merchandise.product.url",
         ),
         product_untranslatedTitle: getEventData(
           event,
-          "data.cartLine.merchandise.product.untranslatedTitle"
+          "data.cartLine.merchandise.product.untranslatedTitle",
         ),
         product_sku: getEventData(event, "data.cartLine.merchandise.sku"),
         quantity: getEventData(event, "data.cartLine.quantity"),
@@ -112,7 +111,7 @@ analytics.subscribe("product_removed_from_cart", (event) => {
 
   const newUrl = new URL(
     page_data.location_query_string,
-    window.location.origin
+    window.location.origin,
   );
   const newTitle = page_data.page_title;
 

@@ -45,7 +45,7 @@ const TrackingTable: React.FC = () => {
               key={data.date}
               className={cn(
                 "m-0 whitespace-nowrap p-0 even:bg-muted",
-                index < trackingData.length - 3 && "hidden lg:table-row"
+                index < trackingData.length - 3 && "hidden lg:table-row",
               )}
             >
               <td className="px-2 py-3 text-left">{data.date}</td>
