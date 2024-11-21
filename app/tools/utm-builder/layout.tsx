@@ -1,4 +1,3 @@
-import Navbar from "@/components/global/navbar";
 import ContainerLayout from "@/components/layouts/ContainerLayout";
 import React, { ReactNode } from "react";
 
@@ -10,11 +9,5 @@ export const metadata = {
   },
 };
 export default function Layout({ children }: { children: ReactNode }) {
-  return (
-    <React.Fragment>
-      <Navbar />
-
-      {children}
-    </React.Fragment>
-  );
+  return <React.Fragment>{children}</React.Fragment>;
 }

@@ -11,15 +11,15 @@ import { Button } from "@/components/ui/button";
 import Text from "@/components/ui/text";
 import CustomLink from "../mdx/CustomLink";
 import OpenAiModels from "@/data/gpt-models";
-import OpenAiSystemMessages from "@/data/gpt-system-message";
-import Pre from "../mdx/Pre";
 import {
-  Camera,
-  Paperclip,
-  Send,
-  Settings2Icon,
-  SettingsIcon,
-} from "lucide-react";
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "../ui/select";
+import Pre from "../mdx/Pre";
+import { Camera, Paperclip, Send, SettingsIcon } from "lucide-react";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -47,32 +47,32 @@ const CustomReactMarkdown = ({ children }: { children: string }) => (
         </Text>
       ),
       p: ({ children }) => (
-        <Text as="p" variant="bodyMd">
+        <Text as="p" variant="bodySm">
           {children}
         </Text>
       ),
       ul: ({ children }) => (
-        <Text as="ul" variant="bodyMd">
+        <Text as="ul" variant="bodySm">
           {children}
         </Text>
       ),
       ol: ({ children }) => (
-        <Text as="ol" variant="bodyMd">
+        <Text as="ol" variant="bodySm">
           {children}
         </Text>
       ),
       li: ({ children }) => (
-        <Text as="li" variant="bodyMd">
+        <Text as="li" variant="bodySm">
           {children}
         </Text>
       ),
       strong: ({ children }) => (
-        <Text as="strong" variant="bodyMd" fontWeight="semibold">
+        <Text as="strong" variant="bodySm" fontWeight="semibold">
           {children}
         </Text>
       ),
       a: ({ children, href }) => (
-        <CustomLink variant="bodyMd" fontWeight="semibold" href={href}>
+        <CustomLink variant="bodySm" fontWeight="semibold" href={href}>
           {children}
         </CustomLink>
       ),
@@ -82,14 +82,12 @@ const CustomReactMarkdown = ({ children }: { children: string }) => (
   </Markdown>
 );
 
-export default function ChatBot() {
-  const [model, setModel] = useState(OpenAiModels[4]);
-  const [systemMessage, setSystemMessage] = useState(
-    OpenAiSystemMessages.DefaultModel01
-  );
-  const [systemMessageKey, setSystemMessageKey] = useState(
-    Object.keys(OpenAiSystemMessages)[2]
-  );
+interface ChatBotProps {
+  systemMessage: string;
+}
+
+export default function ChatBot({ systemMessage }: ChatBotProps) {
+  const [model, setModel] = useState(OpenAiModels[0]);
   const { messages, input, handleInputChange, handleSubmit } = useChat({
     body: {
       systemMessage,
@@ -103,13 +101,13 @@ export default function ChatBot() {
 
   const handleFileAttachment = (
     event: React.ChangeEvent<HTMLInputElement>,
-    type: "file" | "image"
+    type: "file" | "image",
   ) => {
     if (event.target.files) {
       if (type === "image") {
         // Filter only image files
         const imageFiles = Array.from(event.target.files).filter((file) =>
-          file.type.startsWith("image/")
+          file.type.startsWith("image/"),
         );
         if (imageFiles.length) {
           setFiles(event.target.files);
@@ -128,38 +126,32 @@ export default function ChatBot() {
 
   return (
     <Container className="flex flex-col h-screen max-h-screen py-4">
-      <div
-        className="flex-1 overflow-y-auto py-2 space-y-4 flex-wrap"
-        style={{
-          scrollbarWidth: "none",
-          msOverflowStyle: "none",
-        }}
-      >
-        <style jsx>{`
-          .flex-1::-webkit-scrollbar {
-            display: none;
-          }
-        `}</style>
-        <Card className="shadow-sm rounded-t-lg bg-shadcn-color1">
-          <CardContent className="p-4">
-            <CustomReactMarkdown>{model}</CustomReactMarkdown>
-            <CustomReactMarkdown>{systemMessageKey}</CustomReactMarkdown>
-          </CardContent>
-        </Card>
-        {messages.map((m) => (
-          <div
-            key={m.id}
-            className={`${m.role === "user" ? "justify-end" : "justify-start"}`}
-          >
-            <Card
-              className={`rounded-lg ${m.role === "user" ? "bg-muted" : ""}`}
+      {/* Messages Container */}
+      <div className="flex-1 overflow-y-auto py-2 space-y-6">
+        {messages.length === 0 ? (
+          <Card className="shadow-sm rounded-t-lg">
+            <CardContent className="p-4">
+              <CustomReactMarkdown>{systemMessage}</CustomReactMarkdown>
+            </CardContent>
+          </Card>
+        ) : (
+          messages.map((m) => (
+            <div
+              key={m.id}
+              className={`flex ${
+                m.role === "user" ? "justify-end" : "justify-start"
+              }`}
             >
-              <CardContent className="p-4">
+              <div
+                className={` rounded-lg p-4 ${
+                  m.role === "user" ? "" : "shadow-sm"
+                }`}
+              >
                 <CustomReactMarkdown>{m.content}</CustomReactMarkdown>
-                <div className="space-y-2">
+                <div className="mt-2 space-y-2">
                   {m?.experimental_attachments
                     ?.filter((attachment) =>
-                      attachment?.contentType?.startsWith("image/")
+                      attachment?.contentType?.startsWith("image/"),
                     )
                     .map((attachment, index) => (
                       <Image
@@ -172,10 +164,10 @@ export default function ChatBot() {
                       />
                     ))}
                 </div>
-              </CardContent>
-            </Card>
-          </div>
-        ))}
+              </div>
+            </div>
+          ))
+        )}
       </div>
 
       {/* Input Container */}
@@ -216,35 +208,6 @@ export default function ChatBot() {
                     className={`${model === modelOption ? "bg-secondary" : ""}`}
                   >
                     {modelOption}
-                  </DropdownMenuItem>
-                ))}
-              </DropdownMenuContent>
-            </DropdownMenu>
-
-            {/* Improved System Message Selector using DropdownMenu */}
-            <DropdownMenu>
-              <DropdownMenuTrigger asChild>
-                <Button variant="outline" size="icon" className="h-10 w-10">
-                  <Settings2Icon className="h-5 w-5" />
-                </Button>
-              </DropdownMenuTrigger>
-              <DropdownMenuContent align="start" className="w-[200px]">
-                {(
-                  Object.keys(OpenAiSystemMessages) as Array<
-                    keyof typeof OpenAiSystemMessages
-                  >
-                ).map((key) => (
-                  <DropdownMenuItem
-                    key={key}
-                    onClick={() => {
-                      setSystemMessageKey(key);
-                      setSystemMessage(OpenAiSystemMessages[key]);
-                    }}
-                  >
-                    {key.replace(/([A-Z])|(\d+)/g, (match, p1, p2) =>
-                      p1 ? ` ${p1}` : ` ${p2}`
-                    )}{" "}
-                    {/* Display the key with spaces */}
                   </DropdownMenuItem>
                 ))}
               </DropdownMenuContent>
