@@ -26,9 +26,6 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { YoutubeMetadata } from "./YoutubeMetadata";
-import { AuditReport } from "./AuditReport";
-import { UpworkCoverLetter } from "./CoverLetter";
 
 const CustomReactMarkdown = ({ children }: { children: string }) => (
   <Markdown
@@ -88,10 +85,10 @@ const CustomReactMarkdown = ({ children }: { children: string }) => (
 export default function ChatBot() {
   const [model, setModel] = useState(OpenAiModels[4]);
   const [systemMessage, setSystemMessage] = useState(
-    OpenAiSystemMessages.DefaultModel01,
+    OpenAiSystemMessages.DefaultModel01
   );
   const [systemMessageKey, setSystemMessageKey] = useState(
-    Object.keys(OpenAiSystemMessages)[2],
+    Object.keys(OpenAiSystemMessages)[2]
   );
   const { messages, input, handleInputChange, handleSubmit } = useChat({
     body: {
@@ -106,13 +103,13 @@ export default function ChatBot() {
 
   const handleFileAttachment = (
     event: React.ChangeEvent<HTMLInputElement>,
-    type: "file" | "image",
+    type: "file" | "image"
   ) => {
     if (event.target.files) {
       if (type === "image") {
         // Filter only image files
         const imageFiles = Array.from(event.target.files).filter((file) =>
-          file.type.startsWith("image/"),
+          file.type.startsWith("image/")
         );
         if (imageFiles.length) {
           setFiles(event.target.files);
@@ -162,7 +159,7 @@ export default function ChatBot() {
                 <div className="space-y-2">
                   {m?.experimental_attachments
                     ?.filter((attachment) =>
-                      attachment?.contentType?.startsWith("image/"),
+                      attachment?.contentType?.startsWith("image/")
                     )
                     .map((attachment, index) => (
                       <Image
@@ -174,35 +171,6 @@ export default function ChatBot() {
                         className="rounded"
                       />
                     ))}
-                  {m.toolInvocations?.map((toolInvocation) => {
-                    const { toolName, toolCallId, state } = toolInvocation;
-                    if (state === "result") {
-                      const { result } = toolInvocation;
-                      return (
-                        <div key={toolCallId}>
-                          {toolName === "generateYouTubeMetadata" ? (
-                            <YoutubeMetadata metadata={result} />
-                          ) : toolName === "generateAuditReport" ? (
-                            <AuditReport report={result} />
-                          ) : toolName === "generateUpworkCoverLetter" ? (
-                            <UpworkCoverLetter letter={result} />
-                          ) : null}
-                        </div>
-                      );
-                    } else {
-                      return (
-                        <div key={toolCallId}>
-                          {toolName === "generateYouTubeMetadata" ? (
-                            <div>Generating metadata...</div>
-                          ) : toolName === "generateAuditReport" ? (
-                            <div>Generating audit report...</div>
-                          ) : toolName === "generateUpworkCoverLetter" ? (
-                            <div>Generating cover letter...</div>
-                          ) : null}
-                        </div>
-                      );
-                    }
-                  })}
                 </div>
               </CardContent>
             </Card>
@@ -274,7 +242,7 @@ export default function ChatBot() {
                     }}
                   >
                     {key.replace(/([A-Z])|(\d+)/g, (match, p1, p2) =>
-                      p1 ? ` ${p1}` : ` ${p2}`,
+                      p1 ? ` ${p1}` : ` ${p2}`
                     )}{" "}
                     {/* Display the key with spaces */}
                   </DropdownMenuItem>
