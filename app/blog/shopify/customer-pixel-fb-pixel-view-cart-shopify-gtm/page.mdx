@@ -1,0 +1,120 @@
+export const metadata = {
+  title:
+    "[Shopify Customer Pixel] How to Track Shopify View Cart Event Using Google Tag Manager and Facebook Pixel",
+  date: "2024-11-22",
+  blogId: 136,
+  keywords:
+    "Google Tag Manager, Shopify, Facebook Pixel, Ecommerce Tracking, Data Layer, Customer Pixel, View Cart, Meta Pixel, View Cart Tracking",
+  tags: [
+    "Google Tag Manager",
+    "Shopify",
+    "Facebook Pixel",
+    "Ecommerce Tracking",
+    "View Cart",
+    "Data Layer",
+    "Meta Pixel",
+  ],
+  draft: false,
+  description:
+    "Learn how to track the Shopify View Cart Event using Google Tag Manager and Facebook Pixel. This detailed guide provides step-by-step instructions for configuring data layers, event tags, and ensuring seamless eCommerce tracking.",
+  openGraph: {
+    images: ["/static/blog/00006.png"],
+  },
+  embedId: "bCIEaBy_6v4",
+};
+
+<BlogHeader metadata={metadata} />
+
+In this comprehensive guide, you’ll learn how to configure and track the Shopify **View Cart** event using Google Tag Manager (GTM) and Facebook Pixel. Whether you're working on optimizing your eCommerce data tracking or aiming for better insights into user behavior, this tutorial covers all the essential steps, from setting up the data layer in Shopify to testing the implementation using GTM and Facebook Event Manager.
+
+### Introduction to the View Cart Event
+
+Configuring the **View Cart** event allows you to capture valuable insights when customers view their shopping cart. This setup utilizes Shopify’s **Customer Event** section, GTM, and Facebook Pixel to ensure that event data is captured and transmitted effectively.
+
+In this tutorial, we’ll follow these key steps:
+
+1. Set up a **Customer Pixel** in Shopify to trigger a data layer event.
+2. Configure the GTM container to capture and push the event data.
+3. Define and create necessary variables, triggers, and tags in GTM.
+4. Test and verify the event implementation to ensure accurate tracking.
+
+### Setting Up the Customer Pixel in Shopify
+
+To start, ensure that the **Customer Pixel** is firing the appropriate **View Cart** data layer event. Follow these steps:
+
+1. Log in to your Shopify admin panel and navigate to the **Settings** section at the bottom left corner.
+2. Go to the **Customer Events** section and click the **Add Customer Pixel** button.
+3. Name the new pixel "Meta View Cart Event" for easy identification and select the **Data Layer** variable.
+4. Scroll to the **Code Snippet** section. Replace the placeholder code with the actual code snippet provided in the description of this blog. This code snippet triggers the **View Cart** event in the data layer.
+5. Update the placeholder **Google Tag Manager Container ID** with the correct ID from your GTM account. Save your changes and click **Connect** to link the pixel to Shopify.
+
+### Testing the Initial Setup in Shopify
+
+Before proceeding to GTM, test if the **Customer Pixel** is correctly triggering the **View Cart** event:
+
+1. Add a product to your cart in the Shopify storefront.
+2. Navigate to the cart page.
+3. Open the browser’s developer tools by right-clicking on the page and selecting **Inspect**.
+4. Go to the **Console** tab and look for the **View Cart** data layer event. This event should include important eCommerce parameters, such as:
+   - Items Array
+   - Product Information
+   - Currency
+
+Once confirmed, you’re ready to configure GTM.
+
+### Configuring Google Tag Manager
+
+Now, configure GTM to capture the **View Cart** event and send it to Facebook Pixel. This involves importing templates, creating variables, defining triggers, and setting up tags.
+
+#### Importing Templates
+
+1. Navigate to the **Templates** section in GTM.
+2. Search for and add the **Facebook Pixel** template created by the Facebook Archive team.
+3. Download the **E-commerce Parameter Generator** template from the provided link in this guide. Import it into GTM to handle the eCommerce data structure.
+
+#### Creating Variables
+
+1. **Facebook Pixel ID**:
+   - Create a **Constant Variable** to store your Facebook Pixel ID.
+   - Obtain the Pixel ID from Facebook Events Manager and paste it in the variable.
+2. **E-commerce Items Array**:
+   - Create a **Data Layer Variable** and name it `dlv_ecommerce_items`.
+3. **E-commerce Parameter Generator**:
+   - Create a new variable using the imported template.
+   - Assign the **E-commerce Items Array** variable to this template. Name it `EPG_Meta`.
+
+#### Setting Up a Trigger
+
+1. Go to the **Triggers** section in GTM.
+2. Create a **Custom Event Trigger** and name it `ViewCart`.
+3. Set the trigger event name to match the data layer event, `view_cart`.
+
+#### Creating and Configuring the Tag
+
+1. Go to the **Tags** section in GTM.
+2. Create a new tag using the imported **Facebook Pixel** template.
+3. Assign the following configurations:
+   - **Pixel ID**: Use the `Meta Pixel ID` variable.
+   - **Event Name**: `ViewCart`.
+   - **E-commerce Parameter Generator**: Use the `EPG_Meta` variable.
+4. Assign the `ViewCart` trigger to the tag and save it as `Meta View Cart Event`.
+
+### Testing and Publishing in Google Tag Manager
+
+After creating the tags and triggers, test and publish your GTM container:
+
+1. Publish the GTM container by naming the version appropriately, e.g., `Meta View Cart Event Configuration`.
+2. Verify the setup on your Shopify storefront:
+   - Add a product to your cart and navigate to the cart page.
+   - Use the **Facebook Pixel Helper** browser extension to check if the **View Cart** event is firing correctly. The extension should display details such as:
+     - Content Name
+     - Content ID
+     - Currency
+     - Items Array
+3. Alternatively, verify the event in the Facebook Event Manager:
+   - Go to the **Test Events** section and load your Shopify cart page.
+   - Confirm that the **View Cart** event is logged with accurate parameters.
+
+### Conclusion
+
+With this setup, your Shopify store can now effectively track the **View Cart** event, sending critical eCommerce data to Facebook Pixel. This enables better audience insights and optimized advertising strategies. If you’re looking to configure additional events, such as **Remove from Cart**, check out our related tutorials to expand your Shopify tracking capabilities.
