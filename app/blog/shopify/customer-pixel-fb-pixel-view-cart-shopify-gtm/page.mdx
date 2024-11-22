@@ -48,6 +48,8 @@ To start, ensure that the **Customer Pixel** is firing the appropriate **View Ca
 4. Scroll to the **Code Snippet** section. Replace the placeholder code with the actual code snippet provided in the description of this blog. This code snippet triggers the **View Cart** event in the data layer.
 5. Update the placeholder **Google Tag Manager Container ID** with the correct ID from your GTM account. Save your changes and click **Connect** to link the pixel to Shopify.
 
+<DataLayerCodeBlock fileName="view_cart.js" />
+
 ### Testing the Initial Setup in Shopify
 
 Before proceeding to GTM, test if the **Customer Pixel** is correctly triggering the **View Cart** event:
@@ -82,6 +84,14 @@ Now, configure GTM to capture the **View Cart** event and send it to Facebook Pi
 3. **E-commerce Parameter Generator**:
    - Create a new variable using the imported template.
    - Assign the **E-commerce Items Array** variable to this template. Name it `EPG_Meta`.
+
+<AuthenticatedLayout>
+  <Button className="p-6">
+    <a href="/static/templates/Ecommerce-Parameter-Generator.tpl" download>
+      Click here to Download the Ecommerce Parameter Generator Template
+    </a>
+  </Button>
+</AuthenticatedLayout>
 
 #### Setting Up a Trigger
 
