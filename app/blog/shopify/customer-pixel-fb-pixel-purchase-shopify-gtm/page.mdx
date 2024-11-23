@@ -48,6 +48,8 @@ The first step is creating a data layer event to collect detailed purchase infor
 5. Add the provided code snippet (found in the description or accompanying blog post) into the Code Snippet section.
 6. Save the pixel configuration.
 
+<DataLayerCodeBlock fileName="purchase.js" />
+
 This setup will trigger a purchase event across the store and collect data in the required format.
 
 ## 2. Installing Google Tag Manager on Shopify
@@ -83,6 +85,16 @@ We need to create specific variables to capture purchase event data.
 - Import the provided parameter generator template (download link available).
 - Set "E-commerce Items Array" as its source.
 - Save it as "E-commerce Parameter Generator for Meta".
+
+<AuthenticatedLayout>
+  <AuthenticatedLayout>
+    <Button className="p-6">
+      <a href="/static/templates/Ecommerce-Parameter-Generator.tpl" download>
+        Click here to Download the Ecommerce Parameter Generator Template
+      </a>
+    </Button>
+  </AuthenticatedLayout>
+</AuthenticatedLayout>
 
 ### Creating a Trigger
 
