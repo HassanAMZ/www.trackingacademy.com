@@ -6,6 +6,7 @@ import { AuthContextProvider } from "@/context/AuthContext";
 import Container from "@/components/ui/container";
 import BlogContainer from "@/components/blog/container";
 import Navbar from "@/components/global/navbar";
+import GiscusComments from "@/components/mdx/GiscusComents";
 
 export const metadata = {
   title: "Blog Archieve- TrackingAcademy",
@@ -28,6 +29,7 @@ export default function Layout({ children }: { children: ReactNode }) {
     <React.Fragment>
       <Navbar />
       <main className="text-base">{children}</main>
+      <GiscusComments />
     </React.Fragment>
   );
 }
