@@ -1,36 +1,40 @@
+import React from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { AlertCircle, CheckCircle2, ArrowRight } from "lucide-react";
-import Navbar from "@/components/global/navbar";
 import Container from "@/components/ui/container";
 import Text from "@/components/ui/text";
 import VideoPlayer from "@/components/offers/offer-001/video-player";
 import Link from "next/link";
 
 // Hero Component
-const Hero = () => {
+export const Hero = () => {
   return (
-    <section className="relative bg-gradient-to-b from-primary/5 to-background pt-24 pb-12">
+    <section className="relative bg-gradient-to-b from-primary/5 to-background py-12">
       <Container>
         <div className="flex flex-col items-center gap-4 text-center">
           <Badge variant="outline" className="mb-2 border-primary/20">
             Limited Time Offer for Shopify Store Owners
           </Badge>
 
-          <Text as="h1" variant="heading3xl" className="max-w-4xl">
+          <Text as="h1" variant="heading3xl">
             Transform Your Facebook Ads With{" "}
             <span className="text-primary">95%+ Accurate</span> Tracking
-            <span className="text-primary"> — Or It’s FREE!</span>
+            <span className="text-primary"> — Or It's FREE!</span>
           </Text>
 
-          <Text as="p" className="max-w-2xl" variant="bodyLg">
+          <Text as="p" className="text-muted-foreground" variant="headingXl">
             Say goodbye to data gaps, guesswork, and wasted ad spend. Our
             exclusive system guarantees 95%+ accuracy in tracking your Facebook
             Ads performance.
           </Text>
 
-          <Button asChild size="lg" className="mt-4">
+          <Button
+            asChild
+            size="lg"
+            className="text-xl px-12 py-7 shadow-2xl transform hover:-translate-y-1 transition-all my-4"
+          >
             <Link href="/contact">
               Get Your FREE Tracking Audit
               <ArrowRight className="h-4 w-4" />
@@ -58,7 +62,6 @@ const Hero = () => {
           placeholder="/images/home/reason-comparison-horizontal.gif"
           className="hidden sm:block"
         />
-        {/* Vertical video for screens smaller than md */}
         <VideoPlayer
           src="/videos/home/reason-comparison-vertical.mp4"
           placeholder="/images/home/reason-comparison-vertical.gif"
@@ -70,7 +73,7 @@ const Hero = () => {
 };
 
 // Problem Section Component
-const ProblemSection = () => {
+export const ProblemSection = () => {
   return (
     <section className="py-8">
       <Container>
@@ -79,7 +82,7 @@ const ProblemSection = () => {
             Stop Losing Money to Inaccurate Facebook Ads Tracking
           </Text>
           <Text as="p" className="max-w-[700px]" variant="bodyLg">
-            Tracking gaps are costing you money. If you don’t know which ads
+            Tracking gaps are costing you money. If you don't know which ads
             work, every dollar you spend could be a dollar lost. Our service
             pinpoints your current issues and delivers a 95%+ accurate tracking
             solution.
@@ -91,7 +94,7 @@ const ProblemSection = () => {
 };
 
 // Solution Section Component with 7-Step Process
-const SolutionSection = () => {
+export const SolutionSection = () => {
   const steps = [
     {
       title: "Precision Audit & Baseline Setup",
@@ -125,12 +128,12 @@ const SolutionSection = () => {
   ];
 
   return (
-    <section className="py-16 ">
-      <Container className="">
+    <section className="py-16">
+      <Container>
         <div className="flex flex-col items-center gap-8">
           <div className="text-center">
             <Text as="h2" variant="headingXl">
-              Here’s How We Guarantee 95% Accuracy
+              Here's How We Guarantee 95% Accuracy
             </Text>
             <Text as="p" className="mt-4" variant="bodyLg">
               Our specialized system is designed for Shopify stores like yours.
@@ -168,12 +171,12 @@ const SolutionSection = () => {
 };
 
 // Benefits Section Component
-const BenefitsSection = () => {
+export const BenefitsSection = () => {
   const benefits = [
     {
-      title: "See Every Dollar’s Impact",
+      title: "See Every Dollar's Impact",
       description:
-        "With our 95%+ accuracy guarantee, you’ll know exactly which ads bring the best results",
+        "With our 95%+ accuracy guarantee, you'll know exactly which ads bring the best results",
     },
     {
       title: "Save Time and Effort",
@@ -183,7 +186,7 @@ const BenefitsSection = () => {
     {
       title: "Risk-Free Guarantee",
       description:
-        "If we don’t hit 95% tracking accuracy, you don’t pay. Simple as that",
+        "If we don't hit 95% tracking accuracy, you don't pay. Simple as that",
     },
     {
       title: "Custom Analytics Dashboard",
@@ -226,7 +229,7 @@ const BenefitsSection = () => {
 };
 
 // Guarantee Section Component
-const GuaranteeSection = () => {
+export const GuaranteeSection = () => {
   return (
     <section className="py-16">
       <Container>
@@ -235,12 +238,12 @@ const GuaranteeSection = () => {
             <div className="flex flex-col items-center text-center gap-4">
               <AlertCircle className="h-12 w-12 text-primary" />
               <Text as="h2" variant="headingXl">
-                Our "95%+ Accuracy or It’s FREE" Guarantee
+                Our "95%+ Accuracy or It's FREE" Guarantee
               </Text>
               <Text as="p" className="max-w-xl">
-                We’re confident that our system will deliver precise, actionable
-                data for your Shopify store. If we don’t meet our 95% accuracy
-                promise, you don’t pay a single cent.
+                We're confident that our system will deliver precise, actionable
+                data for your Shopify store. If we don't meet our 95% accuracy
+                promise, you don't pay a single cent.
               </Text>
               <Button size="lg" className="mt-4" asChild>
                 <Link href="/contact">
