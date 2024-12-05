@@ -476,3 +476,23 @@ export interface AddVideoParams {
     newItems: VideoUrl[],
   ) => VideoUrl[];
 }
+export interface Statistic {
+  value: string;
+  label: string;
+  description?: string;
+}
+
+export interface CaseStudy {
+  id: number;
+  company: {
+    name: string;
+    logo?: string;
+    description: string;
+  };
+  statistics: Statistic[];
+  image?: {
+    src: string;
+    alt: string;
+  };
+  source?: string;
+}

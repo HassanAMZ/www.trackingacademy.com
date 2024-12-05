@@ -1,8 +1,9 @@
 "use client";
+
 import * as React from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Menu, Briefcase, Wrench, FileText } from "lucide-react"; // Import relevant icons
+import { Menu, Briefcase, Wrench, FileText } from "lucide-react";
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -19,53 +20,56 @@ import NavLink from "../navbar/NavLink";
 import { ModeToggle } from "./theme-switch";
 import clsx from "clsx";
 
-const tools = [
-  {
-    title: "UTM Builder",
-    href: "/tools/utm-builder",
-    description:
-      "Start building your UTMs for Google Ads, Facebook Ads, TikTok, or custom, all at one place",
-  },
-];
+interface NavItem {
+  title: string;
+  href: string;
+  description: string;
+}
 
-const careers = [
-  {
-    title: "Upwork Business Developer",
-    href: "/career/upwork-business-developer",
-    description:
-      "Join us as a Business Developer on Upwork to help grow our business.",
-  },
-  // {
-  //   title: "Web Analyst",
-  //   href: "/career/web-analyst",
-  //   description:
-  //     "We're looking for a Web Analyst to help optimize our web presence.",
-  // },
-];
+const NAV_ITEMS: Record<string, NavItem[]> = {
+  tools: [
+    {
+      title: "UTM Builder",
+      href: "/tools/utm-builder",
+      description:
+        "Start building your UTMs for Google Ads, Facebook Ads, TikTok, or custom, all at one place",
+    },
+  ],
+  careers: [
+    {
+      title: "Upwork Business Developer",
+      href: "/career/upwork-business-developer",
+      description:
+        "Join us as a Business Developer on Upwork to help grow our business.",
+    },
+  ],
+  blogs: [
+    {
+      title: "Google Tag Manager",
+      href: "/tags/google-tag-manager",
+      description: "Learn how to implement and optimize Google Tag Manager.",
+    },
+    {
+      title: "Shopify",
+      href: "/tags/shopify",
+      description:
+        "Guides and tips for managing and growing your Shopify store.",
+    },
+    {
+      title: "WooCommerce",
+      href: "/tags/woocommerce",
+      description: "Explore our WooCommerce tutorials and best practices.",
+    },
+  ],
+};
 
-const blogs = [
-  {
-    title: "Google Tag Manager",
-    href: "/tags/google-tag-manager",
-    description: "Learn how to implement and optimize Google Tag Manager.",
-  },
-  {
-    title: "Shopify",
-    href: "/tags/shopify",
-    description: "Guides and tips for managing and growing your Shopify store.",
-  },
-  {
-    title: "WooCommerce",
-    href: "/tags/woocommerce",
-    description: "Explore our WooCommerce tutorials and best practices.",
-  },
-];
+interface ListItemProps extends React.ComponentPropsWithoutRef<"a"> {
+  title: string;
+  children: React.ReactNode;
+}
 
-const ListItem = React.forwardRef<
-  React.ElementRef<"a">,
-  React.ComponentPropsWithoutRef<"a">
->(({ className, title, children, ...props }, ref) => {
-  return (
+const ListItem = React.forwardRef<HTMLAnchorElement, ListItemProps>(
+  ({ className, title, children, ...props }, ref) => (
     <li>
       <NavigationMenuLink asChild>
         <a
@@ -83,20 +87,15 @@ const ListItem = React.forwardRef<
         </a>
       </NavigationMenuLink>
     </li>
-  );
-});
+  ),
+);
 ListItem.displayName = "ListItem";
 
 export default function Navbar() {
   const [isSheetOpen, setSheetOpen] = React.useState(false);
   const pathname = usePathname();
 
-  const isActive = (path: string) => {
-    if (path === "/") {
-      return pathname === "/";
-    }
-    return pathname.startsWith(path);
-  };
+  const isActive = (path: string) => pathname.startsWith(path);
 
   const handleLinkClick = () => setSheetOpen(false);
 
@@ -122,128 +121,65 @@ export default function Navbar() {
     </NavLink>
   );
 
+  const renderNavigationMenuItems = (
+    items: NavItem[],
+    icon: React.ReactNode,
+  ) => (
+    <ul className="grid gap-3 p-4 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]">
+      <li className="row-span-3">
+        <NavigationMenuLink asChild>
+          <a
+            className="flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-muted/50 to-muted p-6 no-underline outline-none focus:shadow"
+            href={items[0].href}
+          >
+            {icon}
+            <div className="mb-2 mt-4 text-lg font-medium">
+              {items[0].title}
+            </div>
+            <p className="text-sm leading-tight text-muted-foreground">
+              {items[0].description}
+            </p>
+          </a>
+        </NavigationMenuLink>
+      </li>
+      {items.map((item) => (
+        <ListItem key={item.title} title={item.title} href={item.href}>
+          {item.description}
+        </ListItem>
+      ))}
+    </ul>
+  );
+
   const DesktopNavigationMenu = () => (
-    <div className="hidden h-14 gap-3 p-2 lg:flex w-full justify-center items-center">
-      <HomeNavigationButton />
+    <div className="hidden h-14 gap-3 p-2 lg:flex w-full justify-between items-center">
       <NavigationMenu>
         <NavigationMenuList className="w-full flex flex-col gap-4 text-lg font-medium lg:flex-row lg:items-center lg:gap-2 lg:text-sm">
-          {/* <NavigationMenuItem>
-            <Link href="/for-businesses" legacyBehavior passHref>
-              <NavigationMenuLink
-                className={clsx(
-                  navigationMenuTriggerStyle(),
-                  isActive("/for-businesses") &&
-                    "bg-secondary text-accent-foreground"
-                )}
-              >
-                For Businesses
-              </NavigationMenuLink>
-            </Link>
-          </NavigationMenuItem> */}
-
-          {/* Tools Dropdown */}
+          <HomeNavigationButton />
           <NavigationMenuItem>
             <NavigationMenuTrigger>Tools</NavigationMenuTrigger>
             <NavigationMenuContent>
-              <ul className="grid gap-3 p-4 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]">
-                <li className="row-span-3">
-                  <NavigationMenuLink asChild>
-                    <a
-                      className="flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-muted/50 to-muted p-6 no-underline outline-none focus:shadow"
-                      href="/tools/utm-builder"
-                    >
-                      <Wrench className="h-6 w-6" /> {/* UTM Builder Icon */}
-                      <div className="mb-2 mt-4 text-lg font-medium">
-                        UTM Builder
-                      </div>
-                      <p className="text-sm leading-tight text-muted-foreground">
-                        Start building your UTMs for Google Ads, Facebook Ads,
-                        TikTok, or custom, all in one place.
-                      </p>
-                    </a>
-                  </NavigationMenuLink>
-                </li>
-                {tools.map((tool) => (
-                  <ListItem
-                    key={tool.title}
-                    title={tool.title}
-                    href={tool.href}
-                  >
-                    {tool.description}
-                  </ListItem>
-                ))}
-              </ul>
+              {renderNavigationMenuItems(
+                NAV_ITEMS.tools,
+                <Wrench className="h-6 w-6" />,
+              )}
             </NavigationMenuContent>
           </NavigationMenuItem>
-
-          {/* Careers Dropdown */}
           <NavigationMenuItem>
             <NavigationMenuTrigger>Careers</NavigationMenuTrigger>
             <NavigationMenuContent>
-              <ul className="grid gap-3 p-4 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]">
-                <li className="row-span-3">
-                  <NavigationMenuLink asChild>
-                    <a
-                      className="flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-muted/50 to-muted p-6 no-underline outline-none focus:shadow"
-                      href="/career/upwork-business-developer"
-                    >
-                      <Briefcase className="h-6 w-6" />{" "}
-                      {/* Upwork Business Developer Icon */}
-                      <div className="mb-2 mt-4 text-lg font-medium">
-                        Upwork Business Developer
-                      </div>
-                      <p className="text-sm leading-tight text-muted-foreground">
-                        Join us as a Business Developer on Upwork to help grow
-                        our business.
-                      </p>
-                    </a>
-                  </NavigationMenuLink>
-                </li>
-                {careers.map((career) => (
-                  <ListItem
-                    key={career.title}
-                    title={career.title}
-                    href={career.href}
-                  >
-                    {career.description}
-                  </ListItem>
-                ))}
-              </ul>
+              {renderNavigationMenuItems(
+                NAV_ITEMS.careers,
+                <Briefcase className="h-6 w-6" />,
+              )}
             </NavigationMenuContent>
           </NavigationMenuItem>
-
-          {/* Blogs Dropdown */}
           <NavigationMenuItem>
             <NavigationMenuTrigger>Blogs</NavigationMenuTrigger>
             <NavigationMenuContent>
-              <ul className="grid gap-3 p-4 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]">
-                <li className="row-span-3">
-                  <NavigationMenuLink asChild>
-                    <a
-                      className="flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-muted/50 to-muted p-6 no-underline outline-none focus:shadow"
-                      href="/blog"
-                    >
-                      <FileText className="h-6 w-6" />{" "}
-                      {/* All Blog Posts Icon */}
-                      <div className="mb-2 mt-4 text-lg font-medium">
-                        All Blog Posts
-                      </div>
-                      <p className="text-sm leading-tight text-muted-foreground">
-                        Explore all our blog posts in one place.
-                      </p>
-                    </a>
-                  </NavigationMenuLink>
-                </li>
-                {blogs.map((blog) => (
-                  <ListItem
-                    key={blog.title}
-                    title={blog.title}
-                    href={blog.href}
-                  >
-                    {blog.description}
-                  </ListItem>
-                ))}
-              </ul>
+              {renderNavigationMenuItems(
+                NAV_ITEMS.blogs,
+                <FileText className="h-6 w-6" />,
+              )}
             </NavigationMenuContent>
           </NavigationMenuItem>
         </NavigationMenuList>
@@ -270,57 +206,22 @@ export default function Navbar() {
 
       <SheetContent side="right" className="flex flex-col justify-between">
         <nav className="flex w-full flex-col space-y-4 py-4">
-          <Link
-            href="/"
-            className={clsx(
-              navigationMenuTriggerStyle(),
-              pathname === "/" && "bg-secondary text-accent-foreground",
-            )}
-            onClick={handleLinkClick}
-          >
-            TrackingAcademy
-          </Link>
-          {/* <Link
-            href="/for-businesses"
-            className={clsx(
-              navigationMenuTriggerStyle(),
-              isActive("/for-businesses") &&
-                "bg-secondary text-accent-foreground"
-            )}
-            onClick={handleLinkClick}
-          >
-            For Businesses
-          </Link> */}
-          <Link
-            href={"/tools"}
-            className={clsx(
-              navigationMenuTriggerStyle(),
-              isActive("/tools") && "bg-secondary text-accent-foreground",
-            )}
-            onClick={handleLinkClick}
-          >
-            Tools
-          </Link>
-          <Link
-            href="/career"
-            className={clsx(
-              navigationMenuTriggerStyle(),
-              isActive("/career") && "bg-secondary text-accent-foreground",
-            )}
-            onClick={handleLinkClick}
-          >
-            Careers
-          </Link>
-          <Link
-            href="/blog"
-            className={clsx(
-              navigationMenuTriggerStyle(),
-              isActive("/blog") && "bg-secondary text-accent-foreground",
-            )}
-            onClick={handleLinkClick}
-          >
-            Blogs
-          </Link>
+          {["/", "/tools", "/career", "/blog"].map((path) => (
+            <Link
+              key={path}
+              href={path}
+              className={clsx(
+                "!w-full !justify-start",
+                navigationMenuTriggerStyle(),
+                isActive(path) && "bg-secondary text-accent-foreground",
+              )}
+              onClick={handleLinkClick}
+            >
+              {path === "/"
+                ? "TrackingAcademy"
+                : path.slice(1).charAt(0).toUpperCase() + path.slice(2)}
+            </Link>
+          ))}
           {renderCallToAction()}
         </nav>
         <ModeToggle />
@@ -329,9 +230,9 @@ export default function Navbar() {
   );
 
   return (
-    <div className="w-full pb-2 pt-4 lg:text-sm ">
-      <Container>
-        <div className="rounded-lg flex bg-secondary/40 shadow-md">
+    <div className="w-full pb-2 pt-4 lg:text-sm">
+      <Container className="bg-transparent">
+        <div className="rounded-lg flex bg-secondary/40 shadow">
           <MobileNavigationMenu />
           <DesktopNavigationMenu />
         </div>

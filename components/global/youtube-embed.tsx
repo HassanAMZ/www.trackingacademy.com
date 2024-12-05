@@ -14,7 +14,7 @@ const YoutubeEmbed: FC<YoutubeEmbedProps> = ({ embedId, className, id }) => {
   }
 
   return (
-    <Container className={clsx(className)} id={id}>
+    <Container className={className} id={id}>
       <div
         className="relative overflow-hidden rounded-lg"
         style={{ paddingTop: "56.25%" }}

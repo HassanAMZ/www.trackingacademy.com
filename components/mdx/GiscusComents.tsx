@@ -2,6 +2,7 @@
 import React, { useEffect } from "react";
 import { usePathname } from "next/navigation";
 import { useTheme } from "next-themes";
+import Container from "../ui/container";
 
 function GiscusComments() {
   const pathname = usePathname();
@@ -67,9 +68,9 @@ function GiscusComments() {
   }, [pathname, theme]); // Added theme as a dependency
 
   return (
-    <section>
+    <Container className="py-12">
       <div id="comment-section"></div>
-    </section>
+    </Container>
   );
 }
 

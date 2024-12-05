@@ -10,7 +10,6 @@ import { TestimonialsCarousel } from "@/components/for-freelancers/testimonials-
 export default function ForFreelancers() {
   return (
     <main className="">
-      <Navbar />
       <Hero
         heading={
           <Text as="h1" variant="heading3xl">
