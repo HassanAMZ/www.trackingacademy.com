@@ -5,9 +5,9 @@ import React from "react";
 
 export default function page() {
   return (
-    <div>
+    <div className="space-y-2">
       <Navbar />
-      <OfferAnalyzer />
+      {/* <OfferAnalyzer /> */}
       <OfferCreator />
     </div>
   );
