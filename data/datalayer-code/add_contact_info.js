@@ -7,18 +7,20 @@
   j.async = true;
   j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
   f.parentNode.insertBefore(j, f);
-})(window, document, "script", "dataLayer", "GTM-EXAMPLE");
+})(window, document, "script", "dataLayer", "GTM-XXXXX");
 
+// Function to log event to console with enhanced visibility
 function logEventToConsole(dataLayerEvent) {
   const customStyle01 =
     "color: #FFFF00; background-color: #000000; font-size: 10px; font-weight: bold; padding: 2px 0;";
   console.log(
-    "%cDataLayer Event: add_payment_info ",
+    "%cDataLayer Event: add_contact_info ",
     customStyle01,
     dataLayerEvent,
   );
 }
 
+// Subscribe to contact info submitted events
 analytics.subscribe("checkout_contact_info_submitted", (event) => {
   const getEventData = (obj, path, fallback = "") => {
     return (
@@ -32,6 +34,7 @@ analytics.subscribe("checkout_contact_info_submitted", (event) => {
     );
   };
 
+  // Prepare data objects with safe fallbacks
   const page_data = {
     hostname: getEventData(event, "context.document.location.hostname"),
     location_query_string: getEventData(
@@ -70,6 +73,7 @@ analytics.subscribe("checkout_contact_info_submitted", (event) => {
     id: event.id || "",
   };
 
+  // E-commerce data
   const ecommerce_data = {
     currency: getEventData(event, "data.checkout.currencyCode"),
     value: getEventData(event, "data.checkout.totalPrice.amount"),
@@ -103,25 +107,19 @@ analytics.subscribe("checkout_contact_info_submitted", (event) => {
     })),
   };
 
+  // Combine all data into a single object
   const dataLayerEvent = {
-    event: "add_contact_info",
+    event: "gtm_custom_event",
+    datalayer_event_name: "add_contact_info",
     user_data: user_data,
     event_data: event_data,
     ecommerce: ecommerce_data,
     page_data: page_data,
   };
 
-  const newUrl = new URL(
-    page_data.location_query_string,
-    window.location.origin,
-  );
-  const newTitle = page_data.page_title;
-
-  if (newUrl && newTitle) {
-    history.pushState(null, newTitle, newUrl.toString());
-  }
-  window.dataLayer = window.dataLayer || [];
-  dataLayer.push({ ecommerce: null });
+  // Push the event to dataLayer
   window.dataLayer.push(dataLayerEvent);
+
+  // Log the event with styled console output
   logEventToConsole(dataLayerEvent);
 });

@@ -1,3 +1,5 @@
+window.dataLayer = window.dataLayer || [];
+
 (function (w, d, s, l, i) {
   w[l] = w[l] || [];
   w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
@@ -111,16 +113,17 @@ analytics.subscribe("payment_info_submitted", (event) => {
   };
 
   const newUrl = new URL(
-    page_data.location_query_string,
+    dataLayerEvent.page_data.location_query_string,
     window.location.origin,
   );
-  const newTitle = page_data.page_title;
+  const newTitle = dataLayerEvent.page_data.page_title;
 
   if (newUrl && newTitle) {
     history.pushState(null, newTitle, newUrl.toString());
   }
-  window.dataLayer = window.dataLayer || [];
+
   dataLayer.push({ ecommerce: null });
+
   window.dataLayer.push(dataLayerEvent);
   logEventToConsole(dataLayerEvent);
 });
