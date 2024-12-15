@@ -8,7 +8,6 @@ import Text from "@/components/ui/text";
 import VideoPlayer from "@/components/offers/offer-001/video-player";
 import Link from "next/link";
 
-// Hero Component
 const Hero = () => {
   return (
     <section className="relative bg-gradient-to-b from-primary/5 to-background py-12">
@@ -72,7 +71,6 @@ const Hero = () => {
   );
 };
 
-// Problem Section Component
 const ProblemSection = () => {
   return (
     <section className="py-8">
@@ -93,7 +91,6 @@ const ProblemSection = () => {
   );
 };
 
-// Solution Section Component with 7-Step Process
 const SolutionSection = () => {
   const steps = [
     {
@@ -228,7 +225,6 @@ const BenefitsSection = () => {
   );
 };
 
-// Guarantee Section Component
 const GuaranteeSection = () => {
   return (
     <section className="py-16">

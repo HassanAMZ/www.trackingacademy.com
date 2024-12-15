@@ -7,7 +7,7 @@ import Text from "@/components/ui/text";
 export const ConversionApiSection: React.FC = () => {
   return (
     <Container>
-      <div className="relative p-8 rounded-2xl bg-gradient-to-br from-pink-50 via-purple-50 to-blue-50">
+      <div className="relative p-8 rounded-2xl bg-secondary">
         <Text as="h2" variant="heading2xl" className="text-center py-6">
           Maximise ROI with a high-quality Conversions API setup
         </Text>
@@ -29,10 +29,7 @@ export const ConversionApiSection: React.FC = () => {
               note: "additional attributed purchase events.²",
             },
           ].map((card, index) => (
-            <Card
-              key={index}
-              className="bg-white/90 backdrop-blur text-center p-5"
-            >
+            <Card key={index} className="backdrop-blur text-center p-5">
               <CardHeader>
                 <CardTitle className="text-xl">{card.title}</CardTitle>
               </CardHeader>
