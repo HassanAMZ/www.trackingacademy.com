@@ -78,7 +78,7 @@ export async function createContact(formData: FormData) {
         name: data.name,
         company: data.company,
       }),
-      { httpOnly: true, path: "/", maxAge: 60 * 60 * 24 * 7 }
+      { httpOnly: true, path: "/", maxAge: 60 * 60 * 24 * 7 },
     ); // Expires in 7 days
   } catch (e) {
     console.error("Failed to create contact or send email", e);

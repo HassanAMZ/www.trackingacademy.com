@@ -76,7 +76,7 @@ const ListItem = React.forwardRef<HTMLAnchorElement, ListItemProps>(
           ref={ref}
           className={clsx(
             "block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground",
-            className
+            className,
           )}
           {...props}
         >
@@ -87,7 +87,7 @@ const ListItem = React.forwardRef<HTMLAnchorElement, ListItemProps>(
         </a>
       </NavigationMenuLink>
     </li>
-  )
+  ),
 );
 ListItem.displayName = "ListItem";
 
@@ -114,7 +114,7 @@ export default function Navbar() {
       className={clsx(
         navigationMenuTriggerStyle(),
         "p-2 text-accent-foreground flex items-center justify-center font-extrabold",
-        isActive("/") && "text-accent-foreground bg-secondary"
+        isActive("/") && "text-accent-foreground bg-secondary",
       )}
     >
       TrackingAcademy
@@ -123,7 +123,7 @@ export default function Navbar() {
 
   const renderNavigationMenuItems = (
     items: NavItem[],
-    icon: React.ReactNode
+    icon: React.ReactNode,
   ) => (
     <ul className="grid gap-3 p-4 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]">
       <li className="row-span-3">
@@ -160,7 +160,7 @@ export default function Navbar() {
             <NavigationMenuContent>
               {renderNavigationMenuItems(
                 NAV_ITEMS.tools,
-                <Wrench className="h-6 w-6" />
+                <Wrench className="h-6 w-6" />,
               )}
             </NavigationMenuContent>
           </NavigationMenuItem>
@@ -169,7 +169,7 @@ export default function Navbar() {
             <NavigationMenuContent>
               {renderNavigationMenuItems(
                 NAV_ITEMS.careers,
-                <Briefcase className="h-6 w-6" />
+                <Briefcase className="h-6 w-6" />,
               )}
             </NavigationMenuContent>
           </NavigationMenuItem>
@@ -178,7 +178,7 @@ export default function Navbar() {
             <NavigationMenuContent>
               {renderNavigationMenuItems(
                 NAV_ITEMS.blogs,
-                <FileText className="h-6 w-6" />
+                <FileText className="h-6 w-6" />,
               )}
             </NavigationMenuContent>
           </NavigationMenuItem>
@@ -213,7 +213,7 @@ export default function Navbar() {
               className={clsx(
                 "!w-full !justify-start",
                 navigationMenuTriggerStyle(),
-                isActive(path) && "bg-secondary text-accent-foreground"
+                isActive(path) && "bg-secondary text-accent-foreground",
               )}
               onClick={handleLinkClick}
             >

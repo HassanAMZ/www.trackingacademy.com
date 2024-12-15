@@ -61,7 +61,7 @@ export default function OfferCreator() {
   // Handle input changes for different input types
   const handleInputChange = (
     field: keyof typeof offerDetails,
-    value: string
+    value: string,
   ) => {
     setOfferDetails((prev) => ({
       ...prev,

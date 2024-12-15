@@ -81,7 +81,7 @@ export function OfferResultDisplay({ generation }: OfferResultDisplayProps) {
                                   Array.isArray(value)
                                     ? value.join("\n")
                                     : String(value),
-                                  `${sectionKey}-${key}`
+                                  `${sectionKey}-${key}`,
                                 )
                               }
                             >
@@ -102,7 +102,7 @@ export function OfferResultDisplay({ generation }: OfferResultDisplayProps) {
                             <p>{String(value)}</p>
                           )}
                         </div>
-                      )
+                      ),
                     )}
                   </div>
                 ) : (
