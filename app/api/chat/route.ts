@@ -1,13 +1,13 @@
-import { openai } from "@/lib/openai";
+import { anthropic, openai } from "@/lib/ai";
 import { streamText, convertToCoreMessages } from "ai";
 
 export const maxDuration = 30;
 
 export async function POST(req: Request) {
-  const { messages, systemMessage, model } = await req.json();
+  const { messages, systemMessage, model, provider } = await req.json();
 
   const result = await streamText({
-    model: openai(model),
+    model: provider === "anthropic" ? anthropic(model) : openai(model),
     system: systemMessage,
     messages: convertToCoreMessages(messages),
   });

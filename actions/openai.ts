@@ -1,6 +1,6 @@
 "use server";
 
-import { openai } from "@/lib/openai";
+import { openai } from "@/lib/ai";
 import { streamText } from "ai";
 import { createStreamableValue } from "ai/rsc";
 
@@ -18,7 +18,7 @@ export interface ContinueConversationResponse {
 export async function continueConversation(
   history: Message[],
   model: string,
-  system: string,
+  system: string
 ): Promise<ContinueConversationResponse> {
   const stream = createStreamableValue();
 

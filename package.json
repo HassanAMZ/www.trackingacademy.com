@@ -9,7 +9,8 @@
     "format": "prettier --write ."
   },
   "dependencies": {
-    "@ai-sdk/openai": "^0.0.63",
+    "@ai-sdk/anthropic": "^1.0.5",
+    "@ai-sdk/openai": "^1.0.10",
     "@hookform/resolvers": "^3.9.1",
     "@mdx-js/loader": "^3.0.1",
     "@mdx-js/react": "^3.0.1",
