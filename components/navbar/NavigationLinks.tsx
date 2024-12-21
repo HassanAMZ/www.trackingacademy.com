@@ -1,7 +1,7 @@
 // NavigationLinks.tsx
-import React from "react";
-import NavLink from "./NavLink"; // Adjust the import path based on your project structure
-import headerNavLinks from "@/data/header-nav-links"; // Adjust the import path based on your project structure
+import React from 'react';
+import NavLink from './NavLink'; // Adjust the import path based on your project structure
+import headerNavLinks from '@/data/header-nav-links'; // Adjust the import path based on your project structure
 
 type NavLinkType = {
   href: string;

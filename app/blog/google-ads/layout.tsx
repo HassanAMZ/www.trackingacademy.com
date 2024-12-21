@@ -1,12 +1,12 @@
-import Container from "@/components/ui/container";
-import { ReactNode } from "react";
-import React from "react";
+import Container from '@/components/ui/container';
+import { ReactNode } from 'react';
+import React from 'react';
 
 export const metadata = {
-  title: "Blog Archieve- TrackingAcademy",
+  title: 'Blog Archieve- TrackingAcademy',
   description: `Blog for Web Analysts and Marketing People`,
   openGraph: {
-    images: ["/images/social-sharing.png"],
+    images: ['/images/social-sharing.png'],
   },
 };
 

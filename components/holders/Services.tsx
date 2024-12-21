@@ -1,7 +1,7 @@
-import CustomLink from "@/components/mdx/CustomLink";
-import ServiceCard from "@/components/global/ServiceCard";
-import ContainerLayout from "@/components/layouts/ContainerLayout";
-import servicesDetails from "@/data/services-details";
+import CustomLink from '@/components/mdx/CustomLink';
+import ServiceCard from '@/components/global/ServiceCard';
+import ContainerLayout from '@/components/layouts/ContainerLayout';
+import servicesDetails from '@/data/services-details';
 export default function Hero() {
   return (
     <div className="rounded-lg">

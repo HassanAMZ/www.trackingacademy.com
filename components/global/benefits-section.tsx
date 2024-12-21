@@ -1,9 +1,9 @@
-import { AlertCircle, ArrowRight, CheckCircle2 } from "lucide-react";
-import { Card, CardContent } from "../ui/card";
-import Container from "../ui/container";
-import Text from "../ui/text";
-import { Button } from "../ui/button";
-import Link from "next/link";
+import { AlertCircle, ArrowRight, CheckCircle2 } from 'lucide-react';
+import { Card, CardContent } from '../ui/card';
+import Container from '../ui/container';
+import Text from '../ui/text';
+import { Button } from '../ui/button';
+import Link from 'next/link';
 // Benefits Section Component
 const BenefitsSection = ({ benefits }: { benefits: any }) => {
   return (
@@ -14,14 +14,14 @@ const BenefitsSection = ({ benefits }: { benefits: any }) => {
             Why Choose Our 95%+ Accuracy System?
           </Text>
 
-          <div className="grid gap-6 md:grid-cols-2 w-full">
+          <div className="grid w-full gap-6 md:grid-cols-2">
             {benefits.map((benefit: any, index: any) => (
               <Card key={index} className="border-primary/20">
                 <CardContent className="pt-6">
                   <div className="flex gap-4">
-                    <CheckCircle2 className="h-6 w-6 text-primary shrink-0" />
+                    <CheckCircle2 className="h-6 w-6 shrink-0 text-primary" />
                     <div>
-                      <Text as="h3" className="font-semibold mb-2">
+                      <Text as="h3" className="mb-2 font-semibold">
                         {benefit.title}
                       </Text>
                       <Text as="p" variant="bodyLg">

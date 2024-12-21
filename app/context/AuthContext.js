@@ -1,13 +1,8 @@
-"use client";
+'use client';
 
-import { useContext, createContext, useState, useEffect } from "react";
-import {
-  signInWithPopup,
-  signOut,
-  onAuthStateChanged,
-  GoogleAuthProvider,
-} from "firebase/auth";
-import { auth } from "../firebase";
+import { useContext, createContext, useState, useEffect } from 'react';
+import { signInWithPopup, signOut, onAuthStateChanged, GoogleAuthProvider } from 'firebase/auth';
+import { auth } from '../firebase';
 
 const AuthContext = createContext();
 
@@ -24,17 +19,13 @@ export const AuthContextProvider = ({ children }) => {
         state: undefined,
         country: undefined,
         postal_code: undefined,
-        first_name: user?.displayName
-          ? user.displayName.split(" ")[0]
-          : undefined,
-        last_name: user?.displayName
-          ? user.displayName.split(" ")[1]
-          : undefined,
+        first_name: user?.displayName ? user.displayName.split(' ')[0] : undefined,
+        last_name: user?.displayName ? user.displayName.split(' ')[1] : undefined,
       },
     };
 
     window.dataLayer.push({
-      event: "gtm_custom_event",
+      event: 'gtm_custom_event',
       datalayer_event_name: eventName,
       authentication_status: status,
       authentication_method: method,
@@ -47,16 +38,11 @@ export const AuthContextProvider = ({ children }) => {
     const provider = new GoogleAuthProvider();
     signInWithPopup(auth, provider)
       .then((result) => {
-        pushDataLayerEvent(
-          "user_signup_success",
-          result.user,
-          "success",
-          "google",
-        );
+        pushDataLayerEvent('user_signup_success', result.user, 'success', 'google');
       })
       .catch((error) => {
-        console.error("SignIn error", error);
-        pushDataLayerEvent("user_signup_failed", null, "failure", "google");
+        console.error('SignIn error', error);
+        pushDataLayerEvent('user_signup_failed', null, 'failure', 'google');
       });
   };
 
@@ -72,9 +58,7 @@ export const AuthContextProvider = ({ children }) => {
   }, []);
 
   return (
-    <AuthContext.Provider value={{ user, googleSignIn, logOut }}>
-      {children}
-    </AuthContext.Provider>
+    <AuthContext.Provider value={{ user, googleSignIn, logOut }}>{children}</AuthContext.Provider>
   );
 };
 

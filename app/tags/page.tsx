@@ -1,6 +1,6 @@
-import React from "react";
-import TagsContainer from "@/components/tag/TagsContainer";
-import getBlogAndTagsData from "utils/getBlogAndTagsData";
+import React from 'react';
+import TagsContainer from '@/components/tag/TagsContainer';
+import getBlogAndTagsData from 'utils/getBlogAndTagsData';
 
 export default async function Page() {
   const { tags, blogs } = await getBlogAndTagsData();

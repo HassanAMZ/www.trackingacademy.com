@@ -1,14 +1,14 @@
-import Navbar from "@/components/global/navbar";
-import Container from "@/components/ui/container";
-import React from "react";
-import { ReactNode } from "react";
-import type { Metadata } from "next";
+import Navbar from '@/components/global/navbar';
+import Container from '@/components/ui/container';
+import React from 'react';
+import { ReactNode } from 'react';
+import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: "ChatBot - OpenAI Bots built for Sales Teams",
+  title: 'ChatBot - OpenAI Bots built for Sales Teams',
   description: `Helping the team to get things done faster`,
   openGraph: {
-    images: ["/images/social-sharing.png"],
+    images: ['/images/social-sharing.png'],
   },
 };
 

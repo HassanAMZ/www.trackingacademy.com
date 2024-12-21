@@ -1,7 +1,7 @@
-"use client";
+'use client';
 
-import { cn } from "@/lib/utils";
-import React from "react";
+import { cn } from '@/lib/utils';
+import React from 'react';
 
 interface TrackingData {
   date: string;
@@ -11,24 +11,24 @@ interface TrackingData {
 
 // Predefined tracking data
 const trackingData: TrackingData[] = [
-  { date: "2023-10-01", before: 62, after: 96 },
-  { date: "2023-10-08", before: 64, after: 97 },
-  { date: "2023-10-15", before: 61, after: 95 },
-  { date: "2023-10-22", before: 63, after: 98 },
-  { date: "2023-10-29", before: 65, after: 99 },
-  { date: "2023-11-05", before: 66, after: 96 },
-  { date: "2023-11-12", before: 67, after: 97 },
-  { date: "2023-11-19", before: 62, after: 95 },
-  { date: "2023-11-26", before: 64, after: 98 },
-  { date: "2023-12-03", before: 63, after: 99 },
+  { date: '2023-10-01', before: 62, after: 96 },
+  { date: '2023-10-08', before: 64, after: 97 },
+  { date: '2023-10-15', before: 61, after: 95 },
+  { date: '2023-10-22', before: 63, after: 98 },
+  { date: '2023-10-29', before: 65, after: 99 },
+  { date: '2023-11-05', before: 66, after: 96 },
+  { date: '2023-11-12', before: 67, after: 97 },
+  { date: '2023-11-19', before: 62, after: 95 },
+  { date: '2023-11-26', before: 64, after: 98 },
+  { date: '2023-12-03', before: 63, after: 99 },
 ];
 
 // Precomputed averages
-const averages = { avgBefore: "63.7", avgAfter: "96.7" };
+const averages = { avgBefore: '63.7', avgAfter: '96.7' };
 
 const TrackingTable: React.FC = () => {
   return (
-    <div className="w-full overflow-hidden rounded-xl border text-sm flex">
+    <div className="flex w-full overflow-hidden rounded-xl border text-sm">
       <table className="w-full">
         <thead>
           <tr className="m-0 p-0 even:bg-muted">
@@ -44,8 +44,8 @@ const TrackingTable: React.FC = () => {
             <tr
               key={data.date}
               className={cn(
-                "m-0 whitespace-nowrap p-0 even:bg-muted",
-                index < trackingData.length - 3 && "hidden lg:table-row",
+                'm-0 whitespace-nowrap p-0 even:bg-muted',
+                index < trackingData.length - 3 && 'hidden lg:table-row',
               )}
             >
               <td className="px-2 py-3 text-left">{data.date}</td>
@@ -55,9 +55,7 @@ const TrackingTable: React.FC = () => {
           ))}
           <tr className="m-0 p-0 even:bg-muted">
             <td className="px-2 py-3 text-left font-bold">Average</td>
-            <td className="px-2 py-3 text-left font-bold">
-              {averages.avgBefore}%
-            </td>
+            <td className="px-2 py-3 text-left font-bold">{averages.avgBefore}%</td>
             <td className="relative px-2 py-3 text-left font-bold">
               {averages.avgAfter}%
               <svg

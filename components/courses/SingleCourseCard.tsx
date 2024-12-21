@@ -1,14 +1,14 @@
-import React from "react";
-import { SingleCourseCardProps } from "@/types/index";
-import Text from "@/components/ui/text";
-import Image from "next/image";
-import Link from "next/link";
+import React from 'react';
+import { SingleCourseCardProps } from '@/types/index';
+import Text from '@/components/ui/text';
+import Image from 'next/image';
+import Link from 'next/link';
 
 const SingleCourseCard: React.FC<SingleCourseCardProps> = ({
   course,
   type,
   isMain = false,
-  className = "",
+  className = '',
 }) => {
   return (
     <Link href={`/${type}/${course.slug}`}>
@@ -36,10 +36,7 @@ const SingleCourseCard: React.FC<SingleCourseCardProps> = ({
                 {course.currency.symbol}
               </Text>
             </div>
-            <Text
-              as="p"
-              className="rounded-full border-2 px-3 py-1 font-semibold"
-            >
+            <Text as="p" className="rounded-full border-2 px-3 py-1 font-semibold">
               Learn More
             </Text>
           </div>

@@ -1,6 +1,6 @@
-import React from "react";
-import datalayerCode from "@/data/datalayer-code";
-import AuthPre from "../mdx/AuthPre";
+import React from 'react';
+import datalayerCode from '@/data/datalayer-code';
+import AuthPre from '../mdx/AuthPre';
 
 interface DataLayerCodeProps {
   type: keyof typeof datalayerCode;
@@ -8,7 +8,7 @@ interface DataLayerCodeProps {
 }
 
 const DataLayerCode: React.FC<DataLayerCodeProps> = ({ type, subType }) => {
-  const codeSnippet = datalayerCode[type][subType] || "";
+  const codeSnippet = datalayerCode[type][subType] || '';
   return (
     <AuthPre>
       <code>{codeSnippet}</code>

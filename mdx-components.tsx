@@ -1,24 +1,24 @@
-import type { MDXComponents } from "mdx/types";
-import Pre from "@/components/mdx/Pre";
-import YoutubeEmbed from "@/components/global/youtube-embed";
-import BlogHeader from "@/components/blog/header";
-import CustomLink from "@/components/mdx/CustomLink";
-import Note from "@/components/mdx/Note";
-import GiscusComments from "@/components/mdx/GiscusComents";
-import AuthPre from "@/components/mdx/AuthPre";
-import DataLayerCode from "@/components/dataLayer/DataLayerCode";
-import AuthenticatedLayout from "@/components/layouts/AuthenticatedLayout";
-import Image from "next/image";
-import ToolsHeroSection from "@/components/tools/ToolsHeroSection";
-import Text from "@/components/ui/text";
-import { cn } from "./lib/utils";
-import { Button } from "@/components/ui/button";
-import DataLayerCodeBlock from "./components/mdx/datalayer-code";
+import type { MDXComponents } from 'mdx/types';
+import Pre from '@/components/mdx/Pre';
+import YoutubeEmbed from '@/components/global/youtube-embed';
+import BlogHeader from '@/components/blog/header';
+import CustomLink from '@/components/mdx/CustomLink';
+import Note from '@/components/mdx/Note';
+import GiscusComments from '@/components/mdx/GiscusComents';
+import AuthPre from '@/components/mdx/AuthPre';
+import DataLayerCode from '@/components/dataLayer/DataLayerCode';
+import AuthenticatedLayout from '@/components/layouts/AuthenticatedLayout';
+import Image from 'next/image';
+import ToolsHeroSection from '@/components/tools/ToolsHeroSection';
+import Text from '@/components/ui/text';
+import { cn } from './lib/utils';
+import { Button } from '@/components/ui/button';
+import DataLayerCodeBlock from './components/mdx/datalayer-code';
 export function useMDXComponents(components: MDXComponents): MDXComponents {
   const createId = (content: string) =>
     content
-      .replace(/[^\w\s-]/g, "")
-      .replace(/\s+/g, "-")
+      .replace(/[^\w\s-]/g, '')
+      .replace(/\s+/g, '-')
       .toLowerCase();
 
   return {
@@ -34,7 +34,7 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     AuthenticatedLayout,
     CustomLink,
     pre: AuthPre,
-    a: (props) => <CustomLink {...props} href={props.href || ""} />, // Ensuring href is always a string
+    a: (props) => <CustomLink {...props} href={props.href || ''} />, // Ensuring href is always a string
     p: (props) => (
       <Text as="p" variant="bodyMd" {...props}>
         {props.children}

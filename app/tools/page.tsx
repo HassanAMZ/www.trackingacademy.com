@@ -1,6 +1,6 @@
-import React from "react";
-import getTools from "utils/getTools";
-import ToolsHeroSection from "@/components/tools/ToolsHeroSection";
+import React from 'react';
+import getTools from 'utils/getTools';
+import ToolsHeroSection from '@/components/tools/ToolsHeroSection';
 
 export default async function Page() {
   const toolNames = await getTools();

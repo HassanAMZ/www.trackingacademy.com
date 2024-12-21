@@ -1,9 +1,9 @@
-"use client";
+'use client';
 
-import React, { useState, useEffect } from "react";
-import Link from "next/link";
-import { usePathname } from "next/navigation";
-import { Menu, Briefcase, Wrench, FileText } from "lucide-react";
+import React, { useState, useEffect } from 'react';
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
+import { Menu, Briefcase, Wrench, FileText } from 'lucide-react';
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -12,13 +12,13 @@ import {
   NavigationMenuList,
   NavigationMenuTrigger,
   navigationMenuTriggerStyle,
-} from "@/components/ui/navigation-menu";
-import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
-import { Button } from "@/components/ui/button";
-import Container from "@/components/ui/container";
-import NavLink from "../navbar/NavLink";
-import { ModeToggle } from "./theme-switch";
-import clsx from "clsx";
+} from '@/components/ui/navigation-menu';
+import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
+import { Button } from '@/components/ui/button';
+import Container from '@/components/ui/container';
+import NavLink from '../navbar/NavLink';
+import { ModeToggle } from './theme-switch';
+import clsx from 'clsx';
 
 interface NavItem {
   title: string;
@@ -29,41 +29,39 @@ interface NavItem {
 const NAV_ITEMS: Record<string, NavItem[]> = {
   tools: [
     {
-      title: "UTM Builder",
-      href: "/tools/utm-builder",
+      title: 'UTM Builder',
+      href: '/tools/utm-builder',
       description:
-        "Start building your UTMs for Google Ads, Facebook Ads, TikTok, or custom, all at one place",
+        'Start building your UTMs for Google Ads, Facebook Ads, TikTok, or custom, all at one place',
     },
   ],
   careers: [
     {
-      title: "Upwork Business Developer",
-      href: "/career/upwork-business-developer",
-      description:
-        "Join us as a Business Developer on Upwork to help grow our business.",
+      title: 'Upwork Business Developer',
+      href: '/career/upwork-business-developer',
+      description: 'Join us as a Business Developer on Upwork to help grow our business.',
     },
   ],
   blogs: [
     {
-      title: "Google Tag Manager",
-      href: "/tags/google-tag-manager",
-      description: "Learn how to implement and optimize Google Tag Manager.",
+      title: 'Google Tag Manager',
+      href: '/tags/google-tag-manager',
+      description: 'Learn how to implement and optimize Google Tag Manager.',
     },
     {
-      title: "Shopify",
-      href: "/tags/shopify",
-      description:
-        "Guides and tips for managing and growing your Shopify store.",
+      title: 'Shopify',
+      href: '/tags/shopify',
+      description: 'Guides and tips for managing and growing your Shopify store.',
     },
     {
-      title: "WooCommerce",
-      href: "/tags/woocommerce",
-      description: "Explore our WooCommerce tutorials and best practices.",
+      title: 'WooCommerce',
+      href: '/tags/woocommerce',
+      description: 'Explore our WooCommerce tutorials and best practices.',
     },
   ],
 };
 
-interface ListItemProps extends React.ComponentPropsWithoutRef<"a"> {
+interface ListItemProps extends React.ComponentPropsWithoutRef<'a'> {
   title: string;
   children: React.ReactNode;
 }
@@ -75,21 +73,19 @@ const ListItem = React.forwardRef<HTMLAnchorElement, ListItemProps>(
         <a
           ref={ref}
           className={clsx(
-            "block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground",
+            'block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground',
             className,
           )}
           {...props}
         >
           <div className="text-sm font-medium leading-none">{title}</div>
-          <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
-            {children}
-          </p>
+          <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">{children}</p>
         </a>
       </NavigationMenuLink>
     </li>
   ),
 );
-ListItem.displayName = "ListItem";
+ListItem.displayName = 'ListItem';
 
 export default function Navbar() {
   const [isSheetOpen, setSheetOpen] = useState(false);
@@ -101,7 +97,7 @@ export default function Navbar() {
 
   const renderCallToAction = () => (
     <Button asChild>
-      <Link href={"/contact"}>
+      <Link href={'/contact'}>
         <span className="hidden sm:block">Schedule a Meeting</span>
         <span className="block sm:hidden">Contact</span>
       </Link>
@@ -113,18 +109,15 @@ export default function Navbar() {
       href="/"
       className={clsx(
         navigationMenuTriggerStyle(),
-        "p-2 text-accent-foreground flex items-center justify-center font-extrabold",
-        isActive("/") && "text-accent-foreground bg-secondary",
+        'flex items-center justify-center p-2 font-extrabold text-accent-foreground',
+        isActive('/') && 'bg-secondary text-accent-foreground',
       )}
     >
       TrackingAcademy
     </NavLink>
   );
 
-  const renderNavigationMenuItems = (
-    items: NavItem[],
-    icon: React.ReactNode,
-  ) => (
+  const renderNavigationMenuItems = (items: NavItem[], icon: React.ReactNode) => (
     <ul className="grid gap-3 p-4 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]">
       <li className="row-span-3">
         <NavigationMenuLink asChild>
@@ -133,12 +126,8 @@ export default function Navbar() {
             href={items[0].href}
           >
             {icon}
-            <div className="mb-2 mt-4 text-lg font-medium">
-              {items[0].title}
-            </div>
-            <p className="text-sm leading-tight text-muted-foreground">
-              {items[0].description}
-            </p>
+            <div className="mb-2 mt-4 text-lg font-medium">{items[0].title}</div>
+            <p className="text-sm leading-tight text-muted-foreground">{items[0].description}</p>
           </a>
         </NavigationMenuLink>
       </li>
@@ -151,35 +140,26 @@ export default function Navbar() {
   );
 
   const DesktopNavigationMenu = () => (
-    <div className="hidden h-14 gap-3 p-2 lg:flex w-full justify-between items-center">
+    <div className="hidden h-14 w-full items-center justify-between gap-3 p-2 lg:flex">
       <NavigationMenu>
-        <NavigationMenuList className="w-full flex flex-col gap-4 text-lg font-medium lg:flex-row lg:items-center lg:gap-2 lg:text-sm">
+        <NavigationMenuList className="flex w-full flex-col gap-4 text-lg font-medium lg:flex-row lg:items-center lg:gap-2 lg:text-sm">
           <HomeNavigationButton />
           <NavigationMenuItem>
             <NavigationMenuTrigger>Tools</NavigationMenuTrigger>
             <NavigationMenuContent>
-              {renderNavigationMenuItems(
-                NAV_ITEMS.tools,
-                <Wrench className="h-6 w-6" />,
-              )}
+              {renderNavigationMenuItems(NAV_ITEMS.tools, <Wrench className="h-6 w-6" />)}
             </NavigationMenuContent>
           </NavigationMenuItem>
           <NavigationMenuItem>
             <NavigationMenuTrigger>Careers</NavigationMenuTrigger>
             <NavigationMenuContent>
-              {renderNavigationMenuItems(
-                NAV_ITEMS.careers,
-                <Briefcase className="h-6 w-6" />,
-              )}
+              {renderNavigationMenuItems(NAV_ITEMS.careers, <Briefcase className="h-6 w-6" />)}
             </NavigationMenuContent>
           </NavigationMenuItem>
           <NavigationMenuItem>
             <NavigationMenuTrigger>Blogs</NavigationMenuTrigger>
             <NavigationMenuContent>
-              {renderNavigationMenuItems(
-                NAV_ITEMS.blogs,
-                <FileText className="h-6 w-6" />,
-              )}
+              {renderNavigationMenuItems(NAV_ITEMS.blogs, <FileText className="h-6 w-6" />)}
             </NavigationMenuContent>
           </NavigationMenuItem>
         </NavigationMenuList>
@@ -193,7 +173,7 @@ export default function Navbar() {
 
   const MobileNavigationMenu = () => (
     <Sheet open={isSheetOpen} onOpenChange={setSheetOpen}>
-      <div className="flex w-full h-14 items-center justify-between gap-1 px-1 sm:gap-2 sm:px-3 lg:hidden">
+      <div className="flex h-14 w-full items-center justify-between gap-1 px-1 sm:gap-2 sm:px-3 lg:hidden">
         <SheetTrigger asChild>
           <Button variant="outline" size="icon" className="shrink-0 lg:hidden">
             <Menu className="h-5 w-5" />
@@ -206,19 +186,19 @@ export default function Navbar() {
 
       <SheetContent side="right" className="flex flex-col justify-between">
         <nav className="flex w-full flex-col space-y-4 py-4">
-          {["/", "/tools", "/career", "/blog"].map((path) => (
+          {['/', '/tools', '/career', '/blog'].map((path) => (
             <Link
               key={path}
               href={path}
               className={clsx(
-                "!w-full !justify-start",
+                '!w-full !justify-start',
                 navigationMenuTriggerStyle(),
-                isActive(path) && "bg-secondary text-accent-foreground",
+                isActive(path) && 'bg-secondary text-accent-foreground',
               )}
               onClick={handleLinkClick}
             >
-              {path === "/"
-                ? "TrackingAcademy"
+              {path === '/'
+                ? 'TrackingAcademy'
                 : path.slice(1).charAt(0).toUpperCase() + path.slice(2)}
             </Link>
           ))}
@@ -231,8 +211,8 @@ export default function Navbar() {
 
   return (
     <div className="w-full pb-2 pt-4 lg:text-sm">
-      <Container className="bg-transparent ">
-        <div className="rounded-lg flex bg-secondary/40 shadow">
+      <Container className="bg-transparent">
+        <div className="flex rounded-lg bg-secondary/40 shadow">
           <MobileNavigationMenu />
           <DesktopNavigationMenu />
         </div>

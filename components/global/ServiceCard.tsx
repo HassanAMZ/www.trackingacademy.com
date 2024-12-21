@@ -1,11 +1,11 @@
-import CustomLink from "@/components/mdx/CustomLink";
-import Image from "next/image";
+import CustomLink from '@/components/mdx/CustomLink';
+import Image from 'next/image';
 
-import type { ServiceCardProps } from "@/types/index";
-import Link from "next/link";
+import type { ServiceCardProps } from '@/types/index';
+import Link from 'next/link';
 
 const ServiceCard: React.FC<ServiceCardProps> = ({ service }) => {
-  let formattedDescription = service.description.replace(/\n/g, "<br>");
+  let formattedDescription = service.description.replace(/\n/g, '<br>');
   return (
     <>
       <div className="relative aspect-[4/3] max-w-full sm:h-auto">

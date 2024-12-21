@@ -1,12 +1,12 @@
-import React from "react";
-import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardHeader } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
-import { AlertCircle, CheckCircle2, ArrowRight } from "lucide-react";
-import Container from "@/components/ui/container";
-import Text from "@/components/ui/text";
-import VideoPlayer from "@/components/offers/offer-001/video-player";
-import Link from "next/link";
+import React from 'react';
+import { Button } from '@/components/ui/button';
+import { Card, CardContent, CardHeader } from '@/components/ui/card';
+import { Badge } from '@/components/ui/badge';
+import { AlertCircle, CheckCircle2, ArrowRight } from 'lucide-react';
+import Container from '@/components/ui/container';
+import Text from '@/components/ui/text';
+import VideoPlayer from '@/components/offers/offer-001/video-player';
+import Link from 'next/link';
 
 const Hero = () => {
   return (
@@ -18,21 +18,20 @@ const Hero = () => {
           </Badge>
 
           <Text as="h1" variant="heading3xl">
-            Transform Your Facebook Ads With{" "}
-            <span className="text-primary">95%+ Accurate</span> Tracking
+            Transform Your Facebook Ads With <span className="text-primary">95%+ Accurate</span>{' '}
+            Tracking
             <span className="text-primary"> — Or It's FREE!</span>
           </Text>
 
           <Text as="p" className="text-muted-foreground" variant="headingXl">
-            Say goodbye to data gaps, guesswork, and wasted ad spend. Our
-            exclusive system guarantees 95%+ accuracy in tracking your Facebook
-            Ads performance.
+            Say goodbye to data gaps, guesswork, and wasted ad spend. Our exclusive system
+            guarantees 95%+ accuracy in tracking your Facebook Ads performance.
           </Text>
 
           <Button
             asChild
             size="lg"
-            className="text-xl px-12 py-7 shadow-2xl transform hover:-translate-y-1 transition-all my-4"
+            className="my-4 transform px-12 py-7 text-xl shadow-2xl transition-all hover:-translate-y-1"
           >
             <Link href="/contact">
               Get Your FREE Tracking Audit
@@ -40,7 +39,7 @@ const Hero = () => {
             </Link>
           </Button>
 
-          <div className="flex flex-col sm:flex-row items-center gap-4 text-sm">
+          <div className="flex flex-col items-center gap-4 text-sm sm:flex-row">
             <div className="flex items-center gap-1">
               <CheckCircle2 className="h-4 w-4 text-primary" />
               <span>95%+ Accuracy</span>
@@ -80,10 +79,9 @@ const ProblemSection = () => {
             Stop Losing Money to Inaccurate Facebook Ads Tracking
           </Text>
           <Text as="p" className="max-w-[700px]" variant="bodyLg">
-            Tracking gaps are costing you money. If you don't know which ads
-            work, every dollar you spend could be a dollar lost. Our service
-            pinpoints your current issues and delivers a 95%+ accurate tracking
-            solution.
+            Tracking gaps are costing you money. If you don't know which ads work, every dollar you
+            spend could be a dollar lost. Our service pinpoints your current issues and delivers a
+            95%+ accurate tracking solution.
           </Text>
         </div>
       </Container>
@@ -94,33 +92,32 @@ const ProblemSection = () => {
 const SolutionSection = () => {
   const steps = [
     {
-      title: "Precision Audit & Baseline Setup",
-      description:
-        "Complete audit of your current setup and identify tracking gaps",
+      title: 'Precision Audit & Baseline Setup',
+      description: 'Complete audit of your current setup and identify tracking gaps',
     },
     {
-      title: "Custom Integration with Facebook Pixel",
-      description: "Ensures Facebook Pixel and Ads Manager capture everything",
+      title: 'Custom Integration with Facebook Pixel',
+      description: 'Ensures Facebook Pixel and Ads Manager capture everything',
     },
     {
-      title: "Data Layer Installation",
-      description: "Custom data layer for more reliable, server-side tracking",
+      title: 'Data Layer Installation',
+      description: 'Custom data layer for more reliable, server-side tracking',
     },
     {
-      title: "Server-Side GTM Setup",
-      description: "Google Containers configured and hosted in the cloud",
+      title: 'Server-Side GTM Setup',
+      description: 'Google Containers configured and hosted in the cloud',
     },
     {
-      title: "Track Key E-Commerce Events",
-      description: "Track Add to Cart, Checkout, Purchase, and more",
+      title: 'Track Key E-Commerce Events',
+      description: 'Track Add to Cart, Checkout, Purchase, and more',
     },
     {
-      title: "Subdomain & Analytics Integration",
-      description: "Custom subdomain and full Google Analytics setup",
+      title: 'Subdomain & Analytics Integration',
+      description: 'Custom subdomain and full Google Analytics setup',
     },
     {
-      title: "7-Day Monitoring & QA",
-      description: "Ensure perfect accuracy and optimize as needed",
+      title: '7-Day Monitoring & QA',
+      description: 'Ensure perfect accuracy and optimize as needed',
     },
   ];
 
@@ -137,11 +134,11 @@ const SolutionSection = () => {
             </Text>
           </div>
 
-          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3 w-full">
+          <div className="grid w-full gap-6 md:grid-cols-2 lg:grid-cols-3">
             {steps.map((step, index) => (
               <Card key={index} className="border-primary/20">
                 <CardHeader>
-                  <Badge className="w-fit mb-2">Step {index + 1}</Badge>
+                  <Badge className="mb-2 w-fit">Step {index + 1}</Badge>
                   <Text as="h3" className="font-semibold">
                     {step.title}
                   </Text>
@@ -176,19 +173,16 @@ const BenefitsSection = () => {
         "With our 95%+ accuracy guarantee, you'll know exactly which ads bring the best results",
     },
     {
-      title: "Save Time and Effort",
-      description:
-        "Our system handles all the heavy lifting and ongoing optimizations",
+      title: 'Save Time and Effort',
+      description: 'Our system handles all the heavy lifting and ongoing optimizations',
     },
     {
-      title: "Risk-Free Guarantee",
-      description:
-        "If we don't hit 95% tracking accuracy, you don't pay. Simple as that",
+      title: 'Risk-Free Guarantee',
+      description: "If we don't hit 95% tracking accuracy, you don't pay. Simple as that",
     },
     {
-      title: "Custom Analytics Dashboard",
-      description:
-        "Get an intuitive, easy-to-read Google Analytics dashboard for instant insights",
+      title: 'Custom Analytics Dashboard',
+      description: 'Get an intuitive, easy-to-read Google Analytics dashboard for instant insights',
     },
   ];
 
@@ -200,14 +194,14 @@ const BenefitsSection = () => {
             Why Choose Our 95%+ Accuracy System?
           </Text>
 
-          <div className="grid gap-6 md:grid-cols-2 w-full">
+          <div className="grid w-full gap-6 md:grid-cols-2">
             {benefits.map((benefit, index) => (
               <Card key={index} className="border-primary/20">
                 <CardContent className="pt-6">
                   <div className="flex gap-4">
-                    <CheckCircle2 className="h-6 w-6 text-primary shrink-0" />
+                    <CheckCircle2 className="h-6 w-6 shrink-0 text-primary" />
                     <div>
-                      <Text as="h3" className="font-semibold mb-2">
+                      <Text as="h3" className="mb-2 font-semibold">
                         {benefit.title}
                       </Text>
                       <Text as="p" variant="bodyLg">
@@ -229,17 +223,17 @@ const GuaranteeSection = () => {
   return (
     <section className="py-16">
       <Container>
-        <Card className="bg-primary/5 border-primary/20">
+        <Card className="border-primary/20 bg-primary/5">
           <CardContent className="pt-6">
-            <div className="flex flex-col items-center text-center gap-4">
+            <div className="flex flex-col items-center gap-4 text-center">
               <AlertCircle className="h-12 w-12 text-primary" />
               <Text as="h2" variant="headingXl">
                 Our "95%+ Accuracy or It's FREE" Guarantee
               </Text>
               <Text as="p" className="max-w-xl">
-                We're confident that our system will deliver precise, actionable
-                data for your Shopify store. If we don't meet our 95% accuracy
-                promise, you don't pay a single cent.
+                We're confident that our system will deliver precise, actionable data for your
+                Shopify store. If we don't meet our 95% accuracy promise, you don't pay a single
+                cent.
               </Text>
               <Button size="lg" className="mt-4" asChild>
                 <Link href="/contact">

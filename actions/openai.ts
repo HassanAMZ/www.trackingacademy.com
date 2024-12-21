@@ -1,11 +1,11 @@
-"use server";
+'use server';
 
-import { openai } from "@/lib/ai";
-import { streamText } from "ai";
-import { createStreamableValue } from "ai/rsc";
+import { openai } from '@/lib/ai';
+import { streamText } from 'ai';
+import { createStreamableValue } from 'ai/rsc';
 
 export interface Message {
-  role: "user" | "assistant";
+  role: 'user' | 'assistant';
   content: string;
 }
 

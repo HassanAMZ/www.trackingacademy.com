@@ -1,17 +1,15 @@
-"use client";
+'use client';
 
-import React, { useEffect, useState, ReactNode, Suspense } from "react";
-import { UserAuth } from "@/context/AuthContext";
-import { FirebaseAuth } from "@/components/global/firebase-auth";
-import { FirebaseAuthSkeleton } from "../skeleton/FirebaseAuthSkeleton";
+import React, { useEffect, useState, ReactNode, Suspense } from 'react';
+import { UserAuth } from '@/context/AuthContext';
+import { FirebaseAuth } from '@/components/global/firebase-auth';
+import { FirebaseAuthSkeleton } from '../skeleton/FirebaseAuthSkeleton';
 
 interface AuthenticatedLayoutProps {
   children: ReactNode;
 }
 
-const AuthenticatedLayout: React.FC<AuthenticatedLayoutProps> = ({
-  children,
-}) => {
+const AuthenticatedLayout: React.FC<AuthenticatedLayoutProps> = ({ children }) => {
   const { user } = UserAuth();
   const [loading, setLoading] = useState(true);
 

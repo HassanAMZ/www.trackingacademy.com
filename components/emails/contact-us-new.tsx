@@ -1,15 +1,7 @@
 // components/EmailTemplate.tsx
-import React from "react";
-import { Timestamp } from "firebase/firestore";
-import {
-  Body,
-  Container,
-  Head,
-  Heading,
-  Html,
-  Preview,
-  Text,
-} from "@react-email/components";
+import React from 'react';
+import { Timestamp } from 'firebase/firestore';
+import { Body, Container, Head, Heading, Html, Preview, Text } from '@react-email/components';
 
 type ContactUsEmailProps = {
   name: string;
@@ -42,10 +34,7 @@ export default function ContactUsNewEmail({
         <Container>
           <Heading>Thank you for contacting us!</Heading>
           <Text>Dear {name},</Text>
-          <Text>
-            Thank you for reaching out to us. Here are the details of your
-            query:
-          </Text>
+          <Text>Thank you for reaching out to us. Here are the details of your query:</Text>
           <ul>
             <li>
               <Text>Company: {company}</Text>
@@ -72,9 +61,7 @@ export default function ContactUsNewEmail({
               <Text>Timestamp: {createdAt.toDate().toLocaleString()}</Text>
             </li>
           </ul>
-          <Text className="text-sm">
-            Our team will get back to you shortly.
-          </Text>
+          <Text className="text-sm">Our team will get back to you shortly.</Text>
           <Text className="text-sm">
             Best Regards,
             <br />

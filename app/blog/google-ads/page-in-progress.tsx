@@ -1,9 +1,9 @@
-import React from "react";
-import BlogContainer from "@/components/blog/container";
-import getBlogsData from "utils/getBlogsData";
+import React from 'react';
+import BlogContainer from '@/components/blog/container';
+import getBlogsData from 'utils/getBlogsData';
 
 export default async function Page() {
-  const data = await getBlogsData("app/blog/google-ads");
+  const data = await getBlogsData('app/blog/google-ads');
 
   const sortedData = (await Promise.all(data))
     .filter((item) => item.draft === false)

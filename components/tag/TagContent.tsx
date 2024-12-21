@@ -1,11 +1,11 @@
-"use client";
+'use client';
 
-import React, { useState } from "react";
-import { TagContentProps } from "@/types/index";
-import Link from "next/link";
-import formatString from "utils/formatString";
-import Text from "@/components/ui/text";
-import { Button } from "../ui/button";
+import React, { useState } from 'react';
+import { TagContentProps } from '@/types/index';
+import Link from 'next/link';
+import formatString from 'utils/formatString';
+import Text from '@/components/ui/text';
+import { Button } from '../ui/button';
 
 const TagContent: React.FC<TagContentProps> = ({ tags, type, blogsData }) => {
   // Count the number of blogs for each tag
@@ -34,17 +34,14 @@ const TagContent: React.FC<TagContentProps> = ({ tags, type, blogsData }) => {
             href={`/tags/${formatString(tagCount.tag)}`}
             passHref
           >
-            <Button variant={"outline"}>
+            <Button variant={'outline'}>
               {tagCount.tag} ({tagCount.count})
             </Button>
           </Link>
         ))}
       </div>
       {visibleTags < tagCounts.length && (
-        <button
-          onClick={loadMoreTags}
-          className="bg-complementary w-full rounded border px-4 py-2"
-        >
+        <button onClick={loadMoreTags} className="bg-complementary w-full rounded border px-4 py-2">
           <Text as="h3" variant="headingXl">
             Load More Tags
           </Text>

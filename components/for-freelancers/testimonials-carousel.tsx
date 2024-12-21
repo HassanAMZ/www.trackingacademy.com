@@ -1,42 +1,42 @@
-"use client";
-import React from "react";
-import useEmblaCarousel from "embla-carousel-react";
-import Autoplay from "embla-carousel-autoplay";
-import { Card, CardContent } from "@/components/ui/card";
-import { Star } from "lucide-react";
-import Image from "next/image";
-import Text from "../ui/text";
+'use client';
+import React from 'react';
+import useEmblaCarousel from 'embla-carousel-react';
+import Autoplay from 'embla-carousel-autoplay';
+import { Card, CardContent } from '@/components/ui/card';
+import { Star } from 'lucide-react';
+import Image from 'next/image';
+import Text from '../ui/text';
 
 const testimonials = [
   {
-    text: "“I learned more in a week than I did in years of trial and error.”",
-    author: "Greg Fisher, CMO at Atlantic Studio",
-    image: "/images/clients/malik-osama.jfif",
+    text: '“I learned more in a week than I did in years of trial and error.”',
+    author: 'Greg Fisher, CMO at Atlantic Studio',
+    image: '/images/clients/malik-osama.jfif',
   },
   {
-    text: "“This program transformed our marketing approach completely.”",
-    author: "Sarah Lee, Marketing Director",
-    image: "/images/clients/philipp-herglotz.jfif",
+    text: '“This program transformed our marketing approach completely.”',
+    author: 'Sarah Lee, Marketing Director',
+    image: '/images/clients/philipp-herglotz.jfif',
   },
   {
-    text: "“Outstanding insights and practical tools for any business.”",
-    author: "Michael Brown, CEO at Innovatech",
-    image: "/images/clients/imtiaz-ahmad.jfif",
+    text: '“Outstanding insights and practical tools for any business.”',
+    author: 'Michael Brown, CEO at Innovatech',
+    image: '/images/clients/imtiaz-ahmad.jfif',
   },
   {
-    text: "“A must-have training for anyone serious about analytics.”",
-    author: "Emily Davis, Data Analyst",
-    image: "/images/clients/imtiaz-ahmad.jpg",
+    text: '“A must-have training for anyone serious about analytics.”',
+    author: 'Emily Davis, Data Analyst',
+    image: '/images/clients/imtiaz-ahmad.jpg',
   },
   {
-    text: "“Incredible value and top-notch support from the team.”",
-    author: "James Wilson, Product Manager",
-    image: "/images/clients/jamie-norsa.jfif",
+    text: '“Incredible value and top-notch support from the team.”',
+    author: 'James Wilson, Product Manager',
+    image: '/images/clients/jamie-norsa.jfif',
   },
   {
-    text: "“Our conversion rates have doubled since the training.”",
-    author: "Laura Johnson, E-commerce Specialist",
-    image: "/images/clients/david-bodnar.jfif",
+    text: '“Our conversion rates have doubled since the training.”',
+    author: 'Laura Johnson, E-commerce Specialist',
+    image: '/images/clients/david-bodnar.jfif',
   },
 ];
 
@@ -53,7 +53,7 @@ export function TestimonialsCarousel() {
             <Image
               src={testimonial.image}
               alt={testimonial.author}
-              className="rounded-t-lg object-cover w-full"
+              className="w-full rounded-t-lg object-cover"
               width={500}
               height={200}
             />

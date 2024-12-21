@@ -1,26 +1,26 @@
-"use client";
-import React, { useState, useEffect, ChangeEvent } from "react";
-import { useFormState, useFormStatus } from "react-dom";
-import { useRouter } from "next/navigation";
-import Container from "@/components/ui/container";
-import { Separator } from "@/components/ui/separator";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
-import { Textarea } from "@/components/ui/textarea";
+'use client';
+import React, { useState, useEffect, ChangeEvent } from 'react';
+import { useFormState, useFormStatus } from 'react-dom';
+import { useRouter } from 'next/navigation';
+import Container from '@/components/ui/container';
+import { Separator } from '@/components/ui/separator';
+import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
+import { Label } from '@/components/ui/label';
+import { Textarea } from '@/components/ui/textarea';
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "@/components/ui/select";
-import { cn } from "../lib/utils";
-import Link from "next/link";
-import { GTMCustomEvent } from "../analytics/GTMEvents";
-import { Card, CardContent } from "../ui/card";
-import Text from "../ui/text";
-import { createCareerApplication } from "@/actions/handle-join-the-team";
+} from '@/components/ui/select';
+import { cn } from '../lib/utils';
+import Link from 'next/link';
+import { GTMCustomEvent } from '../analytics/GTMEvents';
+import { Card, CardContent } from '../ui/card';
+import Text from '../ui/text';
+import { createCareerApplication } from '@/actions/handle-join-the-team';
 
 interface FormData {
   email: string;
@@ -95,7 +95,7 @@ interface Errors {
 }
 
 const initialState = {
-  message: "",
+  message: '',
 };
 
 function SubmitButton({ validateStep }: { validateStep: () => boolean }) {
@@ -112,9 +112,9 @@ function SubmitButton({ validateStep }: { validateStep: () => boolean }) {
       type="submit"
       disabled={pending}
       onClick={handleClick}
-      className={`${pending ? "cursor-not-allowed opacity-50" : ""}`}
+      className={`${pending ? 'cursor-not-allowed opacity-50' : ''}`}
     >
-      {pending ? "Submitting..." : "Submit Career Form"}
+      {pending ? 'Submitting...' : 'Submit Career Form'}
     </Button>
   );
 }
@@ -128,53 +128,50 @@ interface CareerFormProps {
 }
 
 export default function CareerForm({
-  thankYouUrl = "/career/thank-you",
-  gtmCustomEventName = "career_form_submission",
+  thankYouUrl = '/career/thank-you',
+  gtmCustomEventName = 'career_form_submission',
   isItAFit = true,
   formHeader = true,
   className,
 }: CareerFormProps) {
-  const [state, formAction] = useFormState(
-    createCareerApplication,
-    initialState,
-  );
+  const [state, formAction] = useFormState(createCareerApplication, initialState);
   const [formSubmitted, setFormSubmitted] = useState(false);
   const [currentStep, setCurrentStep] = useState(1);
   const [maxStep, setMaxStep] = useState(1);
   const [formData, setFormData] = useState<FormData>({
-    email: "",
-    firstName: "",
-    lastName: "",
-    dob: "",
-    country: "",
-    gender: "",
-    city: "",
-    postalCode: "",
-    linkedinProfile: "",
-    upworkProfile: "",
-    phone: "",
-    maritalStatus: "",
-    degree: "",
-    hasGoodLaptopAndInternet: "",
-    position: "Upwork Business Developer",
-    currentWorkStatus: "",
-    lastJobDesignation: "",
-    businessDevelopmentExperience: "",
-    experienceInYears: "",
-    lastJobCompanyName: "",
-    lastJobResponsibilities: "",
-    professionalBackground: "",
-    mostChallengingDealOrClient: "",
-    coverLetter1: "",
-    coverLetter2: "",
-    coverLetter3: "",
-    loomVideo1: "",
-    loomVideo2: "",
-    loomVideo3: "",
-    lastSalaryAndCommission: "",
-    expectedSalary: "",
-    salaryTargetIn3Years: "",
-    futureInFiveYears: "",
+    email: '',
+    firstName: '',
+    lastName: '',
+    dob: '',
+    country: '',
+    gender: '',
+    city: '',
+    postalCode: '',
+    linkedinProfile: '',
+    upworkProfile: '',
+    phone: '',
+    maritalStatus: '',
+    degree: '',
+    hasGoodLaptopAndInternet: '',
+    position: 'Upwork Business Developer',
+    currentWorkStatus: '',
+    lastJobDesignation: '',
+    businessDevelopmentExperience: '',
+    experienceInYears: '',
+    lastJobCompanyName: '',
+    lastJobResponsibilities: '',
+    professionalBackground: '',
+    mostChallengingDealOrClient: '',
+    coverLetter1: '',
+    coverLetter2: '',
+    coverLetter3: '',
+    loomVideo1: '',
+    loomVideo2: '',
+    loomVideo3: '',
+    lastSalaryAndCommission: '',
+    expectedSalary: '',
+    salaryTargetIn3Years: '',
+    futureInFiveYears: '',
   });
 
   const [errors, setErrors] = useState<Errors>({});
@@ -191,74 +188,59 @@ export default function CareerForm({
     const newErrors: Errors = {};
     switch (step) {
       case 1:
-        if (!formData.email) newErrors.email = "Email is required";
-        if (!formData.firstName) newErrors.firstName = "First Name is required";
-        if (!formData.lastName) newErrors.lastName = "Last Name is required";
-        if (!formData.dob) newErrors.dob = "Date of Birth is required";
-        if (!formData.country) newErrors.country = "Country is required";
-        if (!formData.gender) newErrors.gender = "Gender is required";
-        if (!formData.city) newErrors.city = "City is required";
-        if (!formData.postalCode)
-          newErrors.postalCode = "Postal Code is required";
-        if (!formData.linkedinProfile)
-          newErrors.linkedinProfile = "LinkedIn Profile is required";
-        if (!formData.upworkProfile)
-          newErrors.upworkProfile = "Upwork Profile is required";
-        if (!formData.phone) newErrors.phone = "Phone is required";
-        if (!formData.maritalStatus)
-          newErrors.maritalStatus = "Marital Status is required";
-        if (!formData.degree) newErrors.degree = "Degree is required";
+        if (!formData.email) newErrors.email = 'Email is required';
+        if (!formData.firstName) newErrors.firstName = 'First Name is required';
+        if (!formData.lastName) newErrors.lastName = 'Last Name is required';
+        if (!formData.dob) newErrors.dob = 'Date of Birth is required';
+        if (!formData.country) newErrors.country = 'Country is required';
+        if (!formData.gender) newErrors.gender = 'Gender is required';
+        if (!formData.city) newErrors.city = 'City is required';
+        if (!formData.postalCode) newErrors.postalCode = 'Postal Code is required';
+        if (!formData.linkedinProfile) newErrors.linkedinProfile = 'LinkedIn Profile is required';
+        if (!formData.upworkProfile) newErrors.upworkProfile = 'Upwork Profile is required';
+        if (!formData.phone) newErrors.phone = 'Phone is required';
+        if (!formData.maritalStatus) newErrors.maritalStatus = 'Marital Status is required';
+        if (!formData.degree) newErrors.degree = 'Degree is required';
         if (!formData.hasGoodLaptopAndInternet)
-          newErrors.hasGoodLaptopAndInternet =
-            "Laptop and Internet connection is required";
+          newErrors.hasGoodLaptopAndInternet = 'Laptop and Internet connection is required';
         break;
       case 2:
         if (!formData.currentWorkStatus)
-          newErrors.currentWorkStatus = "Current work status is required";
+          newErrors.currentWorkStatus = 'Current work status is required';
         if (!formData.lastJobDesignation)
-          newErrors.lastJobDesignation = "Last job designation is required";
+          newErrors.lastJobDesignation = 'Last job designation is required';
         if (!formData.businessDevelopmentExperience)
-          newErrors.businessDevelopmentExperience =
-            "Business development experience is required";
+          newErrors.businessDevelopmentExperience = 'Business development experience is required';
         if (!formData.experienceInYears)
-          newErrors.experienceInYears = "Experience in years is required";
+          newErrors.experienceInYears = 'Experience in years is required';
         if (!formData.lastJobCompanyName)
-          newErrors.lastJobCompanyName = "Last job company name is required";
+          newErrors.lastJobCompanyName = 'Last job company name is required';
         if (!formData.lastJobResponsibilities)
-          newErrors.lastJobResponsibilities =
-            "Last job responsibilities are required";
+          newErrors.lastJobResponsibilities = 'Last job responsibilities are required';
         if (!formData.professionalBackground)
-          newErrors.professionalBackground =
-            "Professional background is required";
+          newErrors.professionalBackground = 'Professional background is required';
         if (!formData.mostChallengingDealOrClient)
-          newErrors.mostChallengingDealOrClient =
-            "Most challenging deal or client is required";
+          newErrors.mostChallengingDealOrClient = 'Most challenging deal or client is required';
         break;
       case 3:
         if (!formData.coverLetter1)
-          newErrors.coverLetter1 = "Cover letter for Job Post 01 is required";
-        if (!formData.loomVideo1)
-          newErrors.loomVideo1 = "Loom video for Job Post 01 is required";
+          newErrors.coverLetter1 = 'Cover letter for Job Post 01 is required';
+        if (!formData.loomVideo1) newErrors.loomVideo1 = 'Loom video for Job Post 01 is required';
         if (!formData.coverLetter2)
-          newErrors.coverLetter2 = "Cover letter for Job Post 02 is required";
-        if (!formData.loomVideo2)
-          newErrors.loomVideo2 = "Loom video for Job Post 02 is required";
+          newErrors.coverLetter2 = 'Cover letter for Job Post 02 is required';
+        if (!formData.loomVideo2) newErrors.loomVideo2 = 'Loom video for Job Post 02 is required';
         if (!formData.coverLetter3)
-          newErrors.coverLetter3 = "Cover letter for Job Post 03 is required";
-        if (!formData.loomVideo3)
-          newErrors.loomVideo3 = "Loom video for Job Post 03 is required";
+          newErrors.coverLetter3 = 'Cover letter for Job Post 03 is required';
+        if (!formData.loomVideo3) newErrors.loomVideo3 = 'Loom video for Job Post 03 is required';
         break;
       case 4:
         if (!formData.lastSalaryAndCommission)
-          newErrors.lastSalaryAndCommission =
-            "Last salary and commission is required";
-        if (!formData.expectedSalary)
-          newErrors.expectedSalary = "Expected salary is required";
+          newErrors.lastSalaryAndCommission = 'Last salary and commission is required';
+        if (!formData.expectedSalary) newErrors.expectedSalary = 'Expected salary is required';
         if (!formData.salaryTargetIn3Years)
-          newErrors.salaryTargetIn3Years =
-            "Salary target in 3 years is required";
+          newErrors.salaryTargetIn3Years = 'Salary target in 3 years is required';
         if (!formData.futureInFiveYears)
-          newErrors.futureInFiveYears = "Future in 5 years is required";
+          newErrors.futureInFiveYears = 'Future in 5 years is required';
         break;
     }
     setErrors(newErrors);
@@ -324,14 +306,12 @@ export default function CareerForm({
             position: formData.position,
             current_work_status: formData.currentWorkStatus,
             last_job_designation: formData.lastJobDesignation,
-            business_development_experience:
-              formData.businessDevelopmentExperience,
+            business_development_experience: formData.businessDevelopmentExperience,
             experience_in_years: formData.experienceInYears,
             last_job_company_name: formData.lastJobCompanyName,
             last_job_responsibilities: formData.lastJobResponsibilities,
             professional_background: formData.professionalBackground,
-            most_challenging_deal_or_client:
-              formData.mostChallengingDealOrClient,
+            most_challenging_deal_or_client: formData.mostChallengingDealOrClient,
             cover_letter_1: formData.coverLetter1,
             cover_letter_2: formData.coverLetter2,
             cover_letter_3: formData.coverLetter3,
@@ -351,10 +331,9 @@ export default function CareerForm({
           Your request has been submitted.
         </Text>
         <Text as="p" variant="bodyMd">
-          You'll be redirected to Book a Meeting Page. If the redirects does not
-          happen,{" "}
-          <Button asChild variant={"link"} className="p-0">
-            <Link href={"/career/book-a-meeting"}>click here</Link>
+          You'll be redirected to Book a Meeting Page. If the redirects does not happen,{' '}
+          <Button asChild variant={'link'} className="p-0">
+            <Link href={'/career/book-a-meeting'}>click here</Link>
           </Button>
         </Text>
       </Container>
@@ -362,32 +341,25 @@ export default function CareerForm({
   }
 
   const renderNavigation = () => {
-    const steps = [
-      "Personal Info",
-      "Work Experince",
-      "Cover Letters",
-      "Compensation",
-    ];
+    const steps = ['Personal Info', 'Work Experince', 'Cover Letters', 'Compensation'];
     return (
       <div className="grid grid-cols-2 items-end justify-center gap-4 py-2 pb-6 text-center sm:py-6 lg:grid-cols-4 lg:py-8">
         {steps.map((step, index) => (
           <div
             key={index}
             className={`flex flex-row items-center md:flex-col ${
-              index + 1 === currentStep ? "text-primary" : "text-foreground"
-            } ${index + 1 <= maxStep ? "cursor-pointer" : "cursor-default"}`}
+              index + 1 === currentStep ? 'text-primary' : 'text-foreground'
+            } ${index + 1 <= maxStep ? 'cursor-pointer' : 'cursor-default'}`}
             onClick={() => {
               if (index + 1 <= maxStep) {
                 setCurrentStep(index + 1);
               }
             }}
-            style={{ cursor: index + 1 <= maxStep ? "pointer" : "default" }}
+            style={{ cursor: index + 1 <= maxStep ? 'pointer' : 'default' }}
           >
             <div
               className={`flex h-8 w-8 items-center justify-center rounded-full border-2 ${
-                index + 1 === currentStep
-                  ? "bg-primary text-secondary"
-                  : "border-secondary"
+                index + 1 === currentStep ? 'bg-primary text-secondary' : 'border-secondary'
               }`}
             >
               {index + 1}
@@ -417,9 +389,7 @@ export default function CareerForm({
                   value={formData.email}
                   onChange={handleInputChange}
                 />
-                {errors.email && (
-                  <span className="text-destructive">{errors.email}</span>
-                )}
+                {errors.email && <span className="text-destructive">{errors.email}</span>}
               </div>
               <div className="grid w-full items-center">
                 <Label className="pb-2" htmlFor="firstName">
@@ -433,9 +403,7 @@ export default function CareerForm({
                   value={formData.firstName}
                   onChange={handleInputChange}
                 />
-                {errors.firstName && (
-                  <span className="text-destructive">{errors.firstName}</span>
-                )}
+                {errors.firstName && <span className="text-destructive">{errors.firstName}</span>}
               </div>
               <div className="grid w-full items-center">
                 <Label className="pb-2" htmlFor="lastName">
@@ -449,9 +417,7 @@ export default function CareerForm({
                   value={formData.lastName}
                   onChange={handleInputChange}
                 />
-                {errors.lastName && (
-                  <span className="text-destructive">{errors.lastName}</span>
-                )}
+                {errors.lastName && <span className="text-destructive">{errors.lastName}</span>}
               </div>
               <div className="grid w-full items-center">
                 <Label className="pb-2" htmlFor="dob">
@@ -464,9 +430,7 @@ export default function CareerForm({
                   value={formData.dob}
                   onChange={handleInputChange}
                 />
-                {errors.dob && (
-                  <span className="text-destructive">{errors.dob}</span>
-                )}
+                {errors.dob && <span className="text-destructive">{errors.dob}</span>}
               </div>
               <div className="grid w-full items-center">
                 <Label className="pb-2" htmlFor="country">
@@ -474,9 +438,7 @@ export default function CareerForm({
                 </Label>
                 <Select
                   name="country"
-                  onValueChange={(value) =>
-                    setFormData({ ...formData, country: value })
-                  }
+                  onValueChange={(value) => setFormData({ ...formData, country: value })}
                 >
                   <SelectTrigger>
                     <SelectValue placeholder="Select your country" />
@@ -489,9 +451,7 @@ export default function CareerForm({
                     <SelectItem value="other">Other</SelectItem>
                   </SelectContent>
                 </Select>
-                {errors.country && (
-                  <span className="text-destructive">{errors.country}</span>
-                )}
+                {errors.country && <span className="text-destructive">{errors.country}</span>}
               </div>
               <div className="grid w-full items-center">
                 <Label className="pb-2" htmlFor="gender">
@@ -499,9 +459,7 @@ export default function CareerForm({
                 </Label>
                 <Select
                   name="gender"
-                  onValueChange={(value) =>
-                    setFormData({ ...formData, gender: value })
-                  }
+                  onValueChange={(value) => setFormData({ ...formData, gender: value })}
                 >
                   <SelectTrigger>
                     <SelectValue placeholder="Select your gender" />
@@ -512,9 +470,7 @@ export default function CareerForm({
                     <SelectItem value="other">Other</SelectItem>
                   </SelectContent>
                 </Select>
-                {errors.gender && (
-                  <span className="text-destructive">{errors.gender}</span>
-                )}
+                {errors.gender && <span className="text-destructive">{errors.gender}</span>}
               </div>
               <div className="grid w-full items-center">
                 <Label className="pb-2" htmlFor="city">
@@ -528,9 +484,7 @@ export default function CareerForm({
                   value={formData.city}
                   onChange={handleInputChange}
                 />
-                {errors.city && (
-                  <span className="text-destructive">{errors.city}</span>
-                )}
+                {errors.city && <span className="text-destructive">{errors.city}</span>}
               </div>
               <div className="grid w-full items-center">
                 <Label className="pb-2" htmlFor="postalCode">
@@ -544,9 +498,7 @@ export default function CareerForm({
                   value={formData.postalCode}
                   onChange={handleInputChange}
                 />
-                {errors.postalCode && (
-                  <span className="text-destructive">{errors.postalCode}</span>
-                )}
+                {errors.postalCode && <span className="text-destructive">{errors.postalCode}</span>}
               </div>
             </div>
 
@@ -564,9 +516,7 @@ export default function CareerForm({
                   onChange={handleInputChange}
                 />
                 {errors.linkedinProfile && (
-                  <span className="text-destructive">
-                    {errors.linkedinProfile}
-                  </span>
+                  <span className="text-destructive">{errors.linkedinProfile}</span>
                 )}
               </div>
               <div className="grid w-full items-center">
@@ -582,9 +532,7 @@ export default function CareerForm({
                   onChange={handleInputChange}
                 />
                 {errors.upworkProfile && (
-                  <span className="text-destructive">
-                    {errors.upworkProfile}
-                  </span>
+                  <span className="text-destructive">{errors.upworkProfile}</span>
                 )}
               </div>
               <div className="grid w-full items-center">
@@ -599,9 +547,7 @@ export default function CareerForm({
                   value={formData.phone}
                   onChange={handleInputChange}
                 />
-                {errors.phone && (
-                  <span className="text-destructive">{errors.phone}</span>
-                )}
+                {errors.phone && <span className="text-destructive">{errors.phone}</span>}
               </div>
               <div className="grid w-full items-center">
                 <Label className="pb-2" htmlFor="maritalStatus">
@@ -609,9 +555,7 @@ export default function CareerForm({
                 </Label>
                 <Select
                   name="maritalStatus"
-                  onValueChange={(value) =>
-                    setFormData({ ...formData, maritalStatus: value })
-                  }
+                  onValueChange={(value) => setFormData({ ...formData, maritalStatus: value })}
                 >
                   <SelectTrigger>
                     <SelectValue placeholder="Select your marital status" />
@@ -624,9 +568,7 @@ export default function CareerForm({
                   </SelectContent>
                 </Select>
                 {errors.maritalStatus && (
-                  <span className="text-destructive">
-                    {errors.maritalStatus}
-                  </span>
+                  <span className="text-destructive">{errors.maritalStatus}</span>
                 )}
               </div>
               <div className="grid w-full items-center">
@@ -641,9 +583,7 @@ export default function CareerForm({
                   value={formData.degree}
                   onChange={handleInputChange}
                 />
-                {errors.degree && (
-                  <span className="text-destructive">{errors.degree}</span>
-                )}
+                {errors.degree && <span className="text-destructive">{errors.degree}</span>}
               </div>
               <div className="grid w-full items-center">
                 <Label className="pb-2" htmlFor="hasGoodLaptopAndInternet">
@@ -667,9 +607,7 @@ export default function CareerForm({
                   </SelectContent>
                 </Select>
                 {errors.hasGoodLaptopAndInternet && (
-                  <span className="text-destructive">
-                    {errors.hasGoodLaptopAndInternet}
-                  </span>
+                  <span className="text-destructive">{errors.hasGoodLaptopAndInternet}</span>
                 )}
               </div>
             </div>
@@ -677,17 +615,9 @@ export default function CareerForm({
               Continue
             </Button>
             {isItAFit && (
-              <Text
-                as="p"
-                variant="bodyMd"
-                className="py-12 text-left text-sm md:text-center"
-              >
-                Have a project but not quite ready to contact us?{" "}
-                <Button
-                  asChild
-                  variant={"link"}
-                  className="inline p-0 text-wrap"
-                >
+              <Text as="p" variant="bodyMd" className="py-12 text-left text-sm md:text-center">
+                Have a project but not quite ready to contact us?{' '}
+                <Button asChild variant={'link'} className="inline text-wrap p-0">
                   <Link href="/contact/is-tracking-academy-a-fit-for-you">
                     See if Track 95 is a fit for you.
                   </Link>
@@ -706,9 +636,7 @@ export default function CareerForm({
                 </Label>
                 <Select
                   name="position"
-                  onValueChange={(value) =>
-                    setFormData({ ...formData, position: value })
-                  }
+                  onValueChange={(value) => setFormData({ ...formData, position: value })}
                 >
                   <SelectTrigger>
                     <SelectValue placeholder="Select the position" />
@@ -719,9 +647,7 @@ export default function CareerForm({
                     </SelectItem>
                   </SelectContent>
                 </Select>
-                {errors.position && (
-                  <span className="text-destructive">{errors.position}</span>
-                )}
+                {errors.position && <span className="text-destructive">{errors.position}</span>}
               </div>
               <div className="grid w-full items-center">
                 <Label className="pb-2" htmlFor="currentWorkStatus">
@@ -729,9 +655,7 @@ export default function CareerForm({
                 </Label>
                 <Select
                   name="currentWorkStatus"
-                  onValueChange={(value) =>
-                    setFormData({ ...formData, currentWorkStatus: value })
-                  }
+                  onValueChange={(value) => setFormData({ ...formData, currentWorkStatus: value })}
                 >
                   <SelectTrigger>
                     <SelectValue placeholder="Select your current work status" />
@@ -743,9 +667,7 @@ export default function CareerForm({
                   </SelectContent>
                 </Select>
                 {errors.currentWorkStatus && (
-                  <span className="text-destructive">
-                    {errors.currentWorkStatus}
-                  </span>
+                  <span className="text-destructive">{errors.currentWorkStatus}</span>
                 )}
               </div>
               <div className="grid w-full items-center">
@@ -761,9 +683,7 @@ export default function CareerForm({
                   onChange={handleInputChange}
                 />
                 {errors.lastJobDesignation && (
-                  <span className="text-destructive">
-                    {errors.lastJobDesignation}
-                  </span>
+                  <span className="text-destructive">{errors.lastJobDesignation}</span>
                 )}
               </div>
               <div className="grid w-full items-center">
@@ -779,9 +699,7 @@ export default function CareerForm({
                   onChange={handleInputChange}
                 />
                 {errors.businessDevelopmentExperience && (
-                  <span className="text-destructive">
-                    {errors.businessDevelopmentExperience}
-                  </span>
+                  <span className="text-destructive">{errors.businessDevelopmentExperience}</span>
                 )}
               </div>
               <div className="grid w-full items-center">
@@ -797,9 +715,7 @@ export default function CareerForm({
                   onChange={handleInputChange}
                 />
                 {errors.experienceInYears && (
-                  <span className="text-destructive">
-                    {errors.experienceInYears}
-                  </span>
+                  <span className="text-destructive">{errors.experienceInYears}</span>
                 )}
               </div>
               <div className="grid w-full items-center">
@@ -815,9 +731,7 @@ export default function CareerForm({
                   onChange={handleInputChange}
                 />
                 {errors.lastJobCompanyName && (
-                  <span className="text-destructive">
-                    {errors.lastJobCompanyName}
-                  </span>
+                  <span className="text-destructive">{errors.lastJobCompanyName}</span>
                 )}
               </div>
               <div className="grid w-full items-center">
@@ -833,9 +747,7 @@ export default function CareerForm({
                   onChange={handleInputChange}
                 />
                 {errors.lastJobResponsibilities && (
-                  <span className="text-destructive">
-                    {errors.lastJobResponsibilities}
-                  </span>
+                  <span className="text-destructive">{errors.lastJobResponsibilities}</span>
                 )}
               </div>
               <div className="grid w-full items-center">
@@ -851,9 +763,7 @@ export default function CareerForm({
                   onChange={handleInputChange}
                 />
                 {errors.professionalBackground && (
-                  <span className="text-destructive">
-                    {errors.professionalBackground}
-                  </span>
+                  <span className="text-destructive">{errors.professionalBackground}</span>
                 )}
               </div>
               <div className="grid w-full items-center">
@@ -869,14 +779,12 @@ export default function CareerForm({
                   onChange={handleInputChange}
                 />
                 {errors.mostChallengingDealOrClient && (
-                  <span className="text-destructive">
-                    {errors.mostChallengingDealOrClient}
-                  </span>
+                  <span className="text-destructive">{errors.mostChallengingDealOrClient}</span>
                 )}
               </div>
             </div>
             <div className="flex justify-between">
-              <Button type="button" variant={"outline"} onClick={prevStep}>
+              <Button type="button" variant={'outline'} onClick={prevStep}>
                 Previous
               </Button>
               <Button type="button" onClick={nextStep}>
@@ -892,17 +800,15 @@ export default function CareerForm({
               <Text as="h1" variant="heading3xl">
                 Job Post 01
               </Text>
-              <div className="border rounded-lg p-4">
+              <div className="rounded-lg border p-4">
                 <Text as="p" variant="bodyMd">
-                  We need to track purchase conversion data with values on our
-                  resort websites. <br />
-                  We have a set up done already but we need to verify whether
-                  data being pushed to Google Analytics, Google Ads and Facebook
-                  Pixel is accurate. <br />
+                  We need to track purchase conversion data with values on our resort websites.{' '}
+                  <br />
+                  We have a set up done already but we need to verify whether data being pushed to
+                  Google Analytics, Google Ads and Facebook Pixel is accurate. <br />
                   We have already set up server side Tracking using Stape.
                   <br />
-                  We need a true expert to help with this and all our future
-                  projects. <br />
+                  We need a true expert to help with this and all our future projects. <br />
                   Check out the website to understand the setup
                   <br /> https://stayonera.com/ <br />
                   https://spiritofsofia.com/
@@ -936,25 +842,21 @@ export default function CareerForm({
                 value={formData.loomVideo1}
                 onChange={handleInputChange}
               />
-              {errors.loomVideo1 && (
-                <span className="text-destructive">{errors.loomVideo1}</span>
-              )}
+              {errors.loomVideo1 && <span className="text-destructive">{errors.loomVideo1}</span>}
             </div>
             <Text as="h1" variant="heading3xl">
               Job Post 02
             </Text>
-            <div className="border rounded-lg p-4">
+            <div className="rounded-lg border p-4">
               <Text as="p" variant="bodyMd">
-                Shopify recently introduced a new settings feature called
-                "Customer Privacy." In certain countries, it's now mandatory to
-                display a visible cookie banner that users must accept before
-                their website behavior can be tracked. This requirement is
-                causing significant issues with tracking accuracy with add to
-                carts, reached checkouts and purchases in Shopify analytics and
-                reports.
+                Shopify recently introduced a new settings feature called "Customer Privacy." In
+                certain countries, it's now mandatory to display a visible cookie banner that users
+                must accept before their website behavior can be tracked. This requirement is
+                causing significant issues with tracking accuracy with add to carts, reached
+                checkouts and purchases in Shopify analytics and reports.
                 <br />
-                We need a solution whereby all customer data is being tracked
-                wether they accept the cookie consent or not.
+                We need a solution whereby all customer data is being tracked wether they accept the
+                cookie consent or not.
                 <br />
                 Please note: It hasn't nothing to do with Google ads!
               </Text>
@@ -987,28 +889,24 @@ export default function CareerForm({
                 value={formData.loomVideo2}
                 onChange={handleInputChange}
               />
-              {errors.loomVideo2 && (
-                <span className="text-destructive">{errors.loomVideo2}</span>
-              )}
+              {errors.loomVideo2 && <span className="text-destructive">{errors.loomVideo2}</span>}
             </div>
             <Text as="h1" variant="heading3xl">
               Job Post 03
             </Text>
-            <div className="border rounded-lg p-4">
+            <div className="rounded-lg border p-4">
               <Text as="p" variant="bodyMd">
-                We are looking for a highly skilled Facebook Ads Conversion
-                Tracking Specialist with expertise in setting up, testing, and
-                validating Conversion API tracking to ensure optimal performance
-                on our Shopify-based website. The ideal candidate will have a
-                proven track record in fine-tuning Facebook Pixel configurations
-                to achieve precise and reliable attribution.
+                We are looking for a highly skilled Facebook Ads Conversion Tracking Specialist with
+                expertise in setting up, testing, and validating Conversion API tracking to ensure
+                optimal performance on our Shopify-based website. The ideal candidate will have a
+                proven track record in fine-tuning Facebook Pixel configurations to achieve precise
+                and reliable attribution.
                 <br />
-                Currently, our conversion tracking is underperforming, with
-                attribution scores of 5.2/10 and 4.4/10 on some key metrics. We
-                are actively running campaigns, but data is not accurately
-                feeding back to Facebook. Your primary responsibility will be to
-                diagnose and resolve these issues, ensuring seamless data flow
-                and improved attribution accuracy on our Shopify platform.{" "}
+                Currently, our conversion tracking is underperforming, with attribution scores of
+                5.2/10 and 4.4/10 on some key metrics. We are actively running campaigns, but data
+                is not accurately feeding back to Facebook. Your primary responsibility will be to
+                diagnose and resolve these issues, ensuring seamless data flow and improved
+                attribution accuracy on our Shopify platform.{' '}
               </Text>
             </div>
             <div className="grid w-full items-center">
@@ -1040,12 +938,10 @@ export default function CareerForm({
                 value={formData.loomVideo3}
                 onChange={handleInputChange}
               />
-              {errors.loomVideo3 && (
-                <span className="text-destructive">{errors.loomVideo3}</span>
-              )}
+              {errors.loomVideo3 && <span className="text-destructive">{errors.loomVideo3}</span>}
             </div>
             <div className="flex justify-between">
-              <Button type="button" variant={"outline"} onClick={prevStep}>
+              <Button type="button" variant={'outline'} onClick={prevStep}>
                 Previous
               </Button>
               <Button type="button" onClick={nextStep}>
@@ -1071,9 +967,7 @@ export default function CareerForm({
                   onChange={handleInputChange}
                 />
                 {errors.lastSalaryAndCommission && (
-                  <span className="text-destructive">
-                    {errors.lastSalaryAndCommission}
-                  </span>
+                  <span className="text-destructive">{errors.lastSalaryAndCommission}</span>
                 )}
               </div>
               <div className="grid w-full items-center">
@@ -1089,9 +983,7 @@ export default function CareerForm({
                   onChange={handleInputChange}
                 />
                 {errors.expectedSalary && (
-                  <span className="text-destructive">
-                    {errors.expectedSalary}
-                  </span>
+                  <span className="text-destructive">{errors.expectedSalary}</span>
                 )}
               </div>
               <div className="grid w-full items-center">
@@ -1107,9 +999,7 @@ export default function CareerForm({
                   onChange={handleInputChange}
                 />
                 {errors.salaryTargetIn3Years && (
-                  <span className="text-destructive">
-                    {errors.salaryTargetIn3Years}
-                  </span>
+                  <span className="text-destructive">{errors.salaryTargetIn3Years}</span>
                 )}
               </div>
               <div className="grid w-full items-center">
@@ -1125,14 +1015,12 @@ export default function CareerForm({
                   onChange={handleInputChange}
                 />
                 {errors.futureInFiveYears && (
-                  <span className="text-destructive">
-                    {errors.futureInFiveYears}
-                  </span>
+                  <span className="text-destructive">{errors.futureInFiveYears}</span>
                 )}
               </div>
             </div>
             <div className="flex justify-between">
-              <Button type="button" variant={"outline"} onClick={prevStep}>
+              <Button type="button" variant={'outline'} onClick={prevStep}>
                 Previous
               </Button>
 
@@ -1146,18 +1034,13 @@ export default function CareerForm({
   };
 
   return (
-    <div className={cn("w-full", className)}>
+    <div className={cn('w-full', className)}>
       {renderNavigation()}
       <Card className="rounded-t-lg py-12">
         <CardContent className="mx-auto max-w-3xl">
           <form onSubmit={handleSubmit} className="flex flex-col space-y-3">
             {renderStep()}
-            <Text
-              as="p"
-              variant="bodyMd"
-              aria-live="polite"
-              className="sr-only"
-            >
+            <Text as="p" variant="bodyMd" aria-live="polite" className="sr-only">
               {state?.message}
             </Text>
           </form>

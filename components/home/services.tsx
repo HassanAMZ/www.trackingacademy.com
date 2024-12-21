@@ -1,19 +1,12 @@
-import React from "react";
-import Text from "@/components/ui/text";
-import FeatureCard from "./feature-card";
-import {
-  BarChart,
-  CheckCircle,
-  FileText,
-  Globe,
-  Layers,
-  Zap,
-} from "lucide-react";
-import Container from "../ui/container";
+import React from 'react';
+import Text from '@/components/ui/text';
+import FeatureCard from './feature-card';
+import { BarChart, CheckCircle, FileText, Globe, Layers, Zap } from 'lucide-react';
+import Container from '../ui/container';
 
 export default function Services() {
   return (
-    <Container className="text-center space-y-5">
+    <Container className="space-y-5 text-center">
       <Text as="h2" variant="heading2xl">
         Look at what we have worked with in the Past
       </Text>

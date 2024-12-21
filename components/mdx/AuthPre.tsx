@@ -1,7 +1,7 @@
-"use client";
-import { PreProps } from "@/types/index";
-import AuthenticatedLayout from "../layouts/AuthenticatedLayout";
-import Pre from "./Pre";
+'use client';
+import { PreProps } from '@/types/index';
+import AuthenticatedLayout from '../layouts/AuthenticatedLayout';
+import Pre from './Pre';
 
 const AuthPre: React.FC<PreProps> = ({ language, children }) => {
   return (

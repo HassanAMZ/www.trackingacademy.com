@@ -3,7 +3,7 @@ import {
   CourseMetadataProps,
   PostMetadata,
   PostMetadataProps,
-} from "@/types/index";
+} from '@/types/index';
 interface OptionalUserData {
   id?: string;
   phone?: string;
@@ -24,15 +24,15 @@ const gtmCategoriesFromBlogs = ({ metadata }: PostMetadataProps) => {
 
   if (sortedTags.length <= 5) {
     sortedTags.forEach((tag, index) => {
-      let key = index === 0 ? "item_category" : `item_category${index + 1}`;
+      let key = index === 0 ? 'item_category' : `item_category${index + 1}`;
       categories[key] = tag;
     });
   } else {
     for (let i = 0; i < 4; i++) {
-      let key = i === 0 ? "item_category" : `item_category${i + 1}`;
+      let key = i === 0 ? 'item_category' : `item_category${i + 1}`;
       categories[key] = sortedTags[i];
     }
-    categories["item_category5"] = sortedTags.slice(4).join(", ");
+    categories['item_category5'] = sortedTags.slice(4).join(', ');
   }
 
   return categories;
@@ -43,15 +43,15 @@ const gtmCategoriesFromCourses = ({ metadata }: CourseMetadataProps) => {
 
   if (sortedTags.length <= 5) {
     sortedTags.forEach((tag, index) => {
-      let key = index === 0 ? "item_category" : `item_category${index + 1}`;
+      let key = index === 0 ? 'item_category' : `item_category${index + 1}`;
       categories[key] = tag;
     });
   } else {
     for (let i = 0; i < 4; i++) {
-      let key = i === 0 ? "item_category" : `item_category${i + 1}`;
+      let key = i === 0 ? 'item_category' : `item_category${i + 1}`;
       categories[key] = sortedTags[i];
     }
-    categories["item_category5"] = sortedTags.slice(4).join(", ");
+    categories['item_category5'] = sortedTags.slice(4).join(', ');
   }
 
   return categories;
@@ -61,8 +61,8 @@ const initDataLayer = () => {
   window.dataLayer = window.dataLayer || [];
   window.dataLayer.push({
     ecommerce: null,
-    event: "cleanup",
-    datalayer_event_name: "ecommerce_null",
+    event: 'cleanup',
+    datalayer_event_name: 'ecommerce_null',
   });
 };
 

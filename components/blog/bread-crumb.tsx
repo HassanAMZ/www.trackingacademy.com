@@ -1,6 +1,6 @@
-import React from "react";
-import Link from "next/link";
-import { usePathname } from "next/navigation";
+import React from 'react';
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import {
   Breadcrumb,
   BreadcrumbItem,
@@ -8,7 +8,7 @@ import {
   BreadcrumbList,
   BreadcrumbSeparator,
   BreadcrumbPage,
-} from "@/components/ui/breadcrumb";
+} from '@/components/ui/breadcrumb';
 
 const BreadCrumbs: React.FC = () => {
   const pathname = usePathname();
@@ -18,13 +18,13 @@ const BreadCrumbs: React.FC = () => {
 
   const formatSegment = (segment: string) => {
     return segment
-      .replace(/-/g, " ") // Replace hyphens with spaces
-      .split(" ")
+      .replace(/-/g, ' ') // Replace hyphens with spaces
+      .split(' ')
       .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
-      .join(" "); // Capitalize the first letter of each word
+      .join(' '); // Capitalize the first letter of each word
   };
 
-  const pathSegments = pathname.split("/").filter((path) => path.length > 0);
+  const pathSegments = pathname.split('/').filter((path) => path.length > 0);
 
   return (
     <Breadcrumb>
@@ -33,7 +33,7 @@ const BreadCrumbs: React.FC = () => {
           <BreadcrumbLink href="/">Home</BreadcrumbLink>
         </BreadcrumbItem>
         {pathSegments.map((segment, index) => {
-          const path = `/${pathSegments.slice(0, index + 1).join("/")}`;
+          const path = `/${pathSegments.slice(0, index + 1).join('/')}`;
           const isLast = index === pathSegments.length - 1;
           return (
             <React.Fragment key={path}>
@@ -42,9 +42,7 @@ const BreadCrumbs: React.FC = () => {
                 {isLast ? (
                   <BreadcrumbPage>{formatSegment(segment)}</BreadcrumbPage>
                 ) : (
-                  <BreadcrumbLink href={path}>
-                    {formatSegment(segment)}
-                  </BreadcrumbLink>
+                  <BreadcrumbLink href={path}>{formatSegment(segment)}</BreadcrumbLink>
                 )}
               </BreadcrumbItem>
             </React.Fragment>

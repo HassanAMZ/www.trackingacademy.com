@@ -1,8 +1,8 @@
-import ClientTestimonial from "@/components/home/testimonaials";
-import { Button } from "@/components/ui/button";
-import Container from "@/components/ui/container";
-import Link from "next/link";
-import React from "react";
+import ClientTestimonial from '@/components/home/testimonaials';
+import { Button } from '@/components/ui/button';
+import Container from '@/components/ui/container';
+import Link from 'next/link';
+import React from 'react';
 
 export default function page() {
   return (

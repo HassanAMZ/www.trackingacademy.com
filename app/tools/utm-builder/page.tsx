@@ -1,43 +1,43 @@
-"use client";
+'use client';
 
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useRef, useEffect } from 'react';
 import {
   IsWebsiteURLValid,
   CanGenerateUTM,
   CopyToClipboard,
   GetErrorMessages,
-} from "@/types/index";
-import InputField from "@/components/tools/InputField";
-import { ButtonData } from "@/types/index";
-import ToolsHeroSection from "@/components/tools/ToolsHeroSection";
-import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardHeader } from "@/components/ui/card";
-import Text from "@/components/ui/text";
-import { Separator } from "@/components/ui/separator";
-import { cn } from "@/lib/utils";
-import { Textarea } from "@/components/ui/textarea";
+} from '@/types/index';
+import InputField from '@/components/tools/InputField';
+import { ButtonData } from '@/types/index';
+import ToolsHeroSection from '@/components/tools/ToolsHeroSection';
+import { Button } from '@/components/ui/button';
+import { Card, CardContent, CardHeader } from '@/components/ui/card';
+import Text from '@/components/ui/text';
+import { Separator } from '@/components/ui/separator';
+import { cn } from '@/lib/utils';
+import { Textarea } from '@/components/ui/textarea';
 
 const Page: React.FC = () => {
-  const [websiteURL, setWebsiteURL] = useState<string>("");
-  const [campaignID, setCampaignID] = useState<string>("");
-  const [campaignSource, setCampaignSource] = useState<string>("");
-  const [campaignMedium, setCampaignMedium] = useState<string>("");
-  const [campaignName, setCampaignName] = useState<string>("");
-  const [campaignTerm, setCampaignTerm] = useState<string>("");
-  const [campaignContent, setCampaignContent] = useState<string>("");
+  const [websiteURL, setWebsiteURL] = useState<string>('');
+  const [campaignID, setCampaignID] = useState<string>('');
+  const [campaignSource, setCampaignSource] = useState<string>('');
+  const [campaignMedium, setCampaignMedium] = useState<string>('');
+  const [campaignName, setCampaignName] = useState<string>('');
+  const [campaignTerm, setCampaignTerm] = useState<string>('');
+  const [campaignContent, setCampaignContent] = useState<string>('');
   const [copied, setCopied] = React.useState(false);
   const [selectedMode, setSelectedMode] = useState<
-    "manual" | "facebook" | "pinterest" | "google" | "tiktok"
-  >("manual");
+    'manual' | 'facebook' | 'pinterest' | 'google' | 'tiktok'
+  >('manual');
   const [selectedButton, setSelectedButton] = useState<number>(1);
   const [isInitialLoad, setIsInitialLoad] = useState(true);
 
   const buttonsData: ButtonData[] = [
-    { id: 1, text: "Manual" },
-    { id: 2, text: "Facebook" },
-    { id: 3, text: "Pinterest" },
-    { id: 4, text: "Google" },
-    { id: 5, text: "TikTok" },
+    { id: 1, text: 'Manual' },
+    { id: 2, text: 'Facebook' },
+    { id: 3, text: 'Pinterest' },
+    { id: 4, text: 'Google' },
+    { id: 5, text: 'TikTok' },
   ];
 
   const textareaRef = useRef<HTMLTextAreaElement | null>(null);
@@ -61,37 +61,30 @@ const Page: React.FC = () => {
 
   const generateUTM = (): string => {
     const encodeParam = (param: string) => {
-      if (selectedMode === "manual") {
+      if (selectedMode === 'manual') {
         return encodeURIComponent(param);
       } else {
         return param
-          .split("")
-          .map((char) =>
-            ["{", "}", "_"].includes(char) ? char : encodeURIComponent(char),
-          )
-          .join("");
+          .split('')
+          .map((char) => (['{', '}', '_'].includes(char) ? char : encodeURIComponent(char)))
+          .join('');
       }
     };
 
     const params = [];
-    if (campaignSource)
-      params.push(`utm_source=${encodeParam(campaignSource)}`);
-    if (campaignMedium)
-      params.push(`utm_medium=${encodeParam(campaignMedium)}`);
+    if (campaignSource) params.push(`utm_source=${encodeParam(campaignSource)}`);
+    if (campaignMedium) params.push(`utm_medium=${encodeParam(campaignMedium)}`);
     if (campaignName) params.push(`utm_campaign=${encodeParam(campaignName)}`);
     if (campaignID) params.push(`utm_id=${encodeParam(campaignID)}`);
     if (campaignTerm) params.push(`utm_term=${encodeParam(campaignTerm)}`);
-    if (campaignContent)
-      params.push(`utm_content=${encodeParam(campaignContent)}`);
-    if (selectedMode === "google") params.push(`gclid={gclid}`);
+    if (campaignContent) params.push(`utm_content=${encodeParam(campaignContent)}`);
+    if (selectedMode === 'google') params.push(`gclid={gclid}`);
 
-    return `${websiteURL}?${params.join("&")}`;
+    return `${websiteURL}?${params.join('&')}`;
   };
 
   const canGenerateUTM: CanGenerateUTM = () => {
-    return (
-      isWebsiteURLValid(websiteURL) && !!campaignSource && !!campaignMedium
-    );
+    return isWebsiteURLValid(websiteURL) && !!campaignSource && !!campaignMedium;
   };
 
   const copyToClipboard: CopyToClipboard = async () => {
@@ -109,49 +102,46 @@ const Page: React.FC = () => {
     const errors: string[] = [];
     const allFieldsEmpty = !websiteURL && !campaignSource && !campaignMedium;
     if (allFieldsEmpty) return errors;
-    if (!isWebsiteURLValid(websiteURL) && websiteURL)
-      errors.push("Invalid Website URL.");
-    if (!campaignSource) errors.push("Campaign Source is required.");
-    if (!campaignMedium) errors.push("Campaign Medium is required.");
+    if (!isWebsiteURLValid(websiteURL) && websiteURL) errors.push('Invalid Website URL.');
+    if (!campaignSource) errors.push('Campaign Source is required.');
+    if (!campaignMedium) errors.push('Campaign Medium is required.');
     return errors;
   };
 
-  const handleModeChange = (
-    mode: "manual" | "facebook" | "pinterest" | "google" | "tiktok",
-  ) => {
+  const handleModeChange = (mode: 'manual' | 'facebook' | 'pinterest' | 'google' | 'tiktok') => {
     setSelectedMode(mode);
     switch (mode) {
-      case "facebook":
-        setCampaignID("{{ad.id}}");
-        setCampaignSource("facebook");
-        setCampaignMedium("paidsocial");
-        setCampaignName("{{campaign.name}}");
-        setCampaignContent("{{adset.name}}");
-        setCampaignTerm("{{ad.name}}");
+      case 'facebook':
+        setCampaignID('{{ad.id}}');
+        setCampaignSource('facebook');
+        setCampaignMedium('paidsocial');
+        setCampaignName('{{campaign.name}}');
+        setCampaignContent('{{adset.name}}');
+        setCampaignTerm('{{ad.name}}');
         break;
-      case "pinterest":
-        setCampaignID("{campaignid}");
-        setCampaignSource("pinterest");
-        setCampaignMedium("paidsocial");
-        setCampaignName("{campaignname}");
-        setCampaignTerm("{adgroupname}");
-        setCampaignContent("{adid}");
+      case 'pinterest':
+        setCampaignID('{campaignid}');
+        setCampaignSource('pinterest');
+        setCampaignMedium('paidsocial');
+        setCampaignName('{campaignname}');
+        setCampaignTerm('{adgroupname}');
+        setCampaignContent('{adid}');
         break;
-      case "google":
-        setCampaignID("{campaignid}");
-        setCampaignSource("google");
-        setCampaignMedium("cpc");
-        setCampaignName("{campaignid}");
-        setCampaignTerm("{adgroupid}");
-        setCampaignContent("{creative}");
+      case 'google':
+        setCampaignID('{campaignid}');
+        setCampaignSource('google');
+        setCampaignMedium('cpc');
+        setCampaignName('{campaignid}');
+        setCampaignTerm('{adgroupid}');
+        setCampaignContent('{creative}');
         break;
-      case "tiktok":
-        setCampaignSource("tiktok");
-        setCampaignMedium("paidsocial");
-        setCampaignName("__CAMPAIGN_NAME__");
-        setCampaignID("__AID__");
-        setCampaignTerm("__AID_NAME__");
-        setCampaignContent("__CID_NAME__");
+      case 'tiktok':
+        setCampaignSource('tiktok');
+        setCampaignMedium('paidsocial');
+        setCampaignName('__CAMPAIGN_NAME__');
+        setCampaignID('__AID__');
+        setCampaignTerm('__AID_NAME__');
+        setCampaignContent('__CID_NAME__');
         break;
       default:
         resetUTMFields();
@@ -160,25 +150,25 @@ const Page: React.FC = () => {
   };
 
   const resetUTMFields = () => {
-    setCampaignID("");
-    setCampaignSource("");
-    setCampaignMedium("");
-    setCampaignName("");
-    setCampaignTerm("");
-    setCampaignContent("");
+    setCampaignID('');
+    setCampaignSource('');
+    setCampaignMedium('');
+    setCampaignName('');
+    setCampaignTerm('');
+    setCampaignContent('');
   };
 
   useEffect(() => {
     if (!isInitialLoad) {
-      localStorage.setItem("websiteURL", websiteURL);
-      localStorage.setItem("campaignID", campaignID);
-      localStorage.setItem("campaignSource", campaignSource);
-      localStorage.setItem("campaignMedium", campaignMedium);
-      localStorage.setItem("campaignName", campaignName);
-      localStorage.setItem("campaignTerm", campaignTerm);
-      localStorage.setItem("campaignContent", campaignContent);
-      localStorage.setItem("selectedMode", selectedMode);
-      localStorage.setItem("selectedButton", selectedButton.toString());
+      localStorage.setItem('websiteURL', websiteURL);
+      localStorage.setItem('campaignID', campaignID);
+      localStorage.setItem('campaignSource', campaignSource);
+      localStorage.setItem('campaignMedium', campaignMedium);
+      localStorage.setItem('campaignName', campaignName);
+      localStorage.setItem('campaignTerm', campaignTerm);
+      localStorage.setItem('campaignContent', campaignContent);
+      localStorage.setItem('selectedMode', selectedMode);
+      localStorage.setItem('selectedButton', selectedButton.toString());
     }
   }, [
     websiteURL,
@@ -193,15 +183,15 @@ const Page: React.FC = () => {
   ]);
 
   useEffect(() => {
-    const savedWebsiteURL = localStorage.getItem("websiteURL") || "";
-    const savedCampaignID = localStorage.getItem("campaignID") || "";
-    const savedCampaignSource = localStorage.getItem("campaignSource") || "";
-    const savedCampaignMedium = localStorage.getItem("campaignMedium") || "";
-    const savedCampaignName = localStorage.getItem("campaignName") || "";
-    const savedCampaignTerm = localStorage.getItem("campaignTerm") || "";
-    const savedCampaignContent = localStorage.getItem("campaignContent") || "";
-    const savedSelectedMode = localStorage.getItem("selectedMode") || "manual";
-    const savedSelectedButton = localStorage.getItem("selectedButton") || "1";
+    const savedWebsiteURL = localStorage.getItem('websiteURL') || '';
+    const savedCampaignID = localStorage.getItem('campaignID') || '';
+    const savedCampaignSource = localStorage.getItem('campaignSource') || '';
+    const savedCampaignMedium = localStorage.getItem('campaignMedium') || '';
+    const savedCampaignName = localStorage.getItem('campaignName') || '';
+    const savedCampaignTerm = localStorage.getItem('campaignTerm') || '';
+    const savedCampaignContent = localStorage.getItem('campaignContent') || '';
+    const savedSelectedMode = localStorage.getItem('selectedMode') || 'manual';
+    const savedSelectedButton = localStorage.getItem('selectedButton') || '1';
 
     setWebsiteURL(savedWebsiteURL);
     setCampaignID(savedCampaignID);
@@ -210,14 +200,7 @@ const Page: React.FC = () => {
     setCampaignName(savedCampaignName);
     setCampaignTerm(savedCampaignTerm);
     setCampaignContent(savedCampaignContent);
-    setSelectedMode(
-      savedSelectedMode as
-        | "manual"
-        | "facebook"
-        | "pinterest"
-        | "google"
-        | "tiktok",
-    );
+    setSelectedMode(savedSelectedMode as 'manual' | 'facebook' | 'pinterest' | 'google' | 'tiktok');
     setSelectedButton(parseInt(savedSelectedButton, 10));
     setIsInitialLoad(false);
   }, []);
@@ -228,7 +211,7 @@ const Page: React.FC = () => {
         {buttonsData.map((button) => (
           <Button
             key={button.text}
-            variant={selectedButton === button.id ? "default" : "outline"}
+            variant={selectedButton === button.id ? 'default' : 'outline'}
             onClick={() => {
               setSelectedButton(button.id);
               handleModeChange(button.text.toLowerCase() as any);
@@ -238,7 +221,7 @@ const Page: React.FC = () => {
           </Button>
         ))}
       </div>
-      <div className="py-4 grid gap-4 md:grid-cols-2">
+      <div className="grid gap-4 py-4 md:grid-cols-2">
         <InputField
           required
           label="Website URL"
@@ -306,10 +289,7 @@ const Page: React.FC = () => {
             readOnly
             value={generateUTM()}
             rows={4}
-            className={cn(
-              "rounded-md border p-3",
-              !canGenerateUTM() && "opacity-50",
-            )}
+            className={cn('rounded-md border p-3', !canGenerateUTM() && 'opacity-50')}
           />
           {!canGenerateUTM() && (
             <div className="font-medium text-red-500">
@@ -323,9 +303,9 @@ const Page: React.FC = () => {
           <Button
             disabled={!canGenerateUTM()}
             onClick={handleCopy}
-            className={cn("w-full", copied ? "animate-shake" : "")}
+            className={cn('w-full', copied ? 'animate-shake' : '')}
           >
-            {copied ? "Copied!" : "Copy to Clipboard"}
+            {copied ? 'Copied!' : 'Copy to Clipboard'}
           </Button>
         </CardContent>
       </Card>

@@ -1,12 +1,12 @@
-"use client";
+'use client';
 
-import { Avatar } from "@/components/ui/avatar";
-import { Button } from "@/components/ui/button";
-import { Card, CardHeader, CardContent } from "@/components/ui/card";
-import Container from "@/components/ui/container";
-import { Separator } from "@/components/ui/separator";
-import { motion } from "framer-motion";
-import Text from "@/components/ui/text";
+import { Avatar } from '@/components/ui/avatar';
+import { Button } from '@/components/ui/button';
+import { Card, CardHeader, CardContent } from '@/components/ui/card';
+import Container from '@/components/ui/container';
+import { Separator } from '@/components/ui/separator';
+import { motion } from 'framer-motion';
+import Text from '@/components/ui/text';
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -25,7 +25,7 @@ const itemVariants = {
     opacity: 1,
     y: 0,
     transition: {
-      type: "spring",
+      type: 'spring',
       stiffness: 100,
       damping: 10,
     },
@@ -39,7 +39,7 @@ const tableVariants = {
     scale: 1,
     transition: {
       duration: 0.5,
-      ease: "easeOut",
+      ease: 'easeOut',
     },
   },
 };

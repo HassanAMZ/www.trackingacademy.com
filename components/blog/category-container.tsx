@@ -1,7 +1,7 @@
-import React, { useState } from "react";
-import SingleBlogCard from "@/components/blog/single-card";
-import { BlogContentProps } from "@/types/index";
-import { Button } from "../ui/button";
+import React, { useState } from 'react';
+import SingleBlogCard from '@/components/blog/single-card';
+import { BlogContentProps } from '@/types/index';
+import { Button } from '../ui/button';
 
 const BlogContent: React.FC<BlogContentProps> = ({ data, type, rawData }) => {
   const [visiblePosts, setVisiblePosts] = useState(9);

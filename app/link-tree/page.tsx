@@ -1,46 +1,46 @@
 // pages/linktree.tsx
-import CustomLink from "@/components/mdx/CustomLink";
-import Text from "@/components/ui/text";
+import CustomLink from '@/components/mdx/CustomLink';
+import Text from '@/components/ui/text';
 
 import {
   FacebookIcon,
   MonitorIcon,
   YouTubeIcon,
   InstagramIcon,
-} from "@/components/icons/SocialIcons";
+} from '@/components/icons/SocialIcons';
 
 const linksData = {
   mainLinks: {
-    heading: "Freelancing Stuff",
+    heading: 'Freelancing Stuff',
     links: [
       {
-        label: "Website",
-        href: "/",
+        label: 'Website',
+        href: '/',
         icon: <MonitorIcon />,
       },
       {
-        label: "@shahzadaalihassan_",
-        href: "https://www.youtube.com/@trackingacademy_",
+        label: '@shahzadaalihassan_',
+        href: 'https://www.youtube.com/@trackingacademy_',
         icon: <YouTubeIcon />,
       },
       {
-        label: "@shahzadaalihassan_",
-        href: "https://www.instagram.com/shahzadaalihassan_/",
+        label: '@shahzadaalihassan_',
+        href: 'https://www.instagram.com/shahzadaalihassan_/',
         icon: <InstagramIcon />,
       },
       {
-        label: "@shahzadaalihassan",
-        href: "https://www.facebook.com/shahzadaalihassan/",
+        label: '@shahzadaalihassan',
+        href: 'https://www.facebook.com/shahzadaalihassan/',
         icon: <FacebookIcon />,
       },
     ],
   },
   vlogLinks: {
-    heading: "Vlogging Channel",
+    heading: 'Vlogging Channel',
     links: [
       {
-        label: "@shahzadaalihassan_vlogs",
-        href: "https://www.youtube.com/@shahzadaalihassan_vlogs",
+        label: '@shahzadaalihassan_vlogs',
+        href: 'https://www.youtube.com/@shahzadaalihassan_vlogs',
         icon: <YouTubeIcon />,
       },
     ],

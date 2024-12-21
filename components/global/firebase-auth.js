@@ -1,10 +1,10 @@
-"use client";
-import { UserAuth } from "@/context/AuthContext";
-import React, { useState, useEffect } from "react";
-import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
-import Text from "@/components/ui/text";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+'use client';
+import { UserAuth } from '@/context/AuthContext';
+import React, { useState, useEffect } from 'react';
+import { Button } from '@/components/ui/button';
+import { Card, CardContent } from '@/components/ui/card';
+import Text from '@/components/ui/text';
+import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 
 export const FirebaseAuth = () => {
   const { user, googleSignIn, facebookSignIn, logOut } = UserAuth();
@@ -14,7 +14,7 @@ export const FirebaseAuth = () => {
     try {
       await googleSignIn();
     } catch (error) {
-      console.log("googleSignIn error from FirebaseAuth.js", error);
+      console.log('googleSignIn error from FirebaseAuth.js', error);
     }
   };
 
@@ -22,7 +22,7 @@ export const FirebaseAuth = () => {
     try {
       await facebookSignIn();
     } catch (error) {
-      console.log("facebookSignIn error from FirebaseAuth.js", error);
+      console.log('facebookSignIn error from FirebaseAuth.js', error);
     }
   };
 
@@ -30,7 +30,7 @@ export const FirebaseAuth = () => {
     try {
       await logOut();
     } catch (error) {
-      console.log("handleSignOut error from FirebaseAuth.js", error);
+      console.log('handleSignOut error from FirebaseAuth.js', error);
     }
   };
 
@@ -47,15 +47,12 @@ export const FirebaseAuth = () => {
       {loading ? null : !user ? (
         <Card className="rounded-t-lg bg-primary">
           <CardContent className="flex h-[30vh] flex-col items-center justify-center gap-2">
-            <Text
-              as="p"
-              className="text-center font-medium text-primary-foreground"
-            >
+            <Text as="p" className="text-center font-medium text-primary-foreground">
               Sign up for free to access.
             </Text>
             <div className="flex w-full flex-col items-center justify-center gap-2">
               <Button
-                variant={"secondary"}
+                variant={'secondary'}
                 onClick={handleSignIn}
                 className="min-w-1/3 flex items-center justify-center font-medium"
               >
@@ -64,10 +61,7 @@ export const FirebaseAuth = () => {
               <div className="flex items-center justify-center gap-6 text-sm">
                 <div className="relative h-8 w-8 pt-4">
                   <Avatar className="z-1 absolute left-0 top-0">
-                    <AvatarImage
-                      src="/images/clients/malik-osama.jfif"
-                      alt="@malik-osama"
-                    />
+                    <AvatarImage src="/images/clients/malik-osama.jfif" alt="@malik-osama" />
                     <AvatarFallback>MO</AvatarFallback>
                   </Avatar>
 
@@ -80,10 +74,7 @@ export const FirebaseAuth = () => {
                   </Avatar>
 
                   <Avatar className="z-3 absolute left-8 top-0">
-                    <AvatarImage
-                      src="/images/clients/imtiaz-ahmad.jfif"
-                      alt="@imtiaz-ahmad"
-                    />
+                    <AvatarImage src="/images/clients/imtiaz-ahmad.jfif" alt="@imtiaz-ahmad" />
                     <AvatarFallback>IA</AvatarFallback>
                   </Avatar>
                 </div>

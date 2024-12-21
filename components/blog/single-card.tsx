@@ -1,16 +1,16 @@
-"use client";
+'use client';
 
-import React, { useState } from "react";
-import Image from "next/image";
-import Link from "next/link";
-import { SingleBlogCardProps } from "@/types/index";
-import Text from "@/components/ui/text";
+import React, { useState } from 'react';
+import Image from 'next/image';
+import Link from 'next/link';
+import { SingleBlogCardProps } from '@/types/index';
+import Text from '@/components/ui/text';
 
 const BlogCard: React.FC<SingleBlogCardProps> = ({
   post,
   type,
   isMain = false,
-  className = "",
+  className = '',
 }) => {
   const [isClicked, setIsClicked] = useState(false);
 
@@ -20,7 +20,7 @@ const BlogCard: React.FC<SingleBlogCardProps> = ({
   return (
     <React.Fragment>
       {post && (
-        <div className={className || ""}>
+        <div className={className || ''}>
           <Link href={`/${type}/${post.slug}`} onClick={handleLinkClick}>
             <Image
               src={post.openGraph.images[0]}

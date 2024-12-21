@@ -1,17 +1,17 @@
-"use client";
+'use client';
 
-import React from "react";
-import { PostMetadataProps } from "@/types/index";
-import formatDate from "@/components/seo/formatDate";
-import generateSchema from "@/components/seo/generateSchema";
-import Script from "next/script";
-import BreadCrumbs from "./bread-crumb";
-import Image from "next/image";
-import YoutubeEmbed from "../global/youtube-embed";
-import Text from "@/components/ui/text";
-import { Card, CardContent } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
-import Link from "next/link";
+import React from 'react';
+import { PostMetadataProps } from '@/types/index';
+import formatDate from '@/components/seo/formatDate';
+import generateSchema from '@/components/seo/generateSchema';
+import Script from 'next/script';
+import BreadCrumbs from './bread-crumb';
+import Image from 'next/image';
+import YoutubeEmbed from '../global/youtube-embed';
+import Text from '@/components/ui/text';
+import { Card, CardContent } from '@/components/ui/card';
+import { Badge } from '@/components/ui/badge';
+import Link from 'next/link';
 
 const BlogHeader: React.FC<PostMetadataProps> = ({ metadata }) => {
   const schema = generateSchema(metadata);
@@ -31,19 +31,12 @@ const BlogHeader: React.FC<PostMetadataProps> = ({ metadata }) => {
             <Text as="h1" variant="heading3xl">
               {metadata.title}
             </Text>
-            <Text
-              as="span"
-              variant="bodyMd"
-              className="text-sm text-muted-foreground"
-            >
+            <Text as="span" variant="bodyMd" className="text-sm text-muted-foreground">
               by ShahzadaAliHassan - {formatDate(metadata.date)}
             </Text>
             <div className="flex flex-wrap gap-2">
               {metadata.tags.map((tag, index) => (
-                <Link
-                  href={`/tags/${tag.toLowerCase().replace(/\s+/g, "-")}`}
-                  key={index}
-                >
+                <Link href={`/tags/${tag.toLowerCase().replace(/\s+/g, '-')}`} key={index}>
                   <Badge variant="secondary">{tag}</Badge>
                 </Link>
               ))}
@@ -51,10 +44,10 @@ const BlogHeader: React.FC<PostMetadataProps> = ({ metadata }) => {
           </div>
         </CardContent>
       </Card>
-      {metadata.embedId === "" ? (
+      {metadata.embedId === '' ? (
         <Image
           src={backgroundImage}
-          alt={"blog image"}
+          alt={'blog image'}
           width={1920}
           height={1080}
           className="w-full rounded-lg"

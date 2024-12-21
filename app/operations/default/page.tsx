@@ -1,9 +1,9 @@
-"use client";
+'use client';
 
-import ChatBot from "@/components/ai/ChatBot";
+import ChatBot from '@/components/ai/ChatBot';
 
 export default function Page() {
-  let systemMessage = "";
+  let systemMessage = '';
   return (
     <>
       <ChatBot />

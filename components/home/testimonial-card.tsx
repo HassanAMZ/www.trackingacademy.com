@@ -1,8 +1,8 @@
-import Image from "next/image";
-import React from "react";
-import { Separator } from "@/components/ui/separator";
-import Text from "@/components/ui/text";
-import { Card, CardContent } from "../ui/card";
+import Image from 'next/image';
+import React from 'react';
+import { Separator } from '@/components/ui/separator';
+import Text from '@/components/ui/text';
+import { Card, CardContent } from '../ui/card';
 
 interface ClientTestimonialCardProps {
   client: {
@@ -25,7 +25,7 @@ const ClientTestimonialCard: React.FC<ClientTestimonialCardProps> = ({
   results,
 }) => {
   return (
-    <Card className="max-w-4xl w-full mx-auto">
+    <Card className="mx-auto w-full max-w-4xl">
       <CardContent>
         <div className="space-y-4 py-4">
           <Text as="p" variant="bodyMd">

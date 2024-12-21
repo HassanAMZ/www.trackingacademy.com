@@ -1,23 +1,23 @@
-"use client";
-import React from "react";
-import { useFormStatus } from "react-dom";
-import { createContact } from "@/actions/contact-us-new";
-import Container from "@/components/ui/container";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
-import { Textarea } from "@/components/ui/textarea";
+'use client';
+import React from 'react';
+import { useFormStatus } from 'react-dom';
+import { createContact } from '@/actions/contact-us-new';
+import Container from '@/components/ui/container';
+import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
+import { Label } from '@/components/ui/label';
+import { Textarea } from '@/components/ui/textarea';
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "@/components/ui/select";
-import { cn } from "../lib/utils";
-import Link from "next/link";
-import { Card, CardContent } from "../ui/card";
-import Text from "../ui/text";
+} from '@/components/ui/select';
+import { cn } from '../lib/utils';
+import Link from 'next/link';
+import { Card, CardContent } from '../ui/card';
+import Text from '../ui/text';
 
 function SubmitButton() {
   const { pending } = useFormStatus();
@@ -26,9 +26,9 @@ function SubmitButton() {
     <Button
       type="submit"
       disabled={pending}
-      className={`${pending ? "cursor-not-allowed opacity-50" : ""}`}
+      className={`${pending ? 'cursor-not-allowed opacity-50' : ''}`}
     >
-      {pending ? "Submitting..." : "Submit Contact Form"}
+      {pending ? 'Submitting...' : 'Submit Contact Form'}
     </Button>
   );
 }
@@ -37,7 +37,7 @@ export default function ContactForm() {
   return (
     <div className="w-full">
       <form action={createContact} className="flex flex-col space-y-3">
-        <div className="pt-12 pb-6 text-center">
+        <div className="pb-6 pt-12 text-center">
           <Text as="h1" variant="heading3xl">
             Work with us
           </Text>
@@ -45,7 +45,7 @@ export default function ContactForm() {
             Fill out the form below to get started.
           </Text>
         </div>
-        <div className="max-w-4xl w-full mx-auto">
+        <div className="mx-auto w-full max-w-4xl">
           <Card className="rounded-t-lg">
             <CardContent>
               <div className="grid gap-3 py-6">
@@ -54,12 +54,7 @@ export default function ContactForm() {
                   <Label className="pb-2" htmlFor="name">
                     Hey, my name is
                   </Label>
-                  <Input
-                    required
-                    type="text"
-                    name="name"
-                    placeholder="Your Name"
-                  />
+                  <Input required type="text" name="name" placeholder="Your Name" />
                 </div>
 
                 {/* Company Input */}
@@ -67,12 +62,7 @@ export default function ContactForm() {
                   <Label className="pb-2" htmlFor="company">
                     from
                   </Label>
-                  <Input
-                    required
-                    type="text"
-                    name="company"
-                    placeholder="Your Company"
-                  />
+                  <Input required type="text" name="company" placeholder="Your Company" />
                 </div>
 
                 {/* Website Input */}
@@ -80,12 +70,7 @@ export default function ContactForm() {
                   <Label className="pb-2" htmlFor="website">
                     our website is
                   </Label>
-                  <Input
-                    required
-                    type="url"
-                    name="website"
-                    placeholder="https://www.example.com"
-                  />
+                  <Input required type="url" name="website" placeholder="https://www.example.com" />
                 </div>
 
                 {/* Interest Select */}
@@ -98,18 +83,12 @@ export default function ContactForm() {
                       <SelectValue placeholder="Select an option" />
                     </SelectTrigger>
                     <SelectContent>
-                      <SelectItem value="google-tag-manager">
-                        Google Tag Manager
-                      </SelectItem>
+                      <SelectItem value="google-tag-manager">Google Tag Manager</SelectItem>
                       <SelectItem value="facebook-pixel-capi">
                         Facebook Pixel & Conversion API
                       </SelectItem>
-                      <SelectItem value="google-analytics-4">
-                        Google Analytics 4
-                      </SelectItem>
-                      <SelectItem value="something-else">
-                        Something Else
-                      </SelectItem>
+                      <SelectItem value="google-analytics-4">Google Analytics 4</SelectItem>
+                      <SelectItem value="something-else">Something Else</SelectItem>
                     </SelectContent>
                   </Select>
                 </div>
@@ -119,11 +98,7 @@ export default function ContactForm() {
                   <Label className="pb-2" htmlFor="projectDescription">
                     for
                   </Label>
-                  <Textarea
-                    name="projectDescription"
-                    required
-                    placeholder="Project Description"
-                  />
+                  <Textarea name="projectDescription" required placeholder="Project Description" />
                 </div>
 
                 {/* Collaboration Type */}
@@ -137,12 +112,8 @@ export default function ContactForm() {
                     </SelectTrigger>
                     <SelectContent>
                       <SelectItem value="one-time">One-time</SelectItem>
-                      <SelectItem value="retainer">
-                        Retainer Collaboration
-                      </SelectItem>
-                      <SelectItem value="guidance-consulting">
-                        Guidance/Consulting
-                      </SelectItem>
+                      <SelectItem value="retainer">Retainer Collaboration</SelectItem>
+                      <SelectItem value="guidance-consulting">Guidance/Consulting</SelectItem>
                     </SelectContent>
                   </Select>
                 </div>
@@ -157,9 +128,7 @@ export default function ContactForm() {
                       <SelectValue placeholder="Select your budget" />
                     </SelectTrigger>
                     <SelectContent>
-                      <SelectItem value="less-than-100">
-                        $ Less than 100
-                      </SelectItem>
+                      <SelectItem value="less-than-100">$ Less than 100</SelectItem>
                       <SelectItem value="100-500">$100 - $500</SelectItem>
                       <SelectItem value="500-1000">$500 - $1000</SelectItem>
                       <SelectItem value="1000-5000">$1000 - $5000</SelectItem>
@@ -173,12 +142,7 @@ export default function ContactForm() {
                   <Label className="pb-2" htmlFor="email">
                     you can reach me at
                   </Label>
-                  <Input
-                    required
-                    type="email"
-                    name="email"
-                    placeholder="example@email.com"
-                  />
+                  <Input required type="email" name="email" placeholder="example@email.com" />
                 </div>
               </div>
 

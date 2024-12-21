@@ -1,11 +1,11 @@
-import Navbar from "@/components/global/navbar";
-import { Button } from "@/components/ui/button";
-import Container from "@/components/ui/container";
-import Link from "next/link";
-import getOffersData from "@/utils/getOffersData"; // Ensure this path is correct
+import Navbar from '@/components/global/navbar';
+import { Button } from '@/components/ui/button';
+import Container from '@/components/ui/container';
+import Link from 'next/link';
+import getOffersData from '@/utils/getOffersData'; // Ensure this path is correct
 
 export default async function Page() {
-  const sales = await getOffersData("app/sales");
+  const sales = await getOffersData('app/sales');
   return (
     <div>
       <Navbar />

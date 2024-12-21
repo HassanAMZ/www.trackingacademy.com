@@ -1,15 +1,7 @@
 // components/EmailTemplate.tsx
-import React from "react";
-import { Timestamp } from "firebase/firestore";
-import {
-  Body,
-  Container,
-  Head,
-  Heading,
-  Html,
-  Preview,
-  Text,
-} from "@react-email/components";
+import React from 'react';
+import { Timestamp } from 'firebase/firestore';
+import { Body, Container, Head, Heading, Html, Preview, Text } from '@react-email/components';
 
 type EmailTemplateProps = {
   userName: string; // Assume userName is still relevant and used for personalization
@@ -17,11 +9,7 @@ type EmailTemplateProps = {
   createdAt: Timestamp;
 };
 
-export default function WaitListEmail({
-  userName,
-  email,
-  createdAt,
-}: EmailTemplateProps) {
+export default function WaitListEmail({ userName, email, createdAt }: EmailTemplateProps) {
   return (
     <Html>
       <Head />
@@ -31,9 +19,8 @@ export default function WaitListEmail({
           <Heading>Welcome to the Tracking Academy Waitlist!</Heading>
           <Text>Dear {userName},</Text>
           <Text>
-            Thank you for your interest in our courses. You are now on our
-            waitlist, and we will notify you as soon as registration opens. Here
-            are the details we have on file:
+            Thank you for your interest in our courses. You are now on our waitlist, and we will
+            notify you as soon as registration opens. Here are the details we have on file:
           </Text>
           <ul>
             <li>
@@ -44,8 +31,8 @@ export default function WaitListEmail({
             </li>
           </ul>
           <Text className="text-sm">
-            Stay tuned for updates, and feel free to contact us if you have any
-            questions in the meantime.
+            Stay tuned for updates, and feel free to contact us if you have any questions in the
+            meantime.
           </Text>
           <Text className="text-sm">
             Best Regards,

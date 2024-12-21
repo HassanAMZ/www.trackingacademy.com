@@ -1,8 +1,8 @@
-"use client";
+'use client';
 
-import { CaseStudy } from "@/types/index";
-import { CaseStudyCard } from "./case-study-card";
-import Container from "../ui/container";
+import { CaseStudy } from '@/types/index';
+import { CaseStudyCard } from './case-study-card';
+import Container from '../ui/container';
 
 interface CaseStudiesGridProps {
   caseStudies: CaseStudy[];

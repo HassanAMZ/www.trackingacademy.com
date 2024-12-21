@@ -1,10 +1,10 @@
-import { AlertCircle, ArrowRight, CheckCircle2 } from "lucide-react";
-import { Card, CardContent, CardHeader } from "../ui/card";
-import Container from "../ui/container";
-import Text from "../ui/text";
-import { Button } from "../ui/button";
-import Link from "next/link";
-import { Badge } from "../ui/badge";
+import { AlertCircle, ArrowRight, CheckCircle2 } from 'lucide-react';
+import { Card, CardContent, CardHeader } from '../ui/card';
+import Container from '../ui/container';
+import Text from '../ui/text';
+import { Button } from '../ui/button';
+import Link from 'next/link';
+import { Badge } from '../ui/badge';
 // Solution Section Component with 7-Step Process
 const SolutionSection = ({ steps }: { steps: any }) => {
   return (
@@ -20,11 +20,11 @@ const SolutionSection = ({ steps }: { steps: any }) => {
             </Text>
           </div>
 
-          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3 w-full">
+          <div className="grid w-full gap-6 md:grid-cols-2 lg:grid-cols-3">
             {steps.map((step: any, index: any) => (
               <Card key={index} className="border-primary/20">
                 <CardHeader>
-                  <Badge className="w-fit mb-2">Step {index + 1}</Badge>
+                  <Badge className="mb-2 w-fit">Step {index + 1}</Badge>
                   <Text as="h3" className="font-semibold">
                     {step.title}
                   </Text>

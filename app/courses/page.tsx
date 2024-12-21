@@ -1,7 +1,7 @@
-import React from "react";
-import HeroComponent from "@/components/global/HeroComponent";
-import CourseContainer from "@/components/courses/CourseContainer";
-import getCoursesData from "utils/getCoursesData";
+import React from 'react';
+import HeroComponent from '@/components/global/HeroComponent';
+import CourseContainer from '@/components/courses/CourseContainer';
+import getCoursesData from 'utils/getCoursesData';
 
 export default async function Page() {
   const data = await getCoursesData();

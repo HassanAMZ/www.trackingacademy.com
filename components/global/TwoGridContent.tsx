@@ -1,9 +1,9 @@
-import React from "react";
-import Link from "next/link";
-import Text from "@/components/ui/text";
+import React from 'react';
+import Link from 'next/link';
+import Text from '@/components/ui/text';
 
-import LearnMore from "@/components/global/LearnMore";
-import { TwoGridContentProps } from "@/types/index";
+import LearnMore from '@/components/global/LearnMore';
+import { TwoGridContentProps } from '@/types/index';
 
 const TwoGridContent: React.FC<TwoGridContentProps> = ({
   learnMoreHeader,
@@ -14,11 +14,7 @@ const TwoGridContent: React.FC<TwoGridContentProps> = ({
     <section className="backgroundOverlay p-4 lg:p-10">
       <div className="lg:grid lg:grid-cols-1">
         <div>
-          <Text
-            as="h4"
-            variant="headingLg"
-            className="py-2 text-center lg:text-left"
-          >
+          <Text as="h4" variant="headingLg" className="py-2 text-center lg:text-left">
             {learnMoreHeader}
           </Text>
           <LearnMore detailsList={detailsList} />

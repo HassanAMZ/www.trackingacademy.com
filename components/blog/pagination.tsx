@@ -1,5 +1,5 @@
-"use client";
-import React, { useState } from "react";
+'use client';
+import React, { useState } from 'react';
 import {
   Pagination,
   PaginationContent,
@@ -7,11 +7,11 @@ import {
   PaginationLink,
   PaginationNext,
   PaginationPrevious,
-} from "@/components/ui/pagination";
-import Text from "@/components/ui/text";
+} from '@/components/ui/pagination';
+import Text from '@/components/ui/text';
 
-import SingleBlogCard from "./single-card";
-import { PostMetadata } from "@/types/index";
+import SingleBlogCard from './single-card';
+import { PostMetadata } from '@/types/index';
 
 interface BlogPaginationProps {
   sortedData: PostMetadata[];
@@ -44,7 +44,7 @@ const BlogPagination: React.FC<BlogPaginationProps> = ({ sortedData }) => {
       <div className="grid grid-cols-2 gap-4 md:grid-cols-3 md:gap-6">
         {currentPosts.map((post, index) => (
           <React.Fragment key={index}>
-            <SingleBlogCard post={post} type={"blog"} />
+            <SingleBlogCard post={post} type={'blog'} />
           </React.Fragment>
         ))}
       </div>

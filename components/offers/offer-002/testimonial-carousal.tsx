@@ -1,13 +1,13 @@
-"use client";
+'use client';
 
-import React, { useEffect, useState, useMemo } from "react";
-import { motion } from "framer-motion";
-import Text from "@/components/ui/text";
-import { Star } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import Container from "@/components/ui/container";
-import clients from "@/data/clients";
-import Image from "next/image";
+import React, { useEffect, useState, useMemo } from 'react';
+import { motion } from 'framer-motion';
+import Text from '@/components/ui/text';
+import { Star } from 'lucide-react';
+import { Button } from '@/components/ui/button';
+import Container from '@/components/ui/container';
+import clients from '@/data/clients';
+import Image from 'next/image';
 
 const TestimonialsCarousel: React.FC = () => {
   const clientTestimonials = useMemo(
@@ -24,7 +24,7 @@ const TestimonialsCarousel: React.FC = () => {
           clientName,
           clientTitle,
           businessName,
-          imageLink: images?.[0]?.url || "/default-image.png", // Handle missing images
+          imageLink: images?.[0]?.url || '/default-image.png', // Handle missing images
           roas: `${roas.value}${roas.symbol} ROAS`,
           conversions: `${conversions.value}${conversions.symbol} Conversions`,
         };
@@ -36,9 +36,7 @@ const TestimonialsCarousel: React.FC = () => {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setCurrentIndex(
-        (prevIndex) => (prevIndex + 1) % clientTestimonials.length,
-      );
+      setCurrentIndex((prevIndex) => (prevIndex + 1) % clientTestimonials.length);
     }, 5000);
 
     return () => clearInterval(interval);
@@ -53,12 +51,7 @@ const TestimonialsCarousel: React.FC = () => {
           <Star key={index} />
         ))}
       </div>
-      <Text
-        as="p"
-        variant="bodyMd"
-        applyMargin={false}
-        className="font-semibold italic"
-      >
+      <Text as="p" variant="bodyMd" applyMargin={false} className="font-semibold italic">
         "{currentTestimonial.testimonialText}"
       </Text>
       <div className="flex items-center gap-2 pt-4">
@@ -76,7 +69,7 @@ const TestimonialsCarousel: React.FC = () => {
             {currentTestimonial.clientName}
           </Text>
           <Text as="p" variant="bodyMd" applyMargin={false}>
-            <strong>{currentTestimonial.clientTitle}</strong> at{" "}
+            <strong>{currentTestimonial.clientTitle}</strong> at{' '}
             <strong>{currentTestimonial.businessName}</strong>
           </Text>
         </div>
