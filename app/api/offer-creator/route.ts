@@ -22,7 +22,7 @@ export async function POST(req: Request) {
       headline: z
         .string()
         .describe(
-          "Attention-grabbing headline that captures the core value proposition"
+          "Attention-grabbing headline that captures the core value proposition",
         ),
       dreamOutcome: z
         .string()

@@ -7,7 +7,7 @@ export default function Page() {
   let systemMessage = AiSystemMessages.YoutubeMetaData01;
   return (
     <>
-      <ChatBot systemMessage={systemMessage} />
+      <ChatBot />
     </>
   );
 }

@@ -6,7 +6,7 @@ export default function Page() {
   let systemMessage = "";
   return (
     <>
-      <ChatBot systemMessage={systemMessage} />
+      <ChatBot />
     </>
   );
 }

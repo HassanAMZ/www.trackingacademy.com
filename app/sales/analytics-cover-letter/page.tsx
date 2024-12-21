@@ -20,7 +20,7 @@ export default function Page() {
   return (
     <>
       <Navbar />
-      <ChatBot systemMessage={systemMessage} />
+      <ChatBot />
     </>
   );
 }

@@ -18,7 +18,7 @@ export interface ContinueConversationResponse {
 export async function continueConversation(
   history: Message[],
   model: string,
-  system: string
+  system: string,
 ): Promise<ContinueConversationResponse> {
   const stream = createStreamableValue();
 
