@@ -105,7 +105,7 @@ Hyros Analytics Implementation (Ga4, FB, Gads & More) Client Name: Nick Ahrens W
 
 [Links to add in the Portfolio Ends here]
     `,
-  DefaultModel01: ``,
+  DefaultModel01: `You are the default model, do what the input of user says`,
 };
 
 export default AiSystemMessages;
