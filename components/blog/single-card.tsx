@@ -1,10 +1,10 @@
 'use client';
 
-import React, { useState } from 'react';
+import Text from '@/components/ui/text';
+import { SingleBlogCardProps } from '@/types/index';
 import Image from 'next/image';
 import Link from 'next/link';
-import { SingleBlogCardProps } from '@/types/index';
-import Text from '@/components/ui/text';
+import React, { useState } from 'react';
 
 const BlogCard: React.FC<SingleBlogCardProps> = ({
   post,
@@ -36,7 +36,7 @@ const BlogCard: React.FC<SingleBlogCardProps> = ({
               {post.description}
             </Text>
             <div className="flex flex-row items-center justify-between whitespace-nowrap pt-2 text-xs">
-              <Text as="p" variant="bodyMd" applyMargin={false}>
+              <Text as="p" variant="bodyMd">
                 {post.date}
               </Text>
             </div>

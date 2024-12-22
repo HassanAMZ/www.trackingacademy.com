@@ -1,7 +1,6 @@
 import Navbar from '@/components/global/navbar';
 import Container from '@/components/ui/container';
-import React from 'react';
-import { ReactNode } from 'react';
+import React, { ReactNode } from 'react';
 
 export const metadata = {
   title: 'Privacy Policey - TrackingAcademy',

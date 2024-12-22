@@ -1,8 +1,5 @@
-import React, { useRef, useState } from 'react';
-import { useChat } from 'ai/react';
-import { Message } from 'ai';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import {
   Select,
@@ -11,12 +8,14 @@ import {
   SelectTrigger,
   SelectValue,
 } from '@/components/ui/select';
-import { Loader2, Send, StopCircle, RotateCcw, Trash2, ImagePlus } from 'lucide-react';
 import { AnthropicModels, OpenAiModels } from '@/data/gpt-models';
 import AiSystemMessages from '@/data/gpt-system-message';
-import Container from '../ui/container';
-import Markdown from 'react-markdown';
+import { useChat } from 'ai/react';
+import { ImagePlus, Loader2, RotateCcw, Send, StopCircle, Trash2 } from 'lucide-react';
 import Image from 'next/image';
+import React, { useRef, useState } from 'react';
+import Markdown from 'react-markdown';
+import Container from '../ui/container';
 
 export default function ChatBot() {
   const [provider, setProvider] = useState<'anthropic' | 'openai'>('anthropic');

@@ -1,4 +1,3 @@
-import React from 'react';
 import BlogContainer from '@/components/blog/container';
 import getBlogsData from 'utils/getBlogsData';
 

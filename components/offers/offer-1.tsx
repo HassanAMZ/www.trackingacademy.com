@@ -1,24 +1,28 @@
-import React from 'react';
+import { Button } from '@/components/ui/button';
 import {
-  Rocket,
-  Target,
-  Smile,
-  ShieldCheck,
-  Headset,
-  Database,
   Bug,
+  CheckCircle,
+  Clock,
+  Database,
+  DollarSign,
+  Headset,
   Link2,
   RefreshCw,
+  Repeat,
+  Rocket,
   Server,
   ShieldAlert,
+  ShieldCheck,
+  Smile,
+  Target,
+  TrendingUp,
+  Zap,
 } from 'lucide-react';
-import Text from '../ui/text';
-import FeatureCard from '../home/feature-card';
-import VideoPlayer from './offer-001/video-player';
 import Link from 'next/link';
-import { Button } from '@/components/ui/button';
-import { CheckCircle, TrendingUp, Clock, DollarSign, Repeat, Zap } from 'lucide-react';
+import FeatureCard from '../home/feature-card';
 import Container from '../ui/container';
+import Text from '../ui/text';
+import VideoPlayer from './offer-001/video-player';
 
 export default function Offer() {
   const feature03 = [

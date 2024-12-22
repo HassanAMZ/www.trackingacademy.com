@@ -1,7 +1,6 @@
-import React from 'react';
-import getBlogsData from 'utils/getBlogsData';
 import BlogContainer from '@/components/blog/container';
 import Container from '@/components/ui/container';
+import getBlogsData from 'utils/getBlogsData';
 
 export default async function Page() {
   const data = await getBlogsData('app/blog');

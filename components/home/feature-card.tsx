@@ -1,3 +1,5 @@
+import Text from '@/components/ui/text';
+import { cn } from '@/lib/utils';
 import { FC } from 'react';
 import {
   Dialog,
@@ -7,8 +9,6 @@ import {
   DialogTitle,
   DialogTrigger,
 } from '../ui/dialog';
-import Text from '@/components/ui/text';
-import { cn } from '@/lib/utils';
 
 interface FeatureCardPorps {
   icon: React.ReactElement;
@@ -35,7 +35,7 @@ const FeatureCard: FC<FeatureCardPorps> = ({
           <Text as="h3" variant="headingXl" className="mb-2 text-primary">
             {title}
           </Text>
-          <Text as="p" variant="bodyMd" applyMargin={false}>
+          <Text as="p" variant="bodyMd">
             {description}
           </Text>
         </div>

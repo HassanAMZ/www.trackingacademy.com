@@ -1,6 +1,6 @@
 import fs from 'fs';
-import path from 'path';
 import matter, { GrayMatterFile } from 'gray-matter';
+import path from 'path';
 import getFiles from 'utils/getFiles';
 import extractMetaFromStringForBlog from './extractMetaFromStringForBlog';
 

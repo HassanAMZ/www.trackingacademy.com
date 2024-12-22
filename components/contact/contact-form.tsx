@@ -1,14 +1,9 @@
 'use client';
-import React, { useState, useEffect, ChangeEvent } from 'react';
-import { useFormState, useFormStatus } from 'react-dom';
 import { createContact } from '@/actions/contact-us';
-import { useRouter } from 'next/navigation';
-import Container from '@/components/ui/container';
-import { Separator } from '@/components/ui/separator';
 import { Button } from '@/components/ui/button';
+import Container from '@/components/ui/container';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
-import { Textarea } from '@/components/ui/textarea';
 import {
   Select,
   SelectContent,
@@ -16,9 +11,13 @@ import {
   SelectTrigger,
   SelectValue,
 } from '@/components/ui/select';
-import { cn } from '../lib/utils';
+import { Textarea } from '@/components/ui/textarea';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
+import React, { ChangeEvent, useEffect, useState } from 'react';
+import { useFormState, useFormStatus } from 'react-dom';
 import { GTMCustomEvent } from '../analytics/GTMEvents';
+import { cn } from '../lib/utils';
 import { Card, CardContent } from '../ui/card';
 import Text from '../ui/text';
 

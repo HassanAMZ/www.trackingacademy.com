@@ -1,9 +1,8 @@
-import React from 'react';
 import Container from '@/components/ui/container';
-import { Rocket, Target, Smile, ShieldCheck, Headset } from 'lucide-react';
 import Text from '@/components/ui/text';
-import FeatureCard from './feature-card';
+import { Headset, Rocket, ShieldCheck, Smile, Target } from 'lucide-react';
 import VideoPlayer from '../offers/offer-001/video-player';
+import FeatureCard from './feature-card';
 
 export default function Offer() {
   return (

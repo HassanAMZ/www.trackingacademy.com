@@ -1,14 +1,13 @@
-import Link from 'next/link';
-import Offer from '@/components/offers/offer-1';
-import { Button } from '@/components/ui/button';
-import Services from '@/components/home/services';
-import Container from '@/components/ui/container';
-import FrequentlyAskedQuestions from '@/components/home/frequently-asked-questions';
-import Text from '@/components/ui/text';
-import Hero from '@/components/home/hero';
 import TestimonialsCarousel2 from '@/components/for-freelancers/testimonials-carousal-2';
 import TrackingTable from '@/components/global/tracking-table';
+import FrequentlyAskedQuestions from '@/components/home/frequently-asked-questions';
+import Hero from '@/components/home/hero';
+import Services from '@/components/home/services';
+import { Button } from '@/components/ui/button';
+import Container from '@/components/ui/container';
+import Text from '@/components/ui/text';
 import clients from '@/data/clients';
+import Link from 'next/link';
 export default function Home() {
   return (
     <main className="space-y-5">

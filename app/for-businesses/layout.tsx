@@ -1,7 +1,5 @@
-import { ReactNode } from 'react';
-import React from 'react';
-import Container from '@/components/ui/container';
 import Navbar from '@/components/global/navbar';
+import React, { ReactNode } from 'react';
 
 export const metadata = {
   title: 'For Businesses - TrackingAcademy',

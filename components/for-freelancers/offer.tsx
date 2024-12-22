@@ -1,20 +1,19 @@
-import React, { FC } from 'react';
 import { Button } from '@/components/ui/button';
 import Container from '@/components/ui/container';
-import { Separator } from '@/components/ui/separator';
-import { Rocket, Target, Smile, ShieldCheck, Headset, Globe } from 'lucide-react';
-import Link from 'next/link';
-import Text from '@/components/ui/text';
-import YoutubeEmbed from '../global/youtube-embed';
 import {
   Dialog,
   DialogContent,
   DialogDescription,
-  DialogFooter,
   DialogHeader,
   DialogTitle,
   DialogTrigger,
 } from '@/components/ui/dialog';
+import { Separator } from '@/components/ui/separator';
+import Text from '@/components/ui/text';
+import { Globe, Headset, Rocket, ShieldCheck, Smile, Target } from 'lucide-react';
+import Link from 'next/link';
+import React, { FC } from 'react';
+import YoutubeEmbed from '../global/youtube-embed';
 
 export default function ForFreelancersOffer() {
   return (
@@ -169,7 +168,7 @@ const FeatureCard: FC<FeatureCardPorps> = ({
           <Text as="h3" variant="headingXl" className="mb-2 text-primary">
             {title}
           </Text>
-          <Text as="p" variant="bodyMd" applyMargin={false}>
+          <Text as="p" variant="bodyMd">
             {description}
           </Text>
         </div>

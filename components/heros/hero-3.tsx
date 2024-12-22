@@ -1,17 +1,16 @@
 'use client';
 
-import { useState, useEffect } from 'react';
-import Container from '@/components/ui/container';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardFooter, CardHeader } from '@/components/ui/card';
-import { Check, Star, ArrowRight, CheckCircle, Quote } from 'lucide-react';
+import Container from '@/components/ui/container';
 import { motion } from 'framer-motion';
-import Text from '../ui/text';
-import TestimonialsCarousel from '../offers/offer-002/testimonial-carousal';
-import TrackingTable from '../global/tracking-table';
+import { ArrowRight, Check, CheckCircle } from 'lucide-react';
 import Link from 'next/link';
+import TrackingTable from '../global/tracking-table';
 import VideoPlayer from '../offers/offer-001/video-player';
+import TestimonialsCarousel from '../offers/offer-002/testimonial-carousal';
+import Text from '../ui/text';
 
 const EnhancedHero = () => {
   function clsx(arg0: string, arg1: string) {

@@ -1,7 +1,7 @@
-import fs from 'fs';
-import path from 'path';
-import matter, { GrayMatterFile } from 'gray-matter';
 import { PostMetadata } from '@/types/index';
+import fs from 'fs';
+import matter, { GrayMatterFile } from 'gray-matter';
+import path from 'path';
 import extractMetaFromStringForBlog from './extractMetaFromStringForBlog';
 import getFiles from './getFiles';
 

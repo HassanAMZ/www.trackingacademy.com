@@ -6,8 +6,6 @@ import {
 } from '@/components/ui/accordion';
 import Container from '@/components/ui/container';
 import Text from '@/components/ui/text';
-import Link from 'next/link';
-import { Button } from '@/components/ui/button';
 import React from 'react';
 interface FrequentlyAskedQuestionsProps {
   question: string;

@@ -1,8 +1,7 @@
-import React from 'react';
-import Link from 'next/link';
-import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
+import { Card, CardContent } from '@/components/ui/card';
 import Text from '@/components/ui/text';
+import Link from 'next/link';
 
 export default function ToolsHeroSection() {
   return (

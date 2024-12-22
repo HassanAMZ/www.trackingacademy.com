@@ -1,15 +1,12 @@
 'use client';
 
-import React from 'react';
-import { motion } from 'framer-motion';
-import Link from 'next/link';
-import { Button } from '@/components/ui/button';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
+import { Button } from '@/components/ui/button';
 import Container from '@/components/ui/container';
-import { Star } from 'lucide-react';
-import TestimonialsCarousel from '../offer-002/testimonial-carousal';
-import { cn } from '@/lib/utils';
 import Text from '@/components/ui/text';
+import { cn } from '@/lib/utils';
+import Link from 'next/link';
+import TestimonialsCarousel from '../offer-002/testimonial-carousal';
 const trackingData = [
   {
     date: '2024-03-01',

@@ -1,13 +1,11 @@
 'use client';
 
-import React, { useEffect, useState, useMemo } from 'react';
-import { motion } from 'framer-motion';
-import Text from '@/components/ui/text';
-import { Star } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import Container from '@/components/ui/container';
+import Text from '@/components/ui/text';
 import clients from '@/data/clients';
+import { Star } from 'lucide-react';
 import Image from 'next/image';
+import React, { useEffect, useMemo, useState } from 'react';
 
 const TestimonialsCarousel: React.FC = () => {
   const clientTestimonials = useMemo(
@@ -51,7 +49,7 @@ const TestimonialsCarousel: React.FC = () => {
           <Star key={index} fill="gold" stroke="gold" />
         ))}
       </div>
-      <Text as="p" variant="bodyMd" applyMargin={false} className="font-semibold italic">
+      <Text as="p" variant="bodyMd" className="font-semibold italic">
         "{currentTestimonial.testimonialText}"
       </Text>
       <div className="flex items-center gap-2 pt-4 text-left">
@@ -65,10 +63,10 @@ const TestimonialsCarousel: React.FC = () => {
           blurDataURL="/placeholder-image.png" // Optional placeholder image
         />
         <div className="text-xs">
-          <Text as="p" variant="bodySm" applyMargin={false}>
+          <Text as="p" variant="bodySm">
             {currentTestimonial.clientName}
           </Text>
-          <Text as="p" variant="bodySm" applyMargin={false}>
+          <Text as="p" variant="bodySm">
             <strong>{currentTestimonial.clientTitle}</strong> at{' '}
             <strong>{currentTestimonial.businessName}</strong>
           </Text>

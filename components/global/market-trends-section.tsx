@@ -1,7 +1,5 @@
 // src/components/HomePage/MarketTrendsSection.tsx
-import React from 'react';
-import { Card, CardHeader, CardContent, CardTitle } from '@/components/ui/card';
-import { FileText, Users, Grid2X2 } from 'lucide-react';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import Container from '@/components/ui/container';
 import Text from '@/components/ui/text';
 

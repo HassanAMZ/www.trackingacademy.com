@@ -1,9 +1,9 @@
 'use client';
-import React, { useEffect, useState } from 'react';
-import { Star } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import Text from '@/components/ui/text';
 import clients from '@/data/clients';
+import { Star } from 'lucide-react';
+import React, { useEffect, useState } from 'react';
 
 const TestimonialsCarousel2: React.FC = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -39,10 +39,10 @@ const TestimonialsCarousel2: React.FC = () => {
           <Star key={i} />
         ))}
       </div>
-      <Text as="p" variant="bodyMd" applyMargin={false} className="font-semibold italic">
+      <Text as="p" variant="bodyMd" className="font-semibold italic">
         "{currentTestimonial.testimonialText}"
       </Text>
-      <Text as="p" variant="bodyMd" applyMargin={false} className="pb-2 text-xs">
+      <Text as="p" variant="bodyMd" className="pb-2 text-xs">
         {currentTestimonial.clientName}, <strong>{currentTestimonial.clientTitle}</strong> at{' '}
         <strong>{currentTestimonial.businessName}</strong>
       </Text>

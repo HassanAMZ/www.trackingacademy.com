@@ -1,12 +1,8 @@
-import { ReactNode } from 'react';
-import React from 'react';
-import { PostMetadata } from '@/types/index';
-import getBlogsData from 'utils/getBlogsData';
-import { AuthContextProvider } from '@/context/AuthContext';
-import Container from '@/components/ui/container';
-import BlogContainer from '@/components/blog/container';
 import Navbar from '@/components/global/navbar';
 import GiscusComments from '@/components/mdx/GiscusComents';
+import { PostMetadata } from '@/types/index';
+import React, { ReactNode } from 'react';
+import getBlogsData from 'utils/getBlogsData';
 
 export const metadata = {
   title: 'Blog Archieve- TrackingAcademy',

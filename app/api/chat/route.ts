@@ -1,5 +1,5 @@
 import { anthropic, openai } from '@/lib/ai';
-import { streamText, convertToCoreMessages } from 'ai';
+import { convertToCoreMessages, streamText } from 'ai';
 
 export const maxDuration = 30;
 

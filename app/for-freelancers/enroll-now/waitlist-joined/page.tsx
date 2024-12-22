@@ -1,9 +1,9 @@
-import React from 'react';
+import { GTMCustomEvent } from '@/components/analytics/GTMEvents';
+import { Button } from '@/components/ui/button';
 import Container from '@/components/ui/container';
 import Text from '@/components/ui/text';
 import Link from 'next/link';
-import { Button } from '@/components/ui/button';
-import { GTMCustomEvent } from '@/components/analytics/GTMEvents';
+import React from 'react';
 
 const WaitlistJoined: React.FC = () => {
   return (

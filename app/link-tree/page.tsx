@@ -4,9 +4,9 @@ import Text from '@/components/ui/text';
 
 import {
   FacebookIcon,
+  InstagramIcon,
   MonitorIcon,
   YouTubeIcon,
-  InstagramIcon,
 } from '@/components/icons/SocialIcons';
 
 const linksData = {

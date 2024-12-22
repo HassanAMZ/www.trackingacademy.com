@@ -1,6 +1,5 @@
-import fs from 'fs';
-import path from 'path';
 import getFiles from '@/utils/getFiles'; // Ensure this path is correct
+import path from 'path';
 
 export default async function getFolderData(
   contentDirectoryPath: string = 'app/offers', // Default value assigned here

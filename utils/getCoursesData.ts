@@ -1,7 +1,7 @@
-import fs from 'fs';
-import path from 'path';
-import matter, { GrayMatterFile } from 'gray-matter';
 import { CourseMetadata } from '@/types/index';
+import fs from 'fs';
+import matter, { GrayMatterFile } from 'gray-matter';
+import path from 'path';
 import extractMetaFromStringForCourse from 'utils/extractMetaFromStringForCourse';
 import getFiles from 'utils/getFiles';
 

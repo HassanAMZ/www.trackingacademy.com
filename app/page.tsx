@@ -1,12 +1,11 @@
-import React from 'react';
-import { AlertCircle, CheckCircle2, ArrowRight } from 'lucide-react';
-import Container from '@/components/ui/container';
-import Text from '@/components/ui/text';
-import Link from 'next/link';
+import Hero from '@/components/heros/hero-3';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader } from '@/components/ui/card';
-import Hero from '@/components/heros/hero-3';
+import Container from '@/components/ui/container';
+import Text from '@/components/ui/text';
+import { AlertCircle, ArrowRight, CheckCircle2 } from 'lucide-react';
+import Link from 'next/link';
 
 const SolutionSection = () => {
   const steps = [

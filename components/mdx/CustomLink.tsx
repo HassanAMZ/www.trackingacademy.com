@@ -1,8 +1,8 @@
+import { cn } from '@/lib/utils';
+import clsx from 'clsx';
 import Link from 'next/link';
 import React from 'react';
-import clsx from 'clsx';
 import { Button } from '../ui/button';
-import { cn } from '@/lib/utils';
 
 type CustomLinkProps = {
   href: string;

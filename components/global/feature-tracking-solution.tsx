@@ -1,6 +1,5 @@
 import { Card, CardContent } from '@/components/ui/card';
-import { Facebook, BarChart3, Cloud } from 'lucide-react';
-import Image from 'next/image';
+import { BarChart3, Cloud, Facebook } from 'lucide-react';
 
 export default function TrackingSolution() {
   return (

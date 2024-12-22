@@ -1,10 +1,9 @@
 'use client';
 
-import { Suspense } from 'react';
-import Image from 'next/image';
-import { cn } from '@/lib/utils';
 import { Card, CardContent } from '@/components/ui/card';
-import Container from '@/components/ui/container';
+import { cn } from '@/lib/utils';
+import Image from 'next/image';
+import { Suspense } from 'react';
 
 interface VideoPlayerProps {
   src: string;

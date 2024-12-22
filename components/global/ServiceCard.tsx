@@ -1,4 +1,3 @@
-import CustomLink from '@/components/mdx/CustomLink';
 import Image from 'next/image';
 
 import type { ServiceCardProps } from '@/types/index';

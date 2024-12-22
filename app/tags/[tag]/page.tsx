@@ -1,6 +1,5 @@
-import React from 'react';
-import formatString from 'utils/formatString';
 import BlogContainer from '@/components/blog/container';
+import formatString from 'utils/formatString';
 
 import getTagsData from 'utils/getTagsData';
 

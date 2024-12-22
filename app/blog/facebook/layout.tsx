@@ -1,6 +1,5 @@
 import Container from '@/components/ui/container';
 import { ReactNode } from 'react';
-import React from 'react';
 
 export const metadata = {
   title: 'Blog Archieve- TrackingAcademy',

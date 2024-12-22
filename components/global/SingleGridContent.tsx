@@ -1,7 +1,6 @@
-import React from 'react';
 import Image from 'next/image';
+import React from 'react';
 
-import ContainerLayout from '@/layouts/ContainerLayout';
 import { SingleGridContentProps } from '@/types/index';
 
 const SingleGridContent: React.FC<SingleGridContentProps> = ({

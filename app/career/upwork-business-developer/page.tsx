@@ -1,9 +1,9 @@
-import React from 'react';
+import YoutubeEmbed from '@/components/global/youtube-embed';
 import { Button } from '@/components/ui/button';
 import Container from '@/components/ui/container';
-import Link from 'next/link';
 import Text from '@/components/ui/text'; // Using the provided Text component
-import YoutubeEmbed from '@/components/global/youtube-embed';
+import Link from 'next/link';
+import React from 'react';
 
 export default function Page() {
   return (

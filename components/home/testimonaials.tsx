@@ -1,9 +1,6 @@
-import React from 'react';
-import ClientTestimonialCard from './testimonial-card';
 import Container from '@/components/ui/container';
 import Text from '@/components/ui/text';
-
-import { Separator } from '@/components/ui/separator';
+import ClientTestimonialCard from './testimonial-card';
 
 export default function ClientTestimonial() {
   const clientDetails = [

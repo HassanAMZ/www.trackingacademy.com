@@ -1,8 +1,7 @@
-import { ReactNode } from 'react';
-import React from 'react';
-import { Metadata } from 'next';
-import Container from '@/components/ui/container';
 import Navbar from '@/components/global/navbar';
+import Container from '@/components/ui/container';
+import { Metadata } from 'next';
+import React, { ReactNode } from 'react';
 
 export const metadata: Metadata = {
   title: 'Tags Archieve- TrackingAcademy',

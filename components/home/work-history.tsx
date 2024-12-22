@@ -1,6 +1,5 @@
-import React from 'react';
-import Image from 'next/image';
 import Container from '@/components/ui/container';
+import Image from 'next/image';
 const clientImages = [
   '/images/clients/001.svg',
   '/images/clients/003.svg',

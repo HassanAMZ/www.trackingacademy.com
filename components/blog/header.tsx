@@ -1,17 +1,17 @@
 'use client';
 
-import React from 'react';
-import { PostMetadataProps } from '@/types/index';
 import formatDate from '@/components/seo/formatDate';
 import generateSchema from '@/components/seo/generateSchema';
-import Script from 'next/script';
-import BreadCrumbs from './bread-crumb';
-import Image from 'next/image';
-import YoutubeEmbed from '../global/youtube-embed';
-import Text from '@/components/ui/text';
-import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
+import { Card, CardContent } from '@/components/ui/card';
+import Text from '@/components/ui/text';
+import { PostMetadataProps } from '@/types/index';
+import Image from 'next/image';
 import Link from 'next/link';
+import Script from 'next/script';
+import React from 'react';
+import YoutubeEmbed from '../global/youtube-embed';
+import BreadCrumbs from './bread-crumb';
 
 const BlogHeader: React.FC<PostMetadataProps> = ({ metadata }) => {
   const schema = generateSchema(metadata);

@@ -1,5 +1,5 @@
 import { openai } from '@/lib/ai';
-import { generateObject, streamObject, streamText } from 'ai';
+import { streamObject } from 'ai';
 import { z } from 'zod';
 
 export async function POST(req: Request) {

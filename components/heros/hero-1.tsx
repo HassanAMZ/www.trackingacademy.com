@@ -1,10 +1,9 @@
-import React from 'react';
-import Link from 'next/link';
-import { CheckCircle } from 'lucide-react';
-import { Button } from '@/components/ui/button';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
+import { Button } from '@/components/ui/button';
 import Container from '@/components/ui/container';
-import clients, { Client } from '@/data/clients';
+import { Client } from '@/data/clients';
+import Link from 'next/link';
+import React from 'react';
 import YoutubeEmbed from '../global/youtube-embed';
 import Text from '../ui/text';
 const Hero: React.FC = () => {
@@ -25,7 +24,7 @@ const Hero: React.FC = () => {
         Guaranteed
       </Text>
 
-      <Text as="p" variant="bodyMd" applyMargin={false} className="max-w-2xl font-semibold">
+      <Text as="p" variant="bodyMd" className="max-w-2xl font-semibold">
         Get your tracking setup perfected with our one-time service. Boost your business performance
         in just 7 days.
       </Text>
@@ -33,7 +32,7 @@ const Hero: React.FC = () => {
         {benefits.map((benefit, index) => (
           <div key={index} className="flex items-center gap-2">
             <CheckCircle className="text-primary h-6 w-6" />
-            <TypographyP applyMargin={false} className="">
+            <TypographyP  className="">
               {benefit}
             </TypographyP>
           </div>
@@ -67,7 +66,7 @@ const ClientAvatars: React.FC<{ clients: Client[] }> = ({ clients }) => (
         </Avatar>
       ))}
     </div>
-    <Text as="p" variant="bodyMd" applyMargin={false} className="pl-8 text-sm">
+    <Text as="p" variant="bodyMd" className="pl-8 text-sm">
       1032 + websites configured with 95% accuracy
     </Text>
   </div>

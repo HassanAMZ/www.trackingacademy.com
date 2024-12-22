@@ -1,5 +1,4 @@
 'use client';
-import React, { useState } from 'react';
 import {
   Pagination,
   PaginationContent,
@@ -9,9 +8,10 @@ import {
   PaginationPrevious,
 } from '@/components/ui/pagination';
 import Text from '@/components/ui/text';
+import React, { useState } from 'react';
 
-import SingleBlogCard from './single-card';
 import { PostMetadata } from '@/types/index';
+import SingleBlogCard from './single-card';
 
 interface BlogPaginationProps {
   sortedData: PostMetadata[];

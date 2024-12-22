@@ -1,12 +1,8 @@
 'use client';
-import React from 'react';
-import { useFormStatus } from 'react-dom';
 import { createContact } from '@/actions/contact-us-new';
-import Container from '@/components/ui/container';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
-import { Textarea } from '@/components/ui/textarea';
 import {
   Select,
   SelectContent,
@@ -14,8 +10,8 @@ import {
   SelectTrigger,
   SelectValue,
 } from '@/components/ui/select';
-import { cn } from '../lib/utils';
-import Link from 'next/link';
+import { Textarea } from '@/components/ui/textarea';
+import { useFormStatus } from 'react-dom';
 import { Card, CardContent } from '../ui/card';
 import Text from '../ui/text';
 

@@ -1,10 +1,10 @@
 'use client';
-import { UserAuth } from '@/context/AuthContext';
-import React, { useState, useEffect } from 'react';
+import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import Text from '@/components/ui/text';
-import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
+import { UserAuth } from '@/context/AuthContext';
+import React, { useEffect, useState } from 'react';
 
 export const FirebaseAuth = () => {
   const { user, googleSignIn, facebookSignIn, logOut } = UserAuth();
@@ -78,11 +78,7 @@ export const FirebaseAuth = () => {
                     <AvatarFallback>IA</AvatarFallback>
                   </Avatar>
                 </div>
-                <Text
-                  as="p"
-                  applyMargin={false}
-                  className="pl-4 font-medium text-primary-foreground"
-                >
+                <Text as="p" className="pl-4 font-medium text-primary-foreground">
                   900+ Users have Signed up
                 </Text>
               </div>

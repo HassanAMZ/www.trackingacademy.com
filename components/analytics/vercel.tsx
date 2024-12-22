@@ -1,6 +1,3 @@
-import React from 'react';
-import Script from 'next/script';
-
 import { Analytics } from '@vercel/analytics/react';
 
 export default function VercelAnalytics() {

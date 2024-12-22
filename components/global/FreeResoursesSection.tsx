@@ -1,11 +1,10 @@
 'use client';
 
-import React, { useState } from 'react';
-import Image from 'next/image';
-import { HeadingTextsProps, LinksGroupProps } from '@/types/index';
 import Text from '@/components/ui/text';
-import { ImageGeneralProps } from '@/types/index';
+import { HeadingTextsProps, ImageGeneralProps, LinksGroupProps } from '@/types/index';
+import Image from 'next/image';
 import Link from 'next/link';
+import React from 'react';
 
 const FreeResoursesSection: React.FC<
   ImageGeneralProps & { headingTexts: HeadingTextsProps } & {

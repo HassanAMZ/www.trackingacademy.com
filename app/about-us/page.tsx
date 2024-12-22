@@ -1,4 +1,3 @@
-import React from 'react';
 import LearnMore from '@/components/global/LearnMore';
 import Text from '@/components/ui/text';
 

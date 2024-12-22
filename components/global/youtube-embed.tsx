@@ -1,6 +1,5 @@
-import React, { FC, memo } from 'react';
+import { FC, memo } from 'react';
 import Container from '../ui/container';
-import clsx from 'clsx';
 
 interface YoutubeEmbedProps {
   embedId: string;

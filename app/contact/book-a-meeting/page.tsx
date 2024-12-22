@@ -1,7 +1,5 @@
-import React from 'react';
 import YoutubeEmbed from '@/components/global/youtube-embed';
 import Container from '@/components/ui/container';
-import { GTMCustomEvent } from '@/components/analytics/GTMEvents';
 import Text from '@/components/ui/text';
 export default function Page() {
   return (

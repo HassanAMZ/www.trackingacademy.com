@@ -1,8 +1,7 @@
 'use client';
-import React from 'react';
-import useEmblaCarousel from 'embla-carousel-react';
-import Autoplay from 'embla-carousel-autoplay';
 import { Card, CardContent } from '@/components/ui/card';
+import Autoplay from 'embla-carousel-autoplay';
+import useEmblaCarousel from 'embla-carousel-react';
 import { Star } from 'lucide-react';
 import Image from 'next/image';
 import Text from '../ui/text';

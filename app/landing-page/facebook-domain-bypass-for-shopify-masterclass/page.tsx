@@ -1,23 +1,23 @@
 'use client';
 
-import React, { useState } from 'react';
+import YoutubeEmbed from '@/components/global/youtube-embed';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import Container from '@/components/ui/container';
+import Text from '@/components/ui/text';
 import {
+  ArrowRight,
   Check,
+  Clock,
+  Database,
+  Rocket,
+  Shield,
+  Target,
+  TrendingUp,
   X,
   Zap,
-  Shield,
-  TrendingUp,
-  Clock,
-  ArrowRight,
-  Target,
-  Rocket,
-  Database,
 } from 'lucide-react';
-import Text from '@/components/ui/text';
-import Container from '@/components/ui/container';
-import YoutubeEmbed from '@/components/global/youtube-embed';
+import React, { useState } from 'react';
 
 interface Feature {
   icon: React.ElementType;

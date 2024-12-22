@@ -1,11 +1,11 @@
-import React from 'react';
-import { Button } from '@/components/ui/button';
+import YoutubeEmbed from '@/components/global/youtube-embed';
 import { Badge } from '@/components/ui/badge';
-import { CheckCircle2, ArrowRight } from 'lucide-react';
+import { Button } from '@/components/ui/button';
 import Container from '@/components/ui/container';
 import Text from '@/components/ui/text';
+import { ArrowRight, CheckCircle2 } from 'lucide-react';
 import Link from 'next/link';
-import YoutubeEmbed from '@/components/global/youtube-embed';
+import React from 'react';
 
 export const HeroSection: React.FC = () => {
   return (

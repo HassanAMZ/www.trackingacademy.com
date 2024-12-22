@@ -1,10 +1,9 @@
 // LearnMoreHeader.tsx
 
-import React from 'react';
 import Text from '@/components/ui/text';
+import React from 'react';
 
-import { LearnMoreHeaderProps, WhyUsProps } from '@/types/index'; // make sure to use the actual path
-import ContainerLayout from '../layouts/ContainerLayout';
+import { WhyUsProps } from '@/types/index'; // make sure to use the actual path
 import Link from 'next/link';
 
 const WhyUs: React.FC<WhyUsProps> = ({ links, headingTexts, paragraphTexts }) => {

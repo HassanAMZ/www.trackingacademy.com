@@ -1,7 +1,7 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
 import { CourseSearchProps } from '@/types/index';
+import React, { useEffect, useState } from 'react';
 
 const CourseSearch: React.FC<CourseSearchProps> = ({ data, onSearch }) => {
   const [searchTerm, setSearchTerm] = useState('');

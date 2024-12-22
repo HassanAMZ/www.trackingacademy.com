@@ -1,11 +1,10 @@
-import React from 'react';
-import fs from 'fs';
-import path from 'path';
-import matter, { GrayMatterFile } from 'gray-matter';
+import BlogContainer from '@/components/blog/container';
 import { PostMetadata } from '@/types/index';
+import fs from 'fs';
+import matter, { GrayMatterFile } from 'gray-matter';
+import path from 'path';
 import extractMetaFromStringForBlog from 'utils/extractMetaFromStringForBlog';
 import getFiles from 'utils/getFiles';
-import BlogContainer from '@/components/blog/container';
 
 export async function generateStaticParams(): Promise<
   (PostMetadata & { id: string; slug: string })[]

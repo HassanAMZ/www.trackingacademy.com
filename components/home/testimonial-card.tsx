@@ -1,7 +1,6 @@
+import Text from '@/components/ui/text';
 import Image from 'next/image';
 import React from 'react';
-import { Separator } from '@/components/ui/separator';
-import Text from '@/components/ui/text';
 import { Card, CardContent } from '../ui/card';
 
 interface ClientTestimonialCardProps {

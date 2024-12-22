@@ -1,8 +1,8 @@
 'use client';
-import React, { useState } from 'react';
 import SingleCourseCard from '@/components/courses/SingleCourseCard';
-import { CourseContentProps } from '@/types/index';
 import Text from '@/components/ui/text';
+import { CourseContentProps } from '@/types/index';
+import React, { useState } from 'react';
 
 const CourseContent: React.FC<CourseContentProps> = ({ data, type, rawData }) => {
   const [visiblePosts, setVisiblePosts] = useState(9); // Display first 9 courses by default

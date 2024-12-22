@@ -1,7 +1,6 @@
 // components/EmailTemplate.tsx
-import React from 'react';
-import { Timestamp } from 'firebase/firestore';
 import { Body, Container, Head, Heading, Html, Preview, Text } from '@react-email/components';
+import { Timestamp } from 'firebase/firestore';
 
 type EmailTemplateProps = {
   searchTerm: string;

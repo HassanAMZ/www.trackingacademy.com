@@ -1,12 +1,11 @@
-import React from 'react';
-import Link from 'next/link';
-import { Button } from '@/components/ui/button';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
-import { TestimonialsCarousel } from './testimonials-carousel';
+import { Button } from '@/components/ui/button';
 import Text from '@/components/ui/text';
-import TestimonialsCarousel2 from './testimonials-carousal-2';
-import Container from '../ui/container';
 import clients from '@/data/clients';
+import Link from 'next/link';
+import Container from '../ui/container';
+import TestimonialsCarousel2 from './testimonials-carousal-2';
+import { TestimonialsCarousel } from './testimonials-carousel';
 
 export default function Hero() {
   const topClients = clients.slice(0, 3);
@@ -21,7 +20,7 @@ export default function Hero() {
             <span className="text-primary">actionable insights</span> and{" "}
             <span className="text-primary">grow your business</span>. */}
           </Text>
-          <Text as="p" variant="bodyMd" applyMargin={false}>
+          <Text as="p" variant="bodyMd">
             Learn how to turn your data into actionable insights and grow your business. Our
             expert-led training ensures you master conversion tracking and analytics, with hands-on
             practice and real-world projects.
@@ -60,7 +59,7 @@ export default function Hero() {
                 </Avatar>
               ))}
             </div>
-            <Text as="p" variant="bodyMd" applyMargin={false} className="pl-10">
+            <Text as="p" variant="bodyMd" className="pl-10">
               2 students trained & 2 success stories
             </Text>
           </div>

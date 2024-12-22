@@ -1,8 +1,7 @@
-import React from 'react';
 import Text from '@/components/ui/text';
-import FeatureCard from './feature-card';
 import { BarChart, CheckCircle, FileText, Globe, Layers, Zap } from 'lucide-react';
 import Container from '../ui/container';
+import FeatureCard from './feature-card';
 
 export default function Services() {
   return (

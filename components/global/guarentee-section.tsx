@@ -1,9 +1,9 @@
 import { AlertCircle, ArrowRight } from 'lucide-react';
+import Link from 'next/link';
+import { Button } from '../ui/button';
 import { Card, CardContent } from '../ui/card';
 import Container from '../ui/container';
 import Text from '../ui/text';
-import { Button } from '../ui/button';
-import Link from 'next/link';
 // Guarantee Section Component
 const GuaranteeSection = () => {
   return (

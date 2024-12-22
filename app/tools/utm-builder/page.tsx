@@ -1,21 +1,19 @@
 'use client';
 
-import React, { useState, useRef, useEffect } from 'react';
-import {
-  IsWebsiteURLValid,
-  CanGenerateUTM,
-  CopyToClipboard,
-  GetErrorMessages,
-} from '@/types/index';
 import InputField from '@/components/tools/InputField';
-import { ButtonData } from '@/types/index';
-import ToolsHeroSection from '@/components/tools/ToolsHeroSection';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader } from '@/components/ui/card';
 import Text from '@/components/ui/text';
-import { Separator } from '@/components/ui/separator';
-import { cn } from '@/lib/utils';
 import { Textarea } from '@/components/ui/textarea';
+import { cn } from '@/lib/utils';
+import {
+  ButtonData,
+  CanGenerateUTM,
+  CopyToClipboard,
+  GetErrorMessages,
+  IsWebsiteURLValid,
+} from '@/types/index';
+import React, { useEffect, useRef, useState } from 'react';
 
 const Page: React.FC = () => {
   const [websiteURL, setWebsiteURL] = useState<string>('');

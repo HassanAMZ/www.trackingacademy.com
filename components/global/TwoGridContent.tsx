@@ -1,6 +1,6 @@
-import React from 'react';
-import Link from 'next/link';
 import Text from '@/components/ui/text';
+import Link from 'next/link';
+import React from 'react';
 
 import LearnMore from '@/components/global/LearnMore';
 import { TwoGridContentProps } from '@/types/index';

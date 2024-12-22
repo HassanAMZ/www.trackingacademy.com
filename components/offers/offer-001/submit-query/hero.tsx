@@ -1,11 +1,10 @@
 // components/offers/offer-001/submit-query/hero.js
-import React from 'react';
 
 import ContactForm from '@/components/contact/contact-form';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
-import TestimonialsCarousel from '../../offer-002/testimonial-carousal';
 import Container from '@/components/ui/container';
 import Text from '@/components/ui/text';
+import TestimonialsCarousel from '../../offer-002/testimonial-carousal';
 export default function Hero() {
   return (
     <Container className="sm:py py-2 lg:pt-8">

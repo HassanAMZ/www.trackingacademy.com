@@ -1,14 +1,12 @@
-import React from 'react';
+import { FileText, Grid2X2, Users } from 'lucide-react';
 
-import { FileText, Users, Grid2X2 } from 'lucide-react';
-
-import CaseStudiesGrid from '@/components/home/case-studies-grid';
-import { ConversionApiSection } from '@/components/global/conversion-api-section';
-import { MarketTrendsSection } from '@/components/global/market-trends-section';
-import { HeroSection } from '@/components/global/hero-section';
-import GuaranteeSection from '@/components/global/guarentee-section';
 import BenefitsSection from '@/components/global/benefits-section';
+import { ConversionApiSection } from '@/components/global/conversion-api-section';
+import GuaranteeSection from '@/components/global/guarentee-section';
+import { HeroSection } from '@/components/global/hero-section';
+import { MarketTrendsSection } from '@/components/global/market-trends-section';
 import SolutionSection from '@/components/global/solution-section';
+import CaseStudiesGrid from '@/components/home/case-studies-grid';
 import clients from '@/data/clients';
 const mappedClients = clients.map((client) => ({
   id: client.id,

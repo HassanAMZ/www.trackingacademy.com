@@ -1,8 +1,7 @@
-import React from 'react';
 import ClientTestimonial from '@/components/home/testimonaials';
 import { Button } from '@/components/ui/button';
-import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
+import Link from 'next/link';
 
 export default async function Page() {
   return (

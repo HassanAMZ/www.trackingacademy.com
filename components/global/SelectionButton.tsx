@@ -1,5 +1,5 @@
-import { ButtonProps } from '@/types/index';
 import Text from '@/components/ui/text';
+import { ButtonProps } from '@/types/index';
 
 const SelectionButton: React.FC<ButtonProps> = ({ children, isSelected, onClick }) => (
   <button

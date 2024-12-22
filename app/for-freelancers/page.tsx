@@ -1,12 +1,10 @@
 import Offer from '@/components/for-freelancers/offer';
-import Navbar from '@/components/global/navbar';
-import WorkHistory from '@/components/home/work-history';
-import React from 'react';
-import Hero from '@/components/home/hero';
-import Text from '@/components/ui/text';
 import TestimonialsCarousel2 from '@/components/for-freelancers/testimonials-carousal-2';
-import clients from '@/data/clients';
 import { TestimonialsCarousel } from '@/components/for-freelancers/testimonials-carousel';
+import Hero from '@/components/home/hero';
+import WorkHistory from '@/components/home/work-history';
+import Text from '@/components/ui/text';
+import clients from '@/data/clients';
 export default function ForFreelancers() {
   return (
     <main className="">

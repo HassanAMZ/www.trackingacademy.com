@@ -1,10 +1,5 @@
 'use client';
-import React, { useState, useEffect, ChangeEvent } from 'react';
-import { useFormState, useFormStatus } from 'react-dom';
-import { useRouter } from 'next/navigation';
-import { Input } from '../ui/input';
-import { Label } from '../ui/label';
-import { Textarea } from '@/components/ui/textarea';
+import { createWaitlist } from '@/actions/handle-enroll-now';
 import {
   Select,
   SelectContent,
@@ -12,12 +7,17 @@ import {
   SelectTrigger,
   SelectValue,
 } from '@/components/ui/select';
+import { Textarea } from '@/components/ui/textarea';
+import { useRouter } from 'next/navigation';
+import React, { ChangeEvent, useEffect, useState } from 'react';
+import { useFormState, useFormStatus } from 'react-dom';
 import { cn } from '../lib/utils';
-import Container from '../ui/container';
-import { createWaitlist } from '@/actions/handle-enroll-now';
 import { Button } from '../ui/button';
-import Text from '../ui/text';
 import { Card, CardContent } from '../ui/card';
+import Container from '../ui/container';
+import { Input } from '../ui/input';
+import { Label } from '../ui/label';
+import Text from '../ui/text';
 interface FormData {
   firstName: string;
   lastName: string;

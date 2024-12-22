@@ -1,8 +1,8 @@
-import React, { ChangeEvent } from 'react';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
-import { cn } from '@/lib/utils';
 import Text from '@/components/ui/text';
+import { cn } from '@/lib/utils';
+import React, { ChangeEvent } from 'react';
 
 interface InputFieldProps {
   label: string;

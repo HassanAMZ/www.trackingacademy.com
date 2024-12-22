@@ -1,9 +1,7 @@
-import { AlertCircle, ArrowRight, CheckCircle2 } from 'lucide-react';
+import { CheckCircle2 } from 'lucide-react';
 import { Card, CardContent } from '../ui/card';
 import Container from '../ui/container';
 import Text from '../ui/text';
-import { Button } from '../ui/button';
-import Link from 'next/link';
 // Benefits Section Component
 const BenefitsSection = ({ benefits }: { benefits: any }) => {
   return (

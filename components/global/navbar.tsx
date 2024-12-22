@@ -1,9 +1,7 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
-import Link from 'next/link';
-import { usePathname } from 'next/navigation';
-import { Menu, Briefcase, Wrench, FileText } from 'lucide-react';
+import { Button } from '@/components/ui/button';
+import Container from '@/components/ui/container';
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -14,11 +12,13 @@ import {
   navigationMenuTriggerStyle,
 } from '@/components/ui/navigation-menu';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
-import { Button } from '@/components/ui/button';
-import Container from '@/components/ui/container';
+import clsx from 'clsx';
+import { Briefcase, FileText, Menu, Wrench } from 'lucide-react';
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
+import React, { useState } from 'react';
 import NavLink from '../navbar/NavLink';
 import { ModeToggle } from './theme-switch';
-import clsx from 'clsx';
 
 interface NavItem {
   title: string;

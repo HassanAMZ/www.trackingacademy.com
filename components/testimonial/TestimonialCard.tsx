@@ -1,5 +1,5 @@
-import Image from 'next/image';
 import { TestimonialCardProps } from '@/types/index';
+import Image from 'next/image';
 
 const TestimonialCard: React.FC<TestimonialCardProps> = ({ person, className }) => {
   return (

@@ -1,13 +1,11 @@
-import React, { FC, ReactNode } from 'react';
-import Link from 'next/link';
-import { Button } from '@/components/ui/button';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
+import { Button } from '@/components/ui/button';
 import Container from '@/components/ui/container';
 import Text from '@/components/ui/text';
-import { CheckCircle, Star } from 'lucide-react';
-import TrackingTable from '../global/tracking-table';
-import TestimonialsCarousel2 from '../for-freelancers/testimonials-carousal-2';
 import { Client } from '@/data/clients';
+import { CheckCircle } from 'lucide-react';
+import Link from 'next/link';
+import { FC, ReactNode } from 'react';
 
 interface HeroProps {
   heading: ReactNode;
@@ -47,7 +45,7 @@ const Hero: FC<HeroProps> = ({
           {benefits.map((benefit, index) => (
             <div key={index} className="flex items-center gap-2">
               <CheckCircle className="h-6 w-6 text-primary" />
-              <Text as="p" variant="bodyMd" applyMargin={false} className="">
+              <Text as="p" variant="bodyMd" className="">
                 {benefit}
               </Text>
             </div>

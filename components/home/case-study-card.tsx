@@ -1,4 +1,4 @@
-import { Card, CardContent, CardHeader } from '@/components/ui/card';
+import { Card, CardContent } from '@/components/ui/card';
 import { CaseStudy } from '@/types/index';
 import Image from 'next/image';
 import ConversionChart from '../global/AccuracyChart';

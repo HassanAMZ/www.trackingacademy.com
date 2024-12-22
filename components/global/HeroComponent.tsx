@@ -1,8 +1,8 @@
-import Image from 'next/image';
-import React from 'react';
-import Link from 'next/link';
 import LearnMoreHeader from '@/components/global/LearnMoreHeader';
 import { HeroProps } from '@/types/index';
+import Image from 'next/image';
+import Link from 'next/link';
+import React from 'react';
 
 const HeroComponent: React.FC<HeroProps> = ({ textGroup, links, images }) => {
   return (

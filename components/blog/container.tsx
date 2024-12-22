@@ -1,9 +1,8 @@
 'use client';
-import React, { useState } from 'react';
-import BlogSearch from '@/components/blog/search';
 import BlogContent from '@/components/blog/category-container';
+import BlogSearch from '@/components/blog/search';
 import { BlogContainerProps } from '@/types/index';
-import { usePathname } from 'next/navigation';
+import React, { useState } from 'react';
 
 const BlogContainer: React.FC<BlogContainerProps> = ({ data, type, rawData }) => {
   const [filteredData, setFilteredData] = useState(data);

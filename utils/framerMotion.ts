@@ -2,11 +2,11 @@
 
 import { Avatar } from '@/components/ui/avatar';
 import { Button } from '@/components/ui/button';
-import { Card, CardHeader, CardContent } from '@/components/ui/card';
+import { Card, CardContent, CardHeader } from '@/components/ui/card';
 import Container from '@/components/ui/container';
 import { Separator } from '@/components/ui/separator';
-import { motion } from 'framer-motion';
 import Text from '@/components/ui/text';
+import { motion } from 'framer-motion';
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -61,18 +61,18 @@ const MotionContainer = motion(Container);
 const MotionSeparator = motion(Separator);
 
 export {
-  itemVariants,
-  tableVariants,
-  rowVariants,
   containerVariants,
-  MotionContainer,
-  MotionSeparator,
+  itemVariants,
   MotionAvatar,
   MotionButton,
-  MotionDiv,
   MotionCard,
-  MotionCardHeader,
   MotionCardContent,
-  MotionText,
+  MotionCardHeader,
+  MotionContainer,
+  MotionDiv,
+  MotionSeparator,
   MotionTableRow,
+  MotionText,
+  rowVariants,
+  tableVariants,
 };

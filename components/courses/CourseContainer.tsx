@@ -1,9 +1,9 @@
 'use client';
 
-import React, { useState } from 'react';
-import CourseSearch from '@/components/courses/CourseSearch';
 import CourseContent from '@/components/courses/CourseContent';
+import CourseSearch from '@/components/courses/CourseSearch';
 import { CourseContainerProps } from '@/types/index';
+import React, { useState } from 'react';
 import ContainerLayout from '../layouts/ContainerLayout';
 
 const CourseContainer: React.FC<CourseContainerProps> = ({ data, type, rawData }) => {

@@ -1,7 +1,7 @@
-import React, { ReactNode } from 'react';
-import reverseFormatString from 'utils/reverseFormatString';
-import getBlogsData from 'utils/getBlogsData';
 import Container from '@/components/ui/container';
+import { ReactNode } from 'react';
+import getBlogsData from 'utils/getBlogsData';
+import reverseFormatString from 'utils/reverseFormatString';
 
 export async function generateMetadata(props: any) {
   const params = await props.params;

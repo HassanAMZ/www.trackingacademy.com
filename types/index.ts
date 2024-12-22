@@ -33,16 +33,7 @@ export interface GTMBlogViewProps {
 }
 
 // types/index.ts or types/clientTypes.ts
-import {
-  DetailedHTMLProps,
-  HTMLAttributes,
-  FC,
-  useRef,
-  useState,
-  ReactNode,
-  ChangeEvent,
-  JSX,
-} from 'react';
+import { JSX, ReactNode } from 'react';
 
 export interface ServiceCardProps {
   service: ServiceDetails;

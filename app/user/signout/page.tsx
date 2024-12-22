@@ -1,7 +1,7 @@
 'use client';
-import { UserAuth } from '@/context/AuthContext';
-import React, { useState, useEffect } from 'react';
 import ContainerLayout from '@/components/layouts/ContainerLayout';
+import { UserAuth } from '@/context/AuthContext';
+import React, { useEffect, useState } from 'react';
 
 const Page = () => {
   const { user, googleSignIn, facebookSignIn, logOut } = UserAuth();

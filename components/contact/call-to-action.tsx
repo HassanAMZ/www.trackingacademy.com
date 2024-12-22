@@ -1,16 +1,10 @@
 'use client';
 
-import * as React from 'react';
-import Link from 'next/link';
-
-import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 import { Button } from '@/components/ui/button';
-import Container from '@/components/ui/container';
 import {
   Dialog,
   DialogContent,
   DialogDescription,
-  DialogFooter,
   DialogHeader,
   DialogTitle,
   DialogTrigger,
