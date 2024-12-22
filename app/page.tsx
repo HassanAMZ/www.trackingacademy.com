@@ -1,93 +1,12 @@
 import React from 'react';
-import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardHeader } from '@/components/ui/card';
-import { Badge } from '@/components/ui/badge';
 import { AlertCircle, CheckCircle2, ArrowRight } from 'lucide-react';
 import Container from '@/components/ui/container';
 import Text from '@/components/ui/text';
-import VideoPlayer from '@/components/offers/offer-001/video-player';
 import Link from 'next/link';
-
-const Hero = () => {
-  return (
-    <section className="relative bg-gradient-to-b from-primary/5 to-background py-12">
-      <Container>
-        <div className="flex flex-col items-center gap-4 text-center">
-          <Badge variant="outline" className="mb-2 border-primary/20">
-            Limited Time Offer for Shopify Store Owners
-          </Badge>
-
-          <Text as="h1" variant="heading3xl">
-            Transform Your Facebook Ads With <span className="text-primary">95%+ Accurate</span>{' '}
-            Tracking
-            <span className="text-primary"> — Or It's FREE!</span>
-          </Text>
-
-          <Text as="p" className="text-muted-foreground" variant="headingXl">
-            Say goodbye to data gaps, guesswork, and wasted ad spend. Our exclusive system
-            guarantees 95%+ accuracy in tracking your Facebook Ads performance.
-          </Text>
-
-          <Button
-            asChild
-            size="lg"
-            className="my-4 transform px-12 py-7 text-xl shadow-2xl transition-all hover:-translate-y-1"
-          >
-            <Link href="/contact">
-              Get Your FREE Tracking Audit
-              <ArrowRight className="h-4 w-4" />
-            </Link>
-          </Button>
-
-          <div className="flex flex-col items-center gap-4 text-sm sm:flex-row">
-            <div className="flex items-center gap-1">
-              <CheckCircle2 className="h-4 w-4 text-primary" />
-              <span>95%+ Accuracy</span>
-            </div>
-            <div className="flex items-center gap-1">
-              <CheckCircle2 className="h-4 w-4 text-primary" />
-              <span>7-Day Setup</span>
-            </div>
-            <div className="flex items-center gap-1">
-              <CheckCircle2 className="h-4 w-4 text-primary" />
-              <span>Money-Back Guarantee</span>
-            </div>
-          </div>
-        </div>
-
-        <VideoPlayer
-          src="/videos/home/reason-comparison-horizontal.mp4"
-          placeholder="/images/home/reason-comparison-horizontal.gif"
-          className="hidden sm:block"
-        />
-        <VideoPlayer
-          src="/videos/home/reason-comparison-vertical.mp4"
-          placeholder="/images/home/reason-comparison-vertical.gif"
-          className="block sm:hidden"
-        />
-      </Container>
-    </section>
-  );
-};
-
-const ProblemSection = () => {
-  return (
-    <section className="py-8">
-      <Container>
-        <div className="flex flex-col items-center gap-4 text-center">
-          <Text as="h2" variant="headingXl">
-            Stop Losing Money to Inaccurate Facebook Ads Tracking
-          </Text>
-          <Text as="p" className="max-w-[700px]" variant="bodyLg">
-            Tracking gaps are costing you money. If you don't know which ads work, every dollar you
-            spend could be a dollar lost. Our service pinpoints your current issues and delivers a
-            95%+ accurate tracking solution.
-          </Text>
-        </div>
-      </Container>
-    </section>
-  );
-};
+import { Badge } from '@/components/ui/badge';
+import { Button } from '@/components/ui/button';
+import { Card, CardContent, CardHeader } from '@/components/ui/card';
+import Hero from '@/components/heros/hero-3';
 
 const SolutionSection = () => {
   const steps = [
@@ -95,10 +14,7 @@ const SolutionSection = () => {
       title: 'Precision Audit & Baseline Setup',
       description: 'Complete audit of your current setup and identify tracking gaps',
     },
-    {
-      title: 'Custom Integration with Facebook Pixel',
-      description: 'Ensures Facebook Pixel and Ads Manager capture everything',
-    },
+
     {
       title: 'Data Layer Installation',
       description: 'Custom data layer for more reliable, server-side tracking',
@@ -152,12 +68,14 @@ const SolutionSection = () => {
             ))}
           </div>
 
-          <Button size="lg" className="mt-4" asChild>
-            <Link href="/contact">
-              Get Your FREE Tracking Audit
-              <ArrowRight className="h-4 w-4" />
-            </Link>
-          </Button>
+          <div className="flex items-center space-x-4">
+            <Button size="lg" asChild>
+              <Link href="/contact">
+                Let’s Handle Your Tracking Setup
+                <ArrowRight className="ml-2 h-4 w-4" />
+              </Link>
+            </Button>
+          </div>
         </div>
       </Container>
     </section>
@@ -235,12 +153,14 @@ const GuaranteeSection = () => {
                 Shopify store. If we don't meet our 95% accuracy promise, you don't pay a single
                 cent.
               </Text>
-              <Button size="lg" className="mt-4" asChild>
-                <Link href="/contact">
-                  Start Your FREE Audit Today
-                  <ArrowRight className="ml-2 h-4 w-4" />
-                </Link>
-              </Button>
+              <div className="flex items-center space-x-4">
+                <Button size="lg" asChild>
+                  <Link href="/contact">
+                    Let’s Handle Your Tracking Setup
+                    <ArrowRight className="ml-2 h-4 w-4" />
+                  </Link>
+                </Button>
+              </div>
             </div>
           </CardContent>
         </Card>
@@ -254,7 +174,6 @@ export default function HomePage() {
   return (
     <main className="flex min-h-screen flex-col">
       <Hero />
-      <ProblemSection />
       <SolutionSection />
       <BenefitsSection />
       <GuaranteeSection />

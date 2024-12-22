@@ -48,13 +48,13 @@ const TestimonialsCarousel: React.FC = () => {
     <div className="relative space-y-1 rounded-lg border bg-card px-6 py-4">
       <div className="absolute -top-4 right-0 flex space-x-1">
         {Array.from({ length: 5 }, (_, index) => (
-          <Star key={index} />
+          <Star key={index} fill="gold" stroke="gold" />
         ))}
       </div>
       <Text as="p" variant="bodyMd" applyMargin={false} className="font-semibold italic">
         "{currentTestimonial.testimonialText}"
       </Text>
-      <div className="flex items-center gap-2 pt-4">
+      <div className="flex items-center gap-2 pt-4 text-left">
         <Image
           src={currentTestimonial.imageLink}
           alt={`Client ${currentTestimonial.businessName}`}
@@ -65,10 +65,10 @@ const TestimonialsCarousel: React.FC = () => {
           blurDataURL="/placeholder-image.png" // Optional placeholder image
         />
         <div className="text-xs">
-          <Text as="p" variant="bodyMd" applyMargin={false}>
+          <Text as="p" variant="bodySm" applyMargin={false}>
             {currentTestimonial.clientName}
           </Text>
-          <Text as="p" variant="bodyMd" applyMargin={false}>
+          <Text as="p" variant="bodySm" applyMargin={false}>
             <strong>{currentTestimonial.clientTitle}</strong> at{' '}
             <strong>{currentTestimonial.businessName}</strong>
           </Text>
