@@ -2,10 +2,8 @@
 
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardFooter, CardHeader } from '@/components/ui/card';
 import Container from '@/components/ui/container';
-import { motion } from 'framer-motion';
-import { ArrowRight, Check, CheckCircle } from 'lucide-react';
+import { ArrowRight, Check } from 'lucide-react';
 import Link from 'next/link';
 import TrackingTable from '../global/tracking-table';
 import VideoPlayer from '../offers/offer-001/video-player';
@@ -52,7 +50,7 @@ const EnhancedHero = () => {
             <TrackingTable />
           </section>
 
-          <article className="relative mx-auto max-w-4xl">
+          {/* <article className="relative mx-auto max-w-4xl">
             <motion.div
               style={{
                 position: 'absolute',
@@ -126,9 +124,9 @@ const EnhancedHero = () => {
                 </div>
               </CardFooter>
             </Card>
-          </article>
+          </article> */}
 
-          <section className="pb-12 pt-20">
+          <section className="py-12">
             <div className="flex flex-col items-center gap-4 text-center">
               <Text as="h2" variant="headingXl">
                 Stop Losing Money to Inaccurate Paid Ads Tracking
