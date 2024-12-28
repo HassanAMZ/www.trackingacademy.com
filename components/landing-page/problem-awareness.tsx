@@ -7,6 +7,7 @@ interface ProblemAwarenessProps {
   paragraphText?: string;
   points?: string[];
   secondaryHeadingText?: string;
+  secondaryParagraphText?: string;
   secondaryListItems?: string[];
 }
 
@@ -15,6 +16,7 @@ const ProblemAwareness: React.FC<ProblemAwarenessProps> = ({
   paragraphText,
   points,
   secondaryHeadingText,
+  secondaryParagraphText,
   secondaryListItems,
 }) => {
   return (
@@ -43,17 +45,27 @@ const ProblemAwareness: React.FC<ProblemAwarenessProps> = ({
         )}
 
         {secondaryHeadingText && (
-          <div className="w-full space-y-2 rounded-lg bg-muted p-8">
-            <Text as="h2" variant="headingXl">
+          <div className="space-y-8 pt-8">
+            <Text as="h2" variant="heading2xl">
               {secondaryHeadingText}
             </Text>
 
+            {secondaryParagraphText && (
+              <Text as="p" variant="headingMd" className="text-muted-foreground">
+                {secondaryParagraphText}
+              </Text>
+            )}
+
             {secondaryListItems && secondaryListItems.length > 0 && (
-              <ul className="list-inside list-disc text-muted-foreground">
+              <div className="mb-12 grid gap-8 md:grid-cols-3">
                 {secondaryListItems.map((item, index) => (
-                  <li key={index}>{item}</li>
+                  <Card key={index} className="p-6 bg-muted">
+                    <Text as="p" className="text-muted-foreground">
+                      {item}
+                    </Text>
+                  </Card>
                 ))}
-              </ul>
+              </div>
             )}
           </div>
         )}

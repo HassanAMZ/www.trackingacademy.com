@@ -1,13 +1,13 @@
 // CAPIPage.tsx
-import Bonuses from '@/components/bonuses';
-import DetailedCTA from '@/components/detailed-cta';
-import DreamOutcome from '@/components/dream-outcome';
-import Hero from '@/components/hero';
-import ObjectionHandling from '@/components/objection-handling';
-import OfferDetails from '@/components/offer-detail-item';
-import ProblemAwareness from '@/components/problem-awareness';
-import ScarcityUrgency from '@/components/scarcity-urgency';
-import SocialProof from '@/components/social-proof';
+import Bonuses from '@/components/landing-page/bonuses';
+import DetailedCTA from '@/components/landing-page/detailed-cta';
+import DreamOutcome from '@/components/landing-page/dream-outcome';
+import Hero from '@/components/landing-page/hero';
+import ObjectionHandling from '@/components/landing-page/objection-handling';
+import OfferDetails from '@/components/landing-page/offer-detail-item';
+import ProblemAwareness from '@/components/landing-page/problem-awareness';
+import ScarcityUrgency from '@/components/landing-page/scarcity-urgency';
+import SocialProof from '@/components/landing-page/social-proof';
 import metaConversionConfig from '@/data/offers/meta-conversion-api.json';
 import {
   Activity,
@@ -43,12 +43,6 @@ const iconMap = {
 type IconName = keyof typeof iconMap;
 
 export default function CAPIPage() {
-  // Function to convert icon strings to components
-  const getIcon = (iconName: IconName) => {
-    const IconComponent = iconMap[iconName];
-    return IconComponent ? <IconComponent className="mr-2 h-5 w-5 text-primary" /> : null;
-  };
-
   // Transform offer items to include icon components
   const offerItemsWithIcons = metaConversionConfig.offerDetails.offerItems.map((item) => ({
     ...item,
@@ -59,7 +53,7 @@ export default function CAPIPage() {
   const dreamOutcomeListWithIcons = metaConversionConfig.dreamOutcome.dreamOutcomeList.map(
     (item) => ({
       ...item,
-      icon: getIcon(item.icon as IconName),
+      icon: iconMap[item.icon as IconName],
     }),
   );
 

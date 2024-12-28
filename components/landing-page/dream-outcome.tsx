@@ -1,8 +1,7 @@
-import TrackingTable from '@/components/global/tracking-table';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import Container from '@/components/ui/container';
 import Text from '@/components/ui/text';
-import { Clock, Lightbulb, Target, TrendingUp } from 'lucide-react';
+import { Clock, Lightbulb, TrendingUp } from 'lucide-react';
 import React from 'react';
 
 interface DreamOutcomeProps {
@@ -15,33 +14,23 @@ interface DreamOutcomeProps {
   card2Content?: string;
   card3Content?: string;
   trackingTableRows?: number;
-  dreamOutcomeList?: Array<{ icon: React.ReactNode; text: string }>;
+  dreamOutcomeList?: Array<{
+    icon?: React.ComponentType<any>;
+    text: string;
+  }>;
 }
 
 const DreamOutcome: React.FC<DreamOutcomeProps> = ({
-  heading = 'Imagine Running Your Business on Autopilot',
-  subheading = 'Transform your business operations with our cutting-edge solution',
-  card1Title = 'Real-Time Insights',
-  card2Title = 'Time-Saving Automation',
-  card3Title = 'Data-Driven Decisions',
-  card1Content = "Clearly see which ads work and which don't, allowing you to make informed decisions instantly.",
-  card2Content = "Automate repetitive tasks and free up your team's time for strategic initiatives and creative problem-solving.",
-  card3Content = 'Make data-backed decisions effortlessly, ensuring every move you make is optimized for success.',
+  heading,
+  subheading,
+  card1Title,
+  card2Title,
+  card3Title,
+  card1Content,
+  card2Content,
+  card3Content,
   trackingTableRows = 4,
-  dreamOutcomeList = [
-    {
-      icon: <Target className="mr-2 h-5 w-5 text-primary" />,
-      text: 'Save 20+ hours per month with automated tracking',
-    },
-    {
-      icon: <TrendingUp className="mr-2 h-5 w-5 text-primary" />,
-      text: 'Double your ROI by optimizing your ad spend',
-    },
-    {
-      icon: <Lightbulb className="mr-2 h-5 w-5 text-primary" />,
-      text: 'Finally achieve stress-free scaling',
-    },
-  ],
+  dreamOutcomeList,
 }) => {
   return (
     <section className="min-h-screen place-content-center overflow-hidden bg-gradient-to-b from-primary/5 to-background">
@@ -65,7 +54,7 @@ const DreamOutcome: React.FC<DreamOutcomeProps> = ({
         {(card1Title || card2Title || card3Title) && (
           <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
             {card1Title && (
-              <Card className="bg-primary text-primary-foreground">
+              <Card className="bg-secondary text-secondary-foreground hover:bg-primary hover:text-primary-foreground transition-all duration-500">
                 <CardHeader>
                   <CardTitle className="flex items-center">
                     <Lightbulb className="mr-2 h-6 w-6" />
@@ -76,7 +65,7 @@ const DreamOutcome: React.FC<DreamOutcomeProps> = ({
               </Card>
             )}
             {card2Title && (
-              <Card className="bg-secondary text-secondary-foreground">
+              <Card className="bg-secondary text-secondary-foreground hover:bg-primary hover:text-primary-foreground transition-all duration-500">
                 <CardHeader>
                   <CardTitle className="flex items-center">
                     <Clock className="mr-2 h-6 w-6" />
@@ -87,7 +76,7 @@ const DreamOutcome: React.FC<DreamOutcomeProps> = ({
               </Card>
             )}
             {card3Title && (
-              <Card className="bg-accent text-accent-foreground">
+              <Card className="bg-secondary text-secondary-foreground hover:bg-primary hover:text-primary-foreground transition-all duration-500">
                 <CardHeader>
                   <CardTitle className="flex items-center">
                     <TrendingUp className="mr-2 h-6 w-6" />
@@ -99,28 +88,34 @@ const DreamOutcome: React.FC<DreamOutcomeProps> = ({
             )}
           </div>
         )}
-        <div className="rounded-lg bg-primary/5">
-          {trackingTableRows && (
+
+        <div className="space-y-12 rounded-lg bg-primary/5 p-8">
+          {/* {trackingTableRows && (
             <div className="w-full overflow-hidden rounded-xl">
-              <div className="p-8 pb-0">
-                <TrackingTable rows={trackingTableRows} />
-              </div>
+              <TrackingTable rows={trackingTableRows} />
             </div>
-          )}
+          )} */}
 
           {dreamOutcomeList && dreamOutcomeList.length > 0 && (
-            <div className="p-8">
-              <Text as="h3" variant="headingXl" className="mb-4">
+            <div className="space-y-8">
+              <Text as="h3" variant="heading2xl" className="text-center py-8">
                 Your Dream Outcomes Realized
               </Text>
-              <ul className="space-y-2">
+              <div className="grid gap-6 md:grid-cols-3">
                 {dreamOutcomeList.map((outcome, index) => (
-                  <li key={index} className="flex items-center">
-                    {outcome.icon}
-                    {outcome.text}
-                  </li>
+                  <Card key={index} className="bg-background">
+                    <CardContent className="flex flex-col items-center p-6 space-y-5 text-center">
+                      {outcome.icon && (
+                        <outcome.icon className="mr-4 bg-primary/10 rounded-full p-1 h-12 w-12" />
+                      )}
+
+                      <Text as="p" variant="headingMd">
+                        {outcome.text}
+                      </Text>
+                    </CardContent>
+                  </Card>
                 ))}
-              </ul>
+              </div>
             </div>
           )}
         </div>

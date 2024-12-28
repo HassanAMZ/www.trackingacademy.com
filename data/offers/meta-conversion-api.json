@@ -17,6 +17,7 @@
       "Missed Opportunities: Unable to scale winning campaigns confidently"
     ],
     "secondaryHeadingText": "Businesses with 95%+ Tracking Accuracy",
+    "secondaryParagraphText": "Get back 40% of your conversion data that was being lost due to iOS changes and poor tracking setup. With accurate data, you're essentially making more money.",
     "secondaryListItems": [
       "Know exactly which ads drive real results",
       "Scale profitable campaigns with confidence",
@@ -163,13 +164,15 @@
         "title": "Custom Analytics Dashboard",
         "description": "Real-time ROAS and conversion tracking dashboard.",
         "value": "$997",
-        "icon": "BarChart2"
+        "icon": "BarChart2",
+        "image": "/images/test_bundle.webp"
       },
       {
         "title": "30-Day Priority Support",
         "description": "Direct access to our technical team for instant help.",
         "value": "$497",
-        "icon": "HeadphonesIcon"
+        "icon": "HeadphonesIcon",
+        "image": "/images/test_bundle.webp"
       }
     ],
     "totalBonusValue": "$1,494",

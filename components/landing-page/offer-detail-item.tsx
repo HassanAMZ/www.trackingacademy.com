@@ -8,7 +8,7 @@ import React from 'react';
 interface OfferItem {
   title?: string;
   description?: string;
-  icon?: React.ComponentType<any>; // Using React Component Type for dynamic icons
+  icon?: React.ComponentType<any>;
   benefits?: string[];
   image?: string;
 }
