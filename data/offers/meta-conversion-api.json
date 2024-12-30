@@ -64,7 +64,7 @@
           "Custom implementation roadmap",
           "Priority setup timeline"
         ],
-        "image": "/images/test_bundle.webp"
+        "image": "/images/social-sharing.png"
       },
       {
         "title": "Server-Side Tracking Setup",
@@ -76,7 +76,7 @@
           "Advanced event parameter mapping",
           "Cross-domain tracking setup"
         ],
-        "image": "/images/test_bundle.webp"
+        "image": "/images/social-sharing.png"
       },
       {
         "title": "Custom Analytics Dashboard",
@@ -88,7 +88,7 @@
           "Advanced attribution reporting",
           "Automated performance alerts"
         ],
-        "image": "/images/test_bundle.webp"
+        "image": "/images/social-sharing.png"
       },
       {
         "title": "7-Day Quality Assurance",
@@ -100,7 +100,7 @@
           "Data comparison analysis",
           "Performance optimization"
         ],
-        "image": "/images/test_bundle.webp"
+        "image": "/images/social-sharing.png"
       }
     ]
   },
@@ -122,19 +122,19 @@
         "quote": "We discovered we were missing 45% of our conversions. After the fix, our true ROAS was 2.8x higher!",
         "author": "Michael R.",
         "role": "E-commerce Director",
-        "image": "/images/test_bundle.webp"
+        "image": "/images/social-sharing.png"
       },
       {
         "quote": "Finally we can see exactly which ads work. Reduced our CPA by 34% in the first month.",
         "author": "Sarah L.",
         "role": "Marketing Manager",
-        "image": "/images/test_bundle.webp"
+        "image": "/images/social-sharing.png"
       },
       {
         "quote": "The setup was painless and the results were immediate. Our ad spend is now 40% more efficient.",
         "author": "David K.",
         "role": "Agency Owner",
-        "image": "/images/test_bundle.webp"
+        "image": "/images/social-sharing.png"
       }
     ],
     "stats": [
@@ -165,14 +165,14 @@
         "description": "Real-time ROAS and conversion tracking dashboard.",
         "value": "$997",
         "icon": "BarChart2",
-        "image": "/images/test_bundle.webp"
+        "image": "/images/social-sharing.png"
       },
       {
         "title": "30-Day Priority Support",
         "description": "Direct access to our technical team for instant help.",
         "value": "$497",
         "icon": "HeadphonesIcon",
-        "image": "/images/test_bundle.webp"
+        "image": "/images/social-sharing.png"
       }
     ],
     "totalBonusValue": "$1,494",
