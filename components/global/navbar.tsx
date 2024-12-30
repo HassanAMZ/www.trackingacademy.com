@@ -13,7 +13,7 @@ import {
 } from '@/components/ui/navigation-menu';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 import clsx from 'clsx';
-import { Briefcase, FileText, Menu, Wrench } from 'lucide-react';
+import { FileText, Menu, Wrench } from 'lucide-react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import React, { useState } from 'react';
@@ -35,13 +35,13 @@ const NAV_ITEMS: Record<string, NavItem[]> = {
         'Start building your UTMs for Google Ads, Facebook Ads, TikTok, or custom, all at one place',
     },
   ],
-  careers: [
-    {
-      title: 'Upwork Business Developer',
-      href: '/career/upwork-business-developer',
-      description: 'Join us as a Business Developer on Upwork to help grow our business.',
-    },
-  ],
+  // careers: [
+  //   {
+  //     title: 'Upwork Business Developer',
+  //     href: '/career/upwork-business-developer',
+  //     description: 'Join us as a Business Developer on Upwork to help grow our business.',
+  //   },
+  // ],
   blogs: [
     {
       title: 'Google Tag Manager',
@@ -110,7 +110,7 @@ export default function Navbar() {
       className={clsx(
         navigationMenuTriggerStyle(),
         'flex items-center justify-center p-2 font-extrabold text-accent-foreground',
-        isActive('/') && 'bg-secondary text-accent-foreground',
+        isActive('/') && 'text-accent-foreground',
       )}
     >
       TrackingAcademy
@@ -150,12 +150,12 @@ export default function Navbar() {
               {renderNavigationMenuItems(NAV_ITEMS.tools, <Wrench className="h-6 w-6" />)}
             </NavigationMenuContent>
           </NavigationMenuItem>
-          <NavigationMenuItem>
+          {/* <NavigationMenuItem>
             <NavigationMenuTrigger>Careers</NavigationMenuTrigger>
             <NavigationMenuContent>
               {renderNavigationMenuItems(NAV_ITEMS.careers, <Briefcase className="h-6 w-6" />)}
             </NavigationMenuContent>
-          </NavigationMenuItem>
+          </NavigationMenuItem> */}
           <NavigationMenuItem>
             <NavigationMenuTrigger>Blogs</NavigationMenuTrigger>
             <NavigationMenuContent>
@@ -186,7 +186,7 @@ export default function Navbar() {
 
       <SheetContent side="right" className="flex flex-col justify-between">
         <nav className="flex w-full flex-col space-y-4 py-4">
-          {['/', '/tools', '/career', '/blog'].map((path) => (
+          {['/', '/tools', '/blog'].map((path) => (
             <Link
               key={path}
               href={path}
@@ -212,7 +212,7 @@ export default function Navbar() {
   return (
     <div className="w-full pb-2 pt-4 lg:text-sm">
       <Container className="bg-transparent">
-        <div className="flex rounded-lg bg-secondary/40 shadow">
+        <div className="flex rounded-lg  border bg-transparent">
           <MobileNavigationMenu />
           <DesktopNavigationMenu />
         </div>
