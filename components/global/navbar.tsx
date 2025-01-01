@@ -87,7 +87,7 @@ const ListItem = React.forwardRef<HTMLAnchorElement, ListItemProps>(
 );
 ListItem.displayName = 'ListItem';
 
-export default function Navbar() {
+export default function Navbar({ className }: { className?: string }) {
   const [isSheetOpen, setSheetOpen] = useState(false);
   const pathname = usePathname();
 
@@ -211,7 +211,7 @@ export default function Navbar() {
 
   return (
     <div className="w-full pb-2 pt-4 lg:text-sm">
-      <Container className="bg-transparent">
+      <Container className={clsx('bg-transparent', className)}>
         <div className="flex rounded-lg  border bg-transparent">
           <MobileNavigationMenu />
           <DesktopNavigationMenu />

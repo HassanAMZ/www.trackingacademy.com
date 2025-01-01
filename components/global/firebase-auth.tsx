@@ -1,3 +1,4 @@
+// components/auth/FirebaseAuth.tsx
 'use client';
 
 import { Alert, AlertDescription } from '@/components/ui/alert';
@@ -16,23 +17,36 @@ interface AuthError {
 }
 
 export const FirebaseAuth = () => {
-  const { user, googleSignIn, facebookSignIn, logOut } = UserAuth();
+  const { user, googleSignIn, facebookSignIn, emailSignIn, emailSignUp, logOut } = UserAuth();
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string>('');
+  const [email, setEmail] = useState<string>('');
+  const [password, setPassword] = useState<string>('');
 
-  const handleAuth = async (provider: 'google' | 'facebook') => {
+  const handleAuth = async (provider: 'google' | 'facebook' | 'email', isSignUp = false) => {
     try {
       setError('');
       if (provider === 'google') {
         await googleSignIn();
       } else if (provider === 'facebook') {
         await facebookSignIn();
+      } else if (provider === 'email') {
+        if (isSignUp) {
+          await emailSignUp(email, password);
+        } else {
+          await emailSignIn(email, password);
+        }
       }
     } catch (error) {
       const authError = error as AuthError;
       setError(authError.message || 'Authentication failed. Please try again.');
       console.error(`${provider} sign in error:`, error);
     }
+  };
+
+  const handleSubmit = async (e: React.FormEvent, isSignUp: boolean) => {
+    e.preventDefault();
+    await handleAuth('email', isSignUp);
   };
 
   const handleSignOut = async () => {
@@ -61,14 +75,30 @@ export const FirebaseAuth = () => {
   }
 
   if (user) {
-    return <>{/* Commented out user profile card as per original */}</>;
+    return (
+      <>
+        {/* <Container>
+          <Card className="w-full max-w-md mx-auto">
+            <CardHeader className="space-y-1">
+              <CardTitle className="text-2xl">Welcome, {user.email}</CardTitle>
+              <CardDescription>You are now signed in</CardDescription>
+            </CardHeader>
+            <CardContent className="space-y-4">
+              <Button onClick={handleSignOut} className="w-full" variant="outline">
+                Sign Out
+              </Button>
+            </CardContent>
+          </Card>
+        </Container> */}
+      </>
+    );
   }
 
   return (
     <Container className="grid place-content-center min-h-[50vh]">
       <Card className="w-full max-w-md">
         <CardHeader className="space-y-1">
-          <CardTitle className="text-2xl">Get Access to Resources</CardTitle>
+          <CardTitle className="text-2xl">Get Free Access to Resources</CardTitle>
           <CardDescription>
             Sign in to download code snippets and resources from the video
           </CardDescription>
@@ -87,45 +117,96 @@ export const FirebaseAuth = () => {
             </p>
           </div>
 
-          <Button onClick={() => handleAuth('google')} className="w-full" variant="outline">
-            <PersonIcon className="mr-2 h-4 w-4" />
-            Sign in with Google to Download
-          </Button>
-          <Button onClick={() => handleAuth('facebook')} className="w-full" variant="outline">
-            <PersonIcon className="mr-2 h-4 w-4" />
-            Continue with Facebook
-          </Button>
+          {/* 
+          <Tabs defaultValue="signin" className="space-y-4">
+            <TabsList className="grid w-full grid-cols-2">
+              <TabsTrigger value="signin">Sign In</TabsTrigger>
+              <TabsTrigger value="signup">Sign Up</TabsTrigger>
+            </TabsList>
+
+            <TabsContent value="signin">
+              <form onSubmit={(e) => handleSubmit(e, false)} className="space-y-4">
+                <div className="space-y-2">
+                  <Input
+                    type="email"
+                    placeholder="Email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    required
+                  />
+                  <Input
+                    type="password"
+                    placeholder="Password"
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                    required
+                  />
+                </div>
+                <Button type="submit" className="w-full">
+                  Sign In
+                </Button>
+              </form>
+            </TabsContent>
+
+            <TabsContent value="signup">
+              <form onSubmit={(e) => handleSubmit(e, true)} className="space-y-4">
+                <div className="space-y-2">
+                  <Input
+                    type="email"
+                    placeholder="Email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    required
+                  />
+                  <Input
+                    type="password"
+                    placeholder="Password"
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                    required
+                  />
+                </div>
+                <Button type="submit" className="w-full">
+                  Sign Up
+                </Button>
+              </form>
+            </TabsContent>
+          </Tabs> */}
 
           <div className="relative">
             <div className="absolute inset-0 flex items-center">
               <span className="w-full border-t" />
             </div>
             <div className="relative flex justify-center text-xs uppercase">
-              <span className="bg-background px-2 text-muted-foreground">Quick and Free</span>
+              <span className="bg-background px-2 text-muted-foreground"> continue with</span>
             </div>
           </div>
 
-          <div className="space-y-3 max-w-3xl">
-            <div className="flex items-center justify-between">
-              <div className="flex gap-2">
-                <Avatar>
-                  <AvatarImage src="/images/clients/malik-osama.jfif" alt="@malik-osama" />
-                  <AvatarFallback>MO</AvatarFallback>
-                </Avatar>
-                <Avatar>
-                  <AvatarImage
-                    src="/images/clients/philipp-herglotz.jfif"
-                    alt="@philipp-herglotz"
-                  />
-                  <AvatarFallback>PH</AvatarFallback>
-                </Avatar>
-                <Avatar>
-                  <AvatarImage src="/images/clients/imtiaz-ahmad.jfif" alt="@imtiaz-ahmad" />
-                  <AvatarFallback>IA</AvatarFallback>
-                </Avatar>
-              </div>
-              <p className="text-sm text-muted-foreground">2,000+ downloads</p>
+          <Button onClick={() => handleAuth('google')} className="w-full" variant="outline">
+            <PersonIcon className="mr-2 h-4 w-4" />
+            Continue with Google
+          </Button>
+          {/* <Button onClick={() => handleAuth('facebook')} className="w-full" variant="outline">
+            <PersonIcon className="mr-2 h-4 w-4" />
+            Continue with Facebook
+          </Button> */}
+
+          <div className="space-y-3 max-w-3xl pb-5 flex items-center justify-between">
+            <div className="flex">
+              <Avatar className=" w-10 h-10">
+                <AvatarImage src="/images/clients/malik-osama.jfif" alt="@malik-osama" />
+                <AvatarFallback>MO</AvatarFallback>
+              </Avatar>
+              <Avatar className="w-10 h-10">
+                <AvatarImage src="/images/clients/philipp-herglotz.jfif" alt="@philipp-herglotz" />
+                <AvatarFallback>PH</AvatarFallback>
+              </Avatar>
+              <Avatar className="w-10 h-10">
+                <AvatarImage src="/images/clients/imtiaz-ahmad.jfif" alt="@imtiaz-ahmad" />
+                <AvatarFallback>IA</AvatarFallback>
+              </Avatar>
             </div>
+            <p className="text-sm text-muted-foreground">2,000+ Signups</p>
           </div>
         </CardContent>
       </Card>

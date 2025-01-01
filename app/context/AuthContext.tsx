@@ -3,16 +3,18 @@
 
 import { GTMEvent } from '@/types/index';
 import {
+  createUserWithEmailAndPassword,
   FacebookAuthProvider,
   GoogleAuthProvider,
   onAuthStateChanged,
+  signInWithEmailAndPassword,
   signInWithPopup,
   signOut,
   User,
 } from 'firebase/auth';
 import { createContext, ReactNode, useContext, useEffect, useState } from 'react';
 import { auth } from '../firebase';
-// types.ts
+
 export interface UserData {
   id?: string;
   phone?: string;
@@ -36,9 +38,11 @@ export interface DataLayerEvent {
 }
 
 export interface AuthContextType {
-  user: any | null;
+  user: User | null;
   googleSignIn: () => Promise<void>;
   facebookSignIn: () => Promise<void>;
+  emailSignIn: (email: string, password: string) => Promise<void>;
+  emailSignUp: (email: string, password: string) => Promise<void>;
   logOut: () => Promise<void>;
 }
 
@@ -112,6 +116,28 @@ export const AuthContextProvider = ({ children }: AuthContextProviderProps) => {
     }
   };
 
+  const emailSignIn = async (email: string, password: string): Promise<void> => {
+    try {
+      const result = await signInWithEmailAndPassword(auth, email, password);
+      pushDataLayerEvent('user_signup_success', result.user, 'success', 'email');
+    } catch (error) {
+      console.error('Email SignIn error:', error);
+      pushDataLayerEvent('user_signup_failed', null, 'failure', 'email');
+      throw error;
+    }
+  };
+
+  const emailSignUp = async (email: string, password: string): Promise<void> => {
+    try {
+      const result = await createUserWithEmailAndPassword(auth, email, password);
+      pushDataLayerEvent('user_signup_success', result.user, 'success', 'email');
+    } catch (error) {
+      console.error('Email SignUp error:', error);
+      pushDataLayerEvent('user_signup_failed', null, 'failure', 'email');
+      throw error;
+    }
+  };
+
   const logOut = async (): Promise<void> => {
     try {
       await signOut(auth);
@@ -131,7 +157,9 @@ export const AuthContextProvider = ({ children }: AuthContextProviderProps) => {
   }, []);
 
   return (
-    <AuthContext.Provider value={{ user, googleSignIn, facebookSignIn, logOut }}>
+    <AuthContext.Provider
+      value={{ user, googleSignIn, facebookSignIn, emailSignIn, emailSignUp, logOut }}
+    >
       {children}
     </AuthContext.Provider>
   );
