@@ -6,7 +6,6 @@ import { Badge } from '@/components/ui/badge';
 import { Card, CardContent } from '@/components/ui/card';
 import Text from '@/components/ui/text';
 import { PostMetadataProps } from '@/types/index';
-import Image from 'next/image';
 import Link from 'next/link';
 import Script from 'next/script';
 import React from 'react';
@@ -45,13 +44,15 @@ const BlogHeader: React.FC<PostMetadataProps> = ({ metadata }) => {
         </CardContent>
       </Card>
       {metadata.embedId === '' ? (
-        <Image
+        <>
+          {/* <Image
           src={backgroundImage}
           alt={'blog image'}
           width={1920}
           height={1080}
           className="w-full rounded-lg"
-        />
+          /> */}
+        </>
       ) : (
         <YoutubeEmbed embedId={metadata.embedId} className="!p-0" />
       )}
