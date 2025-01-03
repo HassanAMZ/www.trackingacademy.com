@@ -2,13 +2,12 @@ import BlogHeader from '@/components/blog/header';
 import ContactMe from './contact-me';
 import TableOfContents from './table-of-content';
 export default async function BlogContainer({
-  params,
+  slug,
   category,
 }: {
-  params: Promise<{ slug: string }>;
+  slug: string;
   category: string;
 }) {
-  const slug = (await params).slug;
   const { default: BlogPost, metadata } = await import(
     `@/app/_blog-markdown/${category}/${slug}.mdx`
   );

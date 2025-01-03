@@ -17,7 +17,7 @@ const BlogHeader: React.FC<PostMetadataProps> = ({ metadata }) => {
   const backgroundImage = metadata.openGraph.images[0];
 
   return (
-    <article className="py-4 md:py-12">
+    <article className="py-4 sm:py-8 lg:py-12">
       <Script
         id="blog-schema"
         type="application/ld+json"

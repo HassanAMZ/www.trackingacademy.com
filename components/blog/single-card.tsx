@@ -4,7 +4,7 @@ import Text from '@/components/ui/text';
 import { SingleBlogCardProps } from '@/types/index';
 import { Link } from 'next-view-transitions';
 import Image from 'next/image';
-import React, { useState } from 'react';
+import React from 'react';
 
 const BlogCard: React.FC<SingleBlogCardProps> = ({
   post,
@@ -12,16 +12,11 @@ const BlogCard: React.FC<SingleBlogCardProps> = ({
   isMain = false,
   className = '',
 }) => {
-  const [isClicked, setIsClicked] = useState(false);
-
-  const handleLinkClick = () => {
-    setIsClicked(true);
-  };
   return (
     <React.Fragment>
       {post && (
         <div className={className || ''}>
-          <Link href={`/${type}/${post.slug}`} onClick={handleLinkClick}>
+          <Link href={`/${type}/${post.slug}`}>
             <Image
               src={post.openGraph.images[0]}
               alt={post.title}

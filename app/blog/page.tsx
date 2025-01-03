@@ -4,7 +4,6 @@ import getBlogsData from 'utils/getBlogsData';
 
 export default async function Page() {
   const data = await getBlogsData('app/_blog-markdown');
-
   const sortedData = (await Promise.all(data))
     .filter((item) => item.draft === false)
     .sort((a, b) => b.blogId - a.blogId);

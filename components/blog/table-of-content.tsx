@@ -25,7 +25,7 @@ export default function TableOfContents() {
       </Text>
       <ul className="space-y-2 text-sm">
         {headings.map((heading, index) => (
-          <li key={heading.id} style={{ marginLeft: `${(heading.level - 2) * 16}px` }}>
+          <li key={heading.id + index} style={{ marginLeft: `${(heading.level - 2) * 16}px` }}>
             <CustomLink href={`#${heading.id}`}>{heading.text}</CustomLink>
           </li>
         ))}

@@ -12,17 +12,24 @@ import RequestABlogForm from './request-a-blog';
 const BlogSearch: React.FC<BlogSearchProps> = ({ data, onSearch }) => {
   const [searchTerm, setSearchTerm] = useState('');
   const [results, setResults] = useState<PostMetadata[]>(data);
+
   useEffect(() => {
     const searchWords = searchTerm
       .toLowerCase()
       .split(' ')
       .filter((word) => word);
+
     const filtered = data.filter((post) => {
+      // Safely access and check properties
+      const title = post.title?.toLowerCase() ?? '';
+      const description = post.description?.toLowerCase() ?? '';
+      const tags = post.tags ?? [];
+
       const matchesSearchTerm = searchWords.every(
         (word) =>
-          post.title.toLowerCase().includes(word) ||
-          post.description.toLowerCase().includes(word) ||
-          post.tags.some((tag) => tag.toLowerCase().includes(word)),
+          title.includes(word) ||
+          description.includes(word) ||
+          tags.some((tag) => (tag?.toLowerCase() ?? '').includes(word)),
       );
 
       return matchesSearchTerm;
@@ -30,13 +37,12 @@ const BlogSearch: React.FC<BlogSearchProps> = ({ data, onSearch }) => {
 
     setResults(filtered);
     onSearch(filtered);
-  }, [searchTerm]);
+  }, [searchTerm, data, onSearch]);
 
-  const formatText = (text?: string) => {
-    if (text) {
-      return text.replace(/-/g, ' ');
-    }
-    return '';
+  const formatText = (text: string | string[] | undefined): string => {
+    if (!text) return '';
+    if (Array.isArray(text)) return text.join(' ').replace(/-/g, ' ');
+    return text.replace(/-/g, ' ');
   };
 
   const pathname = usePathname();
@@ -45,7 +51,7 @@ const BlogSearch: React.FC<BlogSearchProps> = ({ data, onSearch }) => {
   const displayText = formatText(params.blog || params.tag);
 
   return (
-    <Card className="rounded-t-lg">
+    <Card className="rounded-t-lg py-24">
       <CardHeader>
         <Text as="h1" variant="heading3xl" className="text-center">
           {!isRootBlogPage && displayText && <span className="capitalize">{displayText} - </span>}
@@ -85,7 +91,7 @@ const BlogSearch: React.FC<BlogSearchProps> = ({ data, onSearch }) => {
             </Button>
           </div>
         )}
-        {results.length === 0 && (
+        {searchTerm && results.length === 0 && (
           <div className="mt-6 flex flex-col items-center">
             <span role="img" aria-label="Thinking face" className="text-6xl">
               😭
