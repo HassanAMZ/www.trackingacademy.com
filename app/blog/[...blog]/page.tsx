@@ -27,4 +27,4 @@ export async function generateStaticParams() {
   return blogs;
 }
 
-export const dynamicParams = false;
+export const dynamicParams = true;

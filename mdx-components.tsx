@@ -1,4 +1,4 @@
-import BlogHeader from '@/components/blog/header';
+import BlogHeader from '@/components/blog/blog-header';
 import DataLayerCode from '@/components/dataLayer/DataLayerCode';
 import YoutubeEmbed from '@/components/global/youtube-embed';
 import AuthenticatedLayout from '@/components/layouts/AuthenticatedLayout';
