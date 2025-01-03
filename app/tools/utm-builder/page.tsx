@@ -98,12 +98,12 @@ const platformConfigs: PlatformConfigs = {
   tiktok: {
     name: 'TikTok Ads',
     defaults: {
-      campaignID: '{{campaign_id}}',
+      campaignID: '__AID__',
       source: 'tiktok',
       medium: 'paidsocial',
-      name: '{{campaign_name}}',
-      content: '{{ad_group_name}}',
-      term: '{{ad_name}}',
+      name: '__CAMPAIGN_NAME__',
+      content: '__CID_NAME__',
+      term: '__AID_NAME__',
     },
   },
   instagram: {
@@ -184,22 +184,80 @@ const UTMBuilder: React.FC = () => {
     newFields[index][field] = value;
     setCustomFields(newFields);
   };
+  // Helper to check if value matches a specific template syntax in platformConfigs
+  const isTemplate = (value: string): boolean => {
+    // Extract all unique placeholders from platformConfigs
+    const allTemplates = new Set<string>();
+    Object.values(platformConfigs).forEach((config) => {
+      Object.values(config.defaults).forEach((defaultValue) => {
+        if (defaultValue) allTemplates.add(defaultValue);
+      });
+    });
+
+    return allTemplates.has(value);
+  };
 
   const buildFinalUrl = (): string => {
     if (!websiteUrl) return '';
 
     const params = new URLSearchParams();
-    Object.entries(utmParams).forEach(([key, value]) => {
-      if (value) params.append(`utm_${key.toLowerCase()}`, value);
-    });
 
-    customFields.forEach((field) => {
-      if (field.name && field.value) {
-        params.append(field.name, field.value);
+    // Process UTM parameters
+    Object.entries(utmParams).forEach(([key, value]) => {
+      if (value) {
+        const paramKey = `utm_${key.toLowerCase()}`;
+        if (isTemplate(value)) {
+          // For recognized template values, append without encoding
+          params.append(paramKey, value);
+        } else {
+          // For regular values, use normal encoding
+          params.append(paramKey, encodeURIComponent(value));
+        }
       }
     });
 
-    return `${websiteUrl}${params.toString() ? '?' + params.toString() : ''}`;
+    // Process custom fields
+    customFields.forEach((field) => {
+      if (field.name && field.value) {
+        if (isTemplate(field.value)) {
+          // For recognized template values, append without encoding
+          params.append(field.name, field.value);
+        } else {
+          params.append(field.name, encodeURIComponent(field.value));
+        }
+      }
+    });
+
+    const decodeDynamicPlaceholders = (
+      params: URLSearchParams,
+      platformDefaults: UTMParams,
+    ): string => {
+      // Build a map of encoded -> decoded placeholders
+      const placeholderMap: { [key: string]: string } = {};
+
+      Object.values(platformDefaults).forEach((value) => {
+        if (value) {
+          const encodedValue = encodeURIComponent(value);
+          placeholderMap[encodedValue] = value;
+        }
+      });
+
+      // Convert params to a query string
+      let queryString = params.toString();
+
+      // Replace only placeholders found in the map
+      Object.entries(placeholderMap).forEach(([encoded, decoded]) => {
+        queryString = queryString.replace(new RegExp(encoded, 'g'), decoded);
+      });
+
+      return queryString;
+    };
+
+    const queryString = decodeDynamicPlaceholders(
+      params,
+      platformConfigs[selectedPlatform].defaults,
+    );
+    return `${websiteUrl}${queryString ? '?' + queryString : ''}`;
   };
 
   useEffect(() => {
@@ -333,7 +391,7 @@ const UTMBuilder: React.FC = () => {
       <div className="hidden md:flex w-64 border-r p-4 flex-col">
         <h2 className="text-xl font-bold mb-4 flex items-center gap-2">
           {/* <Settings size={20} /> */}
-          Build UTM Parameters for
+          Select Platform
         </h2>
         <div className="space-y-2">
           {Object.entries(platformConfigs).map(([key, config]) => renderSidebarItem(key, config))}
