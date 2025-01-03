@@ -1,300 +1,338 @@
 'use client';
 
-import Navbar from '@/components/global/navbar';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
-import { Separator } from '@/components/ui/separator';
-import { Textarea } from '@/components/ui/textarea';
-import { cn } from '@/lib/utils';
 import {
-  Check,
-  Copy,
-  Facebook,
-  Globe,
-  Instagram,
-  MessageSquare,
-  MousePointerClick,
-} from 'lucide-react';
-import React, { useState } from 'react';
-
-interface Template {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from '@/components/ui/select';
+import { Download, Plus, X } from 'lucide-react';
+import { QRCodeSVG } from 'qrcode.react';
+import React, { useEffect, useState } from 'react';
+interface UTMParams {
+  campaignID: string;
+  source: string;
+  medium: string;
   name: string;
-  icon: React.ElementType;
-  fields: {
-    campaignID?: string;
-    source?: string;
-    medium?: string;
-    name?: string;
-    content?: string;
-    term?: string;
-  };
+  content: string;
+  term: string;
 }
 
-interface InputFieldProps {
-  label: string;
+interface CustomField {
+  name: string;
   value: string;
-  onChange: (value: string) => void;
-  placeholder?: string;
-  required?: boolean;
 }
 
-const UTMBuilder = () => {
-  const [websiteURL, setWebsiteURL] = useState('');
-  const [campaignID, setCampaignID] = useState('');
-  const [campaignSource, setCampaignSource] = useState('');
-  const [campaignMedium, setCampaignMedium] = useState('');
-  const [campaignName, setCampaignName] = useState('');
-  const [campaignTerm, setCampaignTerm] = useState('');
-  const [campaignContent, setCampaignContent] = useState('');
-  const [copied, setCopied] = useState(false);
-  const [selectedMode, setSelectedMode] = useState('manual');
+interface PlatformConfig {
+  name: string;
+  defaults: UTMParams;
+}
 
-  const templates: Record<string, Template> = {
-    manual: {
-      name: 'Manual',
-      icon: Globe,
-      fields: {},
-    },
-    facebook: {
-      name: 'Facebook',
-      icon: Facebook,
-      fields: {
-        campaignID: '{{ad.id}}',
-        source: 'facebook',
-        medium: 'paidsocial',
-        name: '{{campaign.name}}',
-        content: '{{adset.name}}',
-        term: '{{ad.name}}',
-      },
-    },
-    instagram: {
-      name: 'Instagram',
-      icon: Instagram,
-      fields: {
-        campaignID: '{{ad.id}}',
-        source: 'instagram',
-        medium: 'paidsocial',
-        name: '{{campaign.name}}',
-        content: '{{adset.name}}',
-        term: '{{ad.name}}',
-      },
-    },
-    google: {
-      name: 'Google Ads',
-      icon: MousePointerClick,
-      fields: {
-        campaignID: '{campaignid}',
-        source: 'google',
-        medium: 'cpc',
-        name: '{campaignname}',
-        term: '{keyword}',
-        content: '{creative}',
-      },
-    },
-    messenger: {
-      name: 'Messenger',
-      icon: MessageSquare,
-      fields: {
-        source: 'messenger',
-        medium: 'social',
-        name: 'messenger_campaign',
-      },
-    },
-  };
+interface PlatformConfigs {
+  [key: string]: PlatformConfig;
+}
 
-  const isValidURL = (url: string) => {
-    try {
-      new URL(url);
-      return true;
-    } catch {
-      return false;
+const platformConfigs: PlatformConfigs = {
+  google: {
+    name: 'Google Ads',
+    defaults: {
+      campaignID: '{campaignid}',
+      source: 'google',
+      medium: 'cpc',
+      name: '{campaignname}',
+      term: '{keyword}',
+      content: '{creative}',
+    },
+  },
+  facebook: {
+    name: 'Facebook Ads',
+    defaults: {
+      campaignID: '{{ad.id}}',
+      source: 'facebook',
+      medium: 'paidsocial',
+      name: '{{campaign.name}}',
+      content: '{{adset.name}}',
+      term: '{{ad.name}}',
+    },
+  },
+  tiktok: {
+    name: 'TikTok Ads',
+    defaults: {
+      campaignID: '{{campaign_id}}',
+      source: 'tiktok',
+      medium: 'paidsocial',
+      name: '{{campaign_name}}',
+      content: '{{ad_group_name}}',
+      term: '{{ad_name}}',
+    },
+  },
+  instagram: {
+    name: 'Instagram Ads',
+    defaults: {
+      campaignID: '{{ad.id}}',
+      source: 'instagram',
+      medium: 'paidsocial',
+      name: '{{campaign.name}}',
+      content: '{{adset.name}}',
+      term: '{{ad.name}}',
+    },
+  },
+  email: {
+    name: 'Email Campaign',
+    defaults: {
+      campaignID: '',
+      source: 'email',
+      medium: 'email',
+      name: '',
+      content: '',
+      term: '',
+    },
+  },
+  affiliate: {
+    name: 'Affiliate',
+    defaults: {
+      campaignID: '',
+      source: 'affiliate',
+      medium: 'referral',
+      name: '',
+      content: '',
+      term: '',
+    },
+  },
+};
+
+interface DownloadData {
+  websiteUrl: string;
+  utmParams: UTMParams;
+  customFields: CustomField[];
+  finalUrl: string;
+}
+
+const UTMBuilder: React.FC = () => {
+  const [selectedPlatform, setSelectedPlatform] = useState<string>('');
+  const [websiteUrl, setWebsiteUrl] = useState<string>('');
+  const [utmParams, setUtmParams] = useState<UTMParams>({
+    campaignID: '',
+    source: '',
+    medium: '',
+    name: '',
+    content: '',
+    term: '',
+  });
+  const [customFields, setCustomFields] = useState<CustomField[]>([]);
+  const [finalUrl, setFinalUrl] = useState<string>('');
+
+  const handlePlatformChange = (platform: string): void => {
+    setSelectedPlatform(platform);
+    if (platformConfigs[platform]) {
+      setUtmParams(platformConfigs[platform].defaults);
     }
   };
 
-  const generateUTM = () => {
-    if (!websiteURL) return '';
+  const handleCustomFieldAdd = (): void => {
+    setCustomFields([...customFields, { name: '', value: '' }]);
+  };
+
+  const handleCustomFieldRemove = (index: number): void => {
+    const newFields = customFields.filter((_, i) => i !== index);
+    setCustomFields(newFields);
+  };
+
+  const handleCustomFieldChange = (
+    index: number,
+    field: keyof CustomField,
+    value: string,
+  ): void => {
+    const newFields = [...customFields];
+    newFields[index][field] = value;
+    setCustomFields(newFields);
+  };
+
+  const buildFinalUrl = (): string => {
+    if (!websiteUrl) return '';
 
     const params = new URLSearchParams();
-    if (campaignSource) params.append('utm_source', campaignSource);
-    if (campaignMedium) params.append('utm_medium', campaignMedium);
-    if (campaignName) params.append('utm_campaign', campaignName);
-    if (campaignID) params.append('utm_id', campaignID);
-    if (campaignTerm) params.append('utm_term', campaignTerm);
-    if (campaignContent) params.append('utm_content', campaignContent);
+    Object.entries(utmParams).forEach(([key, value]) => {
+      if (value) params.append(`utm_${key.toLowerCase()}`, value);
+    });
 
-    return `${websiteURL}${params.toString() ? '?' + params.toString() : ''}`;
+    customFields.forEach((field) => {
+      if (field.name && field.value) {
+        params.append(field.name, field.value);
+      }
+    });
+
+    return `${websiteUrl}${params.toString() ? '?' + params.toString() : ''}`;
   };
 
-  const handleCopy = async () => {
-    const utmLink = generateUTM();
-    if (!utmLink) return;
+  useEffect(() => {
+    const url = buildFinalUrl();
+    setFinalUrl(url);
+  }, [websiteUrl, utmParams, customFields]);
 
-    try {
-      await navigator.clipboard.writeText(utmLink);
-      setCopied(true);
-      setTimeout(() => setCopied(false), 2000);
-    } catch (err) {
-      console.error('Failed to copy:', err);
-    }
+  const handleDownload = (): void => {
+    const data: DownloadData = {
+      websiteUrl,
+      utmParams,
+      customFields,
+      finalUrl,
+    };
+
+    const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
+    const url = window.URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'utm-configuration.json';
+    document.body.appendChild(a);
+    a.click();
+    window.URL.revokeObjectURL(url);
+    document.body.removeChild(a);
   };
 
-  const handleTemplateChange = (mode: string) => {
-    setSelectedMode(mode);
-    const template = templates[mode].fields;
-
-    setCampaignID(template.campaignID || '');
-    setCampaignSource(template.source || '');
-    setCampaignMedium(template.medium || '');
-    setCampaignName(template.name || '');
-    setCampaignTerm(template.term || '');
-    setCampaignContent(template.content || '');
+  const handleUtmParamChange = (key: keyof UTMParams, value: string): void => {
+    setUtmParams((prev) => ({
+      ...prev,
+      [key]: value,
+    }));
   };
-
-  const InputField: React.FC<InputFieldProps> = ({
-    label,
-    value,
-    onChange,
-    placeholder = '',
-    required = false,
-  }) => (
-    <div className="space-y-2">
-      <Label className="text-sm font-medium">
-        {label} {required && <span className="text-red-500">*</span>}
-      </Label>
-      <Input
-        value={value}
-        onChange={(e) => onChange(e.target.value)}
-        placeholder={placeholder}
-        className="w-full"
-      />
-    </div>
-  );
 
   return (
-    <div className="grid grid-cols-[220px_1fr] border-t-2">
-      <aside className="border-r  pb-12">
-        <div className="px-6 py-4">
-          <h2 className="text-lg font-semibold">UTM Templates</h2>
-          <p className="text-sm ">Choose a preset or create custom</p>
+    <div className="flex h-screen w-screen ">
+      {/* Sidebar */}
+      <div className="hidden md:flex w-64  border-r p-4 flex-col">
+        <h2 className="text-xl font-bold mb-4">Platforms</h2>
+        <div className="space-y-2">
+          {Object.entries(platformConfigs).map(([key, config]) => (
+            <button
+              key={key}
+              onClick={() => handlePlatformChange(key)}
+              className={`w-full text-left px-4 py-2 rounded ${
+                selectedPlatform === key ? ' ' : ''
+              }`}
+            >
+              {config.name}
+            </button>
+          ))}
         </div>
-        <Separator />
-        <div className="px-2 py-2">
-          {Object.entries(templates).map(([key, template]) => {
-            const Icon = template.icon;
-            return (
-              <Button
-                key={key}
-                variant={selectedMode === key ? 'default' : 'ghost'}
-                className="w-full justify-start gap-2 mb-1"
-                onClick={() => handleTemplateChange(key)}
-              >
-                <Icon className="h-4 w-4" />
-                {template.name}
-              </Button>
-            );
-          })}
-        </div>
-      </aside>
+      </div>
 
-      <main className="flex-1 overflow-y-auto">
-        <Navbar className="!mx-0" />
-        <div className="h-full px-8 py-6">
-          <div className="max-w-2xl space-y-6">
-            <div className="space-y-1">
-              <h1 className="text-3xl font-bold">UTM Builder</h1>
-              <p className="">Create and manage your campaign tracking URLs</p>
-            </div>
+      {/* Main Content */}
+      <div className="flex-1 p-4 md:p-8 overflow-y-auto">
+        <div className="max-w-4xl mx-auto">
+          {/* Top Actions */}
+          <div className="flex justify-end gap-4 mb-6">
+            <Button onClick={handleDownload} variant="outline" className="flex items-center gap-2">
+              <Download size={16} /> Download Configuration
+            </Button>
+          </div>
 
+          {/* Main Form and Preview Grid */}
+          <div className="grid md:grid-cols-2 gap-6">
+            {/* Form */}
             <Card>
-              <CardContent className="p-6 space-y-6">
-                <InputField
-                  label="Website URL"
-                  value={websiteURL}
-                  onChange={setWebsiteURL}
-                  placeholder="https://example.com"
-                  required
-                />
-
-                <div className="grid gap-6 md:grid-cols-2">
-                  <InputField
-                    label="Campaign Source"
-                    value={campaignSource}
-                    onChange={setCampaignSource}
-                    placeholder="facebook, google, newsletter"
-                    required
-                  />
-                  <InputField
-                    label="Campaign Medium"
-                    value={campaignMedium}
-                    onChange={setCampaignMedium}
-                    placeholder="cpc, banner, email"
-                    required
-                  />
-                  <InputField
-                    label="Campaign Name"
-                    value={campaignName}
-                    onChange={setCampaignName}
-                    placeholder="summer_sale"
-                  />
-                  <InputField
-                    label="Campaign ID"
-                    value={campaignID}
-                    onChange={setCampaignID}
-                    placeholder="uniqueid123"
-                  />
-                  <InputField
-                    label="Campaign Term"
-                    value={campaignTerm}
-                    onChange={setCampaignTerm}
-                    placeholder="running+shoes"
-                  />
-                  <InputField
-                    label="Campaign Content"
-                    value={campaignContent}
-                    onChange={setCampaignContent}
-                    placeholder="toplink"
-                  />
+              <CardContent className="pt-6">
+                {/* Platform selector for mobile */}
+                <div className="md:hidden mb-6">
+                  <Label>Platform</Label>
+                  <Select value={selectedPlatform} onValueChange={handlePlatformChange}>
+                    <SelectTrigger>
+                      <SelectValue placeholder="Select Platform" />
+                    </SelectTrigger>
+                    <SelectContent>
+                      {Object.entries(platformConfigs).map(([key, config]) => (
+                        <SelectItem key={key} value={key}>
+                          {config.name}
+                        </SelectItem>
+                      ))}
+                    </SelectContent>
+                  </Select>
                 </div>
 
-                <Separator />
-
+                {/* URL Input */}
                 <div className="space-y-4">
-                  <div className="flex items-center justify-between">
-                    <Label className="text-sm font-medium">Generated UTM URL</Label>
-                    <Button
-                      variant="outline"
-                      size="sm"
-                      className={cn('gap-2', !generateUTM() && 'opacity-50 cursor-not-allowed')}
-                      onClick={handleCopy}
-                      disabled={!generateUTM()}
-                    >
-                      {copied ? (
-                        <>
-                          <Check className="h-4 w-4" />
-                          Copied
-                        </>
-                      ) : (
-                        <>
-                          <Copy className="h-4 w-4" />
-                          Copy URL
-                        </>
-                      )}
-                    </Button>
+                  <div>
+                    <Label>Website URL</Label>
+                    <Input
+                      placeholder="https://example.com"
+                      value={websiteUrl}
+                      onChange={(e) => setWebsiteUrl(e.target.value)}
+                    />
                   </div>
-                  <Textarea
-                    readOnly
-                    value={generateUTM()}
-                    className="min-h-[100px] font-mono text-sm"
-                    placeholder="Your UTM URL will appear here..."
-                  />
+
+                  {/* UTM Parameters */}
+                  {(Object.keys(utmParams) as Array<keyof UTMParams>).map((key) => (
+                    <div key={key}>
+                      <Label>UTM {key}</Label>
+                      <Input
+                        placeholder={`Enter UTM ${key}`}
+                        value={utmParams[key]}
+                        onChange={(e) => handleUtmParamChange(key, e.target.value)}
+                      />
+                    </div>
+                  ))}
+
+                  {/* Custom Fields */}
+                  {customFields.map((field, index) => (
+                    <div key={index} className="flex gap-2">
+                      <div className="flex-1">
+                        <Input
+                          placeholder="Parameter name"
+                          value={field.name}
+                          onChange={(e) => handleCustomFieldChange(index, 'name', e.target.value)}
+                        />
+                      </div>
+                      <div className="flex-1">
+                        <Input
+                          placeholder="Parameter value"
+                          value={field.value}
+                          onChange={(e) => handleCustomFieldChange(index, 'value', e.target.value)}
+                        />
+                      </div>
+                      <Button
+                        variant="outline"
+                        size="icon"
+                        onClick={() => handleCustomFieldRemove(index)}
+                      >
+                        <X size={16} />
+                      </Button>
+                    </div>
+                  ))}
+
+                  <Button onClick={handleCustomFieldAdd} variant="outline" className="w-full">
+                    <Plus size={16} className="mr-2" /> Add Custom Parameter
+                  </Button>
                 </div>
               </CardContent>
             </Card>
+
+            {/* Preview */}
+            <div className="space-y-6">
+              <Card>
+                <CardContent className="pt-6">
+                  <h3 className="font-semibold mb-2">Generated URL</h3>
+                  <div className="p-4  rounded-lg break-all">
+                    {finalUrl || 'Enter a website URL to generate'}
+                  </div>
+                </CardContent>
+              </Card>
+
+              <Card>
+                <CardContent className="pt-6">
+                  <h3 className="font-semibold mb-2">QR Code</h3>
+                  <div className="flex justify-center p-4">
+                    {finalUrl ? <QRCodeSVG value={finalUrl} /> : <p>fill the form</p>}
+                  </div>
+                </CardContent>
+              </Card>
+            </div>
           </div>
         </div>
-      </main>
+      </div>
     </div>
   );
 };
