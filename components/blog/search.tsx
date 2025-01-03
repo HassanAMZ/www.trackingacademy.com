@@ -51,7 +51,7 @@ const BlogSearch: React.FC<BlogSearchProps> = ({ data, onSearch }) => {
   const displayText = formatText(params.blog || params.tag);
 
   return (
-    <Card className="rounded-t-lg py-24">
+    <Card className="rounded-t-lg py-12">
       <CardHeader>
         <Text as="h1" variant="heading3xl" className="text-center">
           {!isRootBlogPage && displayText && <span className="capitalize">{displayText} - </span>}
