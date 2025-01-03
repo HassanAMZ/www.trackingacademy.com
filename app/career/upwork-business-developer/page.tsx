@@ -2,7 +2,7 @@ import YoutubeEmbed from '@/components/global/youtube-embed';
 import { Button } from '@/components/ui/button';
 import Container from '@/components/ui/container';
 import Text from '@/components/ui/text'; // Using the provided Text component
-import Link from 'next/link';
+import { Link } from 'next-view-transitions';
 import React from 'react';
 
 export default function Page() {

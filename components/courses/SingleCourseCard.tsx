@@ -1,7 +1,7 @@
 import Text from '@/components/ui/text';
 import { SingleCourseCardProps } from '@/types/index';
+import { Link } from 'next-view-transitions';
 import Image from 'next/image';
-import Link from 'next/link';
 import React from 'react';
 
 const SingleCourseCard: React.FC<SingleCourseCardProps> = ({

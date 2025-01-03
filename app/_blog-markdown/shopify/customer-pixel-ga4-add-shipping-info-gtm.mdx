@@ -1,0 +1,122 @@
+export const metadata = {
+  title:
+    '[Shopify Customer Pixel] How to Configure GA4 Add Shipping Info Event Using Google Tag Manager',
+  date: '2024-09-07',
+  blogId: 124,
+  keywords:
+    'Google Tag Manager, Shopify, Google Analytics 4, Add Shipping Info Event, Ecommerce Tracking, Data Layer, Conversion Tracking',
+  tags: [
+    'Google Tag Manager',
+    'Shopify',
+    'GA4',
+    'Ecommerce Tracking',
+    'Add Shipping Info Event',
+    'Customer Pixel',
+  ],
+  draft: false,
+  description:
+    'Learn how to configure the GA4 Add Shipping Info event on your Shopify store using Google Tag Manager. This comprehensive guide walks you through setting up the data layer, creating event tags, and verifying tracking for enhanced ecommerce analytics.',
+  openGraph: {
+    images: ['/static/blog/00024.png'],
+  },
+  embedId: 'oEqj6CtREhM',
+};
+
+Setting up accurate event tracking on your Shopify store is essential for understanding customer behavior and optimizing your online store's performance. In this guide, we'll walk you through the process of configuring the "Add Shipping Info" event using Shopify's Customer Pixel and Google Tag Manager. This setup will allow you to track when customers enter their shipping information during checkout.
+
+### Table of Contents
+
+1. [Ensuring Customer Pixel is Firing on Shopify](#ensuring-customer-pixel-is-firing-on-shopify)
+2. [Adding a New Customer Pixel](#adding-a-new-customer-pixel)
+3. [Configuring Permissions and Adding Code Snippet](#configuring-permissions-and-adding-code-snippet)
+4. [Updating Google Tag Manager Container ID](#updating-google-tag-manager-container-id)
+5. [Connecting Web Pixel with Shopify Store](#connecting-web-pixel-with-shopify-store)
+6. [Testing the Event on the Checkout Page](#testing-the-event-on-the-checkout-page)
+7. [Configuring Page View Event in Google Tag Manager](#configuring-page-view-event-in-google-tag-manager)
+8. [Setting Up Add Shipping Info Event Trigger](#setting-up-add-shipping-info-event-trigger)
+9. [Publishing Changes and Testing Events](#publishing-changes-and-testing-events)
+10. [Verifying Event Firing in Shopify and Google Analytics](#verifying-event-firing-in-shopify-and-google-analytics)
+
+### 1. Ensuring Customer Pixel is Firing on Shopify
+
+The first step is to ensure that the Customer Pixel is properly firing on your Shopify store. Here's how you do it:
+
+- Navigate to the **Settings** section on your Shopify store's backend.
+- Scroll down to the **Customer Events** section. This is where you'll add the new Customer Pixel.
+
+### 2. Adding a New Customer Pixel
+
+Next, you'll add the new Customer Pixel:
+
+- In the top right corner, click on **Add Customer Pixel**.
+- Rename the pixel to something relevant. Since we're tracking the "Add Shipping Info" event, let's name it **Add Shipping Info Data Layer**.
+- This step essentially creates the data layer required for tracking.
+
+### 3. Configuring Permissions and Adding Code Snippet
+
+After creating the pixel:
+
+- Ensure the permissions are set to **Not Required**.
+- Set the **Data Sale** option to **Does Not Qualify for Data Sales**.
+- Paste the code snippet (provided in the video description) into the appropriate section.
+
+<DataLayerCodeBlock fileName="add_shipping_info.js" />
+
+### 4. Updating Google Tag Manager Container ID
+
+Now, you'll need to link your Google Tag Manager (GTM) container:
+
+- Go to your GTM account and copy your container ID (the ID begins with **GTM-**).
+- Return to your Shopify store and paste this ID in the appropriate field.
+- Save your changes.
+
+### 5. Connecting Web Pixel with Shopify Store
+
+To ensure everything works:
+
+- Scroll back to the top of the settings page and click the **Connect** button.
+- This action will successfully link the web pixel to your Shopify store.
+
+### 6. Testing the Event on the Checkout Page
+
+It's time to test whether the "Add Shipping Info" event is firing correctly:
+
+- Navigate to your online store and add a product to your cart.
+- Proceed directly to the checkout page.
+- Inspect the page's code using your browser's developer tools. Open the **Console** to monitor events.
+- Enter shipping details like email address, postal code, etc., and proceed to the payment section.
+- If the event is set up correctly, you should see the **Add Shipping Info** event fire, displaying details about the items in the cart.
+
+### 7. Configuring Page View Event in Google Tag Manager
+
+To track page views across your website:
+
+- Go to the **Tag** section in your Google Tag Manager container and click **New**.
+- Create a new tag that fires on all pages of your website by selecting the **All Pages** trigger.
+- Paste your Google Analytics 4 Measurement ID into the tag configuration.
+
+### 8. Setting Up Add Shipping Info Event Trigger
+
+Next, you’ll create a specific trigger for the "Add Shipping Info" event:
+
+- Go back to your Google Tag Manager container and create a new trigger for this event.
+- Since the event is fired via the data layer, select **Custom Event** as the trigger type.
+- Name this trigger **Add Shipping Info**.
+
+### 9. Publishing Changes and Testing Events
+
+After configuring your event triggers:
+
+- Save all changes and publish them under a new version name, such as **Tracking Academy GA4 Add Shipping Info**.
+- Return to your Shopify store and test the setup by going through the checkout process again.
+
+### 10. Verifying Event Firing in Shopify and Google Analytics
+
+Finally, verify that everything is working:
+
+- Check the **Console** in your browser’s developer tools to confirm the event is firing.
+- You can also check your Google Analytics account under the **Realtime** view to see if the "Add Shipping Info" event is being tracked, along with details like currency and product value.
+
+By following these steps, you can accurately track when customers add their shipping information during checkout, providing valuable insights into your customers' shopping behavior. This data can help optimize your Shopify store and improve overall performance.
+
+For further configurations like tracking payment information, refer to additional guides or tutorials.

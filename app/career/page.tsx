@@ -2,7 +2,7 @@ import { Button } from '@/components/ui/button';
 import Container from '@/components/ui/container';
 import Text from '@/components/ui/text';
 import getFolderData from '@/utils/getFolderData';
-import Link from 'next/link';
+import { Link } from 'next-view-transitions';
 
 export default async function Page() {
   const folders = await getFolderData('app/career');

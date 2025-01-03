@@ -1,6 +1,6 @@
 import { cn } from '@/lib/utils';
 import clsx from 'clsx';
-import Link from 'next/link';
+import { Link } from 'next-view-transitions';
 import React from 'react';
 import { Button } from '../ui/button';
 
@@ -29,10 +29,10 @@ const CustomLink: React.FC<CustomLinkProps> = ({ href, className, ...rest }) => 
 
   if (isAnchorLink) {
     return (
-      <a
+      <Link
         href={href}
         className={clsx(
-          'whitespace-pre-wrap !p-0 text-primary underline-offset-4 hover:underline',
+          'whitespace-pre-wrap !p-0 dark:text-primary text-card-primary underline-offset-4 hover:underline',
           className,
         )}
         {...rest}

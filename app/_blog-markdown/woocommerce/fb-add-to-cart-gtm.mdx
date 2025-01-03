@@ -1,0 +1,126 @@
+export const metadata = {
+  title: 'WooCommerce Facebook Pixel: Add To Cart Ecommerce using DataLayer & Google Tag Manager',
+  date: '2024-05-29',
+  blogId: 102,
+  Keywords:
+    'Facebook Pixel, Google Tag Manager, WooCommerce store, Facebook Ads, Website tracking, Add to Cart Event, Ecommerce Data Layer',
+  tags: [
+    'Facebook Pixel',
+    'Google Tag Manager',
+    'WooCommerce',
+    'Ecommerce Tracking',
+    'Add to Cart',
+  ],
+  draft: false,
+  description:
+    'Learn how to configure the Facebook Pixel Add to Cart event on your WooCommerce store using Google Tag Manager. This comprehensive guide covers setting up Google Tag Manager, adding the necessary data layers, and ensuring accurate event tracking for better Facebook Ads targeting.',
+  openGraph: {
+    images: ['/static/blog/00012.png'],
+  },
+  embedId: 'y9NQHyAwh3o',
+};
+
+Welcome back to the blog! In this detailed guide, I'll walk you through the process of configuring Facebook Pixel to track add to cart events on your WooCommerce store using Google Tag Manager. Whether you're a small business owner, a digital marketer, or a freelancer looking to enhance your skills, this step-by-step tutorial will help you set up tracking efficiently.
+
+## Introduction
+
+Tracking user interactions, such as add to cart events, is crucial for understanding customer behavior and optimizing your digital marketing efforts. By configuring Facebook Pixel with Google Tag Manager on your WooCommerce store, you can gather valuable data to improve your ad targeting and drive conversions.
+
+### Audience
+
+This guide is tailored for:
+
+- Small business owners seeking to track user interactions on their WooCommerce stores.
+- Digital marketers assisting businesses with Facebook ads and analytics.
+- Freelancers interested in enhancing their skills in event tracking and analytics.
+
+### Prerequisites
+
+Before we begin, ensure you have:
+
+- Access to your WooCommerce store backend.
+- A Facebook Business Manager account with a configured Facebook Pixel.
+
+Now, let's dive into the step-by-step process.
+
+## Step 1: Configuring Google Tag Manager
+
+The first step involves setting up Google Tag Manager (GTM) on your WooCommerce store. Follow these instructions:
+
+1. Access your WordPress dashboard.
+2. Navigate to the Plugins section and click on "Add New Plugin."
+3. Search for "GTM 4WP" plugin and install it.
+4. Activate the plugin and navigate to its settings.
+5. Paste your Google Tag Manager container ID into the designated field.
+6. Ensure the container code option is set to "Always On" and save changes.
+
+To verify the installation, use GTM's preview mode and debug tools to ensure the container fires correctly on all pages of your website.
+
+## Step 2: Configuring Facebook Pixel Tag
+
+Next, we'll set up the Facebook Pixel tag in GTM to track page view events. Here's how:
+
+1. Access your Facebook Business Manager account and navigate to the Event Manager.
+2. Copy your Facebook Pixel ID.
+3. In GTM, create a new tag using the Facebook Pixel template.
+4. Configure the tag to fire on all pages and input your Facebook Pixel ID.
+5. Save the tag and ensure it's firing correctly using GTM's debug tools.
+
+## Step 3: Adding E-commerce Data Layer
+
+To capture e-commerce data, we'll enable the data layer in GTM for WooCommerce events:
+
+1. In the GTM for WP plugin settings, enable the "Track E-commerce Events" option.
+2. Save changes to activate the data layer on your WooCommerce store.
+3. Test the data layer by performing actions like adding items to the cart and verifying the data captured in GTM's debug mode.
+
+## Step 4: Creating Variables and Mapping to Facebook Pixel
+
+This step involves creating variables in GTM to map e-commerce data to Facebook Pixel parameters:
+
+1. Create variables for e-commerce data, such as product IDs, names, prices, and quantities.
+2. Use GTM's template for Facebook parameter generator to format variables correctly for Facebook Pixel.
+3. Create variables for contents, content IDs, content names, and number of items purchased.
+4. Verify variables and ensure they capture the necessary data accurately.
+
+## Step 5: Setting up Add to Cart Event Tracking
+
+Finally, configure a custom event trigger in GTM to track add to cart events and send data to Facebook Pixel:
+
+1. Create a custom event trigger for the add to cart event.
+2. Configure a new tag to fire the Facebook Pixel tag with the necessary parameters for the add to cart event.
+3. Test the setup by triggering an add to cart event on your WooCommerce store and verifying the data sent to Facebook Pixel.
+
+### Bonus section
+
+**Importing a Pre-configured GTM Container**
+
+To make your life easier, you can download and import a pre-configured GTM container file. This file includes all the tags, triggers, and variables we created in this guide.
+
+1. **Download the GTM Container File**
+
+<AuthenticatedLayout>
+  [Download The GTM Container JSON File](/static/json/FBWooCommerceGTMAddToCart.json).
+</AuthenticatedLayout>
+
+2. **Import the Container**
+
+   - Go to **Admin > Import Container** in GTM.
+   - Choose the downloaded container file.
+   - Select your existing workspace and choose **Merge**.
+   - Confirm the changes.
+
+3. **Update Facebook Pixel ID**
+
+   - Go to **Variables** and update the Facebook Pixel ID with your own.
+
+4. **Publish the Changes**
+   - Click **Submit** to publish the changes to your GTM container.
+
+## Conclusion
+
+Congratulations! You've successfully configured Facebook Pixel add to cart event tracking on your WooCommerce store using Google Tag Manager. By accurately tracking user interactions, you'll gain valuable insights to optimize your digital marketing strategies and drive conversions effectively.
+
+If you found this guide helpful, be sure to check out our next tutorial on configuring the "Initiate Checkout" event for further Facebook Pixel optimization.
+
+Thank you for reading, and happy tracking!

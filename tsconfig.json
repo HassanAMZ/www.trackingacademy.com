@@ -5,6 +5,7 @@
       "@/components/*": ["components/*"],
       "@/context/*": ["app/context/*"],
       "@/app/*": ["app/*"],
+      "@/blog/*": ["app/blog/*"],
       "@/data/*": ["data/*"],
       "@/layouts/*": ["components/layouts/*"],
       "@/lib/*": ["lib/*"],
@@ -38,6 +39,14 @@
       }
     ]
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "**/*.js", "**/*.jsx", ".next/types/**/*.ts"],
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    "**/*.js",
+    "**/*.jsx",
+    ".next/types/**/*.ts",
+    "next.config.js"
+  ],
   "exclude": ["node_modules"]
 }

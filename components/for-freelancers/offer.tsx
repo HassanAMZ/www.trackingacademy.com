@@ -11,7 +11,7 @@ import {
 import { Separator } from '@/components/ui/separator';
 import Text from '@/components/ui/text';
 import { Globe, Headset, Rocket, ShieldCheck, Smile, Target } from 'lucide-react';
-import Link from 'next/link';
+import { Link } from 'next-view-transitions';
 import React, { FC } from 'react';
 import YoutubeEmbed from '../global/youtube-embed';
 

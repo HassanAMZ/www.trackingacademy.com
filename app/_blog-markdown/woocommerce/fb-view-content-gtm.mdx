@@ -1,0 +1,169 @@
+export const metadata = {
+  title:
+    'How to Configure Facebook Pixel View Content Event on WooCommerce using Google Tag Manager',
+  date: '2024-05-27',
+  blogId: 101,
+  Keywords: `Facebook Pixel, Google Tag Manager, WooCommerce store, Facebook Ads, Website tracking, View Content Event, Ecommerce Data Layer`,
+  tags: [
+    'Facebook Pixel',
+    'Google Tag Manager',
+    'WooCommerce',
+    'Ecommerce Tracking',
+    'View Content',
+  ],
+  draft: false,
+  description: `Learn how to configure the Facebook Pixel View Content event on your WooCommerce store using Google Tag Manager. This comprehensive guide covers setting up Google Tag Manager, adding the necessary data layers, and ensuring accurate event tracking for better Facebook Ads targeting.`,
+  openGraph: {
+    images: ['/static/blog/00011.png'],
+  },
+  embedId: '7wV57ycsJ3c',
+};
+
+Welcome to the blog! My name is Hassan, and with my experience of configuring over 1,000 websites on platforms like Shopify, WordPress, WooCommerce, and custom builds, I have helped more than 300 clients and collaborated with 25 different agencies. In this guide, I will walk you through the process of setting up the Facebook Pixel's view item event on Google Tag Manager (GTM) for a WooCommerce website. This step-by-step tutorial is tailored for small business owners, digital marketing teams, and freelancers who want to track this essential event without the need to hire a professional.
+
+### Why Track the View Item Event?
+
+Tracking the view item event on your Facebook Pixel is crucial for gathering data that helps optimize your advertising campaigns. While many clients focus on primary events, specific details like view item events can provide valuable insights and improve the performance of your marketing efforts.
+
+### Overview
+
+This guide is divided into five sections:
+
+1. **Introduction to Google Tag Manager and its Configuration**
+2. **Setting Up Facebook Pixel Configuration Tag**
+3. **Adding the Data Layer for Product Details**
+4. **Configuring the View Content Event in GTM**
+5. **Testing the Setup**
+
+### Prerequisites
+
+Before we start, ensure you have the following:
+
+- A WooCommerce website.
+- Access to Google Tag Manager.
+- A Facebook Business account with Pixel set up.
+
+### Section 1: Configuring Google Tag Manager on WooCommerce
+
+1. **Install GTM for WordPress Plugin**
+
+   - Go to your WordPress dashboard.
+   - Navigate to **Plugins > Add New**.
+   - Search for "GTM 4WP" by Thomas Geiger.
+   - Install and activate the plugin.
+
+2. **Add GTM Container ID**
+
+   - Once activated, go to **Settings > Google Tag Manager**.
+   - Enter your GTM Container ID.
+   - Save changes and refresh the page to ensure the settings are updated.
+
+3. **Verify GTM Installation**
+   - In Google Tag Manager, click **Preview**.
+   - Enter your website URL to connect the debug window.
+   - Use the Google Tag Assistant Chrome extension to confirm GTM is firing correctly.
+
+### Section 2: Setting Up Facebook Pixel Configuration Tag
+
+1. **Access Facebook Business Manager**
+
+   - Go to **business.facebook.com**.
+   - Navigate to **Event Manager** under **All Tools**.
+   - Select your data source (Pixel) and copy the Pixel ID.
+
+2. **Create Facebook Pixel Tag in GTM**
+
+   - In GTM, go to **Tags > New**.
+   - Choose **Tag Type** as **Facebook Pixel**.
+   - Enter your Pixel ID.
+   - Set the event type to **PageView**.
+   - Set the trigger to **All Pages**.
+   - Save the tag.
+
+3. **Test Facebook Pixel Tag**
+   - In Facebook Event Manager, go to the **Test Events** section.
+   - Open the GTM preview mode and navigate your website.
+   - Verify the **PageView** event is firing correctly.
+
+### Section 3: Adding Data Layer for Product Details
+
+1. **Enable Data Layer in GTM for WP Plugin**
+
+   - Go to **Settings > Google Tag Manager** in your WordPress dashboard.
+   - Navigate to the **Integration** tab and enable **eCommerce** under WooCommerce.
+   - Set the product impression threshold.
+   - Save changes.
+
+2. **Verify Data Layer**
+   - Go to a product page on your website.
+   - In GTM preview mode, check for the **view_item** event in the data layer.
+   - Ensure product details like ID, name, price, and currency are available.
+
+### Section 4: Configuring View Content Event in GTM
+
+1. **Add Custom Tag Template**
+
+   - In GTM, go to **Templates**.
+   - Search for **Facebook Parameter Generator** and add it to your workspace.
+
+2. **Create Variables for Data Layer**
+
+   - Go to **Variables > New** and create variables for:
+     - **ecommerce.currency**
+     - **ecommerce.value**
+     - **ecommerce.items**
+
+3. **Map Data Layer to Facebook Parameters**
+
+   - Use the **Facebook Parameter Generator** template to map the data layer variables to Facebook parameters.
+   - Create variables for **content_ids**, **content_name**, **contents**, and **num_items**.
+
+4. **Create View Content Tag**
+   - Go to **Tags > New**.
+   - Choose **Facebook Pixel** as the tag type.
+   - Set the event type to **ViewContent**.
+   - Add the required parameters (value, currency, contents, etc.).
+   - Set the trigger to **Custom Event** with the event name **view_item**.
+   - Save the tag.
+
+### Section 5: Testing the Setup
+
+1. **Re-enter Preview Mode**
+
+   - After saving your changes, enter GTM preview mode again.
+   - Navigate to a product page on your website.
+   - Verify the **ViewContent** event is firing with the correct parameters using the Facebook Pixel Helper extension.
+
+2. **Check Event in Facebook Event Manager**
+   - Go back to the **Test Events** section in Facebook Event Manager.
+   - Ensure the **ViewContent** event is recorded without errors.
+
+### Bonus section
+
+**Importing a Pre-configured GTM Container**
+
+To make your life easier, you can download and import a pre-configured GTM container file. This file includes all the tags, triggers, and variables we created in this guide.
+
+1. **Download the GTM Container File**
+
+<AuthenticatedLayout>
+  [Download The GTM Container JSON File](/static/json/FBWooCommerceGTMViewContent.json).
+</AuthenticatedLayout>
+
+2. **Import the Container**
+
+   - Go to **Admin > Import Container** in GTM.
+   - Choose the downloaded container file.
+   - Select your existing workspace and choose **Merge**.
+   - Confirm the changes.
+
+3. **Update Facebook Pixel ID**
+
+   - Go to **Variables** and update the Facebook Pixel ID with your own.
+
+4. **Publish the Changes**
+   - Click **Submit** to publish the changes to your GTM container.
+
+### Conclusion
+
+Congratulations! You have successfully configured the Facebook Pixel’s view item event on Google Tag Manager for your WooCommerce website. This setup allows you to track crucial product interactions and optimize your marketing efforts. For further learning, check out my next video on how to track the add-to-cart event using similar steps. Feel free to leave any questions in the comment section or contact me directly through the website. Happy tracking!

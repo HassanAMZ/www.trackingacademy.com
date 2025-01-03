@@ -1,5 +1,5 @@
 import { AlertCircle, ArrowRight } from 'lucide-react';
-import Link from 'next/link';
+import { Link } from 'next-view-transitions';
 import { Button } from '../ui/button';
 import { Card, CardContent } from '../ui/card';
 import Container from '../ui/container';

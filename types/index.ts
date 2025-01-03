@@ -76,7 +76,7 @@ export interface CourseContentProps {
   rawData?: CourseMetadata[];
   type: string;
 }
-export interface BlogContainerProps {
+export interface CategoryContainerProps {
   data: PostMetadata[];
   rawData?: PostMetadata[];
   type: string;
@@ -136,6 +136,7 @@ export interface PostMetadata {
   openGraph: { images: string[] };
   embedId: string;
   id?: string;
+  updatedDate?: string;
   slug?: string;
 }
 

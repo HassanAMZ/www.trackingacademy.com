@@ -4,7 +4,7 @@ import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import Container from '@/components/ui/container';
 import { Check } from 'lucide-react';
-import Link from 'next/link';
+import { Link } from 'next-view-transitions';
 import VideoPlayer from '../offers/offer-001/video-player';
 import TestimonialsCarousel from '../offers/offer-002/testimonial-carousal';
 import Text from '../ui/text';

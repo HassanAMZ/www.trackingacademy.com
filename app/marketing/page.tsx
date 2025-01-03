@@ -2,7 +2,7 @@ import Navbar from '@/components/global/navbar';
 import { Button } from '@/components/ui/button';
 import Container from '@/components/ui/container';
 import getOffersData from '@/utils/getOffersData'; // Ensure this path is correct
-import Link from 'next/link';
+import { Link } from 'next-view-transitions';
 
 export default async function Page() {
   const operations = await getOffersData('app/marketing');

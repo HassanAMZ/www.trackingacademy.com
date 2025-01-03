@@ -1,5 +1,5 @@
 import Text from '@/components/ui/text';
-import Link from 'next/link';
+import { Link } from 'next-view-transitions';
 import React from 'react';
 
 import LearnMore from '@/components/global/LearnMore';

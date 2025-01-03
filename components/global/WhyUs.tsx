@@ -4,7 +4,7 @@ import Text from '@/components/ui/text';
 import React from 'react';
 
 import { WhyUsProps } from '@/types/index'; // make sure to use the actual path
-import Link from 'next/link';
+import { Link } from 'next-view-transitions';
 
 const WhyUs: React.FC<WhyUsProps> = ({ links, headingTexts, paragraphTexts }) => {
   if (!headingTexts.heading && !headingTexts.subHeading) return null;

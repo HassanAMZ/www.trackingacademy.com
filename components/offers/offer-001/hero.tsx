@@ -5,7 +5,7 @@ import { Button } from '@/components/ui/button';
 import Container from '@/components/ui/container';
 import Text from '@/components/ui/text';
 import { cn } from '@/lib/utils';
-import Link from 'next/link';
+import { Link } from 'next-view-transitions';
 import TestimonialsCarousel from '../offer-002/testimonial-carousal';
 const trackingData = [
   {

@@ -1,0 +1,54 @@
+export const metadata = {
+  title: 'Google Ads URL suffixes for dynamic UTM parameters',
+  date: '2021-11-26',
+  blogId: 9,
+  keywords:
+    'Google Ads URL suffixes, dynamic UTM parameters, traffic acquisition, google ads (gads), iOS14+ users, UA, GA4, traffic acquisition reports, Apple, App Store, tracking, AppTrackingTransparency (ATT) framework, advertisers, data sharing limitations, opt-out, opt-in, gclid, URL, UTM parameters, google ads manager, UTM Code, URL Suffix Code, Tracking Template Code, Final URL Suffix, Tracking template, override needs, UTM Parameter Image, Notes, conversion tracking',
+  tags: ['google ads', 'utm parameters', 'server tracking'],
+  draft: false,
+  description:
+    'To track the traffic acquisition for google ads (gads) on google analytics for iOS14+ users. To track the performance of the google ads in UA or GA4 using traffic acquisition reports',
+  openGraph: {
+    images: ['/static/blog/00019.png'],
+  },
+  embedId: '',
+};
+
+## Origin of the issue
+
+Apple now requires apps in the App Store that engage in what Apple defines as "tracking" to obtain permission to "track" users across apps and websites owned by third parties for advertising and measurement purposes through its AppTrackingTransparency (ATT) framework.
+
+As a result of iOS14 changes, advertisers running campaigns will be affected by limitations on data sharing. The user can opt-out or opt-in of the tracking, either way the source of the traffic is lost.
+
+Therefore, when the app user clicks on one of the google ads the gclid is not passed with the landing page URL. Before these updates, an gclid parameter was passed with the URL, which is a random string of aphla-numaric characters, containing all the information about google ads, campaign, ad group etc.
+
+## Solution to the ATT
+
+There is no solution to fix the Google ads reporting / conversion tracking on Google ads manager. We can add UTM paramters in the URL and view the report in UA or GA4. However, the inital step is to add the UTM paramters in each google ad at campaign level.
+
+<ToolsHeroSection />
+
+## UTM Code
+
+We need to update the URL code for all the google ads, we are running on google ads manager. Copy the code below and paste it under Google Ads> Settings> Account Settings> Tracking Options> Final URL Suffix or Tracking template, depending on your override needs. Click on "TEST" to make sure everything is fine.
+
+## URL Suffix Code
+
+```
+gclid={gclid}&utm_id={campaignid}&utm_source=google&utm_medium=cpc&utm_campaign={campaignid}&utm_term={adgroupid}&utm_content={creative}
+```
+
+![UTM Parameter Image](/static/blog/00009_1.png)
+
+## Tracking Template Code
+
+```
+{lpurl}?gclid={gclid}&utm_id={campaignid}&utm_source=google&utm_medium=cpc&utm_campaign={campaignid}&utm_term={adgroupid}&utm_content={creative}
+
+```
+
+![UTM Parameter Image](/static/blog/00009_2.png)
+
+## Notes
+
+1. Click on "TEST" to make sure everything is fine.

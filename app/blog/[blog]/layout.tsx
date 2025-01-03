@@ -15,7 +15,7 @@ export async function generateMetadata(props: any) {
 }
 
 export async function generateStaticParams(): Promise<{ blog: string }[]> {
-  const blogs = await getBlogsData('app/blog');
+  const blogs = await getBlogsData('app/_blog-markdown');
 
   const seenBlogs = new Set();
   const blogSlugs = blogs

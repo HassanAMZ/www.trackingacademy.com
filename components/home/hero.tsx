@@ -4,7 +4,7 @@ import Container from '@/components/ui/container';
 import Text from '@/components/ui/text';
 import { Client } from '@/data/clients';
 import { CheckCircle } from 'lucide-react';
-import Link from 'next/link';
+import { Link } from 'next-view-transitions';
 import { FC, ReactNode } from 'react';
 
 interface HeroProps {

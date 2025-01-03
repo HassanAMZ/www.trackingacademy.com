@@ -5,7 +5,7 @@ import getFiles from 'utils/getFiles';
 import extractMetaFromStringForBlog from './extractMetaFromStringForBlog';
 
 export default async function getTags(): Promise<string[]> {
-  const blogDirectory = path.join(process.cwd(), 'app/blog');
+  const blogDirectory = path.join(process.cwd(), 'app/_blog-markdown');
   const allPostsFiles = getFiles(blogDirectory);
   const mdxFiles = allPostsFiles.filter((file) => path.extname(file) === '.mdx');
 

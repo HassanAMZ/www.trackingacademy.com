@@ -2,7 +2,7 @@ import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Button } from '@/components/ui/button';
 import Container from '@/components/ui/container';
 import { Client } from '@/data/clients';
-import Link from 'next/link';
+import { Link } from 'next-view-transitions';
 import React from 'react';
 import YoutubeEmbed from '../global/youtube-embed';
 import Text from '../ui/text';

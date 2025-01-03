@@ -1,7 +1,7 @@
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import Text from '@/components/ui/text';
-import Link from 'next/link';
+import { Link } from 'next-view-transitions';
 
 export default function ToolsHeroSection() {
   return (

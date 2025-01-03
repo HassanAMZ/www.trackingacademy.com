@@ -18,7 +18,7 @@ import {
   TrendingUp,
   Zap,
 } from 'lucide-react';
-import Link from 'next/link';
+import { Link } from 'next-view-transitions';
 import FeatureCard from '../home/feature-card';
 import Container from '../ui/container';
 import Text from '../ui/text';

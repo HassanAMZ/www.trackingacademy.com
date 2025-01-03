@@ -14,7 +14,7 @@ import {
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 import clsx from 'clsx';
 import { FileText, Menu, Wrench } from 'lucide-react';
-import Link from 'next/link';
+import { Link } from 'next-view-transitions';
 import { usePathname } from 'next/navigation';
 import React, { useState } from 'react';
 import NavLink from '../navbar/NavLink';
@@ -44,6 +44,11 @@ const NAV_ITEMS: Record<string, NavItem[]> = {
   // ],
   blogs: [
     {
+      title: 'All Blog Posts',
+      href: '/blog',
+      description: 'Learn everything about web analytics.',
+    },
+    {
       title: 'Google Tag Manager',
       href: '/tags/google-tag-manager',
       description: 'Learn how to implement and optimize Google Tag Manager.',
@@ -53,11 +58,11 @@ const NAV_ITEMS: Record<string, NavItem[]> = {
       href: '/tags/shopify',
       description: 'Guides and tips for managing and growing your Shopify store.',
     },
-    {
-      title: 'WooCommerce',
-      href: '/tags/woocommerce',
-      description: 'Explore our WooCommerce tutorials and best practices.',
-    },
+    // {
+    //   title: 'WooCommerce',
+    //   href: '/tags/woocommerce',
+    //   description: 'Explore our WooCommerce tutorials and best practices.',
+    // },
   ],
 };
 

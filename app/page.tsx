@@ -5,7 +5,7 @@ import { Card, CardContent, CardHeader } from '@/components/ui/card';
 import Container from '@/components/ui/container';
 import Text from '@/components/ui/text';
 import { AlertCircle, ArrowRight, CheckCircle2 } from 'lucide-react';
-import Link from 'next/link';
+import { Link } from 'next-view-transitions';
 
 const SolutionSection = () => {
   const steps = [

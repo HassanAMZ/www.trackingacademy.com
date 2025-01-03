@@ -7,7 +7,8 @@ export default async function getBlogAndTagsData(): Promise<{
   blogs: (PostMetadata & { id: string; slug: string })[];
 }> {
   const uniqueTags = await getTags();
-  const blogs: (PostMetadata & { id: string; slug: string })[] = await getBlogsData('app/blog');
+  const blogs: (PostMetadata & { id: string; slug: string })[] =
+    await getBlogsData('app/_blog-markdown');
 
   return { tags: uniqueTags, blogs };
 }

@@ -3,7 +3,6 @@
 import Navbar from '@/components/global/navbar';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import Container from '@/components/ui/container';
 import { toast } from '@/components/ui/hooks/use-toast';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
@@ -405,7 +404,7 @@ const UTMBuilder: React.FC = () => {
   };
 
   return (
-    <Container className="flex h-screen w-screen !mx-0 !max-w-full !p-0">
+    <main className="flex h-screen w-screen">
       {/* Sidebar */}
       <div className="hidden md:flex w-64 border-r p-4 flex-col">
         <h2 className="text-xl font-bold mb-4 flex items-center gap-2">
@@ -572,7 +571,7 @@ const UTMBuilder: React.FC = () => {
           </div>
         </div>
       </div>
-    </Container>
+    </main>
   );
 };
 

@@ -2,7 +2,7 @@
 
 import Text from '@/components/ui/text';
 import { TagContentProps } from '@/types/index';
-import Link from 'next/link';
+import { Link } from 'next-view-transitions';
 import React, { useState } from 'react';
 import formatString from 'utils/formatString';
 import { Button } from '../ui/button';

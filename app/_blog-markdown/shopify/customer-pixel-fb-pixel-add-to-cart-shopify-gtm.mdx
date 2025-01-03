@@ -1,0 +1,148 @@
+export const metadata = {
+  title:
+    '[Shopify Customer Pixel] How to Track Shopify Add to Cart Event Using Google Tag Manager and Facebook Pixel',
+  date: '2024-09-23',
+  blogId: 130,
+  keywords:
+    'Google Tag Manager, Shopify, Facebook Pixel, Ecommerce Tracking, Data Layer, Customer Pixel, Add to Cart Event, Meta Pixel, Add to Cart Tracking',
+  tags: [
+    'Google Tag Manager',
+    'Shopify',
+    'Facebook Pixel',
+    'Ecommerce Tracking',
+    'Add to Cart',
+    'Data Layer',
+    'Meta Pixel',
+  ],
+  draft: false,
+  description:
+    'Learn how to track the Shopify Add to Cart Event using Google Tag Manager and Facebook Pixel. This comprehensive guide walks you through setting up data layers, configuring event tags, and verifying pixel tracking to optimize eCommerce performance.',
+  openGraph: {
+    images: ['/static/blog/00030.png'],
+  },
+  embedId: '-_TeKwxwpaw',
+};
+
+Shopify has recently introduced a new **Customer Event** section, which replaces the traditional data layer approach for event tracking. In this guide, we will walk you through how to set up an **Add to Cart event** in Shopify using **Google Tag Manager (GTM)** and **Facebook Pixel**.
+
+Whether you're new to Shopify or want to upgrade from the older data layer methods, this step-by-step tutorial will help you configure the tracking properly.
+
+## Table of Contents
+
+1. [Introduction to Shopify Customer Event Section](#introduction-to-shopify-customer-event-section)
+2. [Step 1: Setting Up the Customer Event in Shopify](#step-1-setting-up-the-customer-event-in-shopify)
+3. [Step 2: Adding Google Tag Manager (GTM) to Shopify](#step-2-adding-google-tag-manager-gtm-to-shopify)
+4. [Step 3: Configuring the Add to Cart Event](#step-3-configuring-the-add-to-cart-event)
+5. [Step 4: Setting Up Facebook Pixel in GTM](#step-4-setting-up-facebook-pixel-in-gtm)
+6. [Step 5: Testing the Add to Cart Event](#step-5-testing-the-add-to-cart-event)
+7. [Conclusion](#conclusion)
+
+## Introduction to Shopify Customer Event Section
+
+Shopify’s **Customer Event** section provides a new way to track events like **Add to Cart**, making it easier to integrate with marketing tools like Facebook Pixel and Google Tag Manager.
+
+With this method, you can create custom events directly in Shopify, then use GTM to track and analyze these events. This modern approach simplifies how we track and manage events in Shopify, moving away from the old-fashioned data layer setup.
+
+## Step 1: Setting Up the Customer Event in Shopify
+
+To get started, follow these steps:
+
+1. **Log into Shopify**: Go to your Shopify admin dashboard and click on **Settings** (located in the bottom left corner).
+2. **Navigate to Customer Events**: Scroll down to find the **Customer Event Section**.
+3. **Add a Custom Pixel**: Click on **Add Custom Pixel** and rename it (e.g., "Meta Add to Cart Data Layer").
+4. **Configure Permissions**:
+   - Set permissions to **Not Required**.
+   - Mark **Data Sale** as **Does Not Qualify as Data Sale**.
+5. **Insert the Code Snippet**: Paste the required code snippet (you can find this in the relevant blog or tutorial).
+6. **Add GTM Container ID**: Retrieve your **Google Tag Manager Container ID** from your GTM account and paste it in the respective field.
+7. **Save Changes**: Click on **Save** to confirm the settings.
+
+<DataLayerCodeBlock fileName="add_to_cart.js" />
+
+## Step 2: Adding Google Tag Manager (GTM) to Shopify
+
+Now that you’ve set up the custom pixel, it’s time to integrate GTM:
+
+1. **Access GTM Account**: Open your Google Tag Manager account and find your **Container ID**.
+2. **Copy the Container ID**: You’ll see the ID on the top of your GTM dashboard. Copy this.
+3. **Go Back to Shopify**: Paste the container ID into the **Customer Event Section** in Shopify.
+4. **Connect the Pixel**: Click on **Connect** to link the pixel to your Shopify store backend.
+
+Once the GTM container is connected, you’ll be ready to track the **Add to Cart event** in real-time.
+
+## Step 3: Configuring the Add to Cart Event
+
+Next, we need to set up the **Add to Cart event** inside GTM:
+
+1. **Inspect the Event**:
+
+   - Go to your Shopify store and **right-click** on the page.
+   - Select **Inspect** and navigate to the **Console Tab**.
+   - Add a product to your cart and watch for the **Add to Cart event** in the data layer.
+   - You should see the event fire, which includes key details like **Item ID** and **Item Name**.
+
+2. **Create a Custom HTML Tag**:
+
+   - Inside GTM, search for the **Facebook Pixel by Facebook Archive** tag.
+   - Add this tag to your GTM workspace.
+   - This tag will be used to send the event back to Facebook.
+
+3. **Import eCommerce Parameter Generator**:
+
+   - Use the **eCommerce parameter generator** for Meta (available in the tutorial or video description).
+   - Import it into your GTM workspace.
+   - This generator helps format the data for Facebook's tracking.
+
+4. **Create Variables**:
+   - **Facebook Pixel ID**: Define a constant variable for your Facebook Pixel ID (it won’t change).
+   - **Data Layer Variable**: Create a variable to capture the eCommerce **Items Array** (this holds information about the product added to the cart).
+
+<AuthenticatedLayout>
+  <AuthenticatedLayout>
+    <Button className="p-6">
+      <a href="/static/templates/Ecommerce-Parameter-Generator.tpl" download>
+        Click here to Download the Ecommerce Parameter Generator Template
+      </a>
+    </Button>
+  </AuthenticatedLayout>
+</AuthenticatedLayout>
+
+## Step 4: Setting Up Facebook Pixel in GTM
+
+Now we’ll configure the **Facebook Pixel** to track the **Add to Cart event**:
+
+1. **Create a Trigger**:
+
+   - Go to the **Triggers** section in GTM and create a **Custom Event Trigger** for Add to Cart.
+   - Name it something like **Add to Cart Event Trigger**.
+
+2. **Add the Facebook Pixel Tag**:
+
+   - Use the previously created Facebook Pixel tag.
+   - For the event, select **Add to Cart**.
+   - Link it to the trigger you just created.
+
+3. **Page View Event**: You can also configure a **Page View Event** that fires on all pages. This doesn’t require any custom triggers.
+
+## Step 5: Testing the Add to Cart Event
+
+Now that everything is set up, it’s time to test the **Add to Cart event**.
+
+1. **Preview in GTM**:
+
+   - In GTM, click on the **Preview** mode.
+   - Go to your Shopify store and add an item to your cart.
+   - Open the **Inspect** tool and check the **Console Tab** for the Add to Cart event.
+
+2. **Test Facebook Pixel**:
+   - Open **Facebook Events Manager** and navigate to the **Test Events** section.
+   - Add your Shopify store URL and start the test.
+   - Go back to your store, add an item to the cart, and see if the **Add to Cart event** is fired in the Facebook Events Manager.
+
+## Conclusion
+
+By following this guide, you have successfully set up an **Add to Cart event** using **Shopify’s Customer Event** section, **Google Tag Manager**, and **Facebook Pixel**. This setup will allow you to track vital eCommerce interactions on your Shopify store, helping you optimize your marketing and ad targeting.
+
+If you're interested in further refining your tracking setup, check out our guide on **Remove from Cart event tracking**.
+
+This detailed guide ensures your Shopify store is equipped with proper tracking mechanisms for improved data analysis and ad performance.

@@ -1,0 +1,166 @@
+export const metadata = {
+  title:
+    '[Shopify Customer Pixel] How to Track Shopify Remove from Cart Event Using Google Tag Manager and Facebook Pixel',
+  date: '2024-09-24',
+  blogId: 132,
+  keywords:
+    'Google Tag Manager, Shopify, Facebook Pixel, Ecommerce Tracking, Data Layer, Customer Pixel, Remove from Cart Event, Meta Pixel, Remove from Cart Tracking',
+  tags: [
+    'Google Tag Manager',
+    'Shopify',
+    'Facebook Pixel',
+    'Ecommerce Tracking',
+    'Remove from Cart',
+    'Data Layer',
+    'Meta Pixel',
+  ],
+  draft: false,
+  description:
+    'Learn how to track the Shopify Remove from Cart Event using Google Tag Manager and Facebook Pixel. This detailed guide covers setting up data layers, configuring event tags, and ensuring pixel tracking for better eCommerce insights.',
+  openGraph: {
+    images: ['/static/blog/00032.png'],
+  },
+  embedId: '6XjCXUkg09Q',
+};
+
+In this post, we will walk through how to configure the **"Remove from Cart"** event for Shopify using **Google Tag Manager** (GTM) and **Facebook Pixel**. This tutorial covers the exact steps used to implement the event tracking for 40 Shopify clients over the last four months.
+
+We'll break it down into simple steps, showing how to set up the necessary customer events, how to use Google Tag Manager, and how to configure the Facebook Pixel. By the end of this guide, you’ll be able to track whenever a customer removes an item from their cart in Shopify, using data layers and pixels.
+
+## Table of Contents
+
+1. [What Are Customer Events in Shopify?](#what-are-customer-events-in-shopify)
+2. [4-Step Process Overview](#4-step-process-overview)
+3. [Step 1: Adding Data Layer Event Code to Shopify](#step-1-adding-data-layer-event-code-to-shopify)
+4. [Step 2: Configuring Google Tag Manager Container](#step-2-configuring-google-tag-manager-container)
+5. [Step 3: Configuring Facebook Pixel Tags](#step-3-configuring-facebook-pixel-tags)
+6. [Step 4: Testing and Tracking the Event](#step-4-testing-and-tracking-the-event)
+7. [Conclusion](#conclusion)
+
+## What Are Customer Events in Shopify?
+
+Shopify's **Customer Events** allow you to track customer actions (like adding or removing products from their cart) on your Shopify store. With Google Tag Manager and Facebook Pixel, you can collect data and use it for marketing and analysis, such as retargeting customers who abandoned their cart.
+
+## 4-Step Process Overview
+
+Setting up the "Remove from Cart" event involves four key steps:
+
+1. **Adding Data Layer Event Code**: We set up the event in the Shopify store.
+2. **Configuring Google Tag Manager (GTM) Container**: We connect Shopify to GTM to manage tags.
+3. **Configuring Facebook Pixel Tags**: We set up Facebook Pixel to track the event.
+4. **Testing the Event**: We ensure everything works correctly by simulating the event.
+
+## Step 1: Adding Data Layer Event Code to Shopify
+
+### What is a Data Layer Event?
+
+A **data layer event** is a way to capture specific interactions on your website. In this case, we are interested in tracking when a customer removes an item from their cart.
+
+### How to Add Data Layer Event Code in Shopify
+
+1. **Navigate to Settings**:
+
+   - In your **Shopify store admin**, go to **Settings** and scroll down to the **Customer Events** section.
+
+2. **Add a Custom Pixel**:
+
+   - In the Customer Events section, click on **"Add Custom Pixel"**. Name this pixel something relevant, like "Remove from Cart Data Layer."
+
+3. **Insert the Code Snippet**:
+   - Insert the code snippet provided in this blog post (or linked video description) into the pixel section of your Shopify store. This will trigger the "Remove from Cart" event in the data layer.
+4. **Permissions Settings**:
+   - Ensure the **Permissions** are set to "Not Required."
+   - Set **Data Sale** to "Data Sold Does Not Qualify."
+
+<DataLayerCodeBlock fileName="remove_from_cart.js" />
+
+Once this is done, every time someone removes an item from their cart, the event will trigger in your Shopify store.
+
+## Step 2: Configuring Google Tag Manager Container
+
+### What is Google Tag Manager?
+
+**Google Tag Manager (GTM)** is a tool that lets you manage and deploy marketing tags (like Facebook Pixel) on your website without modifying the code.
+
+### How to Set Up Google Tag Manager in Shopify
+
+1. **Get Your Google Tag Manager Container ID**:
+
+   - Go to [tagmanager.google.com](https://tagmanager.google.com), open your container, and copy the **Container ID**.
+
+2. **Paste Container ID in Shopify**:
+
+   - Return to Shopify and paste the **Google Tag Manager Container ID** into the appropriate section.
+
+3. **Save and Connect**:
+   - Click **Save** and then **Connect** your store to GTM. This will enable tracking on your site.
+
+## Step 3: Configuring Facebook Pixel Tags
+
+### Why Use Facebook Pixel?
+
+Facebook Pixel allows you to track customer actions and use this data for marketing campaigns on Facebook. It's particularly useful for retargeting users who abandon their shopping cart.
+
+### How to Add Facebook Pixel Tag in GTM
+
+1. **Install Facebook Pixel Template**:
+
+   - In **Google Tag Manager**, go to the **Templates** section.
+   - Search for **"Facebook Pixel"** by the Archive team and install the template.
+
+2. **Add Pixel ID**:
+
+   - Go to **Facebook Events Manager**, copy your **Facebook Pixel ID**, and paste it into a new **Constant Variable** in GTM. Name this variable "Meta Pixel ID."
+
+3. **Create Variables**:
+
+   - Create a **Data Layer Variable (DLV)** for the **e-commerce items** to capture information like product name, ID, price, and quantity.
+   - Create an **eCommerce Parameter Generator (EPG)** variable to format this data for Facebook Pixel.
+
+4. **Create a Trigger for "Remove from Cart"**:
+
+   - In GTM, create a **Custom Event Trigger** for the "Remove from Cart" event. Name the trigger "Remove from Cart."
+
+5. **Set Up Facebook Pixel Tag**:
+
+   - Go to the **Tags** section and create a new tag for the **Facebook Pixel**.
+   - Choose the **"Remove from Cart"** trigger and use the **Meta Pixel ID** variable created earlier.
+
+6. **Save Changes**:
+   - Save the tag and publish it to your Shopify store.
+
+<AuthenticatedLayout>
+  <Button className="p-6">
+    <a href="/static/templates/Ecommerce-Parameter-Generator.tpl" download>
+      Click here to Download the Ecommerce Parameter Generator Template
+    </a>
+  </Button>
+</AuthenticatedLayout>
+
+## Step 4: Testing and Tracking the Event
+
+### Testing the Setup
+
+Once the pixel and event have been set up, it’s crucial to test if everything is working:
+
+1. **Go to Your Shopify Store**:
+
+   - Add a product to your cart.
+
+2. **Inspect the Cart Page**:
+   - Open the **Developer Tools** (right-click and select **Inspect**) and go to the **Console** tab.
+3. **Trigger "Remove from Cart"**:
+
+   - Click the **Remove** button on the cart page.
+   - Check if the data layer shows that the event has been fired. You should see details like the product name, ID, and price.
+
+4. **Check Facebook Pixel**:
+   - Go to the **Test Events** section of Facebook Events Manager to see if the event has been tracked successfully.
+
+If everything works, your Shopify store is now successfully tracking the "Remove from Cart" event!
+
+## Conclusion
+
+Setting up the **"Remove from Cart"** event in Shopify using **Google Tag Manager** and **Facebook Pixel** might seem complicated at first, but with the right steps, it becomes a smooth process. Now, you'll be able to track crucial customer interactions, helping you optimize your marketing strategies and reduce cart abandonment.
+
+For further guidance, check out our related tutorials on tracking **"Add to Cart"** events and more advanced Shopify setups!

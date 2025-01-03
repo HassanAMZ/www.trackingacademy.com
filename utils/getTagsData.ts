@@ -8,7 +8,7 @@ import getFiles from './getFiles';
 export default async function getTagsData(): Promise<
   (PostMetadata & { id: string; slug: string })[]
 > {
-  const blogDirectory = path.join(process.cwd(), 'app/blog');
+  const blogDirectory = path.join(process.cwd(), 'app/_blog-markdown');
   const allPostsFiles = getFiles(blogDirectory);
 
   // remove non-mdx files
@@ -19,16 +19,14 @@ export default async function getTagsData(): Promise<
     const { content } = matter(fileContents) as GrayMatterFile<string>;
     const data = extractMetaFromStringForBlog(content);
 
-    const slug = path.dirname(fileName).split(path.sep).slice(-2).join('/');
-    const title = path
-      .basename(path.dirname(fileName))
-      .replace(/-/g, ' ')
-      .replace(/\b\w/g, (match) => match.toUpperCase());
+    const relativePath = path.relative(blogDirectory, fileName); // Get the file's relative path
+    const fileBaseName = path.basename(relativePath, '.mdx'); // Extract the file name without extension
+    const parentDirName = path.basename(path.dirname(relativePath)); // Get the parent directory name
+    const slug = `${parentDirName}/${fileBaseName}`; // Construct the correct slug
 
     return {
-      id: fileName.replace(/\.mdx$/, ''),
+      id: fileName.replace(/\.mdx$/, ''), // Unique ID
       slug,
-      title,
       ...data,
     } as PostMetadata & { id: string; slug: string };
   });

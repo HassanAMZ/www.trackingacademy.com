@@ -2,8 +2,8 @@
 
 import Text from '@/components/ui/text';
 import { SingleBlogCardProps } from '@/types/index';
+import { Link } from 'next-view-transitions';
 import Image from 'next/image';
-import Link from 'next/link';
 import React, { useState } from 'react';
 
 const BlogCard: React.FC<SingleBlogCardProps> = ({

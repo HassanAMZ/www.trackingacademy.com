@@ -2,7 +2,7 @@ import { Button } from '@/components/ui/button';
 import Container from '@/components/ui/container';
 import Text from '@/components/ui/text';
 import { ArrowRight, CheckCircle } from 'lucide-react';
-import Link from 'next/link';
+import { Link } from 'next-view-transitions';
 import React from 'react';
 
 interface DetailedCTAProps {
