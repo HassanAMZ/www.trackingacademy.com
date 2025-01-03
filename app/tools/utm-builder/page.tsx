@@ -3,6 +3,7 @@
 import Navbar from '@/components/global/navbar';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import Container from '@/components/ui/container';
 import { toast } from '@/components/ui/hooks/use-toast';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
@@ -28,6 +29,7 @@ import {
 } from 'lucide-react';
 import { QRCodeSVG } from 'qrcode.react';
 import React, { useEffect, useState } from 'react';
+import { z } from 'zod';
 interface UTMParams {
   campaignID: string;
   source: string;
@@ -154,11 +156,28 @@ const UTMBuilder: React.FC = () => {
   const [utmParams, setUtmParams] = useState<UTMParams>(platformConfigs['manual'].defaults);
   const [customFields, setCustomFields] = useState<CustomField[]>([]);
   const [finalUrl, setFinalUrl] = useState<string>('');
+  const [isValidUrl, setIsValidUrl] = useState(false);
   const [errors, setErrors] = useState({
     url: '',
     source: '',
     medium: '',
   });
+
+  const urlSchema = z.string().url();
+  const handleWebsiteUrlChange = (value: string): void => {
+    setWebsiteUrl(value);
+    if (!value) {
+      setErrors((prev) => ({ ...prev, url: 'Website URL is required' }));
+      setIsValidUrl(false);
+    } else if (!validateUrl(value)) {
+      setErrors((prev) => ({ ...prev, url: 'Invalid URL format' }));
+      setIsValidUrl(false);
+    } else {
+      setErrors((prev) => ({ ...prev, url: '' }));
+      setIsValidUrl(true);
+    }
+  };
+
   const handlePlatformChange = (platform: string): void => {
     setSelectedPlatform(platform);
     if (platformConfigs[platform]) {
@@ -286,7 +305,7 @@ const UTMBuilder: React.FC = () => {
 
   const validateUrl = (url: string): boolean => {
     try {
-      new URL(url);
+      urlSchema.parse(url);
       return true;
     } catch {
       return false;
@@ -313,7 +332,7 @@ const UTMBuilder: React.FC = () => {
       selectedPlatform === 'manual'
         ? value.replace(/[{}]/g, '') // Remove template syntax for manual mode
         : value;
-
+    validateForm();
     setUtmParams((prev) => ({
       ...prev,
       [key]: newValue,
@@ -351,8 +370,8 @@ const UTMBuilder: React.FC = () => {
       <button
         key={key}
         onClick={() => handlePlatformChange(key)}
-        className={`w-full flex items-center gap-2 text-left px-4 py-2 rounded transition-colors
-          ${selectedPlatform === key ? 'bg-primary/10 text-primary' : 'hover:bg-primary/5'}`}
+        className={`w-full flex items-center gap-2 text-left px-4 py-2 rounded-lg transition-colors
+          ${selectedPlatform === key ? 'bg-primary/10' : 'hover:bg-primary/5'}`}
       >
         {Icon && <Icon size={18} />}
         {config.name}
@@ -386,7 +405,7 @@ const UTMBuilder: React.FC = () => {
   };
 
   return (
-    <div className="flex h-screen w-screen">
+    <Container className="flex h-screen w-screen !mx-0 !max-w-full !p-0">
       {/* Sidebar */}
       <div className="hidden md:flex w-64 border-r p-4 flex-col">
         <h2 className="text-xl font-bold mb-4 flex items-center gap-2">
@@ -402,7 +421,7 @@ const UTMBuilder: React.FC = () => {
       <div className="flex-1 overflow-y-auto">
         <Navbar className="!mx-0 w-full max-w-7xl" />
         <div className="p-4">
-          <div className="grid md:grid-cols-2 gap-6">
+          <div className="grid md:grid-cols-[2fr,1fr] gap-6">
             {/* Form */}
             <Card>
               <CardHeader>
@@ -435,7 +454,7 @@ const UTMBuilder: React.FC = () => {
                   <Input
                     placeholder="https://example.com/page"
                     value={websiteUrl}
-                    onChange={(e) => setWebsiteUrl(e.target.value)}
+                    onChange={(e) => handleWebsiteUrlChange(e.target.value)}
                     className={errors.url ? 'border-destructive' : ''}
                   />
                   {errors.url && <p className="text-sm text-destructive mt-1">{errors.url}</p>}
@@ -443,61 +462,63 @@ const UTMBuilder: React.FC = () => {
                     Enter the full URL of the page you want to track
                   </p>
                 </div>
-
-                {/* UTM Parameters */}
-                {(Object.keys(utmParams) as Array<keyof UTMParams>).map((key) => (
-                  <div key={key}>
-                    <Label>UTM {key}</Label>
-                    <Input
-                      placeholder={`e.g., ${getPlaceholderForField(key)}`}
-                      value={utmParams[key]}
-                      onChange={(e) => handleUtmParamChange(key, e.target.value)}
-                      className={errors[key as keyof typeof errors] ? 'border-destructive' : ''}
-                    />
-                    {errors[key as keyof typeof errors] && (
-                      <p className="text-sm text-destructive mt-1">
-                        {errors[key as keyof typeof errors]}
+                <div className="grid grid-cols-2 gap-4">
+                  {/* UTM Parameters */}
+                  {(Object.keys(utmParams) as Array<keyof UTMParams>).map((key) => (
+                    <div key={key}>
+                      <Label>UTM {key}</Label>
+                      <Input
+                        placeholder={`e.g., ${getPlaceholderForField(key)}`}
+                        value={utmParams[key]}
+                        onChange={(e) => handleUtmParamChange(key, e.target.value)}
+                        className={errors[key as keyof typeof errors] ? 'border-destructive' : ''}
+                      />
+                      {errors[key as keyof typeof errors] && (
+                        <p className="text-sm text-destructive mt-1">
+                          {errors[key as keyof typeof errors]}
+                        </p>
+                      )}
+                      <p className="text-sm text-muted-foreground mt-1">
+                        {getHelperTextForField(key)}
                       </p>
-                    )}
-                    <p className="text-sm text-muted-foreground mt-1">
-                      {getHelperTextForField(key)}
-                    </p>
-                  </div>
-                ))}
-
-                {/* Custom Parameters */}
-                <div className="space-y-4">
-                  <div className="flex items-center justify-between">
-                    <Label>Custom Parameters</Label>
-                    <Button onClick={handleCustomFieldAdd} variant="outline" size="sm">
-                      <Plus size={16} className="mr-2" /> Add Parameter
-                    </Button>
-                  </div>
-                  {customFields.map((field, index) => (
-                    <div key={index} className="flex gap-2">
-                      <div className="flex-1">
-                        <Input
-                          placeholder="Parameter name"
-                          value={field.name}
-                          onChange={(e) => handleCustomFieldChange(index, 'name', e.target.value)}
-                        />
-                      </div>
-                      <div className="flex-1">
-                        <Input
-                          placeholder="Parameter value"
-                          value={field.value}
-                          onChange={(e) => handleCustomFieldChange(index, 'value', e.target.value)}
-                        />
-                      </div>
-                      <Button
-                        variant="outline"
-                        size="icon"
-                        onClick={() => handleCustomFieldRemove(index)}
-                      >
-                        <X size={16} />
-                      </Button>
                     </div>
                   ))}
+                  {/* Custom Parameters */}
+                  <div className="space-y-4 col-span-2">
+                    <div className="flex items-center justify-between">
+                      <Label>Custom Parameters</Label>
+                      <Button onClick={handleCustomFieldAdd} variant="outline" size="sm">
+                        <Plus size={16} className="mr-2" /> Add Parameter
+                      </Button>
+                    </div>
+                    {customFields.map((field, index) => (
+                      <div key={index} className="flex gap-2">
+                        <div className="flex-1">
+                          <Input
+                            placeholder="Parameter name"
+                            value={field.name}
+                            onChange={(e) => handleCustomFieldChange(index, 'name', e.target.value)}
+                          />
+                        </div>
+                        <div className="flex-1">
+                          <Input
+                            placeholder="Parameter value"
+                            value={field.value}
+                            onChange={(e) =>
+                              handleCustomFieldChange(index, 'value', e.target.value)
+                            }
+                          />
+                        </div>
+                        <Button
+                          variant="outline"
+                          size="icon"
+                          onClick={() => handleCustomFieldRemove(index)}
+                        >
+                          <X size={16} />
+                        </Button>
+                      </div>
+                    ))}
+                  </div>
                 </div>
               </CardContent>
             </Card>
@@ -509,7 +530,7 @@ const UTMBuilder: React.FC = () => {
                   <CardTitle>Generated URL</CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <div className="p-4 bg-muted rounded-lg break-all relative">
+                  <div className="p-4 bg-muted rounded-lg break-all relative text-sm">
                     {finalUrl || 'Enter a website URL to generate'}
                     {finalUrl && (
                       <Button
@@ -551,7 +572,7 @@ const UTMBuilder: React.FC = () => {
           </div>
         </div>
       </div>
-    </div>
+    </Container>
   );
 };
 
