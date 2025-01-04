@@ -29,11 +29,12 @@ import {
 import { QRCodeSVG } from 'qrcode.react';
 import React, { useEffect, useState } from 'react';
 import { z } from 'zod';
+
 interface UTMParams {
   campaignID: string;
   source: string;
   medium: string;
-  name: string;
+  campaign: string;
   content: string;
   term: string;
 }
@@ -69,7 +70,7 @@ const platformConfigs: PlatformConfigs = {
       campaignID: '',
       source: '',
       medium: '',
-      name: '',
+      campaign: '',
       content: '',
       term: '',
     },
@@ -80,7 +81,7 @@ const platformConfigs: PlatformConfigs = {
       campaignID: '{campaignid}',
       source: 'google',
       medium: 'cpc',
-      name: '{campaignname}',
+      campaign: '{campaign}',
       term: '{keyword}',
       content: '{creative}',
     },
@@ -91,7 +92,7 @@ const platformConfigs: PlatformConfigs = {
       campaignID: '{{ad.id}}',
       source: 'facebook',
       medium: 'paidsocial',
-      name: '{{campaign.name}}',
+      campaign: '{{campaign.name}}',
       content: '{{adset.name}}',
       term: '{{ad.name}}',
     },
@@ -102,7 +103,7 @@ const platformConfigs: PlatformConfigs = {
       campaignID: '__AID__',
       source: 'tiktok',
       medium: 'paidsocial',
-      name: '__CAMPAIGN_NAME__',
+      campaign: '__CAMPAIGN_NAME__',
       content: '__CID_NAME__',
       term: '__AID_NAME__',
     },
@@ -113,7 +114,7 @@ const platformConfigs: PlatformConfigs = {
       campaignID: '{{ad.id}}',
       source: 'instagram',
       medium: 'paidsocial',
-      name: '{{campaign.name}}',
+      campaign: '{{campaign.name}}',
       content: '{{adset.name}}',
       term: '{{ad.name}}',
     },
@@ -124,7 +125,7 @@ const platformConfigs: PlatformConfigs = {
       campaignID: '',
       source: 'email',
       medium: 'email',
-      name: '',
+      campaign: '',
       content: '',
       term: '',
     },
@@ -135,7 +136,7 @@ const platformConfigs: PlatformConfigs = {
       campaignID: '',
       source: 'affiliate',
       medium: 'referral',
-      name: '',
+      campaign: '',
       content: '',
       term: '',
     },
@@ -384,7 +385,7 @@ const UTMBuilder: React.FC = () => {
       campaignID: 'summer-sale-2024',
       source: 'facebook',
       medium: 'cpc',
-      name: 'spring-collection',
+      campaign: 'spring-collection',
       content: 'banner-ad',
       term: 'summer-fashion',
     };
@@ -396,7 +397,7 @@ const UTMBuilder: React.FC = () => {
       campaignID: 'Unique identifier for your campaign',
       source: 'The referrer (e.g., google, newsletter)',
       medium: 'Marketing medium (e.g., cpc, banner, email)',
-      name: 'Product, promo code, or slogan',
+      campaign: 'Product, promo code, or slogan',
       content: 'Use to differentiate ads',
       term: 'Identify paid search keywords',
     };
