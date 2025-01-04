@@ -1,15 +1,16 @@
-import BlogContainer from '@/components/blog/blog-container';
-import CategoryContainer from '@/components/blog/category-container';
-import getBlogsByCategory from '@/utils/getBlogsByCategory';
-import getBlogsByCategoryStaticParams from '@/utils/getBlogsByCategoryStaticParams';
+import BlogContainer from "@/components/blog/blog-container";
+import CategoryContainer from "@/components/blog/category-container";
+import getBlogsByCategory from "@/utils/getBlogsByCategory";
+import getBlogsByCategoryStaticParams from "@/utils/getBlogsByCategoryStaticParams";
 
-export default async function Page({ params }: { params: Promise<{ blog: string[] }> }) {
+export default async function Page({
+  params,
+}: {
+  params: Promise<{ blog: string[] }>;
+}) {
   const paramsArray = await params;
   const blogSlug = paramsArray.blog;
   const blogData = await getBlogsByCategory(blogSlug);
-
-  const pathess = getBlogsByCategoryStaticParams();
-  console.log(pathess);
 
   // If we have both category and slug, show the blog post
   if (blogSlug.length === 2) {

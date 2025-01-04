@@ -1,41 +1,28 @@
 export const metadata = {
   title:
-    '[Shopify Customer Pixel] How to Configure GA4 Add Shipping Info Event Using Google Tag Manager',
-  date: '2024-09-07',
+    "[Shopify Customer Pixel] How to Configure GA4 Add Shipping Info Event Using Google Tag Manager",
+  date: "2024-09-07",
   blogId: 124,
   keywords:
-    'Google Tag Manager, Shopify, Google Analytics 4, Add Shipping Info Event, Ecommerce Tracking, Data Layer, Conversion Tracking',
+    "Google Tag Manager, Shopify, Google Analytics 4, Add Shipping Info Event, Ecommerce Tracking, Data Layer, Conversion Tracking",
   tags: [
-    'Google Tag Manager',
-    'Shopify',
-    'GA4',
-    'Ecommerce Tracking',
-    'Add Shipping Info Event',
-    'Customer Pixel',
+    "Google Tag Manager",
+    "Shopify",
+    "GA4",
+    "Ecommerce Tracking",
+    "Add Shipping Info Event",
+    "Customer Pixel",
   ],
   draft: false,
   description:
-    'Learn how to configure the GA4 Add Shipping Info event on your Shopify store using Google Tag Manager. This comprehensive guide walks you through setting up the data layer, creating event tags, and verifying tracking for enhanced ecommerce analytics.',
+    "Learn how to configure the GA4 Add Shipping Info event on your Shopify store using Google Tag Manager. This comprehensive guide walks you through setting up the data layer, creating event tags, and verifying tracking for enhanced ecommerce analytics.",
   openGraph: {
-    images: ['/static/blog/00024.png'],
+    images: ["/static/blog/00024.png"],
   },
-  embedId: 'oEqj6CtREhM',
+  embedId: "oEqj6CtREhM",
 };
 
 Setting up accurate event tracking on your Shopify store is essential for understanding customer behavior and optimizing your online store's performance. In this guide, we'll walk you through the process of configuring the "Add Shipping Info" event using Shopify's Customer Pixel and Google Tag Manager. This setup will allow you to track when customers enter their shipping information during checkout.
-
-### Table of Contents
-
-1. [Ensuring Customer Pixel is Firing on Shopify](#ensuring-customer-pixel-is-firing-on-shopify)
-2. [Adding a New Customer Pixel](#adding-a-new-customer-pixel)
-3. [Configuring Permissions and Adding Code Snippet](#configuring-permissions-and-adding-code-snippet)
-4. [Updating Google Tag Manager Container ID](#updating-google-tag-manager-container-id)
-5. [Connecting Web Pixel with Shopify Store](#connecting-web-pixel-with-shopify-store)
-6. [Testing the Event on the Checkout Page](#testing-the-event-on-the-checkout-page)
-7. [Configuring Page View Event in Google Tag Manager](#configuring-page-view-event-in-google-tag-manager)
-8. [Setting Up Add Shipping Info Event Trigger](#setting-up-add-shipping-info-event-trigger)
-9. [Publishing Changes and Testing Events](#publishing-changes-and-testing-events)
-10. [Verifying Event Firing in Shopify and Google Analytics](#verifying-event-firing-in-shopify-and-google-analytics)
 
 ### 1. Ensuring Customer Pixel is Firing on Shopify
 
