@@ -1,12 +1,16 @@
-"use client";
-
-import Text from "@/components/ui/text";
+import {
+  Card,
+  CardContent,
+  CardFooter,
+  CardHeader,
+} from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { CalendarIcon } from "lucide-react";
 import { SingleBlogCardProps } from "@/types/index";
-import { Link } from "next-view-transitions";
 import Image from "next/image";
-import React from "react";
+import { Link } from "next-view-transitions";
 
-const BlogCard: React.FC<SingleBlogCardProps> = ({
+const SingleBlogCard: React.FC<SingleBlogCardProps> = ({
   post,
   type,
   isMain = false,
@@ -16,37 +20,48 @@ const BlogCard: React.FC<SingleBlogCardProps> = ({
 
   return (
     <Link href={`/${type}/${post.slug}`} className={`block ${className}`}>
-      <article className="group cursor-pointer transition-all hover:opacity-90">
-        <div className="overflow-hidden rounded-lg">
+      <Card
+        className={`overflow-hidden transition-all hover:shadow-lg ${isMain ? "lg:flex" : ""}`}
+      >
+        <div className={`relative ${isMain ? "lg:w-2/3" : "aspect-video"}`}>
           <Image
             src={post.openGraph.images[0]}
             alt={post.title}
-            width={1920}
             height={1080}
-            className="rounded-lg transition-transform duration-300 group-hover:scale-105"
+            width={1920}
+            className="transition-transform duration-300 hover:scale-y-105"
           />
         </div>
-
-        <Text
-          as="h4"
-          variant="headingLg"
-          className="line-clamp-2 pt-2 transition-colors group-hover:text-primary"
-        >
-          {post.title}
-        </Text>
-
-        <Text as="p" variant="bodyMd" className="line-clamp-2">
-          {post.description}
-        </Text>
-
-        <div className="flex flex-row items-center justify-between whitespace-nowrap pt-2 text-xs">
-          <Text as="p" variant="bodyMd">
+        <div className={isMain ? "lg:w-1/3" : ""}>
+          <CardHeader>
+            <h3
+              className={`line-clamp-2 font-bold ${isMain ? "text-2xl" : "text-lg"}`}
+            >
+              {post.title}
+            </h3>
+          </CardHeader>
+          <CardContent>
+            <p
+              className={`line-clamp-3 text-muted-foreground ${isMain ? "mb-4" : "mb-2"}`}
+            >
+              {post.description}
+            </p>
+            <div className="flex flex-wrap gap-2">
+              {post.tags.slice(0, 3).map((tag, index) => (
+                <Badge key={index} variant="secondary">
+                  {tag}
+                </Badge>
+              ))}
+            </div>
+          </CardContent>
+          <CardFooter className="text-sm text-muted-foreground">
+            <CalendarIcon className="mr-2 h-4 w-4" />
             {post.date}
-          </Text>
+          </CardFooter>
         </div>
-      </article>
+      </Card>
     </Link>
   );
 };
 
-export default BlogCard;
+export default SingleBlogCard;

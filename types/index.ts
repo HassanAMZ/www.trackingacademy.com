@@ -69,6 +69,7 @@ export interface CourseSearchProps {
 export interface BlogContentProps {
   data: PostMetadata[];
   rawData?: PostMetadata[];
+  featuredPostId?: number;
   type: string;
 }
 export interface CourseContentProps {
