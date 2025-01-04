@@ -34,14 +34,12 @@ const NAV_ITEMS: Record<string, NavItem[]> = {
       description:
         'Start building your UTMs for Google Ads, Facebook Ads, TikTok, or custom, all at one place',
     },
+    {
+      title: 'UTM Validator',
+      href: '/tools/utm-validator',
+      description: 'Validate and analyze your UTM parameters to ensure proper tracking setup',
+    },
   ],
-  // careers: [
-  //   {
-  //     title: 'Upwork Business Developer',
-  //     href: '/career/upwork-business-developer',
-  //     description: 'Join us as a Business Developer on Upwork to help grow our business.',
-  //   },
-  // ],
   blogs: [
     {
       title: 'All Blog Posts',
@@ -58,11 +56,6 @@ const NAV_ITEMS: Record<string, NavItem[]> = {
       href: '/tags/shopify',
       description: 'Guides and tips for managing and growing your Shopify store.',
     },
-    // {
-    //   title: 'WooCommerce',
-    //   href: '/tags/woocommerce',
-    //   description: 'Explore our WooCommerce tutorials and best practices.',
-    // },
   ],
 };
 
