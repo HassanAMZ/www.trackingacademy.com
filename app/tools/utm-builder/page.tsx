@@ -31,7 +31,7 @@ import React, { useEffect, useState } from 'react';
 import { z } from 'zod';
 
 interface UTMParams {
-  campaignID: string;
+  id: string;
   source: string;
   medium: string;
   campaign: string;
@@ -67,7 +67,7 @@ const platformConfigs: PlatformConfigs = {
   manual: {
     name: 'Manual Configuration',
     defaults: {
-      campaignID: '',
+      id: '',
       source: '',
       medium: '',
       campaign: '',
@@ -78,7 +78,7 @@ const platformConfigs: PlatformConfigs = {
   google: {
     name: 'Google Ads',
     defaults: {
-      campaignID: '{campaignid}',
+      id: '{campaignid}',
       source: 'google',
       medium: 'cpc',
       campaign: '{campaign}',
@@ -89,7 +89,7 @@ const platformConfigs: PlatformConfigs = {
   facebook: {
     name: 'Facebook Ads',
     defaults: {
-      campaignID: '{{ad.id}}',
+      id: '{{ad.id}}',
       source: 'facebook',
       medium: 'paidsocial',
       campaign: '{{campaign.name}}',
@@ -100,7 +100,7 @@ const platformConfigs: PlatformConfigs = {
   tiktok: {
     name: 'TikTok Ads',
     defaults: {
-      campaignID: '__AID__',
+      id: '__AID__',
       source: 'tiktok',
       medium: 'paidsocial',
       campaign: '__CAMPAIGN_NAME__',
@@ -111,7 +111,7 @@ const platformConfigs: PlatformConfigs = {
   instagram: {
     name: 'Instagram Ads',
     defaults: {
-      campaignID: '{{ad.id}}',
+      id: '{{ad.id}}',
       source: 'instagram',
       medium: 'paidsocial',
       campaign: '{{campaign.name}}',
@@ -122,7 +122,7 @@ const platformConfigs: PlatformConfigs = {
   email: {
     name: 'Email Campaign',
     defaults: {
-      campaignID: '',
+      id: '',
       source: 'email',
       medium: 'email',
       campaign: '',
@@ -133,7 +133,7 @@ const platformConfigs: PlatformConfigs = {
   affiliate: {
     name: 'Affiliate',
     defaults: {
-      campaignID: '',
+      id: '',
       source: 'affiliate',
       medium: 'referral',
       campaign: '',
@@ -382,7 +382,7 @@ const UTMBuilder: React.FC = () => {
   // Helper functions
   const getPlaceholderForField = (key: string): string => {
     const placeholders = {
-      campaignID: 'summer-sale-2024',
+      id: 'summer-sale-2024',
       source: 'facebook',
       medium: 'cpc',
       campaign: 'spring-collection',
@@ -394,7 +394,7 @@ const UTMBuilder: React.FC = () => {
 
   const getHelperTextForField = (key: string): string => {
     const helperText = {
-      campaignID: 'Unique identifier for your campaign',
+      id: 'Unique identifier for your campaign',
       source: 'The referrer (e.g., google, newsletter)',
       medium: 'Marketing medium (e.g., cpc, banner, email)',
       campaign: 'Product, promo code, or slogan',
