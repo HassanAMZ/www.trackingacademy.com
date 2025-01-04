@@ -1,11 +1,15 @@
 'use client';
 
+import ContactMe from '@/components/blog/contact-me';
+import Navbar from '@/components/global/navbar';
+import YoutubeEmbed from '@/components/global/youtube-embed';
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import Container from '@/components/ui/container';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { AlertCircle, CheckCircle2, XCircle } from 'lucide-react';
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 const UTMValidator = () => {
   const [url, setUrl] = useState('');
@@ -26,7 +30,6 @@ const UTMValidator = () => {
       const urlObj = new URL(inputUrl);
       const params = new URLSearchParams(urlObj.search);
 
-      // Separate UTM and other parameters
       const utmParams: Record<string, string> = {};
       const otherParams: Record<string, string> = {};
 
@@ -38,10 +41,7 @@ const UTMValidator = () => {
         }
       });
 
-      setParsedParams({
-        utmParams,
-        otherParams,
-      });
+      setParsedParams({ utmParams, otherParams });
 
       setValidationResults({
         isHttps: urlObj.protocol === 'https:',
@@ -58,10 +58,7 @@ const UTMValidator = () => {
         urlLength: inputUrl.length,
         isUrlTooLong: inputUrl.length > 2048,
       });
-      setParsedParams({
-        utmParams: {},
-        otherParams: {},
-      });
+      setParsedParams({ utmParams: {}, otherParams: {} });
     }
   };
 
@@ -94,106 +91,119 @@ const UTMValidator = () => {
   );
 
   const ParameterDisplay = ({ param, value }: { param: string; value: string }) => (
-    <div className="border rounded-lg p-3 mb-2">
+    <div className="grid grid-cols-3 gap-2 py-2 border-b last:border-b-0">
       <div className="font-medium">{param}</div>
-      <div className="grid grid-cols-2 gap-2 mt-2">
-        <div className="text-sm">
-          <Label className="text-muted-foreground">Decoded</Label>
-          <div className="mt-1 break-all">{decodeURIComponent(value)}</div>
-        </div>
-        <div className="text-sm">
-          <Label className="text-muted-foreground">Encoded</Label>
-          <div className="mt-1 break-all">{value}</div>
-        </div>
-      </div>
+      <div className="text-sm break-all">{decodeURIComponent(value)}</div>
+      <div className="text-sm text-muted-foreground break-all">{value}</div>
     </div>
   );
 
   return (
-    <div className="space-y-6">
-      <Card>
-        <CardHeader>
-          <CardTitle>UTM URL Validator</CardTitle>
-        </CardHeader>
-        <CardContent>
-          <div className="space-y-4">
-            <div>
-              <Label>Enter URL to validate</Label>
-              <Input
-                placeholder="https://example.com?utm_source=..."
-                value={url}
-                onChange={(e) => setUrl(e.target.value)}
-              />
-            </div>
-
-            {url && (
-              <Alert variant={validationResults.isValidUrl ? 'default' : 'destructive'}>
-                <AlertCircle className="h-4 w-4" />
-                <AlertTitle>URL Validation Results</AlertTitle>
-                <AlertDescription>
-                  <div className="mt-2 space-y-2">
-                    <ValidationItem
-                      check={validationResults.isValidUrl}
-                      title="Valid URL Format"
-                      description="URL structure is properly formatted"
-                    />
-                    <ValidationItem
-                      check={validationResults.isHttps}
-                      title="HTTPS Protocol"
-                      description="URL uses secure HTTPS protocol"
-                    />
-                    <ValidationItem
-                      check={validationResults.hasUtmParams}
-                      title="UTM Parameters"
-                      description="URL contains UTM tracking parameters"
-                    />
-                    <ValidationItem
-                      check={!validationResults.isUrlTooLong}
-                      title="URL Length"
-                      description={`${validationResults.urlLength} characters (max 2048)`}
+    <React.Fragment>
+      <Navbar />
+      <Container className="">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+          <div className="lg:col-span-2 space-y-6">
+            <Card>
+              <CardHeader>
+                <CardTitle>UTM URL Validator</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <div className="space-y-4">
+                  <div>
+                    <Label htmlFor="url-input">Enter URL to validate</Label>
+                    <Input
+                      id="url-input"
+                      placeholder="https://example.com?utm_source=..."
+                      value={url}
+                      onChange={(e) => setUrl(e.target.value)}
                     />
                   </div>
-                </AlertDescription>
-              </Alert>
+
+                  {url && (
+                    <Alert variant={validationResults.isValidUrl ? 'default' : 'destructive'}>
+                      <AlertCircle className="h-4 w-4" />
+                      <AlertTitle>URL Validation Results</AlertTitle>
+                      <AlertDescription>
+                        <div className="mt-2 space-y-2">
+                          <ValidationItem
+                            check={validationResults.isValidUrl}
+                            title="Valid URL Format"
+                            description="URL structure is properly formatted"
+                          />
+                          <ValidationItem
+                            check={validationResults.isHttps}
+                            title="HTTPS Protocol"
+                            description="URL uses secure HTTPS protocol"
+                          />
+                          <ValidationItem
+                            check={validationResults.hasUtmParams}
+                            title="UTM Parameters"
+                            description="URL contains UTM tracking parameters"
+                          />
+                          <ValidationItem
+                            check={!validationResults.isUrlTooLong}
+                            title="URL Length"
+                            description={`${validationResults.urlLength} characters (max 2048)`}
+                          />
+                        </div>
+                      </AlertDescription>
+                    </Alert>
+                  )}
+                </div>
+              </CardContent>
+            </Card>
+
+            {validationResults.isValidUrl && (
+              <Card>
+                <CardHeader>
+                  <CardTitle>URL Parameters</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <div className="space-y-4">
+                    {Object.keys(parsedParams.utmParams).length > 0 && (
+                      <div>
+                        <h3 className="font-semibold mb-2">UTM Parameters</h3>
+                        <div className="space-y-2">
+                          {Object.entries(parsedParams.utmParams).map(([param, value]) => (
+                            <ParameterDisplay key={param} param={param} value={value} />
+                          ))}
+                        </div>
+                      </div>
+                    )}
+
+                    {Object.keys(parsedParams.otherParams).length > 0 && (
+                      <div>
+                        <h3 className="font-semibold mb-2">Other Parameters</h3>
+                        <div className="space-y-2">
+                          {Object.entries(parsedParams.otherParams).map(([param, value]) => (
+                            <ParameterDisplay key={param} param={param} value={value} />
+                          ))}
+                        </div>
+                      </div>
+                    )}
+                  </div>
+                </CardContent>
+              </Card>
             )}
           </div>
-        </CardContent>
-      </Card>
 
-      {validationResults.isValidUrl && (
-        <>
-          {Object.keys(parsedParams.utmParams).length > 0 && (
+          <div className="space-y-6">
             <Card>
               <CardHeader>
-                <CardTitle>UTM Parameters</CardTitle>
+                <CardTitle>How to Use UTM Parameters</CardTitle>
               </CardHeader>
               <CardContent>
-                <div className="space-y-2">
-                  {Object.entries(parsedParams.utmParams).map(([param, value]) => (
-                    <ParameterDisplay key={param} param={param} value={value} />
-                  ))}
-                </div>
+                <YoutubeEmbed embedId="xZMZGh6kMUc" />
               </CardContent>
             </Card>
-          )}
-
-          {Object.keys(parsedParams.otherParams).length > 0 && (
-            <Card>
-              <CardHeader>
-                <CardTitle>Other Parameters</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <div className="space-y-2">
-                  {Object.entries(parsedParams.otherParams).map(([param, value]) => (
-                    <ParameterDisplay key={param} param={param} value={value} />
-                  ))}
-                </div>
-              </CardContent>
-            </Card>
-          )}
-        </>
-      )}
-    </div>
+            <div className="sticky top-8">
+              <ContactMe />
+            </div>
+          </div>
+        </div>
+      </Container>
+    </React.Fragment>
   );
 };
 
