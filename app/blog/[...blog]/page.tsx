@@ -8,6 +8,9 @@ export default async function Page({ params }: { params: Promise<{ blog: string[
   const blogSlug = paramsArray.blog;
   const blogData = await getBlogsByCategory(blogSlug);
 
+  const pathess = getBlogsByCategoryStaticParams();
+  console.log(pathess);
+
   // If we have both category and slug, show the blog post
   if (blogSlug.length === 2) {
     const [category, slug] = (await params).blog;
@@ -25,7 +28,6 @@ export default async function Page({ params }: { params: Promise<{ blog: string[
 
 export async function generateStaticParams() {
   const blogs = getBlogsByCategoryStaticParams();
+
   return blogs;
 }
-
-export const dynamicParams = false;
