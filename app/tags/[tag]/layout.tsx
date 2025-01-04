@@ -21,6 +21,5 @@ export async function generateStaticParams(): Promise<{ tag: string }[]> {
 }
 
 export default async function Layout({ children }: { children: ReactNode }) {
-  const tags = await getTags();
   return <React.Fragment>{children}</React.Fragment>;
 }

@@ -4,18 +4,19 @@ import getBlogsByCategory from '@/utils/getBlogsByCategory';
 import getBlogsByCategoryStaticParams from '@/utils/getBlogsByCategoryStaticParams';
 
 export default async function Page({ params }: { params: Promise<{ blog: string[] }> }) {
-  const blogs = await getBlogsByCategory((await params).blog);
+  const paramsArray = await params;
+  const blogSlug = paramsArray.blog;
+  const blogData = await getBlogsByCategory(blogSlug);
 
   // If we have both category and slug, show the blog post
-  if ((await params).blog.length === 2) {
-    console.log('im rendered');
+  if (blogSlug.length === 2) {
     const [category, slug] = (await params).blog;
     return <BlogContainer slug={slug} category={category} />;
   }
 
   // If we only have category, show the category listing
-  if ((await params).blog.length === 1) {
-    return <CategoryContainer data={blogs} type="blog" />;
+  if (blogSlug.length === 1) {
+    return <CategoryContainer data={blogData} type="blog" />;
   }
 
   // Handle invalid routes
@@ -27,4 +28,4 @@ export async function generateStaticParams() {
   return blogs;
 }
 
-export const dynamicParams = true;
+export const dynamicParams = false;
