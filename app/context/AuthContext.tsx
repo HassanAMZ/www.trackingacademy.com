@@ -158,7 +158,14 @@ export const AuthContextProvider = ({ children }: AuthContextProviderProps) => {
 
   return (
     <AuthContext.Provider
-      value={{ user, googleSignIn, facebookSignIn, emailSignIn, emailSignUp, logOut }}
+      value={{
+        user,
+        googleSignIn,
+        facebookSignIn,
+        emailSignIn,
+        emailSignUp,
+        logOut,
+      }}
     >
       {children}
     </AuthContext.Provider>

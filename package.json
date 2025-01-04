@@ -113,7 +113,7 @@
     "eslint-plugin-react": "^7.37.2",
     "npm-check-updates": "^17.0.6",
     "postcss": "^8.4.41",
-    "prettier": "^3.4.1",
+    "prettier": "^3.4.2",
     "prettier-plugin-organize-imports": "^4.1.0",
     "prettier-plugin-tailwindcss": "^0.6.9",
     "sass": "^1.77.8",
@@ -124,5 +124,10 @@
     "@types/react": "npm:types-react@19.0.0-rc.1",
     "@types/react-dom": "npm:types-react-dom@19.0.0-rc.1",
     "react-is": "^19.0.0-rc-69d4b800-20241021"
+  },
+  "prettier": {
+    "plugins": [
+      "prettier-plugin-tailwindcss"
+    ]
   }
 }

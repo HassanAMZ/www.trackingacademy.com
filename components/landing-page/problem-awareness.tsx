@@ -59,7 +59,7 @@ const ProblemAwareness: React.FC<ProblemAwarenessProps> = ({
             {secondaryListItems && secondaryListItems.length > 0 && (
               <div className="mb-12 grid gap-8 md:grid-cols-3">
                 {secondaryListItems.map((item, index) => (
-                  <Card key={index} className="p-6 bg-muted">
+                  <Card key={index} className="bg-muted p-6">
                     <Text as="p" className="text-muted-foreground">
                       {item}
                     </Text>

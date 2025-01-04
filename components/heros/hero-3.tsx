@@ -15,9 +15,9 @@ const EnhancedHero = () => {
   }
 
   return (
-    <section className="bg-gradient-to-b from-primary/5 to-background ">
+    <section className="bg-gradient-to-b from-primary/5 to-background">
       <Container className="">
-        <section className="py-24  place-content-center flex flex-col gap-8 pb-12 items-center text-center justify-center lg:pb-24">
+        <section className="flex flex-col place-content-center items-center justify-center gap-8 py-24 pb-12 text-center lg:pb-24">
           <Badge variant="outline" className="w-fit">
             Revolutionary Ad Tracking Post-iOS 17 World
           </Badge>
@@ -29,7 +29,7 @@ const EnhancedHero = () => {
             guesswork—just results. Maximize your ROI effortlessly.
           </Text>
 
-          <div className="flex items-center space-x-4   text-center justify-center">
+          <div className="flex items-center justify-center space-x-4 text-center">
             <Button size="lg" asChild className="whitespace-normal">
               <Link href="/contact">Let’s Handle Your Tracking Setup</Link>
             </Button>
@@ -38,7 +38,7 @@ const EnhancedHero = () => {
             </Button>
           </div>
 
-          <div className="max-w-2xl ">
+          <div className="max-w-2xl">
             <TestimonialsCarousel />
           </div>
 

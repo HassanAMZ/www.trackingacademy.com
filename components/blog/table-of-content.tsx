@@ -18,9 +18,9 @@ export default function TableOfContents() {
   }, []);
 
   return (
-    <nav className="lg:sticky lg:top-8 self-start bg-primary/10  p-3 rounded-lg">
+    <nav className="self-start rounded-lg bg-primary/10 p-3 lg:sticky lg:top-8">
       <Text as="p" variant="headingMd" className="flex items-center pb-5">
-        <Link className="w-5 h-5 mr-2" />
+        <Link className="mr-2 h-5 w-5" />
         Table of Contents
       </Text>
       <ul className="space-y-2 text-sm">

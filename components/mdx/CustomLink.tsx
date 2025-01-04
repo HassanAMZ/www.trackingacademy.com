@@ -32,7 +32,7 @@ const CustomLink: React.FC<CustomLinkProps> = ({ href, className, ...rest }) => 
       <Link
         href={href}
         className={clsx(
-          'whitespace-pre-wrap !p-0 dark:text-primary text-card-primary underline-offset-4 hover:underline',
+          'text-card-primary whitespace-pre-wrap !p-0 underline-offset-4 hover:underline dark:text-primary',
           className,
         )}
         {...rest}

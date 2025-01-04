@@ -163,9 +163,9 @@ const UTMValidator = () => {
   }) => (
     <div className="flex items-start gap-2 p-2">
       {check ? (
-        <CheckCircle2 className="text-green-500 mt-1" size={20} />
+        <CheckCircle2 className="mt-1 text-green-500" size={20} />
       ) : (
-        <XCircle className="text-red-500 mt-1" size={20} />
+        <XCircle className="mt-1 text-red-500" size={20} />
       )}
       <div>
         <div className="font-medium">{title}</div>
@@ -175,26 +175,26 @@ const UTMValidator = () => {
   );
 
   const ParameterDisplay = ({ param, value }: { param: string; value: string }) => (
-    <div className="grid grid-cols-2 gap-2 py-2 border-b last:border-b-0">
+    <div className="grid grid-cols-2 gap-2 border-b py-2 last:border-b-0">
       <div
         className={`font-medium ${REQUIRED_UTM_PARAMS.includes(param) && !value ? 'text-destructive' : ''}`}
       >
         {param} {REQUIRED_UTM_PARAMS.includes(param) && !value && ' (Required)'}
       </div>
-      <div className="text-sm break-all">{decodeURIComponent(value) || '-'}</div>
+      <div className="break-all text-sm">{decodeURIComponent(value) || '-'}</div>
     </div>
   );
 
   const EmptyState = () => (
-    <div className="text-center py-8">
+    <div className="py-8 text-center">
       <AlertCircle className="mx-auto h-12 w-12 text-muted-foreground" />
       <h3 className="mt-4 text-lg font-semibold">No URL Analyzed</h3>
       <p className="mt-2 text-sm text-muted-foreground">
         Enter a URL with UTM parameters to validate and analyze its tracking components.
       </p>
-      <div className="mt-4 p-4 bg-muted rounded-lg">
+      <div className="mt-4 rounded-lg bg-muted p-4">
         <p className="text-sm font-medium">Example URL:</p>
-        <p className="text-xs text-muted-foreground mt-1">
+        <p className="mt-1 text-xs text-muted-foreground">
           https://example.com?utm_source=facebook&utm_medium=social&utm_campaign=spring_sale
         </p>
       </div>
@@ -207,8 +207,7 @@ const UTMValidator = () => {
       <button
         key={key}
         onClick={() => setSelectedPlatform(key)}
-        className={`w-full flex items-center gap-2 text-left px-4 py-2 rounded-lg transition-colors
-          ${selectedPlatform === key ? 'bg-primary/10' : 'hover:bg-primary/5'}`}
+        className={`flex w-full items-center gap-2 rounded-lg px-4 py-2 text-left transition-colors ${selectedPlatform === key ? 'bg-primary/10' : 'hover:bg-primary/5'}`}
       >
         {Icon && <Icon size={18} />}
         {config.name}
@@ -219,8 +218,8 @@ const UTMValidator = () => {
   return (
     <main className="flex h-screen w-screen">
       {/* Sidebar */}
-      <div className="hidden md:flex w-64 border-r p-4 flex-col">
-        <h2 className="text-xl font-bold mb-4 flex items-center gap-2">Select Platform</h2>
+      <div className="hidden w-64 flex-col border-r p-4 md:flex">
+        <h2 className="mb-4 flex items-center gap-2 text-xl font-bold">Select Platform</h2>
         <div className="space-y-2">
           {Object.entries(platformConfigs).map(([key, config]) => renderSidebarItem(key, config))}
         </div>
@@ -230,7 +229,7 @@ const UTMValidator = () => {
       <div className="flex-1 overflow-y-auto">
         <Navbar className="!mx-0 w-full max-w-7xl" />
         <div className="p-4">
-          <div className="grid md:grid-cols-[2fr,1fr] gap-6">
+          <div className="grid gap-6 md:grid-cols-[2fr,1fr]">
             <div className="space-y-6">
               <Card>
                 <CardHeader>
@@ -301,7 +300,7 @@ const UTMValidator = () => {
                   <CardContent>
                     <div className="space-y-4">
                       <div>
-                        <h3 className="font-semibold mb-2 text-primary">UTM Parameters</h3>
+                        <h3 className="font-semibold text-primary mb-2 ">UTM Parameters</h3>
                         <div className="space-y-2">
                           {REQUIRED_UTM_PARAMS.map((param) => (
                             <ParameterDisplay
@@ -320,7 +319,7 @@ const UTMValidator = () => {
 
                       {Object.keys(parsedParams.otherParams).length > 0 && (
                         <div>
-                          <h3 className="font-semibold mb-2 text-primary">Other Parameters</h3>
+                          <h3 className="mb-2 font-semibold text-primary">Other Parameters</h3>
                           <div className="space-y-2">
                             {Object.entries(parsedParams.otherParams).map(([param, value]) => (
                               <ParameterDisplay key={param} param={param} value={value} />

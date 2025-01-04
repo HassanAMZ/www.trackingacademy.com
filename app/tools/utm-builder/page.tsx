@@ -292,7 +292,9 @@ const UTMBuilder: React.FC = () => {
       finalUrl,
     };
 
-    const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
+    const blob = new Blob([JSON.stringify(data, null, 2)], {
+      type: 'application/json',
+    });
     const url = window.URL.createObjectURL(blob);
     const a = document.createElement('a');
     a.href = url;
@@ -370,8 +372,7 @@ const UTMBuilder: React.FC = () => {
       <button
         key={key}
         onClick={() => handlePlatformChange(key)}
-        className={`w-full flex items-center gap-2 text-left px-4 py-2 rounded-lg transition-colors
-          ${selectedPlatform === key ? 'bg-primary/10' : 'hover:bg-primary/5'}`}
+        className={`flex w-full items-center gap-2 rounded-lg px-4 py-2 text-left transition-colors ${selectedPlatform === key ? 'bg-primary/10' : 'hover:bg-primary/5'}`}
       >
         {Icon && <Icon size={18} />}
         {config.name}
@@ -407,8 +408,8 @@ const UTMBuilder: React.FC = () => {
   return (
     <main className="flex h-screen w-screen">
       {/* Sidebar */}
-      <div className="hidden md:flex w-64 border-r p-4 flex-col">
-        <h2 className="text-xl font-bold mb-4 flex items-center gap-2">
+      <div className="hidden w-64 flex-col border-r p-4 md:flex">
+        <h2 className="mb-4 flex items-center gap-2 text-xl font-bold">
           {/* <Settings size={20} /> */}
           Select Platform
         </h2>
@@ -421,7 +422,7 @@ const UTMBuilder: React.FC = () => {
       <div className="flex-1 overflow-y-auto">
         <Navbar className="!mx-0 w-full max-w-7xl" />
         <div className="p-4">
-          <div className="grid md:grid-cols-[2fr,1fr] gap-6">
+          <div className="grid gap-6 md:grid-cols-[2fr,1fr]">
             {/* Form */}
             <Card>
               <CardHeader>
@@ -429,7 +430,7 @@ const UTMBuilder: React.FC = () => {
               </CardHeader>
               <CardContent className="space-y-4">
                 {/* Mobile Platform Selector */}
-                <div className="md:hidden mb-6">
+                <div className="mb-6 md:hidden">
                   <Label>Platform</Label>
                   <Select value={selectedPlatform} onValueChange={handlePlatformChange}>
                     <SelectTrigger>
@@ -457,8 +458,8 @@ const UTMBuilder: React.FC = () => {
                     onChange={(e) => handleWebsiteUrlChange(e.target.value)}
                     className={errors.url ? 'border-destructive' : ''}
                   />
-                  {errors.url && <p className="text-sm text-destructive mt-1">{errors.url}</p>}
-                  <p className="text-sm text-muted-foreground mt-1">
+                  {errors.url && <p className="mt-1 text-sm text-destructive">{errors.url}</p>}
+                  <p className="mt-1 text-sm text-muted-foreground">
                     Enter the full URL of the page you want to track
                   </p>
                 </div>
@@ -474,17 +475,17 @@ const UTMBuilder: React.FC = () => {
                         className={errors[key as keyof typeof errors] ? 'border-destructive' : ''}
                       />
                       {errors[key as keyof typeof errors] && (
-                        <p className="text-sm text-destructive mt-1">
+                        <p className="mt-1 text-sm text-destructive">
                           {errors[key as keyof typeof errors]}
                         </p>
                       )}
-                      <p className="text-sm text-muted-foreground mt-1">
+                      <p className="mt-1 text-sm text-muted-foreground">
                         {getHelperTextForField(key)}
                       </p>
                     </div>
                   ))}
                   {/* Custom Parameters */}
-                  <div className="space-y-4 col-span-2">
+                  <div className="col-span-2 space-y-4">
                     <div className="flex items-center justify-between">
                       <Label>Custom Parameters</Label>
                       <Button onClick={handleCustomFieldAdd} variant="outline" size="sm">
@@ -524,13 +525,13 @@ const UTMBuilder: React.FC = () => {
             </Card>
 
             {/* Preview */}
-            <div className="space-y-6 ">
+            <div className="space-y-6">
               <Card>
                 <CardHeader>
                   <CardTitle>Generated URL</CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <div className="p-4 bg-muted rounded-lg break-all relative text-sm">
+                  <div className="relative break-all rounded-lg bg-muted p-4 text-sm">
                     {finalUrl || 'Enter a website URL to generate'}
                     {finalUrl && (
                       <Button
@@ -563,7 +564,7 @@ const UTMBuilder: React.FC = () => {
                 <Button
                   onClick={handleDownload}
                   variant="outline"
-                  className="flex items-center gap-2 w-full"
+                  className="flex w-full items-center gap-2"
                 >
                   <Download size={16} /> Download Configuration
                 </Button>

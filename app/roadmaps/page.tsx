@@ -175,9 +175,9 @@ const roadmapData: roadmapDataProps[] = [
 export default function Roadmap() {
   return (
     <Container>
-      <div className="flex flex-col min-h-[100dvh]">
-        <section className="w-full py-12 md:py-24 lg:py-32 bg-muted">
-          <div className="px-4 md:px-6 text-center rounded-lg">
+      <div className="flex min-h-[100dvh] flex-col">
+        <section className="w-full bg-muted py-12 md:py-24 lg:py-32">
+          <div className="rounded-lg px-4 text-center md:px-6">
             <div className="space-y-4">
               <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
                 Web Analytics Roadmap
@@ -189,17 +189,17 @@ export default function Roadmap() {
           </div>
         </section>
         <section className="w-full py-6 md:py-24">
-          <div className="grid gap-6 sm:grid-cols-2 md:grid-cols-3 ">
+          <div className="grid gap-6 sm:grid-cols-2 md:grid-cols-3">
             {roadmapData.map((item, index) => (
               <div
                 key={index}
-                className={`grid gap-4 bg-background rounded-lg p-6 border ${index == 0 ? 'bg-primary' : ''}`}
+                className={`grid gap-4 rounded-lg border bg-background p-6 ${index == 0 ? 'bg-primary' : ''}`}
               >
                 <div className="flex items-center space-x-2">
-                  <item.icon className="w-6 h-6 text-muted-foreground" />
+                  <item.icon className="h-6 w-6 text-muted-foreground" />
                   <h3 className="text-xl font-bold">{item.category}</h3>
                 </div>
-                <ul className={`list-disc list-inside text-muted-foreground `}>
+                <ul className={`list-inside list-disc text-muted-foreground`}>
                   {item.details.map((detail, idx) => (
                     <span key={idx} className="text-sm">
                       {detail}

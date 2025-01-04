@@ -33,20 +33,20 @@ interface SidebarProps {
 
 const MainNode: React.FC<{ data: NodeData }> = ({ data }) => (
   <div>
-    <Card className="p-4 bg-primary text-primary-foreground min-w-[200px]">
-      <div className="font-semibold text-lg">{data.title}</div>
+    <Card className="min-w-[200px] bg-primary p-4 text-primary-foreground">
+      <div className="text-lg font-semibold">{data.title}</div>
     </Card>
-    <Handle id="top" type="target" position={Position.Top} className="w-2 h-2 !bg-primary" />
-    <Handle id="bottom" type="source" position={Position.Bottom} className="w-2 h-2 !bg-primary" />
-    <Handle id="left" type="source" position={Position.Left} className="w-2 h-2 !bg-primary" />
-    <Handle id="right" type="source" position={Position.Right} className="w-2 h-2 !bg-primary" />
+    <Handle id="top" type="target" position={Position.Top} className="h-2 w-2 !bg-primary" />
+    <Handle id="bottom" type="source" position={Position.Bottom} className="h-2 w-2 !bg-primary" />
+    <Handle id="left" type="source" position={Position.Left} className="h-2 w-2 !bg-primary" />
+    <Handle id="right" type="source" position={Position.Right} className="h-2 w-2 !bg-primary" />
   </div>
 );
 
 const SubNode: React.FC<{ data: NodeData & SubItem }> = ({ data }) => (
   <div>
     <Card
-      className="p-2 bg-secondary hover:bg-secondary/80 cursor-pointer text-secondary-foreground min-w-[180px]"
+      className="min-w-[180px] cursor-pointer bg-secondary p-2 text-secondary-foreground hover:bg-secondary/80"
       onClick={() => data.onClick?.(data)}
     >
       <div className="text-sm">{data.title}</div>
@@ -55,17 +55,17 @@ const SubNode: React.FC<{ data: NodeData & SubItem }> = ({ data }) => (
       id={data.isEven ? 'left' : 'right'}
       type="target"
       position={data.isEven ? Position.Left : Position.Right}
-      className="w-2 h-2 !bg-secondary"
+      className="h-2 w-2 !bg-secondary"
     />
   </div>
 );
 
 const Sidebar: React.FC<SidebarProps> = ({ data, onClose }) =>
   !data ? null : (
-    <div className="fixed right-0 top-0 w-96 h-full bg-card text-card-foreground shadow-lg p-6 overflow-y-auto border-l">
-      <div className="flex justify-between items-center mb-4">
+    <div className="fixed right-0 top-0 h-full w-96 overflow-y-auto border-l bg-card p-6 text-card-foreground shadow-lg">
+      <div className="mb-4 flex items-center justify-between">
         <h2 className="text-xl font-bold">{data.title}</h2>
-        <button onClick={onClose} className="p-1 hover:bg-secondary rounded">
+        <button onClick={onClose} className="rounded p-1 hover:bg-secondary">
           <X size={24} />
         </button>
       </div>
@@ -73,8 +73,8 @@ const Sidebar: React.FC<SidebarProps> = ({ data, onClose }) =>
         <p className="text-muted-foreground">{data.description}</p>
         {data.keyPoints && (
           <>
-            <h3 className="font-semibold mt-4">Key Learning Points:</h3>
-            <ul className="list-disc pl-4 space-y-2">
+            <h3 className="mt-4 font-semibold">Key Learning Points:</h3>
+            <ul className="list-disc space-y-2 pl-4">
               {data.keyPoints.map((point, index) => (
                 <li key={index}>{point}</li>
               ))}
@@ -162,7 +162,7 @@ export default function LearningRoadmap(): JSX.Element {
   };
 
   return (
-    <div className="w-full h-screen relative">
+    <div className="relative h-screen w-full">
       <ReactFlow
         nodes={nodes}
         edges={edges}

@@ -5,9 +5,9 @@ import Text from '../ui/text';
 
 export default function ContactMe() {
   return (
-    <div className="lg:sticky lg:top-8 self-start p-6 rounded-lg shadow-md space-y-2">
+    <div className="space-y-2 self-start rounded-lg p-6 shadow-md lg:sticky lg:top-8">
       <Text as="h3" variant="headingMd" className="flex items-center">
-        <Mail className="w-5 h-5 mr-2" />
+        <Mail className="mr-2 h-5 w-5" />
         Contact Me
       </Text>
       <Text as="p" variant="bodySm">

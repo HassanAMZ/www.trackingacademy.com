@@ -210,7 +210,7 @@ export default function Navbar({ className }: { className?: string }) {
   return (
     <div className="w-full pb-2 pt-4 lg:text-sm">
       <Container className={clsx('bg-transparent', className)}>
-        <div className="flex rounded-lg  border bg-transparent">
+        <div className="flex rounded-lg border bg-transparent">
           <MobileNavigationMenu />
           <DesktopNavigationMenu />
         </div>

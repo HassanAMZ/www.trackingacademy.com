@@ -95,7 +95,7 @@ export const FirebaseAuth = () => {
   }
 
   return (
-    <Container className="grid place-content-center min-h-[50vh]">
+    <Container className="grid min-h-[50vh] place-content-center">
       <Card className="w-full max-w-md">
         <CardHeader className="space-y-1">
           <CardTitle className="text-2xl">Get Free Access to Resources</CardTitle>
@@ -110,8 +110,8 @@ export const FirebaseAuth = () => {
             </Alert>
           )}
 
-          <div className="flex items-center justify-center p-4 bg-muted/50 rounded-lg">
-            <Download className="h-6 w-6 mr-2 text-muted-foreground" />
+          <div className="flex items-center justify-center rounded-lg bg-muted/50 p-4">
+            <Download className="mr-2 h-6 w-6 text-muted-foreground" />
             <p className="text-sm text-muted-foreground">
               Access code examples, starter files, and other resources
             </p>
@@ -191,17 +191,17 @@ export const FirebaseAuth = () => {
             Continue with Facebook
           </Button> */}
 
-          <div className="space-y-3 max-w-3xl pb-5 flex items-center justify-between">
+          <div className="flex max-w-3xl items-center justify-between space-y-3 pb-5">
             <div className="flex">
-              <Avatar className=" w-10 h-10">
+              <Avatar className="h-10 w-10">
                 <AvatarImage src="/images/clients/malik-osama.jfif" alt="@malik-osama" />
                 <AvatarFallback>MO</AvatarFallback>
               </Avatar>
-              <Avatar className="w-10 h-10">
+              <Avatar className="h-10 w-10">
                 <AvatarImage src="/images/clients/philipp-herglotz.jfif" alt="@philipp-herglotz" />
                 <AvatarFallback>PH</AvatarFallback>
               </Avatar>
-              <Avatar className="w-10 h-10">
+              <Avatar className="h-10 w-10">
                 <AvatarImage src="/images/clients/imtiaz-ahmad.jfif" alt="@imtiaz-ahmad" />
                 <AvatarFallback>IA</AvatarFallback>
               </Avatar>

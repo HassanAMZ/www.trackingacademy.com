@@ -24,17 +24,17 @@ const BlogHeader: React.FC<PostMetadataProps> = ({ metadata }) => {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
       />
 
-      <div className="grid md:grid-cols-2 items-center justify-center space-y-8">
+      <div className="grid items-center justify-center space-y-8 md:grid-cols-2">
         {/* Breadcrumb and metadata section */}
 
         <div className="md:space-y-8">
-          <div className="md:space-y-8 space-y-4">
+          <div className="space-y-4 md:space-y-8">
             <BreadCrumbs />
             <Text as="h1" variant="heading3xl">
               {metadata.title}
             </Text>
 
-            <div className="flex items-center space-x-4 ">
+            <div className="flex items-center space-x-4">
               <Avatar className="h-12 w-12">
                 <AvatarImage src="/avatar.jpg" alt="ShahzadaAliHassan" />
                 <AvatarFallback>SAH</AvatarFallback>
@@ -72,14 +72,14 @@ const BlogHeader: React.FC<PostMetadataProps> = ({ metadata }) => {
         </div>
 
         {/* Hero Image/Video Section */}
-        <div className="relative rounded-xl overflow-hidden ">
+        <div className="relative overflow-hidden rounded-xl">
           {metadata.embedId === '' ? (
             <Image
               src={backgroundImage}
               alt={'blog image'}
               width={1920}
               height={1080}
-              className="w-full object-cover hidden md:flex"
+              className="hidden w-full object-cover md:flex"
               priority
             />
           ) : (

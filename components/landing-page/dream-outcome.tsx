@@ -54,7 +54,7 @@ const DreamOutcome: React.FC<DreamOutcomeProps> = ({
         {(card1Title || card2Title || card3Title) && (
           <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
             {card1Title && (
-              <Card className="bg-secondary text-secondary-foreground hover:bg-primary hover:text-primary-foreground transition-all duration-500">
+              <Card className="bg-secondary text-secondary-foreground transition-all duration-500 hover:bg-primary hover:text-primary-foreground">
                 <CardHeader>
                   <CardTitle className="flex items-center">
                     <Lightbulb className="mr-2 h-6 w-6" />
@@ -65,7 +65,7 @@ const DreamOutcome: React.FC<DreamOutcomeProps> = ({
               </Card>
             )}
             {card2Title && (
-              <Card className="bg-secondary text-secondary-foreground hover:bg-primary hover:text-primary-foreground transition-all duration-500">
+              <Card className="bg-secondary text-secondary-foreground transition-all duration-500 hover:bg-primary hover:text-primary-foreground">
                 <CardHeader>
                   <CardTitle className="flex items-center">
                     <Clock className="mr-2 h-6 w-6" />
@@ -76,7 +76,7 @@ const DreamOutcome: React.FC<DreamOutcomeProps> = ({
               </Card>
             )}
             {card3Title && (
-              <Card className="bg-secondary text-secondary-foreground hover:bg-primary hover:text-primary-foreground transition-all duration-500">
+              <Card className="bg-secondary text-secondary-foreground transition-all duration-500 hover:bg-primary hover:text-primary-foreground">
                 <CardHeader>
                   <CardTitle className="flex items-center">
                     <TrendingUp className="mr-2 h-6 w-6" />
@@ -98,15 +98,15 @@ const DreamOutcome: React.FC<DreamOutcomeProps> = ({
 
           {dreamOutcomeList && dreamOutcomeList.length > 0 && (
             <div className="space-y-8">
-              <Text as="h3" variant="heading2xl" className="text-center py-8">
+              <Text as="h3" variant="heading2xl" className="py-8 text-center">
                 Your Dream Outcomes Realized
               </Text>
               <div className="grid gap-6 md:grid-cols-3">
                 {dreamOutcomeList.map((outcome, index) => (
                   <Card key={index} className="bg-background">
-                    <CardContent className="flex flex-col items-center p-6 space-y-5 text-center">
+                    <CardContent className="flex flex-col items-center space-y-5 p-6 text-center">
                       {outcome.icon && (
-                        <outcome.icon className="mr-4 bg-primary/10 rounded-full p-1 h-12 w-12" />
+                        <outcome.icon className="mr-4 h-12 w-12 rounded-full bg-primary/10 p-1" />
                       )}
 
                       <Text as="p" variant="headingMd">

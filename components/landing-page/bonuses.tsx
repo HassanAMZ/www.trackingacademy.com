@@ -59,7 +59,7 @@ const Bonuses: React.FC<BonusesProps> = ({
                   <div className="grid grid-cols-1 gap-12 lg:grid-cols-2">
                     {/* Content Side */}
                     <div className="flex flex-col space-y-8">
-                      <div className="space-y-4 flex flex-col   justify-between h-full">
+                      <div className="flex h-full flex-col justify-between space-y-4">
                         {/* Title  */}
                         <Text as="h3" variant="heading2xl" className="flex items-center">
                           <bonus.icon className="mr-4 h-12 w-12 text-primary" />
@@ -73,7 +73,7 @@ const Bonuses: React.FC<BonusesProps> = ({
 
                         {/* Details List */}
                         {bonus.details && bonus.details.length > 0 && (
-                          <div className="space-y-4 ">
+                          <div className="space-y-4">
                             <Text as="h4" variant="headingLg">
                               What's Included:
                             </Text>
@@ -106,7 +106,7 @@ const Bonuses: React.FC<BonusesProps> = ({
                         )}
                         {/* Value  */}
 
-                        <div className=" w-fit inline-block rounded-lg bg-background/80 p-4 backdrop-blur-sm">
+                        <div className="inline-block w-fit rounded-lg bg-background/80 p-4 backdrop-blur-sm">
                           <Text as="p" variant="heading2xl" className="text-primary">
                             {bonus.value}
                             <span className="ml-2 text-lg font-normal text-muted-foreground">
