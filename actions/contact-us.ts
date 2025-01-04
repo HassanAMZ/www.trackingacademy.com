@@ -1,11 +1,11 @@
-'use server';
+"use server";
 
-import { db } from '@/app/firebase';
-import ContactUsEmail from '@/components/emails/email-template';
-import { collection, doc, setDoc, Timestamp } from 'firebase/firestore';
-import { cookies } from 'next/headers';
-import { Resend } from 'resend';
-import { z } from 'zod';
+import { db } from "@/app/firebase";
+import ContactUsEmail from "@/components/emails/email-template";
+import { collection, doc, setDoc, Timestamp } from "firebase/firestore";
+import { cookies } from "next/headers";
+import { Resend } from "resend";
+import { z } from "zod";
 
 export async function createContact(prevState: any, formData: FormData) {
   const resend = new Resend(process.env.NEXT_PUBLIC_RESEND_API_KEY);
@@ -14,13 +14,13 @@ export async function createContact(prevState: any, formData: FormData) {
   const timestamp = new Date();
   const timestampId =
     timestamp.getFullYear().toString() +
-    (timestamp.getMonth() + 1).toString().padStart(2, '0') +
-    timestamp.getDate().toString().padStart(2, '0') +
-    timestamp.getHours().toString().padStart(2, '0') +
-    timestamp.getMinutes().toString().padStart(2, '0') +
-    timestamp.getSeconds().toString().padStart(2, '0');
+    (timestamp.getMonth() + 1).toString().padStart(2, "0") +
+    timestamp.getDate().toString().padStart(2, "0") +
+    timestamp.getHours().toString().padStart(2, "0") +
+    timestamp.getMinutes().toString().padStart(2, "0") +
+    timestamp.getSeconds().toString().padStart(2, "0");
 
-  const contactsCollection = collection(db, 'contacts');
+  const contactsCollection = collection(db, "contacts");
 
   const schema = z.object({
     firstName: z.string().min(1),
@@ -46,25 +46,25 @@ export async function createContact(prevState: any, formData: FormData) {
   });
 
   const data = schema.parse({
-    firstName: formData.get('firstName'),
-    lastName: formData.get('lastName'),
-    email: formData.get('email'),
-    phone: formData.get('phone'),
-    websiteLink: formData.get('websiteLink'),
-    integrationType: formData.get('integrationType'),
-    projectDescription: formData.get('projectDescription'),
-    budget: formData.get('budget'),
-    currentSetup: formData.get('currentSetup'),
-    meetingPreference: formData.get('meetingPreference'),
-    monthlyVisitors: formData.get('monthlyVisitors'),
-    businessModel: formData.get('businessModel'),
-    topMarketingChannels: formData.get('topMarketingChannels'),
-    currentChallenges: formData.get('currentChallenges'),
-    conversionRateChanges: formData.get('conversionRateChanges'),
-    tagManagementSystem: formData.get('tagManagementSystem'),
-    trackingGoal: formData.get('trackingGoal'),
-    specificRequirements: formData.get('specificRequirements'),
-    implementationTimeline: formData.get('implementationTimeline'),
+    firstName: formData.get("firstName"),
+    lastName: formData.get("lastName"),
+    email: formData.get("email"),
+    phone: formData.get("phone"),
+    websiteLink: formData.get("websiteLink"),
+    integrationType: formData.get("integrationType"),
+    projectDescription: formData.get("projectDescription"),
+    budget: formData.get("budget"),
+    currentSetup: formData.get("currentSetup"),
+    meetingPreference: formData.get("meetingPreference"),
+    monthlyVisitors: formData.get("monthlyVisitors"),
+    businessModel: formData.get("businessModel"),
+    topMarketingChannels: formData.get("topMarketingChannels"),
+    currentChallenges: formData.get("currentChallenges"),
+    conversionRateChanges: formData.get("conversionRateChanges"),
+    tagManagementSystem: formData.get("tagManagementSystem"),
+    trackingGoal: formData.get("trackingGoal"),
+    specificRequirements: formData.get("specificRequirements"),
+    implementationTimeline: formData.get("implementationTimeline"),
     createdAt: Timestamp.now(),
   });
 
@@ -74,10 +74,10 @@ export async function createContact(prevState: any, formData: FormData) {
     await setDoc(contactDocRef, data);
 
     await resend.emails.send({
-      from: 'no-reply@trackingacademy.com',
+      from: "no-reply@trackingacademy.com",
       to: data.email,
-      cc: ['reactjswebdev@gmail.com', 'analytics@shahzadaalihassan.com'],
-      subject: 'Thank you for contacting us!',
+      cc: ["reactjswebdev@gmail.com", "analytics@shahzadaalihassan.com"],
+      subject: "Thank you for contacting us!",
       react: ContactUsEmail({
         firstName: data.firstName,
         lastName: data.lastName,
@@ -104,7 +104,7 @@ export async function createContact(prevState: any, formData: FormData) {
 
     // Store user data in cookies
     (await cookies()).set(
-      'user_data',
+      "user_data",
       JSON.stringify({
         email: data.email,
         phone: data.phone,
@@ -113,12 +113,12 @@ export async function createContact(prevState: any, formData: FormData) {
           last_name: data.lastName,
         },
       }),
-      { httpOnly: true, path: '/', maxAge: 60 * 60 * 24 * 7 },
+      { httpOnly: true, path: "/", maxAge: 60 * 60 * 24 * 7 },
     ); // Expires in 7 days
 
     return { message: `Added contact ${data.firstName} ${data.lastName}` };
   } catch (e) {
-    console.error('Failed to create contact or send email', e);
-    return { message: 'Failed to create contact' };
+    console.error("Failed to create contact or send email", e);
+    return { message: "Failed to create contact" };
   }
 }

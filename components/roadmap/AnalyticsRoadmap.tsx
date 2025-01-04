@@ -1,11 +1,11 @@
-'use client';
+"use client";
 
-import { Card } from '@/components/ui/card';
-import roadmapData from '@/data/roadmap';
-import { X } from 'lucide-react';
-import React, { JSX, useState } from 'react';
-import ReactFlow, { Edge, Handle, Node, Position } from 'reactflow';
-import 'reactflow/dist/style.css';
+import { Card } from "@/components/ui/card";
+import roadmapData from "@/data/roadmap";
+import { X } from "lucide-react";
+import React, { JSX, useState } from "react";
+import ReactFlow, { Edge, Handle, Node, Position } from "reactflow";
+import "reactflow/dist/style.css";
 
 interface SubItem {
   id: string;
@@ -36,10 +36,30 @@ const MainNode: React.FC<{ data: NodeData }> = ({ data }) => (
     <Card className="min-w-[200px] bg-primary p-4 text-primary-foreground">
       <div className="text-lg font-semibold">{data.title}</div>
     </Card>
-    <Handle id="top" type="target" position={Position.Top} className="h-2 w-2 !bg-primary" />
-    <Handle id="bottom" type="source" position={Position.Bottom} className="h-2 w-2 !bg-primary" />
-    <Handle id="left" type="source" position={Position.Left} className="h-2 w-2 !bg-primary" />
-    <Handle id="right" type="source" position={Position.Right} className="h-2 w-2 !bg-primary" />
+    <Handle
+      id="top"
+      type="target"
+      position={Position.Top}
+      className="h-2 w-2 !bg-primary"
+    />
+    <Handle
+      id="bottom"
+      type="source"
+      position={Position.Bottom}
+      className="h-2 w-2 !bg-primary"
+    />
+    <Handle
+      id="left"
+      type="source"
+      position={Position.Left}
+      className="h-2 w-2 !bg-primary"
+    />
+    <Handle
+      id="right"
+      type="source"
+      position={Position.Right}
+      className="h-2 w-2 !bg-primary"
+    />
   </div>
 );
 
@@ -52,7 +72,7 @@ const SubNode: React.FC<{ data: NodeData & SubItem }> = ({ data }) => (
       <div className="text-sm">{data.title}</div>
     </Card>
     <Handle
-      id={data.isEven ? 'left' : 'right'}
+      id={data.isEven ? "left" : "right"}
       type="target"
       position={data.isEven ? Position.Left : Position.Right}
       className="h-2 w-2 !bg-secondary"
@@ -100,7 +120,7 @@ export default function LearningRoadmap(): JSX.Element {
     // Main node
     const mainNodeEl: Node = {
       id: mainNode.id,
-      type: 'main',
+      type: "main",
       position: { x: 400, y: mainIndex * nodeVerticalSpacing + 5 },
       data: { title: mainNode.title },
     };
@@ -108,10 +128,13 @@ export default function LearningRoadmap(): JSX.Element {
     // Sub nodes alternating between left and right
     const subNodes: Node[] = mainNode.subItems.map((subItem, subIndex) => ({
       id: subItem.id,
-      type: 'sub',
+      type: "sub",
       position: {
         x: isEven ? 400 + sideOffset : 400 - sideOffset,
-        y: mainIndex * nodeVerticalSpacing + subIndex * subNodeVerticalSpacing + 5,
+        y:
+          mainIndex * nodeVerticalSpacing +
+          subIndex * subNodeVerticalSpacing +
+          5,
       },
       data: {
         ...subItem,
@@ -129,27 +152,29 @@ export default function LearningRoadmap(): JSX.Element {
       id: `e-${node.id}-${mainNodes[index + 1].id}`,
       source: node.id,
       target: mainNodes[index + 1].id,
-      type: 'smoothstep',
+      type: "smoothstep",
       animated: true,
-      sourceHandle: 'bottom',
-      targetHandle: 'top',
+      sourceHandle: "bottom",
+      targetHandle: "top",
     })),
     // Subnode edges (horizontal connections)
     ...mainNodes.flatMap((mainNode) =>
       mainNode.subItems.map((subItem) => {
-        const mainNodeIndex = mainNodes.findIndex((node) => node.id === mainNode.id);
+        const mainNodeIndex = mainNodes.findIndex(
+          (node) => node.id === mainNode.id,
+        );
         const isEven = mainNodeIndex % 2 === 0;
 
         return {
           id: `e-${mainNode.id}-${subItem.id}`,
           source: mainNode.id,
           target: subItem.id,
-          type: 'smoothstep',
-          sourceHandle: isEven ? 'right' : 'left',
-          targetHandle: isEven ? 'left' : 'right',
+          type: "smoothstep",
+          sourceHandle: isEven ? "right" : "left",
+          targetHandle: isEven ? "left" : "right",
           style: {
             strokeWidth: 1,
-            strokeDasharray: '5 5',
+            strokeDasharray: "5 5",
           },
         };
       }),

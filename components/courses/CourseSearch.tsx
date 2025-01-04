@@ -1,10 +1,10 @@
-'use client';
+"use client";
 
-import { CourseSearchProps } from '@/types/index';
-import React, { useEffect, useState } from 'react';
+import { CourseSearchProps } from "@/types/index";
+import React, { useEffect, useState } from "react";
 
 const CourseSearch: React.FC<CourseSearchProps> = ({ data, onSearch }) => {
-  const [searchTerm, setSearchTerm] = useState('');
+  const [searchTerm, setSearchTerm] = useState("");
 
   useEffect(() => {
     const results = data.filter((course) =>

@@ -1,7 +1,7 @@
 // src/components/HomePage/MarketTrendsSection.tsx
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import Container from '@/components/ui/container';
-import Text from '@/components/ui/text';
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import Container from "@/components/ui/container";
+import Text from "@/components/ui/text";
 
 export const MarketTrendsSection = ({ trendCards }: { trendCards: any }) => {
   return (
@@ -28,8 +28,13 @@ export const MarketTrendsSection = ({ trendCards }: { trendCards: any }) => {
         ))}
       </div>
 
-      <Text as="p" variant="bodyLg" className="text-center text-muted-foreground">
-        And as a result, the picture of the customer journey is no longer complete
+      <Text
+        as="p"
+        variant="bodyLg"
+        className="text-center text-muted-foreground"
+      >
+        And as a result, the picture of the customer journey is no longer
+        complete
       </Text>
     </Container>
   );

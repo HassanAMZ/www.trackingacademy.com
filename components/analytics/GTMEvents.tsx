@@ -1,7 +1,7 @@
-'use client';
+"use client";
 
-import React, { useEffect } from 'react';
-import { initDataLayer } from 'utils/gtmAnalytics';
+import React, { useEffect } from "react";
+import { initDataLayer } from "utils/gtmAnalytics";
 
 interface GTMCustomEventProps {
   event_name: string;
@@ -18,7 +18,7 @@ const GTMCustomEvent: React.FC<GTMCustomEventProps> = ({
     initDataLayer();
 
     const eventPayload = {
-      event: 'gtm_custom_event',
+      event: "gtm_custom_event",
       datalayer_event_name: event_name,
       ...(user_data ? { user_data: user_data } : {}),
       ...(event_details ? { event_details: event_details } : {}),

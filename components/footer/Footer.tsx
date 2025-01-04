@@ -1,7 +1,7 @@
-import Image from 'next/image';
-import React from 'react';
-import NavLink from '../navbar/NavLink';
-import NavigationLinks from '../navbar/NavigationLinks';
+import Image from "next/image";
+import React from "react";
+import NavLink from "../navbar/NavLink";
+import NavigationLinks from "../navbar/NavigationLinks";
 const Footer: React.FC = () => {
   return (
     <div className="container-primary py-3">

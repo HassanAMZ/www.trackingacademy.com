@@ -1,8 +1,8 @@
-import { Button } from '@/components/ui/button';
-import Container from '@/components/ui/container';
-import Text from '@/components/ui/text';
-import { Link } from 'next-view-transitions';
-import React from 'react';
+import { Button } from "@/components/ui/button";
+import Container from "@/components/ui/container";
+import Text from "@/components/ui/text";
+import { Link } from "next-view-transitions";
+import React from "react";
 
 const TOSPage = () => {
   return (
@@ -19,8 +19,8 @@ const TOSPage = () => {
             Acceptance of Terms
           </Text>
           <Text as="p" variant="bodyMd">
-            By accessing and using TrackingAcademy.com, you accept and agree to be bound by the
-            terms and provision of this agreement.
+            By accessing and using TrackingAcademy.com, you accept and agree to
+            be bound by the terms and provision of this agreement.
           </Text>
         </section>
 
@@ -29,8 +29,9 @@ const TOSPage = () => {
             Provision of Services
           </Text>
           <Text as="p" variant="bodyMd">
-            TrackingAcademy.com provides educational content on digital tracking technologies. We
-            reserve the right to modify or discontinue our services at any time.
+            TrackingAcademy.com provides educational content on digital tracking
+            technologies. We reserve the right to modify or discontinue our
+            services at any time.
           </Text>
         </section>
 
@@ -39,9 +40,9 @@ const TOSPage = () => {
             Intellectual Property
           </Text>
           <Text as="p" variant="bodyMd">
-            All content, including videos and blogs, on TrackingAcademy.com are the exclusive
-            property of TrackingAcademy.com and are protected by copyright and other intellectual
-            property laws.
+            All content, including videos and blogs, on TrackingAcademy.com are
+            the exclusive property of TrackingAcademy.com and are protected by
+            copyright and other intellectual property laws.
           </Text>
         </section>
 
@@ -50,8 +51,8 @@ const TOSPage = () => {
             User Conduct
           </Text>
           <Text as="p" variant="bodyMd">
-            Users are expected to use TrackingAcademy.com responsibly and to respect the rights and
-            dignity of others.
+            Users are expected to use TrackingAcademy.com responsibly and to
+            respect the rights and dignity of others.
           </Text>
         </section>
 
@@ -60,8 +61,9 @@ const TOSPage = () => {
             Disclaimer of Warranties
           </Text>
           <Text as="p" variant="bodyMd">
-            The services and content on TrackingAcademy.com are provided "as is". We disclaim all
-            warranties, express or implied, regarding the accuracy or reliability of content.
+            The services and content on TrackingAcademy.com are provided "as
+            is". We disclaim all warranties, express or implied, regarding the
+            accuracy or reliability of content.
           </Text>
         </section>
 

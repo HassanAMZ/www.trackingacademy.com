@@ -1,9 +1,9 @@
-import { AlertCircle, ArrowRight } from 'lucide-react';
-import { Link } from 'next-view-transitions';
-import { Button } from '../ui/button';
-import { Card, CardContent } from '../ui/card';
-import Container from '../ui/container';
-import Text from '../ui/text';
+import { AlertCircle, ArrowRight } from "lucide-react";
+import { Link } from "next-view-transitions";
+import { Button } from "../ui/button";
+import { Card, CardContent } from "../ui/card";
+import Container from "../ui/container";
+import Text from "../ui/text";
 // Guarantee Section Component
 const GuaranteeSection = () => {
   return (
@@ -17,9 +17,9 @@ const GuaranteeSection = () => {
                 Our "95%+ Accuracy or It's FREE" Guarantee
               </Text>
               <Text as="p" className="max-w-xl">
-                We're confident that our system will deliver precise, actionable data for your
-                Shopify store. If we don't meet our 95% accuracy promise, you don't pay a single
-                cent.
+                We're confident that our system will deliver precise, actionable
+                data for your Shopify store. If we don't meet our 95% accuracy
+                promise, you don't pay a single cent.
               </Text>
               <Button size="lg" className="mt-4" asChild>
                 <Link href="/contact">

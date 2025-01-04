@@ -1,10 +1,10 @@
-'use client';
+"use client";
 
-import YoutubeEmbed from '@/components/global/youtube-embed';
-import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import Container from '@/components/ui/container';
-import Text from '@/components/ui/text';
+import YoutubeEmbed from "@/components/global/youtube-embed";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import Container from "@/components/ui/container";
+import Text from "@/components/ui/text";
 import {
   ArrowRight,
   Check,
@@ -16,8 +16,8 @@ import {
   TrendingUp,
   X,
   Zap,
-} from 'lucide-react';
-import React, { useState } from 'react';
+} from "lucide-react";
+import React, { useState } from "react";
 
 interface Feature {
   icon: React.ElementType;
@@ -85,7 +85,11 @@ const FeatureCard: React.FC<Feature> = ({
               key={idx}
               className="glowing-outline rounded-md border border-primary/20 bg-card px-3 py-2 text-center"
             >
-              <Text as="span" variant="bodySm" className="text-muted-foreground">
+              <Text
+                as="span"
+                variant="bodySm"
+                className="text-muted-foreground"
+              >
                 {benefit}
               </Text>
             </div>
@@ -96,11 +100,18 @@ const FeatureCard: React.FC<Feature> = ({
   );
 };
 
-const SectionCard: React.FC<SectionItem> = ({ title, items, icon: Icon, color }) => {
+const SectionCard: React.FC<SectionItem> = ({
+  title,
+  items,
+  icon: Icon,
+  color,
+}) => {
   return (
     <div className="group rounded-2xl bg-card p-8 shadow-lg transition-all hover:shadow-xl">
       <div className="mb-6 flex items-center">
-        <Icon className={`mr-4 ${color} group-hover:scale-103 h-10 w-10 transition-transform`} />
+        <Icon
+          className={`mr-4 ${color} group-hover:scale-103 h-10 w-10 transition-transform`}
+        />
         <Text as="h3" variant="headingMd" className={color}>
           {title}
         </Text>
@@ -126,81 +137,97 @@ const MetaAdDominationLandingPage: React.FC = () => {
   const features: Feature[] = [
     {
       icon: Shield,
-      title: 'Meta Pixel Resurrection Protocol',
+      title: "Meta Pixel Resurrection Protocol",
       shortDescription: "Revive 'Dead' Pixels with Advanced Techniques",
       detailedDescription: [
-        'Create an ironclad tracking ecosystem that survives platform changes',
-        'Implement 11 critical ecommerce tracking events',
-        'Capture EVERY meaningful user interaction with precision',
+        "Create an ironclad tracking ecosystem that survives platform changes",
+        "Implement 11 critical ecommerce tracking events",
+        "Capture EVERY meaningful user interaction with precision",
       ],
-      benefits: ['95% Tracking Accuracy', 'Reduced Data Loss', 'Platform-Proof Tracking'],
+      benefits: [
+        "95% Tracking Accuracy",
+        "Reduced Data Loss",
+        "Platform-Proof Tracking",
+      ],
     },
     {
       icon: TrendingUp,
-      title: 'Domain Bypass Masterclass',
-      shortDescription: 'Outsmart Platform Restrictions Strategically',
+      title: "Domain Bypass Masterclass",
+      shortDescription: "Outsmart Platform Restrictions Strategically",
       detailedDescription: [
-        'Develop custom URL strategies that bypass platform limitations',
-        'Master GTM Server Container configuration',
-        'Implement advanced metrics subdomain routing techniques',
+        "Develop custom URL strategies that bypass platform limitations",
+        "Master GTM Server Container configuration",
+        "Implement advanced metrics subdomain routing techniques",
       ],
       benefits: [
-        'Continuous Ad Capability',
-        'Reduced Account Restrictions',
-        'Marketing Resilience',
+        "Continuous Ad Capability",
+        "Reduced Account Restrictions",
+        "Marketing Resilience",
       ],
     },
     {
       icon: Database,
-      title: 'Conversion API Mastery',
-      shortDescription: 'Advanced Tracking Beyond Simple Pixel Implementation',
+      title: "Conversion API Mastery",
+      shortDescription: "Advanced Tracking Beyond Simple Pixel Implementation",
       detailedDescription: [
-        'Implement comprehensive event tracking methodologies',
-        'Develop robust deduplication logic',
-        'Ensure maximum data privacy and platform compliance',
+        "Implement comprehensive event tracking methodologies",
+        "Develop robust deduplication logic",
+        "Ensure maximum data privacy and platform compliance",
       ],
       benefits: [
-        'Enhanced Conversion Insights',
-        'Reliable Data Collection',
-        'Privacy-Compliant Tracking',
+        "Enhanced Conversion Insights",
+        "Reliable Data Collection",
+        "Privacy-Compliant Tracking",
       ],
     },
   ];
 
   const sections: SectionItem[] = [
     {
-      title: 'Before',
-      items: ['Constant Ad Account Shutdowns', 'Unpredictable Tracking', 'Wasted Ad Spend'],
+      title: "Before",
+      items: [
+        "Constant Ad Account Shutdowns",
+        "Unpredictable Tracking",
+        "Wasted Ad Spend",
+      ],
       icon: X,
-      color: 'text-destructive',
+      color: "text-destructive",
     },
     {
-      title: 'After',
-      items: ['Bulletproof Ad Infrastructure', '99% Accurate Tracking', 'Predictable Scaling'],
+      title: "After",
+      items: [
+        "Bulletproof Ad Infrastructure",
+        "99% Accurate Tracking",
+        "Predictable Scaling",
+      ],
       icon: Check,
-      color: 'text-success',
+      color: "text-success",
     },
     {
-      title: 'The Result',
-      items: ['+$50,000/Month Consistently', 'Stable Revenue Stream', 'Risk-Mitigated Growth'],
+      title: "The Result",
+      items: [
+        "+$50,000/Month Consistently",
+        "Stable Revenue Stream",
+        "Risk-Mitigated Growth",
+      ],
       icon: TrendingUp,
-      color: 'text-primary',
+      color: "text-primary",
     },
   ];
 
   const modules: Module[] = [
     {
-      title: 'Meta Pixel Resurrection Protocol',
+      title: "Meta Pixel Resurrection Protocol",
       description: "Advanced techniques to revive 'dead' pixels",
       icon: Shield,
     },
     {
-      title: 'Domain Bypass Masterclass',
-      description: 'Proprietary strategies to prevent domain blocking',
+      title: "Domain Bypass Masterclass",
+      description: "Proprietary strategies to prevent domain blocking",
       icon: TrendingUp,
     },
     {
-      title: 'Conversion API Optimization',
+      title: "Conversion API Optimization",
       description: "Achieve 95% tracking accuracy Meta doesn't reveal",
       icon: Rocket,
     },
@@ -208,19 +235,19 @@ const MetaAdDominationLandingPage: React.FC = () => {
 
   const bonuses: Bonus[] = [
     {
-      title: 'Lifetime Course Updates',
-      description: 'Stay ahead of evolving platform strategies',
-      value: '$3,497',
+      title: "Lifetime Course Updates",
+      description: "Stay ahead of evolving platform strategies",
+      value: "$3,497",
     },
     {
-      title: 'Private Telegram Mastermind',
-      description: '24/7 Access to 7-figure ad experts',
-      value: '$5,000',
+      title: "Private Telegram Mastermind",
+      description: "24/7 Access to 7-figure ad experts",
+      value: "$5,000",
     },
     {
-      title: 'Advanced Scaling Masterclasses',
-      description: 'Blueprints to scale from $2K to $50K',
-      value: '$2,997',
+      title: "Advanced Scaling Masterclasses",
+      description: "Blueprints to scale from $2K to $50K",
+      value: "$2,997",
     },
   ];
 
@@ -236,8 +263,8 @@ const MetaAdDominationLandingPage: React.FC = () => {
             variant="heading3xl"
             className="to-primary-600 animate-text mb-6 bg-gradient-to-r from-primary bg-clip-text"
           >
-            Unlock the Underground Meta Ad Strategy That Turns Blocked Domains into Predictable Cash
-            Machines - Without Platform Shutdown Risks
+            Unlock the Underground Meta Ad Strategy That Turns Blocked Domains
+            into Predictable Cash Machines - Without Platform Shutdown Risks
           </Text>
 
           <Text
@@ -252,25 +279,27 @@ const MetaAdDominationLandingPage: React.FC = () => {
             {[
               {
                 icon: Shield,
-                text: 'Proven Strategy',
-                color: 'text-green-500',
+                text: "Proven Strategy",
+                color: "text-green-500",
               },
               {
                 icon: Rocket,
-                text: 'Instant Scalability',
-                color: 'text-blue-500',
+                text: "Instant Scalability",
+                color: "text-blue-500",
               },
               {
                 icon: Target,
-                text: 'Precision Targeting',
-                color: 'text-purple-500',
+                text: "Precision Targeting",
+                color: "text-purple-500",
               },
             ].map((feature, index) => (
               <div
                 key={index}
                 className="hover:scale-103 flex items-center rounded-xl bg-card/50 p-3 shadow-sm transition-all hover:shadow-md"
               >
-                <feature.icon className={`mr-2 ${feature.color} animate-pulse`} />
+                <feature.icon
+                  className={`mr-2 ${feature.color} animate-pulse`}
+                />
                 <Text as="span" variant="bodyMd">
                   {feature.text}
                 </Text>
@@ -287,7 +316,11 @@ const MetaAdDominationLandingPage: React.FC = () => {
               <ArrowRight className="ml-2 transition-transform group-hover:translate-x-1" />
             </Button>
 
-            <Text as="p" variant="bodySm" className="mt-4 text-muted-foreground">
+            <Text
+              as="p"
+              variant="bodySm"
+              className="mt-4 text-muted-foreground"
+            >
               Limited to 100 Spots • Price Increases $500 Soon
             </Text>
           </div>
@@ -311,35 +344,42 @@ const MetaAdDominationLandingPage: React.FC = () => {
               onClick={() => setActiveFeature(index)}
               className={`cursor-pointer rounded-2xl border-2 bg-card p-6 shadow-lg transition-all duration-300 lg:p-12 ${
                 activeFeature === index
-                  ? 'border-2 border-primary shadow-xl'
-                  : 'border-card transition-shadow hover:border-2 hover:border-primary/50 hover:shadow-primary/30'
+                  ? "border-2 border-primary shadow-xl"
+                  : "border-card transition-shadow hover:border-2 hover:border-primary/50 hover:shadow-primary/30"
               }`}
             >
               <div className="mb-4 flex items-center">
                 <feature.icon
                   className={`mr-4 h-10 w-10 ${
                     activeFeature === index
-                      ? 'animate-bounce text-primary'
-                      : 'text-muted-foreground'
+                      ? "animate-bounce text-primary"
+                      : "text-muted-foreground"
                   } `}
                 />
                 <Text
                   as="h3"
                   variant="headingMd"
-                  className={activeFeature === index ? 'text-primary' : ''}
+                  className={activeFeature === index ? "text-primary" : ""}
                 >
                   {feature.title}
                 </Text>
               </div>
 
               <div className="animate-fade-in-right">
-                <Text as="p" variant="bodyMd" className="mb-4 text-muted-foreground">
+                <Text
+                  as="p"
+                  variant="bodyMd"
+                  className="mb-4 text-muted-foreground"
+                >
                   {feature.shortDescription}
                 </Text>
 
                 <ul className="mb-4 space-y-3">
                   {feature.detailedDescription.map((desc, idx) => (
-                    <li key={idx} className="flex items-center text-muted-foreground">
+                    <li
+                      key={idx}
+                      className="flex items-center text-muted-foreground"
+                    >
                       <Check className="text-success mr-2 h-4 w-4" />
                       {desc}
                     </li>
@@ -356,7 +396,11 @@ const MetaAdDominationLandingPage: React.FC = () => {
                         key={idx}
                         className="rounded-md border border-primary/20 bg-card px-3 py-2 text-center"
                       >
-                        <Text as="span" variant="bodySm" className="glow text-muted-foreground">
+                        <Text
+                          as="span"
+                          variant="bodySm"
+                          className="glow text-muted-foreground"
+                        >
                           {benefit}
                         </Text>
                       </div>
@@ -430,7 +474,11 @@ const MetaAdDominationLandingPage: React.FC = () => {
                     <Text as="h4" variant="bodyLg" className="font-semibold">
                       {module.title}
                     </Text>
-                    <Text as="p" variant="bodySm" className="text-muted-foreground">
+                    <Text
+                      as="p"
+                      variant="bodySm"
+                      className="text-muted-foreground"
+                    >
                       {module.description}
                     </Text>
                   </div>
@@ -453,10 +501,18 @@ const MetaAdDominationLandingPage: React.FC = () => {
                   className="bg-success/10 hover:bg-success/20 mb-6 flex items-center justify-between rounded-xl p-4 transition-colors"
                 >
                   <div>
-                    <Text as="h4" variant="bodyLg" className="text-success font-semibold">
+                    <Text
+                      as="h4"
+                      variant="bodyLg"
+                      className="text-success font-semibold"
+                    >
                       {bonus.title}
                     </Text>
-                    <Text as="p" variant="bodySm" className="text-muted-foreground">
+                    <Text
+                      as="p"
+                      variant="bodySm"
+                      className="text-muted-foreground"
+                    >
                       {bonus.description}
                     </Text>
                   </div>

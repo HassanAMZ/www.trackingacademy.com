@@ -1,11 +1,11 @@
-'use server';
-import { db } from '@/app/firebase';
-import ContactUsNewEmail from '@/components/emails/contact-us-new';
-import { collection, doc, setDoc, Timestamp } from 'firebase/firestore';
-import { cookies } from 'next/headers';
-import { redirect } from 'next/navigation';
-import { Resend } from 'resend';
-import { z } from 'zod';
+"use server";
+import { db } from "@/app/firebase";
+import ContactUsNewEmail from "@/components/emails/contact-us-new";
+import { collection, doc, setDoc, Timestamp } from "firebase/firestore";
+import { cookies } from "next/headers";
+import { redirect } from "next/navigation";
+import { Resend } from "resend";
+import { z } from "zod";
 
 export async function createContact(formData: FormData) {
   const resend = new Resend(process.env.NEXT_PUBLIC_RESEND_API_KEY);
@@ -14,13 +14,13 @@ export async function createContact(formData: FormData) {
   const timestamp = new Date();
   const timestampId =
     timestamp.getFullYear().toString() +
-    (timestamp.getMonth() + 1).toString().padStart(2, '0') +
-    timestamp.getDate().toString().padStart(2, '0') +
-    timestamp.getHours().toString().padStart(2, '0') +
-    timestamp.getMinutes().toString().padStart(2, '0') +
-    timestamp.getSeconds().toString().padStart(2, '0');
+    (timestamp.getMonth() + 1).toString().padStart(2, "0") +
+    timestamp.getDate().toString().padStart(2, "0") +
+    timestamp.getHours().toString().padStart(2, "0") +
+    timestamp.getMinutes().toString().padStart(2, "0") +
+    timestamp.getSeconds().toString().padStart(2, "0");
 
-  const contactsCollection = collection(db, 'contacts');
+  const contactsCollection = collection(db, "contacts");
 
   const schema = z.object({
     name: z.string().min(1),
@@ -35,14 +35,14 @@ export async function createContact(formData: FormData) {
   });
 
   const data = schema.parse({
-    name: formData.get('name'),
-    company: formData.get('company'),
-    website: formData.get('website'),
-    interest: formData.get('interest'),
-    projectDescription: formData.get('projectDescription'),
-    collaborationType: formData.get('collaborationType'),
-    budget: formData.get('budget'),
-    email: formData.get('email'),
+    name: formData.get("name"),
+    company: formData.get("company"),
+    website: formData.get("website"),
+    interest: formData.get("interest"),
+    projectDescription: formData.get("projectDescription"),
+    collaborationType: formData.get("collaborationType"),
+    budget: formData.get("budget"),
+    email: formData.get("email"),
     createdAt: Timestamp.now(),
   });
 
@@ -53,10 +53,10 @@ export async function createContact(formData: FormData) {
     await setDoc(contactDocRef, data);
 
     await resend.emails.send({
-      from: 'no-reply@trackingacademy.com',
+      from: "no-reply@trackingacademy.com",
       to: data.email,
-      cc: ['reactjswebdev@gmail.com', 'analytics@shahzadaalihassan.com'],
-      subject: 'Thank you for contacting us!',
+      cc: ["reactjswebdev@gmail.com", "analytics@shahzadaalihassan.com"],
+      subject: "Thank you for contacting us!",
       react: ContactUsNewEmail({
         name: data.name,
         company: data.company,
@@ -72,17 +72,17 @@ export async function createContact(formData: FormData) {
 
     // Store user data in cookies
     (await cookies()).set(
-      'user_data',
+      "user_data",
       JSON.stringify({
         email: data.email,
         name: data.name,
         company: data.company,
       }),
-      { httpOnly: true, path: '/', maxAge: 60 * 60 * 24 * 7 },
+      { httpOnly: true, path: "/", maxAge: 60 * 60 * 24 * 7 },
     ); // Expires in 7 days
   } catch (e) {
-    console.error('Failed to create contact or send email', e);
-    return { message: 'Failed to create contact' };
+    console.error("Failed to create contact or send email", e);
+    return { message: "Failed to create contact" };
   }
-  redirect('/contact/book-a-meeting');
+  redirect("/contact/book-a-meeting");
 }

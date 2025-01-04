@@ -1,6 +1,6 @@
-import { PostMetadata } from '@/types/index';
-import getBlogsData from 'utils/getBlogsData';
-import getTags from './getTags';
+import { PostMetadata } from "@/types/index";
+import getBlogsData from "utils/getBlogsData";
+import getTags from "./getTags";
 
 export default async function getBlogAndTagsData(): Promise<{
   tags: string[];
@@ -8,7 +8,7 @@ export default async function getBlogAndTagsData(): Promise<{
 }> {
   const uniqueTags = await getTags();
   const blogs: (PostMetadata & { id: string; slug: string })[] =
-    await getBlogsData('app/_blog-markdown');
+    await getBlogsData("app/_blog-markdown");
 
   return { tags: uniqueTags, blogs };
 }

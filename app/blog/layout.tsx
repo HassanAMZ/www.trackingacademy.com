@@ -1,12 +1,12 @@
-import Navbar from '@/components/global/navbar';
-import GiscusComments from '@/components/mdx/GiscusComents';
-import React, { ReactNode } from 'react';
+import Navbar from "@/components/global/navbar";
+import GiscusComments from "@/components/mdx/GiscusComents";
+import React, { ReactNode } from "react";
 
 export const metadata = {
-  title: 'Blog Archieve- TrackingAcademy',
+  title: "Blog Archieve- TrackingAcademy",
   description: `Blog for Web Analysts and Marketing People`,
   openGraph: {
-    images: ['/images/social-sharing.png'],
+    images: ["/images/social-sharing.png"],
   },
 };
 

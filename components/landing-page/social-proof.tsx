@@ -1,9 +1,9 @@
-import { Card, CardContent } from '@/components/ui/card';
-import Container from '@/components/ui/container';
-import Text from '@/components/ui/text';
-import { Quote } from 'lucide-react';
-import Image from 'next/image';
-import React from 'react';
+import { Card, CardContent } from "@/components/ui/card";
+import Container from "@/components/ui/container";
+import Text from "@/components/ui/text";
+import { Quote } from "lucide-react";
+import Image from "next/image";
+import React from "react";
 
 interface Testimonial {
   quote: string;
@@ -47,7 +47,11 @@ const SocialProof: React.FC<SocialProofProps> = ({
 
         {/* Section Description */}
         {sectionDescription && (
-          <Text as="p" variant="headingLg" className="mb-12 text-center text-muted-foreground">
+          <Text
+            as="p"
+            variant="headingLg"
+            className="mb-12 text-center text-muted-foreground"
+          >
             {sectionDescription}
           </Text>
         )}
@@ -69,8 +73,12 @@ const SocialProof: React.FC<SocialProofProps> = ({
                       className="mr-4 rounded-full"
                     />
                     <div>
-                      <Text className="font-semibold">{testimonial.author}</Text>
-                      <Text className="text-sm text-muted-foreground">{testimonial.role}</Text>
+                      <Text className="font-semibold">
+                        {testimonial.author}
+                      </Text>
+                      <Text className="text-sm text-muted-foreground">
+                        {testimonial.role}
+                      </Text>
                     </div>
                   </div>
                 </CardContent>

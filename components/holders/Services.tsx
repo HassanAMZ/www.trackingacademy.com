@@ -1,6 +1,6 @@
-import ServiceCard from '@/components/global/ServiceCard';
-import ContainerLayout from '@/components/layouts/ContainerLayout';
-import servicesDetails from '@/data/services-details';
+import ServiceCard from "@/components/global/ServiceCard";
+import ContainerLayout from "@/components/layouts/ContainerLayout";
+import servicesDetails from "@/data/services-details";
 export default function Hero() {
   return (
     <div className="rounded-lg">

@@ -1,10 +1,10 @@
-import React, { ReactNode } from 'react';
+import React, { ReactNode } from "react";
 
 export const metadata = {
-  title: 'Portfolio - TrackingAcademy',
+  title: "Portfolio - TrackingAcademy",
   description: `Portfolio for Web Analysts and Marketing People`,
   openGraph: {
-    images: ['/images/social-sharing.png'],
+    images: ["/images/social-sharing.png"],
   },
 };
 

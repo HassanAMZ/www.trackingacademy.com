@@ -1,60 +1,60 @@
-'use client';
+"use client";
 
-import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
-import { Button } from '@/components/ui/button';
-import Container from '@/components/ui/container';
-import Text from '@/components/ui/text';
-import { cn } from '@/lib/utils';
-import { Link } from 'next-view-transitions';
-import TestimonialsCarousel from '../offer-002/testimonial-carousal';
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { Button } from "@/components/ui/button";
+import Container from "@/components/ui/container";
+import Text from "@/components/ui/text";
+import { cn } from "@/lib/utils";
+import { Link } from "next-view-transitions";
+import TestimonialsCarousel from "../offer-002/testimonial-carousal";
 const trackingData = [
   {
-    date: '2024-03-01',
+    date: "2024-03-01",
     before: 78,
     after: 95,
   },
   {
-    date: '2024-03-08',
+    date: "2024-03-08",
     before: 82,
     after: 97,
   },
   {
-    date: '2024-03-15',
+    date: "2024-03-15",
     before: 79,
     after: 96,
   },
   {
-    date: '2024-03-22',
+    date: "2024-03-22",
     before: 81,
     after: 97,
   },
   {
-    date: '2024-03-29',
+    date: "2024-03-29",
     before: 84,
     after: 98,
   },
   {
-    date: '2024-04-05',
+    date: "2024-04-05",
     before: 77,
     after: 95,
   },
   {
-    date: '2024-04-12',
+    date: "2024-04-12",
     before: 83,
     after: 98,
   },
   {
-    date: '2024-04-19',
+    date: "2024-04-19",
     before: 80,
     after: 96,
   },
   {
-    date: '2024-04-26',
+    date: "2024-04-26",
     before: 82,
     after: 97,
   },
   {
-    date: '2024-05-02',
+    date: "2024-05-02",
     before: 81,
     after: 96,
   },
@@ -66,7 +66,9 @@ interface TrackingData {
   after: number;
 }
 
-const calculateAverage = (data: TrackingData[]): { avgBefore: string; avgAfter: string } => {
+const calculateAverage = (
+  data: TrackingData[],
+): { avgBefore: string; avgAfter: string } => {
   const totalBefore = data.reduce((sum, entry) => sum + entry.before, 0);
   const totalAfter = data.reduce((sum, entry) => sum + entry.after, 0);
   const avgBefore = (totalBefore / data.length).toFixed(2);
@@ -82,15 +84,17 @@ export default function Hero() {
       <div className="flex flex-col-reverse items-start justify-center gap-4 pt-4 text-left md:grid md:grid-cols-5 lg:pt-8">
         <div className="space-y-1 md:col-span-3 md:space-y-3">
           <Text as="h1" variant="heading3xl">
-            <span className="text-primary">Never Miss a Sale Again </span>- Track 95% of your
-            Conversions - <span className="text-primary"> Guaranteed!</span>
+            <span className="text-primary">Never Miss a Sale Again </span>-
+            Track 95% of your Conversions -{" "}
+            <span className="text-primary"> Guaranteed!</span>
           </Text>
 
           <Text as="p" variant="bodyMd">
             Our <strong className="text-primary">PrecisionTrack </strong>
-            system helps you get the most accurate data for your ads platforms ( Meta, Google,
-            TikTok, SnapChat etc.) and analytics tools (Ga4, PiwikPro, Segment etc.) with 0% effort
-            and no disruption to your current setup.
+            system helps you get the most accurate data for your ads platforms (
+            Meta, Google, TikTok, SnapChat etc.) and analytics tools (Ga4,
+            PiwikPro, Segment etc.) with 0% effort and no disruption to your
+            current setup.
           </Text>
 
           <div className="max-w-2xl self-start pt-4 md:pt-2">
@@ -110,23 +114,34 @@ export default function Hero() {
           </div>
 
           <Button asChild>
-            <Link href="/offers/95-accurate-tracking-in-7-days/submit-query">Book a Call</Link>
+            <Link href="/offers/95-accurate-tracking-in-7-days/submit-query">
+              Book a Call
+            </Link>
           </Button>
 
           <div className="flex items-center justify-start gap-2">
             <div className="relative h-8 w-8">
               <Avatar className="z-1 absolute left-0 top-0">
-                <AvatarImage src="/images/clients/malik-osama.jfif" alt="@malik-osama" />
+                <AvatarImage
+                  src="/images/clients/malik-osama.jfif"
+                  alt="@malik-osama"
+                />
                 <AvatarFallback>MO</AvatarFallback>
               </Avatar>
 
               <Avatar className="z-2 absolute left-4 top-0">
-                <AvatarImage src="/images/clients/philipp-herglotz.jfif" alt="@philipp-herglotz" />
+                <AvatarImage
+                  src="/images/clients/philipp-herglotz.jfif"
+                  alt="@philipp-herglotz"
+                />
                 <AvatarFallback>PH</AvatarFallback>
               </Avatar>
 
               <Avatar className="z-3 absolute left-8 top-0">
-                <AvatarImage src="/images/clients/imtiaz-ahmad.jfif" alt="@imtiaz-ahmad" />
+                <AvatarImage
+                  src="/images/clients/imtiaz-ahmad.jfif"
+                  alt="@imtiaz-ahmad"
+                />
                 <AvatarFallback>IA</AvatarFallback>
               </Avatar>
             </div>
@@ -155,8 +170,8 @@ export default function Hero() {
               {trackingData.map((data, index) => (
                 <tr
                   className={cn(
-                    'm-0 whitespace-nowrap p-0 even:bg-muted',
-                    index < trackingData.length - 3 && 'hidden md:table-row',
+                    "m-0 whitespace-nowrap p-0 even:bg-muted",
+                    index < trackingData.length - 3 && "hidden md:table-row",
                   )}
                   key={index}
                 >

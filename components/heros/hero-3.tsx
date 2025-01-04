@@ -1,17 +1,17 @@
-'use client';
+"use client";
 
-import { Badge } from '@/components/ui/badge';
-import { Button } from '@/components/ui/button';
-import Container from '@/components/ui/container';
-import { Check } from 'lucide-react';
-import { Link } from 'next-view-transitions';
-import VideoPlayer from '../offers/offer-001/video-player';
-import TestimonialsCarousel from '../offers/offer-002/testimonial-carousal';
-import Text from '../ui/text';
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import Container from "@/components/ui/container";
+import { Check } from "lucide-react";
+import { Link } from "next-view-transitions";
+import VideoPlayer from "../offers/offer-001/video-player";
+import TestimonialsCarousel from "../offers/offer-002/testimonial-carousal";
+import Text from "../ui/text";
 
 const EnhancedHero = () => {
   function clsx(arg0: string, arg1: string) {
-    throw new Error('Function not implemented.');
+    throw new Error("Function not implemented.");
   }
 
   return (
@@ -22,11 +22,13 @@ const EnhancedHero = () => {
             Revolutionary Ad Tracking Post-iOS 17 World
           </Badge>
           <Text as="h1" variant="heading3xl">
-            Done-For-You Ad Tracking Setup – Achieve 95% Accuracy in Just 7 Days!
+            Done-For-You Ad Tracking Setup – Achieve 95% Accuracy in Just 7
+            Days!
           </Text>
           <Text as="h2" variant="headingMd" className="text-muted-foreground">
-            Sit back while our experts set up a cutting-edge Cloud Tracking system for you. No
-            guesswork—just results. Maximize your ROI effortlessly.
+            Sit back while our experts set up a cutting-edge Cloud Tracking
+            system for you. No guesswork—just results. Maximize your ROI
+            effortlessly.
           </Text>
 
           <div className="flex items-center justify-center space-x-4 text-center">
@@ -51,9 +53,10 @@ const EnhancedHero = () => {
               Stop Losing Money to Inaccurate Paid Ads Tracking
             </Text>
             <Text as="p" className="max-w-[700px]" variant="bodyLg">
-              Tracking gaps are costing you money. If you don't know which ads work, every dollar
-              you spend could be a dollar lost. Our service pinpoints your current issues and
-              delivers a 95%+ accurate tracking solution.
+              Tracking gaps are costing you money. If you don't know which ads
+              work, every dollar you spend could be a dollar lost. Our service
+              pinpoints your current issues and delivers a 95%+ accurate
+              tracking solution.
             </Text>
           </div>
           <div className="py-6">

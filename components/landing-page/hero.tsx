@@ -1,10 +1,10 @@
-import YoutubeEmbed from '@/components/global/youtube-embed';
-import { Badge } from '@/components/ui/badge';
-import { Button } from '@/components/ui/button';
-import Container from '@/components/ui/container';
-import Text from '@/components/ui/text';
-import { ArrowRight } from 'lucide-react';
-import { Link } from 'next-view-transitions';
+import YoutubeEmbed from "@/components/global/youtube-embed";
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import Container from "@/components/ui/container";
+import Text from "@/components/ui/text";
+import { ArrowRight } from "lucide-react";
+import { Link } from "next-view-transitions";
 
 interface HeroProps {
   badgeText?: string;
@@ -33,7 +33,11 @@ const Hero: React.FC<HeroProps> = ({
           </Text>
         )}
         {subheadingText && (
-          <Text as="h2" variant="headingMd" className="max-w-3xl text-muted-foreground">
+          <Text
+            as="h2"
+            variant="headingMd"
+            className="max-w-3xl text-muted-foreground"
+          >
             {subheadingText}
           </Text>
         )}

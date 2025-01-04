@@ -1,7 +1,7 @@
-import React, { ReactNode } from 'react';
-import formatString from 'utils/formatString';
-import getTags from 'utils/getTags';
-import reverseFormatString from 'utils/reverseFormatString';
+import React, { ReactNode } from "react";
+import formatString from "utils/formatString";
+import getTags from "utils/getTags";
+import reverseFormatString from "utils/reverseFormatString";
 
 export async function generateMetadata(props: any) {
   const params = await props.params;
@@ -9,7 +9,7 @@ export async function generateMetadata(props: any) {
     title: `${reverseFormatString(params.tag)} Archieve- TrackingAcademy`,
     description: `Blog for Web Analysts and Marketing People`,
     openGraph: {
-      images: ['/images/social-sharing.png'],
+      images: ["/images/social-sharing.png"],
     },
   };
 }

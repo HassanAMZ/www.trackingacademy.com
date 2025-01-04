@@ -1,7 +1,7 @@
-'use client';
+"use client";
 
-import { Button } from '@/components/ui/button';
-import Container from '@/components/ui/container';
+import { Button } from "@/components/ui/button";
+import Container from "@/components/ui/container";
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -10,15 +10,15 @@ import {
   NavigationMenuList,
   NavigationMenuTrigger,
   navigationMenuTriggerStyle,
-} from '@/components/ui/navigation-menu';
-import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
-import clsx from 'clsx';
-import { FileText, Menu, Wrench } from 'lucide-react';
-import { Link } from 'next-view-transitions';
-import { usePathname } from 'next/navigation';
-import React, { useState } from 'react';
-import NavLink from '../navbar/NavLink';
-import { ModeToggle } from './theme-switch';
+} from "@/components/ui/navigation-menu";
+import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import clsx from "clsx";
+import { FileText, Menu, Wrench } from "lucide-react";
+import { Link } from "next-view-transitions";
+import { usePathname } from "next/navigation";
+import React, { useState } from "react";
+import NavLink from "../navbar/NavLink";
+import { ModeToggle } from "./theme-switch";
 
 interface NavItem {
   title: string;
@@ -29,37 +29,39 @@ interface NavItem {
 const NAV_ITEMS: Record<string, NavItem[]> = {
   tools: [
     {
-      title: 'UTM Builder',
-      href: '/tools/utm-builder',
+      title: "UTM Builder",
+      href: "/tools/utm-builder",
       description:
-        'Start building your UTMs for Google Ads, Facebook Ads, TikTok, or custom, all at one place',
+        "Start building your UTMs for Google Ads, Facebook Ads, TikTok, or custom, all at one place",
     },
     {
-      title: 'UTM Validator',
-      href: '/tools/utm-validator',
-      description: 'Validate and analyze your UTM parameters to ensure proper tracking setup',
+      title: "UTM Validator",
+      href: "/tools/utm-validator",
+      description:
+        "Validate and analyze your UTM parameters to ensure proper tracking setup",
     },
   ],
   blogs: [
     {
-      title: 'All Blog Posts',
-      href: '/blog',
-      description: 'Learn everything about web analytics.',
+      title: "All Blog Posts",
+      href: "/blog",
+      description: "Learn everything about web analytics.",
     },
     {
-      title: 'Google Tag Manager',
-      href: '/tags/google-tag-manager',
-      description: 'Learn how to implement and optimize Google Tag Manager.',
+      title: "Google Tag Manager",
+      href: "/tags/google-tag-manager",
+      description: "Learn how to implement and optimize Google Tag Manager.",
     },
     {
-      title: 'Shopify',
-      href: '/tags/shopify',
-      description: 'Guides and tips for managing and growing your Shopify store.',
+      title: "Shopify",
+      href: "/tags/shopify",
+      description:
+        "Guides and tips for managing and growing your Shopify store.",
     },
   ],
 };
 
-interface ListItemProps extends React.ComponentPropsWithoutRef<'a'> {
+interface ListItemProps extends React.ComponentPropsWithoutRef<"a"> {
   title: string;
   children: React.ReactNode;
 }
@@ -71,19 +73,21 @@ const ListItem = React.forwardRef<HTMLAnchorElement, ListItemProps>(
         <a
           ref={ref}
           className={clsx(
-            'block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground',
+            "block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground",
             className,
           )}
           {...props}
         >
           <div className="text-sm font-medium leading-none">{title}</div>
-          <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">{children}</p>
+          <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
+            {children}
+          </p>
         </a>
       </NavigationMenuLink>
     </li>
   ),
 );
-ListItem.displayName = 'ListItem';
+ListItem.displayName = "ListItem";
 
 export default function Navbar({ className }: { className?: string }) {
   const [isSheetOpen, setSheetOpen] = useState(false);
@@ -95,7 +99,7 @@ export default function Navbar({ className }: { className?: string }) {
 
   const renderCallToAction = () => (
     <Button asChild>
-      <Link href={'/contact'}>
+      <Link href={"/contact"}>
         <span className="hidden sm:block">Schedule a Meeting</span>
         <span className="block sm:hidden">Contact</span>
       </Link>
@@ -107,15 +111,18 @@ export default function Navbar({ className }: { className?: string }) {
       href="/"
       className={clsx(
         navigationMenuTriggerStyle(),
-        'flex items-center justify-center p-2 font-extrabold text-accent-foreground',
-        isActive('/') && 'text-accent-foreground',
+        "flex items-center justify-center p-2 font-extrabold text-accent-foreground",
+        isActive("/") && "text-accent-foreground",
       )}
     >
       TrackingAcademy
     </NavLink>
   );
 
-  const renderNavigationMenuItems = (items: NavItem[], icon: React.ReactNode) => (
+  const renderNavigationMenuItems = (
+    items: NavItem[],
+    icon: React.ReactNode,
+  ) => (
     <ul className="grid gap-3 p-4 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]">
       <li className="row-span-3">
         <NavigationMenuLink asChild>
@@ -124,8 +131,12 @@ export default function Navbar({ className }: { className?: string }) {
             href={items[0].href}
           >
             {icon}
-            <div className="mb-2 mt-4 text-lg font-medium">{items[0].title}</div>
-            <p className="text-sm leading-tight text-muted-foreground">{items[0].description}</p>
+            <div className="mb-2 mt-4 text-lg font-medium">
+              {items[0].title}
+            </div>
+            <p className="text-sm leading-tight text-muted-foreground">
+              {items[0].description}
+            </p>
           </a>
         </NavigationMenuLink>
       </li>
@@ -145,7 +156,10 @@ export default function Navbar({ className }: { className?: string }) {
           <NavigationMenuItem>
             <NavigationMenuTrigger>Tools</NavigationMenuTrigger>
             <NavigationMenuContent>
-              {renderNavigationMenuItems(NAV_ITEMS.tools, <Wrench className="h-6 w-6" />)}
+              {renderNavigationMenuItems(
+                NAV_ITEMS.tools,
+                <Wrench className="h-6 w-6" />,
+              )}
             </NavigationMenuContent>
           </NavigationMenuItem>
           {/* <NavigationMenuItem>
@@ -157,7 +171,10 @@ export default function Navbar({ className }: { className?: string }) {
           <NavigationMenuItem>
             <NavigationMenuTrigger>Blogs</NavigationMenuTrigger>
             <NavigationMenuContent>
-              {renderNavigationMenuItems(NAV_ITEMS.blogs, <FileText className="h-6 w-6" />)}
+              {renderNavigationMenuItems(
+                NAV_ITEMS.blogs,
+                <FileText className="h-6 w-6" />,
+              )}
             </NavigationMenuContent>
           </NavigationMenuItem>
         </NavigationMenuList>
@@ -184,19 +201,19 @@ export default function Navbar({ className }: { className?: string }) {
 
       <SheetContent side="right" className="flex flex-col justify-between">
         <nav className="flex w-full flex-col space-y-4 py-4">
-          {['/', '/tools', '/blog'].map((path) => (
+          {["/", "/tools", "/blog"].map((path) => (
             <Link
               key={path}
               href={path}
               className={clsx(
-                '!w-full !justify-start',
+                "!w-full !justify-start",
                 navigationMenuTriggerStyle(),
-                isActive(path) && 'bg-secondary text-accent-foreground',
+                isActive(path) && "bg-secondary text-accent-foreground",
               )}
               onClick={handleLinkClick}
             >
-              {path === '/'
-                ? 'TrackingAcademy'
+              {path === "/"
+                ? "TrackingAcademy"
                 : path.slice(1).charAt(0).toUpperCase() + path.slice(2)}
             </Link>
           ))}
@@ -209,7 +226,7 @@ export default function Navbar({ className }: { className?: string }) {
 
   return (
     <div className="w-full pb-2 pt-4 lg:text-sm">
-      <Container className={clsx('bg-transparent', className)}>
+      <Container className={clsx("bg-transparent", className)}>
         <div className="flex rounded-lg border bg-transparent">
           <MobileNavigationMenu />
           <DesktopNavigationMenu />

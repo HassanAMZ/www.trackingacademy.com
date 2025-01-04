@@ -1,7 +1,7 @@
-import { Card, CardContent } from '@/components/ui/card';
-import Container from '@/components/ui/container';
-import Text from '@/components/ui/text';
-import React from 'react';
+import { Card, CardContent } from "@/components/ui/card";
+import Container from "@/components/ui/container";
+import Text from "@/components/ui/text";
+import React from "react";
 
 interface Guarantee {
   title: string;
@@ -14,7 +14,10 @@ interface ObjectionHandlingProps {
   guarantees?: Guarantee[];
 }
 
-const ObjectionHandling: React.FC<ObjectionHandlingProps> = ({ sectionTitle, guarantees }) => {
+const ObjectionHandling: React.FC<ObjectionHandlingProps> = ({
+  sectionTitle,
+  guarantees,
+}) => {
   return (
     <section className="grid min-h-screen place-content-center bg-secondary/20 py-24">
       <Container className="max-w-4xl">

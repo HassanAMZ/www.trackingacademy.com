@@ -1,5 +1,5 @@
-import React from 'react';
-import ContainerLayout from '../layouts/ContainerLayout';
+import React from "react";
+import ContainerLayout from "../layouts/ContainerLayout";
 
 const HeroComponentSkeleton: React.FC = () => {
   return (

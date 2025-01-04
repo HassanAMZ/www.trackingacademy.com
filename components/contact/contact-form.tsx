@@ -1,25 +1,25 @@
-'use client';
-import { createContact } from '@/actions/contact-us';
-import { Button } from '@/components/ui/button';
-import Container from '@/components/ui/container';
-import { Input } from '@/components/ui/input';
-import { Label } from '@/components/ui/label';
+"use client";
+import { createContact } from "@/actions/contact-us";
+import { Button } from "@/components/ui/button";
+import Container from "@/components/ui/container";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from '@/components/ui/select';
-import { Textarea } from '@/components/ui/textarea';
-import { Link } from 'next-view-transitions';
-import { useRouter } from 'next/navigation';
-import React, { ChangeEvent, useEffect, useState } from 'react';
-import { useFormState, useFormStatus } from 'react-dom';
-import { GTMCustomEvent } from '../analytics/GTMEvents';
-import { cn } from '../lib/utils';
-import { Card, CardContent } from '../ui/card';
-import Text from '../ui/text';
+} from "@/components/ui/select";
+import { Textarea } from "@/components/ui/textarea";
+import { Link } from "next-view-transitions";
+import { useRouter } from "next/navigation";
+import React, { ChangeEvent, useEffect, useState } from "react";
+import { useFormState, useFormStatus } from "react-dom";
+import { GTMCustomEvent } from "../analytics/GTMEvents";
+import { cn } from "../lib/utils";
+import { Card, CardContent } from "../ui/card";
+import Text from "../ui/text";
 
 interface FormData {
   firstName: string;
@@ -70,7 +70,7 @@ interface Errors {
 }
 
 const initialState = {
-  message: '',
+  message: "",
 };
 
 function SubmitButton({ validateStep }: { validateStep: () => boolean }) {
@@ -87,9 +87,9 @@ function SubmitButton({ validateStep }: { validateStep: () => boolean }) {
       type="submit"
       disabled={pending}
       onClick={handleClick}
-      className={`${pending ? 'cursor-not-allowed opacity-50' : ''}`}
+      className={`${pending ? "cursor-not-allowed opacity-50" : ""}`}
     >
-      {pending ? 'Submitting...' : 'Submit Contact Form'}
+      {pending ? "Submitting..." : "Submit Contact Form"}
     </Button>
   );
 }
@@ -103,8 +103,8 @@ interface ContactFormProps {
 }
 
 export default function ContactForm({
-  thankYouUrl = '/contact/book-a-meeting',
-  gtmCustomEventName = 'contact_form_submission',
+  thankYouUrl = "/contact/book-a-meeting",
+  gtmCustomEventName = "contact_form_submission",
   isItAFit = true,
   formHeader = true,
   className,
@@ -114,28 +114,28 @@ export default function ContactForm({
   const [currentStep, setCurrentStep] = useState(1);
   const [maxStep, setMaxStep] = useState(1);
   const [formData, setFormData] = useState<FormData>({
-    firstName: '',
-    lastName: '',
-    companySize: '',
-    companyName: '',
-    jobTitle: '',
-    email: '',
-    phone: '',
-    websiteLink: '',
-    integrationType: '',
-    budget: '',
-    projectDescription: '',
-    currentSetup: '',
-    meetingPreference: '',
-    monthlyVisitors: '',
-    businessModel: '',
-    topMarketingChannels: '',
-    currentChallenges: '',
-    conversionRateChanges: '',
-    tagManagementSystem: '',
-    trackingGoal: '',
-    specificRequirements: '',
-    implementationTimeline: '',
+    firstName: "",
+    lastName: "",
+    companySize: "",
+    companyName: "",
+    jobTitle: "",
+    email: "",
+    phone: "",
+    websiteLink: "",
+    integrationType: "",
+    budget: "",
+    projectDescription: "",
+    currentSetup: "",
+    meetingPreference: "",
+    monthlyVisitors: "",
+    businessModel: "",
+    topMarketingChannels: "",
+    currentChallenges: "",
+    conversionRateChanges: "",
+    tagManagementSystem: "",
+    trackingGoal: "",
+    specificRequirements: "",
+    implementationTimeline: "",
   });
 
   const [errors, setErrors] = useState<Errors>({});
@@ -152,33 +152,40 @@ export default function ContactForm({
     const newErrors: Errors = {};
     switch (step) {
       case 1:
-        if (!formData.email) newErrors.email = 'Email is required';
+        if (!formData.email) newErrors.email = "Email is required";
         if (!formData.meetingPreference)
-          newErrors.meetingPreference = 'Meeting preference is required';
-        else if (!/\S+@\S+\.\S+/.test(formData.email)) newErrors.email = 'Email is invalid';
+          newErrors.meetingPreference = "Meeting preference is required";
+        else if (!/\S+@\S+\.\S+/.test(formData.email))
+          newErrors.email = "Email is invalid";
         break;
       case 2:
-        if (!formData.firstName) newErrors.firstName = 'First Name is required';
-        if (!formData.lastName) newErrors.lastName = 'Last Name is required';
-        if (!formData.phone) newErrors.phone = 'Phone is required';
+        if (!formData.firstName) newErrors.firstName = "First Name is required";
+        if (!formData.lastName) newErrors.lastName = "Last Name is required";
+        if (!formData.phone) newErrors.phone = "Phone is required";
         break;
       case 3:
-        if (!formData.websiteLink) newErrors.websiteLink = 'Website URL is required';
+        if (!formData.websiteLink)
+          newErrors.websiteLink = "Website URL is required";
         else if (!/^(ftp|http|https):\/\/[^ "]+$/.test(formData.websiteLink))
-          newErrors.websiteLink = 'Website URL is invalid';
-        if (!formData.integrationType) newErrors.integrationType = 'Integration type is required';
-        if (!formData.currentSetup) newErrors.currentSetup = 'Current setup is required';
-        if (!formData.monthlyVisitors) newErrors.monthlyVisitors = 'Monthly visitors is required';
-        if (!formData.businessModel) newErrors.businessModel = 'Business model is required';
+          newErrors.websiteLink = "Website URL is invalid";
+        if (!formData.integrationType)
+          newErrors.integrationType = "Integration type is required";
+        if (!formData.currentSetup)
+          newErrors.currentSetup = "Current setup is required";
+        if (!formData.monthlyVisitors)
+          newErrors.monthlyVisitors = "Monthly visitors is required";
+        if (!formData.businessModel)
+          newErrors.businessModel = "Business model is required";
         if (!formData.topMarketingChannels)
-          newErrors.topMarketingChannels = 'Top marketing channels are required';
+          newErrors.topMarketingChannels =
+            "Top marketing channels are required";
         if (!formData.currentChallenges)
-          newErrors.currentChallenges = 'Current challenges are required';
+          newErrors.currentChallenges = "Current challenges are required";
         break;
       case 4:
-        if (!formData.budget) newErrors.budget = 'Budget is required';
+        if (!formData.budget) newErrors.budget = "Budget is required";
         if (!formData.projectDescription)
-          newErrors.projectDescription = 'Project description is required';
+          newErrors.projectDescription = "Project description is required";
         break;
     }
     setErrors(newErrors);
@@ -255,9 +262,10 @@ export default function ContactForm({
           Your request has been submitted.
         </Text>
         <Text as="p" variant="bodyMd">
-          You'll be redirected to Book a Meeting Page. If the redirects does not happen,{' '}
-          <Button asChild variant={'link'} className="p-0">
-            <Link href={'/contact/book-a-meeting'}>click here</Link>
+          You'll be redirected to Book a Meeting Page. If the redirects does not
+          happen,{" "}
+          <Button asChild variant={"link"} className="p-0">
+            <Link href={"/contact/book-a-meeting"}>click here</Link>
           </Button>
         </Text>
       </Container>
@@ -265,25 +273,27 @@ export default function ContactForm({
   }
 
   const renderNavigation = () => {
-    const steps = ['Meeting', 'Account', 'Project', 'Tracking'];
+    const steps = ["Meeting", "Account", "Project", "Tracking"];
     return (
       <div className="grid grid-cols-2 items-end justify-center gap-4 py-2 pb-6 text-center sm:py-6 lg:grid-cols-4 lg:py-8">
         {steps.map((step, index) => (
           <div
             key={index}
             className={`flex flex-row items-center md:flex-col ${
-              index + 1 === currentStep ? 'text-primary' : 'text-foreground'
-            } ${index + 1 <= maxStep ? 'cursor-pointer' : 'cursor-default'}`}
+              index + 1 === currentStep ? "text-primary" : "text-foreground"
+            } ${index + 1 <= maxStep ? "cursor-pointer" : "cursor-default"}`}
             onClick={() => {
               if (index + 1 <= maxStep) {
                 setCurrentStep(index + 1);
               }
             }}
-            style={{ cursor: index + 1 <= maxStep ? 'pointer' : 'default' }}
+            style={{ cursor: index + 1 <= maxStep ? "pointer" : "default" }}
           >
             <div
               className={`flex h-8 w-8 items-center justify-center rounded-full border-2 ${
-                index + 1 === currentStep ? 'bg-primary text-secondary' : 'border-secondary'
+                index + 1 === currentStep
+                  ? "bg-primary text-secondary"
+                  : "border-secondary"
               }`}
             >
               {index + 1}
@@ -307,7 +317,8 @@ export default function ContactForm({
                 </Text>
               )}
               <Text as="p" variant="bodyMd">
-                Enter your business email and select your preferred meeting type.
+                Enter your business email and select your preferred meeting
+                type.
               </Text>
             </div>
 
@@ -324,7 +335,9 @@ export default function ContactForm({
                   value={formData.email}
                   onChange={handleInputChange}
                 />
-                {errors.email && <span className="text-destructive">{errors.email}</span>}
+                {errors.email && (
+                  <span className="text-destructive">{errors.email}</span>
+                )}
               </div>
             </div>
 
@@ -334,7 +347,9 @@ export default function ContactForm({
               </Label>
               <Select
                 name="meetingPreference"
-                onValueChange={(value) => setFormData({ ...formData, meetingPreference: value })}
+                onValueChange={(value) =>
+                  setFormData({ ...formData, meetingPreference: value })
+                }
               >
                 <SelectTrigger>
                   <SelectValue placeholder="Select your current setup" />
@@ -345,16 +360,26 @@ export default function ContactForm({
                 </SelectContent>
               </Select>
               {errors.meetingPreference && (
-                <span className="text-destructive">{errors.meetingPreference}</span>
+                <span className="text-destructive">
+                  {errors.meetingPreference}
+                </span>
               )}
             </div>
             <Button className="w-max self-end" type="button" onClick={nextStep}>
               Continue
             </Button>
             {isItAFit && (
-              <Text as="p" variant="bodyMd" className="py-12 text-left text-sm md:text-center">
-                Have a project but not quite ready to contact us?{' '}
-                <Button asChild variant={'link'} className="inline text-wrap p-0">
+              <Text
+                as="p"
+                variant="bodyMd"
+                className="py-12 text-left text-sm md:text-center"
+              >
+                Have a project but not quite ready to contact us?{" "}
+                <Button
+                  asChild
+                  variant={"link"}
+                  className="inline text-wrap p-0"
+                >
                   <Link href="/contact/is-tracking-academy-a-fit-for-you">
                     See if TrackingAcademy is a fit for you.
                   </Link>
@@ -379,7 +404,9 @@ export default function ContactForm({
                   value={formData.firstName}
                   onChange={handleInputChange}
                 />
-                {errors.firstName && <span className="text-destructive">{errors.firstName}</span>}
+                {errors.firstName && (
+                  <span className="text-destructive">{errors.firstName}</span>
+                )}
               </div>
               <div className="grid w-full items-center">
                 <Label className="pb-2" htmlFor="lastName">
@@ -393,7 +420,9 @@ export default function ContactForm({
                   value={formData.lastName}
                   onChange={handleInputChange}
                 />
-                {errors.lastName && <span className="text-destructive">{errors.lastName}</span>}
+                {errors.lastName && (
+                  <span className="text-destructive">{errors.lastName}</span>
+                )}
               </div>
               <div className="grid w-full items-center">
                 <Label className="pb-2" htmlFor="jobTitle">
@@ -445,11 +474,13 @@ export default function ContactForm({
                   value={formData.phone}
                   onChange={handleInputChange}
                 />
-                {errors.phone && <span className="text-destructive">{errors.phone}</span>}
+                {errors.phone && (
+                  <span className="text-destructive">{errors.phone}</span>
+                )}
               </div>
             </div>
             <div className="flex justify-between">
-              <Button type="button" variant={'outline'} onClick={prevStep}>
+              <Button type="button" variant={"outline"} onClick={prevStep}>
                 Previous
               </Button>
               <Button type="button" onClick={nextStep}>
@@ -491,7 +522,9 @@ export default function ContactForm({
                   onChange={handleInputChange}
                 />
                 {errors.integrationType && (
-                  <span className="text-destructive">{errors.integrationType}</span>
+                  <span className="text-destructive">
+                    {errors.integrationType}
+                  </span>
                 )}
               </div>
               <div className="grid w-full items-center">
@@ -500,20 +533,30 @@ export default function ContactForm({
                 </Label>
                 <Select
                   name="currentSetup"
-                  onValueChange={(value) => setFormData({ ...formData, currentSetup: value })}
+                  onValueChange={(value) =>
+                    setFormData({ ...formData, currentSetup: value })
+                  }
                 >
                   <SelectTrigger>
                     <SelectValue placeholder="Select your current setup" />
                   </SelectTrigger>
                   <SelectContent>
-                    <SelectItem value="google-analytics">Google Analytics</SelectItem>
-                    <SelectItem value="facebook-pixel">Facebook Pixel</SelectItem>
-                    <SelectItem value="custom-solution">Custom Solution</SelectItem>
+                    <SelectItem value="google-analytics">
+                      Google Analytics
+                    </SelectItem>
+                    <SelectItem value="facebook-pixel">
+                      Facebook Pixel
+                    </SelectItem>
+                    <SelectItem value="custom-solution">
+                      Custom Solution
+                    </SelectItem>
                     <SelectItem value="other">Other</SelectItem>
                   </SelectContent>
                 </Select>
                 {errors.currentSetup && (
-                  <span className="text-destructive">{errors.currentSetup}</span>
+                  <span className="text-destructive">
+                    {errors.currentSetup}
+                  </span>
                 )}
               </div>
               <div className="grid w-full items-center">
@@ -529,7 +572,9 @@ export default function ContactForm({
                   onChange={handleInputChange}
                 />
                 {errors.monthlyVisitors && (
-                  <span className="text-destructive">{errors.monthlyVisitors}</span>
+                  <span className="text-destructive">
+                    {errors.monthlyVisitors}
+                  </span>
                 )}
               </div>
               <div className="grid w-full items-center">
@@ -538,7 +583,9 @@ export default function ContactForm({
                 </Label>
                 <Select
                   name="businessModel"
-                  onValueChange={(value) => setFormData({ ...formData, businessModel: value })}
+                  onValueChange={(value) =>
+                    setFormData({ ...formData, businessModel: value })
+                  }
                 >
                   <SelectTrigger>
                     <SelectValue placeholder="Select your business model" />
@@ -546,13 +593,19 @@ export default function ContactForm({
                   <SelectContent>
                     <SelectItem value="ecommerce">E-commerce</SelectItem>
                     <SelectItem value="saas">SaaS</SelectItem>
-                    <SelectItem value="lead-generation">Lead Generation</SelectItem>
-                    <SelectItem value="content-monetization">Content Monetization</SelectItem>
+                    <SelectItem value="lead-generation">
+                      Lead Generation
+                    </SelectItem>
+                    <SelectItem value="content-monetization">
+                      Content Monetization
+                    </SelectItem>
                     <SelectItem value="other">Other</SelectItem>
                   </SelectContent>
                 </Select>
                 {errors.businessModel && (
-                  <span className="text-destructive">{errors.businessModel}</span>
+                  <span className="text-destructive">
+                    {errors.businessModel}
+                  </span>
                 )}
               </div>
               <div className="grid w-full items-center">
@@ -568,7 +621,9 @@ export default function ContactForm({
                   onChange={handleInputChange}
                 />
                 {errors.topMarketingChannels && (
-                  <span className="text-destructive">{errors.topMarketingChannels}</span>
+                  <span className="text-destructive">
+                    {errors.topMarketingChannels}
+                  </span>
                 )}
               </div>
               <div className="grid w-full items-center">
@@ -582,12 +637,14 @@ export default function ContactForm({
                   onChange={handleInputChange}
                 />
                 {errors.currentChallenges && (
-                  <span className="text-destructive">{errors.currentChallenges}</span>
+                  <span className="text-destructive">
+                    {errors.currentChallenges}
+                  </span>
                 )}
               </div>
             </div>
             <div className="flex justify-between">
-              <Button type="button" variant={'outline'} onClick={prevStep}>
+              <Button type="button" variant={"outline"} onClick={prevStep}>
                 Previous
               </Button>
               <Button type="button" onClick={nextStep}>
@@ -613,7 +670,9 @@ export default function ContactForm({
                   value={formData.budget}
                   onChange={handleInputChange}
                 />
-                {errors.budget && <span className="text-destructive">{errors.budget}</span>}
+                {errors.budget && (
+                  <span className="text-destructive">{errors.budget}</span>
+                )}
               </div>
               <div className="grid w-full items-center">
                 <Label className="pb-2" htmlFor="projectDescription">
@@ -627,7 +686,9 @@ export default function ContactForm({
                   onChange={handleInputChange}
                 />
                 {errors.projectDescription && (
-                  <span className="text-destructive">{errors.projectDescription}</span>
+                  <span className="text-destructive">
+                    {errors.projectDescription}
+                  </span>
                 )}
               </div>
               <div className="grid w-full items-center">
@@ -655,7 +716,9 @@ export default function ContactForm({
                     <SelectValue placeholder="Select your tag management system" />
                   </SelectTrigger>
                   <SelectContent>
-                    <SelectItem value="google-tag-manager">Google Tag Manager</SelectItem>
+                    <SelectItem value="google-tag-manager">
+                      Google Tag Manager
+                    </SelectItem>
                     <SelectItem value="tealium">Tealium</SelectItem>
                     <SelectItem value="adobe-launch">Adobe Launch</SelectItem>
                     <SelectItem value="none">None</SelectItem>
@@ -669,14 +732,18 @@ export default function ContactForm({
                 </Label>
                 <Select
                   name="trackingGoal"
-                  onValueChange={(value) => setFormData({ ...formData, trackingGoal: value })}
+                  onValueChange={(value) =>
+                    setFormData({ ...formData, trackingGoal: value })
+                  }
                 >
                   <SelectTrigger>
                     <SelectValue placeholder="Select your primary goal" />
                   </SelectTrigger>
                   <SelectContent>
                     <SelectItem value="increase-roas">Increase ROAS</SelectItem>
-                    <SelectItem value="improve-data-accuracy">Improve Data Accuracy</SelectItem>
+                    <SelectItem value="improve-data-accuracy">
+                      Improve Data Accuracy
+                    </SelectItem>
                     <SelectItem value="comply-with-regulations">
                       Comply with Privacy Regulations
                     </SelectItem>
@@ -719,7 +786,7 @@ export default function ContactForm({
               </div>
             </div>
             <div className="flex justify-between">
-              <Button type="button" variant={'outline'} onClick={prevStep}>
+              <Button type="button" variant={"outline"} onClick={prevStep}>
                 Previous
               </Button>
 
@@ -733,13 +800,18 @@ export default function ContactForm({
   };
 
   return (
-    <div className={cn('w-full', className)}>
+    <div className={cn("w-full", className)}>
       {renderNavigation()}
       <Card className="rounded-t-lg">
         <CardContent className="mx-auto max-w-3xl">
           <form onSubmit={handleSubmit} className="flex flex-col space-y-3">
             {renderStep()}
-            <Text as="p" variant="bodyMd" aria-live="polite" className="sr-only">
+            <Text
+              as="p"
+              variant="bodyMd"
+              aria-live="polite"
+              className="sr-only"
+            >
               {state?.message}
             </Text>
           </form>

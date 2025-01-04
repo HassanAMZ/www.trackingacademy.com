@@ -1,6 +1,8 @@
 export default function extractMetaFromString(content: string): any {
   // Regular expression to match the metadata pattern
-  const metaStringMatch = content.match(/export const metadata = (\{[\s\S]*?\});/);
+  const metaStringMatch = content.match(
+    /export const metadata = (\{[\s\S]*?\});/,
+  );
   if (!metaStringMatch) return {};
 
   // Extract the metadata string
@@ -17,7 +19,7 @@ export default function extractMetaFromString(content: string): any {
     const metaObject = JSON.parse(metaJsonString);
     return metaObject;
   } catch (error) {
-    console.error('Error parsing metadata:', error);
+    console.error("Error parsing metadata:", error);
     // Return an empty object or a default value if parsing fails
     return {};
   }

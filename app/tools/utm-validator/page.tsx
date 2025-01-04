@@ -1,12 +1,12 @@
-'use client';
+"use client";
 
-import ContactMe from '@/components/blog/contact-me';
-import Navbar from '@/components/global/navbar';
-import YoutubeEmbed from '@/components/global/youtube-embed';
-import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Input } from '@/components/ui/input';
-import { Label } from '@/components/ui/label';
+import ContactMe from "@/components/blog/contact-me";
+import Navbar from "@/components/global/navbar";
+import YoutubeEmbed from "@/components/global/youtube-embed";
+import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
 import {
   AlertCircle,
   BookMarked,
@@ -18,10 +18,10 @@ import {
   TrendingUp,
   Users,
   XCircle,
-} from 'lucide-react';
-import { useEffect, useState } from 'react';
+} from "lucide-react";
+import { useEffect, useState } from "react";
 
-const REQUIRED_UTM_PARAMS = ['utm_source', 'utm_medium', 'utm_campaign'];
+const REQUIRED_UTM_PARAMS = ["utm_source", "utm_medium", "utm_campaign"];
 
 interface PlatformConfig {
   name: string;
@@ -30,32 +30,32 @@ interface PlatformConfig {
 
 const platformConfigs: Record<string, PlatformConfig> = {
   manual: {
-    name: 'Custom URL',
-    description: 'Validate any URL with UTM parameters',
+    name: "Custom URL",
+    description: "Validate any URL with UTM parameters",
   },
   google: {
-    name: 'Google Ads',
-    description: 'Validate Google Ads URL parameters',
+    name: "Google Ads",
+    description: "Validate Google Ads URL parameters",
   },
   facebook: {
-    name: 'Facebook Ads',
-    description: 'Validate Facebook Ads URL parameters',
+    name: "Facebook Ads",
+    description: "Validate Facebook Ads URL parameters",
   },
   instagram: {
-    name: 'Instagram Ads',
-    description: 'Validate Instagram Ads URL parameters',
+    name: "Instagram Ads",
+    description: "Validate Instagram Ads URL parameters",
   },
   tiktok: {
-    name: 'TikTok Ads',
-    description: 'Validate TikTok Ads URL parameters',
+    name: "TikTok Ads",
+    description: "Validate TikTok Ads URL parameters",
   },
   email: {
-    name: 'Email Campaign',
-    description: 'Validate email campaign URLs',
+    name: "Email Campaign",
+    description: "Validate email campaign URLs",
   },
   affiliate: {
-    name: 'Affiliate',
-    description: 'Validate affiliate tracking URLs',
+    name: "Affiliate",
+    description: "Validate affiliate tracking URLs",
   },
 };
 
@@ -70,8 +70,8 @@ const platformIcons = {
 };
 
 const UTMValidator = () => {
-  const [selectedPlatform, setSelectedPlatform] = useState('manual');
-  const [url, setUrl] = useState('');
+  const [selectedPlatform, setSelectedPlatform] = useState("manual");
+  const [url, setUrl] = useState("");
   const [validationResults, setValidationResults] = useState({
     isHttps: false,
     isValidUrl: false,
@@ -112,7 +112,7 @@ const UTMValidator = () => {
       const missingUtms: string[] = [];
 
       params.forEach((value, key) => {
-        if (key.startsWith('utm_')) {
+        if (key.startsWith("utm_")) {
           utmParams[key] = value;
         } else {
           otherParams[key] = value;
@@ -128,7 +128,7 @@ const UTMValidator = () => {
       setParsedParams({ utmParams, otherParams });
 
       setValidationResults({
-        isHttps: urlObj.protocol === 'https:',
+        isHttps: urlObj.protocol === "https:",
         isValidUrl: true,
         hasUtmParams: Object.keys(utmParams).length > 0,
         urlLength: inputUrl.length,
@@ -174,14 +174,22 @@ const UTMValidator = () => {
     </div>
   );
 
-  const ParameterDisplay = ({ param, value }: { param: string; value: string }) => (
+  const ParameterDisplay = ({
+    param,
+    value,
+  }: {
+    param: string;
+    value: string;
+  }) => (
     <div className="grid grid-cols-2 gap-2 border-b py-2 last:border-b-0">
       <div
-        className={`font-medium ${REQUIRED_UTM_PARAMS.includes(param) && !value ? 'text-destructive' : ''}`}
+        className={`font-medium ${REQUIRED_UTM_PARAMS.includes(param) && !value ? "text-destructive" : ""}`}
       >
-        {param} {REQUIRED_UTM_PARAMS.includes(param) && !value && ' (Required)'}
+        {param} {REQUIRED_UTM_PARAMS.includes(param) && !value && " (Required)"}
       </div>
-      <div className="break-all text-sm">{decodeURIComponent(value) || '-'}</div>
+      <div className="break-all text-sm">
+        {decodeURIComponent(value) || "-"}
+      </div>
     </div>
   );
 
@@ -190,7 +198,8 @@ const UTMValidator = () => {
       <AlertCircle className="mx-auto h-12 w-12 text-muted-foreground" />
       <h3 className="mt-4 text-lg font-semibold">No URL Analyzed</h3>
       <p className="mt-2 text-sm text-muted-foreground">
-        Enter a URL with UTM parameters to validate and analyze its tracking components.
+        Enter a URL with UTM parameters to validate and analyze its tracking
+        components.
       </p>
       <div className="mt-4 rounded-lg bg-muted p-4">
         <p className="text-sm font-medium">Example URL:</p>
@@ -207,7 +216,7 @@ const UTMValidator = () => {
       <button
         key={key}
         onClick={() => setSelectedPlatform(key)}
-        className={`flex w-full items-center gap-2 rounded-lg px-4 py-2 text-left transition-colors ${selectedPlatform === key ? 'bg-primary/10' : 'hover:bg-primary/5'}`}
+        className={`flex w-full items-center gap-2 rounded-lg px-4 py-2 text-left transition-colors ${selectedPlatform === key ? "bg-primary/10" : "hover:bg-primary/5"}`}
       >
         {Icon && <Icon size={18} />}
         {config.name}
@@ -219,9 +228,13 @@ const UTMValidator = () => {
     <main className="flex h-screen w-screen">
       {/* Sidebar */}
       <div className="hidden w-64 flex-col border-r p-4 md:flex">
-        <h2 className="mb-4 flex items-center gap-2 text-xl font-bold">Select Platform</h2>
+        <h2 className="mb-4 flex items-center gap-2 text-xl font-bold">
+          Select Platform
+        </h2>
         <div className="space-y-2">
-          {Object.entries(platformConfigs).map(([key, config]) => renderSidebarItem(key, config))}
+          {Object.entries(platformConfigs).map(([key, config]) =>
+            renderSidebarItem(key, config),
+          )}
         </div>
       </div>
 
@@ -251,7 +264,13 @@ const UTMValidator = () => {
                       <EmptyState />
                     ) : (
                       url && (
-                        <Alert variant={validationResults.isValidUrl ? 'default' : 'destructive'}>
+                        <Alert
+                          variant={
+                            validationResults.isValidUrl
+                              ? "default"
+                              : "destructive"
+                          }
+                        >
                           <AlertCircle className="h-4 w-4" />
                           <AlertTitle>URL Validation Results</AlertTitle>
                           <AlertDescription>
@@ -269,13 +288,14 @@ const UTMValidator = () => {
                               <ValidationItem
                                 check={
                                   validationResults.hasUtmParams &&
-                                  validationResults.missingUtmParams.length === 0
+                                  validationResults.missingUtmParams.length ===
+                                    0
                                 }
                                 title="UTM Parameters"
                                 description={
                                   validationResults.missingUtmParams.length > 0
-                                    ? `Missing required parameters: ${validationResults.missingUtmParams.join(', ')}`
-                                    : 'All required UTM parameters are present'
+                                    ? `Missing required parameters: ${validationResults.missingUtmParams.join(", ")}`
+                                    : "All required UTM parameters are present"
                                 }
                               />
                               <ValidationItem
@@ -300,30 +320,46 @@ const UTMValidator = () => {
                   <CardContent>
                     <div className="space-y-4">
                       <div>
-                        <h3 className="font-semibold text-primary mb-2 ">UTM Parameters</h3>
+                        <h3 className="mb-2 font-semibold text-primary">
+                          UTM Parameters
+                        </h3>
                         <div className="space-y-2">
                           {REQUIRED_UTM_PARAMS.map((param) => (
                             <ParameterDisplay
                               key={param}
                               param={param}
-                              value={parsedParams.utmParams[param] || ''}
+                              value={parsedParams.utmParams[param] || ""}
                             />
                           ))}
                           {Object.entries(parsedParams.utmParams)
-                            .filter(([param]) => !REQUIRED_UTM_PARAMS.includes(param))
+                            .filter(
+                              ([param]) => !REQUIRED_UTM_PARAMS.includes(param),
+                            )
                             .map(([param, value]) => (
-                              <ParameterDisplay key={param} param={param} value={value} />
+                              <ParameterDisplay
+                                key={param}
+                                param={param}
+                                value={value}
+                              />
                             ))}
                         </div>
                       </div>
 
                       {Object.keys(parsedParams.otherParams).length > 0 && (
                         <div>
-                          <h3 className="mb-2 font-semibold text-primary">Other Parameters</h3>
+                          <h3 className="mb-2 font-semibold text-primary">
+                            Other Parameters
+                          </h3>
                           <div className="space-y-2">
-                            {Object.entries(parsedParams.otherParams).map(([param, value]) => (
-                              <ParameterDisplay key={param} param={param} value={value} />
-                            ))}
+                            {Object.entries(parsedParams.otherParams).map(
+                              ([param, value]) => (
+                                <ParameterDisplay
+                                  key={param}
+                                  param={param}
+                                  value={value}
+                                />
+                              ),
+                            )}
                           </div>
                         </div>
                       )}

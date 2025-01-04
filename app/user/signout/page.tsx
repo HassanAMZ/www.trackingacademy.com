@@ -1,7 +1,7 @@
-'use client';
-import ContainerLayout from '@/components/layouts/ContainerLayout';
-import { UserAuth } from '@/context/AuthContext';
-import React, { useEffect, useState } from 'react';
+"use client";
+import ContainerLayout from "@/components/layouts/ContainerLayout";
+import { UserAuth } from "@/context/AuthContext";
+import React, { useEffect, useState } from "react";
 
 const Page = () => {
   const { user, googleSignIn, facebookSignIn, logOut } = UserAuth();
@@ -11,7 +11,7 @@ const Page = () => {
     try {
       await googleSignIn();
     } catch (error) {
-      console.log('googleSignIn error from FirebaseAuth.js', error);
+      console.log("googleSignIn error from FirebaseAuth.js", error);
     }
   };
 
@@ -20,7 +20,7 @@ const Page = () => {
     try {
       await facebookSignIn();
     } catch (error) {
-      console.log('facebookSignIn error from FirebaseAuth.js', error);
+      console.log("facebookSignIn error from FirebaseAuth.js", error);
     }
   };
 
@@ -28,7 +28,7 @@ const Page = () => {
     try {
       await logOut();
     } catch (error) {
-      console.log('handleSignOut error from FirebaseAuth.js', error);
+      console.log("handleSignOut error from FirebaseAuth.js", error);
     }
   };
   useEffect(() => {

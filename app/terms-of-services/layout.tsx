@@ -1,12 +1,12 @@
-import Navbar from '@/components/global/navbar';
-import Container from '@/components/ui/container';
-import React, { ReactNode } from 'react';
+import Navbar from "@/components/global/navbar";
+import Container from "@/components/ui/container";
+import React, { ReactNode } from "react";
 
 export const metadata = {
-  title: 'Privacy Policey - TrackingAcademy',
+  title: "Privacy Policey - TrackingAcademy",
   description: `Become a part of the clientele and master your data`,
   openGraph: {
-    images: ['/images/social-sharing.png'],
+    images: ["/images/social-sharing.png"],
   },
 };
 

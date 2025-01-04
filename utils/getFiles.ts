@@ -1,5 +1,5 @@
-import fs from 'fs';
-import path from 'path';
+import fs from "fs";
+import path from "path";
 
 export default function getFiles(dirPath: string): string[] {
   let entries = fs.readdirSync(dirPath, { withFileTypes: true });

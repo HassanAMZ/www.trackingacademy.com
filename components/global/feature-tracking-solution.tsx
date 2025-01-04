@@ -1,5 +1,5 @@
-import { Card, CardContent } from '@/components/ui/card';
-import { BarChart3, Cloud, Facebook } from 'lucide-react';
+import { Card, CardContent } from "@/components/ui/card";
+import { BarChart3, Cloud, Facebook } from "lucide-react";
 
 export default function TrackingSolution() {
   return (
@@ -19,8 +19,8 @@ export default function TrackingSolution() {
             The World Class Tracking & Attribution Solution
           </h1>
           <p className="mx-auto max-w-3xl text-xl text-muted-foreground">
-            Restore confidence in your FB ad attribution reporting with accurate & actionable
-            attribution.
+            Restore confidence in your FB ad attribution reporting with accurate
+            & actionable attribution.
           </p>
         </div>
 
@@ -53,7 +53,9 @@ export default function TrackingSolution() {
                 <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
                   <Card className="h-40 w-40 bg-primary/10">
                     <CardContent className="flex h-full flex-col items-center justify-center">
-                      <span className="text-3xl font-bold text-primary">95%</span>
+                      <span className="text-3xl font-bold text-primary">
+                        95%
+                      </span>
                       <span className="text-sm text-primary">accurate</span>
                     </CardContent>
                   </Card>
@@ -61,24 +63,24 @@ export default function TrackingSolution() {
 
                 {/* Circular Metric Cards */}
                 {[
-                  { angle: 0, roas: '4.2', revenue: '$710,000' },
-                  { angle: 45, roas: '5.9', revenue: '$400,000' },
-                  { angle: 90, roas: '3.8', revenue: '$550,000' },
-                  { angle: 135, roas: '6.1', revenue: '$820,000' },
-                  { angle: 180, roas: '4.5', revenue: '$630,000' },
-                  { angle: 225, roas: '5.2', revenue: '$480,000' },
-                  { angle: 270, roas: '3.9', revenue: '$590,000' },
-                  { angle: 315, roas: '4.8', revenue: '$670,000' },
+                  { angle: 0, roas: "4.2", revenue: "$710,000" },
+                  { angle: 45, roas: "5.9", revenue: "$400,000" },
+                  { angle: 90, roas: "3.8", revenue: "$550,000" },
+                  { angle: 135, roas: "6.1", revenue: "$820,000" },
+                  { angle: 180, roas: "4.5", revenue: "$630,000" },
+                  { angle: 225, roas: "5.2", revenue: "$480,000" },
+                  { angle: 270, roas: "3.9", revenue: "$590,000" },
+                  { angle: 315, roas: "4.8", revenue: "$670,000" },
                 ].map(({ angle, roas, revenue }, index) => (
                   <div
                     key={index}
                     className="absolute"
                     style={{
                       transform: `rotate(${angle}deg) translateX(220px) rotate(-${angle}deg)`,
-                      top: '50%',
-                      left: '50%',
-                      marginLeft: '-80px',
-                      marginTop: '-48px',
+                      top: "50%",
+                      left: "50%",
+                      marginLeft: "-80px",
+                      marginTop: "-48px",
                     }}
                   >
                     <MetricCard title="ROAS" value={roas} revenue={revenue} />
@@ -135,7 +137,15 @@ function FeatureCard({
   );
 }
 
-function MetricCard({ title, value, revenue }: { title: string; value: string; revenue: string }) {
+function MetricCard({
+  title,
+  value,
+  revenue,
+}: {
+  title: string;
+  value: string;
+  revenue: string;
+}) {
   return (
     <Card className="">
       <CardContent className="p-4">

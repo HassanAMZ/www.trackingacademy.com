@@ -1,10 +1,14 @@
-'use client';
+"use client";
 
-import Text from '@/components/ui/text';
-import { HeadingTextsProps, ImageGeneralProps, LinksGroupProps } from '@/types/index';
-import { Link } from 'next-view-transitions';
-import Image from 'next/image';
-import React from 'react';
+import Text from "@/components/ui/text";
+import {
+  HeadingTextsProps,
+  ImageGeneralProps,
+  LinksGroupProps,
+} from "@/types/index";
+import { Link } from "next-view-transitions";
+import Image from "next/image";
+import React from "react";
 
 const FreeResoursesSection: React.FC<
   ImageGeneralProps & { headingTexts: HeadingTextsProps } & {
@@ -24,7 +28,9 @@ const FreeResoursesSection: React.FC<
               className="lg:w-full"
             />
           </div>
-          <div className={`items-left flex flex-col justify-center gap-3 px-4 py-8 lg:col-span-3`}>
+          <div
+            className={`items-left flex flex-col justify-center gap-3 px-4 py-8 lg:col-span-3`}
+          >
             <Text as="h4" variant="headingLg">
               {headingTexts.heading}
             </Text>

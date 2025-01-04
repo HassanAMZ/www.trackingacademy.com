@@ -1,7 +1,7 @@
-import Image from 'next/image';
-import React from 'react';
+import Image from "next/image";
+import React from "react";
 
-import { SingleGridContentProps } from '@/types/index';
+import { SingleGridContentProps } from "@/types/index";
 
 const SingleGridContent: React.FC<SingleGridContentProps> = ({
   imagesData,
@@ -21,11 +21,15 @@ const SingleGridContent: React.FC<SingleGridContentProps> = ({
         )}
       </div>
       <div className="py-4">
-        <h4 className="pb-2 text-xl font-bold lg:pb-4">{headingTexts.heading}</h4>
+        <h4 className="pb-2 text-xl font-bold lg:pb-4">
+          {headingTexts.heading}
+        </h4>
         {paragraphTexts && (
           <p className="py-1 font-semibold">
             {paragraphTexts?.primary}&nbsp;
-            <span className="textOpacity80 font-normal">{paragraphTexts?.secondary}</span>
+            <span className="textOpacity80 font-normal">
+              {paragraphTexts?.secondary}
+            </span>
           </p>
         )}
       </div>

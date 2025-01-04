@@ -1,6 +1,6 @@
-import { Card } from '@/components/ui/card';
-import Container from '@/components/ui/container';
-import Text from '@/components/ui/text';
+import { Card } from "@/components/ui/card";
+import Container from "@/components/ui/container";
+import Text from "@/components/ui/text";
 
 interface ProblemAwarenessProps {
   headingText?: string;
@@ -51,7 +51,11 @@ const ProblemAwareness: React.FC<ProblemAwarenessProps> = ({
             </Text>
 
             {secondaryParagraphText && (
-              <Text as="p" variant="headingMd" className="text-muted-foreground">
+              <Text
+                as="p"
+                variant="headingMd"
+                className="text-muted-foreground"
+              >
                 {secondaryParagraphText}
               </Text>
             )}

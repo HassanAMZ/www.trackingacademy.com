@@ -1,5 +1,5 @@
-import Navbar from '@/components/global/navbar';
-import OfferCreator from '@/components/tools/offer-creator';
+import Navbar from "@/components/global/navbar";
+import OfferCreator from "@/components/tools/offer-creator";
 
 export default function page() {
   return (

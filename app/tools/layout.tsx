@@ -1,7 +1,7 @@
-import React, { ReactNode } from 'react';
+import React, { ReactNode } from "react";
 
 export const metadata = {
-  title: 'Tools - TrackingAcademy',
+  title: "Tools - TrackingAcademy",
   description: `Tools Build for Analysts to make the life easier.`,
 };
 

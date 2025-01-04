@@ -1,6 +1,6 @@
-'use client';
+"use client";
 
-import { Button } from '@/components/ui/button';
+import { Button } from "@/components/ui/button";
 import {
   Dialog,
   DialogContent,
@@ -8,8 +8,8 @@ import {
   DialogHeader,
   DialogTitle,
   DialogTrigger,
-} from '@/components/ui/dialog';
-import ContactForm from './contact-form';
+} from "@/components/ui/dialog";
+import ContactForm from "./contact-form";
 
 interface CallToActionProps {
   buttonText?: string;
@@ -17,8 +17,8 @@ interface CallToActionProps {
 }
 
 export default function CallToAction({
-  buttonText = 'Book a Call',
-  thankYouUrl = '/contact/book-a-meeting',
+  buttonText = "Book a Call",
+  thankYouUrl = "/contact/book-a-meeting",
 }: CallToActionProps) {
   return (
     <Dialog>
@@ -31,7 +31,9 @@ export default function CallToAction({
       <DialogContent>
         <DialogHeader>
           <DialogTitle>Contact Form</DialogTitle>
-          <DialogDescription>Fill out the contact form and team will reach out.</DialogDescription>
+          <DialogDescription>
+            Fill out the contact form and team will reach out.
+          </DialogDescription>
         </DialogHeader>
         <ContactForm thankYouUrl={thankYouUrl} />
       </DialogContent>

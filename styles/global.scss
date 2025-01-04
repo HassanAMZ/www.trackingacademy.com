@@ -79,7 +79,7 @@ html {
 
 /* globals.css */
 .selectedClient::before {
-  content: '';
+  content: "";
   height: 1vw;
   width: 1vw;
   position: absolute;
@@ -120,13 +120,17 @@ html {
 }
 
 .blur-effect::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
   height: 3em; /* Adjust this value to control the number of lines blurred */
-  background: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(255, 255, 255, 1));
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0),
+    rgba(255, 255, 255, 1)
+  );
 }
 
 :root {

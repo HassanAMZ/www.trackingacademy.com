@@ -1,16 +1,16 @@
-'use client';
+"use client";
 
-import Text from '@/components/ui/text';
-import { SingleBlogCardProps } from '@/types/index';
-import { Link } from 'next-view-transitions';
-import Image from 'next/image';
-import React from 'react';
+import Text from "@/components/ui/text";
+import { SingleBlogCardProps } from "@/types/index";
+import { Link } from "next-view-transitions";
+import Image from "next/image";
+import React from "react";
 
 const BlogCard: React.FC<SingleBlogCardProps> = ({
   post,
   type,
   isMain = false,
-  className = '',
+  className = "",
 }) => {
   if (!post) return null;
 

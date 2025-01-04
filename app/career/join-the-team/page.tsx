@@ -1,5 +1,5 @@
-import CareerForm from '@/components/forms/career-form';
-import Container from '@/components/ui/container';
+import CareerForm from "@/components/forms/career-form";
+import Container from "@/components/ui/container";
 
 export default function page() {
   return (

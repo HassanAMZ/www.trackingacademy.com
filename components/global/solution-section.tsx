@@ -1,10 +1,10 @@
-import { ArrowRight } from 'lucide-react';
-import { Link } from 'next-view-transitions';
-import { Badge } from '../ui/badge';
-import { Button } from '../ui/button';
-import { Card, CardContent, CardHeader } from '../ui/card';
-import Container from '../ui/container';
-import Text from '../ui/text';
+import { ArrowRight } from "lucide-react";
+import { Link } from "next-view-transitions";
+import { Badge } from "../ui/badge";
+import { Button } from "../ui/button";
+import { Card, CardContent, CardHeader } from "../ui/card";
+import Container from "../ui/container";
+import Text from "../ui/text";
 // Solution Section Component with 7-Step Process
 const SolutionSection = ({ steps }: { steps: any }) => {
   return (

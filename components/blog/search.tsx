@@ -1,22 +1,22 @@
-'use client';
+"use client";
 
-import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardHeader } from '@/components/ui/card';
-import { Input } from '@/components/ui/input';
-import Text from '@/components/ui/text';
-import { BlogSearchProps, PostMetadata } from '@/types/index';
-import { useParams, usePathname } from 'next/navigation';
-import React, { useEffect, useState } from 'react';
-import RequestABlogForm from './request-a-blog';
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardHeader } from "@/components/ui/card";
+import { Input } from "@/components/ui/input";
+import Text from "@/components/ui/text";
+import { BlogSearchProps, PostMetadata } from "@/types/index";
+import { useParams, usePathname } from "next/navigation";
+import React, { useEffect, useState } from "react";
+import RequestABlogForm from "./request-a-blog";
 
 const BlogSearch: React.FC<BlogSearchProps> = ({ data, onSearch }) => {
-  const [searchTerm, setSearchTerm] = useState('');
+  const [searchTerm, setSearchTerm] = useState("");
   const [results, setResults] = useState<PostMetadata[]>(data);
 
   useEffect(() => {
     const searchWords = searchTerm
       .toLowerCase()
-      .split(' ')
+      .split(" ")
       .filter((word) => word);
 
     const filtered = data.filter((post) => {
@@ -37,10 +37,10 @@ const BlogSearch: React.FC<BlogSearchProps> = ({ data, onSearch }) => {
     if (text) {
       return text;
     }
-    return '';
+    return "";
   };
   const pathname = usePathname();
-  const isRootBlogPage = pathname === '/blog';
+  const isRootBlogPage = pathname === "/blog";
   const params = useParams<{ blog?: string; tag?: string }>();
   const displayText = formatText(params.blog || params.tag);
 
@@ -48,14 +48,19 @@ const BlogSearch: React.FC<BlogSearchProps> = ({ data, onSearch }) => {
     <Card className="rounded-t-lg py-12">
       <CardHeader>
         <Text as="h1" variant="heading3xl" className="text-center">
-          {!isRootBlogPage && displayText && <span className="capitalize">{displayText} - </span>}
+          {!isRootBlogPage && displayText && (
+            <span className="capitalize">{displayText} - </span>
+          )}
           Articles, Ideas and Inspiration!
         </Text>
       </CardHeader>
       <CardContent className="flex flex-col items-center">
         <Text as="p" variant="bodyMd" className="text-center">
-          A helpful blog for web analysts, trying to make sense of marketing with{' '}
-          {!isRootBlogPage && displayText && <span className="capitalize">{displayText}, </span>}
+          A helpful blog for web analysts, trying to make sense of marketing
+          with{" "}
+          {!isRootBlogPage && displayText && (
+            <span className="capitalize">{displayText}, </span>
+          )}
           tag manager, analytics and tracking scripts.
         </Text>
         {isRootBlogPage && (
@@ -93,7 +98,7 @@ const BlogSearch: React.FC<BlogSearchProps> = ({ data, onSearch }) => {
             <Text as="p" variant="bodyMd" className="mt-4 text-center">
               We couldn't find any posts matching your search '{searchTerm}'.
               <span role="img" aria-label="Shrug">
-                {' '}
+                {" "}
                 🤷‍♂️
               </span>
               Request a blog on this topic and get notified when it's published:

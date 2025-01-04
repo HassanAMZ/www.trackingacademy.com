@@ -1,8 +1,8 @@
-import Container from '@/components/ui/container';
-import Text from '@/components/ui/text';
-import { Headset, Rocket, ShieldCheck, Smile, Target } from 'lucide-react';
-import VideoPlayer from '../offers/offer-001/video-player';
-import FeatureCard from './feature-card';
+import Container from "@/components/ui/container";
+import Text from "@/components/ui/text";
+import { Headset, Rocket, ShieldCheck, Smile, Target } from "lucide-react";
+import VideoPlayer from "../offers/offer-001/video-player";
+import FeatureCard from "./feature-card";
 
 export default function Offer() {
   return (
@@ -12,8 +12,9 @@ export default function Offer() {
           Improve Your Tracking with Proven Results. Here's How:
         </Text>
         <Text as="p" variant="bodyMd">
-          We ensure your tracking is accurate with an easy setup, full testing, and low maintenance.
-          Our system helps you make better decisions and increase your profits.
+          We ensure your tracking is accurate with an easy setup, full testing,
+          and low maintenance. Our system helps you make better decisions and
+          increase your profits.
         </Text>
 
         <div className="grid gap-6 md:grid-cols-3">
@@ -56,8 +57,9 @@ export default function Offer() {
           Enjoy the End Results
         </Text>
         <Text as="p" variant="bodyMd">
-          We make sure your tracking is 95% accurate so you get the right data every time. Plus, our
-          support team is here to help you all day, every day.
+          We make sure your tracking is 95% accurate so you get the right data
+          every time. Plus, our support team is here to help you all day, every
+          day.
         </Text>
 
         <div className="grid gap-6 md:grid-cols-2">

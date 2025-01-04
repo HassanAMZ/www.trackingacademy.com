@@ -1,7 +1,7 @@
-import { Button } from '@/components/ui/button';
-import { Mail } from 'lucide-react';
-import { Link } from 'next-view-transitions';
-import Text from '../ui/text';
+import { Button } from "@/components/ui/button";
+import { Mail } from "lucide-react";
+import { Link } from "next-view-transitions";
+import Text from "../ui/text";
 
 export default function ContactMe() {
   return (
@@ -11,7 +11,8 @@ export default function ContactMe() {
         Contact Me
       </Text>
       <Text as="p" variant="bodySm">
-        Have questions or want to discuss this topic further? I'd love to hear from you!
+        Have questions or want to discuss this topic further? I'd love to hear
+        from you!
       </Text>
       <Button className="w-full" asChild>
         <Link href="/contact">Send a Message</Link>

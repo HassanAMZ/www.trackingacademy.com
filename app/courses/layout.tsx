@@ -1,9 +1,9 @@
-import Navbar from '@/components/global/navbar';
-import Container from '@/components/ui/container';
-import React, { ReactNode } from 'react';
+import Navbar from "@/components/global/navbar";
+import Container from "@/components/ui/container";
+import React, { ReactNode } from "react";
 
 export const metadata = {
-  title: 'Courses - TrackingAcademy',
+  title: "Courses - TrackingAcademy",
   description: `Tools Build for Analysts to make the life easier.`,
 };
 

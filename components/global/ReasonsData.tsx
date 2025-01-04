@@ -1,7 +1,7 @@
-'use client';
+"use client";
 
-import Image from 'next/image';
-import React, { useEffect, useState } from 'react';
+import Image from "next/image";
+import React, { useEffect, useState } from "react";
 
 interface Reason {
   id: number;
@@ -16,7 +16,11 @@ interface ReasonsDataProps {
   intervalTime?: number; // Optional prop to control the interval time
 }
 
-const ReasonsData: React.FC<ReasonsDataProps> = ({ title, reasons, intervalTime = 2000 }) => {
+const ReasonsData: React.FC<ReasonsDataProps> = ({
+  title,
+  reasons,
+  intervalTime = 2000,
+}) => {
   const [activeId, setActiveId] = useState<number>(1);
 
   useEffect(() => {
@@ -32,7 +36,9 @@ const ReasonsData: React.FC<ReasonsDataProps> = ({ title, reasons, intervalTime 
 
   return (
     <React.Fragment>
-      <h2 className="container-secondary text-center text-2xl font-bold">{title}</h2>
+      <h2 className="container-secondary text-center text-2xl font-bold">
+        {title}
+      </h2>
       <div className="grid w-full gap-2 py-10 lg:grid-cols-2 lg:gap-4">
         <section className="flex flex-col justify-between gap-2">
           {reasons.map((reason) => (
@@ -40,14 +46,16 @@ const ReasonsData: React.FC<ReasonsDataProps> = ({ title, reasons, intervalTime 
               key={reason.id}
               className={`flex cursor-pointer items-center rounded-lg border-2 px-4 py-8 transition-colors duration-300 ${
                 activeId === reason.id
-                  ? 'text-complementary bg-accent'
-                  : 'bg-complementary hover:text-complementary'
+                  ? "text-complementary bg-accent"
+                  : "bg-complementary hover:text-complementary"
               } hover:text-complementary hover:bg-accent`}
               onClick={() => handleIdClick(reason.id)}
             >
               <p
                 className={`px-4 text-3xl font-black lg:row-span-2 lg:pr-10 ${
-                  activeId === reason.id ? 'text-complementary' : 'text-dominant'
+                  activeId === reason.id
+                    ? "text-complementary"
+                    : "text-dominant"
                 }`}
               >
                 {reason.id}

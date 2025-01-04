@@ -1,14 +1,14 @@
 // CAPIPage.tsx
-import Bonuses from '@/components/landing-page/bonuses';
-import DetailedCTA from '@/components/landing-page/detailed-cta';
-import DreamOutcome from '@/components/landing-page/dream-outcome';
-import Hero from '@/components/landing-page/hero';
-import ObjectionHandling from '@/components/landing-page/objection-handling';
-import OfferDetails from '@/components/landing-page/offer-detail-item';
-import ProblemAwareness from '@/components/landing-page/problem-awareness';
-import ScarcityUrgency from '@/components/landing-page/scarcity-urgency';
-import SocialProof from '@/components/landing-page/social-proof';
-import metaConversionConfig from '@/data/offers/meta-conversion-api.json';
+import Bonuses from "@/components/landing-page/bonuses";
+import DetailedCTA from "@/components/landing-page/detailed-cta";
+import DreamOutcome from "@/components/landing-page/dream-outcome";
+import Hero from "@/components/landing-page/hero";
+import ObjectionHandling from "@/components/landing-page/objection-handling";
+import OfferDetails from "@/components/landing-page/offer-detail-item";
+import ProblemAwareness from "@/components/landing-page/problem-awareness";
+import ScarcityUrgency from "@/components/landing-page/scarcity-urgency";
+import SocialProof from "@/components/landing-page/social-proof";
+import metaConversionConfig from "@/data/offers/meta-conversion-api.json";
 import {
   Activity,
   ArrowUpRight,
@@ -22,7 +22,7 @@ import {
   Target,
   TrendingUp,
   Zap,
-} from 'lucide-react';
+} from "lucide-react";
 
 // Icon mapping object
 const iconMap = {
@@ -44,18 +44,19 @@ type IconName = keyof typeof iconMap;
 
 export default function CAPIPage() {
   // Transform offer items to include icon components
-  const offerItemsWithIcons = metaConversionConfig.offerDetails.offerItems.map((item) => ({
-    ...item,
-    icon: iconMap[item.icon as IconName],
-  }));
-
-  // Transform dream outcome list to include icon components
-  const dreamOutcomeListWithIcons = metaConversionConfig.dreamOutcome.dreamOutcomeList.map(
+  const offerItemsWithIcons = metaConversionConfig.offerDetails.offerItems.map(
     (item) => ({
       ...item,
       icon: iconMap[item.icon as IconName],
     }),
   );
+
+  // Transform dream outcome list to include icon components
+  const dreamOutcomeListWithIcons =
+    metaConversionConfig.dreamOutcome.dreamOutcomeList.map((item) => ({
+      ...item,
+      icon: iconMap[item.icon as IconName],
+    }));
 
   // Transform stats to include icon components
   const statsWithIcons = metaConversionConfig.socialProof.stats.map((stat) => ({
@@ -64,18 +65,19 @@ export default function CAPIPage() {
   }));
 
   // Transform bonuses to include icon components
-  const bonusesWithIcons = metaConversionConfig.bonuses.bonuses.map((bonus) => ({
-    ...bonus,
-    icon: iconMap[bonus.icon as IconName],
-  }));
-
-  // Transform guarantees to include icon components
-  const guaranteesWithIcons = metaConversionConfig.objectionHandling.guarantees.map(
-    (guarantee) => ({
-      ...guarantee,
-      icon: iconMap[guarantee.icon as IconName],
+  const bonusesWithIcons = metaConversionConfig.bonuses.bonuses.map(
+    (bonus) => ({
+      ...bonus,
+      icon: iconMap[bonus.icon as IconName],
     }),
   );
+
+  // Transform guarantees to include icon components
+  const guaranteesWithIcons =
+    metaConversionConfig.objectionHandling.guarantees.map((guarantee) => ({
+      ...guarantee,
+      icon: iconMap[guarantee.icon as IconName],
+    }));
 
   return (
     <main>
@@ -88,11 +90,17 @@ export default function CAPIPage() {
         dreamOutcomeList={dreamOutcomeListWithIcons}
       />
 
-      <OfferDetails {...metaConversionConfig.offerDetails} offerItems={offerItemsWithIcons} />
+      <OfferDetails
+        {...metaConversionConfig.offerDetails}
+        offerItems={offerItemsWithIcons}
+      />
 
       <ScarcityUrgency {...metaConversionConfig.scarcityUrgency} />
 
-      <SocialProof {...metaConversionConfig.socialProof} stats={statsWithIcons} />
+      <SocialProof
+        {...metaConversionConfig.socialProof}
+        stats={statsWithIcons}
+      />
 
       <Bonuses {...metaConversionConfig.bonuses} bonuses={bonusesWithIcons} />
 

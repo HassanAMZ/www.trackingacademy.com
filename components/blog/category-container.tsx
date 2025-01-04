@@ -1,9 +1,9 @@
-'use client';
-import BlogSearch from '@/components/blog/search';
-import SingleBlogCard from '@/components/blog/single-card';
-import { BlogContentProps, CategoryContainerProps } from '@/types/index';
-import React, { useState } from 'react';
-import { Button } from '../ui/button';
+"use client";
+import BlogSearch from "@/components/blog/search";
+import SingleBlogCard from "@/components/blog/single-card";
+import { BlogContentProps, CategoryContainerProps } from "@/types/index";
+import React, { useState } from "react";
+import { Button } from "../ui/button";
 
 const BlogContent: React.FC<BlogContentProps> = ({ data, type, rawData }) => {
   const [visiblePosts, setVisiblePosts] = useState(9);
@@ -28,12 +28,19 @@ const BlogContent: React.FC<BlogContentProps> = ({ data, type, rawData }) => {
   );
 };
 
-const CategoryContainer: React.FC<CategoryContainerProps> = ({ data, type, rawData }) => {
+const CategoryContainer: React.FC<CategoryContainerProps> = ({
+  data,
+  type,
+  rawData,
+}) => {
   const [filteredData, setFilteredData] = useState(data);
 
   return (
     <div className="space-y-4">
-      <BlogSearch data={data} onSearch={(filtered) => setFilteredData(filtered)} />
+      <BlogSearch
+        data={data}
+        onSearch={(filtered) => setFilteredData(filtered)}
+      />
       <BlogContent rawData={rawData} data={filteredData} type={type} />
     </div>
   );

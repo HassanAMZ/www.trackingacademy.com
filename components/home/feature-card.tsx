@@ -1,6 +1,6 @@
-import Text from '@/components/ui/text';
-import { cn } from '@/lib/utils';
-import { FC } from 'react';
+import Text from "@/components/ui/text";
+import { cn } from "@/lib/utils";
+import { FC } from "react";
 import {
   Dialog,
   DialogContent,
@@ -8,7 +8,7 @@ import {
   DialogHeader,
   DialogTitle,
   DialogTrigger,
-} from '../ui/dialog';
+} from "../ui/dialog";
 
 interface FeatureCardPorps {
   icon: React.ReactElement;
@@ -40,7 +40,7 @@ const FeatureCard: FC<FeatureCardPorps> = ({
           </Text>
         </div>
       </DialogTrigger>
-      <DialogContent className={cn(className, 'sm:max-w-md')}>
+      <DialogContent className={cn(className, "sm:max-w-md")}>
         <DialogHeader>
           <DialogTitle>{dialogTitle}</DialogTitle>
           <DialogDescription>{dialogDescription}</DialogDescription>

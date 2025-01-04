@@ -1,9 +1,9 @@
-import { PostMetadata } from '@/types/index'; // Ensure this path is correct
-import extractMetaFromStringForBlog from '@/utils/extractMetaFromStringForBlog'; // Ensure this path is correct
-import getFiles from '@/utils/getFiles'; // Ensure this path is correct
-import fs from 'fs';
-import matter from 'gray-matter';
-import path from 'path';
+import { PostMetadata } from "@/types/index"; // Ensure this path is correct
+import extractMetaFromStringForBlog from "@/utils/extractMetaFromStringForBlog"; // Ensure this path is correct
+import getFiles from "@/utils/getFiles"; // Ensure this path is correct
+import fs from "fs";
+import matter from "gray-matter";
+import path from "path";
 
 interface ContentData {
   metadata: PostMetadata;
@@ -25,15 +25,17 @@ export default async function getContentBySlug(
   const contentDirectoryPath = `app/_blog-markdown/${category}`;
   const baseDirectory = path.join(process.cwd(), contentDirectoryPath);
   const allPostsFiles = getFiles(baseDirectory);
-  const mdxFiles = allPostsFiles.filter((file) => path.extname(file) === '.mdx');
+  const mdxFiles = allPostsFiles.filter(
+    (file) => path.extname(file) === ".mdx",
+  );
 
   for (const fileName of mdxFiles) {
-    const fileContents = fs.readFileSync(fileName, 'utf8');
+    const fileContents = fs.readFileSync(fileName, "utf8");
     const { content, data } = matter(fileContents);
 
     const extractedMetadata = extractMetaFromStringForBlog(content);
     const relativePath = path.relative(baseDirectory, fileName);
-    const fileSlug = relativePath.replace(/\\/g, '/').replace(/\.mdx$/, '');
+    const fileSlug = relativePath.replace(/\\/g, "/").replace(/\.mdx$/, "");
 
     if (fileSlug === slug && extractedMetadata) {
       return {

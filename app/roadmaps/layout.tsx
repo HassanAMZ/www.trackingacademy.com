@@ -1,8 +1,8 @@
-import Navbar from '@/components/global/navbar';
-import React, { ReactNode } from 'react';
+import Navbar from "@/components/global/navbar";
+import React, { ReactNode } from "react";
 
 export const metadata = {
-  title: 'Roadmaps - TrackingAcademy',
+  title: "Roadmaps - TrackingAcademy",
   description: `Tools Build for Analysts to make the life easier.`,
 };
 

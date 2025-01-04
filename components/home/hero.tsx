@@ -1,11 +1,11 @@
-import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
-import { Button } from '@/components/ui/button';
-import Container from '@/components/ui/container';
-import Text from '@/components/ui/text';
-import { Client } from '@/data/clients';
-import { CheckCircle } from 'lucide-react';
-import { Link } from 'next-view-transitions';
-import { FC, ReactNode } from 'react';
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { Button } from "@/components/ui/button";
+import Container from "@/components/ui/container";
+import Text from "@/components/ui/text";
+import { Client } from "@/data/clients";
+import { CheckCircle } from "lucide-react";
+import { Link } from "next-view-transitions";
+import { FC, ReactNode } from "react";
 
 interface HeroProps {
   heading: ReactNode;
@@ -66,10 +66,13 @@ const Hero: FC<HeroProps> = ({
         <div className="flex items-center justify-start gap-2">
           <div className="relative h-8 w-8">
             {clients.map((client, index) => (
-              <Avatar key={index} className={`absolute left-${index * 4} top-0 z-${index + 1}`}>
+              <Avatar
+                key={index}
+                className={`absolute left-${index * 4} top-0 z-${index + 1}`}
+              >
                 <AvatarImage
                   src={client.clientDetails.images[0].url}
-                  alt={`@${client.clientDetails.name.toLowerCase().replace(' ', '-')}`}
+                  alt={`@${client.clientDetails.name.toLowerCase().replace(" ", "-")}`}
                 />
                 <AvatarFallback>{client.clientDetails.name[0]}</AvatarFallback>
               </Avatar>

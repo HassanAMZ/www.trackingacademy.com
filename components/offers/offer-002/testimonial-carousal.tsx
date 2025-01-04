@@ -1,11 +1,11 @@
-'use client';
+"use client";
 
-import { Button } from '@/components/ui/button';
-import Text from '@/components/ui/text';
-import clients from '@/data/clients';
-import { Star } from 'lucide-react';
-import Image from 'next/image';
-import React, { useEffect, useMemo, useState } from 'react';
+import { Button } from "@/components/ui/button";
+import Text from "@/components/ui/text";
+import clients from "@/data/clients";
+import { Star } from "lucide-react";
+import Image from "next/image";
+import React, { useEffect, useMemo, useState } from "react";
 
 const TestimonialsCarousel: React.FC = () => {
   const clientTestimonials = useMemo(
@@ -22,7 +22,7 @@ const TestimonialsCarousel: React.FC = () => {
           clientName,
           clientTitle,
           businessName,
-          imageLink: images?.[0]?.url || '/default-image.png', // Handle missing images
+          imageLink: images?.[0]?.url || "/default-image.png", // Handle missing images
           roas: `${roas.value}${roas.symbol} ROAS`,
           conversions: `${conversions.value}${conversions.symbol} Conversions`,
         };
@@ -34,7 +34,9 @@ const TestimonialsCarousel: React.FC = () => {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setCurrentIndex((prevIndex) => (prevIndex + 1) % clientTestimonials.length);
+      setCurrentIndex(
+        (prevIndex) => (prevIndex + 1) % clientTestimonials.length,
+      );
     }, 5000);
 
     return () => clearInterval(interval);
@@ -67,7 +69,7 @@ const TestimonialsCarousel: React.FC = () => {
             {currentTestimonial.clientName}
           </Text>
           <Text as="p" variant="bodySm">
-            <strong>{currentTestimonial.clientTitle}</strong> at{' '}
+            <strong>{currentTestimonial.clientTitle}</strong> at{" "}
             <strong>{currentTestimonial.businessName}</strong>
           </Text>
         </div>

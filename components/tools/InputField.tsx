@@ -1,8 +1,8 @@
-import { Input } from '@/components/ui/input';
-import { Label } from '@/components/ui/label';
-import Text from '@/components/ui/text';
-import { cn } from '@/lib/utils';
-import React, { ChangeEvent } from 'react';
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import Text from "@/components/ui/text";
+import { cn } from "@/lib/utils";
+import React, { ChangeEvent } from "react";
 
 interface InputFieldProps {
   label: string;
@@ -18,7 +18,7 @@ const InputField: React.FC<InputFieldProps> = ({
   label,
   helperText,
   id,
-  type = 'text',
+  type = "text",
   required = false,
   value,
   onChange,
@@ -33,9 +33,11 @@ const InputField: React.FC<InputFieldProps> = ({
         type={type}
         id={id}
         value={value}
-        onChange={(e: ChangeEvent<HTMLInputElement>) => onChange(e.target.value)}
+        onChange={(e: ChangeEvent<HTMLInputElement>) =>
+          onChange(e.target.value)
+        }
         required={required}
-        className={cn(required && !value && 'border-red-500')}
+        className={cn(required && !value && "border-red-500")}
         aria-describedby={`${id}-helper-text`}
       />
       {helperText && (

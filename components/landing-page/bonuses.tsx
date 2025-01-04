@@ -1,10 +1,10 @@
-import { Button } from '@/components/ui/button';
-import Container from '@/components/ui/container';
-import Text from '@/components/ui/text';
-import { ArrowRight, CheckCircle } from 'lucide-react';
-import { Link } from 'next-view-transitions';
-import Image from 'next/image';
-import React from 'react';
+import { Button } from "@/components/ui/button";
+import Container from "@/components/ui/container";
+import Text from "@/components/ui/text";
+import { ArrowRight, CheckCircle } from "lucide-react";
+import { Link } from "next-view-transitions";
+import Image from "next/image";
+import React from "react";
 
 interface Bonus {
   title: string;
@@ -43,7 +43,11 @@ const Bonuses: React.FC<BonusesProps> = ({
               {sectionTitle}
             </Text>
             {sectionDescription && (
-              <Text as="p" variant="headingMd" className="text-muted-foreground">
+              <Text
+                as="p"
+                variant="headingMd"
+                className="text-muted-foreground"
+              >
                 {sectionDescription}
               </Text>
             )}
@@ -54,20 +58,31 @@ const Bonuses: React.FC<BonusesProps> = ({
         {bonuses && bonuses.length > 0 && (
           <div className="w-full space-y-12">
             {bonuses.map((bonus, index) => (
-              <section key={index} className="rounded-lg bg-primary/5 px-4 py-16 shadow-md">
+              <section
+                key={index}
+                className="rounded-lg bg-primary/5 px-4 py-16 shadow-md"
+              >
                 <Container>
                   <div className="grid grid-cols-1 gap-12 lg:grid-cols-2">
                     {/* Content Side */}
                     <div className="flex flex-col space-y-8">
                       <div className="flex h-full flex-col justify-between space-y-4">
                         {/* Title  */}
-                        <Text as="h3" variant="heading2xl" className="flex items-center">
+                        <Text
+                          as="h3"
+                          variant="heading2xl"
+                          className="flex items-center"
+                        >
                           <bonus.icon className="mr-4 h-12 w-12 text-primary" />
                           {bonus.title}
                         </Text>
 
                         {/* Description */}
-                        <Text as="p" variant="headingLg" className="text-muted-foreground">
+                        <Text
+                          as="p"
+                          variant="headingLg"
+                          className="text-muted-foreground"
+                        >
                           {bonus.description}
                         </Text>
 
@@ -107,7 +122,11 @@ const Bonuses: React.FC<BonusesProps> = ({
                         {/* Value  */}
 
                         <div className="inline-block w-fit rounded-lg bg-background/80 p-4 backdrop-blur-sm">
-                          <Text as="p" variant="heading2xl" className="text-primary">
+                          <Text
+                            as="p"
+                            variant="heading2xl"
+                            className="text-primary"
+                          >
                             {bonus.value}
                             <span className="ml-2 text-lg font-normal text-muted-foreground">
                               Value
@@ -145,7 +164,11 @@ const Bonuses: React.FC<BonusesProps> = ({
               </Text>
 
               {actionButtonText && actionButtonLink && (
-                <Button size="lg" asChild className="p-6 text-2xl font-semibold">
+                <Button
+                  size="lg"
+                  asChild
+                  className="p-6 text-2xl font-semibold"
+                >
                   <Link href={actionButtonLink}>
                     {actionButtonText}
                     <ArrowRight className="ml-2 h-6 w-6" />

@@ -1,16 +1,16 @@
-'use client';
-import formatDate from '@/components/seo/formatDate';
-import generateSchema from '@/components/seo/generateSchema';
-import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
-import { Badge } from '@/components/ui/badge';
-import Text from '@/components/ui/text';
-import { PostMetadataProps } from '@/types/index';
-import { Link } from 'next-view-transitions';
-import Image from 'next/image';
-import Script from 'next/script';
-import React from 'react';
-import YoutubeEmbed from '../global/youtube-embed';
-import BreadCrumbs from './bread-crumb';
+"use client";
+import formatDate from "@/components/seo/formatDate";
+import generateSchema from "@/components/seo/generateSchema";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { Badge } from "@/components/ui/badge";
+import Text from "@/components/ui/text";
+import { PostMetadataProps } from "@/types/index";
+import { Link } from "next-view-transitions";
+import Image from "next/image";
+import Script from "next/script";
+import React from "react";
+import YoutubeEmbed from "../global/youtube-embed";
+import BreadCrumbs from "./bread-crumb";
 
 const BlogHeader: React.FC<PostMetadataProps> = ({ metadata }) => {
   const schema = generateSchema(metadata);
@@ -24,7 +24,7 @@ const BlogHeader: React.FC<PostMetadataProps> = ({ metadata }) => {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
       />
 
-      <div className="grid items-center justify-center space-y-8 md:grid-cols-2">
+      <div className="grid items-center justify-center gap-2 space-y-8 md:grid-cols-2">
         {/* Breadcrumb and metadata section */}
 
         <div className="md:space-y-8">
@@ -44,13 +44,17 @@ const BlogHeader: React.FC<PostMetadataProps> = ({ metadata }) => {
                 <div className="flex items-center space-x-2">
                   <span className="font-medium">ShahzadaAliHassan</span>
                   <span className="text-muted-foreground">·</span>
-                  <time className="text-muted-foreground">{formatDate(metadata.date)}</time>
+                  <time className="text-muted-foreground">
+                    {formatDate(metadata.date)}
+                  </time>
                 </div>
 
                 <div className="flex items-center text-sm text-muted-foreground">
                   {metadata.updatedDate && (
                     <div>
-                      <span>Last updated: {formatDate(metadata.updatedDate)}</span>
+                      <span>
+                        Last updated: {formatDate(metadata.updatedDate)}
+                      </span>
                       <span className="mx-2">·</span>
                     </div>
                   )}
@@ -61,7 +65,10 @@ const BlogHeader: React.FC<PostMetadataProps> = ({ metadata }) => {
 
             <div className="flex flex-wrap gap-2">
               {metadata.tags.map((tag, index) => (
-                <Link href={`/tags/${tag.toLowerCase().replace(/\s+/g, '-')}`} key={index}>
+                <Link
+                  href={`/tags/${tag.toLowerCase().replace(/\s+/g, "-")}`}
+                  key={index}
+                >
                   <Badge variant="secondary" className="px-3 py-1">
                     {tag}
                   </Badge>
@@ -73,10 +80,10 @@ const BlogHeader: React.FC<PostMetadataProps> = ({ metadata }) => {
 
         {/* Hero Image/Video Section */}
         <div className="relative overflow-hidden rounded-xl">
-          {metadata.embedId === '' ? (
+          {metadata.embedId === "" ? (
             <Image
               src={backgroundImage}
-              alt={'blog image'}
+              alt={"blog image"}
               width={1920}
               height={1080}
               className="hidden w-full object-cover md:flex"

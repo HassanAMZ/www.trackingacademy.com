@@ -1,8 +1,8 @@
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import Container from '@/components/ui/container';
-import Text from '@/components/ui/text';
-import { Clock, Lightbulb, TrendingUp } from 'lucide-react';
-import React from 'react';
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import Container from "@/components/ui/container";
+import Text from "@/components/ui/text";
+import { Clock, Lightbulb, TrendingUp } from "lucide-react";
+import React from "react";
 
 interface DreamOutcomeProps {
   heading?: string;

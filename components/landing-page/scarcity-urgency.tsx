@@ -1,9 +1,9 @@
-import { Button } from '@/components/ui/button';
-import Container from '@/components/ui/container';
-import Text from '@/components/ui/text';
-import { ArrowRight, Clock, Users } from 'lucide-react';
-import { Link } from 'next-view-transitions';
-import React from 'react';
+import { Button } from "@/components/ui/button";
+import Container from "@/components/ui/container";
+import Text from "@/components/ui/text";
+import { ArrowRight, Clock, Users } from "lucide-react";
+import { Link } from "next-view-transitions";
+import React from "react";
 
 interface ScarcityUrgencyProps {
   title?: string;
@@ -21,7 +21,7 @@ const ScarcityUrgency: React.FC<ScarcityUrgencyProps> = ({
   spotsLeft,
   daysRemaining,
   buttonText,
-  buttonLink = '/contact', // Default fallback link
+  buttonLink = "/contact", // Default fallback link
   iconSize = 12, // Default icon size
 }) => {
   return (
@@ -68,7 +68,11 @@ const ScarcityUrgency: React.FC<ScarcityUrgencyProps> = ({
 
         {/* Button Section */}
         {buttonText && (
-          <Button size="lg" asChild className="bg-background text-primary hover:bg-background/90">
+          <Button
+            size="lg"
+            asChild
+            className="bg-background text-primary hover:bg-background/90"
+          >
             <Link href={buttonLink}>
               {buttonText}
               <ArrowRight className="ml-2 h-4 w-4" />

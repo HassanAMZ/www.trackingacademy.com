@@ -1,13 +1,15 @@
 // TagSearch.tsx
-'use client';
-import { TagSearchProps } from '@/types/index'; // Ensure you have this type
-import React, { useEffect, useState } from 'react';
+"use client";
+import { TagSearchProps } from "@/types/index"; // Ensure you have this type
+import React, { useEffect, useState } from "react";
 
 const TagSearch: React.FC<TagSearchProps> = ({ tags, onSearch }) => {
-  const [searchTerm, setSearchTerm] = useState('');
+  const [searchTerm, setSearchTerm] = useState("");
 
   useEffect(() => {
-    const results = tags.filter((tag) => tag.toLowerCase().includes(searchTerm.toLowerCase()));
+    const results = tags.filter((tag) =>
+      tag.toLowerCase().includes(searchTerm.toLowerCase()),
+    );
     onSearch(results);
   }, [searchTerm]);
 

@@ -1,4 +1,4 @@
-import Container from '../ui/container';
+import Container from "../ui/container";
 
 const Footer = () => {
   // Get the current year
@@ -11,10 +11,11 @@ const Footer = () => {
           <div className="w-full md:w-1/2">
             <h6 className="mb-2 font-bold uppercase">About Us</h6>
             <p className="mb-4">
-              We provide advanced tracking solutions for businesses around the globe. Click{' '}
+              We provide advanced tracking solutions for businesses around the
+              globe. Click{" "}
               <a href="/about-us" className="text-primary hover:underline">
                 here
-              </a>{' '}
+              </a>{" "}
               to learn more.
             </p>
           </div>
@@ -27,7 +28,10 @@ const Footer = () => {
                 </a>
               </li>
               <li>
-                <a href="/terms-of-services" className="text-primary hover:underline">
+                <a
+                  href="/terms-of-services"
+                  className="text-primary hover:underline"
+                >
                   Terms of Service
                 </a>
               </li>

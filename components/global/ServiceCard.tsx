@@ -1,10 +1,10 @@
-import Image from 'next/image';
+import Image from "next/image";
 
-import type { ServiceCardProps } from '@/types/index';
-import { Link } from 'next-view-transitions';
+import type { ServiceCardProps } from "@/types/index";
+import { Link } from "next-view-transitions";
 
 const ServiceCard: React.FC<ServiceCardProps> = ({ service }) => {
-  let formattedDescription = service.description.replace(/\n/g, '<br>');
+  let formattedDescription = service.description.replace(/\n/g, "<br>");
   return (
     <>
       <div className="relative aspect-[4/3] max-w-full sm:h-auto">

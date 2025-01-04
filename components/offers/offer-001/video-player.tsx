@@ -1,9 +1,9 @@
-'use client';
+"use client";
 
-import { Card, CardContent } from '@/components/ui/card';
-import { cn } from '@/lib/utils';
-import Image from 'next/image';
-import { Suspense } from 'react';
+import { Card, CardContent } from "@/components/ui/card";
+import { cn } from "@/lib/utils";
+import Image from "next/image";
+import { Suspense } from "react";
 
 interface VideoPlayerProps {
   src: string;
@@ -11,7 +11,11 @@ interface VideoPlayerProps {
   className?: string;
 }
 
-const VideoPlayer: React.FC<VideoPlayerProps> = ({ src, placeholder, className }) => {
+const VideoPlayer: React.FC<VideoPlayerProps> = ({
+  src,
+  placeholder,
+  className,
+}) => {
   return (
     <Suspense
       fallback={
@@ -24,7 +28,7 @@ const VideoPlayer: React.FC<VideoPlayerProps> = ({ src, placeholder, className }
         />
       }
     >
-      <Card className={cn(className, 'my-4 overflow-hidden rounded-t-lg')}>
+      <Card className={cn(className, "my-4 overflow-hidden rounded-t-lg")}>
         <CardContent className="flex items-center justify-center overflow-hidden rounded-lg p-0">
           <video
             autoPlay

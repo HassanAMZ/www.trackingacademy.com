@@ -1,8 +1,8 @@
-import LearnMoreHeader from '@/components/global/LearnMoreHeader';
-import { HeroProps } from '@/types/index';
-import { Link } from 'next-view-transitions';
-import Image from 'next/image';
-import React from 'react';
+import LearnMoreHeader from "@/components/global/LearnMoreHeader";
+import { HeroProps } from "@/types/index";
+import { Link } from "next-view-transitions";
+import Image from "next/image";
+import React from "react";
 
 const HeroComponent: React.FC<HeroProps> = ({ textGroup, links, images }) => {
   return (
@@ -19,7 +19,7 @@ const HeroComponent: React.FC<HeroProps> = ({ textGroup, links, images }) => {
             className="hidden opacity-75 sm:block"
             sizes="100vw"
             style={{
-              objectFit: 'cover',
+              objectFit: "cover",
             }}
           />
         )}
@@ -34,7 +34,7 @@ const HeroComponent: React.FC<HeroProps> = ({ textGroup, links, images }) => {
             fill
             sizes="100vw"
             style={{
-              objectFit: 'cover',
+              objectFit: "cover",
             }}
           />
         )}
@@ -50,21 +50,27 @@ const HeroComponent: React.FC<HeroProps> = ({ textGroup, links, images }) => {
                     height={1080}
                     key={index}
                     className={`absolute rounded-full opacity-90 ${
-                      index === 0 ? 'left-0 top-0 z-10' : ''
-                    } ${index === 1 ? 'left-4 top-0 z-20' : ''} ${
-                      index === 2 ? 'left-8 top-0 z-30' : ''
-                    } ${index === 3 ? 'left-12 top-0 z-30' : ''} `}
+                      index === 0 ? "left-0 top-0 z-10" : ""
+                    } ${index === 1 ? "left-4 top-0 z-20" : ""} ${
+                      index === 2 ? "left-8 top-0 z-30" : ""
+                    } ${index === 3 ? "left-12 top-0 z-30" : ""} `}
                   />
                 ))}
               </div>
             )}
-            {textGroup.welcomeText && <p className="text-left">{textGroup.welcomeText}</p>}
-            {textGroup.heading && <h1 className="text-3xl font-bold">{textGroup.heading}</h1>}
+            {textGroup.welcomeText && (
+              <p className="text-left">{textGroup.welcomeText}</p>
+            )}
+            {textGroup.heading && (
+              <h1 className="text-3xl font-bold">{textGroup.heading}</h1>
+            )}
             {textGroup.subHeading && (
               <div>
                 <p className="text-xl font-bold">
                   {textGroup.subHeading.one}
-                  <span className="font-normal">{textGroup.subHeading.two}</span>
+                  <span className="font-normal">
+                    {textGroup.subHeading.two}
+                  </span>
                 </p>
               </div>
             )}

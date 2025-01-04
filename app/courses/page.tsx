@@ -1,5 +1,5 @@
-import React from 'react';
-import getCoursesData from 'utils/getCoursesData';
+import React from "react";
+import getCoursesData from "utils/getCoursesData";
 
 export default async function Page() {
   const data = await getCoursesData();

@@ -1,6 +1,6 @@
-import YoutubeEmbed from '@/components/global/youtube-embed';
-import Container from '@/components/ui/container';
-import Text from '@/components/ui/text';
+import YoutubeEmbed from "@/components/global/youtube-embed";
+import Container from "@/components/ui/container";
+import Text from "@/components/ui/text";
 export default function Page() {
   return (
     <Container>
@@ -23,29 +23,30 @@ export default function Page() {
         <div>
           <Text as="p" variant="bodyMd">
             <span className="text-primary">✅ Step 1:</span>
-            You will receive an email with a meeting invite for your scheduled time. Make sure to
-            accept the invite so it shows up in your calendar.
+            You will receive an email with a meeting invite for your scheduled
+            time. Make sure to accept the invite so it shows up in your
+            calendar.
           </Text>
         </div>
         <div>
           <Text as="p" variant="bodyMd">
             <span className="text-primary">✅ Step 2:</span>
-            You will also receive a Zoom link in the meeting invite, which is where the meeting will
-            be held.
+            You will also receive a Zoom link in the meeting invite, which is
+            where the meeting will be held.
           </Text>
         </div>
         <div>
           <Text as="p" variant="bodyMd">
             <span className="text-primary">✅ Step 3:</span>
-            Please be at your computer for the meeting, as we may share our screen with you to
-            review your business.
+            Please be at your computer for the meeting, as we may share our
+            screen with you to review your business.
           </Text>
         </div>
         <div>
           <Text as="p" variant="bodyMd">
             <span className="text-primary">✅ Step 4:</span>
-            Watch the video below to prepare for our call and learn what we will cover during our
-            session.
+            Watch the video below to prepare for our call and learn what we will
+            cover during our session.
           </Text>
         </div>
       </div>

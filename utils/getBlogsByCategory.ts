@@ -1,11 +1,11 @@
-import extractMetaFromStringForBlog from '@/utils/extractMetaFromStringForBlog';
-import getFiles from '@/utils/getFiles';
-import fs from 'fs';
-import matter from 'gray-matter';
-import path from 'path';
+import extractMetaFromStringForBlog from "@/utils/extractMetaFromStringForBlog";
+import getFiles from "@/utils/getFiles";
+import fs from "fs";
+import matter from "gray-matter";
+import path from "path";
 
 export default async function getCategoryBlogs(params: string[]) {
-  const baseDirectory = path.join(process.cwd(), 'app/_blog-markdown');
+  const baseDirectory = path.join(process.cwd(), "app/_blog-markdown");
 
   // If we only have category, get all posts from that category
   if (params.length === 1) {
@@ -18,18 +18,20 @@ export default async function getCategoryBlogs(params: string[]) {
     }
 
     const allPostsFiles = getFiles(categoryPath);
-    const mdxFiles = allPostsFiles.filter((file) => path.extname(file) === '.mdx');
+    const mdxFiles = allPostsFiles.filter(
+      (file) => path.extname(file) === ".mdx",
+    );
 
     const contents = [];
 
     for (const fileName of mdxFiles) {
-      const fileContents = fs.readFileSync(fileName, 'utf8');
+      const fileContents = fs.readFileSync(fileName, "utf8");
       const { content } = matter(fileContents);
       const data = extractMetaFromStringForBlog(content);
 
-      const fileBaseName = path.basename(fileName, '.mdx');
+      const fileBaseName = path.basename(fileName, ".mdx");
       const slug = `${category}/${fileBaseName}`;
-      const id = fileName.replace(/\.mdx$/, '');
+      const id = fileName.replace(/\.mdx$/, "");
 
       if (data) {
         contents.push({
@@ -55,7 +57,7 @@ export default async function getCategoryBlogs(params: string[]) {
       return [];
     }
 
-    const fileContents = fs.readFileSync(filePath, 'utf8');
+    const fileContents = fs.readFileSync(filePath, "utf8");
     const { content } = matter(fileContents);
     const data = extractMetaFromStringForBlog(content);
 
@@ -63,7 +65,7 @@ export default async function getCategoryBlogs(params: string[]) {
       return [
         {
           ...data,
-          id: filePath.replace(/\.mdx$/, ''),
+          id: filePath.replace(/\.mdx$/, ""),
           slug: `${category}/${slug}`,
           category,
         },

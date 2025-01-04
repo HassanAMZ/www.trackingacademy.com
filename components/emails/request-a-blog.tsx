@@ -1,6 +1,14 @@
 // components/EmailTemplate.tsx
-import { Body, Container, Head, Heading, Html, Preview, Text } from '@react-email/components';
-import { Timestamp } from 'firebase/firestore';
+import {
+  Body,
+  Container,
+  Head,
+  Heading,
+  Html,
+  Preview,
+  Text,
+} from "@react-email/components";
+import { Timestamp } from "firebase/firestore";
 
 type EmailTemplateProps = {
   searchTerm: string;
@@ -8,7 +16,11 @@ type EmailTemplateProps = {
   createdAt: Timestamp;
 };
 
-export default function RequestABlogEmail({ searchTerm, email, createdAt }: EmailTemplateProps) {
+export default function RequestABlogEmail({
+  searchTerm,
+  email,
+  createdAt,
+}: EmailTemplateProps) {
   return (
     <Html>
       <Head />
@@ -18,9 +30,10 @@ export default function RequestABlogEmail({ searchTerm, email, createdAt }: Emai
           <Heading>Blog Topic Request Received!</Heading>
           <Text>Dear {email},</Text>
           <Text>
-            Thank you for your interest in our blog. We have received your request for a blog topic
-            on "{searchTerm}". Our team will review your request, and we'll notify you once the blog
-            is published. Here are the details we have on file:
+            Thank you for your interest in our blog. We have received your
+            request for a blog topic on "{searchTerm}". Our team will review
+            your request, and we'll notify you once the blog is published. Here
+            are the details we have on file:
           </Text>
           <ul>
             <li>
@@ -34,8 +47,8 @@ export default function RequestABlogEmail({ searchTerm, email, createdAt }: Emai
             </li>
           </ul>
           <Text className="text-sm">
-            Stay tuned for updates, and feel free to contact us if you have any questions in the
-            meantime.
+            Stay tuned for updates, and feel free to contact us if you have any
+            questions in the meantime.
           </Text>
           <Text className="text-sm">
             Best Regards,

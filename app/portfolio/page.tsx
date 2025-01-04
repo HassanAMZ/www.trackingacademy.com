@@ -1,7 +1,7 @@
-import ClientTestimonial from '@/components/home/testimonaials';
-import { Button } from '@/components/ui/button';
-import { ArrowRight } from 'lucide-react';
-import { Link } from 'next-view-transitions';
+import ClientTestimonial from "@/components/home/testimonaials";
+import { Button } from "@/components/ui/button";
+import { ArrowRight } from "lucide-react";
+import { Link } from "next-view-transitions";
 
 export default async function Page() {
   return (

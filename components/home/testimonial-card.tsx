@@ -1,7 +1,7 @@
-import Text from '@/components/ui/text';
-import Image from 'next/image';
-import React from 'react';
-import { Card, CardContent } from '../ui/card';
+import Text from "@/components/ui/text";
+import Image from "next/image";
+import React from "react";
+import { Card, CardContent } from "../ui/card";
 
 interface ClientTestimonialCardProps {
   client: {

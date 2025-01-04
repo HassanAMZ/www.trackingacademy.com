@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 export interface GTMEvent {
   event: string;
@@ -25,7 +25,7 @@ export interface UTMParams {
   campaignID: string;
   campaignTerm: string;
   campaignContent: string;
-  selectedMode: 'manual' | 'facebook' | 'pinterest' | 'google' | 'tiktok';
+  selectedMode: "manual" | "facebook" | "pinterest" | "google" | "tiktok";
 }
 
 export interface GTMBlogViewProps {
@@ -33,7 +33,7 @@ export interface GTMBlogViewProps {
 }
 
 // types/index.ts or types/clientTypes.ts
-import { JSX, ReactNode } from 'react';
+import { JSX, ReactNode } from "react";
 
 export interface ServiceCardProps {
   service: ServiceDetails;
@@ -463,7 +463,10 @@ export interface AddVideoParams {
   setAddedVideos: SetStateFunction<VideoUrl[]>;
   setVideos: SetStateFunction<VideoUrl[]>;
   setErrorMessage: SetStateFunction<string>;
-  insertRandomly: (existingItems: VideoUrl[], newItems: VideoUrl[]) => VideoUrl[];
+  insertRandomly: (
+    existingItems: VideoUrl[],
+    newItems: VideoUrl[],
+  ) => VideoUrl[];
 }
 export interface Statistic {
   value: string;

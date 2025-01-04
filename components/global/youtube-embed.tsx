@@ -1,5 +1,5 @@
-import { FC, memo } from 'react';
-import Container from '../ui/container';
+import { FC, memo } from "react";
+import Container from "../ui/container";
 
 interface YoutubeEmbedProps {
   embedId: string;
@@ -8,13 +8,16 @@ interface YoutubeEmbedProps {
 }
 
 const YoutubeEmbed: FC<YoutubeEmbedProps> = ({ embedId, className, id }) => {
-  if (!embedId || embedId === 'null' || embedId === 'undefined') {
+  if (!embedId || embedId === "null" || embedId === "undefined") {
     return null;
   }
 
   return (
     <Container className={className} id={id}>
-      <div className="relative overflow-hidden rounded-lg" style={{ paddingTop: '56.25%' }}>
+      <div
+        className="relative overflow-hidden rounded-lg"
+        style={{ paddingTop: "56.25%" }}
+      >
         <iframe
           className="absolute left-0 top-0 h-full w-full rounded-lg"
           src={`https://www.youtube.com/embed/${embedId}`}

@@ -1,6 +1,6 @@
-import BlogHeader from '@/components/blog/blog-header';
-import ContactMe from './contact-me';
-import TableOfContents from './table-of-content';
+import BlogHeader from "@/components/blog/blog-header";
+import ContactMe from "./contact-me";
+import TableOfContents from "./table-of-content";
 export default async function BlogContainer({
   slug,
   category,

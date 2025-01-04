@@ -1,5 +1,5 @@
-import Container from '@/components/ui/container';
-import { MagnifyingGlassIcon } from '@radix-ui/react-icons';
+import Container from "@/components/ui/container";
+import { MagnifyingGlassIcon } from "@radix-ui/react-icons";
 import {
   Award,
   ChartNoAxesCombined,
@@ -10,8 +10,8 @@ import {
   PieChart,
   Play,
   Shield,
-} from 'lucide-react';
-import React from 'react';
+} from "lucide-react";
+import React from "react";
 
 interface roadmapDataProps {
   category: string;
@@ -21,152 +21,152 @@ interface roadmapDataProps {
 
 const roadmapData: roadmapDataProps[] = [
   {
-    category: 'Start Here',
-    details: ['Introduction to Web Analytics'],
+    category: "Start Here",
+    details: ["Introduction to Web Analytics"],
     icon: Play,
   },
   {
-    category: 'Web Fundamentals',
+    category: "Web Fundamentals",
     details: [
-      'HTML5 structure and semantics',
-      'CSS3 for web layout',
-      'Responsive web design principles',
-      'Browser rendering and DOM manipulation',
+      "HTML5 structure and semantics",
+      "CSS3 for web layout",
+      "Responsive web design principles",
+      "Browser rendering and DOM manipulation",
     ],
     icon: Globe,
   },
   {
-    category: 'JavaScript (ES6+)',
+    category: "JavaScript (ES6+)",
     details: [
-      'Variables, data types',
-      'Functions and scope',
-      'Promises and async programming',
-      'Object-oriented programming',
-      'JSON',
-      'APIs',
-      'HTTP/HTTPS protocols',
-      'Web request lifecycle',
+      "Variables, data types",
+      "Functions and scope",
+      "Promises and async programming",
+      "Object-oriented programming",
+      "JSON",
+      "APIs",
+      "HTTP/HTTPS protocols",
+      "Web request lifecycle",
     ],
     icon: Code,
   },
   {
-    category: 'Tracking Concepts',
+    category: "Tracking Concepts",
     details: [
-      'Web analytics fundamentals',
-      'Tracking methodologies',
-      'Session tracking',
-      'User journey mapping',
-      'Conversion tracking principles',
+      "Web analytics fundamentals",
+      "Tracking methodologies",
+      "Session tracking",
+      "User journey mapping",
+      "Conversion tracking principles",
     ],
     icon: MagnifyingGlassIcon,
   },
   {
-    category: 'Metrics and KPIs',
+    category: "Metrics and KPIs",
     details: [
-      'User acquisition metrics',
-      'Engagement metrics',
-      'Conversion metrics',
-      'Customer lifetime value (CLV)',
-      'Funnel analysis',
+      "User acquisition metrics",
+      "Engagement metrics",
+      "Conversion metrics",
+      "Customer lifetime value (CLV)",
+      "Funnel analysis",
     ],
     icon: PieChart,
   },
   {
-    category: 'Tag Managers',
+    category: "Tag Managers",
     details: [
-      'Interface navigation',
-      'Container setup',
-      'Tag types',
-      'Triggers and variables',
-      'Debug mode',
-      'Version management',
+      "Interface navigation",
+      "Container setup",
+      "Tag types",
+      "Triggers and variables",
+      "Debug mode",
+      "Version management",
     ],
     icon: Layers,
   },
   {
-    category: 'Web Analytics Platforms',
+    category: "Web Analytics Platforms",
     details: [
-      'Google Analytics (Universal & GA4)',
-      'Adobe Analytics',
-      'Mixpanel',
-      'Amplitude',
-      'Heap',
-      'Piwik PRO',
+      "Google Analytics (Universal & GA4)",
+      "Adobe Analytics",
+      "Mixpanel",
+      "Amplitude",
+      "Heap",
+      "Piwik PRO",
     ],
     icon: ChartSpline,
   },
   {
-    category: 'Advanced Analytics Features',
+    category: "Advanced Analytics Features",
     details: [
-      'Custom dimensions',
-      'Custom metrics',
-      'Enhanced eCommerce tracking',
-      'Cross-domain tracking',
-      'User ID tracking',
+      "Custom dimensions",
+      "Custom metrics",
+      "Enhanced eCommerce tracking",
+      "Cross-domain tracking",
+      "User ID tracking",
     ],
     icon: ChartNoAxesCombined,
   },
   {
-    category: 'Client-Side Tracking',
+    category: "Client-Side Tracking",
     details: [
-      'JavaScript event tracking',
-      'Data layer implementation',
-      'Custom event creation',
-      'Performance optimization',
-      'Browser compatibility',
+      "JavaScript event tracking",
+      "Data layer implementation",
+      "Custom event creation",
+      "Performance optimization",
+      "Browser compatibility",
     ],
     icon: Code,
   },
   {
-    category: 'Server-Side Tracking',
+    category: "Server-Side Tracking",
     details: [
-      'Server-side tagging',
-      'Cloud-based tracking solutions',
-      'Reduced client-side load',
-      'Enhanced privacy compliance',
-      'Performance improvements',
+      "Server-side tagging",
+      "Cloud-based tracking solutions",
+      "Reduced client-side load",
+      "Enhanced privacy compliance",
+      "Performance improvements",
     ],
     icon: Shield,
   },
   {
-    category: 'Legal Frameworks',
+    category: "Legal Frameworks",
     details: [
-      'GDPR compliance',
-      'CCPA regulations',
-      'PECR guidelines',
-      'Cookie consent management',
-      'Data protection principles',
+      "GDPR compliance",
+      "CCPA regulations",
+      "PECR guidelines",
+      "Cookie consent management",
+      "Data protection principles",
     ],
     icon: Shield,
   },
   {
-    category: 'Privacy Technologies',
+    category: "Privacy Technologies",
     details: [
-      'Consent management platforms',
-      'Anonymous tracking techniques',
-      'Data anonymization',
-      'Client-side vs server-side privacy',
+      "Consent management platforms",
+      "Anonymous tracking techniques",
+      "Data anonymization",
+      "Client-side vs server-side privacy",
     ],
     icon: Shield,
   },
   {
-    category: 'Data Visualization',
+    category: "Data Visualization",
     details: [
-      'Google Data Studio',
-      'Tableau',
-      'Power BI',
-      'Advanced reporting techniques',
-      'Custom dashboard creation',
+      "Google Data Studio",
+      "Tableau",
+      "Power BI",
+      "Advanced reporting techniques",
+      "Custom dashboard creation",
     ],
     icon: PieChart,
   },
   {
-    category: 'Official Certifications',
+    category: "Official Certifications",
     details: [
-      'Google Analytics Individual Qualification',
-      'Adobe Analytics Certification',
-      'Google Tag Manager Certification',
-      'Tealium Digital Certification',
+      "Google Analytics Individual Qualification",
+      "Adobe Analytics Certification",
+      "Google Tag Manager Certification",
+      "Tealium Digital Certification",
     ],
     icon: Award,
   },
@@ -183,7 +183,8 @@ export default function Roadmap() {
                 Web Analytics Roadmap
               </h1>
               <p className="mx-auto max-w-[700px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-                Explore the essential skills and tools required for mastering web analytics.
+                Explore the essential skills and tools required for mastering
+                web analytics.
               </p>
             </div>
           </div>
@@ -193,7 +194,7 @@ export default function Roadmap() {
             {roadmapData.map((item, index) => (
               <div
                 key={index}
-                className={`grid gap-4 rounded-lg border bg-background p-6 ${index == 0 ? 'bg-primary' : ''}`}
+                className={`grid gap-4 rounded-lg border bg-background p-6 ${index == 0 ? "bg-primary" : ""}`}
               >
                 <div className="flex items-center space-x-2">
                   <item.icon className="h-6 w-6 text-muted-foreground" />
@@ -203,7 +204,7 @@ export default function Roadmap() {
                   {item.details.map((detail, idx) => (
                     <span key={idx} className="text-sm">
                       {detail}
-                      {idx == item.details.length - 1 ? '.' : ', '}
+                      {idx == item.details.length - 1 ? "." : ", "}
                     </span>
                   ))}
                 </ul>

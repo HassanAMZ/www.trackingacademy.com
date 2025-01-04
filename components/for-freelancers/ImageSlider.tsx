@@ -1,9 +1,9 @@
-'use client';
+"use client";
 
-import Image from 'next/image';
-import Slider from 'react-slick';
-import 'slick-carousel/slick/slick-theme.css';
-import 'slick-carousel/slick/slick.css';
+import Image from "next/image";
+import Slider from "react-slick";
+import "slick-carousel/slick/slick-theme.css";
+import "slick-carousel/slick/slick.css";
 
 const ImageSlider = () => {
   const settings = {
@@ -12,7 +12,7 @@ const ImageSlider = () => {
     speed: 8000,
     slidesToShow: 8,
     autoplay: true,
-    cssEase: 'linear',
+    cssEase: "linear",
     autoplaySpeed: 0,
     pauseOnHover: true,
     arrows: false,
@@ -42,14 +42,14 @@ const ImageSlider = () => {
   };
 
   const clientImages = [
-    'makescents',
-    'pandaparken',
-    'holidayparken',
-    'easyloanapproval',
-    'nook',
-    'equifund',
-    'figment',
-    'buyfreddie',
+    "makescents",
+    "pandaparken",
+    "holidayparken",
+    "easyloanapproval",
+    "nook",
+    "equifund",
+    "figment",
+    "buyfreddie",
   ];
   return (
     <div className="slider-container-shadow">
@@ -58,7 +58,7 @@ const ImageSlider = () => {
           <Image
             key={index}
             src={`/images/for-businesses/client-${image}-mobile-home.png`}
-            alt={'client-makescents-mobile-home.png'}
+            alt={"client-makescents-mobile-home.png"}
             className="rounded-lg px-1"
             width={1080}
             height={1920}

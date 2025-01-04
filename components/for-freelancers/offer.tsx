@@ -1,5 +1,5 @@
-import { Button } from '@/components/ui/button';
-import Container from '@/components/ui/container';
+import { Button } from "@/components/ui/button";
+import Container from "@/components/ui/container";
 import {
   Dialog,
   DialogContent,
@@ -7,19 +7,27 @@ import {
   DialogHeader,
   DialogTitle,
   DialogTrigger,
-} from '@/components/ui/dialog';
-import { Separator } from '@/components/ui/separator';
-import Text from '@/components/ui/text';
-import { Globe, Headset, Rocket, ShieldCheck, Smile, Target } from 'lucide-react';
-import { Link } from 'next-view-transitions';
-import React, { FC } from 'react';
-import YoutubeEmbed from '../global/youtube-embed';
+} from "@/components/ui/dialog";
+import { Separator } from "@/components/ui/separator";
+import Text from "@/components/ui/text";
+import {
+  Globe,
+  Headset,
+  Rocket,
+  ShieldCheck,
+  Smile,
+  Target,
+} from "lucide-react";
+import { Link } from "next-view-transitions";
+import React, { FC } from "react";
+import YoutubeEmbed from "../global/youtube-embed";
 
 export default function ForFreelancersOffer() {
   return (
     <Container className="space-y-6 pt-4 text-center">
       <Text as="h2" variant="heading2xl">
-        Ready to see what you'll get? <span className="text-primary">Watch the video</span>
+        Ready to see what you'll get?{" "}
+        <span className="text-primary">Watch the video</span>
       </Text>
 
       <YoutubeEmbed embedId="9MGpL_AmEYM" />
@@ -132,8 +140,8 @@ export default function ForFreelancersOffer() {
       </div>
 
       <Text as="h2" variant="heading2xl">
-        Enroll now to master conversion tracking and analytics! Take the next step and join our
-        training program today.
+        Enroll now to master conversion tracking and analytics! Take the next
+        step and join our training program today.
       </Text>
 
       <Button asChild className="w-full px-10 py-4">

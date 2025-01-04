@@ -1,28 +1,37 @@
-import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Input } from '@/components/ui/input';
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Input } from "@/components/ui/input";
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from '@/components/ui/select';
-import { AnthropicModels, OpenAiModels } from '@/data/gpt-models';
-import AiSystemMessages from '@/data/gpt-system-message';
-import { useChat } from 'ai/react';
-import { ImagePlus, Loader2, RotateCcw, Send, StopCircle, Trash2 } from 'lucide-react';
-import Image from 'next/image';
-import React, { useRef, useState } from 'react';
-import Markdown from 'react-markdown';
-import Container from '../ui/container';
+} from "@/components/ui/select";
+import { AnthropicModels, OpenAiModels } from "@/data/gpt-models";
+import AiSystemMessages from "@/data/gpt-system-message";
+import { useChat } from "ai/react";
+import {
+  ImagePlus,
+  Loader2,
+  RotateCcw,
+  Send,
+  StopCircle,
+  Trash2,
+} from "lucide-react";
+import Image from "next/image";
+import React, { useRef, useState } from "react";
+import Markdown from "react-markdown";
+import Container from "../ui/container";
 
 export default function ChatBot() {
-  const [provider, setProvider] = useState<'anthropic' | 'openai'>('anthropic');
+  const [provider, setProvider] = useState<"anthropic" | "openai">("anthropic");
   const [model, setModel] = useState(
-    provider === 'anthropic' ? AnthropicModels[0] : OpenAiModels[0],
+    provider === "anthropic" ? AnthropicModels[0] : OpenAiModels[0],
   );
-  const [systemMessage, setSystemMessage] = useState<string>(Object.keys(AiSystemMessages)[0]);
+  const [systemMessage, setSystemMessage] = useState<string>(
+    Object.keys(AiSystemMessages)[0],
+  );
   const [files, setFiles] = useState<FileList | undefined>(undefined);
   const fileInputRef = useRef<HTMLInputElement>(null);
 
@@ -40,16 +49,17 @@ export default function ChatBot() {
     body: {
       model,
       provider,
-      systemMessage: AiSystemMessages[systemMessage as keyof typeof AiSystemMessages],
+      systemMessage:
+        AiSystemMessages[systemMessage as keyof typeof AiSystemMessages],
     },
     onError: (error) => {
-      console.error('Chat error:', error);
+      console.error("Chat error:", error);
     },
   });
 
-  const handleProviderChange = (value: 'anthropic' | 'openai') => {
+  const handleProviderChange = (value: "anthropic" | "openai") => {
     setProvider(value);
-    setModel(value === 'anthropic' ? AnthropicModels[0] : OpenAiModels[0]);
+    setModel(value === "anthropic" ? AnthropicModels[0] : OpenAiModels[0]);
   };
 
   const handleModelChange = (value: string) => {
@@ -70,7 +80,7 @@ export default function ChatBot() {
     });
     setFiles(undefined);
     if (fileInputRef.current) {
-      fileInputRef.current.value = '';
+      fileInputRef.current.value = "";
     }
   };
 
@@ -101,7 +111,10 @@ export default function ChatBot() {
                   <SelectValue placeholder="Select model" />
                 </SelectTrigger>
                 <SelectContent>
-                  {(provider === 'anthropic' ? AnthropicModels : OpenAiModels).map((m) => (
+                  {(provider === "anthropic"
+                    ? AnthropicModels
+                    : OpenAiModels
+                  ).map((m) => (
                     <SelectItem key={m} value={m}>
                       {m}
                     </SelectItem>
@@ -109,14 +122,17 @@ export default function ChatBot() {
                 </SelectContent>
               </Select>
 
-              <Select value={systemMessage} onValueChange={handleSystemMessageChange}>
+              <Select
+                value={systemMessage}
+                onValueChange={handleSystemMessageChange}
+              >
                 <SelectTrigger>
                   <SelectValue placeholder="Select personality" />
                 </SelectTrigger>
                 <SelectContent>
                   {Object.keys(AiSystemMessages).map((key) => (
                     <SelectItem key={key} value={key}>
-                      {key.replace(/([A-Z])/g, ' $1').trim()}
+                      {key.replace(/([A-Z])/g, " $1").trim()}
                     </SelectItem>
                   ))}
                 </SelectContent>
@@ -131,24 +147,28 @@ export default function ChatBot() {
               <div
                 key={message.id}
                 className={`flex gap-2 ${
-                  message.role === 'user' ? 'justify-end' : 'justify-start'
+                  message.role === "user" ? "justify-end" : "justify-start"
                 }`}
               >
                 <div
                   className={`flex max-w-[80%] flex-col gap-2 ${
-                    message.role === 'user' ? 'items-end' : 'items-start'
+                    message.role === "user" ? "items-end" : "items-start"
                   }`}
                 >
                   <div
                     className={`rounded-lg p-3 ${
-                      message.role === 'user' ? 'bg-primary text-primary-foreground' : 'bg-muted'
+                      message.role === "user"
+                        ? "bg-primary text-primary-foreground"
+                        : "bg-muted"
                     }`}
                   >
                     <Markdown>{message.content}</Markdown>
                   </div>
 
                   {message.experimental_attachments
-                    ?.filter((attachment) => attachment.contentType?.startsWith('image/'))
+                    ?.filter((attachment) =>
+                      attachment.contentType?.startsWith("image/"),
+                    )
                     .map((attachment, index) => (
                       <Image
                         key={`${message.id}-${index}`}

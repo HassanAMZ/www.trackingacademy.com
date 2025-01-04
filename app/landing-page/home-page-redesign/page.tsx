@@ -1,14 +1,14 @@
 // HomePage.tsx
-import Bonuses from '@/components/landing-page/bonuses';
-import DetailedCTA from '@/components/landing-page/detailed-cta';
-import DreamOutcome from '@/components/landing-page/dream-outcome';
-import Hero from '@/components/landing-page/hero';
-import ObjectionHandling from '@/components/landing-page/objection-handling';
-import OfferDetails from '@/components/landing-page/offer-detail-item';
-import ProblemAwareness from '@/components/landing-page/problem-awareness';
-import ScarcityUrgency from '@/components/landing-page/scarcity-urgency';
-import SocialProof from '@/components/landing-page/social-proof';
-import landingConfig from '@/data/offers/home-page.json';
+import Bonuses from "@/components/landing-page/bonuses";
+import DetailedCTA from "@/components/landing-page/detailed-cta";
+import DreamOutcome from "@/components/landing-page/dream-outcome";
+import Hero from "@/components/landing-page/hero";
+import ObjectionHandling from "@/components/landing-page/objection-handling";
+import OfferDetails from "@/components/landing-page/offer-detail-item";
+import ProblemAwareness from "@/components/landing-page/problem-awareness";
+import ScarcityUrgency from "@/components/landing-page/scarcity-urgency";
+import SocialProof from "@/components/landing-page/social-proof";
+import landingConfig from "@/data/offers/home-page.json";
 import {
   Activity,
   ArrowUpRight,
@@ -22,7 +22,7 @@ import {
   Target,
   TrendingUp,
   Zap,
-} from 'lucide-react';
+} from "lucide-react";
 
 // Icon mapping object
 const iconMap = {
@@ -44,16 +44,19 @@ type IconName = keyof typeof iconMap;
 
 export default function HomePage() {
   // Transform offer items to include icon components
-  const offerItemsWithIcons = landingConfig.offerDetails.offerItems.map((item) => ({
-    ...item,
-    icon: iconMap[item.icon as IconName],
-  }));
+  const offerItemsWithIcons = landingConfig.offerDetails.offerItems.map(
+    (item) => ({
+      ...item,
+      icon: iconMap[item.icon as IconName],
+    }),
+  );
 
   // Transform dream outcome list to include icon components
-  const dreamOutcomeListWithIcons = landingConfig.dreamOutcome.dreamOutcomeList.map((item) => ({
-    ...item,
-    icon: iconMap[item.icon as IconName],
-  }));
+  const dreamOutcomeListWithIcons =
+    landingConfig.dreamOutcome.dreamOutcomeList.map((item) => ({
+      ...item,
+      icon: iconMap[item.icon as IconName],
+    }));
 
   // Transform stats to include icon components
   const statsWithIcons = landingConfig.socialProof.stats.map((stat) => ({
@@ -68,10 +71,12 @@ export default function HomePage() {
   }));
 
   // Transform guarantees to include icon components
-  const guaranteesWithIcons = landingConfig.objectionHandling.guarantees.map((guarantee) => ({
-    ...guarantee,
-    icon: iconMap[guarantee.icon as IconName],
-  }));
+  const guaranteesWithIcons = landingConfig.objectionHandling.guarantees.map(
+    (guarantee) => ({
+      ...guarantee,
+      icon: iconMap[guarantee.icon as IconName],
+    }),
+  );
 
   return (
     <main>
@@ -79,9 +84,15 @@ export default function HomePage() {
 
       <ProblemAwareness {...landingConfig.problemAwareness} />
 
-      <DreamOutcome {...landingConfig.dreamOutcome} dreamOutcomeList={dreamOutcomeListWithIcons} />
+      <DreamOutcome
+        {...landingConfig.dreamOutcome}
+        dreamOutcomeList={dreamOutcomeListWithIcons}
+      />
 
-      <OfferDetails {...landingConfig.offerDetails} offerItems={offerItemsWithIcons} />
+      <OfferDetails
+        {...landingConfig.offerDetails}
+        offerItems={offerItemsWithIcons}
+      />
 
       <ScarcityUrgency {...landingConfig.scarcityUrgency} />
 
@@ -89,7 +100,10 @@ export default function HomePage() {
 
       <Bonuses {...landingConfig.bonuses} bonuses={bonusesWithIcons} />
 
-      <ObjectionHandling {...landingConfig.objectionHandling} guarantees={guaranteesWithIcons} />
+      <ObjectionHandling
+        {...landingConfig.objectionHandling}
+        guarantees={guaranteesWithIcons}
+      />
 
       <DetailedCTA {...landingConfig.detailedCTA} />
     </main>

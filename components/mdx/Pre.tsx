@@ -1,9 +1,9 @@
-'use client';
+"use client";
 
-import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { ClipboardCopy } from 'lucide-react';
-import React, { useRef, useState } from 'react';
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { ClipboardCopy } from "lucide-react";
+import React, { useRef, useState } from "react";
 
 interface CodeBlockProps {
   language?: string;
@@ -22,7 +22,7 @@ export default function CodeBlock({ language, children }: CodeBlockProps) {
       setIsCopied(true);
       setTimeout(() => setIsCopied(false), 2000);
     } catch (err) {
-      console.error('Failed to copy text: ', err);
+      console.error("Failed to copy text: ", err);
     }
   };
 
@@ -36,13 +36,16 @@ export default function CodeBlock({ language, children }: CodeBlockProps) {
             size="sm"
             className="h-8 w-8 p-0"
             onClick={handleCopy}
-            aria-label={isCopied ? 'Copied!' : 'Copy code'}
+            aria-label={isCopied ? "Copied!" : "Copy code"}
           >
             <ClipboardCopy className="h-4 w-4" />
           </Button>
         </CardHeader>
         <CardContent>
-          <pre ref={codeRef} className="overflow-x-auto rounded bg-muted p-2 text-sm">
+          <pre
+            ref={codeRef}
+            className="overflow-x-auto rounded bg-muted p-2 text-sm"
+          >
             <code className="block w-[250px]">{children}</code>
           </pre>
         </CardContent>

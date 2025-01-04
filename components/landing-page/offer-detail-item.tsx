@@ -1,8 +1,8 @@
-import Container from '@/components/ui/container';
-import Text from '@/components/ui/text';
-import { CheckCircle } from 'lucide-react';
-import Image from 'next/image';
-import React from 'react';
+import Container from "@/components/ui/container";
+import Text from "@/components/ui/text";
+import { CheckCircle } from "lucide-react";
+import Image from "next/image";
+import React from "react";
 
 // TypeScript interfaces for props
 interface OfferItem {
@@ -34,7 +34,11 @@ const OfferDetails: React.FC<OfferDetailsProps> = ({
               {headerTitle}
             </Text>
             {headerDescription && (
-              <Text as="p" variant="headingMd" className="text-muted-foreground">
+              <Text
+                as="p"
+                variant="headingMd"
+                className="text-muted-foreground"
+              >
                 {headerDescription}
               </Text>
             )}
@@ -44,11 +48,18 @@ const OfferDetails: React.FC<OfferDetailsProps> = ({
         {/* Render each offer item dynamically */}
         {offerItems.length > 0 &&
           offerItems.map((item, index) => (
-            <section key={index} className={`rounded-lg bg-primary/5 px-4 py-20 shadow-md`}>
+            <section
+              key={index}
+              className={`rounded-lg bg-primary/5 px-4 py-20 shadow-md`}
+            >
               <Container className="grid grid-cols-1 items-center justify-between gap-12 md:grid-cols-2">
                 <div>
                   {item.title && (
-                    <Text as="h3" variant="heading2xl" className="mb-4 flex items-center">
+                    <Text
+                      as="h3"
+                      variant="heading2xl"
+                      className="mb-4 flex items-center"
+                    >
                       {item.icon && <item.icon className="mr-4 h-12 w-12" />}
                       {item.title}
                     </Text>

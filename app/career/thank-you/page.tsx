@@ -1,5 +1,5 @@
-import Container from '@/components/ui/container';
-import Text from '@/components/ui/text';
+import Container from "@/components/ui/container";
+import Text from "@/components/ui/text";
 
 export default function ThankYouPage() {
   return (
@@ -8,7 +8,8 @@ export default function ThankYouPage() {
         Thank you!
       </Text>
       <Text as="p" variant="bodyMd">
-        Your request has been submitted. Our team will reach out to you for further details.
+        Your request has been submitted. Our team will reach out to you for
+        further details.
       </Text>
     </Container>
   );

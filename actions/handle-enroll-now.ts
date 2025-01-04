@@ -1,11 +1,11 @@
-'use server';
+"use server";
 
-import { db } from '@/app/firebase';
-import WaitListEmail from '@/components/emails/enroll-now';
-import { collection, doc, setDoc, Timestamp } from 'firebase/firestore';
-import { cookies } from 'next/headers';
-import { Resend } from 'resend';
-import { z } from 'zod';
+import { db } from "@/app/firebase";
+import WaitListEmail from "@/components/emails/enroll-now";
+import { collection, doc, setDoc, Timestamp } from "firebase/firestore";
+import { cookies } from "next/headers";
+import { Resend } from "resend";
+import { z } from "zod";
 
 export async function createWaitlist(prevState: any, formData: FormData) {
   const resend = new Resend(process.env.NEXT_PUBLIC_RESEND_API_KEY);
@@ -14,13 +14,13 @@ export async function createWaitlist(prevState: any, formData: FormData) {
   const timestamp = new Date();
   const timestampId =
     timestamp.getFullYear().toString() +
-    (timestamp.getMonth() + 1).toString().padStart(2, '0') +
-    timestamp.getDate().toString().padStart(2, '0') +
-    timestamp.getHours().toString().padStart(2, '0') +
-    timestamp.getMinutes().toString().padStart(2, '0') +
-    timestamp.getSeconds().toString().padStart(2, '0');
+    (timestamp.getMonth() + 1).toString().padStart(2, "0") +
+    timestamp.getDate().toString().padStart(2, "0") +
+    timestamp.getHours().toString().padStart(2, "0") +
+    timestamp.getMinutes().toString().padStart(2, "0") +
+    timestamp.getSeconds().toString().padStart(2, "0");
 
-  const contactsCollection = collection(db, 'waitlist');
+  const contactsCollection = collection(db, "waitlist");
 
   const schema = z.object({
     firstName: z.string().min(1),
@@ -47,26 +47,26 @@ export async function createWaitlist(prevState: any, formData: FormData) {
   });
 
   const data = schema.parse({
-    firstName: formData.get('firstName'),
-    lastName: formData.get('lastName'),
-    email: formData.get('email'),
-    phone: formData.get('phone'),
-    currentOccupation: formData.get('currentOccupation'),
-    interestedCourse: formData.get('interestedCourse'),
-    skills: formData.get('skills'),
-    referralSource: formData.get('referralSource'),
-    education: formData.get('education'),
-    learningGoals: formData.get('learningGoals'),
-    preferredLearningStyle: formData.get('preferredLearningStyle'),
-    budget: formData.get('budget'),
-    availability: formData.get('availability'),
-    courseDurationPreference: formData.get('courseDurationPreference'),
-    experienceLevel: formData.get('experienceLevel'),
-    languagePreference: formData.get('languagePreference'),
-    courseFormatPreference: formData.get('courseFormatPreference'),
-    additionalComments: formData.get('additionalComments'),
-    expectations: formData.get('expectations'),
-    futureGoals: formData.get('futureGoals'),
+    firstName: formData.get("firstName"),
+    lastName: formData.get("lastName"),
+    email: formData.get("email"),
+    phone: formData.get("phone"),
+    currentOccupation: formData.get("currentOccupation"),
+    interestedCourse: formData.get("interestedCourse"),
+    skills: formData.get("skills"),
+    referralSource: formData.get("referralSource"),
+    education: formData.get("education"),
+    learningGoals: formData.get("learningGoals"),
+    preferredLearningStyle: formData.get("preferredLearningStyle"),
+    budget: formData.get("budget"),
+    availability: formData.get("availability"),
+    courseDurationPreference: formData.get("courseDurationPreference"),
+    experienceLevel: formData.get("experienceLevel"),
+    languagePreference: formData.get("languagePreference"),
+    courseFormatPreference: formData.get("courseFormatPreference"),
+    additionalComments: formData.get("additionalComments"),
+    expectations: formData.get("expectations"),
+    futureGoals: formData.get("futureGoals"),
     createdAt: Timestamp.now(),
   });
 
@@ -76,10 +76,10 @@ export async function createWaitlist(prevState: any, formData: FormData) {
     await setDoc(contactDocRef, data);
 
     await resend.emails.send({
-      from: 'no-reply@trackingacademy.com',
+      from: "no-reply@trackingacademy.com",
       to: data.email,
-      cc: ['reactjswebdev@gmail.com', 'analytics@shahzadaalihassan.com'],
-      subject: 'Thank you for contacting us!',
+      cc: ["reactjswebdev@gmail.com", "analytics@shahzadaalihassan.com"],
+      subject: "Thank you for contacting us!",
       react: WaitListEmail({
         firstName: data.firstName,
         lastName: data.lastName,
@@ -107,7 +107,7 @@ export async function createWaitlist(prevState: any, formData: FormData) {
 
     // Store user data in cookies
     (await cookies()).set(
-      'user_data',
+      "user_data",
       JSON.stringify({
         email: data.email,
         phone: data.phone,
@@ -116,12 +116,12 @@ export async function createWaitlist(prevState: any, formData: FormData) {
           last_name: data.lastName,
         },
       }),
-      { httpOnly: true, path: '/', maxAge: 60 * 60 * 24 * 7 },
+      { httpOnly: true, path: "/", maxAge: 60 * 60 * 24 * 7 },
     ); // Expires in 7 days
 
     return { message: `Added contact ${data.firstName} ${data.lastName}` };
   } catch (e) {
-    console.error('Failed to create contact or send email', e);
-    return { message: 'Failed to create contact' };
+    console.error("Failed to create contact or send email", e);
+    return { message: "Failed to create contact" };
   }
 }

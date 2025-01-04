@@ -1,19 +1,19 @@
-import GTMAnalytics from '@/components/analytics/gtm';
-import VercelAnalytics from '@/components/analytics/vercel';
-import { ThemeProvider } from '@/components/global/theme-provider';
-import CanonicalTag from '@/components/seo/CanonicalTag';
-import '@/styles/global.css';
-import { SpeedInsights } from '@vercel/speed-insights/next';
-import { GeistSans } from 'geist/font/sans';
-import type { Metadata } from 'next';
-import { ViewTransitions } from 'next-view-transitions';
-import { ReactNode, Suspense } from 'react';
-import { AuthContextProvider } from './context/AuthContext';
+import GTMAnalytics from "@/components/analytics/gtm";
+import VercelAnalytics from "@/components/analytics/vercel";
+import { ThemeProvider } from "@/components/global/theme-provider";
+import CanonicalTag from "@/components/seo/CanonicalTag";
+import "@/styles/global.css";
+import { SpeedInsights } from "@vercel/speed-insights/next";
+import { GeistSans } from "geist/font/sans";
+import type { Metadata } from "next";
+import { ViewTransitions } from "next-view-transitions";
+import { ReactNode, Suspense } from "react";
+import { AuthContextProvider } from "./context/AuthContext";
 export const metadata: Metadata = {
-  title: 'TrackingAcademy - Top Rated Web Analytics Agency',
+  title: "TrackingAcademy - Top Rated Web Analytics Agency",
   description: `Blog for Web Analysts and Marketing People`,
   openGraph: {
-    images: ['/images/social-sharing.png'],
+    images: ["/images/social-sharing.png"],
   },
 };
 

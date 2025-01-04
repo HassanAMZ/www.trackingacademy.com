@@ -1,14 +1,14 @@
-'use client';
+"use client";
 // components/tools/offer-analyzer.tsx
-import { useState } from 'react';
-import { Alert, AlertDescription, AlertTitle } from '../ui/alert';
-import { Card, CardContent, CardHeader, CardTitle } from '../ui/card';
-import Container from '../ui/container';
+import { useState } from "react";
+import { Alert, AlertDescription, AlertTitle } from "../ui/alert";
+import { Card, CardContent, CardHeader, CardTitle } from "../ui/card";
+import Container from "../ui/container";
 
 interface OfferAnalysis {
   valueScore: number;
   tips: {
-    type: 'increase' | 'decrease';
+    type: "increase" | "decrease";
     description: string;
   }[];
 }
@@ -17,10 +17,10 @@ const OfferAnalyzer: React.FC = () => {
   const [analysis, setAnalysis] = useState<OfferAnalysis | null>(null);
 
   const handleAnalyzeOffer = async () => {
-    const response = await fetch('/api/offer-analyzer', {
-      method: 'POST',
+    const response = await fetch("/api/offer-analyzer", {
+      method: "POST",
       headers: {
-        'Content-Type': 'application/json',
+        "Content-Type": "application/json",
       },
       body: JSON.stringify({
         /* Offer data */
@@ -46,7 +46,8 @@ const OfferAnalyzer: React.FC = () => {
                   Value Score: {analysis.valueScore} / 100
                   {analysis.tips.map((tip, index) => (
                     <div key={index}>
-                      {tip.type === 'increase' ? 'Increase:' : 'Decrease:'} {tip.description}
+                      {tip.type === "increase" ? "Increase:" : "Decrease:"}{" "}
+                      {tip.description}
                     </div>
                   ))}
                 </AlertDescription>

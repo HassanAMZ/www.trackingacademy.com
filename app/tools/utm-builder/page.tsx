@@ -1,18 +1,18 @@
-'use client';
+"use client";
 
-import Navbar from '@/components/global/navbar';
-import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { toast } from '@/components/ui/hooks/use-toast';
-import { Input } from '@/components/ui/input';
-import { Label } from '@/components/ui/label';
+import Navbar from "@/components/global/navbar";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { toast } from "@/components/ui/hooks/use-toast";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from '@/components/ui/select';
+} from "@/components/ui/select";
 import {
   BookMarked,
   Chrome,
@@ -25,10 +25,10 @@ import {
   TrendingUp,
   Users,
   X,
-} from 'lucide-react';
-import { QRCodeSVG } from 'qrcode.react';
-import React, { useEffect, useState } from 'react';
-import { z } from 'zod';
+} from "lucide-react";
+import { QRCodeSVG } from "qrcode.react";
+import React, { useEffect, useState } from "react";
+import { z } from "zod";
 
 interface UTMParams {
   id: string;
@@ -65,80 +65,80 @@ const platformIcons = {
 
 const platformConfigs: PlatformConfigs = {
   manual: {
-    name: 'Manual Configuration',
+    name: "Manual Configuration",
     defaults: {
-      id: '',
-      source: '',
-      medium: '',
-      campaign: '',
-      content: '',
-      term: '',
+      id: "",
+      source: "",
+      medium: "",
+      campaign: "",
+      content: "",
+      term: "",
     },
   },
   google: {
-    name: 'Google Ads',
+    name: "Google Ads",
     defaults: {
-      id: '{campaignid}',
-      source: 'google',
-      medium: 'cpc',
-      campaign: '{campaign}',
-      term: '{keyword}',
-      content: '{creative}',
+      id: "{campaignid}",
+      source: "google",
+      medium: "cpc",
+      campaign: "{campaign}",
+      term: "{keyword}",
+      content: "{creative}",
     },
   },
   facebook: {
-    name: 'Facebook Ads',
+    name: "Facebook Ads",
     defaults: {
-      id: '{{ad.id}}',
-      source: 'facebook',
-      medium: 'paidsocial',
-      campaign: '{{campaign.name}}',
-      content: '{{adset.name}}',
-      term: '{{ad.name}}',
+      id: "{{ad.id}}",
+      source: "facebook",
+      medium: "paidsocial",
+      campaign: "{{campaign.name}}",
+      content: "{{adset.name}}",
+      term: "{{ad.name}}",
     },
   },
   tiktok: {
-    name: 'TikTok Ads',
+    name: "TikTok Ads",
     defaults: {
-      id: '__AID__',
-      source: 'tiktok',
-      medium: 'paidsocial',
-      campaign: '__CAMPAIGN_NAME__',
-      content: '__CID_NAME__',
-      term: '__AID_NAME__',
+      id: "__AID__",
+      source: "tiktok",
+      medium: "paidsocial",
+      campaign: "__CAMPAIGN_NAME__",
+      content: "__CID_NAME__",
+      term: "__AID_NAME__",
     },
   },
   instagram: {
-    name: 'Instagram Ads',
+    name: "Instagram Ads",
     defaults: {
-      id: '{{ad.id}}',
-      source: 'instagram',
-      medium: 'paidsocial',
-      campaign: '{{campaign.name}}',
-      content: '{{adset.name}}',
-      term: '{{ad.name}}',
+      id: "{{ad.id}}",
+      source: "instagram",
+      medium: "paidsocial",
+      campaign: "{{campaign.name}}",
+      content: "{{adset.name}}",
+      term: "{{ad.name}}",
     },
   },
   email: {
-    name: 'Email Campaign',
+    name: "Email Campaign",
     defaults: {
-      id: '',
-      source: 'email',
-      medium: 'email',
-      campaign: '',
-      content: '',
-      term: '',
+      id: "",
+      source: "email",
+      medium: "email",
+      campaign: "",
+      content: "",
+      term: "",
     },
   },
   affiliate: {
-    name: 'Affiliate',
+    name: "Affiliate",
     defaults: {
-      id: '',
-      source: 'affiliate',
-      medium: 'referral',
-      campaign: '',
-      content: '',
-      term: '',
+      id: "",
+      source: "affiliate",
+      medium: "referral",
+      campaign: "",
+      content: "",
+      term: "",
     },
   },
 };
@@ -151,29 +151,31 @@ interface DownloadData {
 }
 
 const UTMBuilder: React.FC = () => {
-  const [selectedPlatform, setSelectedPlatform] = useState<string>('manual');
-  const [websiteUrl, setWebsiteUrl] = useState<string>('');
-  const [utmParams, setUtmParams] = useState<UTMParams>(platformConfigs['manual'].defaults);
+  const [selectedPlatform, setSelectedPlatform] = useState<string>("manual");
+  const [websiteUrl, setWebsiteUrl] = useState<string>("");
+  const [utmParams, setUtmParams] = useState<UTMParams>(
+    platformConfigs["manual"].defaults,
+  );
   const [customFields, setCustomFields] = useState<CustomField[]>([]);
-  const [finalUrl, setFinalUrl] = useState<string>('');
+  const [finalUrl, setFinalUrl] = useState<string>("");
   const [isValidUrl, setIsValidUrl] = useState(false);
   const [errors, setErrors] = useState({
-    url: '',
-    source: '',
-    medium: '',
+    url: "",
+    source: "",
+    medium: "",
   });
 
   const urlSchema = z.string().url();
   const handleWebsiteUrlChange = (value: string): void => {
     setWebsiteUrl(value);
     if (!value) {
-      setErrors((prev) => ({ ...prev, url: 'Website URL is required' }));
+      setErrors((prev) => ({ ...prev, url: "Website URL is required" }));
       setIsValidUrl(false);
     } else if (!validateUrl(value)) {
-      setErrors((prev) => ({ ...prev, url: 'Invalid URL format' }));
+      setErrors((prev) => ({ ...prev, url: "Invalid URL format" }));
       setIsValidUrl(false);
     } else {
-      setErrors((prev) => ({ ...prev, url: '' }));
+      setErrors((prev) => ({ ...prev, url: "" }));
       setIsValidUrl(true);
     }
   };
@@ -186,7 +188,7 @@ const UTMBuilder: React.FC = () => {
   };
 
   const handleCustomFieldAdd = (): void => {
-    setCustomFields([...customFields, { name: '', value: '' }]);
+    setCustomFields([...customFields, { name: "", value: "" }]);
   };
 
   const handleCustomFieldRemove = (index: number): void => {
@@ -217,7 +219,7 @@ const UTMBuilder: React.FC = () => {
   };
 
   const buildFinalUrl = (): string => {
-    if (!websiteUrl) return '';
+    if (!websiteUrl) return "";
 
     const params = new URLSearchParams();
 
@@ -266,7 +268,7 @@ const UTMBuilder: React.FC = () => {
 
       // Replace only placeholders found in the map
       Object.entries(placeholderMap).forEach(([encoded, decoded]) => {
-        queryString = queryString.replace(new RegExp(encoded, 'g'), decoded);
+        queryString = queryString.replace(new RegExp(encoded, "g"), decoded);
       });
 
       return queryString;
@@ -276,7 +278,7 @@ const UTMBuilder: React.FC = () => {
       params,
       platformConfigs[selectedPlatform].defaults,
     );
-    return `${websiteUrl}${queryString ? '?' + queryString : ''}`;
+    return `${websiteUrl}${queryString ? "?" + queryString : ""}`;
   };
 
   useEffect(() => {
@@ -293,12 +295,12 @@ const UTMBuilder: React.FC = () => {
     };
 
     const blob = new Blob([JSON.stringify(data, null, 2)], {
-      type: 'application/json',
+      type: "application/json",
     });
     const url = window.URL.createObjectURL(blob);
-    const a = document.createElement('a');
+    const a = document.createElement("a");
     a.href = url;
-    a.download = 'utm-configuration.json';
+    a.download = "utm-configuration.json";
     document.body.appendChild(a);
     a.click();
     window.URL.revokeObjectURL(url);
@@ -317,12 +319,12 @@ const UTMBuilder: React.FC = () => {
   const validateForm = (): boolean => {
     const newErrors = {
       url: !websiteUrl
-        ? 'Website URL is required'
+        ? "Website URL is required"
         : !validateUrl(websiteUrl)
-          ? 'Invalid URL format'
-          : '',
-      source: !utmParams.source ? 'Source is required' : '',
-      medium: !utmParams.medium ? 'Medium is required' : '',
+          ? "Invalid URL format"
+          : "",
+      source: !utmParams.source ? "Source is required" : "",
+      medium: !utmParams.medium ? "Medium is required" : "",
     };
 
     setErrors(newErrors);
@@ -331,8 +333,8 @@ const UTMBuilder: React.FC = () => {
 
   const handleUtmParamChange = (key: keyof UTMParams, value: string): void => {
     const newValue =
-      selectedPlatform === 'manual'
-        ? value.replace(/[{}]/g, '') // Remove template syntax for manual mode
+      selectedPlatform === "manual"
+        ? value.replace(/[{}]/g, "") // Remove template syntax for manual mode
         : value;
     validateForm();
     setUtmParams((prev) => ({
@@ -344,9 +346,9 @@ const UTMBuilder: React.FC = () => {
   const copyToClipboard = async (): Promise<void> => {
     if (!validateForm()) {
       toast({
-        title: 'Validation Error',
-        description: 'Please fill in all required fields correctly',
-        variant: 'destructive',
+        title: "Validation Error",
+        description: "Please fill in all required fields correctly",
+        variant: "destructive",
       });
       return;
     }
@@ -354,14 +356,14 @@ const UTMBuilder: React.FC = () => {
     try {
       await navigator.clipboard.writeText(finalUrl);
       toast({
-        title: 'URL Copied',
-        description: 'The UTM URL has been copied to your clipboard',
+        title: "URL Copied",
+        description: "The UTM URL has been copied to your clipboard",
       });
     } catch (err) {
       toast({
-        title: 'Copy Failed',
-        description: 'Failed to copy URL to clipboard',
-        variant: 'destructive',
+        title: "Copy Failed",
+        description: "Failed to copy URL to clipboard",
+        variant: "destructive",
       });
     }
   };
@@ -372,7 +374,7 @@ const UTMBuilder: React.FC = () => {
       <button
         key={key}
         onClick={() => handlePlatformChange(key)}
-        className={`flex w-full items-center gap-2 rounded-lg px-4 py-2 text-left transition-colors ${selectedPlatform === key ? 'bg-primary/10' : 'hover:bg-primary/5'}`}
+        className={`flex w-full items-center gap-2 rounded-lg px-4 py-2 text-left transition-colors ${selectedPlatform === key ? "bg-primary/10" : "hover:bg-primary/5"}`}
       >
         {Icon && <Icon size={18} />}
         {config.name}
@@ -383,26 +385,26 @@ const UTMBuilder: React.FC = () => {
   // Helper functions
   const getPlaceholderForField = (key: string): string => {
     const placeholders = {
-      id: 'summer-sale-2024',
-      source: 'facebook',
-      medium: 'cpc',
-      campaign: 'spring-collection',
-      content: 'banner-ad',
-      term: 'summer-fashion',
+      id: "summer-sale-2024",
+      source: "facebook",
+      medium: "cpc",
+      campaign: "spring-collection",
+      content: "banner-ad",
+      term: "summer-fashion",
     };
-    return placeholders[key as keyof typeof placeholders] || '';
+    return placeholders[key as keyof typeof placeholders] || "";
   };
 
   const getHelperTextForField = (key: string): string => {
     const helperText = {
-      id: 'Unique identifier for your campaign',
-      source: 'The referrer (e.g., google, newsletter)',
-      medium: 'Marketing medium (e.g., cpc, banner, email)',
-      campaign: 'Product, promo code, or slogan',
-      content: 'Use to differentiate ads',
-      term: 'Identify paid search keywords',
+      id: "Unique identifier for your campaign",
+      source: "The referrer (e.g., google, newsletter)",
+      medium: "Marketing medium (e.g., cpc, banner, email)",
+      campaign: "Product, promo code, or slogan",
+      content: "Use to differentiate ads",
+      term: "Identify paid search keywords",
     };
-    return helperText[key as keyof typeof helperText] || '';
+    return helperText[key as keyof typeof helperText] || "";
   };
 
   return (
@@ -414,7 +416,9 @@ const UTMBuilder: React.FC = () => {
           Select Platform
         </h2>
         <div className="space-y-2">
-          {Object.entries(platformConfigs).map(([key, config]) => renderSidebarItem(key, config))}
+          {Object.entries(platformConfigs).map(([key, config]) =>
+            renderSidebarItem(key, config),
+          )}
         </div>
       </div>
 
@@ -432,7 +436,10 @@ const UTMBuilder: React.FC = () => {
                 {/* Mobile Platform Selector */}
                 <div className="mb-6 md:hidden">
                   <Label>Platform</Label>
-                  <Select value={selectedPlatform} onValueChange={handlePlatformChange}>
+                  <Select
+                    value={selectedPlatform}
+                    onValueChange={handlePlatformChange}
+                  >
                     <SelectTrigger>
                       <SelectValue placeholder="Select Platform" />
                     </SelectTrigger>
@@ -456,39 +463,55 @@ const UTMBuilder: React.FC = () => {
                     placeholder="https://example.com/page"
                     value={websiteUrl}
                     onChange={(e) => handleWebsiteUrlChange(e.target.value)}
-                    className={errors.url ? 'border-destructive' : ''}
+                    className={errors.url ? "border-destructive" : ""}
                   />
-                  {errors.url && <p className="mt-1 text-sm text-destructive">{errors.url}</p>}
+                  {errors.url && (
+                    <p className="mt-1 text-sm text-destructive">
+                      {errors.url}
+                    </p>
+                  )}
                   <p className="mt-1 text-sm text-muted-foreground">
                     Enter the full URL of the page you want to track
                   </p>
                 </div>
                 <div className="grid grid-cols-2 gap-4">
                   {/* UTM Parameters */}
-                  {(Object.keys(utmParams) as Array<keyof UTMParams>).map((key) => (
-                    <div key={key}>
-                      <Label>UTM {key}</Label>
-                      <Input
-                        placeholder={`e.g., ${getPlaceholderForField(key)}`}
-                        value={utmParams[key]}
-                        onChange={(e) => handleUtmParamChange(key, e.target.value)}
-                        className={errors[key as keyof typeof errors] ? 'border-destructive' : ''}
-                      />
-                      {errors[key as keyof typeof errors] && (
-                        <p className="mt-1 text-sm text-destructive">
-                          {errors[key as keyof typeof errors]}
+                  {(Object.keys(utmParams) as Array<keyof UTMParams>).map(
+                    (key) => (
+                      <div key={key}>
+                        <Label>UTM {key}</Label>
+                        <Input
+                          placeholder={`e.g., ${getPlaceholderForField(key)}`}
+                          value={utmParams[key]}
+                          onChange={(e) =>
+                            handleUtmParamChange(key, e.target.value)
+                          }
+                          className={
+                            errors[key as keyof typeof errors]
+                              ? "border-destructive"
+                              : ""
+                          }
+                        />
+                        {errors[key as keyof typeof errors] && (
+                          <p className="mt-1 text-sm text-destructive">
+                            {errors[key as keyof typeof errors]}
+                          </p>
+                        )}
+                        <p className="mt-1 text-sm text-muted-foreground">
+                          {getHelperTextForField(key)}
                         </p>
-                      )}
-                      <p className="mt-1 text-sm text-muted-foreground">
-                        {getHelperTextForField(key)}
-                      </p>
-                    </div>
-                  ))}
+                      </div>
+                    ),
+                  )}
                   {/* Custom Parameters */}
                   <div className="col-span-2 space-y-4">
                     <div className="flex items-center justify-between">
                       <Label>Custom Parameters</Label>
-                      <Button onClick={handleCustomFieldAdd} variant="outline" size="sm">
+                      <Button
+                        onClick={handleCustomFieldAdd}
+                        variant="outline"
+                        size="sm"
+                      >
                         <Plus size={16} className="mr-2" /> Add Parameter
                       </Button>
                     </div>
@@ -498,7 +521,13 @@ const UTMBuilder: React.FC = () => {
                           <Input
                             placeholder="Parameter name"
                             value={field.name}
-                            onChange={(e) => handleCustomFieldChange(index, 'name', e.target.value)}
+                            onChange={(e) =>
+                              handleCustomFieldChange(
+                                index,
+                                "name",
+                                e.target.value,
+                              )
+                            }
                           />
                         </div>
                         <div className="flex-1">
@@ -506,7 +535,11 @@ const UTMBuilder: React.FC = () => {
                             placeholder="Parameter value"
                             value={field.value}
                             onChange={(e) =>
-                              handleCustomFieldChange(index, 'value', e.target.value)
+                              handleCustomFieldChange(
+                                index,
+                                "value",
+                                e.target.value,
+                              )
                             }
                           />
                         </div>
@@ -532,7 +565,7 @@ const UTMBuilder: React.FC = () => {
                 </CardHeader>
                 <CardContent>
                   <div className="relative break-all rounded-lg bg-muted p-4 text-sm">
-                    {finalUrl || 'Enter a website URL to generate'}
+                    {finalUrl || "Enter a website URL to generate"}
                     {finalUrl && (
                       <Button
                         variant="ghost"
@@ -554,7 +587,12 @@ const UTMBuilder: React.FC = () => {
                   </CardHeader>
                   <CardContent>
                     <div className="flex justify-center p-4">
-                      <QRCodeSVG value={finalUrl} level="H" size={200} includeMargin={true} />
+                      <QRCodeSVG
+                        value={finalUrl}
+                        level="H"
+                        size={200}
+                        includeMargin={true}
+                      />
                     </div>
                   </CardContent>
                 </Card>
