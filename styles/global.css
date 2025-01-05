@@ -2,7 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-
 @layer base {
   :root {
     --background: 0 0% 100%;
@@ -25,12 +24,12 @@
     --destructive-foreground: 17 97% 88%;
 
     --ring: 0 0% 17%;
-      --chart-1: 0 0% 17%;
-      --chart-2: 0 0% 75%;
-      --chart-3: 0 0% 85%;
-      --chart-4: 0 0% 78%;
-      --chart-5: 0 3% 17%;
-      --radius: 0.5rem;
+    --chart-1: 0 0% 17%;
+    --chart-2: 0 0% 75%;
+    --chart-3: 0 0% 85%;
+    --chart-4: 0 0% 78%;
+    --chart-5: 0 3% 17%;
+    --radius: 0.5rem;
     --sidebar-background: 0 0% 98%;
     --sidebar-foreground: 240 5.3% 26.1%;
     --sidebar-primary: 240 5.9% 10%;

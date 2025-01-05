@@ -1,13 +1,21 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
 import Text from "@/components/ui/text";
 import clients from "@/data/clients";
+import clsx from "clsx";
 import { Star } from "lucide-react";
 import Image from "next/image";
 import React, { useEffect, useMemo, useState } from "react";
 
-const TestimonialsCarousel: React.FC = () => {
+interface TestimonialsCarouselProps {
+  className?: string;
+}
+
+const TestimonialsCarousel: React.FC<TestimonialsCarouselProps> = ({
+  className,
+}) => {
   const clientTestimonials = useMemo(
     () =>
       clients.map((client) => {
@@ -45,50 +53,64 @@ const TestimonialsCarousel: React.FC = () => {
   const currentTestimonial = clientTestimonials[currentIndex];
 
   return (
-    <div className="relative space-y-1 rounded-lg border bg-card px-6 py-4">
-      <div className="absolute -top-4 right-0 flex space-x-1">
-        {Array.from({ length: 5 }, (_, index) => (
-          <Star key={index} fill="gold" stroke="gold" />
-        ))}
-      </div>
-      <Text as="p" variant="bodyMd" className="font-semibold italic">
-        "{currentTestimonial.testimonialText}"
-      </Text>
-      <div className="flex items-center gap-2 pt-4 text-left">
-        <Image
-          src={currentTestimonial.imageLink}
-          alt={`Client ${currentTestimonial.businessName}`}
-          width={1920}
-          height={1080}
-          className="h-8 w-8 rounded-full"
-          placeholder="blur"
-          blurDataURL="/placeholder-image.png" // Optional placeholder image
-        />
-        <div className="text-xs">
-          <Text as="p" variant="bodySm">
-            {currentTestimonial.clientName}
-          </Text>
-          <Text as="p" variant="bodySm">
-            <strong>{currentTestimonial.clientTitle}</strong> at{" "}
-            <strong>{currentTestimonial.businessName}</strong>
-          </Text>
+    <Card
+      className={clsx(
+        "relative bg-background/80 shadow-lg backdrop-blur-sm",
+        className,
+      )}
+    >
+      <CardContent className="space-y-1 px-6 py-4">
+        <div className="absolute -top-2 right-4 flex space-x-1">
+          {Array.from({ length: 5 }, (_, index) => (
+            <Star
+              key={index}
+              className="h-5 w-5 fill-yellow-300 stroke-yellow-300"
+            />
+          ))}
         </div>
-      </div>
-      <div className="absolute -bottom-4 right-0 mb-2 mr-2 flex space-x-4">
-        <Button
-          variant="outline"
-          className="m-0 h-max rotate-3 transform rounded-lg p-1 text-sm font-semibold"
-        >
-          {currentTestimonial.roas}
-        </Button>
-        <Button
-          variant="outline"
-          className="m-0 h-max -rotate-3 transform rounded-lg p-1 text-sm font-semibold"
-        >
-          {currentTestimonial.conversions}
-        </Button>
-      </div>
-    </div>
+        <Text as="p" variant="bodyMd" className="font-semibold italic">
+          "{currentTestimonial.testimonialText}"
+        </Text>
+        <div className="flex items-center gap-2 pt-4">
+          <Image
+            src={currentTestimonial.imageLink}
+            alt={`Client ${currentTestimonial.businessName}`}
+            width={1920}
+            height={1080}
+            className="h-8 w-8 rounded-full"
+            placeholder="blur"
+            blurDataURL="/placeholder-image.png" // Optional placeholder image
+          />
+          <div className="text-left text-xs">
+            <Text as="p" variant="bodySm">
+              {currentTestimonial.clientName}
+            </Text>
+            <Text as="p" variant="bodySm">
+              <strong>{currentTestimonial.clientTitle}</strong> at{" "}
+              <strong>{currentTestimonial.businessName}</strong>
+            </Text>
+          </div>
+        </div>
+        <div className="absolute -bottom-3 right-2 flex rotate-3 space-x-2">
+          <Button
+            variant="secondary"
+            size="sm"
+            className="text-xs font-semibold"
+          >
+            {currentTestimonial.roas}
+          </Button>
+        </div>
+        <div className="absolute -bottom-3 right-28 flex -rotate-3 space-x-2">
+          <Button
+            variant="secondary"
+            size="sm"
+            className="text-xs font-semibold"
+          >
+            {currentTestimonial.conversions}
+          </Button>
+        </div>
+      </CardContent>
+    </Card>
   );
 };
 

@@ -8,7 +8,7 @@ import OfferDetails from "@/components/landing-page/offer-detail-item";
 import ProblemAwareness from "@/components/landing-page/problem-awareness";
 import ScarcityUrgency from "@/components/landing-page/scarcity-urgency";
 import SocialProof from "@/components/landing-page/social-proof";
-import metaConversionConfig from "@/data/offers/meta-conversion-api.json";
+import MetaConversionConfig from "@/data/offers/meta-conversion-api";
 import {
   Activity,
   ArrowUpRight,
@@ -44,7 +44,7 @@ type IconName = keyof typeof iconMap;
 
 export default function CAPIPage() {
   // Transform offer items to include icon components
-  const offerItemsWithIcons = metaConversionConfig.offerDetails.offerItems.map(
+  const offerItemsWithIcons = MetaConversionConfig.offerDetails.offerItems.map(
     (item) => ({
       ...item,
       icon: iconMap[item.icon as IconName],
@@ -53,19 +53,19 @@ export default function CAPIPage() {
 
   // Transform dream outcome list to include icon components
   const dreamOutcomeListWithIcons =
-    metaConversionConfig.dreamOutcome.dreamOutcomeList.map((item) => ({
+    MetaConversionConfig.dreamOutcome.dreamOutcomeList.map((item) => ({
       ...item,
       icon: iconMap[item.icon as IconName],
     }));
 
   // Transform stats to include icon components
-  const statsWithIcons = metaConversionConfig.socialProof.stats.map((stat) => ({
+  const statsWithIcons = MetaConversionConfig.socialProof.stats.map((stat) => ({
     ...stat,
     icon: iconMap[stat.icon as IconName],
   }));
 
   // Transform bonuses to include icon components
-  const bonusesWithIcons = metaConversionConfig.bonuses.bonuses.map(
+  const bonusesWithIcons = MetaConversionConfig.bonuses.bonuses.map(
     (bonus) => ({
       ...bonus,
       icon: iconMap[bonus.icon as IconName],
@@ -74,42 +74,42 @@ export default function CAPIPage() {
 
   // Transform guarantees to include icon components
   const guaranteesWithIcons =
-    metaConversionConfig.objectionHandling.guarantees.map((guarantee) => ({
+    MetaConversionConfig.objectionHandling.guarantees.map((guarantee) => ({
       ...guarantee,
       icon: iconMap[guarantee.icon as IconName],
     }));
 
   return (
     <main>
-      <Hero {...metaConversionConfig.hero} />
+      <Hero {...MetaConversionConfig.hero} />
 
-      <ProblemAwareness {...metaConversionConfig.problemAwareness} />
+      <ProblemAwareness {...MetaConversionConfig.problemAwareness} />
 
       <DreamOutcome
-        {...metaConversionConfig.dreamOutcome}
+        {...MetaConversionConfig.dreamOutcome}
         dreamOutcomeList={dreamOutcomeListWithIcons}
       />
 
       <OfferDetails
-        {...metaConversionConfig.offerDetails}
+        {...MetaConversionConfig.offerDetails}
         offerItems={offerItemsWithIcons}
       />
 
-      <ScarcityUrgency {...metaConversionConfig.scarcityUrgency} />
+      <ScarcityUrgency {...MetaConversionConfig.scarcityUrgency} />
 
       <SocialProof
-        {...metaConversionConfig.socialProof}
+        {...MetaConversionConfig.socialProof}
         stats={statsWithIcons}
       />
 
-      <Bonuses {...metaConversionConfig.bonuses} bonuses={bonusesWithIcons} />
+      <Bonuses {...MetaConversionConfig.bonuses} bonuses={bonusesWithIcons} />
 
       <ObjectionHandling
-        {...metaConversionConfig.objectionHandling}
+        {...MetaConversionConfig.objectionHandling}
         guarantees={guaranteesWithIcons}
       />
 
-      <DetailedCTA {...metaConversionConfig.detailedCTA} />
+      <DetailedCTA {...MetaConversionConfig.detailedCTA} />
     </main>
   );
 }

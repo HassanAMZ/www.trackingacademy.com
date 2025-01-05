@@ -8,7 +8,7 @@ import OfferDetails from "@/components/landing-page/offer-detail-item";
 import ProblemAwareness from "@/components/landing-page/problem-awareness";
 import ScarcityUrgency from "@/components/landing-page/scarcity-urgency";
 import SocialProof from "@/components/landing-page/social-proof";
-import landingConfig from "@/data/offers/home-page.json";
+import HomePageConfig from "@/data/offers/home-page";
 import {
   Activity,
   ArrowUpRight,
@@ -44,7 +44,7 @@ type IconName = keyof typeof iconMap;
 
 export default function HomePage() {
   // Transform offer items to include icon components
-  const offerItemsWithIcons = landingConfig.offerDetails.offerItems.map(
+  const offerItemsWithIcons = HomePageConfig.offerDetails.offerItems.map(
     (item) => ({
       ...item,
       icon: iconMap[item.icon as IconName],
@@ -53,25 +53,25 @@ export default function HomePage() {
 
   // Transform dream outcome list to include icon components
   const dreamOutcomeListWithIcons =
-    landingConfig.dreamOutcome.dreamOutcomeList.map((item) => ({
+    HomePageConfig.dreamOutcome.dreamOutcomeList.map((item) => ({
       ...item,
       icon: iconMap[item.icon as IconName],
     }));
 
   // Transform stats to include icon components
-  const statsWithIcons = landingConfig.socialProof.stats.map((stat) => ({
+  const statsWithIcons = HomePageConfig.socialProof.stats.map((stat) => ({
     ...stat,
     icon: iconMap[stat.icon as IconName],
   }));
 
   // Transform bonuses to include icon components
-  const bonusesWithIcons = landingConfig.bonuses.bonuses.map((bonus) => ({
+  const bonusesWithIcons = HomePageConfig.bonuses.bonuses.map((bonus) => ({
     ...bonus,
     icon: iconMap[bonus.icon as IconName],
   }));
 
   // Transform guarantees to include icon components
-  const guaranteesWithIcons = landingConfig.objectionHandling.guarantees.map(
+  const guaranteesWithIcons = HomePageConfig.objectionHandling.guarantees.map(
     (guarantee) => ({
       ...guarantee,
       icon: iconMap[guarantee.icon as IconName],
@@ -80,32 +80,32 @@ export default function HomePage() {
 
   return (
     <main>
-      <Hero {...landingConfig.hero} />
+      <Hero {...HomePageConfig.hero} />
 
-      <ProblemAwareness {...landingConfig.problemAwareness} />
+      <ProblemAwareness {...HomePageConfig.problemAwareness} />
 
       <DreamOutcome
-        {...landingConfig.dreamOutcome}
+        {...HomePageConfig.dreamOutcome}
         dreamOutcomeList={dreamOutcomeListWithIcons}
       />
 
       <OfferDetails
-        {...landingConfig.offerDetails}
+        {...HomePageConfig.offerDetails}
         offerItems={offerItemsWithIcons}
       />
 
-      <ScarcityUrgency {...landingConfig.scarcityUrgency} />
+      <ScarcityUrgency {...HomePageConfig.scarcityUrgency} />
 
-      <SocialProof {...landingConfig.socialProof} stats={statsWithIcons} />
+      <SocialProof {...HomePageConfig.socialProof} stats={statsWithIcons} />
 
-      <Bonuses {...landingConfig.bonuses} bonuses={bonusesWithIcons} />
+      <Bonuses {...HomePageConfig.bonuses} bonuses={bonusesWithIcons} />
 
       <ObjectionHandling
-        {...landingConfig.objectionHandling}
+        {...HomePageConfig.objectionHandling}
         guarantees={guaranteesWithIcons}
       />
 
-      <DetailedCTA {...landingConfig.detailedCTA} />
+      <DetailedCTA {...HomePageConfig.detailedCTA} />
     </main>
   );
 }
