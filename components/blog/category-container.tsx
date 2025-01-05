@@ -10,7 +10,7 @@ import BlogSearch from "@/components/blog/search";
 import SingleBlogCard from "@/components/blog/single-card";
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import ContactMe from "./contact-me";
+import ContactUs from "./contact-us";
 
 const BlogContent: React.FC<BlogContentProps> = ({
   data,
@@ -103,7 +103,7 @@ const CategoryContainer: React.FC<CategoryContainerProps> = ({
             />
           </TabsContent>
         </Tabs>
-        <ContactMe />
+        <ContactUs />
       </div>
     </div>
   );

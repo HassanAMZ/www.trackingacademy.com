@@ -1,5 +1,5 @@
 import BlogHeader from "@/components/blog/blog-header";
-import ContactMe from "./contact-me";
+import ContactUs from "./contact-us";
 import TableOfContents from "./table-of-content";
 export default async function BlogContainer({
   slug,
@@ -20,7 +20,7 @@ export default async function BlogContainer({
         <article className="prose prose-lg">
           <BlogPost />
         </article>
-        <ContactMe />
+        <ContactUs />
       </div>
     </div>
   );

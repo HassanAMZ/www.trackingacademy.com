@@ -28,7 +28,7 @@ export default function CodeBlock({ language, children }: CodeBlockProps) {
 
   return (
     <div className="p-2">
-      <Card className="w-full bg-primary/10">
+      <Card className="w-full">
         <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
           <CardTitle className="text-sm font-medium">{language}</CardTitle>
           <Button
@@ -44,7 +44,7 @@ export default function CodeBlock({ language, children }: CodeBlockProps) {
         <CardContent>
           <pre
             ref={codeRef}
-            className="overflow-x-auto rounded bg-muted p-2 text-sm"
+            className="overflow-x-auto rounded bg-background p-4 text-sm"
           >
             <code className="block w-[250px]">{children}</code>
           </pre>

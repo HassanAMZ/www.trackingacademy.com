@@ -19,6 +19,7 @@ import { usePathname } from "next/navigation";
 import React, { useState } from "react";
 import NavLink from "../navbar/NavLink";
 import { ModeToggle } from "./theme-switch";
+import { Card, CardContent } from "../ui/card";
 
 interface NavItem {
   title: string;
@@ -111,8 +112,7 @@ export default function Navbar({ className }: { className?: string }) {
       href="/"
       className={clsx(
         navigationMenuTriggerStyle(),
-        "flex items-center justify-center p-2 font-extrabold text-accent-foreground",
-        isActive("/") && "text-accent-foreground",
+        "flex items-center justify-center p-2 font-extrabold",
       )}
     >
       TrackingAcademy
@@ -226,11 +226,13 @@ export default function Navbar({ className }: { className?: string }) {
 
   return (
     <div className="w-full pb-2 pt-4 lg:text-sm">
-      <Container className={clsx("bg-transparent", className)}>
-        <div className="flex rounded-lg border bg-transparent">
-          <MobileNavigationMenu />
-          <DesktopNavigationMenu />
-        </div>
+      <Container className={clsx("", className)}>
+        <Card>
+          <CardContent className="p-0">
+            <MobileNavigationMenu />
+            <DesktopNavigationMenu />
+          </CardContent>
+        </Card>
       </Container>
     </div>
   );

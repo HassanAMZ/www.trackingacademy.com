@@ -1,6 +1,6 @@
 "use client";
 
-import ContactMe from "@/components/blog/contact-me";
+import ContactUs from "@/components/blog/contact-us";
 import Navbar from "@/components/global/navbar";
 import YoutubeEmbed from "@/components/global/youtube-embed";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
@@ -41,13 +41,13 @@ const platformConfigs: Record<string, PlatformConfig> = {
     name: "Facebook Ads",
     description: "Validate Facebook Ads URL parameters",
   },
-  instagram: {
-    name: "Instagram Ads",
-    description: "Validate Instagram Ads URL parameters",
-  },
   tiktok: {
     name: "TikTok Ads",
     description: "Validate TikTok Ads URL parameters",
+  },
+  instagram: {
+    name: "Instagram Ads",
+    description: "Validate Instagram Ads URL parameters",
   },
   email: {
     name: "Email Campaign",
@@ -241,146 +241,143 @@ const UTMValidator = () => {
       {/* Main Content */}
       <div className="flex-1 overflow-y-auto">
         <Navbar className="!mx-0 w-full max-w-7xl" />
-        <div className="p-4">
-          <div className="grid gap-6 md:grid-cols-[2fr,1fr]">
-            <div className="space-y-6">
+        <div className="grid gap-6 p-3 md:grid-cols-[2fr,1fr]">
+          <div className="space-y-6">
+            <Card>
+              <CardHeader>
+                <CardTitle>UTM URL Validator</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <div className="space-y-4">
+                  <div>
+                    <Label htmlFor="url-input">Enter URL to validate</Label>
+                    <Input
+                      id="url-input"
+                      placeholder="https://example.com?utm_source=..."
+                      value={url}
+                      onChange={(e) => setUrl(e.target.value)}
+                    />
+                  </div>
+
+                  {showEmptyState ? (
+                    <EmptyState />
+                  ) : (
+                    url && (
+                      <Alert
+                        variant={
+                          validationResults.isValidUrl
+                            ? "default"
+                            : "destructive"
+                        }
+                      >
+                        <AlertCircle className="h-4 w-4" />
+                        <AlertTitle>URL Validation Results</AlertTitle>
+                        <AlertDescription>
+                          <div className="mt-2 space-y-2">
+                            <ValidationItem
+                              check={validationResults.isValidUrl}
+                              title="Valid URL Format"
+                              description="URL structure is properly formatted"
+                            />
+                            <ValidationItem
+                              check={validationResults.isHttps}
+                              title="HTTPS Protocol"
+                              description="URL uses secure HTTPS protocol"
+                            />
+                            <ValidationItem
+                              check={
+                                validationResults.hasUtmParams &&
+                                validationResults.missingUtmParams.length === 0
+                              }
+                              title="UTM Parameters"
+                              description={
+                                validationResults.missingUtmParams.length > 0
+                                  ? `Missing required parameters: ${validationResults.missingUtmParams.join(", ")}`
+                                  : "All required UTM parameters are present"
+                              }
+                            />
+                            <ValidationItem
+                              check={!validationResults.isUrlTooLong}
+                              title="URL Length"
+                              description={`${validationResults.urlLength} characters (max 2048)`}
+                            />
+                          </div>
+                        </AlertDescription>
+                      </Alert>
+                    )
+                  )}
+                </div>
+              </CardContent>
+            </Card>
+
+            {validationResults.isValidUrl && !showEmptyState && (
               <Card>
                 <CardHeader>
-                  <CardTitle>UTM URL Validator</CardTitle>
+                  <CardTitle></CardTitle>
                 </CardHeader>
                 <CardContent>
                   <div className="space-y-4">
                     <div>
-                      <Label htmlFor="url-input">Enter URL to validate</Label>
-                      <Input
-                        id="url-input"
-                        placeholder="https://example.com?utm_source=..."
-                        value={url}
-                        onChange={(e) => setUrl(e.target.value)}
-                      />
-                    </div>
-
-                    {showEmptyState ? (
-                      <EmptyState />
-                    ) : (
-                      url && (
-                        <Alert
-                          variant={
-                            validationResults.isValidUrl
-                              ? "default"
-                              : "destructive"
-                          }
-                        >
-                          <AlertCircle className="h-4 w-4" />
-                          <AlertTitle>URL Validation Results</AlertTitle>
-                          <AlertDescription>
-                            <div className="mt-2 space-y-2">
-                              <ValidationItem
-                                check={validationResults.isValidUrl}
-                                title="Valid URL Format"
-                                description="URL structure is properly formatted"
-                              />
-                              <ValidationItem
-                                check={validationResults.isHttps}
-                                title="HTTPS Protocol"
-                                description="URL uses secure HTTPS protocol"
-                              />
-                              <ValidationItem
-                                check={
-                                  validationResults.hasUtmParams &&
-                                  validationResults.missingUtmParams.length ===
-                                    0
-                                }
-                                title="UTM Parameters"
-                                description={
-                                  validationResults.missingUtmParams.length > 0
-                                    ? `Missing required parameters: ${validationResults.missingUtmParams.join(", ")}`
-                                    : "All required UTM parameters are present"
-                                }
-                              />
-                              <ValidationItem
-                                check={!validationResults.isUrlTooLong}
-                                title="URL Length"
-                                description={`${validationResults.urlLength} characters (max 2048)`}
-                              />
-                            </div>
-                          </AlertDescription>
-                        </Alert>
-                      )
-                    )}
-                  </div>
-                </CardContent>
-              </Card>
-
-              {validationResults.isValidUrl && !showEmptyState && (
-                <Card>
-                  <CardHeader>
-                    <CardTitle></CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <div className="space-y-4">
-                      <div>
-                        <h3 className="mb-2 font-semibold text-primary">
-                          UTM Parameters
-                        </h3>
-                        <div className="space-y-2">
-                          {REQUIRED_UTM_PARAMS.map((param) => (
+                      <h3 className="mb-2 font-semibold text-primary">
+                        UTM Parameters
+                      </h3>
+                      <div className="space-y-2">
+                        {REQUIRED_UTM_PARAMS.map((param) => (
+                          <ParameterDisplay
+                            key={param}
+                            param={param}
+                            value={parsedParams.utmParams[param] || ""}
+                          />
+                        ))}
+                        {Object.entries(parsedParams.utmParams)
+                          .filter(
+                            ([param]) => !REQUIRED_UTM_PARAMS.includes(param),
+                          )
+                          .map(([param, value]) => (
                             <ParameterDisplay
                               key={param}
                               param={param}
-                              value={parsedParams.utmParams[param] || ""}
+                              value={value}
                             />
                           ))}
-                          {Object.entries(parsedParams.utmParams)
-                            .filter(
-                              ([param]) => !REQUIRED_UTM_PARAMS.includes(param),
-                            )
-                            .map(([param, value]) => (
+                      </div>
+                    </div>
+
+                    {Object.keys(parsedParams.otherParams).length > 0 && (
+                      <div>
+                        <h3 className="mb-2 font-semibold text-primary">
+                          Other Parameters
+                        </h3>
+                        <div className="space-y-2">
+                          {Object.entries(parsedParams.otherParams).map(
+                            ([param, value]) => (
                               <ParameterDisplay
                                 key={param}
                                 param={param}
                                 value={value}
                               />
-                            ))}
+                            ),
+                          )}
                         </div>
                       </div>
-
-                      {Object.keys(parsedParams.otherParams).length > 0 && (
-                        <div>
-                          <h3 className="mb-2 font-semibold text-primary">
-                            Other Parameters
-                          </h3>
-                          <div className="space-y-2">
-                            {Object.entries(parsedParams.otherParams).map(
-                              ([param, value]) => (
-                                <ParameterDisplay
-                                  key={param}
-                                  param={param}
-                                  value={value}
-                                />
-                              ),
-                            )}
-                          </div>
-                        </div>
-                      )}
-                    </div>
-                  </CardContent>
-                </Card>
-              )}
-            </div>
-
-            <div className="space-y-6">
-              <Card>
-                <CardHeader>
-                  <CardTitle>How to Use UTM Parameters</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <YoutubeEmbed embedId="9MGpL_AmEYM" />
+                    )}
+                  </div>
                 </CardContent>
               </Card>
-              <div className="sticky top-8">
-                <ContactMe />
-              </div>
+            )}
+          </div>
+
+          <div className="space-y-6">
+            <Card>
+              <CardHeader>
+                <CardTitle>How to Use UTM Parameters</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <YoutubeEmbed embedId="9MGpL_AmEYM" />
+              </CardContent>
+            </Card>
+            <div className="sticky top-8">
+              <ContactUs />
             </div>
           </div>
         </div>

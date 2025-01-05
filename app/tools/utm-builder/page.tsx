@@ -425,188 +425,184 @@ const UTMBuilder: React.FC = () => {
       {/* Main Content */}
       <div className="flex-1 overflow-y-auto">
         <Navbar className="!mx-0 w-full max-w-7xl" />
-        <div className="p-4">
-          <div className="grid gap-6 md:grid-cols-[2fr,1fr]">
-            {/* Form */}
-            <Card>
-              <CardHeader>
-                <CardTitle>UTM Parameters</CardTitle>
-              </CardHeader>
-              <CardContent className="space-y-4">
-                {/* Mobile Platform Selector */}
-                <div className="mb-6 md:hidden">
-                  <Label>Platform</Label>
-                  <Select
-                    value={selectedPlatform}
-                    onValueChange={handlePlatformChange}
-                  >
-                    <SelectTrigger>
-                      <SelectValue placeholder="Select Platform" />
-                    </SelectTrigger>
-                    <SelectContent>
-                      {Object.entries(platformConfigs).map(([key, config]) => (
-                        <SelectItem key={key} value={key}>
-                          <div className="flex items-center gap-2">
-                            {/* {platformIcons[key as keyof typeof platformIcons]({ size: 18 })} */}
-                            {config.name}
-                          </div>
-                        </SelectItem>
-                      ))}
-                    </SelectContent>
-                  </Select>
-                </div>
+        <div className="grid gap-6 p-3 md:grid-cols-[2fr,1fr]">
+          {/* Form */}
+          <Card>
+            <CardHeader>
+              <CardTitle>UTM Parameters</CardTitle>
+            </CardHeader>
+            <CardContent className="space-y-4">
+              {/* Mobile Platform Selector */}
+              <div className="mb-6 md:hidden">
+                <Label>Platform</Label>
+                <Select
+                  value={selectedPlatform}
+                  onValueChange={handlePlatformChange}
+                >
+                  <SelectTrigger>
+                    <SelectValue placeholder="Select Platform" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    {Object.entries(platformConfigs).map(([key, config]) => (
+                      <SelectItem key={key} value={key}>
+                        <div className="flex items-center gap-2">
+                          {/* {platformIcons[key as keyof typeof platformIcons]({ size: 18 })} */}
+                          {config.name}
+                        </div>
+                      </SelectItem>
+                    ))}
+                  </SelectContent>
+                </Select>
+              </div>
 
-                {/* URL Input */}
-                <div>
-                  <Label>Website URL</Label>
-                  <Input
-                    placeholder="https://example.com/page"
-                    value={websiteUrl}
-                    onChange={(e) => handleWebsiteUrlChange(e.target.value)}
-                    className={errors.url ? "border-destructive" : ""}
-                  />
-                  {errors.url && (
-                    <p className="mt-1 text-sm text-destructive">
-                      {errors.url}
-                    </p>
-                  )}
-                  <p className="mt-1 text-sm text-muted-foreground">
-                    Enter the full URL of the page you want to track
-                  </p>
-                </div>
-                <div className="grid grid-cols-2 gap-4">
-                  {/* UTM Parameters */}
-                  {(Object.keys(utmParams) as Array<keyof UTMParams>).map(
-                    (key) => (
-                      <div key={key}>
-                        <Label>UTM {key}</Label>
+              {/* URL Input */}
+              <div>
+                <Label>Website URL</Label>
+                <Input
+                  placeholder="https://example.com/page"
+                  value={websiteUrl}
+                  onChange={(e) => handleWebsiteUrlChange(e.target.value)}
+                  className={errors.url ? "border-destructive" : ""}
+                />
+                {errors.url && (
+                  <p className="mt-1 text-sm text-destructive">{errors.url}</p>
+                )}
+                <p className="mt-1 text-sm text-muted-foreground">
+                  Enter the full URL of the page you want to track
+                </p>
+              </div>
+              <div className="grid grid-cols-2 gap-4">
+                {/* UTM Parameters */}
+                {(Object.keys(utmParams) as Array<keyof UTMParams>).map(
+                  (key) => (
+                    <div key={key}>
+                      <Label>UTM {key}</Label>
+                      <Input
+                        placeholder={`e.g., ${getPlaceholderForField(key)}`}
+                        value={utmParams[key]}
+                        onChange={(e) =>
+                          handleUtmParamChange(key, e.target.value)
+                        }
+                        className={
+                          errors[key as keyof typeof errors]
+                            ? "border-destructive"
+                            : ""
+                        }
+                      />
+                      {errors[key as keyof typeof errors] && (
+                        <p className="mt-1 text-sm text-destructive">
+                          {errors[key as keyof typeof errors]}
+                        </p>
+                      )}
+                      <p className="mt-1 text-sm text-muted-foreground">
+                        {getHelperTextForField(key)}
+                      </p>
+                    </div>
+                  ),
+                )}
+                {/* Custom Parameters */}
+                <div className="col-span-2 space-y-4">
+                  <div className="flex items-center justify-between">
+                    <Label>Custom Parameters</Label>
+                    <Button
+                      onClick={handleCustomFieldAdd}
+                      variant="outline"
+                      size="sm"
+                    >
+                      <Plus size={16} className="mr-2" /> Add Parameter
+                    </Button>
+                  </div>
+                  {customFields.map((field, index) => (
+                    <div key={index} className="flex gap-2">
+                      <div className="flex-1">
                         <Input
-                          placeholder={`e.g., ${getPlaceholderForField(key)}`}
-                          value={utmParams[key]}
+                          placeholder="Parameter name"
+                          value={field.name}
                           onChange={(e) =>
-                            handleUtmParamChange(key, e.target.value)
-                          }
-                          className={
-                            errors[key as keyof typeof errors]
-                              ? "border-destructive"
-                              : ""
+                            handleCustomFieldChange(
+                              index,
+                              "name",
+                              e.target.value,
+                            )
                           }
                         />
-                        {errors[key as keyof typeof errors] && (
-                          <p className="mt-1 text-sm text-destructive">
-                            {errors[key as keyof typeof errors]}
-                          </p>
-                        )}
-                        <p className="mt-1 text-sm text-muted-foreground">
-                          {getHelperTextForField(key)}
-                        </p>
                       </div>
-                    ),
-                  )}
-                  {/* Custom Parameters */}
-                  <div className="col-span-2 space-y-4">
-                    <div className="flex items-center justify-between">
-                      <Label>Custom Parameters</Label>
+                      <div className="flex-1">
+                        <Input
+                          placeholder="Parameter value"
+                          value={field.value}
+                          onChange={(e) =>
+                            handleCustomFieldChange(
+                              index,
+                              "value",
+                              e.target.value,
+                            )
+                          }
+                        />
+                      </div>
                       <Button
-                        onClick={handleCustomFieldAdd}
                         variant="outline"
-                        size="sm"
+                        size="icon"
+                        onClick={() => handleCustomFieldRemove(index)}
                       >
-                        <Plus size={16} className="mr-2" /> Add Parameter
+                        <X size={16} />
                       </Button>
                     </div>
-                    {customFields.map((field, index) => (
-                      <div key={index} className="flex gap-2">
-                        <div className="flex-1">
-                          <Input
-                            placeholder="Parameter name"
-                            value={field.name}
-                            onChange={(e) =>
-                              handleCustomFieldChange(
-                                index,
-                                "name",
-                                e.target.value,
-                              )
-                            }
-                          />
-                        </div>
-                        <div className="flex-1">
-                          <Input
-                            placeholder="Parameter value"
-                            value={field.value}
-                            onChange={(e) =>
-                              handleCustomFieldChange(
-                                index,
-                                "value",
-                                e.target.value,
-                              )
-                            }
-                          />
-                        </div>
-                        <Button
-                          variant="outline"
-                          size="icon"
-                          onClick={() => handleCustomFieldRemove(index)}
-                        >
-                          <X size={16} />
-                        </Button>
-                      </div>
-                    ))}
-                  </div>
+                  ))}
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+
+          {/* Preview */}
+          <div className="space-y-6">
+            <Card>
+              <CardHeader>
+                <CardTitle>Generated URL</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <div className="relative break-all rounded-lg bg-muted p-4 text-sm">
+                  {finalUrl || "Enter a website URL to generate"}
+                  {finalUrl && (
+                    <Button
+                      variant="ghost"
+                      size="icon"
+                      className="absolute right-2 top-2"
+                      onClick={copyToClipboard}
+                    >
+                      <Copy size={16} />
+                    </Button>
+                  )}
                 </div>
               </CardContent>
             </Card>
 
-            {/* Preview */}
-            <div className="space-y-6">
+            {finalUrl && validateUrl(websiteUrl) && (
               <Card>
                 <CardHeader>
-                  <CardTitle>Generated URL</CardTitle>
+                  <CardTitle>QR Code</CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <div className="relative break-all rounded-lg bg-muted p-4 text-sm">
-                    {finalUrl || "Enter a website URL to generate"}
-                    {finalUrl && (
-                      <Button
-                        variant="ghost"
-                        size="icon"
-                        className="absolute right-2 top-2"
-                        onClick={copyToClipboard}
-                      >
-                        <Copy size={16} />
-                      </Button>
-                    )}
+                  <div className="flex justify-center p-4">
+                    <QRCodeSVG
+                      value={finalUrl}
+                      level="H"
+                      size={200}
+                      includeMargin={true}
+                    />
                   </div>
                 </CardContent>
               </Card>
+            )}
 
-              {finalUrl && validateUrl(websiteUrl) && (
-                <Card>
-                  <CardHeader>
-                    <CardTitle>QR Code</CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <div className="flex justify-center p-4">
-                      <QRCodeSVG
-                        value={finalUrl}
-                        level="H"
-                        size={200}
-                        includeMargin={true}
-                      />
-                    </div>
-                  </CardContent>
-                </Card>
-              )}
-
-              <div className="flex justify-end gap-4">
-                <Button
-                  onClick={handleDownload}
-                  variant="outline"
-                  className="flex w-full items-center gap-2"
-                >
-                  <Download size={16} /> Download Configuration
-                </Button>
-              </div>
+            <div className="flex justify-end gap-4">
+              <Button
+                onClick={handleDownload}
+                variant="outline"
+                className="flex w-full items-center gap-2"
+              >
+                <Download size={16} /> Download Configuration
+              </Button>
             </div>
           </div>
         </div>
