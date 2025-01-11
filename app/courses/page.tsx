@@ -1,61 +1,35 @@
-import React from "react";
-import getCoursesData from "utils/getCoursesData";
+import Link from "next/link";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { getCourses } from "@/utils/course-utils";
 
-export default async function Page() {
-  const data = await getCoursesData();
-  const sortedData = (await Promise.all(data))
-    .filter((data) => data.draft === false)
-    .sort((a, b) => {
-      const dateA = new Date(a.date);
-      const dateB = new Date(b.date);
-      return dateB.getTime() - dateA.getTime();
-    });
+export default async function CoursesPage() {
+  const courses = await getCourses();
 
   return (
-    <div className="flex flex-col">
-      {/* <React.Fragment>
-    <HeroComponent
-     textGroup={{
-      welcomeText: "TrackingAcademy Courses",
-      heading: "Learn from technical marketing experts",
-      subHeading: {
-       one: "Sign up to join our waiting list and be the first to know when courses go live. ",
-       two: "Stay ahead in digital marketing with task-based learning from TrackingAcademy.",
-      },
-     }}
-     links={{
-      primary: { src: "#waiting-list", text: "Join Waiting List" },
-     }}
-     images={{
-      group: {
-       list: [
-        {
-         src: "/images/clients/001_1.jfif",
-         alt: "Imtiaz Ahmed - Job Ready Programmer",
-        },
-        { src: "/images/clients/007.jfif", alt: "Client" },
-        {
-         src: "/images/clients/008.jfif",
-         alt: "Pjipipp Herglotz - Kiss Agency",
-        },
-        {
-         src: "/images/clients/001.jpg",
-         alt: "Imtiaz Ahmed - Job Ready Programmer",
-        },
-       ],
-      },
-      background: {
-       desktop: "/images/hero/hero-image-md.png",
-       mobile: "/images/hero/hero-image-sm.png",
-      },
-     }}
-    />
-   </React.Fragment> */}
-      {sortedData.length === 0 && (
-        <React.Fragment>
-          <div className="grid min-h-[60vh] place-content-center py-8 text-left"></div>
-        </React.Fragment>
-      )}
+    <div className="mx-auto max-w-6xl px-4 py-8">
+      <h1 className="mb-8 text-4xl font-bold">Available Courses</h1>
+      <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+        {courses.map((course) => (
+          <Link key={course.slug} href={`/courses/${course.slug}`}>
+            <Card className="h-full transition-shadow hover:shadow-lg">
+              <CardHeader>
+                <CardTitle>{course.title}</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="mb-4 text-gray-600">{course.description}</p>
+                <div className="flex gap-4 text-sm">
+                  <span className="rounded bg-blue-100 px-2 py-1 text-blue-800">
+                    {course.level}
+                  </span>
+                  <span className="rounded bg-green-100 px-2 py-1 text-green-800">
+                    {course.duration}
+                  </span>
+                </div>
+              </CardContent>
+            </Card>
+          </Link>
+        ))}
+      </div>
     </div>
   );
 }

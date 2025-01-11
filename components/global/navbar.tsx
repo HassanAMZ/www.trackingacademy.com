@@ -188,7 +188,7 @@ export default function Navbar({ className }: { className?: string }) {
 
   const MobileNavigationMenu = () => (
     <Sheet open={isSheetOpen} onOpenChange={setSheetOpen}>
-      <div className="flex h-14 w-full items-center justify-between gap-1 px-1 sm:gap-2 sm:px-3 lg:hidden">
+      <div className="flex h-14 w-full items-center justify-between gap-1 px-3 sm:gap-2 sm:px-3 lg:hidden">
         <SheetTrigger asChild>
           <Button variant="outline" size="icon" className="shrink-0 lg:hidden">
             <Menu className="h-5 w-5" />

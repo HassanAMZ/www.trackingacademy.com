@@ -46,7 +46,8 @@
     "**/*.js",
     "**/*.jsx",
     ".next/types/**/*.ts",
-    "next.config.js"
+    "next.config.js",
+    "app/_courses-markdown/react-fundamentals/modules/intro/lessons/markdown.mdx"
   ],
   "exclude": ["node_modules"]
 }

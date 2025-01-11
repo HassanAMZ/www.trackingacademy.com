@@ -4,14 +4,9 @@ import React, { ReactNode } from "react";
 
 export const metadata = {
   title: "Courses - TrackingAcademy",
-  description: `Tools Build for Analysts to make the life easier.`,
+  description: "Courses Built for Analysts to make life easier.",
 };
 
 export default function Layout({ children }: { children: ReactNode }) {
-  return (
-    <React.Fragment>
-      <Navbar />
-      <Container>{children}</Container>
-    </React.Fragment>
-  );
+  return <React.Fragment>{children}</React.Fragment>;
 }
