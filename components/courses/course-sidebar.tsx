@@ -9,7 +9,8 @@ import {
   SidebarMenuButton,
   SidebarHeader,
 } from "@/components/ui/sidebar";
-import Link from "next/link";
+import { Link } from "next-view-transitions";
+
 import { getCourseModules } from "@/utils/course-utils";
 import {
   Collapsible,
@@ -32,14 +33,13 @@ export async function CourseSidebar({ course }: CourseSidebarProps) {
             <div className="flex items-center gap-2">
               <GraduationCap className="h-6 w-6" />
               <span className="text-lg font-semibold group-data-[collapsible=icon]:hidden">
-                Course Overview
+                {course}
               </span>
             </div>
-            <ChevronDown className="h-4 w-4 transition-transform group-data-[collapsible=icon]:hidden group-data-[state=open]:rotate-180" />
           </CollapsibleTrigger>
         </Collapsible>
       </SidebarHeader>
-      <SidebarContent>
+      <SidebarContent className="w-full">
         {modules.map((module, moduleIndex) => (
           <Collapsible
             key={module.slug}
@@ -52,9 +52,9 @@ export async function CourseSidebar({ course }: CourseSidebarProps) {
                   <div className="flex w-full items-center justify-between rounded-md px-4 py-2 transition-colors hover:bg-accent">
                     <div className="flex items-center gap-2">
                       <BookOpen className="h-4 w-4" />
-                      <span className="font-mono text-xs text-muted-foreground">
+                      {/* <span className="font-mono text-xs text-muted-foreground">
                         M{(moduleIndex + 1).toString().padStart(2, "0")}
-                      </span>
+                      </span> */}
                       <span className="font-medium group-data-[collapsible=icon]:hidden">
                         {module.title}
                       </span>

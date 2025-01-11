@@ -1,11 +1,21 @@
-import { MDXRemote } from "next-mdx-remote/rsc";
-import { CardHeader, Card, CardTitle, CardContent } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
+import {
+  Breadcrumb,
+  BreadcrumbList,
+  BreadcrumbItem,
+  BreadcrumbLink,
+  BreadcrumbSeparator,
+  BreadcrumbPage,
+} from "@/components/ui/breadcrumb";
 import { Button } from "@/components/ui/button";
-import { ArrowLeft, ArrowRight, Clock } from "lucide-react";
-import Link from "next/link";
-import { getLessonContent, getAdjacentLessons } from "@/utils/course-utils";
+import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
+import Container from "@/components/ui/container";
+import { SidebarTrigger } from "@/components/ui/sidebar";
+import { getAdjacentLessons, getLessonContent } from "@/utils/course-utils";
+import { Badge, Clock, ArrowLeft, ArrowRight } from "lucide-react";
+import { MDXRemote } from "next-mdx-remote/rsc";
+import { Link } from "next-view-transitions";
 
+// LessonPage.tsx
 export default async function LessonPage({
   params,
 }: {
@@ -20,17 +30,48 @@ export default async function LessonPage({
   );
 
   return (
-    <div className="mx-auto max-w-4xl px-4 py-8">
-      <Card>
+    <Container className="mx-0 max-w-4xl space-y-6">
+      <div className="flex items-center gap-4">
+        <SidebarTrigger />
+        <Breadcrumb>
+          <BreadcrumbList>
+            <BreadcrumbItem>
+              <BreadcrumbLink href="/courses">Courses</BreadcrumbLink>
+            </BreadcrumbItem>
+            <BreadcrumbSeparator />
+            <BreadcrumbItem>
+              <BreadcrumbLink href={`/courses/${course}`}>
+                {course}
+              </BreadcrumbLink>
+            </BreadcrumbItem>
+            <BreadcrumbSeparator />
+            <BreadcrumbItem>
+              <BreadcrumbLink href={`/courses/${course}/${module}`}>
+                {module}
+              </BreadcrumbLink>
+            </BreadcrumbItem>
+            <BreadcrumbSeparator />
+            <BreadcrumbItem>
+              <BreadcrumbPage>{lesson}</BreadcrumbPage>
+            </BreadcrumbItem>
+          </BreadcrumbList>
+        </Breadcrumb>
+      </div>
+
+      <Card className="border-primary/10 bg-card/50">
         <CardHeader>
-          <div className="mb-2 flex items-center justify-between">
-            <Badge variant="secondary">Lesson {metadata.order}</Badge>
-            <div className="flex items-center text-sm text-muted-foreground">
-              <Clock className="mr-1 h-4 w-4" />
-              {metadata.duration}
+          <div className="space-y-4">
+            <div className="flex items-center justify-between">
+              <Badge>Lesson {metadata.order}</Badge>
+              <div className="flex items-center text-sm text-muted-foreground">
+                <Clock className="mr-1 h-4 w-4" />
+                {metadata.duration}
+              </div>
             </div>
+            <CardTitle className="text-3xl font-bold tracking-tight">
+              {metadata.title}
+            </CardTitle>
           </div>
-          <CardTitle className="text-3xl font-bold">{metadata.title}</CardTitle>
         </CardHeader>
         <CardContent>
           <div className="prose dark:prose-invert max-w-none">
@@ -39,32 +80,42 @@ export default async function LessonPage({
         </CardContent>
       </Card>
 
-      <div className="mt-8 flex justify-between">
+      <div className="flex items-center justify-between gap-4 pt-4">
         {previousLesson ? (
-          <Button variant="outline" asChild>
+          <Button
+            variant="outline"
+            asChild
+            className="w-full max-w-xs justify-start"
+          >
             <Link
               href={`/courses/${course}/${module}/${previousLesson.slug}`}
-              className="flex items-center"
+              className="flex items-center gap-2"
             >
-              <ArrowLeft className="mr-2 h-4 w-4" />
-              Previous: {previousLesson.title}
+              <ArrowLeft className="h-4 w-4" />
+              <div className="flex flex-col items-start">
+                <span className="text-xs text-muted-foreground">Previous</span>
+                <span className="line-clamp-1">{previousLesson.title}</span>
+              </div>
             </Link>
           </Button>
         ) : (
-          <div></div>
+          <div />
         )}
         {nextLesson && (
-          <Button asChild>
+          <Button asChild className="w-full max-w-xs justify-end">
             <Link
               href={`/courses/${course}/${module}/${nextLesson.slug}`}
-              className="flex items-center"
+              className="flex items-center gap-2"
             >
-              Next: {nextLesson.title}
-              <ArrowRight className="ml-2 h-4 w-4" />
+              <div className="flex flex-col items-end">
+                <span className="text-xs text-muted-foreground">Next</span>
+                <span className="line-clamp-1">{nextLesson.title}</span>
+              </div>
+              <ArrowRight className="h-4 w-4" />
             </Link>
           </Button>
         )}
       </div>
-    </div>
+    </Container>
   );
 }

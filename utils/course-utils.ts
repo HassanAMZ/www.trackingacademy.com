@@ -2,7 +2,7 @@ import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
 import { ReactNode } from "react";
-import { compileMDX } from "next-mdx-remote/rsc";
+
 export type LessonMetadata = {
   title: string;
   duration: string;
@@ -10,6 +10,8 @@ export type LessonMetadata = {
 };
 
 export type Module = {
+  metadata: any;
+  code: ReactNode;
   slug: string;
   title: string;
   lessons: {
@@ -42,6 +44,21 @@ export type LessonInfo = {
   order: number;
 };
 
+export async function getCourseMetadata(
+  course: string,
+): Promise<CourseMetadata> {
+  const coursePath = path.join(
+    process.cwd(),
+    "app/_courses-markdown",
+    course,
+    "metadata.mdx",
+  );
+  const courseContent = fs.readFileSync(coursePath, "utf8");
+  const { data } = matter(courseContent);
+
+  return data as CourseMetadata;
+}
+
 export async function getCourseModules(course: string): Promise<Module[]> {
   const coursePath = path.join(
     process.cwd(),
@@ -54,38 +71,42 @@ export async function getCourseModules(course: string): Promise<Module[]> {
     return fs.existsSync(metadataPath);
   });
 
-  const modules = moduleDirs.map((module, index) => {
-    const metadataPath = path.join(coursePath, module, "metadata.mdx");
-    const metadataContent = fs.readFileSync(metadataPath, "utf8");
-    const { data } = matter(metadataContent);
+  const modules = await Promise.all(
+    moduleDirs.map(async (module) => {
+      const metadataPath = path.join(coursePath, module, "metadata.mdx");
+      const metadataContent = fs.readFileSync(metadataPath, "utf8");
+      const { data } = matter(metadataContent);
 
-    const lessonsPath = path.join(coursePath, module, "lessons");
-    const lessons = fs
-      .readdirSync(lessonsPath)
-      .filter((file) => file.endsWith(".mdx"))
-      .map((file) => {
-        const lessonContent = fs.readFileSync(
-          path.join(lessonsPath, file),
-          "utf8",
-        );
-        const { data } = matter(lessonContent);
-        return {
-          ...(data as { title: string; order: number }),
-          slug: file.replace(".mdx", ""),
-          code: `L${data.order.toString().padStart(2, "0")}`,
-        };
-      })
-      .sort((a, b) => a.order - b.order);
+      const lessonsPath = path.join(coursePath, module, "lessons");
+      const lessons = fs
+        .readdirSync(lessonsPath)
+        .filter((file) => file.endsWith(".mdx"))
+        .map((file) => {
+          const lessonContent = fs.readFileSync(
+            path.join(lessonsPath, file),
+            "utf8",
+          );
+          const { data } = matter(lessonContent);
+          return {
+            ...(data as { title: string; order: number }),
+            slug: file.replace(".mdx", ""),
+            code: `L${data.order.toString().padStart(2, "0")}`,
+          };
+        })
+        .sort((a, b) => a.order - b.order);
 
-    return {
-      slug: module,
-      title: data.title,
-      lessons,
-      code: `M${index + 1}`,
-    };
-  });
+      return {
+        slug: module,
+        title: data.title,
+        metadata: data,
+        lessons,
+        code: `M${data.order}`, // Use the module's order from metadata
+        order: data.order, // Add order property for sorting
+      };
+    }),
+  );
 
-  return modules;
+  return modules.sort((a, b) => a.order - b.order);
 }
 
 export async function getCourses() {
@@ -150,7 +171,6 @@ export async function getModuleContent(course: string, module: string) {
     lessons,
   };
 }
-
 export async function getLessonContent(
   course: string,
   module: string,
@@ -175,7 +195,6 @@ export async function getLessonContent(
   };
 }
 
-// Add a new function to get adjacent lessons
 export async function getAdjacentLessons(
   course: string,
   module: string,
@@ -194,52 +213,24 @@ export async function getAdjacentLessons(
 }
 
 export async function getFirstLesson(course: string) {
-  const coursePath = path.join(
-    process.cwd(),
-    "app/_courses-markdown",
-    course,
-    "modules",
-  );
+  const modules = await getCourseModules(course);
 
-  const modules = fs.readdirSync(coursePath).sort();
-
-  let firstLesson = null;
-  let firstModule = null;
-
-  for (const module of modules) {
-    const lessonsPath = path.join(coursePath, module, "lessons");
-    const lessonFiles = fs
-      .readdirSync(lessonsPath)
-      .filter((file) => file.endsWith(".mdx"));
-
-    if (lessonFiles.length > 0) {
-      const lessons = lessonFiles.map((file) => {
-        const lessonContent = fs.readFileSync(
-          path.join(lessonsPath, file),
-          "utf8",
-        );
-        const { data } = matter(lessonContent);
-        return {
-          slug: file.replace(".mdx", ""),
-          order: data.order,
-        };
-      });
-
-      lessons.sort((a, b) => a.order - b.order);
-
-      if (!firstLesson || lessons[0].order < firstLesson.order) {
-        firstLesson = lessons[0];
-        firstModule = module;
-      }
-    }
+  if (modules.length === 0) {
+    throw new Error("No modules found");
   }
 
-  if (firstLesson && firstModule) {
-    return {
-      module: firstModule,
-      lesson: firstLesson.slug,
-    };
+  // Get the first module (already sorted by order)
+  const firstModule = modules[0];
+
+  if (!firstModule.lessons || firstModule.lessons.length === 0) {
+    throw new Error("No lessons found in the first module");
   }
 
-  throw new Error("No lessons found");
+  // Get the first lesson (already sorted by order)
+  const firstLesson = firstModule.lessons[0];
+
+  return {
+    module: firstModule.slug,
+    lesson: firstLesson.slug,
+  };
 }
