@@ -19,15 +19,14 @@ const toolDescriptions: { [key: string]: string } = {
     "Build UTM parameters for Google Ads, Facebook Ads, TikTok, or custom campaigns all in one place",
   "utm-validator":
     "Validate and analyze your UTM parameters to ensure proper tracking setup",
-  "time-management":
-    "Track and manage time across different projects and tasks",
+  "time-managment": "Track and manage time across different projects and tasks",
 };
 
 // Icon mapping (moved from layout)
 const iconMap: { [key: string]: React.ElementType } = {
   "utm-builder": LinkIcon,
   "utm-validator": BookMarked,
-  "time-management": Clock,
+  "time-managment": Clock,
 };
 
 async function getTools() {

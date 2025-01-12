@@ -1,27 +1,34 @@
 "use client";
-import { useState, useEffect } from "react";
+
+import React, { useState, useEffect } from "react";
 import {
   collection,
-  addDoc,
   query,
   orderBy,
-  onSnapshot,
   where,
-  updateDoc,
+  addDoc,
+  onSnapshot,
   doc,
+  updateDoc,
   getDocs,
 } from "firebase/firestore";
-import { ref, onValue, set } from "firebase/database";
-import { format } from "date-fns";
+import { db } from "@/app/firebase";
+import { UserAuth } from "@/context/AuthContext";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import {
+  Card,
+  CardHeader,
+  CardContent,
+  CardFooter,
+} from "@/components/ui/card";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { Heart, MessageCircle } from "lucide-react";
-import { UserAuth } from "@/context/AuthContext";
-import { db, database as realtimeDb } from "@/app/firebase";
-import Container from "../ui/container";
+import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Textarea } from "@/components/ui/textarea";
+import { Heart, MessageCircle, Loader2, AlertCircle } from "lucide-react";
+import Container from "@/components/ui/container";
+import { Alert, AlertTitle, AlertDescription } from "@/components/ui/alert";
+import { toast } from "../ui/hooks/use-toast";
 
 interface Post {
   id: string;
@@ -37,7 +44,6 @@ interface Post {
 
 interface Comment {
   id: string;
-  postId: string;
   content: string;
   authorId: string;
   authorName: string;
@@ -52,120 +58,110 @@ export function SocialDiscussionForum() {
   const [posts, setPosts] = useState<Post[]>([]);
   const [newPost, setNewPost] = useState("");
   const [selectedTopic, setSelectedTopic] = useState("All");
-  const [comments, setComments] = useState<Record<string, Comment[]>>({});
-  const [newComment, setNewComment] = useState<Record<string, string>>({});
-  const [showComments, setShowComments] = useState<Record<string, boolean>>({});
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
+  const [comments, setComments] = useState<{ [key: string]: Comment[] }>({}); // Store comments for each post
+  const [newComment, setNewComment] = useState<{ [key: string]: string }>({}); // Store new comment input
 
-  // Listen for posts with topic filter
   useEffect(() => {
-    let postsQuery;
-    if (selectedTopic === "All") {
-      postsQuery = query(
-        collection(db, "community_posts"),
-        orderBy("createdAt", "desc"),
-      );
-    } else {
-      postsQuery = query(
-        collection(db, "community_posts"),
-        where("topic", "==", selectedTopic),
-        orderBy("createdAt", "desc"),
-      );
-    }
+    const fetchPosts = async () => {
+      setLoading(true);
+      setError(null);
 
-    const unsubscribe = onSnapshot(postsQuery, (snapshot) => {
-      const fetchedPosts = snapshot.docs.map((doc) => ({
-        id: doc.id,
-        ...doc.data(),
-      })) as Post[];
-      setPosts(fetchedPosts);
-    });
+      try {
+        const postsQuery = buildPostsQuery(selectedTopic);
+        const unsubscribe = onSnapshot(postsQuery, (snapshot) => {
+          const fetchedPosts = snapshot.docs.map((doc) => ({
+            id: doc.id,
+            ...doc.data(),
+          })) as Post[];
 
-    return () => unsubscribe();
+          setPosts(fetchedPosts);
+          setLoading(false);
+
+          // Load comments for each post
+          fetchedPosts.forEach((post) => fetchComments(post.id));
+        });
+
+        return () => unsubscribe();
+      } catch (error) {
+        setError("Failed to load posts. Please check your database setup.");
+        setLoading(false);
+      }
+    };
+
+    fetchPosts();
   }, [selectedTopic]);
 
-  // Listen for comments for each visible post
-  useEffect(() => {
-    const unsubscribes = posts.map((post) => {
-      const commentsQuery = query(
-        collection(db, `community_posts/${post.id}/comments`),
-        orderBy("createdAt", "desc"),
-      );
+  const buildPostsQuery = (topic: string) => {
+    return topic !== "All"
+      ? query(
+          collection(db, "community_posts"),
+          where("topic", "==", topic),
+          orderBy("createdAt", "desc"),
+        )
+      : query(collection(db, "community_posts"), orderBy("createdAt", "desc"));
+  };
 
-      return onSnapshot(commentsQuery, (snapshot) => {
+  const fetchComments = async (postId: string) => {
+    try {
+      const commentsQuery = query(
+        collection(db, "community_posts", postId, "comments"),
+        orderBy("createdAt", "asc"),
+      );
+      const unsubscribe = onSnapshot(commentsQuery, (snapshot) => {
         const fetchedComments = snapshot.docs.map((doc) => ({
           id: doc.id,
-          postId: post.id,
           ...doc.data(),
         })) as Comment[];
 
         setComments((prev) => ({
           ...prev,
-          [post.id]: fetchedComments,
+          [postId]: fetchedComments,
         }));
       });
-    });
 
-    return () => unsubscribes.forEach((unsubscribe) => unsubscribe());
-  }, [posts]);
-
-  // Listen for realtime reactions
-  useEffect(() => {
-    if (!user) return;
-
-    const reactionsRef = ref(realtimeDb, "reactions");
-    const unsubscribe = onValue(reactionsRef, (snapshot) => {
-      const data = snapshot.val();
-      if (data) {
-        setPosts((currentPosts) =>
-          currentPosts.map((post) => ({
-            ...post,
-            likesCount: (data[post.id]?.likes || []).length || 0,
-          })),
-        );
-      }
-    });
-
-    return () => unsubscribe();
-  }, [user]);
-
-  const handleSubmitPost = async (e: React.FormEvent) => {
-    e.preventDefault();
-    if (user && newPost.trim()) {
-      try {
-        await addDoc(collection(db, "community_posts"), {
-          content: newPost,
-          authorId: user.uid,
-          authorName: user.displayName || "Anonymous",
-          authorPhotoURL: user.photoURL || "",
-          createdAt: new Date().toISOString(),
-          topic: selectedTopic === "All" ? "General Discussion" : selectedTopic,
-          likesCount: 0,
-          commentsCount: 0,
-        });
-        setNewPost("");
-      } catch (error) {
-        console.error("Error adding post:", error);
-      }
+      return () => unsubscribe();
+    } catch (error) {
+      console.error("Error loading comments:", error);
     }
   };
 
-  const handleLike = async (postId: string) => {
-    if (!user) return;
+  const handleSubmitPost = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!user || !newPost.trim()) return;
 
-    const reactionRef = ref(
-      realtimeDb,
-      `reactions/${postId}/likes/${user.uid}`,
-    );
-    const timestamp = new Date().toISOString();
-    await set(reactionRef, timestamp);
+    try {
+      await addDoc(collection(db, "community_posts"), {
+        content: newPost,
+        authorId: user.uid,
+        authorName: user.displayName || "Anonymous",
+        authorPhotoURL: user.photoURL || "",
+        createdAt: new Date().toISOString(),
+        topic: selectedTopic === "All" ? "General Discussion" : selectedTopic,
+        likesCount: 0,
+        commentsCount: 0,
+      });
+      setNewPost("");
+      toast({ title: "Success", description: "Post created successfully!" });
+    } catch (error) {
+      console.error("Error adding post:", error);
+      toast({
+        title: "Error",
+        description: "Failed to create post. Please try again.",
+        variant: "destructive",
+      });
+    }
   };
 
-  const handleComment = async (postId: string) => {
+  const handleAddComment = async (postId: string) => {
     if (!user || !newComment[postId]?.trim()) return;
 
     try {
-      const commentRef = collection(db, `community_posts/${postId}/comments`);
-      await addDoc(commentRef, {
+      const postRef = doc(db, "community_posts", postId);
+      const commentsRef = collection(postRef, "comments");
+
+      await addDoc(commentsRef, {
         content: newComment[postId],
         authorId: user.uid,
         authorName: user.displayName || "Anonymous",
@@ -173,32 +169,54 @@ export function SocialDiscussionForum() {
         createdAt: new Date().toISOString(),
       });
 
-      // Update comment count
-      const postRef = doc(db, "community_posts", postId);
-      const currentComments = comments[postId] || [];
       await updateDoc(postRef, {
-        commentsCount: currentComments.length + 1,
+        commentsCount: (comments[postId]?.length || 0) + 1,
       });
 
       setNewComment((prev) => ({ ...prev, [postId]: "" }));
     } catch (error) {
       console.error("Error adding comment:", error);
+      toast({
+        title: "Error",
+        description: "Failed to add comment. Please try again.",
+        variant: "destructive",
+      });
     }
   };
 
-  const toggleComments = (postId: string) => {
-    setShowComments((prev) => ({ ...prev, [postId]: !prev[postId] }));
+  const handleLike = async (post: Post) => {
+    try {
+      const postRef = doc(db, "community_posts", post.id);
+      await updateDoc(postRef, {
+        likesCount: post.likesCount + 1,
+      });
+    } catch (error) {
+      console.error("Error liking post:", error);
+      toast({
+        title: "Error",
+        description: "Failed to like post. Please try again.",
+        variant: "destructive",
+      });
+    }
   };
 
   return (
     <Container className="max-w-4xl space-y-6">
-      <Tabs value={selectedTopic} className="w-full">
-        <TabsList className="w-full justify-start">
+      {error && (
+        <Alert variant="destructive">
+          <AlertCircle className="h-4 w-4" />
+          <AlertTitle>Error</AlertTitle>
+          <AlertDescription>{error}</AlertDescription>
+        </Alert>
+      )}
+
+      <Tabs value={selectedTopic}>
+        <TabsList>
           {TOPICS.map((topic) => (
             <TabsTrigger
               key={topic}
-              value={topic}
               onClick={() => setSelectedTopic(topic)}
+              value={topic}
             >
               {topic}
             </TabsTrigger>
@@ -207,117 +225,85 @@ export function SocialDiscussionForum() {
       </Tabs>
 
       {user && (
-        <form onSubmit={handleSubmitPost} className="space-y-4">
-          <Input
-            type="text"
+        <form onSubmit={handleSubmitPost}>
+          <Textarea
             value={newPost}
             onChange={(e) => setNewPost(e.target.value)}
-            placeholder="Start a discussion..."
-            className="w-full"
+            placeholder="What's on your mind?"
           />
-          <div className="flex justify-end">
-            <Button type="submit">Post</Button>
-          </div>
+          <Button type="submit" className="mt-2">
+            Post
+          </Button>
         </form>
       )}
 
-      <div className="space-y-4">
-        {posts.map((post) => (
-          <Card key={post.id} className="overflow-hidden">
-            <CardHeader className="flex flex-row items-start gap-4">
+      {loading ? (
+        <Loader2 className="mx-auto animate-spin" />
+      ) : (
+        posts.map((post) => (
+          <Card key={post.id} className="mb-4 shadow-lg">
+            <CardHeader className="flex items-center">
               <Avatar>
-                <AvatarImage src={post.authorPhotoURL} alt={post.authorName} />
-                <AvatarFallback>
-                  {post.authorName.slice(0, 2).toUpperCase()}
-                </AvatarFallback>
+                <AvatarImage src={post.authorPhotoURL} />
+                <AvatarFallback>{post.authorName.slice(0, 2)}</AvatarFallback>
               </Avatar>
-              <div className="flex-1">
-                <div className="flex items-center justify-between">
-                  <CardTitle className="text-lg">{post.authorName}</CardTitle>
-                  <span className="text-sm text-muted-foreground">
-                    {format(new Date(post.createdAt), "MMM d, yyyy")}
-                  </span>
-                </div>
-                <span className="text-sm text-muted-foreground">
-                  {post.topic}
-                </span>
+              <div className="ml-4">
+                <div className="font-semibold">{post.authorName}</div>
+                <div className="text-sm text-gray-500">{post.createdAt}</div>
               </div>
             </CardHeader>
-            <CardContent className="space-y-4">
-              <p className="whitespace-pre-wrap">{post.content}</p>
+            <CardContent>{post.content}</CardContent>
+            <CardFooter className="flex justify-between">
+              <Button variant="ghost" onClick={() => handleLike(post)}>
+                <Heart className="mr-2 h-4 w-4" />
+                {post.likesCount} Likes
+              </Button>
+              <Button variant="ghost">
+                <MessageCircle className="mr-2 h-4 w-4" />
+                {post.commentsCount} Comments
+              </Button>
+            </CardFooter>
 
-              <div className="flex items-center gap-4">
-                <Button
-                  variant="ghost"
-                  size="sm"
-                  onClick={() => handleLike(post.id)}
-                  className="flex gap-2"
-                >
-                  <Heart
-                    className={post.likesCount > 0 ? "fill-current" : ""}
+            {/* Comments Section */}
+            <div className="px-4 pb-4">
+              {comments[post.id]?.map((comment) => (
+                <div key={comment.id} className="mt-2 flex items-start">
+                  <Avatar>
+                    <AvatarImage src={comment.authorPhotoURL} />
+                    <AvatarFallback>
+                      {comment.authorName.slice(0, 2)}
+                    </AvatarFallback>
+                  </Avatar>
+                  <div className="ml-4">
+                    <div className="font-semibold">{comment.authorName}</div>
+                    <p className="text-sm">{comment.content}</p>
+                  </div>
+                </div>
+              ))}
+              {user && (
+                <div className="mt-4">
+                  <Input
+                    placeholder="Add a comment..."
+                    value={newComment[post.id] || ""}
+                    onChange={(e) =>
+                      setNewComment((prev) => ({
+                        ...prev,
+                        [post.id]: e.target.value,
+                      }))
+                    }
                   />
-                  {post.likesCount}
-                </Button>
-                <Button
-                  variant="ghost"
-                  size="sm"
-                  onClick={() => toggleComments(post.id)}
-                  className="flex gap-2"
-                >
-                  <MessageCircle /> {post.commentsCount}
-                </Button>
-              </div>
-
-              {showComments[post.id] && (
-                <div className="mt-4 space-y-4">
-                  {comments[post.id]?.map((comment) => (
-                    <div key={comment.id} className="flex items-start gap-2">
-                      <Avatar className="h-8 w-8">
-                        <AvatarImage
-                          src={comment.authorPhotoURL}
-                          alt={comment.authorName}
-                        />
-                        <AvatarFallback>
-                          {comment.authorName.slice(0, 2).toUpperCase()}
-                        </AvatarFallback>
-                      </Avatar>
-                      <div className="flex-1">
-                        <div className="flex justify-between">
-                          <span className="font-medium">
-                            {comment.authorName}
-                          </span>
-                          <span className="text-sm text-muted-foreground">
-                            {format(new Date(comment.createdAt), "MMM d, yyyy")}
-                          </span>
-                        </div>
-                        <p>{comment.content}</p>
-                      </div>
-                    </div>
-                  ))}
-
-                  {user && (
-                    <div className="flex gap-2">
-                      <Input
-                        value={newComment[post.id] || ""}
-                        onChange={(e) =>
-                          setNewComment((prev) => ({
-                            ...prev,
-                            [post.id]: e.target.value,
-                          }))
-                        }
-                        placeholder="Write a comment..."
-                      />
-                      <Button onClick={() => handleComment(post.id)} size="sm">
-                        Comment
-                      </Button>
-                    </div>
-                  )}
+                  <Button
+                    className="mt-2"
+                    onClick={() => handleAddComment(post.id)}
+                  >
+                    Comment
+                  </Button>
                 </div>
               )}
-            </CardContent>
+            </div>
           </Card>
-        ))}
-      </div>
+        ))
+      )}
     </Container>
   );
 }

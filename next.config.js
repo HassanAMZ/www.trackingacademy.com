@@ -19,6 +19,7 @@ const nextConfig = {
     webpackBuildWorker: true,
   },
   images: {
+    domains: ["googleusercontent.com", "lh3.googleusercontent.com"], // Include the correct Google domain
     remotePatterns: [
       {
         protocol: "https",
@@ -32,8 +33,15 @@ const nextConfig = {
         port: "",
         pathname: "/vi/**",
       },
+      {
+        protocol: "https",
+        hostname: "*.googleusercontent.com",
+        port: "",
+        pathname: "**",
+      },
     ],
   },
+
   reactStrictMode: true,
   sassOptions: {
     includePaths: [path.join(__dirname, "styles")],
