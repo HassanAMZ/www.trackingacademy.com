@@ -30,6 +30,12 @@ interface NavItem {
 const NAV_ITEMS: Record<string, NavItem[]> = {
   tools: [
     {
+      title: "All Tools",
+      href: "/tools",
+      description:
+        "Explore our complete collection of analytics and tracking tools",
+    },
+    {
       title: "UTM Builder",
       href: "/tools/utm-builder",
       description:
@@ -40,6 +46,11 @@ const NAV_ITEMS: Record<string, NavItem[]> = {
       href: "/tools/utm-validator",
       description:
         "Validate and analyze your UTM parameters to ensure proper tracking setup",
+    },
+    {
+      title: "Time Managment",
+      href: "/tools/time-managment",
+      description: "Track and manage time across different projects and tasks",
     },
   ],
   blogs: [

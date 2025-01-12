@@ -1,13 +1,91 @@
-import ToolsHeroSection from "@/components/tools/ToolsHeroSection";
+import { Button } from "@/components/ui/button";
+import {
+  Card,
+  CardContent,
+  CardHeader,
+  CardTitle,
+  CardDescription,
+} from "@/components/ui/card";
 import Container from "@/components/ui/container";
-import getTools from "utils/getTools";
+import Text from "@/components/ui/text";
+import { Link } from "next-view-transitions";
+import { BookMarked, Clock, LinkIcon, Settings } from "lucide-react";
+import { promises as fs } from "fs";
+import path from "path";
+
+// Tool descriptions mapping
+const toolDescriptions: { [key: string]: string } = {
+  "utm-builder":
+    "Build UTM parameters for Google Ads, Facebook Ads, TikTok, or custom campaigns all in one place",
+  "utm-validator":
+    "Validate and analyze your UTM parameters to ensure proper tracking setup",
+  "time-management":
+    "Track and manage time across different projects and tasks",
+};
+
+// Icon mapping (moved from layout)
+const iconMap: { [key: string]: React.ElementType } = {
+  "utm-builder": LinkIcon,
+  "utm-validator": BookMarked,
+  "time-management": Clock,
+};
+
+async function getTools() {
+  const toolsDirectory = path.join(process.cwd(), "app/tools");
+  const toolDirs = await fs.readdir(toolsDirectory, { withFileTypes: true });
+
+  const tools = toolDirs
+    .filter((dirent) => dirent.isDirectory() && !dirent.name.startsWith("_"))
+    .map((dirent) => ({
+      name: dirent.name
+        .split("-")
+        .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+        .join(" "),
+      slug: dirent.name,
+      description:
+        toolDescriptions[dirent.name] || "Tool description coming soon",
+      icon: iconMap[dirent.name] || Settings,
+    }));
+
+  return tools;
+}
 
 export default async function Page() {
-  const toolNames = await getTools();
+  const tools = await getTools();
 
   return (
-    <Container className="flex flex-col gap-2">
-      <ToolsHeroSection />
+    <Container>
+      <div className="grid gap-6">
+        <Text as="h1" variant="headingXl">
+          Analytics Tools
+        </Text>
+
+        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+          {tools.map((tool) => {
+            const Icon = tool.icon;
+            return (
+              <Card
+                key={tool.slug}
+                className="transition-shadow hover:shadow-md"
+              >
+                <Link href={`/tools/${tool.slug}`} className="block h-full">
+                  <CardHeader>
+                    <div className="flex items-center gap-2">
+                      <div className="rounded-lg bg-primary/10 p-2">
+                        <Icon className="h-6 w-6" />
+                      </div>
+                      <CardTitle>{tool.name}</CardTitle>
+                    </div>
+                  </CardHeader>
+                  <CardContent>
+                    <CardDescription>{tool.description}</CardDescription>
+                  </CardContent>
+                </Link>
+              </Card>
+            );
+          })}
+        </div>
+      </div>
     </Container>
   );
 }

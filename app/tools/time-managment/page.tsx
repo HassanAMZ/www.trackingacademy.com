@@ -324,35 +324,10 @@ const BusinessTimeManagement: React.FC = () => {
   };
 
   return (
-    <main className="flex h-screen w-screen bg-background">
-      {/* Sidebar */}
-      <div className="hidden w-64 flex-col border-r bg-card p-4 md:flex">
-        <h2 className="mb-4 text-xl font-bold">Time Management Plan</h2>
-        <div className="space-y-2">
-          {formSections.map((section, index) => {
-            const Icon = section.icon;
-            return (
-              <button
-                key={section.id}
-                onClick={() => handleSidebarClick(section.id, index)}
-                className={`flex w-full items-center gap-2 rounded-lg px-4 py-2 text-left transition-colors ${
-                  activeSection === section.id
-                    ? "bg-primary text-primary-foreground"
-                    : "hover:bg-muted"
-                }`}
-              >
-                <Icon size={18} />
-                {section.title}
-              </button>
-            );
-          })}
-        </div>
-      </div>
-
+    <main className="flex bg-background">
       {/* Main Content */}
       <div className="flex-1 overflow-y-auto">
-        <Navbar className="!mx-0 w-full max-w-7xl" />
-        <div className="grid gap-6 p-3 md:grid-cols-[2fr,1fr]">
+        <div className="grid gap-3 lg:grid-cols-[2fr,1fr]">
           <Card className="col-span-1 col-start-1">
             <CardHeader>
               <CardTitle className="flex items-center gap-2">

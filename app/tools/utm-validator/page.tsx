@@ -210,38 +210,11 @@ const UTMValidator = () => {
     </div>
   );
 
-  const renderSidebarItem = (key: string, config: PlatformConfig) => {
-    const Icon = platformIcons[key as keyof typeof platformIcons];
-    return (
-      <button
-        key={key}
-        onClick={() => setSelectedPlatform(key)}
-        className={`flex w-full items-center gap-2 rounded-lg px-4 py-2 text-left transition-colors ${selectedPlatform === key ? "bg-primary/10" : "hover:bg-primary/5"}`}
-      >
-        {Icon && <Icon size={18} />}
-        {config.name}
-      </button>
-    );
-  };
-
   return (
-    <main className="flex h-screen w-screen">
-      {/* Sidebar */}
-      <div className="hidden w-64 flex-col border-r p-4 md:flex">
-        <h2 className="mb-4 flex items-center gap-2 text-xl font-bold">
-          Select Platform
-        </h2>
-        <div className="space-y-2">
-          {Object.entries(platformConfigs).map(([key, config]) =>
-            renderSidebarItem(key, config),
-          )}
-        </div>
-      </div>
-
+    <main className="flex">
       {/* Main Content */}
       <div className="flex-1 overflow-y-auto">
-        <Navbar className="!mx-0 w-full max-w-7xl" />
-        <div className="grid gap-6 p-3 md:grid-cols-[2fr,1fr]">
+        <div className="grid gap-3 lg:grid-cols-[2fr,1fr]">
           <div className="space-y-6">
             <Card>
               <CardHeader>

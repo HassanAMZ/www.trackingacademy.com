@@ -8,6 +8,7 @@ import { DiscussionForum } from "@/components/community/discussion-forum";
 import Container from "@/components/ui/container";
 import Navbar from "@/components/global/navbar";
 import React from "react";
+import AuthenticatedLayout from "@/components/layouts/AuthenticatedLayout";
 
 export default function RootLayout() {
   const { user } = UserAuth();
@@ -16,17 +17,9 @@ export default function RootLayout() {
     <React.Fragment>
       <Navbar />
       <Container className="max-w-3xl">
-        {user ? (
-          <>
-            {/* <UserProfile /> */}
-            <DiscussionForum />
-          </>
-        ) : (
-          <>
-            <SignIn />
-            <SignUp />
-          </>
-        )}
+        <AuthenticatedLayout>
+          <DiscussionForum />
+        </AuthenticatedLayout>
       </Container>
     </React.Fragment>
   );

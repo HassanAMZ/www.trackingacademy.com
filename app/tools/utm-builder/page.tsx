@@ -1,5 +1,6 @@
 "use client";
 
+import ContactUs from "@/components/blog/contact-us";
 import Navbar from "@/components/global/navbar";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -368,20 +369,6 @@ const UTMBuilder: React.FC = () => {
     }
   };
 
-  const renderSidebarItem = (key: string, config: PlatformConfig) => {
-    const Icon = platformIcons[key as keyof typeof platformIcons];
-    return (
-      <button
-        key={key}
-        onClick={() => handlePlatformChange(key)}
-        className={`flex w-full items-center gap-2 rounded-lg px-4 py-2 text-left transition-colors ${selectedPlatform === key ? "bg-primary/10" : "hover:bg-primary/5"}`}
-      >
-        {Icon && <Icon size={18} />}
-        {config.name}
-      </button>
-    );
-  };
-
   // Helper functions
   const getPlaceholderForField = (key: string): string => {
     const placeholders = {
@@ -408,24 +395,10 @@ const UTMBuilder: React.FC = () => {
   };
 
   return (
-    <main className="flex h-screen w-screen">
-      {/* Sidebar */}
-      <div className="hidden w-64 flex-col border-r p-4 md:flex">
-        <h2 className="mb-4 flex items-center gap-2 text-xl font-bold">
-          {/* <Settings size={20} /> */}
-          Select Platform
-        </h2>
-        <div className="space-y-2">
-          {Object.entries(platformConfigs).map(([key, config]) =>
-            renderSidebarItem(key, config),
-          )}
-        </div>
-      </div>
-
+    <main className="flex">
       {/* Main Content */}
       <div className="flex-1 overflow-y-auto">
-        <Navbar className="!mx-0 w-full max-w-7xl" />
-        <div className="grid gap-6 p-3 md:grid-cols-[2fr,1fr]">
+        <div className="grid gap-3 lg:grid-cols-[2fr,1fr]">
           {/* Form */}
           <Card>
             <CardHeader>
@@ -433,7 +406,7 @@ const UTMBuilder: React.FC = () => {
             </CardHeader>
             <CardContent className="space-y-4">
               {/* Mobile Platform Selector */}
-              <div className="mb-6 md:hidden">
+              <div className="mb-6">
                 <Label>Platform</Label>
                 <Select
                   value={selectedPlatform}
@@ -446,7 +419,6 @@ const UTMBuilder: React.FC = () => {
                     {Object.entries(platformConfigs).map(([key, config]) => (
                       <SelectItem key={key} value={key}>
                         <div className="flex items-center gap-2">
-                          {/* {platformIcons[key as keyof typeof platformIcons]({ size: 18 })} */}
                           {config.name}
                         </div>
                       </SelectItem>
@@ -604,6 +576,8 @@ const UTMBuilder: React.FC = () => {
                 <Download size={16} /> Download Configuration
               </Button>
             </div>
+
+            <ContactUs />
           </div>
         </div>
       </div>
