@@ -191,7 +191,7 @@ export function SocialDiscussionForum() {
   };
 
   return (
-    <Container className="space-y-6">
+    <Container className="max-w-4xl space-y-6">
       <Tabs value={selectedTopic} className="w-full">
         <TabsList className="w-full justify-start">
           {TOPICS.map((topic) => (
