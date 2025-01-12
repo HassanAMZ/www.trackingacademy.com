@@ -1,42 +1,66 @@
-import fs from "fs";
-import path from "path";
-import matter from "gray-matter";
-import { MDXRemote } from "next-mdx-remote/rsc";
+import {
+  getCourseModules,
+  getCourses,
+  getModuleContent,
+} from "@/utils/course-utils";
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
 import { Clock, BookOpen, ChevronRight } from "lucide-react";
-import { getModuleContent } from "@/utils/course-utils";
 import Container from "@/components/ui/container";
 import { Link } from "next-view-transitions";
-import { CourseSidebar } from "@/components/courses/course-sidebar";
-import Navbar from "@/components/global/navbar";
-import {
-  SidebarProvider,
-  SidebarTrigger,
-  SidebarInset,
-} from "@/components/ui/sidebar";
 import {
   Breadcrumb,
   BreadcrumbItem,
   BreadcrumbLink,
-  BreadcrumbEllipsis,
   BreadcrumbList,
   BreadcrumbPage,
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
+import { SidebarTrigger } from "@/components/ui/sidebar";
+import { Metadata } from "next";
 
-// ModulePage.tsx
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ course: string; module: string }>;
+}): Promise<Metadata> {
+  const { metadata } = await import(
+    `@/app/_courses-markdown/${(await params).course}/modules/${(await params).module}/metadata.mdx`
+  );
+  return {
+    title: `${metadata.title} - TrackingAcademy`,
+    description: metadata.description,
+  };
+}
+
+export async function generateStaticParams() {
+  const courses = await getCourses();
+  const params = await Promise.all(
+    courses.map(async (course) => {
+      const modules = await getCourseModules(course.slug);
+      return modules.map((module) => ({
+        course: course.slug,
+        module: module.slug,
+      }));
+    }),
+  );
+  return params.flat();
+}
+
 export default async function ModulePage({
   params,
 }: {
   params: Promise<{ course: string; module: string }>;
 }) {
   const { course, module } = await params;
-  const { metadata, content, lessons } = await getModuleContent(course, module);
+  const { default: ModuleContent, metadata } = await import(
+    `@/app/_courses-markdown/${course}/modules/${module}/metadata.mdx`
+  );
+  const { lessons } = await getModuleContent(course, module);
 
   return (
-    <Container className="mx-0 max-w-4xl space-y-8">
+    <div className="space-y-8">
       <div className="flex items-center gap-4">
         <SidebarTrigger />
         <Breadcrumb>
@@ -87,7 +111,7 @@ export default async function ModulePage({
       </Card>
 
       <div className="prose dark:prose-invert max-w-none">
-        <MDXRemote source={content} />
+        <ModuleContent />
       </div>
 
       <Separator className="my-8" />
@@ -122,6 +146,8 @@ export default async function ModulePage({
           ))}
         </div>
       </div>
-    </Container>
+
+      <Separator className="my-8" />
+    </div>
   );
 }

@@ -3,13 +3,8 @@ import path from "path";
 import matter from "gray-matter";
 import { ReactNode } from "react";
 
-export type LessonMetadata = {
-  title: string;
-  duration: string;
-  order: number;
-};
-
 export type Module = {
+  order: ReactNode;
   metadata: any;
   code: ReactNode;
   slug: string;
@@ -28,6 +23,12 @@ export type CourseMetadata = {
   duration: string;
   level: string;
   prerequisites?: string[];
+  objectives: string[];
+  instructor: {
+    name: string;
+    bio: string;
+  };
+  tags: string[];
 };
 
 export type ModuleMetadata = {
@@ -35,6 +36,14 @@ export type ModuleMetadata = {
   description: string;
   duration: string;
   order: number;
+  objectives: string[];
+};
+
+export type LessonMetadata = {
+  title: string;
+  duration: string;
+  order: number;
+  objectives: string[];
 };
 
 export type LessonInfo = {
@@ -47,18 +56,11 @@ export type LessonInfo = {
 export async function getCourseMetadata(
   course: string,
 ): Promise<CourseMetadata> {
-  const coursePath = path.join(
-    process.cwd(),
-    "app/_courses-markdown",
-    course,
-    "metadata.mdx",
+  const { metadata } = await import(
+    `@/app/_courses-markdown/${course}/metadata.mdx`
   );
-  const courseContent = fs.readFileSync(coursePath, "utf8");
-  const { data } = matter(courseContent);
-
-  return data as CourseMetadata;
+  return metadata as CourseMetadata;
 }
-
 export async function getCourseModules(course: string): Promise<Module[]> {
   const coursePath = path.join(
     process.cwd(),
@@ -66,79 +68,67 @@ export async function getCourseModules(course: string): Promise<Module[]> {
     course,
     "modules",
   );
-  const moduleDirs = fs.readdirSync(coursePath).filter((dir) => {
-    const metadataPath = path.join(coursePath, dir, "metadata.mdx");
-    return fs.existsSync(metadataPath);
-  });
+  const moduleDirs = await fs.promises.readdir(coursePath);
 
   const modules = await Promise.all(
     moduleDirs.map(async (module) => {
-      const metadataPath = path.join(coursePath, module, "metadata.mdx");
-      const metadataContent = fs.readFileSync(metadataPath, "utf8");
-      const { data } = matter(metadataContent);
-
+      const { metadata } = await import(
+        `@/app/_courses-markdown/${course}/modules/${module}/metadata.mdx`
+      );
       const lessonsPath = path.join(coursePath, module, "lessons");
-      const lessons = fs
-        .readdirSync(lessonsPath)
-        .filter((file) => file.endsWith(".mdx"))
-        .map((file) => {
-          const lessonContent = fs.readFileSync(
-            path.join(lessonsPath, file),
-            "utf8",
-          );
-          const { data } = matter(lessonContent);
-          return {
-            ...(data as { title: string; order: number }),
-            slug: file.replace(".mdx", ""),
-            code: `L${data.order.toString().padStart(2, "0")}`,
-          };
-        })
-        .sort((a, b) => a.order - b.order);
+      const lessonFiles = await fs.promises.readdir(lessonsPath);
+
+      const lessons = await Promise.all(
+        lessonFiles
+          .filter((file) => file.endsWith(".mdx"))
+          .map(async (file) => {
+            const { metadata } = await import(
+              `@/app/_courses-markdown/${course}/modules/${module}/lessons/${file}`
+            );
+            return {
+              ...metadata,
+              slug: file.replace(".mdx", ""),
+              code: `L${metadata.order.toString().padStart(2, "0")}`,
+            };
+          }),
+      );
 
       return {
         slug: module,
-        title: data.title,
-        metadata: data,
-        lessons,
-        code: `M${data.order}`, // Use the module's order from metadata
-        order: data.order, // Add order property for sorting
+        title: metadata.title,
+        metadata,
+        lessons: lessons.sort((a, b) => a.order - b.order),
+        code: `M${metadata.order}`,
+        order: metadata.order,
       };
     }),
   );
 
   return modules.sort((a, b) => a.order - b.order);
 }
-
 export async function getCourses() {
   const COURSES_PATH = path.join(process.cwd(), "app/_courses-markdown");
-  const courses = fs.readdirSync(COURSES_PATH);
+  const courses = await fs.promises.readdir(COURSES_PATH);
 
-  const coursesData = courses.map((course) => {
-    const coursePath = path.join(COURSES_PATH, course, "metadata.mdx");
-    const courseContent = fs.readFileSync(coursePath, "utf8");
-    const { data } = matter(courseContent);
-
-    return {
-      slug: course,
-      ...(data as CourseMetadata),
-    };
-  });
+  const coursesData = await Promise.all(
+    courses.map(async (course) => {
+      const { metadata } = await import(
+        `@/app/_courses-markdown/${course}/metadata.mdx`
+      );
+      return {
+        slug: course,
+        ...metadata,
+      };
+    }),
+  );
 
   return coursesData;
 }
 
 export async function getModuleContent(course: string, module: string) {
-  const modulePath = path.join(
-    process.cwd(),
-    "app/_courses-markdown",
-    course,
-    "modules",
-    module,
-    "metadata.mdx",
+  const { metadata, default: content } = await import(
+    `@/app/_courses-markdown/${course}/modules/${module}/metadata.mdx`
   );
-
-  const moduleContent = fs.readFileSync(modulePath, "utf8");
-  const { data, content } = matter(moduleContent);
 
   const lessonsPath = path.join(
     process.cwd(),
@@ -148,49 +138,40 @@ export async function getModuleContent(course: string, module: string) {
     module,
     "lessons",
   );
+  const lessonFiles = await fs.promises.readdir(lessonsPath);
 
-  const lessons = fs
-    .readdirSync(lessonsPath)
-    .filter((file) => file.endsWith(".mdx"))
-    .map((file) => {
-      const lessonContent = fs.readFileSync(
-        path.join(lessonsPath, file),
-        "utf8",
-      );
-      const { data } = matter(lessonContent);
-      return {
-        ...(data as LessonInfo),
-        slug: file.replace(".mdx", ""),
-      };
-    })
-    .sort((a, b) => a.order - b.order);
+  const lessons = await Promise.all(
+    lessonFiles
+      .filter((file) => file.endsWith(".mdx"))
+      .map(async (file) => {
+        const { metadata } = await import(
+          `@/app/_courses-markdown/${course}/modules/${module}/lessons/${file}`
+        );
+        return {
+          ...metadata,
+          slug: file.replace(".mdx", ""),
+        };
+      }),
+  );
 
   return {
-    metadata: data as ModuleMetadata,
+    metadata: metadata as ModuleMetadata,
     content,
-    lessons,
+    lessons: lessons.sort((a, b) => a.order - b.order),
   };
 }
+
 export async function getLessonContent(
   course: string,
   module: string,
   lesson: string,
 ) {
-  const lessonPath = path.join(
-    process.cwd(),
-    "app/_courses-markdown",
-    course,
-    "modules",
-    module,
-    "lessons",
-    `${lesson}.mdx`,
+  const { metadata, default: content } = await import(
+    `@/app/_courses-markdown/${course}/modules/${module}/lessons/${lesson}.mdx`
   );
 
-  const lessonContent = fs.readFileSync(lessonPath, "utf8");
-  const { data, content } = matter(lessonContent);
-
   return {
-    metadata: data as LessonMetadata,
+    metadata: metadata as LessonMetadata,
     content,
   };
 }

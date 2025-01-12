@@ -9,9 +9,29 @@ import {
   CardTitle,
   CardDescription,
 } from "@/components/ui/card";
-import { getCourses } from "@/utils/course-utils";
 import Navbar from "@/components/global/navbar";
 import Container from "@/components/ui/container";
+import { promises as fs } from "fs";
+import path from "path";
+
+async function getCourses() {
+  const coursesDirectory = path.join(process.cwd(), "app/_courses-markdown");
+  const courseDirectories = await fs.readdir(coursesDirectory);
+
+  const courses = await Promise.all(
+    courseDirectories.map(async (courseDir) => {
+      const { metadata } = await import(
+        `@/app/_courses-markdown/${courseDir}/metadata.mdx`
+      );
+      return {
+        ...metadata,
+        slug: courseDir,
+      };
+    }),
+  );
+
+  return courses;
+}
 
 export default async function CoursesPage() {
   const courses = await getCourses();
@@ -51,11 +71,13 @@ export default async function CoursesPage() {
                         Prerequisites
                       </p>
                       <div className="flex flex-wrap gap-2">
-                        {course.prerequisites.map((prereq) => (
-                          <Badge key={prereq} variant="secondary">
-                            {prereq}
-                          </Badge>
-                        ))}
+                        {course.prerequisites.map(
+                          (prereq: string[], index: string) => (
+                            <Badge key={index} variant="secondary">
+                              {prereq}
+                            </Badge>
+                          ),
+                        )}
                       </div>
                     </div>
                   )}

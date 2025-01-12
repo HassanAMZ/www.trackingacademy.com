@@ -51,11 +51,11 @@ export async function CourseSidebar({ course }: CourseSidebarProps) {
                 <CollapsibleTrigger>
                   <div className="flex w-full items-center justify-between rounded-md px-4 py-2 transition-colors hover:bg-accent">
                     <div className="flex items-center gap-2">
-                      <BookOpen className="h-4 w-4" />
-                      {/* <span className="font-mono text-xs text-muted-foreground">
+                      {/* <BookOpen className="h-4 w-4" /> */}
+                      <span className="font-mono text-xs text-muted-foreground">
                         M{(moduleIndex + 1).toString().padStart(2, "0")}
-                      </span> */}
-                      <span className="font-medium group-data-[collapsible=icon]:hidden">
+                      </span>
+                      <span className="line-clamp-1 text-left font-medium group-data-[collapsible=icon]:hidden">
                         {module.title}
                       </span>
                     </div>
@@ -76,7 +76,7 @@ export async function CourseSidebar({ course }: CourseSidebarProps) {
                           <span className="font-mono text-xs text-muted-foreground">
                             L{lesson.order.toString().padStart(2, "0")}
                           </span>
-                          <span className="flex-1 truncate group-data-[collapsible=icon]:hidden">
+                          <span className="flex-1 truncate font-medium group-data-[collapsible=icon]:hidden">
                             {lesson.title}
                           </span>
                         </Link>

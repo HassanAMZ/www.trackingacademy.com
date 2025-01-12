@@ -1,28 +1,69 @@
 import {
-  Breadcrumb,
-  BreadcrumbList,
-  BreadcrumbItem,
-  BreadcrumbLink,
-  BreadcrumbSeparator,
-  BreadcrumbPage,
-} from "@/components/ui/breadcrumb";
+  getAdjacentLessons,
+  getCourseModules,
+  getCourses,
+  getModuleContent,
+} from "@/utils/course-utils";
 import { Button } from "@/components/ui/button";
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
 import Container from "@/components/ui/container";
 import { SidebarTrigger } from "@/components/ui/sidebar";
-import { getAdjacentLessons, getLessonContent } from "@/utils/course-utils";
 import { Badge, Clock, ArrowLeft, ArrowRight } from "lucide-react";
-import { MDXRemote } from "next-mdx-remote/rsc";
 import { Link } from "next-view-transitions";
+import {
+  Breadcrumb,
+  BreadcrumbItem,
+  BreadcrumbLink,
+  BreadcrumbList,
+  BreadcrumbPage,
+  BreadcrumbSeparator,
+} from "@/components/ui/breadcrumb";
+import { Metadata } from "next";
 
-// LessonPage.tsx
+export async function generateStaticParams() {
+  const courses = await getCourses();
+  const params = await Promise.all(
+    courses.map(async (course) => {
+      const modules = await getCourseModules(course.slug);
+      const moduleParams = await Promise.all(
+        modules.map(async (module) => {
+          const { lessons } = await getModuleContent(course.slug, module.slug);
+          return lessons.map((lesson) => ({
+            course: course.slug,
+            module: module.slug,
+            lesson: lesson.slug,
+          }));
+        }),
+      );
+      return moduleParams.flat();
+    }),
+  );
+  return params.flat();
+}
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ course: string; module: string; lesson: string }>;
+}): Promise<Metadata> {
+  const { metadata } = await import(
+    `@/app/_courses-markdown/${(await params).course}/modules/${(await params).module}/lessons/${(await params).lesson}.mdx`
+  );
+  return {
+    title: `${metadata.title} - TrackingAcademy`,
+    description: metadata.description,
+  };
+}
+
 export default async function LessonPage({
   params,
 }: {
   params: Promise<{ course: string; module: string; lesson: string }>;
 }) {
   const { course, module, lesson } = await params;
-  const { metadata, content } = await getLessonContent(course, module, lesson);
+  const { default: LessonContent, metadata } = await import(
+    `@/app/_courses-markdown/${course}/modules/${module}/lessons/${lesson}.mdx`
+  );
   const { previousLesson, nextLesson } = await getAdjacentLessons(
     course,
     module,
@@ -30,7 +71,7 @@ export default async function LessonPage({
   );
 
   return (
-    <Container className="mx-0 max-w-4xl space-y-6">
+    <div className="space-y-6">
       <div className="flex items-center gap-4">
         <SidebarTrigger />
         <Breadcrumb>
@@ -75,12 +116,12 @@ export default async function LessonPage({
         </CardHeader>
         <CardContent>
           <div className="prose dark:prose-invert max-w-none">
-            <MDXRemote source={content} />
+            <LessonContent />
           </div>
         </CardContent>
       </Card>
 
-      <div className="flex items-center justify-between gap-4 pt-4">
+      <div className="flex items-center justify-between gap-4 py-4">
         {previousLesson ? (
           <Button
             variant="outline"
@@ -92,9 +133,8 @@ export default async function LessonPage({
               className="flex items-center gap-2"
             >
               <ArrowLeft className="h-4 w-4" />
-              <div className="flex flex-col items-start">
-                <span className="text-xs text-muted-foreground">Previous</span>
-                <span className="line-clamp-1">{previousLesson.title}</span>
+              <div className="flex items-center gap-1">
+                {previousLesson.title} (Previous)
               </div>
             </Link>
           </Button>
@@ -107,15 +147,14 @@ export default async function LessonPage({
               href={`/courses/${course}/${module}/${nextLesson.slug}`}
               className="flex items-center gap-2"
             >
-              <div className="flex flex-col items-end">
-                <span className="text-xs text-muted-foreground">Next</span>
-                <span className="line-clamp-1">{nextLesson.title}</span>
+              <div className="flex items-center gap-1">
+                (next) {nextLesson.title}
               </div>
               <ArrowRight className="h-4 w-4" />
             </Link>
           </Button>
         )}
       </div>
-    </Container>
+    </div>
   );
 }
