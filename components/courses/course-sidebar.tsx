@@ -26,13 +26,13 @@ export async function CourseSidebar({ course }: CourseSidebarProps) {
   const modules = await getCourseModules(course);
 
   return (
-    <Sidebar collapsible="icon">
+    <Sidebar collapsible="icon" variant="floating">
       <SidebarHeader className="p-4">
         <Collapsible defaultOpen>
           <CollapsibleTrigger className="flex w-full items-center justify-between">
             <div className="flex items-center gap-2">
               <GraduationCap className="h-6 w-6" />
-              <span className="text-lg font-semibold group-data-[collapsible=icon]:hidden">
+              <span className="line-clamp-1 text-left text-lg font-semibold group-data-[collapsible=icon]:hidden">
                 {course}
               </span>
             </div>
