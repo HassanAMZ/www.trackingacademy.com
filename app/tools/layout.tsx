@@ -2,15 +2,6 @@ import React, { ReactNode } from "react";
 import { promises as fs } from "fs";
 import path from "path";
 import {
-  BarChart,
-  BookMarked,
-  Clock,
-  LinkIcon,
-  Settings,
-  Zap,
-  Wrench,
-} from "lucide-react";
-import {
   Sidebar,
   SidebarContent,
   SidebarGroup,
@@ -26,7 +17,6 @@ import {
 import { Link } from "next-view-transitions";
 import Navbar from "@/components/global/navbar";
 import Container from "@/components/ui/container";
-import ContactUs from "@/components/blog/contact-us";
 import {
   Collapsible,
   CollapsibleContent,
@@ -40,17 +30,13 @@ import {
   BreadcrumbSeparator,
   BreadcrumbPage,
 } from "@/components/ui/breadcrumb";
+import { iconMap, IconType } from "@/utils/tools";
+import { Wrench } from "lucide-react";
+import ToolBreadcrumbs from "@/components/tools/layout-breadcrumbs";
 
 export const metadata = {
   title: "Tools - TrackingAcademy",
   description: "Tools built for Analysts to make life easier.",
-};
-
-const iconMap: { [key: string]: React.ElementType } = {
-  "utm-builder": LinkIcon,
-  "utm-validator": BookMarked,
-  "time-management": Clock,
-  // Add more mappings as needed
 };
 
 async function getTools() {
@@ -65,30 +51,10 @@ async function getTools() {
         .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
         .join(" "),
       slug: dirent.name,
-      icon: iconMap[dirent.name] || Settings,
+      icon: iconMap[dirent.name] || Wrench, // Default to Wrench if no icon found
     }));
 
   return tools;
-}
-
-function ToolBreadcrumbs({ toolName }: { toolName?: string }) {
-  return (
-    <Breadcrumb>
-      <BreadcrumbList>
-        <BreadcrumbItem>
-          <BreadcrumbLink href="/tools">Tools</BreadcrumbLink>
-        </BreadcrumbItem>
-        {toolName && (
-          <>
-            <BreadcrumbSeparator />
-            <BreadcrumbItem>
-              <BreadcrumbPage>{toolName}</BreadcrumbPage>
-            </BreadcrumbItem>
-          </>
-        )}
-      </BreadcrumbList>
-    </Breadcrumb>
-  );
 }
 
 export default async function Layout({ children }: { children: ReactNode }) {

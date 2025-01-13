@@ -9,25 +9,16 @@ import {
 import Container from "@/components/ui/container";
 import Text from "@/components/ui/text";
 import { Link } from "next-view-transitions";
-import { BookMarked, Clock, LinkIcon, Settings } from "lucide-react";
+import {
+  BookMarked,
+  BriefcaseBusiness,
+  Clock,
+  LinkIcon,
+  Settings,
+} from "lucide-react";
 import { promises as fs } from "fs";
 import path from "path";
-
-// Tool descriptions mapping
-const toolDescriptions: { [key: string]: string } = {
-  "utm-builder":
-    "Build UTM parameters for Google Ads, Facebook Ads, TikTok, or custom campaigns all in one place",
-  "utm-validator":
-    "Validate and analyze your UTM parameters to ensure proper tracking setup",
-  "time-managment": "Track and manage time across different projects and tasks",
-};
-
-// Icon mapping (moved from layout)
-const iconMap: { [key: string]: React.ElementType } = {
-  "utm-builder": LinkIcon,
-  "utm-validator": BookMarked,
-  "time-managment": Clock,
-};
+import { toolDescriptions, iconMap } from "@/utils/tools";
 
 async function getTools() {
   const toolsDirectory = path.join(process.cwd(), "app/tools");
