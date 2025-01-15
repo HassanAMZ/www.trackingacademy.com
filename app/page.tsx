@@ -2,27 +2,20 @@ import React from "react";
 import Navbar from "@/components/global/navbar";
 import Hero from "@/components/landing-page/hero";
 import ProblemAwareness from "@/components/landing-page/problem-awareness";
-import DreamOutcome from "@/components/landing-page/dream-outcome";
 import OfferDetails from "@/components/landing-page/offer-detail-item";
 import ScarcityUrgency from "@/components/landing-page/scarcity-urgency";
 import SocialProof from "@/components/landing-page/social-proof";
-import Bonuses from "@/components/landing-page/bonuses";
 import ObjectionHandling from "@/components/landing-page/objection-handling";
 import DetailedCTA from "@/components/landing-page/detailed-cta";
 import TestimonialsCarousel from "@/components/offers/offer-002/testimonial-carousal";
 import {
-  Activity,
   ArrowUpRight,
   BarChart2,
-  BookOpen,
   Clock,
-  FileText,
   HeadphonesIcon,
-  Lightbulb,
   Target,
   TrendingUp,
   Zap,
-  Shield,
   CheckSquare,
 } from "lucide-react";
 import WhyChooseSection from "@/components/home/why-choose-us";
