@@ -40,7 +40,7 @@ export default function Hero() {
             <div className="relative h-8 w-8">
               <Avatar className="z-1 absolute left-0 top-0">
                 <AvatarImage
-                  src="/images/clients/malik-osama.jfif"
+                  src="/images/clients/malik-osama.png"
                   alt="@malik-osama"
                 />
                 <AvatarFallback>MO</AvatarFallback>
@@ -48,7 +48,7 @@ export default function Hero() {
 
               <Avatar className="z-2 absolute left-4 top-0">
                 <AvatarImage
-                  src="/images/clients/philipp-herglotz.jfif"
+                  src="/images/clients/philipp-herglotz.png"
                   alt="@philipp-herglotz"
                 />
                 <AvatarFallback>PH</AvatarFallback>
@@ -56,7 +56,7 @@ export default function Hero() {
 
               <Avatar className="z-3 absolute left-8 top-0">
                 <AvatarImage
-                  src="/images/clients/imtiaz-ahmad.jfif"
+                  src="/images/clients/imtiaz-ahmad.png"
                   alt="@imtiaz-ahmad"
                 />
                 <AvatarFallback>IA</AvatarFallback>

@@ -10,17 +10,17 @@ const testimonials = [
   {
     text: "“I learned more in a week than I did in years of trial and error.”",
     author: "Greg Fisher, CMO at Atlantic Studio",
-    image: "/images/clients/malik-osama.jfif",
+    image: "/images/clients/malik-osama.png",
   },
   {
     text: "“This program transformed our marketing approach completely.”",
     author: "Sarah Lee, Marketing Director",
-    image: "/images/clients/philipp-herglotz.jfif",
+    image: "/images/clients/philipp-herglotz.png",
   },
   {
     text: "“Outstanding insights and practical tools for any business.”",
     author: "Michael Brown, CEO at Innovatech",
-    image: "/images/clients/imtiaz-ahmad.jfif",
+    image: "/images/clients/imtiaz-ahmad.png",
   },
   {
     text: "“A must-have training for anyone serious about analytics.”",
@@ -30,12 +30,12 @@ const testimonials = [
   {
     text: "“Incredible value and top-notch support from the team.”",
     author: "James Wilson, Product Manager",
-    image: "/images/clients/jamie-norsa.jfif",
+    image: "/images/clients/jamie-norsa.png",
   },
   {
     text: "“Our conversion rates have doubled since the training.”",
     author: "Laura Johnson, E-commerce Specialist",
-    image: "/images/clients/david-bodnar.jfif",
+    image: "/images/clients/david-bodnar.png",
   },
 ];
 

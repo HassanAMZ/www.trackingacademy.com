@@ -65,7 +65,11 @@ const TestimonialsCarousel: React.FC<TestimonialsCarouselProps> = ({
             />
           ))}
         </div>
-        <Text as="p" variant="bodyMd" className="font-semibold italic">
+        <Text
+          as="p"
+          variant="bodyMd"
+          className="line-clamp-2 font-semibold italic"
+        >
           "{currentTestimonial.testimonialText}"
         </Text>
         <div className="flex items-center gap-2 pt-4">
@@ -75,8 +79,6 @@ const TestimonialsCarousel: React.FC<TestimonialsCarouselProps> = ({
             width={1920}
             height={1080}
             className="h-8 w-8 rounded-full"
-            placeholder="blur"
-            blurDataURL="/placeholder-image.png" // Optional placeholder image
           />
           <div className="text-left text-xs">
             <Text as="p" variant="bodySm">

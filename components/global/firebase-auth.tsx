@@ -252,21 +252,21 @@ export const FirebaseAuth = () => {
               <div className="flex">
                 <Avatar className="h-10 w-10">
                   <AvatarImage
-                    src="/images/clients/malik-osama.jfif"
+                    src="/images/clients/malik-osama.png"
                     alt="@malik-osama"
                   />
                   <AvatarFallback>MO</AvatarFallback>
                 </Avatar>
                 <Avatar className="h-10 w-10">
                   <AvatarImage
-                    src="/images/clients/philipp-herglotz.jfif"
+                    src="/images/clients/philipp-herglotz.png"
                     alt="@philipp-herglotz"
                   />
                   <AvatarFallback>PH</AvatarFallback>
                 </Avatar>
                 <Avatar className="h-10 w-10">
                   <AvatarImage
-                    src="/images/clients/imtiaz-ahmad.jfif"
+                    src="/images/clients/imtiaz-ahmad.png"
                     alt="@imtiaz-ahmad"
                   />
                   <AvatarFallback>IA</AvatarFallback>
