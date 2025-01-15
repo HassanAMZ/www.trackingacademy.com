@@ -18,7 +18,7 @@ const ProblemAwareness: React.FC<ProblemAwarenessProps> = ({
   paragraphText,
   redPillPoints,
   bluePillPoints,
-  imageUrl = "/placeholder.svg?height=400&width=300",
+  imageUrl = "/images/social-sharing.png?height=400&width=300",
 }) => {
   return (
     <section className="bg-gradient-to-b from-primary/5 to-background py-16">
@@ -56,7 +56,7 @@ const ProblemAwareness: React.FC<ProblemAwarenessProps> = ({
 
           <div className="flex w-full items-center justify-center">
             <Image
-              src={imageUrl || "/placeholder.svg"}
+              src={imageUrl || "/images/social-sharing.png"}
               alt="Keanu Reeves with red and blue pills"
               width={1080}
               height={1080}

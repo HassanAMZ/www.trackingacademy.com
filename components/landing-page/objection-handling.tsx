@@ -36,7 +36,7 @@ const ObjectionHandling: React.FC<ObjectionHandlingProps> = ({
                 <CardContent className="flex flex-col items-center gap-8 px-8 py-12 md:flex-row">
                   <div className="flex justify-center md:w-1/3">
                     <Image
-                      src={guarantee.image || "/placeholder.svg"}
+                      src={guarantee.image || "/images/social-sharing.png"}
                       alt="Keanu Reeves with red and blue pills"
                       width={1080}
                       height={1080}

@@ -97,7 +97,10 @@ const DreamOutcome: React.FC<DreamOutcomeProps> = ({
               {/* Right side: Image */}
 
               <Image
-                src={dreamOutcomeList[openIndex]?.image || "/placeholder.svg"}
+                src={
+                  dreamOutcomeList[openIndex]?.image ||
+                  "/images/social-sharing.png"
+                }
                 alt={dreamOutcomeList[openIndex]?.text || "Dream outcome"}
                 width={1080}
                 height={1080}

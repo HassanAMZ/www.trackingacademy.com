@@ -30,7 +30,7 @@ const TestimonialsCarousel: React.FC<TestimonialsCarouselProps> = ({
           clientName,
           clientTitle,
           businessName,
-          imageLink: images[0]?.url || "/images/social-media-sharing.png", // Handle missing images
+          imageLink: images[0]?.url || "/images/social-sharing.png", // Handle missing images
           roas: `${roas.value}${roas.symbol} ROAS`,
           conversions: `${conversions.value}${conversions.symbol} Conversions`,
         };
