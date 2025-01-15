@@ -25,7 +25,7 @@ const ScarcityUrgency: React.FC<ScarcityUrgencyProps> = ({
   iconSize = 12, // Default icon size
 }) => {
   return (
-    <Container className="flex min-h-screen items-center justify-center">
+    <Container className="flex items-center justify-center">
       <section className="flex w-full flex-col items-center justify-center space-y-8 rounded-lg bg-primary px-8 py-24 text-center text-primary-foreground">
         {/* Title Section */}
         {title && (
@@ -42,7 +42,7 @@ const ScarcityUrgency: React.FC<ScarcityUrgencyProps> = ({
         )}
 
         {/* Spots and Days Remaining */}
-        {(spotsLeft || daysRemaining) && (
+        {/* {(spotsLeft || daysRemaining) && (
           <div className="flex justify-center gap-12">
             {spotsLeft !== undefined && (
               <div className="flex flex-col items-center">
@@ -64,19 +64,16 @@ const ScarcityUrgency: React.FC<ScarcityUrgencyProps> = ({
               </div>
             )}
           </div>
-        )}
+        )} */}
 
         {/* Button Section */}
         {buttonText && (
           <Button
             size="lg"
             asChild
-            className="bg-background text-primary hover:bg-background/90"
+            className="whitespace-pre-wrap bg-background p-8 text-lg text-primary hover:bg-background/90"
           >
-            <Link href={buttonLink}>
-              {buttonText}
-              <ArrowRight className="ml-2 h-4 w-4" />
-            </Link>
+            <Link href={buttonLink}>{buttonText}</Link>
           </Button>
         )}
       </section>

@@ -55,7 +55,11 @@ const DetailedCTA: React.FC<DetailedCTAProps> = ({
 
         {/* Button */}
         {buttonText && buttonLink && (
-          <Button size="lg" asChild className="mb-4">
+          <Button
+            size="lg"
+            asChild
+            className="whitespace-pre-wrap p-8 text-lg hover:bg-primary/90"
+          >
             <Link href={buttonLink}>
               {buttonText}
               <ArrowRight className="ml-2 h-4 w-4" />
@@ -65,7 +69,7 @@ const DetailedCTA: React.FC<DetailedCTAProps> = ({
 
         {/* Footer Text */}
         {footerText && (
-          <Text as="p" className="text-muted-foreground">
+          <Text as="p" className="py-4 text-muted-foreground">
             {footerText}
           </Text>
         )}

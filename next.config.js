@@ -19,23 +19,22 @@ const nextConfig = {
     webpackBuildWorker: true,
   },
   images: {
-    domains: ["googleusercontent.com", "lh3.googleusercontent.com"], // Include the correct Google domain
     remotePatterns: [
       {
         protocol: "https",
-        hostname: "i.ytimg.com",
+        hostname: "*.ytimg.com",
         port: "",
-        pathname: "/vi/**",
-      },
-      {
-        protocol: "https",
-        hostname: "ytimg.com",
-        port: "",
-        pathname: "/vi/**",
+        pathname: "**",
       },
       {
         protocol: "https",
         hostname: "*.googleusercontent.com",
+        port: "",
+        pathname: "**",
+      },
+      {
+        protocol: "https",
+        hostname: "*.vercel-storage.com",
         port: "",
         pathname: "**",
       },

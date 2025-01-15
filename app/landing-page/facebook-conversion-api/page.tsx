@@ -85,10 +85,10 @@ export default function CAPIPage() {
 
       <ProblemAwareness {...MetaConversionConfig.problemAwareness} />
 
-      <DreamOutcome
+      {/* <DreamOutcome
         {...MetaConversionConfig.dreamOutcome}
         dreamOutcomeList={dreamOutcomeListWithIcons}
-      />
+      /> */}
 
       <OfferDetails
         {...MetaConversionConfig.offerDetails}
@@ -103,11 +103,11 @@ export default function CAPIPage() {
       />
 
       <Bonuses {...MetaConversionConfig.bonuses} bonuses={bonusesWithIcons} />
-
+      {/* 
       <ObjectionHandling
         {...MetaConversionConfig.objectionHandling}
         guarantees={guaranteesWithIcons}
-      />
+      /> */}
 
       <DetailedCTA {...MetaConversionConfig.detailedCTA} />
     </main>

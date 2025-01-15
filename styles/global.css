@@ -5,74 +5,106 @@
 @layer base {
   :root {
     --background: 0 0% 100%;
-    --foreground: 0 0% 0%;
-    --muted: 0 12% 90%;
-    --muted-foreground: 0 12% 30%;
-    --popover: 0 0% 97%;
-    --popover-foreground: 0 0% 0%;
-    --card: 0 0% 98%;
-    --card-foreground: 0 0% 0%;
-    --border: 0 0% 95%;
-    --input: 0 0% 92%;
-    --primary: 116 99% 61%;
-    --primary-foreground: 116 99% 1%;
-    --secondary: 116 12% 82%;
-    --secondary-foreground: 116 12% 22%;
-    --accent: 116 12% 82%;
-    --accent-foreground: 116 12% 22%;
-    --destructive: 17 97% 28%;
-    --destructive-foreground: 17 97% 88%;
+    --foreground: 240 10% 3.9%;
 
-    --ring: 0 0% 17%;
-    --chart-1: 0 0% 17%;
-    --chart-2: 0 0% 75%;
-    --chart-3: 0 0% 85%;
-    --chart-4: 0 0% 78%;
-    --chart-5: 0 3% 17%;
+    --card: 0 0% 100%;
+    --card-foreground: 240 10% 3.9%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 10% 3.9%;
+
+    /* Teal primary color from the design */
+    --primary: 168 100% 33%;
+    --primary-foreground: 0 0% 100%;
+
+    /* Soft mint secondary */
+    --secondary: 168 56% 96%;
+    --secondary-foreground: 168 100% 33%;
+
+    --muted: 240 4.8% 95.9%;
+    --muted-foreground: 240 3.8% 46.1%;
+
+    /* Mint accent for highlights */
+    --accent: 168 56% 96%;
+    --accent-foreground: 168 100% 33%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+
+    /* Subtle borders */
+    --border: 240 5.9% 90%;
+    --input: 240 5.9% 90%;
+    --ring: 168 100% 33%;
+
     --radius: 0.5rem;
-    --sidebar-background: 0 0% 98%;
-    --sidebar-foreground: 240 5.3% 26.1%;
-    --sidebar-primary: 240 5.9% 10%;
-    --sidebar-primary-foreground: 0 0% 98%;
-    --sidebar-accent: 240 4.8% 95.9%;
-    --sidebar-accent-foreground: 240 5.9% 10%;
-    --sidebar-border: 220 13% 91%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+
+    /* Chart colors matching the design's data visualization */
+    --chart-1: 168 100% 33%;
+    --chart-2: 168 56% 46%;
+    --chart-3: 187 65% 44%;
+    --chart-4: 149 56% 46%;
+    --chart-5: 168 35% 55%;
+
+    /* Sidebar colors */
+    --sidebar-background: 0 0% 100%;
+    --sidebar-foreground: 240 10% 3.9%;
+    --sidebar-primary: 168 100% 33%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 168 56% 96%;
+    --sidebar-accent-foreground: 168 100% 33%;
+    --sidebar-border: 240 5.9% 90%;
+    --sidebar-ring: 168 100% 33%;
   }
 
   .dark {
-    --background: 0 0% 12%;
-    --foreground: 0 0% 85%;
-    --muted: 0 12% 16%;
-    --muted-foreground: 0 12% 66%;
-    --popover: 0 0% 9%;
-    --popover-foreground: 0 0% 95%;
-    --card: 0 0% 10%;
-    --card-foreground: 0 0% 90%;
-    --border: 0 0% 17%;
-    --input: 0 0% 20%;
-    --primary: 116 99% 61%;
-    --primary-foreground: 116 99% 1%;
-    --secondary: 116 18% 11%;
-    --secondary-foreground: 116 18% 71%;
-    --accent: 116 18% 11%;
-    --accent-foreground: 116 18% 71%;
-    --destructive: 17 97% 50%;
-    --destructive-foreground: 0 0% 100%;
-    --ring: 0 0% 100%;
-    --chart-1: 0 0% 100%;
-    --chart-2: 0 0% 25%;
-    --chart-3: 0 0% 27%;
-    --chart-4: 0 0% 28%;
-    --chart-5: 0 3% 100%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
+    --background: 240 10% 3.9%;
+    --foreground: 0 0% 98%;
+
+    --card: 240 10% 3.9%;
+    --card-foreground: 0 0% 98%;
+
+    --popover: 240 10% 3.9%;
+    --popover-foreground: 0 0% 98%;
+
+    /* Brighter teal for dark mode */
+    --primary: 168 100% 40%;
+    --primary-foreground: 0 0% 100%;
+
+    /* Darker mint for dark mode */
+    --secondary: 168 30% 15%;
+    --secondary-foreground: 168 100% 40%;
+
+    --muted: 240 3.7% 15.9%;
+    --muted-foreground: 240 5% 64.9%;
+
+    /* Darker mint accent for dark mode */
+    --accent: 168 30% 15%;
+    --accent-foreground: 168 100% 40%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+
+    /* Darker borders for dark mode */
+    --border: 240 3.7% 15.9%;
+    --input: 240 3.7% 15.9%;
+    --ring: 168 100% 40%;
+
+    /* Dark mode chart colors with better contrast */
+    --chart-1: 168 100% 40%;
+    --chart-2: 168 70% 50%;
+    --chart-3: 187 75% 48%;
+    --chart-4: 149 70% 50%;
+    --chart-5: 168 55% 60%;
+
+    /* Dark mode sidebar colors */
+    --sidebar-background: 240 10% 3.9%;
+    --sidebar-foreground: 0 0% 98%;
+    --sidebar-primary: 168 100% 40%;
     --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-accent: 168 30% 15%;
+    --sidebar-accent-foreground: 168 100% 40%;
     --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --sidebar-ring: 168 100% 40%;
   }
 }
 

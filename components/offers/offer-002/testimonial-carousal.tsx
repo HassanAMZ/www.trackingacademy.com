@@ -54,10 +54,7 @@ const TestimonialsCarousel: React.FC<TestimonialsCarouselProps> = ({
 
   return (
     <Card
-      className={clsx(
-        "relative bg-background/80 shadow-lg backdrop-blur-sm",
-        className,
-      )}
+      className={clsx("relative bg-background/80 backdrop-blur-sm", className)}
     >
       <CardContent className="space-y-1 px-6 py-4">
         <div className="absolute -top-2 right-4 flex space-x-1">

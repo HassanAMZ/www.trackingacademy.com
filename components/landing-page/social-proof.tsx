@@ -56,39 +56,33 @@ const SocialProof: React.FC<SocialProofProps> = ({
           </Text>
         )}
 
-        {/* Testimonials */}
         {testimonials && testimonials.length > 0 && (
-          <div className="grid gap-8 md:grid-cols-3">
+          <div className="columns-1 gap-6 space-y-8 [column-fill:_balance] md:columns-2 lg:columns-3">
             {testimonials.map((testimonial, index) => (
-              <Card key={index} className="bg-background/50 backdrop-blur-sm">
-                <CardContent className="p-6">
-                  <Quote className="mb-4 h-8 w-8 text-primary" />
-                  <Text className="mb-4 italic">{testimonial.quote}</Text>
-                  <div className="flex items-center">
-                    <Image
-                      src={testimonial.image}
-                      alt={testimonial.author}
-                      width={48}
-                      height={48}
-                      className="mr-4 rounded-full"
-                    />
-                    <div>
-                      <Text className="font-semibold">
-                        {testimonial.author}
-                      </Text>
-                      <Text className="text-sm text-muted-foreground">
-                        {testimonial.role}
-                      </Text>
+              <div key={index} className="break-inside-avoid">
+                <Card className="h-fit bg-background/50 backdrop-blur-sm">
+                  <CardContent className="p-6">
+                    <Quote className="mb-4 h-8 w-8 text-primary" />
+                    <p className="mb-4 italic">{testimonial.quote}</p>
+                    <div className="flex items-center">
+                      <div className="mr-4 flex h-10 w-10 items-center justify-center rounded-full bg-primary text-white">
+                        {testimonial.author[0].toUpperCase()}
+                      </div>
+                      <div>
+                        <p className="font-semibold">{testimonial.author}</p>
+                        <p className="text-sm text-muted-foreground">
+                          {testimonial.role}
+                        </p>
+                      </div>
                     </div>
-                  </div>
-                </CardContent>
-              </Card>
+                  </CardContent>
+                </Card>
+              </div>
             ))}
           </div>
         )}
-
         {/* Results Stats */}
-        {resultsTitle && stats && stats.length > 0 && (
+        {/* {resultsTitle && stats && stats.length > 0 && (
           <div className="mt-16 rounded-lg bg-primary/5 p-8">
             <Text as="h3" variant="headingXl" className="mb-6 text-center">
               {resultsTitle}
@@ -107,10 +101,10 @@ const SocialProof: React.FC<SocialProofProps> = ({
               ))}
             </div>
           </div>
-        )}
+        )} */}
 
         {/* Client Logos */}
-        {clientLogos && clientLogos.length > 0 && (
+        {/* {clientLogos && clientLogos.length > 0 && (
           <div className="mt-16 flex justify-center">
             <div className="grid grid-cols-3 gap-8 md:grid-cols-6">
               {clientLogos.map((logo, index) => (
@@ -126,7 +120,7 @@ const SocialProof: React.FC<SocialProofProps> = ({
               ))}
             </div>
           </div>
-        )}
+        )} */}
       </Container>
     </section>
   );

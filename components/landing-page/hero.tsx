@@ -15,6 +15,7 @@ import {
 import { Link } from "next-view-transitions";
 import React, { ReactNode } from "react";
 import TestimonialsCarousel from "../offers/offer-002/testimonial-carousal";
+import Navbar from "../global/navbar";
 
 interface HeroProps {
   badgeText?: string;
@@ -40,11 +41,11 @@ const Hero: React.FC<HeroProps> = ({
   supportingComponent,
 }) => {
   return (
-    <section className="grid min-h-screen place-content-center overflow-hidden bg-gradient-to-b from-primary/5 to-background">
-      <Container className="flex flex-col items-center justify-center space-y-8 py-12 text-center">
+    <section className="grid place-content-center overflow-hidden py-16">
+      <Container className="flex flex-col items-center justify-center space-y-8 text-center">
         {badgeText && <Badge variant="outline">{badgeText}</Badge>}
         {headingText && (
-          <Text as="h1" variant="heading3xl" className="max-w-5xl">
+          <Text as="h1" variant="heading3xl" className="max-w-6xl">
             {headingText}
           </Text>
         )}
@@ -58,20 +59,21 @@ const Hero: React.FC<HeroProps> = ({
           </Text>
         )}
 
-        <div className="flex items-center space-x-4">
+        <div className="flex max-w-xl items-center space-x-4">
           {ctaButtonText && ctaButtonLink && (
-            <Button size="lg" asChild>
-              <Link href={ctaButtonLink}>
-                {ctaButtonText}
-                <ArrowRight className="ml-2 h-4 w-4" />
-              </Link>
+            <Button
+              size="lg"
+              asChild
+              className="whitespace-pre-wrap p-8 text-lg hover:bg-primary/90"
+            >
+              <Link href={ctaButtonLink}>{ctaButtonText}</Link>
             </Button>
           )}
-          {supportingButtonText && supportingButtonLink && (
+          {/* {supportingButtonText && supportingButtonLink && (
             <Button size="lg" asChild variant="ghost">
               <Link href={supportingButtonLink}>{supportingButtonText}</Link>
             </Button>
-          )}
+          )} */}
         </div>
 
         <div className="w-full">

@@ -89,8 +89,7 @@ const Text: React.FC<TextProps> = ({
 
   // Improved typography scale with more nuanced sizing and line heights
   const variantClasses = {
-    heading3xl:
-      "text-4xl lg:text-5xl font-black tracking-tight leading-tight font-serif", // More impactful display
+    heading3xl: "text-4xl lg:text-5xl font-black font-serif", // More impactful display
     heading2xl:
       "text-3xl lg:text-4xl font-extrabold tracking-tight leading-[1.2]",
     headingXl: "text-2xl lg:text-3xl font-bold tracking-tight leading-[1.3]",

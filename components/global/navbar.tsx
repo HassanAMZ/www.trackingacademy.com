@@ -238,12 +238,10 @@ export default function Navbar({ className }: { className?: string }) {
   return (
     <div className="w-full pb-2 pt-4 lg:text-sm">
       <Container className={clsx("", className)}>
-        <Card>
-          <CardContent className="p-0">
-            <MobileNavigationMenu />
-            <DesktopNavigationMenu />
-          </CardContent>
-        </Card>
+        <header className="rounded-lg border">
+          <MobileNavigationMenu />
+          <DesktopNavigationMenu />
+        </header>
       </Container>
     </div>
   );

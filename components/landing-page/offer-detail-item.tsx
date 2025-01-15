@@ -11,6 +11,7 @@ interface OfferItem {
   icon?: React.ComponentType<any>;
   benefits?: string[];
   image?: string;
+  price?: string;
 }
 
 interface OfferDetailsProps {
@@ -21,11 +22,12 @@ interface OfferDetailsProps {
 
 const OfferDetails: React.FC<OfferDetailsProps> = ({
   headerTitle,
+
   headerDescription,
   offerItems = [],
 }) => {
   return (
-    <section className="bg-gradient-to-b from-primary/5 to-background py-24">
+    <section className="py-24">
       <Container className="flex w-full flex-col items-center space-y-16">
         {/* Render the header if headerTitle and headerDescription exist */}
         {headerTitle && (
@@ -52,20 +54,20 @@ const OfferDetails: React.FC<OfferDetailsProps> = ({
               key={index}
               className={`rounded-lg bg-primary/5 px-4 py-20 shadow-md`}
             >
-              <Container className="grid grid-cols-1 items-center justify-between gap-12 md:grid-cols-2">
-                <div>
+              <Container className="grid grid-cols-1 items-center justify-between gap-6 md:grid-cols-2">
+                <div className="space-y-5">
                   {item.title && (
                     <Text
                       as="h3"
                       variant="heading2xl"
-                      className="mb-4 flex items-center"
+                      className="flex items-center"
                     >
                       {item.icon && <item.icon className="mr-4 h-12 w-12" />}
                       {item.title}
                     </Text>
                   )}
                   {item.description && (
-                    <Text as="p" variant="headingLg" className="mb-8">
+                    <Text as="p" variant="headingLg">
                       {item.description}
                     </Text>
                   )}
@@ -78,6 +80,15 @@ const OfferDetails: React.FC<OfferDetailsProps> = ({
                         </li>
                       ))}
                     </ul>
+                  )}
+
+                  {item.price && (
+                    <Text as="h3" variant="heading2xl">
+                      Total Value:
+                      <span className="mx-2 rounded-lg bg-primary p-2 text-secondary">
+                        {item.price}
+                      </span>
+                    </Text>
                   )}
                 </div>
 
