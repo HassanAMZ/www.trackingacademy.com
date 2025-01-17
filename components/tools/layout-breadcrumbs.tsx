@@ -8,26 +8,23 @@ import {
   BreadcrumbItem,
   BreadcrumbLink,
   BreadcrumbSeparator,
-  BreadcrumbPage,
 } from "../ui/breadcrumb";
 
 // Utility function to format the segment into a readable title
 const formatSegment = (segment: string) => {
   return segment
-    .split("-") // Split by dash
-    .map((word) => word.charAt(0).toUpperCase() + word.slice(1)) // Capitalize each word
-    .join(" "); // Join back with space
+    .split("-")
+    .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+    .join(" ");
 };
 
-const ToolBreadcrumbs: React.FC = ({}) => {
-  const [segment, setSegment] = useState<string | null>(null);
+const ToolBreadcrumbs: React.FC = () => {
   const segments = useSelectedLayoutSegments();
 
-  useEffect(() => {
-    if (segments.length > 0) {
-      setSegment(segments[0]);
-    }
-  }, [segments]);
+  // Build the breadcrumb paths
+  const getBreadcrumbPath = (index: number): string => {
+    return `/tools/${segments.slice(0, index + 1).join("/")}`;
+  };
 
   return (
     <Breadcrumb>
@@ -35,14 +32,28 @@ const ToolBreadcrumbs: React.FC = ({}) => {
         <BreadcrumbItem>
           <BreadcrumbLink href="/tools">Tools</BreadcrumbLink>
         </BreadcrumbItem>
-        {segment && (
-          <>
+
+        {segments.map((segment, index) => (
+          <React.Fragment key={segment}>
             <BreadcrumbSeparator />
             <BreadcrumbItem>
-              <BreadcrumbPage>{formatSegment(segment)}</BreadcrumbPage>
+              {index === segments.length - 1 ? (
+                // Last segment as active link
+                <BreadcrumbLink
+                  href={getBreadcrumbPath(index)}
+                  aria-current="page"
+                >
+                  {formatSegment(segment)}
+                </BreadcrumbLink>
+              ) : (
+                // Interior segments as regular links
+                <BreadcrumbLink href={getBreadcrumbPath(index)}>
+                  {formatSegment(segment)}
+                </BreadcrumbLink>
+              )}
             </BreadcrumbItem>
-          </>
-        )}
+          </React.Fragment>
+        ))}
       </BreadcrumbList>
     </Breadcrumb>
   );
