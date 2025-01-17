@@ -1,10 +1,10 @@
 "use client";
 import ContainerLayout from "@/components/layouts/ContainerLayout";
-import { UserAuth } from "@/context/AuthContext";
+import { useAuth } from "@/context/AuthContext";
 import React, { useEffect, useState } from "react";
 
 const Page = () => {
-  const { user, googleSignIn, facebookSignIn, logOut } = UserAuth();
+  const { user, googleSignIn, facebookSignIn, logOut } = useAuth();
   const [loading, setLoading] = useState(true);
 
   const handleSignIn = async () => {

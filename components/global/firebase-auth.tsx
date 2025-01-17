@@ -11,7 +11,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { UserAuth } from "@/context/AuthContext";
+import { useAuth } from "@/context/AuthContext";
 import { PersonIcon } from "@radix-ui/react-icons";
 import {
   ArrowRight,
@@ -37,7 +37,7 @@ export const FirebaseAuth = () => {
     emailSignIn,
     emailSignUp,
     logOut,
-  } = UserAuth();
+  } = useAuth();
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string>("");
   const [email, setEmail] = useState<string>("");

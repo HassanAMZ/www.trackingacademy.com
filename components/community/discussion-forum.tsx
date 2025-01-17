@@ -13,7 +13,7 @@ import {
   getDocs,
 } from "firebase/firestore";
 import { db } from "@/app/firebase";
-import { UserAuth } from "@/context/AuthContext";
+import { useAuth } from "@/context/AuthContext";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import {
@@ -54,7 +54,7 @@ interface Comment {
 const TOPICS = ["All", "General Discussion", "Questions", "Announcements"];
 
 export function SocialDiscussionForum() {
-  const { user } = UserAuth();
+  const { user } = useAuth();
   const [posts, setPosts] = useState<Post[]>([]);
   const [newPost, setNewPost] = useState("");
   const [selectedTopic, setSelectedTopic] = useState("All");

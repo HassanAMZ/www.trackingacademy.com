@@ -2,14 +2,14 @@
 
 import { useState, useEffect } from "react";
 import { doc, getDoc, updateDoc } from "firebase/firestore";
-import { UserAuth } from "@/context/AuthContext";
+import { useAuth } from "@/context/AuthContext";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { db } from "@/app/firebase";
 
 export function UserProfile() {
-  const { user } = UserAuth();
+  const { user } = useAuth();
   const [displayName, setDisplayName] = useState("");
   const [bio, setBio] = useState("");
 
