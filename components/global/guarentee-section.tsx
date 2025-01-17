@@ -3,8 +3,7 @@ import { Link } from "next-view-transitions";
 import { Button } from "../ui/button";
 import { Card, CardContent } from "../ui/card";
 import Container from "../ui/container";
-import Text from "../ui/text";
-// Guarantee Section Component
+
 const GuaranteeSection = () => {
   return (
     <section className="py-16">
@@ -13,14 +12,12 @@ const GuaranteeSection = () => {
           <CardContent className="pt-6">
             <div className="flex flex-col items-center gap-4 text-center">
               <AlertCircle className="h-12 w-12 text-primary" />
-              <Text as="h2" variant="headingXl">
-                Our "95%+ Accuracy or It's FREE" Guarantee
-              </Text>
-              <Text as="p" className="max-w-xl">
+              <h2>Our "95%+ Accuracy or It's FREE" Guarantee</h2>
+              <p className="max-w-xl">
                 We're confident that our system will deliver precise, actionable
                 data for your Shopify store. If we don't meet our 95% accuracy
                 promise, you don't pay a single cent.
-              </Text>
+              </p>
               <Button size="lg" className="mt-4" asChild>
                 <Link href="/contact">
                   Start Your FREE Audit Today

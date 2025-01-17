@@ -110,7 +110,7 @@ export default async function ModulePage({
         </CardHeader>
       </Card>
 
-      <div className="prose dark:prose-invert max-w-none">
+      <div className="prose max-w-none dark:prose-invert">
         <ModuleContent />
       </div>
 

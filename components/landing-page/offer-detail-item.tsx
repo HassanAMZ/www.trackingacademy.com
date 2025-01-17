@@ -1,5 +1,4 @@
 import Container from "@/components/ui/container";
-import Text from "@/components/ui/text";
 import { CheckCircle } from "lucide-react";
 import Image from "next/image";
 import React from "react";
@@ -32,17 +31,9 @@ const OfferDetails: React.FC<OfferDetailsProps> = ({
         {/* Render the header if headerTitle and headerDescription exist */}
         {headerTitle && (
           <div className="max-w-3xl text-center">
-            <Text as="h2" variant="heading2xl" className="mb-4">
-              {headerTitle}
-            </Text>
+            <h2 className="mb-4">{headerTitle}</h2>
             {headerDescription && (
-              <Text
-                as="p"
-                variant="headingMd"
-                className="text-muted-foreground"
-              >
-                {headerDescription}
-              </Text>
+              <p className="text-muted-foreground">{headerDescription}</p>
             )}
           </div>
         )}
@@ -57,20 +48,12 @@ const OfferDetails: React.FC<OfferDetailsProps> = ({
               <Container className="grid grid-cols-1 items-center justify-between gap-6 md:grid-cols-2">
                 <div className="space-y-5">
                   {item.title && (
-                    <Text
-                      as="h3"
-                      variant="heading2xl"
-                      className="flex items-center"
-                    >
+                    <h3 className="flex items-center">
                       {item.icon && <item.icon className="mr-4 h-12 w-12" />}
                       {item.title}
-                    </Text>
+                    </h3>
                   )}
-                  {item.description && (
-                    <Text as="p" variant="headingLg">
-                      {item.description}
-                    </Text>
-                  )}
+                  {item.description && <p>{item.description}</p>}
                   {item.benefits && item.benefits.length > 0 && (
                     <ul className="space-y-4">
                       {item.benefits.map((benefit, idx) => (
@@ -83,12 +66,12 @@ const OfferDetails: React.FC<OfferDetailsProps> = ({
                   )}
 
                   {item.price && (
-                    <Text as="h3" variant="heading2xl">
+                    <h3>
                       Total Value:
                       <span className="mx-2 rounded-lg bg-primary p-2 text-secondary">
                         {item.price}
                       </span>
-                    </Text>
+                    </h3>
                   )}
                 </div>
 

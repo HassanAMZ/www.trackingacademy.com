@@ -1,14 +1,10 @@
-// src/components/HomePage/MarketTrendsSection.tsx
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import Container from "@/components/ui/container";
-import Text from "@/components/ui/text";
 
 export const MarketTrendsSection = ({ trendCards }: { trendCards: any }) => {
   return (
     <Container className="!max-w-4xl space-y-12">
-      <Text as="h2" variant="heading2xl" className="text-center">
-        How data fueled advertising is changing
-      </Text>
+      <h2 className="text-center">How data fueled advertising is changing</h2>
 
       <div className="grid gap-4 md:grid-cols-3">
         {trendCards.map((card: any, index: any) => (
@@ -20,22 +16,16 @@ export const MarketTrendsSection = ({ trendCards }: { trendCards: any }) => {
               </CardTitle>
             </CardHeader>
             <CardContent>
-              <Text as="p" className="text-muted-foreground">
-                {card.description}
-              </Text>
+              <p className="text-muted-foreground">{card.description}</p>
             </CardContent>
           </Card>
         ))}
       </div>
 
-      <Text
-        as="p"
-        variant="bodyLg"
-        className="text-center text-muted-foreground"
-      >
+      <p className="text-center text-muted-foreground">
         And as a result, the picture of the customer journey is no longer
         complete
-      </Text>
+      </p>
     </Container>
   );
 };

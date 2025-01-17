@@ -3,7 +3,6 @@ import formatDate from "@/components/seo/formatDate";
 import generateSchema from "@/components/seo/generateSchema";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
-import Text from "@/components/ui/text";
 import { PostMetadataProps } from "@/types/index";
 import { Link } from "next-view-transitions";
 import Image from "next/image";
@@ -33,9 +32,7 @@ const BlogHeader: React.FC<PostMetadataProps> = ({ metadata }) => {
             <div className="md:space-y-8">
               <div className="space-y-4 md:space-y-8">
                 <BreadCrumbs />
-                <Text as="h1" variant="heading3xl">
-                  {metadata.title}
-                </Text>
+                <h1>{metadata.title}</h1>
 
                 <div className="flex items-center space-x-4">
                   <Avatar className="h-12 w-12">

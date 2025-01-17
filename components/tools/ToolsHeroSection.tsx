@@ -1,19 +1,16 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import Text from "@/components/ui/text";
 import { Link } from "next-view-transitions";
 
 export default function ToolsHeroSection() {
   return (
     <Card className="rounded-t-lg">
       <CardContent className="flex flex-col items-start justify-center space-y-4 p-6">
-        <Text as="h3" variant="headingXl">
-          UTM Builder Tools
-        </Text>
-        <Text as="p" variant="bodyMd">
+        <h3>UTM Builder Tools</h3>
+        <p>
           Start building your UTMs for Google Ads, Facebook Ads, TikTok, or
           custom, all at one place
-        </Text>
+        </p>
         <div className="flex justify-center gap-x-4">
           <Button asChild className="font-bold">
             <Link href="/tools/utm-builder#utm-builder">

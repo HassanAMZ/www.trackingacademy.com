@@ -2,20 +2,9 @@ import YoutubeEmbed from "@/components/global/youtube-embed";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import Container from "@/components/ui/container";
-import Text from "@/components/ui/text";
-import {
-  ArrowBigRight,
-  ArrowLeft,
-  ArrowRight,
-  ArrowRightCircle,
-  ArrowRightFromLine,
-  ArrowRightSquare,
-  ArrowUp01,
-} from "lucide-react";
+
 import { Link } from "next-view-transitions";
 import React, { ReactNode } from "react";
-import TestimonialsCarousel from "../offers/offer-002/testimonial-carousal";
-import Navbar from "../global/navbar";
 
 interface HeroProps {
   badgeText?: string;
@@ -44,19 +33,9 @@ const Hero: React.FC<HeroProps> = ({
     <section className="grid place-content-center overflow-hidden py-16">
       <Container className="flex flex-col items-center justify-center space-y-8 text-center">
         {badgeText && <Badge variant="outline">{badgeText}</Badge>}
-        {headingText && (
-          <Text as="h1" variant="heading3xl" className="max-w-6xl">
-            {headingText}
-          </Text>
-        )}
+        {headingText && <h1 className="max-w-6xl">{headingText}</h1>}
         {subheadingText && (
-          <Text
-            as="h2"
-            variant="headingMd"
-            className="max-w-4xl text-muted-foreground"
-          >
-            {subheadingText}
-          </Text>
+          <h2 className="max-w-4xl text-muted-foreground">{subheadingText}</h2>
         )}
 
         <div className="flex max-w-xl items-center space-x-4">

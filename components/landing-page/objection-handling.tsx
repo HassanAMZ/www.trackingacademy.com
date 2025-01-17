@@ -1,6 +1,5 @@
 import { Card, CardContent } from "@/components/ui/card";
 import Container from "@/components/ui/container";
-import Text from "@/components/ui/text";
 import React from "react";
 import Image from "next/image";
 interface Guarantee {
@@ -22,11 +21,7 @@ const ObjectionHandling: React.FC<ObjectionHandlingProps> = ({
     <section className="grid place-content-center bg-secondary/20 py-12">
       <Container>
         {/* Section Title */}
-        {sectionTitle && (
-          <Text as="h2" variant="heading2xl" className="mb-12 text-center">
-            {sectionTitle}
-          </Text>
-        )}
+        {sectionTitle && <h2 className="mb-12 text-center">{sectionTitle}</h2>}
 
         {/* Guarantees List */}
         {guarantees && guarantees.length > 0 && (
@@ -44,12 +39,8 @@ const ObjectionHandling: React.FC<ObjectionHandlingProps> = ({
                     />
                   </div>
                   <div className="md:w-2/3">
-                    <Text as="h3" variant="heading2xl" className="mb-4">
-                      {guarantee.title}
-                    </Text>
-                    <Text as="p" variant="headingMd">
-                      {guarantee.description}
-                    </Text>
+                    <h3 className="mb-4">{guarantee.title}</h3>
+                    <p>{guarantee.description}</p>
                   </div>
                 </CardContent>
               </Card>

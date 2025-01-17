@@ -1,6 +1,5 @@
 import { Button } from "@/components/ui/button";
 import Container from "@/components/ui/container";
-import Text from "@/components/ui/text";
 import { ArrowRight, Clock, Users } from "lucide-react";
 import { Link } from "next-view-transitions";
 import React from "react";
@@ -28,18 +27,10 @@ const ScarcityUrgency: React.FC<ScarcityUrgencyProps> = ({
     <Container className="flex items-center justify-center">
       <section className="flex w-full flex-col items-center justify-center space-y-8 rounded-lg bg-primary px-8 py-24 text-center text-primary-foreground">
         {/* Title Section */}
-        {title && (
-          <Text as="h2" variant="heading2xl" className="max-w-3xl">
-            {title}
-          </Text>
-        )}
+        {title && <h2 className="max-w-3xl">{title}</h2>}
 
         {/* Description Section */}
-        {description && (
-          <Text variant="headingLg" className="max-w-3xl">
-            {description}
-          </Text>
-        )}
+        {description && <p className="max-w-3xl">{description}</p>}
 
         {/* Spots and Days Remaining */}
         {/* {(spotsLeft || daysRemaining) && (

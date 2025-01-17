@@ -3,7 +3,6 @@
 import { Link } from "lucide-react";
 import { useEffect, useState } from "react";
 import CustomLink from "../mdx/CustomLink";
-import Text from "../ui/text";
 import { Card, CardContent, CardHeader, CardTitle } from "../ui/card";
 
 export default function TableOfContents() {

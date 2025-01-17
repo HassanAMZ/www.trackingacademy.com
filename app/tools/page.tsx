@@ -7,7 +7,6 @@ import {
   CardDescription,
 } from "@/components/ui/card";
 import Container from "@/components/ui/container";
-import Text from "@/components/ui/text";
 import { Link } from "next-view-transitions";
 import {
   BookMarked,
@@ -46,9 +45,7 @@ export default async function Page() {
   return (
     <Container>
       <div className="grid gap-6">
-        <Text as="h1" variant="headingXl">
-          Analytics Tools
-        </Text>
+        <h1>Analytics Tools</h1>
 
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {tools.map((tool) => {

@@ -20,7 +20,10 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <ViewTransitions>
-      <html lang="en" className={GeistSans.className}>
+      <html
+        lang="en"
+        className={`prose sm:prose-lg md:prose-xl lg:prose-2xl max-w-none ${GeistSans.className}`}
+      >
         <body>
           <AuthContextProvider>
             <ThemeProvider

@@ -1,6 +1,5 @@
 import { Button } from "@/components/ui/button";
 import Container from "@/components/ui/container";
-import Text from "@/components/ui/text";
 import { ArrowRight, CheckCircle } from "lucide-react";
 import { Link } from "next-view-transitions";
 import React from "react";
@@ -26,18 +25,10 @@ const DetailedCTA: React.FC<DetailedCTAProps> = ({
     <section className="bg-gradient-to-b from-primary/5 to-background py-24">
       <Container className="text-center">
         {/* Heading */}
-        {heading && (
-          <Text as="h2" variant="heading2xl" className="mb-6">
-            {heading}
-          </Text>
-        )}
+        {heading && <h2>{heading}</h2>}
 
         {/* Subheading */}
-        {subheading && (
-          <Text variant="headingLg" className="mb-8" as="p">
-            {subheading}
-          </Text>
-        )}
+        {subheading && <p className="mb-8">{subheading}</p>}
 
         {/* List Items */}
         {listItems && listItems.length > 0 && (
@@ -46,7 +37,7 @@ const DetailedCTA: React.FC<DetailedCTAProps> = ({
               {listItems.map((item, index) => (
                 <li key={index} className="mb-2 flex items-center">
                   <CheckCircle className="mr-2 h-5 w-5 text-primary" />
-                  <Text>{item}</Text>
+                  <p>{item}</p>
                 </li>
               ))}
             </ul>
@@ -69,9 +60,7 @@ const DetailedCTA: React.FC<DetailedCTAProps> = ({
 
         {/* Footer Text */}
         {footerText && (
-          <Text as="p" className="py-4 text-muted-foreground">
-            {footerText}
-          </Text>
+          <p className="py-4 text-muted-foreground">{footerText}</p>
         )}
       </Container>
     </section>

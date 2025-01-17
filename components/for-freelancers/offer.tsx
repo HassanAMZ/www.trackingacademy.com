@@ -9,7 +9,6 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog";
 import { Separator } from "@/components/ui/separator";
-import Text from "@/components/ui/text";
 import {
   Globe,
   Headset,
@@ -25,19 +24,15 @@ import YoutubeEmbed from "../global/youtube-embed";
 export default function ForFreelancersOffer() {
   return (
     <Container className="space-y-6 pt-4 text-center">
-      <Text as="h2" variant="heading2xl">
+      <h2>
         Ready to see what you'll get?{" "}
         <span className="text-primary">Watch the video</span>
-      </Text>
+      </h2>
 
       <YoutubeEmbed embedId="9MGpL_AmEYM" />
-      <Text as="h1" variant="heading3xl">
-        Master Analytics and Tracking in 12 Weeks!
-      </Text>
+      <h1>Master Analytics and Tracking in 12 Weeks!</h1>
 
-      <Text as="p" variant="bodyMd">
-        Learn from experts and boost your skills with real-world projects.
-      </Text>
+      <p>Learn from experts and boost your skills with real-world projects.</p>
 
       <div className="grid gap-6 md:grid-cols-3">
         <FeatureCard
@@ -63,9 +58,7 @@ export default function ForFreelancersOffer() {
         />
       </div>
 
-      <Text as="h2" variant="heading2xl">
-        Solve Your Tracking Problems
-      </Text>
+      <h2>Solve Your Tracking Problems</h2>
 
       <div className="grid gap-6 md:grid-cols-3">
         <FeatureCard
@@ -139,10 +132,10 @@ export default function ForFreelancersOffer() {
         />
       </div>
 
-      <Text as="h2" variant="heading2xl">
+      <h2>
         Enroll now to master conversion tracking and analytics! Take the next
         step and join our training program today.
-      </Text>
+      </h2>
 
       <Button asChild className="w-full px-10 py-4">
         <Link href="/for-freelancers/enroll-now">Enroll Now</Link>
@@ -173,12 +166,8 @@ const FeatureCard: FC<FeatureCardPorps> = ({
       <DialogTrigger asChild>
         <div className="flex cursor-pointer flex-col items-center rounded-lg border p-6 shadow">
           {icon}
-          <Text as="h3" variant="headingXl" className="mb-2 text-primary">
-            {title}
-          </Text>
-          <Text as="p" variant="bodyMd">
-            {description}
-          </Text>
+          <h3 className="mb-2 text-primary">{title}</h3>
+          <p>{description}</p>
         </div>
       </DialogTrigger>
       <DialogContent className="sm:max-w-md">

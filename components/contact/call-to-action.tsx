@@ -35,7 +35,7 @@ export default function CallToAction({
             Fill out the contact form and team will reach out.
           </DialogDescription>
         </DialogHeader>
-        <ContactForm thankYouUrl={thankYouUrl} />
+        <ContactForm />
       </DialogContent>
     </Dialog>
   );

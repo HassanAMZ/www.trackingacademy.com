@@ -5,7 +5,6 @@ import Hero from "@/components/home/hero";
 import Services from "@/components/home/services";
 import { Button } from "@/components/ui/button";
 import Container from "@/components/ui/container";
-import Text from "@/components/ui/text";
 import clients from "@/data/clients";
 import { Link } from "next-view-transitions";
 export default function Home() {
@@ -13,11 +12,11 @@ export default function Home() {
     <main className="space-y-5">
       <Hero
         heading={
-          <Text as="h1" variant="heading3xl">
+          <h1>
             <span className="text-primary">Never Miss a Sale Again </span>-
             Track 95% of Your Conversions -{" "}
             <span className="text-primary"> Guaranteed!</span>
-          </Text>
+          </h1>
         }
         carousel={<TestimonialsCarousel2 />}
         benefits={[
@@ -38,9 +37,9 @@ export default function Home() {
       {/* <Offer /> */}
       <Services />
       <Container>
-        <Text as="h2" variant="heading2xl" className="text-center">
+        <h2 className="text-center">
           Optimize Your Tracking in 7 Days! Get Started with No Risk.
-        </Text>
+        </h2>
         <Container>
           <Button asChild className="w-full">
             <Link href="/contact">Book a Call</Link>

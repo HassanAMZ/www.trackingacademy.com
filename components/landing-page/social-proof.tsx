@@ -1,9 +1,8 @@
 import { Card, CardContent } from "@/components/ui/card";
 import Container from "@/components/ui/container";
-import Text from "@/components/ui/text";
 import { Quote } from "lucide-react";
-import Image from "next/image";
 import React from "react";
+import TestimonialGrid from "../testimonial/testimonial-grid";
 
 interface Testimonial {
   quote: string;
@@ -39,47 +38,17 @@ const SocialProof: React.FC<SocialProofProps> = ({
     <section className="min-h-screen bg-gradient-to-b from-primary/5 to-background py-24">
       <Container>
         {/* Section Title */}
-        {sectionTitle && (
-          <Text as="h2" variant="heading2xl" className="mb-12 text-center">
-            {sectionTitle}
-          </Text>
-        )}
+        {sectionTitle && <h2 className="mb-12 text-center">{sectionTitle}</h2>}
 
         {/* Section Description */}
         {sectionDescription && (
-          <Text
-            as="p"
-            variant="headingLg"
-            className="mb-12 text-center text-muted-foreground"
-          >
+          <p className="mb-12 text-center text-muted-foreground">
             {sectionDescription}
-          </Text>
+          </p>
         )}
 
         {testimonials && testimonials.length > 0 && (
-          <div className="columns-1 gap-6 space-y-8 [column-fill:_balance] md:columns-2 lg:columns-3">
-            {testimonials.map((testimonial, index) => (
-              <div key={index} className="break-inside-avoid">
-                <Card className="h-fit bg-background/50 backdrop-blur-sm">
-                  <CardContent className="p-6">
-                    <Quote className="mb-4 h-8 w-8 text-primary" />
-                    <p className="mb-4 italic">{testimonial.quote}</p>
-                    <div className="flex items-center">
-                      <div className="mr-4 flex h-10 w-10 items-center justify-center rounded-full bg-primary text-white">
-                        {testimonial.author[0].toUpperCase()}
-                      </div>
-                      <div>
-                        <p className="font-semibold">{testimonial.author}</p>
-                        <p className="text-sm text-muted-foreground">
-                          {testimonial.role}
-                        </p>
-                      </div>
-                    </div>
-                  </CardContent>
-                </Card>
-              </div>
-            ))}
-          </div>
+          <TestimonialGrid testimonials={testimonials} />
         )}
         {/* Results Stats */}
         {/* {resultsTitle && stats && stats.length > 0 && (

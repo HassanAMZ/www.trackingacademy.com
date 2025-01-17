@@ -1,4 +1,3 @@
-import Text from "@/components/ui/text";
 import React from "react";
 
 interface NotesProps {
@@ -10,10 +9,10 @@ const Note: React.FC<NotesProps> = ({ title, content }) => {
   return (
     <div className="py-2">
       <div className="bg-complementary rounded-lg p-2 lg:p-4">
-        <Text as="p" variant="bodyMd" className="text-dominant">
+        <p className="text-dominant">
           <strong>{title}:&nbsp; </strong>
           <span>{content}</span>
-        </Text>
+        </p>
       </div>
     </div>
   );

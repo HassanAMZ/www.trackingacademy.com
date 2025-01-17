@@ -2,7 +2,6 @@
 
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import Text from "@/components/ui/text";
 import clients from "@/data/clients";
 import clsx from "clsx";
 import { Star } from "lucide-react";
@@ -65,13 +64,9 @@ const TestimonialsCarousel: React.FC<TestimonialsCarouselProps> = ({
             />
           ))}
         </div>
-        <Text
-          as="p"
-          variant="bodyMd"
-          className="line-clamp-2 font-semibold italic"
-        >
+        <p className="line-clamp-2 font-semibold italic">
           "{currentTestimonial.testimonialText}"
-        </Text>
+        </p>
         <div className="flex items-center gap-2 pt-4">
           <Image
             src={currentTestimonial.imageLink}
@@ -81,13 +76,11 @@ const TestimonialsCarousel: React.FC<TestimonialsCarouselProps> = ({
             className="h-8 w-8 rounded-full"
           />
           <div className="text-left text-xs">
-            <Text as="p" variant="bodySm">
-              {currentTestimonial.clientName}
-            </Text>
-            <Text as="p" variant="bodySm">
+            <p>{currentTestimonial.clientName}</p>
+            <p>
               <strong>{currentTestimonial.clientTitle}</strong> at{" "}
               <strong>{currentTestimonial.businessName}</strong>
-            </Text>
+            </p>
           </div>
         </div>
         <div className="absolute -bottom-3 right-2 flex rotate-3 space-x-2">

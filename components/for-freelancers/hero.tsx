@@ -1,6 +1,5 @@
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
-import Text from "@/components/ui/text";
 import clients from "@/data/clients";
 import { Link } from "next-view-transitions";
 import Container from "../ui/container";
@@ -13,31 +12,25 @@ export default function Hero() {
     <Container className="sm:py py-2 lg:pt-8">
       <div className="flex flex-col items-start justify-center gap-4 md:grid md:grid-cols-3">
         <div className="space-y-3 md:col-span-2">
-          <Text as="h1" variant="heading3xl">
+          <h1>
             <span className="text-primary">Master Analytics and Tracking</span>{" "}
             in 12 Weeks – Guaranteed!
             {/* Learn how to turn your data into{" "}
             <span className="text-primary">actionable insights</span> and{" "}
             <span className="text-primary">grow your business</span>. */}
-          </Text>
-          <Text as="p" variant="bodyMd">
+          </h1>
+          <p>
             Learn how to turn your data into actionable insights and grow your
             business. Our expert-led training ensures you master conversion
             tracking and analytics, with hands-on practice and real-world
             projects.
-          </Text>
+          </p>
           <TestimonialsCarousel2 />
           <div className="grid grid-cols-1 md:grid-cols-1">
             <div className="space-y-1">
-              <Text as="p" variant="bodyMd">
-                ✔ Setup and optimized within 7 days.
-              </Text>
-              <Text as="p" variant="bodyMd">
-                ✔ Achieve 95% tracking accuracy.
-              </Text>
-              <Text as="p" variant="bodyMd">
-                ✔ 95% accuracy or full refund.
-              </Text>
+              <p>✔ Setup and optimized within 7 days.</p>
+              <p>✔ Achieve 95% tracking accuracy.</p>
+              <p>✔ 95% accuracy or full refund.</p>
             </div>
           </div>
 
@@ -62,9 +55,7 @@ export default function Hero() {
                 </Avatar>
               ))}
             </div>
-            <Text as="p" variant="bodyMd" className="pl-10">
-              2 students trained & 2 success stories
-            </Text>
+            <p className="pl-10">2 students trained & 2 success stories</p>
           </div>
         </div>
 

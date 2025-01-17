@@ -319,13 +319,7 @@ export interface CourseMetadata {
   id?: string;
   slug?: string;
 }
-export interface TwoGridContentProps {
-  learnMoreHeader: string;
-  detailsList: Detail[];
-  primaryLink: Link;
-  imagesData: ImageData;
-  order: number; // For grid order
-}
+
 export interface HeadingTextsProps {
   heading: JSX.Element | string;
   subHeading?: JSX.Element | string;

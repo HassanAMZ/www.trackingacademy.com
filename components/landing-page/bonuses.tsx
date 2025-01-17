@@ -1,6 +1,5 @@
 import { Button } from "@/components/ui/button";
 import Container from "@/components/ui/container";
-import Text from "@/components/ui/text";
 import { ArrowRight, CheckCircle } from "lucide-react";
 import { Link } from "next-view-transitions";
 import Image from "next/image";
@@ -39,17 +38,9 @@ const Bonuses: React.FC<BonusesProps> = ({
         {/* Header Section */}
         {sectionTitle && (
           <div className="max-w-3xl text-center">
-            <Text as="h2" variant="heading2xl" className="mb-4">
-              {sectionTitle}
-            </Text>
+            <h2 className="mb-4">{sectionTitle}</h2>
             {sectionDescription && (
-              <Text
-                as="p"
-                variant="headingMd"
-                className="text-muted-foreground"
-              >
-                {sectionDescription}
-              </Text>
+              <p className="text-muted-foreground">{sectionDescription}</p>
             )}
           </div>
         )}
@@ -68,35 +59,25 @@ const Bonuses: React.FC<BonusesProps> = ({
                     <div className="flex flex-col space-y-8">
                       <div className="flex h-full flex-col justify-between space-y-4">
                         {/* Title  */}
-                        <Text
-                          as="h3"
-                          variant="heading2xl"
-                          className="flex items-center"
-                        >
+                        <h3 className="flex items-center">
                           <bonus.icon className="mr-4 h-12 w-12 text-primary" />
                           {bonus.title}
-                        </Text>
+                        </h3>
 
                         {/* Description */}
-                        <Text
-                          as="p"
-                          variant="headingLg"
-                          className="text-muted-foreground"
-                        >
+                        <p className="text-muted-foreground">
                           {bonus.description}
-                        </Text>
+                        </p>
 
                         {/* Details List */}
                         {bonus.details && bonus.details.length > 0 && (
                           <div className="space-y-4">
-                            <Text as="h4" variant="headingLg">
-                              What's Included:
-                            </Text>
+                            <h4>What's Included:</h4>
                             <ul className="space-y-3">
                               {bonus.details.map((detail, idx) => (
                                 <li key={idx} className="flex items-start">
                                   <CheckCircle className="mr-2 mt-1 h-6 w-6 flex-shrink-0 text-primary" />
-                                  <Text as="span">{detail}</Text>
+                                  <span>{detail}</span>
                                 </li>
                               ))}
                             </ul>
@@ -106,14 +87,12 @@ const Bonuses: React.FC<BonusesProps> = ({
                         {/* Features List */}
                         {bonus.features && bonus.features.length > 0 && (
                           <div className="space-y-4">
-                            <Text as="h4" variant="headingLg">
-                              Key Features:
-                            </Text>
+                            <h4>Key Features:</h4>
                             <ul className="space-y-3">
                               {bonus.features.map((feature, idx) => (
                                 <li key={idx} className="flex items-start">
                                   <CheckCircle className="mr-2 mt-1 h-6 w-6 flex-shrink-0 text-primary" />
-                                  <Text as="span">{feature}</Text>
+                                  <span>{feature}</span>
                                 </li>
                               ))}
                             </ul>
@@ -122,16 +101,12 @@ const Bonuses: React.FC<BonusesProps> = ({
                         {/* Value  */}
 
                         <div className="inline-block w-fit rounded-lg bg-background/80 p-4 backdrop-blur-sm">
-                          <Text
-                            as="p"
-                            variant="heading2xl"
-                            className="text-primary"
-                          >
+                          <p className="text-primary">
                             {bonus.value}
                             <span className="ml-2 text-lg font-normal text-muted-foreground">
                               Value
                             </span>
-                          </Text>
+                          </p>
                         </div>
                       </div>
                     </div>
@@ -159,9 +134,7 @@ const Bonuses: React.FC<BonusesProps> = ({
         {totalBonusValue && (
           <section className="w-full rounded-lg bg-primary/10 px-4 py-16 text-center shadow-lg">
             <Container className="space-y-8">
-              <Text as="h3" variant="heading2xl">
-                Total Bonus Value: {totalBonusValue}
-              </Text>
+              <h3>Total Bonus Value: {totalBonusValue}</h3>
 
               {actionButtonText && actionButtonLink && (
                 <Button

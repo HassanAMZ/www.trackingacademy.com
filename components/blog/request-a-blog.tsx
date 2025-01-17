@@ -1,7 +1,6 @@
 "use client";
 
 import { handleRequestABlogForm } from "@/actions/handle-request-a-blog";
-import Text from "@/components/ui/text";
 import React, { useEffect, useState } from "react";
 import { useFormState, useFormStatus } from "react-dom";
 import { Button } from "../ui/button";
@@ -47,11 +46,7 @@ const RequestABlogForm: React.FC<RequestABlogFormProps> = ({ searchTerm }) => {
   }
 
   if (formSubmitted) {
-    return (
-      <Text as="p" variant="bodyMd">
-        Thank you! Your request has been submitted.
-      </Text>
-    );
+    return <p>Thank you! Your request has been submitted.</p>;
   }
 
   return (
@@ -71,9 +66,9 @@ const RequestABlogForm: React.FC<RequestABlogFormProps> = ({ searchTerm }) => {
         className="mt-2"
       />
       <SubmitButton />
-      <Text as="p" variant="bodyMd" aria-live="polite" className="sr-only">
+      <p aria-live="polite" className="sr-only">
         {state?.message}
-      </Text>
+      </p>
     </form>
   );
 };

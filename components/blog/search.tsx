@@ -3,7 +3,6 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
-import Text from "@/components/ui/text";
 import { BlogSearchProps, PostMetadata } from "@/types/index";
 import { useParams, usePathname } from "next/navigation";
 import React, { useEffect, useState } from "react";
@@ -47,22 +46,22 @@ const BlogSearch: React.FC<BlogSearchProps> = ({ data, onSearch }) => {
   return (
     <Card className="rounded-t-lg py-12">
       <CardHeader>
-        <Text as="h1" variant="heading3xl" className="text-center">
+        <h1 className="text-center">
           {!isRootBlogPage && displayText && (
             <span className="capitalize">{displayText} - </span>
           )}
           Articles, Ideas and Inspiration!
-        </Text>
+        </h1>
       </CardHeader>
       <CardContent className="flex flex-col items-center">
-        <Text as="p" variant="bodyMd" className="text-center">
+        <p className="text-center">
           A helpful blog for web analysts, trying to make sense of marketing
           with{" "}
           {!isRootBlogPage && displayText && (
             <span className="capitalize">{displayText}, </span>
           )}
           tag manager, analytics and tracking scripts.
-        </Text>
+        </p>
         {isRootBlogPage && (
           <div className="relative mt-4 flex w-full max-w-md items-center">
             <Input
@@ -95,14 +94,14 @@ const BlogSearch: React.FC<BlogSearchProps> = ({ data, onSearch }) => {
             <span role="img" aria-label="Thinking face" className="text-6xl">
               😭
             </span>
-            <Text as="p" variant="bodyMd" className="mt-4 text-center">
+            <p className="mt-4 text-center">
               We couldn't find any posts matching your search '{searchTerm}'.
               <span role="img" aria-label="Shrug">
                 {" "}
                 🤷‍♂️
               </span>
               Request a blog on this topic and get notified when it's published:
-            </Text>
+            </p>
             <RequestABlogForm searchTerm={searchTerm} />
           </div>
         )}

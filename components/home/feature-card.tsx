@@ -1,4 +1,3 @@
-import Text from "@/components/ui/text";
 import { cn } from "@/lib/utils";
 import { FC } from "react";
 import {
@@ -32,12 +31,8 @@ const FeatureCard: FC<FeatureCardPorps> = ({
       <DialogTrigger asChild>
         <div className="flex cursor-pointer flex-col items-center rounded-lg border p-6 shadow">
           {icon}
-          <Text as="h3" variant="headingXl" className="mb-2 text-primary">
-            {title}
-          </Text>
-          <Text as="p" variant="bodyMd">
-            {description}
-          </Text>
+          <h3 className="mb-2 text-primary">{title}</h3>
+          <p>{description}</p>
         </div>
       </DialogTrigger>
       <DialogContent className={cn(className, "sm:max-w-md")}>

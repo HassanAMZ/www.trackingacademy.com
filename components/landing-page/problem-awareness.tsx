@@ -1,7 +1,6 @@
 import React from "react";
 import { Card } from "@/components/ui/card";
 import Container from "@/components/ui/container";
-import Text from "@/components/ui/text";
 import { AlertTriangle, CircleCheck } from "lucide-react";
 import Image from "next/image";
 
@@ -24,15 +23,9 @@ const ProblemAwareness: React.FC<ProblemAwarenessProps> = ({
     <section className="bg-gradient-to-b from-primary/5 to-background py-16">
       <Container className="space-y-6">
         <div className="mx-auto max-w-3xl text-center">
-          {headingText && (
-            <Text as="h2" variant="heading2xl" className="mb-4">
-              {headingText}
-            </Text>
-          )}
+          {headingText && <h2 className="mb-4">{headingText}</h2>}
           {paragraphText && (
-            <Text as="p" variant="headingMd" className="text-muted-foreground">
-              {paragraphText}
-            </Text>
+            <p className="text-muted-foreground">{paragraphText}</p>
           )}
         </div>
 
@@ -45,10 +38,8 @@ const ProblemAwareness: React.FC<ProblemAwarenessProps> = ({
                   className="bg-red-100 p-4 transition-colors hover:bg-red-200"
                 >
                   <div className="flex items-center justify-center space-x-4">
-                    <AlertTriangle className="mt-1 h-6 w-6 text-red-500" />
-                    <Text as="p" className="flex-1 text-red-700">
-                      {point}
-                    </Text>
+                    <AlertTriangle className="mt-1 h-6 w-6 text-destructive" />
+                    <p className="flex-1 text-destructive">{point}</p>
                   </div>
                 </Card>
               ))}
@@ -73,9 +64,7 @@ const ProblemAwareness: React.FC<ProblemAwarenessProps> = ({
                 >
                   <div className="flex items-center justify-center space-x-4">
                     <CircleCheck className="mt-1 h-6 w-6 text-blue-500" />
-                    <Text as="p" className="flex-1 text-blue-700">
-                      {point}
-                    </Text>
+                    <p className="flex-1 text-blue-700">{point}</p>
                   </div>
                 </Card>
               ))}

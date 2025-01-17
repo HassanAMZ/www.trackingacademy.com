@@ -4,7 +4,6 @@ import Autoplay from "embla-carousel-autoplay";
 import useEmblaCarousel from "embla-carousel-react";
 import { Star } from "lucide-react";
 import Image from "next/image";
-import Text from "../ui/text";
 
 const testimonials = [
   {
@@ -65,12 +64,8 @@ export function TestimonialsCarousel() {
                 <Star />
               </div>
               <CardContent>
-                <Text as="p" variant="bodyMd" className="font-semibold italic">
-                  {testimonial.text}
-                </Text>
-                <Text as="p" variant="bodyMd" className="mt-4 text-xs">
-                  {testimonial.author}
-                </Text>
+                <p className="font-semibold italic">{testimonial.text}</p>
+                <p className="mt-4 text-xs">{testimonial.author}</p>
               </CardContent>
             </Card>
           </div>

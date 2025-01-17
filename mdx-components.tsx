@@ -8,7 +8,6 @@ import GiscusComments from "@/components/mdx/GiscusComents";
 import Note from "@/components/mdx/Note";
 import ToolsHeroSection from "@/components/tools/ToolsHeroSection";
 import { Button } from "@/components/ui/button";
-import Text from "@/components/ui/text";
 import type { MDXComponents } from "mdx/types";
 import Image from "next/image";
 import DataLayerCodeBlock from "./components/mdx/datalayer-code";
@@ -33,92 +32,36 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     CustomLink,
     pre: AuthPre,
     a: (props) => <CustomLink {...props} href={props.href || ""} />, // Ensuring href is always a string
-    p: (props) => (
-      <Text as="p" variant="bodyMd" {...props}>
-        {props.children}
-      </Text>
-    ),
+    p: (props) => <p {...props}>{props.children}</p>,
     h1: (props) => (
-      <Text
-        as="h1"
-        className="py-2"
-        variant="headingXl"
-        {...props}
-        id={createId(props.children as string)}
-      >
+      <h1 {...props} id={createId(props.children as string)}>
         {props.children}
-      </Text>
+      </h1>
     ),
     h2: (props) => (
-      <Text
-        className="py-2"
-        as="h2"
-        variant="headingXl"
-        {...props}
-        id={createId(props.children as string)}
-      >
+      <h2 {...props} id={createId(props.children as string)}>
         {props.children}
-      </Text>
+      </h2>
     ),
     h3: (props) => (
-      <Text
-        className="py-2"
-        as="h3"
-        variant="headingXl"
-        {...props}
-        id={createId(props.children as string)}
-      >
+      <h3 {...props} id={createId(props.children as string)}>
         {props.children}
-      </Text>
+      </h3>
     ),
     h4: (props) => (
-      <Text
-        className="py-2"
-        as="h4"
-        variant="headingXl"
-        {...props}
-        id={createId(props.children as string)}
-      >
+      <h4 {...props} id={createId(props.children as string)}>
         {props.children}
-      </Text>
+      </h4>
     ),
     h5: (props) => (
-      <Text
-        className="py-2"
-        as="h4"
-        variant="headingXl"
-        {...props}
-        id={createId(props.children as string)}
-      >
-        {props.children}
-      </Text>
+      <h5 id={createId(props.children as string)}>{props.children}</h5>
     ),
     h6: (props) => (
-      <Text
-        className="py-2"
-        as="h4"
-        variant="headingXl"
-        {...props}
-        id={createId(props.children as string)}
-      >
-        {props.children}
-      </Text>
+      <h6 id={createId(props.children as string)}>{props.children}</h6>
     ),
-    li: (props) => (
-      <Text as="li" variant="bodyMd" {...props}>
-        {props.children}
-      </Text>
-    ),
-    ol: (props) => (
-      <Text as="ol" variant="bodyMd" {...props}>
-        {props.children}
-      </Text>
-    ),
-    ul: (props) => (
-      <Text as="ul" variant="bodyMd" {...props}>
-        {props.children}
-      </Text>
-    ),
+    li: (props) => <li {...props}>{props.children}</li>,
+    ol: (props) => <ol {...props}>{props.children}</ol>,
+    ul: (props) => <ul {...props}>{props.children}</ul>,
     img: (props) => (
       // @ts-ignore
       <Image src={props.src} width={1920} height={1080} {...props} />

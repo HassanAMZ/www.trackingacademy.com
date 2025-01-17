@@ -1,4 +1,4 @@
-import TestimonialsCarousel from "@/components/offers/offer-002/testimonial-carousal";
+import TestimonialsCarousel from "@/components/testimonial/testimonial-carousal";
 
 const MetaConversionConfig = {
   hero: {

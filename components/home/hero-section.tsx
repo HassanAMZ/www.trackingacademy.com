@@ -1,7 +1,6 @@
 import Image from "next/image";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import Text from "../ui/text";
 
 export function HeroSection() {
   return (
@@ -10,10 +9,10 @@ export function HeroSection() {
         <Badge variant="secondary" className="h-6">
           Data Tracking and Visualization Agency
         </Badge>
-        <Text as="h1" variant="heading3xl">
+        <h1>
           We build measurement systems enabling companies to act faster & make a
           bigger impact!{" "}
-        </Text>
+        </h1>
         <p className="max-w-4xl text-xl text-muted-foreground">
           Finally, a single source of truth for your leading revenue metrics,
           without burdening your internal team. Get always updated: data

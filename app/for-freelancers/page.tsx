@@ -3,17 +3,16 @@ import TestimonialsCarousel2 from "@/components/for-freelancers/testimonials-car
 import { TestimonialsCarousel } from "@/components/for-freelancers/testimonials-carousel";
 import Hero from "@/components/home/hero";
 import WorkHistory from "@/components/home/work-history";
-import Text from "@/components/ui/text";
 import clients from "@/data/clients";
 export default function ForFreelancers() {
   return (
     <main className="">
       <Hero
         heading={
-          <Text as="h1" variant="heading3xl">
+          <h1>
             <span className="text-primary">Master Analytics and Tracking</span>{" "}
             in 12 Weeks – Guaranteed!
-          </Text>
+          </h1>
         }
         carousel={<TestimonialsCarousel2 />}
         benefits={[

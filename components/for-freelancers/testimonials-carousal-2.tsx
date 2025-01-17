@@ -1,6 +1,5 @@
 "use client";
 import { Button } from "@/components/ui/button";
-import Text from "@/components/ui/text";
 import clients from "@/data/clients";
 import { Star } from "lucide-react";
 import React, { useEffect, useState } from "react";
@@ -41,14 +40,14 @@ const TestimonialsCarousel2: React.FC = () => {
           <Star key={i} />
         ))}
       </div>
-      <Text as="p" variant="bodyMd" className="font-semibold italic">
+      <p className="font-semibold italic">
         "{currentTestimonial.testimonialText}"
-      </Text>
-      <Text as="p" variant="bodyMd" className="pb-2 text-xs">
+      </p>
+      <p className="pb-2 text-xs">
         {currentTestimonial.clientName},{" "}
         <strong>{currentTestimonial.clientTitle}</strong> at{" "}
         <strong>{currentTestimonial.businessName}</strong>
-      </Text>
+      </p>
       <div className="absolute -bottom-4 right-0 mb-2 mr-2 flex space-x-4">
         <Button
           variant="outline"

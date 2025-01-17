@@ -66,7 +66,7 @@
     "highlight.js": "^11.10.0",
     "input-otp": "^1.4.1",
     "lucide-react": "^0.428.0",
-    "next": "15.0.3",
+    "next": "^15.1.5",
     "next-mdx-remote": "^5.0.0",
     "next-share": "^0.27.0",
     "next-sitemap": "^4.2.3",
@@ -100,7 +100,7 @@
     "zod": "^3.23.8"
   },
   "devDependencies": {
-    "@tailwindcss/typography": "^0.5.14",
+    "@tailwindcss/typography": "^0.5.16",
     "@types/mdx": "^2.0.13",
     "@types/node": "22.4.1",
     "@types/react": "npm:types-react@19.0.0-rc.1",
@@ -114,12 +114,12 @@
     "eslint-plugin-prettier": "^5.2.1",
     "eslint-plugin-react": "^7.37.2",
     "npm-check-updates": "^17.0.6",
-    "postcss": "^8.4.41",
+    "postcss": "^8.5.1",
     "prettier": "^3.4.2",
     "prettier-plugin-organize-imports": "^4.1.0",
     "prettier-plugin-tailwindcss": "^0.6.9",
     "sass": "^1.77.8",
-    "tailwindcss": "^3.4.10",
+    "tailwindcss": "^3.4.17",
     "typescript": "5.5.4"
   },
   "overrides": {

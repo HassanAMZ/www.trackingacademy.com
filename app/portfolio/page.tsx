@@ -1,4 +1,4 @@
-import ClientTestimonial from "@/components/home/testimonaials";
+import TestimonialGrid from "@/components/testimonial/testimonial-grid";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import { Link } from "next-view-transitions";
@@ -6,7 +6,7 @@ import { Link } from "next-view-transitions";
 export default async function Page() {
   return (
     <main className="py-12">
-      <ClientTestimonial />
+      <TestimonialGrid />
 
       <div className="flex items-center justify-center space-x-4 py-12">
         <Button size="lg" asChild>

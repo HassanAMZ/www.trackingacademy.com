@@ -2,7 +2,7 @@ import YoutubeEmbed from "@/components/global/youtube-embed";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import Container from "@/components/ui/container";
-import Text from "@/components/ui/text";
+
 import { ArrowRight, CheckCircle2 } from "lucide-react";
 import { Link } from "next-view-transitions";
 import React from "react";
@@ -16,20 +16,20 @@ export const HeroSection: React.FC = () => {
             ATTENTION: Business Owners Losing Money on Paid Ads 🚨
           </Badge>
 
-          <Text as="h1" variant="heading3xl" className="max-w-5xl text-balance">
+          <h1 className="max-w-5xl">
             Get <span className="text-primary">13% Increased</span> Return on
             Ads Spent & <span className="text-primary">11% Decreased </span>
             Cost Per Conversion — Or We'll Do It
             <span className="text-primary"> FREE! 💯</span>
-          </Text>
+          </h1>
 
           <YoutubeEmbed embedId="9MGpL_AmEYM" className="!max-w-4xl" />
 
-          <Text as="h2" variant="bodyLg" className="max-w-3xl">
+          <h2 className="max-w-3xl">
             Tracking gaps are costing you money. If you don't know which ads
             work, every dollar you spend could be a dollar lost. We help you get
             95%+ accurate tracking.
-          </Text>
+          </h2>
 
           <Button
             asChild

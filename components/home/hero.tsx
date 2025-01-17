@@ -1,7 +1,6 @@
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import Container from "@/components/ui/container";
-import Text from "@/components/ui/text";
 import { Client } from "@/data/clients";
 import { CheckCircle } from "lucide-react";
 import { Link } from "next-view-transitions";
@@ -45,9 +44,7 @@ const Hero: FC<HeroProps> = ({
           {benefits.map((benefit, index) => (
             <div key={index} className="flex items-center gap-2">
               <CheckCircle className="h-6 w-6 text-primary" />
-              <Text as="p" variant="bodyMd" className="">
-                {benefit}
-              </Text>
+              <p>{benefit}</p>
             </div>
           ))}
         </div>
@@ -78,9 +75,7 @@ const Hero: FC<HeroProps> = ({
               </Avatar>
             ))}
           </div>
-          <Text as="p" variant="bodyMd" className="pl-8 text-sm">
-            {clientCountText}
-          </Text>
+          <p className="pl-8 text-sm">{clientCountText}</p>
         </div>
       </div>
 
