@@ -25,7 +25,7 @@ import { testimonials } from "@/data/testimonials";
 
 export default function HomePage() {
   return (
-    <Container>
+    <main>
       <Navbar />
 
       <Hero
@@ -352,6 +352,6 @@ export default function HomePage() {
         buttonLink="/contact"
         footerText="Limited to 5 spots per month. Don’t wait!"
       />
-    </Container>
+    </main>
   );
 }

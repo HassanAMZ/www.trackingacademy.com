@@ -1,18 +1,16 @@
 import { Suspense } from "react";
 import { notFound } from "next/navigation";
 import { proposalsService } from "@/lib/firebase/proposals";
-import { ProposalPreview } from "../proposal-preview";
+import { ProposalPreview } from "./proposal-preview";
 
-export default async function ViewPage({
+export default async function PreviewPage({
   params,
-  searchParams,
 }: {
   params: Promise<{ id: string }>;
-  searchParams: Promise<{ password?: string }>;
 }) {
   const proposal = await proposalsService.getProposalByIdAndPassword(
     (await params).id,
-    (await searchParams).password || "",
+    "",
   );
 
   if (!proposal) {
@@ -20,7 +18,7 @@ export default async function ViewPage({
   }
 
   return (
-    <Suspense fallback={<div>Loading proposal...</div>}>
+    <Suspense fallback={<div>Loading preview...</div>}>
       <ProposalPreview proposal={proposal} />
     </Suspense>
   );

@@ -24,7 +24,7 @@ export function ShareDialog({ proposal, isOpen, onClose }: ShareDialogProps) {
 
   if (!proposal) return null;
 
-  const shareUrl = `${window.location.origin}/tools/proposals/${proposal.id}/view?password=${proposal.clientPassword}`;
+  const shareUrl = `${window.location.origin}/tools/proposals-builder-dnd/${proposal.id}/view?password=${proposal.clientPassword}`;
 
   const copyToClipboard = async () => {
     await navigator.clipboard.writeText(shareUrl);

@@ -45,8 +45,8 @@ export default function AlternativesSection({
 
   return (
     <Container className="py-12">
-      <h2 className="mb-8 font-serif text-4xl text-primary">{heading}</h2>
-      <h3 className="mb-8 text-xl font-medium">{subheading}</h3>
+      <h2 className="mb-8">{heading}</h2>
+      <h4 className="mb-8 text-muted-foreground">{subheading}</h4>
 
       <div className="mb-12 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
         {values.map((prop) => (

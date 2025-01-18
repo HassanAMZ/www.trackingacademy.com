@@ -35,7 +35,7 @@ const Hero: React.FC<HeroProps> = ({
         {badgeText && <Badge variant="outline">{badgeText}</Badge>}
         {headingText && <h1 className="max-w-6xl">{headingText}</h1>}
         {subheadingText && (
-          <h2 className="max-w-4xl text-muted-foreground">{subheadingText}</h2>
+          <h3 className="max-w-4xl text-muted-foreground">{subheadingText}</h3>
         )}
 
         <div className="flex max-w-xl items-center space-x-4">

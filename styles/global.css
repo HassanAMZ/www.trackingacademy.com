@@ -107,12 +107,115 @@
     --sidebar-ring: 168 100% 40%;
   }
 }
+* {
+  @apply border-border;
+}
 
+body {
+  @apply bg-background text-foreground antialiased;
+  font-feature-settings:
+    "rlig" 1,
+    "calt" 1;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Typography */
 @layer base {
-  * {
-    @apply border-border;
+  /* First heading with serif font */
+  h1 {
+    @apply scroll-m-20 font-serif text-4xl font-extrabold tracking-tight lg:text-5xl;
   }
-  body {
-    @apply bg-background text-foreground;
+
+  /* Regular headings */
+  h2 {
+    @apply scroll-m-20 pb-2 text-3xl font-semibold tracking-tight first:mt-0;
+  }
+
+  h3 {
+    @apply scroll-m-20 text-2xl font-semibold tracking-tight;
+  }
+
+  h4 {
+    @apply scroll-m-20 text-xl font-semibold tracking-tight;
+  }
+
+  /* Text size variants */
+  .text-small {
+    @apply text-sm leading-5;
+  }
+
+  .text-normal {
+    @apply text-base leading-7;
+  }
+
+  .text-medium {
+    @apply text-lg leading-7;
+  }
+
+  .text-large {
+    @apply text-xl leading-8;
+  }
+
+  /* Paragraph variants */
+  p {
+    @apply leading-7 [&:not(:first-child)]:mt-6;
+  }
+
+  p.small {
+    @apply text-sm leading-5 [&:not(:first-child)]:mt-4;
+  }
+
+  p.medium {
+    @apply text-lg leading-7 [&:not(:first-child)]:mt-6;
+  }
+
+  p.large {
+    @apply text-xl leading-8 [&:not(:first-child)]:mt-8;
+  }
+
+  /* Lead paragraph */
+  .lead {
+    @apply text-xl text-muted-foreground;
+  }
+
+  /* Large text */
+  .large {
+    @apply text-lg font-semibold;
+  }
+
+  /* Small text */
+  small {
+    @apply text-sm font-medium leading-none;
+  }
+
+  /* Muted text */
+  .muted {
+    @apply text-sm text-muted-foreground;
+  }
+
+  blockquote {
+    @apply mt-6 border-l-2 border-slate-300 pl-6 italic text-slate-800 dark:border-slate-600 dark:text-slate-200;
+  }
+
+  /* ul {
+    @apply my-6 ml-6 list-disc [&>li]:mt-2;
+  } */
+
+  code {
+    @apply rounded bg-slate-100 font-mono text-sm font-semibold text-slate-900 dark:bg-slate-800 dark:text-slate-400;
+  }
+}
+
+/* Utility Classes */
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  &::-webkit-scrollbar {
+    display: none;
   }
 }

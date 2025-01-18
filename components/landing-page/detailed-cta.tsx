@@ -25,19 +25,21 @@ const DetailedCTA: React.FC<DetailedCTAProps> = ({
     <section className="bg-gradient-to-b from-primary/5 to-background py-24">
       <Container className="text-center">
         {/* Heading */}
-        {heading && <h2>{heading}</h2>}
+        {heading && <h2 className="mb-4">{heading}</h2>}
 
         {/* Subheading */}
-        {subheading && <p className="mb-8">{subheading}</p>}
+        {subheading && (
+          <h4 className="mb-8 text-muted-foreground">{subheading}</h4>
+        )}
 
         {/* List Items */}
         {listItems && listItems.length > 0 && (
           <div className="grid place-content-center">
-            <ul className="mb-8 grid grid-cols-2 text-left">
+            <ul className="mb-8 grid grid-cols-2 gap-5 text-left">
               {listItems.map((item, index) => (
                 <li key={index} className="mb-2 flex items-center">
                   <CheckCircle className="mr-2 h-5 w-5 text-primary" />
-                  <p>{item}</p>
+                  {item}
                 </li>
               ))}
             </ul>

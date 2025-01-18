@@ -36,15 +36,15 @@ const SocialProof: React.FC<SocialProofProps> = ({
 }) => {
   return (
     <section className="min-h-screen bg-gradient-to-b from-primary/5 to-background py-24">
-      <Container>
+      <Container className="space-y-6">
         {/* Section Title */}
-        {sectionTitle && <h2 className="mb-12 text-center">{sectionTitle}</h2>}
+        {sectionTitle && <h2 className="text-center">{sectionTitle}</h2>}
 
         {/* Section Description */}
         {sectionDescription && (
-          <p className="mb-12 text-center text-muted-foreground">
+          <h4 className="pb-12 text-center text-muted-foreground">
             {sectionDescription}
-          </p>
+          </h4>
         )}
 
         {testimonials && testimonials.length > 0 && (

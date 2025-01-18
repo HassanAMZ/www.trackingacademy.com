@@ -33,7 +33,7 @@ const OfferDetails: React.FC<OfferDetailsProps> = ({
           <div className="max-w-3xl text-center">
             <h2 className="mb-4">{headerTitle}</h2>
             {headerDescription && (
-              <p className="text-muted-foreground">{headerDescription}</p>
+              <h4 className="text-muted-foreground">{headerDescription}</h4>
             )}
           </div>
         )}
@@ -48,21 +48,21 @@ const OfferDetails: React.FC<OfferDetailsProps> = ({
               <Container className="grid grid-cols-1 items-center justify-between gap-6 md:grid-cols-2">
                 <div className="space-y-5">
                   {item.title && (
-                    <h3 className="flex items-center">
+                    <h2 className="flex items-center">
                       {item.icon && <item.icon className="mr-4 h-12 w-12" />}
                       {item.title}
-                    </h3>
+                    </h2>
                   )}
                   {item.description && <p>{item.description}</p>}
                   {item.benefits && item.benefits.length > 0 && (
-                    <ul className="space-y-4">
+                    <div className="space-y-4">
                       {item.benefits.map((benefit, idx) => (
-                        <li key={idx} className="flex items-start">
-                          <CheckCircle className="mr-2 mt-1 h-6 w-6 flex-shrink-0" />
+                        <div key={idx} className="flex items-start">
+                          <CheckCircle className="mr-2 mt-1 h-6 w-6 flex-shrink-0 stroke-primary" />
                           <span>{benefit}</span>
-                        </li>
+                        </div>
                       ))}
-                    </ul>
+                    </div>
                   )}
 
                   {item.price && (

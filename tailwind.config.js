@@ -93,7 +93,7 @@ module.exports = {
   },
   plugins: [
     require("tailwindcss-animate"),
-    require("@tailwindcss/typography"),
+    // require("@tailwindcss/typography"),
     "prettier-plugin-tailwindcss",
     "prettier-plugin-organize-imports",
   ],

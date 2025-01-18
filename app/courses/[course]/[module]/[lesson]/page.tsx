@@ -115,7 +115,7 @@ export default async function LessonPage({
           </div>
         </CardHeader>
         <CardContent>
-          <div className="prose max-w-none dark:prose-invert">
+          <div className="prose dark:prose-invert max-w-none">
             <LessonContent />
           </div>
         </CardContent>

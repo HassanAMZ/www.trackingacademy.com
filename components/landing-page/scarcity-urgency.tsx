@@ -30,7 +30,7 @@ const ScarcityUrgency: React.FC<ScarcityUrgencyProps> = ({
         {title && <h2 className="max-w-3xl">{title}</h2>}
 
         {/* Description Section */}
-        {description && <p className="max-w-3xl">{description}</p>}
+        {description && <h4 className="max-w-3xl">{description}</h4>}
 
         {/* Spots and Days Remaining */}
         {/* {(spotsLeft || daysRemaining) && (

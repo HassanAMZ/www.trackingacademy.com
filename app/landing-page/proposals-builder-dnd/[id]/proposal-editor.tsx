@@ -33,7 +33,7 @@ import { useAuth } from "@/context/AuthContext";
 import { proposalsService } from "@/lib/firebase/proposals";
 import { ShareDialog } from "../share-dialog";
 import { Proposal, ProposalBlock, SaveStatus } from "@/types/proposal";
-import Link from "next/link";
+import { Link } from "next-view-transitions";
 import { toast } from "@/components/ui/hooks/use-toast";
 import FirebaseAuth from "@/components/global/firebase-auth";
 import { Alert, AlertDescription } from "@/components/ui/alert";
@@ -93,7 +93,7 @@ export function ProposalEditor({
       toast({
         description: "Proposal deleted successfully",
       });
-      router.push("/tools/proposals");
+      router.push("/tools/proposals-builder-dnd");
     } catch (error) {
       toast({
         title: "Error",

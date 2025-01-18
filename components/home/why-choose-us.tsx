@@ -23,18 +23,18 @@ export default function WhyChooseSection({
         {eyebrow}
       </div>
 
-      <h2 className="mb-8 font-serif text-4xl">{heading}</h2>
+      <h2>{heading}</h2>
 
-      <p className="mb-12 text-xl italic text-muted-foreground">{subheading}</p>
+      <h4 className="max-w-3xl text-muted-foreground">{subheading}</h4>
 
-      <div className="grid gap-12 md:grid-cols-2">
+      <div className="grid items-center justify-center gap-12 md:grid-cols-2">
         <div className="space-y-8">
           {value.map((text, i) => (
             <div key={i} className="flex gap-4">
               <div className="flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-full bg-primary text-primary-foreground">
                 <Check className="h-4 w-4" />
               </div>
-              <p className="text-lg">{text}</p>
+              <div className="text-lg">{text}</div>
             </div>
           ))}
         </div>

@@ -25,7 +25,7 @@ const ProblemAwareness: React.FC<ProblemAwarenessProps> = ({
         <div className="mx-auto max-w-3xl text-center">
           {headingText && <h2 className="mb-4">{headingText}</h2>}
           {paragraphText && (
-            <p className="text-muted-foreground">{paragraphText}</p>
+            <h4 className="text-muted-foreground">{paragraphText}</h4>
           )}
         </div>
 
@@ -39,7 +39,7 @@ const ProblemAwareness: React.FC<ProblemAwarenessProps> = ({
                 >
                   <div className="flex items-center justify-center space-x-4">
                     <AlertTriangle className="mt-1 h-6 w-6 text-destructive" />
-                    <p className="flex-1 text-destructive">{point}</p>
+                    <div className="flex-1 text-destructive">{point}</div>
                   </div>
                 </Card>
               ))}
@@ -64,7 +64,7 @@ const ProblemAwareness: React.FC<ProblemAwarenessProps> = ({
                 >
                   <div className="flex items-center justify-center space-x-4">
                     <CircleCheck className="mt-1 h-6 w-6 text-blue-500" />
-                    <p className="flex-1 text-blue-700">{point}</p>
+                    <div className="flex-1 text-blue-700">{point}</div>
                   </div>
                 </Card>
               ))}

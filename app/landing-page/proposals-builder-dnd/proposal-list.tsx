@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import Link from "next/link";
+import { Link } from "next-view-transitions";
 import { format } from "date-fns";
 import { Eye, PlusCircle, Share2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -105,7 +105,7 @@ export function ProposalList() {
             </CardHeader>
             <CardContent>
               <div className="flex items-center gap-2">
-                <Link href={`proposals/${proposal.id}`}>
+                <Link href={`${proposal.id}`}>
                   <Button variant="secondary" size="sm">
                     Edit
                   </Button>

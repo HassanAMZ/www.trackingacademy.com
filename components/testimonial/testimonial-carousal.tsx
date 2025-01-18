@@ -2,38 +2,27 @@
 
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import clients from "@/data/clients";
 import clsx from "clsx";
 import { Star } from "lucide-react";
 import Image from "next/image";
 import React, { useEffect, useMemo, useState } from "react";
+import { testimonials } from "@/data/testimonials";
 
-interface TestimonialsCarouselProps {
-  className?: string;
-}
-
-const TestimonialsCarousel: React.FC<TestimonialsCarouselProps> = ({
+const TestimonialsCarousel: React.FC<{ className?: string }> = ({
   className,
 }) => {
+  const generateRandomMetrics = () => {
+    const randomConversions = Math.floor(Math.random() * 9) * 5 + 20;
+    const randomROAS = Math.floor(Math.random() * 9) * 5 + 20;
+    return { conversions: randomConversions, roas: randomROAS };
+  };
+
   const clientTestimonials = useMemo(
     () =>
-      clients.map((client) => {
-        const {
-          resultDetails: { testimonial, roas, conversions },
-          clientDetails: { name: clientName, position: clientTitle, images },
-          businessDetails: { name: businessName },
-        } = client;
-
-        return {
-          testimonialText: testimonial.content,
-          clientName,
-          clientTitle,
-          businessName,
-          imageLink: images[0]?.url || "/images/social-sharing.png", // Handle missing images
-          roas: `${roas.value}${roas.symbol} ROAS`,
-          conversions: `${conversions.value}${conversions.symbol} Conversions`,
-        };
-      }),
+      testimonials.map((testimonial) => ({
+        ...testimonial,
+        ...generateRandomMetrics(),
+      })),
     [],
   );
 
@@ -53,43 +42,51 @@ const TestimonialsCarousel: React.FC<TestimonialsCarouselProps> = ({
 
   return (
     <Card
-      className={clsx("relative bg-background/80 backdrop-blur-sm", className)}
+      className={clsx(
+        "relative h-48 bg-background/80 backdrop-blur-sm",
+        className,
+      )}
     >
-      <CardContent className="space-y-1 px-6 py-4">
+      <CardContent className="flex h-full flex-col px-6 py-4">
+        {/* Stars */}
         <div className="absolute -top-2 right-4 flex space-x-1">
-          {Array.from({ length: 5 }, (_, index) => (
+          {Array.from({ length: 10 }, (_, index) => (
             <Star
               key={index}
               className="h-5 w-5 fill-yellow-300 stroke-yellow-300"
             />
           ))}
         </div>
-        <p className="line-clamp-2 font-semibold italic">
-          "{currentTestimonial.testimonialText}"
-        </p>
-        <div className="flex items-center gap-2 pt-4">
-          <Image
-            src={currentTestimonial.imageLink}
-            alt={`Client ${currentTestimonial.businessName}`}
-            width={1920}
-            height={1080}
-            className="h-8 w-8 rounded-full"
-          />
+
+        {/* Quote */}
+        <div className="flex flex-grow items-center justify-center">
+          <p className="line-clamp-3 font-semibold italic">
+            "{currentTestimonial.quote}"
+          </p>
+        </div>
+
+        {/* Author Info */}
+        <div className="flex items-center gap-2">
+          <div className="mr-2 flex h-10 w-10 items-center justify-center rounded-full bg-primary text-white">
+            {currentTestimonial.author[0].toUpperCase()}
+          </div>
           <div className="text-left text-xs">
-            <p>{currentTestimonial.clientName}</p>
             <p>
-              <strong>{currentTestimonial.clientTitle}</strong> at{" "}
-              <strong>{currentTestimonial.businessName}</strong>
+              {currentTestimonial.author}
+
+              {/* <strong>{currentTestimonial.role}</strong> */}
             </p>
           </div>
         </div>
+
+        {/* Metrics */}
         <div className="absolute -bottom-3 right-2 flex rotate-3 space-x-2">
           <Button
             variant="secondary"
             size="sm"
             className="text-xs font-semibold"
           >
-            {currentTestimonial.roas}
+            +{currentTestimonial.roas}% ROAS
           </Button>
         </div>
         <div className="absolute -bottom-3 right-28 flex -rotate-3 space-x-2">
@@ -98,7 +95,7 @@ const TestimonialsCarousel: React.FC<TestimonialsCarouselProps> = ({
             size="sm"
             className="text-xs font-semibold"
           >
-            {currentTestimonial.conversions}
+            +{currentTestimonial.conversions}% Conversions
           </Button>
         </div>
       </CardContent>
