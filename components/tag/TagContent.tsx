@@ -1,10 +1,9 @@
 "use client";
 
-import React, { useState } from "react";
 import { TagContentProps } from "@/types/index";
-import Link from "next/link";
+import { Link } from "next-view-transitions";
+import React, { useState } from "react";
 import formatString from "utils/formatString";
-import Text from "@/components/ui/text";
 import { Button } from "../ui/button";
 
 const TagContent: React.FC<TagContentProps> = ({ tags, type, blogsData }) => {
@@ -45,9 +44,7 @@ const TagContent: React.FC<TagContentProps> = ({ tags, type, blogsData }) => {
           onClick={loadMoreTags}
           className="bg-complementary w-full rounded border px-4 py-2"
         >
-          <Text as="h3" variant="headingXl">
-            Load More Tags
-          </Text>
+          <h3>Load More Tags</h3>
         </button>
       )}
     </section>

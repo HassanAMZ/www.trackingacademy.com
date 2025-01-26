@@ -1,7 +1,7 @@
-import React, { ReactNode } from "react";
-import reverseFormatString from "utils/reverseFormatString";
-import getBlogsData from "utils/getBlogsData";
 import Container from "@/components/ui/container";
+import { ReactNode } from "react";
+import getBlogsData from "utils/getBlogsData";
+import reverseFormatString from "utils/reverseFormatString";
 
 export async function generateMetadata(props: any) {
   const params = await props.params;
@@ -15,7 +15,7 @@ export async function generateMetadata(props: any) {
 }
 
 export async function generateStaticParams(): Promise<{ blog: string }[]> {
-  const blogs = await getBlogsData("app/blog");
+  const blogs = await getBlogsData("app/_blog-markdown");
 
   const seenBlogs = new Set();
   const blogSlugs = blogs

@@ -1,9 +1,9 @@
 // TagsContainer.tsx
 "use client";
-import React, { useState } from "react";
-import TagSearch from "@/components/tag/TagSearch";
 import TagContent from "@/components/tag/TagContent";
+import TagSearch from "@/components/tag/TagSearch";
 import { TagContainerProps } from "@/types/index"; // Ensure you have this type
+import React, { useState } from "react";
 
 const TagsContainer: React.FC<TagContainerProps> = ({
   tags,

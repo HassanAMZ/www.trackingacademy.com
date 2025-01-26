@@ -1,5 +1,3 @@
-import React from "react";
-import { Timestamp } from "firebase/firestore";
 import {
   Body,
   Container,
@@ -7,9 +5,10 @@ import {
   Heading,
   Html,
   Preview,
-  Text,
   Section,
+  Text,
 } from "@react-email/components";
+import { Timestamp } from "firebase/firestore";
 
 type EmailTemplateProps = {
   firstName: string;

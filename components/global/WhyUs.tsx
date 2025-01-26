@@ -1,11 +1,9 @@
 // LearnMoreHeader.tsx
 
 import React from "react";
-import Text from "@/components/ui/text";
 
-import { LearnMoreHeaderProps, WhyUsProps } from "@/types/index"; // make sure to use the actual path
-import ContainerLayout from "../layouts/ContainerLayout";
-import Link from "next/link";
+import { WhyUsProps } from "@/types/index"; // make sure to use the actual path
+import { Link } from "next-view-transitions";
 
 const WhyUs: React.FC<WhyUsProps> = ({
   links,
@@ -19,15 +17,13 @@ const WhyUs: React.FC<WhyUsProps> = ({
       <section className="bg-dominant text-complementary space-y-5 rounded-lg px-5 py-12 lg:px-20 lg:py-16">
         <div className="space-y-2 text-left">
           {headingTexts.heading && (
-            <Text as="h4" variant="headingLg" className="py-2">
-              {headingTexts.heading}
-            </Text>
+            <h4 className="py-2">{headingTexts.heading}</h4>
           )}
           {paragraphTexts && (
-            <Text as="h4" variant="headingLg">
+            <h4>
               {paragraphTexts.primary}
               <span>{paragraphTexts.secondary}</span>
-            </Text>
+            </h4>
           )}
         </div>
         <button className="bg-complementary rounded-lg border-2 border-gray-100 p-2 text-left">

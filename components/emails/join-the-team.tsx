@@ -1,6 +1,4 @@
 // components/EmailTemplate.tsx
-import React from "react";
-import { Timestamp } from "firebase/firestore";
 import {
   Body,
   Container,
@@ -10,6 +8,7 @@ import {
   Preview,
   Text,
 } from "@react-email/components";
+import { Timestamp } from "firebase/firestore";
 
 type JoinTheTeamProps = {
   firstName: string;

@@ -26,9 +26,12 @@ const trackingData: TrackingData[] = [
 // Precomputed averages
 const averages = { avgBefore: "63.7", avgAfter: "96.7" };
 
-const TrackingTable: React.FC = () => {
+const TrackingTable: React.FC<{ rows?: number }> = ({ rows }) => {
+  // Limit the number of rows to display based on the `rows` prop
+  const displayedData = rows ? trackingData.slice(0, rows) : trackingData;
+
   return (
-    <div className="w-full overflow-hidden rounded-xl border text-sm flex">
+    <div className="flex w-full overflow-hidden rounded-xl border text-sm">
       <table className="w-full">
         <thead>
           <tr className="m-0 p-0 even:bg-muted">
@@ -40,12 +43,12 @@ const TrackingTable: React.FC = () => {
           </tr>
         </thead>
         <tbody>
-          {trackingData.map((data, index) => (
+          {displayedData.map((data, index) => (
             <tr
               key={data.date}
               className={cn(
                 "m-0 whitespace-nowrap p-0 even:bg-muted",
-                index < trackingData.length - 3 && "hidden lg:table-row",
+                index < displayedData.length - 1 && "hidden lg:table-row",
               )}
             >
               <td className="px-2 py-3 text-left">{data.date}</td>

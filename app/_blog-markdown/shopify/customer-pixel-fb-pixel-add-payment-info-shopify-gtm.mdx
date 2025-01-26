@@ -1,0 +1,93 @@
+export const metadata = {
+  title:
+    "[Shopify Customer Pixel] How to Track Shopify Add Payment Info Event Using Google Tag Manager and Facebook Pixel",
+  date: "2024-11-14",
+  blogId: 134,
+  keywords:
+    "Google Tag Manager, Shopify, Facebook Pixel, Ecommerce Tracking, Data Layer, Customer Pixel, Add Payment Info, Meta Pixel, Add Payment Info Tracking",
+  tags: [
+    "Google Tag Manager",
+    "Shopify",
+    "Facebook Pixel",
+    "Ecommerce Tracking",
+    "Add Payment Info",
+    "Data Layer",
+    "Meta Pixel",
+  ],
+  draft: false,
+  description:
+    "Learn how to track the Shopify Add Payment Info Event using Google Tag Manager and Facebook Pixel. This detailed guide covers setting up data layers, configuring event tags, and ensuring pixel tracking for better eCommerce insights.",
+  openGraph: {
+    images: ["/static/blog/00033.png"],
+  },
+  embedId: "yy_n3VIAqKU",
+};
+
+In this blog post, we will explore how to configure the ad payment info event
+using the newer customer pixel section on your Shopify store with Google Tag
+Manager (GTM). Shopify has recently introduced new customer events that allow
+you to track data layer events on your website. Over the past four months, I
+have successfully configured more than 40 different Shopify stores using this
+new pixel, so I am excited to share my knowledge with you.
+
+## Outline of the Blog
+
+To make this process easier, I have divided the steps into four sections. In the first section, we will configure the data layer event to track the ad payment info section. The second section will cover how to set up the Google Tag Manager container. In the third section, we will configure tags, triggers, and variables inside the GTM account. Finally, we will conduct some testing to ensure everything is working correctly.
+
+## Step 1: Configure the Data Layer Event
+
+The first thing we need to do is ensure that our web pixel is properly connected to our backend. To do this, navigate to the settings on your Shopify backend and scroll down to the customer event section. Once you are in the customer event section, click on the button that says "Add Custom Pixel."
+
+Here, we will add the pixel. Let’s rename it to "Meta Add Payment Info" and call it "Data Layer." After that, hit the "Add Pixels" button. It is crucial to set the permissions to "Not Required" and the data sale to "Does Not Qualify."
+
+### DataLayer code for add_payment_info
+
+<DataLayerCodeBlock fileName="add_payment_info.js" />
+
+Next, you will find a link in the description of this blog post that will take you to the necessary code snippets. Copy the code snippet and return to your Shopify backend to paste it in the appropriate section. This code will trigger the ad payment info event. The only thing you need to update is the Google Tag Manager container ID, which you can find in your Google Tag Manager backend. Once you have copied the GTM container ID, paste it into the code snippet in Shopify. After that, hit "Save Changes" at the top and then click "Connect." By doing this, you have successfully added the customer pixel and connected it with the Google Tag Manager container.
+
+## Step 2: Verify the Event
+
+Before moving on to the next step, let’s verify if the event is working correctly. Go to the front end of your store and click on "Inspect" to see all the events firing inside the data layer. Make sure to switch to the console tab instead of the elements tab. Since the ad payment info event will fire during the checkout process, navigate directly to the checkout page. Once you are on the checkout page, add user information one by one to trigger the event. For this test, you can use dummy information.
+
+As soon as you click on the "Pay Now" button, the ad payment info event should trigger. It’s important to note that this event only triggers when you click the "Pay Now" button, not when you simply click outside the input box. Check the data layer event to ensure it contains all the necessary information, such as the items array, currency, coupon, and shipping value. If everything looks good, we can move on to the next step.
+
+## Step 3: Configure Google Tag Manager
+
+Now that we have verified the event, let’s move on to Google Tag Manager to create the variables, tags, and triggers needed for the event. Once you are in the tag section of GTM, go to the templates because we need a few templates before we start working on the tags directly. We will need two templates: one for the tags and one for the variables. To get the tag template, search for the template gallery and use the tag created by Simo, which was later sold to the Facebook archive team. Search for Facebook, select the tag created by the Facebook archive team, and click on "Add to Workspace." Confirm by clicking the "Add" button, and this tag template will be available for us.
+
+For the variable templates, we will import this from the same description video link. Click on "Import" and select the tag template from the blog post. After clicking the save button, this will be automatically created. Next, we need to create three variables for this project. The first variable will be the Facebook pixel ID, which is a constant variable. Create a constant variable to securely hold the pixel ID. Copy the ID from your Facebook Events Manager and paste it here. Rename this variable as "Meta Pixel ID" and hit "Save Changes."
+
+The second variable we need is the e-commerce item data layer parameter. Select the data layer parameter and choose the e-commerce items array. Rename this variable as "DLV E-commerce Items" and hit "Save Changes."
+
+<AuthenticatedLayout>
+  <Button className="p-6">
+    <a href="/static/templates/Ecommerce-Parameter-Generator.tpl" download>
+      Click here to Download the Ecommerce Parameter Generator Template
+    </a>
+  </Button>
+</AuthenticatedLayout>
+
+The last variable we need is the e-commerce parameter generator. Select this one and choose the array of objects. Rename this variable as "E-commerce Parameter Generator" and since this is for Meta, call it "Meta." Hit "Save Changes" to complete this step.
+
+Now, we need to create a trigger that will only fire on the ad payment info event. Go to "New" and create a custom event that looks for the ad payment info. Rename this trigger as "Custom Event Add Payment Info" and hit "Save Changes."
+
+## Step 4: Create the Tag
+
+Now we are ready to create the tag that will capture this event. Click on "New" and go to the trigger section. Select the "Add Payment Info" trigger. Under the tag configuration, select the Facebook pixel tag that we just created.
+
+Add the Facebook pixel ID through the constant variable we created earlier. The name of the event will be "Add Payment Info." Scroll down to the object properties and load the variable, which is the EPG Meta parameter.
+
+Once you have filled in all the necessary information, click on "Save Changes" and rename this tag as "Meta Add Payment Info." Click on "Save."
+
+Unfortunately, we won’t be able to test this event using the preview button, so we need to submit the changes. Rename this version as "Tracking Academy and Meta Add Payment Info" and hit "Publish."
+
+## Final Verification
+
+Before getting too excited, let’s verify if everything is working correctly. Go back to the Shopify front end and navigate to the cart page. From the cart page, go directly to the checkout page since we already have an item in the cart.
+
+To change things up, add one more quantity. Now, instead of filling in all the details, skip directly to the card section. Add some test details and as soon as you click on "Pay Now," you will see that the ad payment info event has fired.
+
+Using the Pixel Helper extension, you can verify that the event has fired and that it includes item ID, item name, and all the required content information, including text, currency, and value parameters.
+
+You can also verify the same information using the Event Manager test event section. Go to the test event section and scroll down to the website event. Add the website URL and click on "Open Website."

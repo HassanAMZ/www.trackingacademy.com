@@ -1,16 +1,10 @@
 "use client";
 
-import * as React from "react";
-import Link from "next/link";
-
-import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Button } from "@/components/ui/button";
-import Container from "@/components/ui/container";
 import {
   Dialog,
   DialogContent,
   DialogDescription,
-  DialogFooter,
   DialogHeader,
   DialogTitle,
   DialogTrigger,
@@ -41,7 +35,7 @@ export default function CallToAction({
             Fill out the contact form and team will reach out.
           </DialogDescription>
         </DialogHeader>
-        <ContactForm thankYouUrl={thankYouUrl} />
+        <ContactForm />
       </DialogContent>
     </Dialog>
   );

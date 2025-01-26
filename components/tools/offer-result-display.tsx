@@ -1,14 +1,14 @@
 "use client";
-import React, { useState } from "react";
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Copy, CheckCircle2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { CheckCircle2, Copy } from "lucide-react";
+import { useState } from "react";
 
 interface OfferResultDisplayProps {
   generation: any;
@@ -49,7 +49,7 @@ export function OfferResultDisplay({ generation }: OfferResultDisplayProps) {
         <Accordion type="single" collapsible className="w-full">
           {Object.entries(generation).map(([sectionKey, sectionValue]) => (
             <AccordionItem value={sectionKey} key={sectionKey}>
-              <AccordionTrigger className="text-lg font-semibold  px-2 rounded">
+              <AccordionTrigger className="rounded px-2 text-lg font-semibold">
                 {sectionKey
                   .replace(/([A-Z])/g, " $1")
                   .replace(/^./, function (str) {
@@ -63,10 +63,10 @@ export function OfferResultDisplay({ generation }: OfferResultDisplayProps) {
                       ([key, value]) => (
                         <div
                           key={key}
-                          className=" border rounded-lg p-3 shadow-sm"
+                          className="rounded-lg border p-3 shadow-sm"
                         >
-                          <div className="flex justify-between items-center mb-2">
-                            <h4 className="font-medium ">
+                          <div className="mb-2 flex items-center justify-between">
+                            <h4 className="font-medium">
                               {key
                                 .replace(/([A-Z])/g, " $1")
                                 .replace(/^./, function (str) {
@@ -81,19 +81,19 @@ export function OfferResultDisplay({ generation }: OfferResultDisplayProps) {
                                   Array.isArray(value)
                                     ? value.join("\n")
                                     : String(value),
-                                  `${sectionKey}-${key}`
+                                  `${sectionKey}-${key}`,
                                 )
                               }
                             >
                               {copiedSections[`${sectionKey}-${key}`] ? (
-                                <CheckCircle2 className=" w-4 h-4" />
+                                <CheckCircle2 className="h-4 w-4" />
                               ) : (
-                                <Copy className=" w-4 h-4" />
+                                <Copy className="h-4 w-4" />
                               )}
                             </Button>
                           </div>
                           {Array.isArray(value) ? (
-                            <ul className="list-disc list-inside ">
+                            <ul className="list-inside list-disc">
                               {value.map((item, index) => (
                                 <li key={index}>{item}</li>
                               ))}
@@ -102,7 +102,7 @@ export function OfferResultDisplay({ generation }: OfferResultDisplayProps) {
                             <p>{String(value)}</p>
                           )}
                         </div>
-                      )
+                      ),
                     )}
                   </div>
                 ) : (

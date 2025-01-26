@@ -1,10 +1,5 @@
 "use client";
-import React, { useState, useEffect, ChangeEvent } from "react";
-import { useFormState, useFormStatus } from "react-dom";
-import { useRouter } from "next/navigation";
-import { Input } from "../ui/input";
-import { Label } from "../ui/label";
-import { Textarea } from "@/components/ui/textarea";
+import { createWaitlist } from "@/actions/handle-enroll-now";
 import {
   Select,
   SelectContent,
@@ -12,12 +7,16 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import { Textarea } from "@/components/ui/textarea";
+import { useRouter } from "next/navigation";
+import React, { ChangeEvent, useEffect, useState } from "react";
+import { useFormState, useFormStatus } from "react-dom";
 import { cn } from "../lib/utils";
-import Container from "../ui/container";
-import { createWaitlist } from "@/actions/handle-enroll-now";
 import { Button } from "../ui/button";
-import Text from "../ui/text";
 import { Card, CardContent } from "../ui/card";
+import Container from "../ui/container";
+import { Input } from "../ui/input";
+import { Label } from "../ui/label";
 interface FormData {
   firstName: string;
   lastName: string;
@@ -224,12 +223,8 @@ export default function ContactForm({
   if (formSubmitted) {
     return (
       <Container>
-        <Text as="h1" variant="heading3xl" className="text-center">
-          Thank you!
-        </Text>
-        <Text as="p" variant="bodyMd">
-          Your request has been submitted.
-        </Text>
+        <h1 className="text-center">Thank you!</h1>
+        <p>Your request has been submitted.</p>
       </Container>
     );
   }
@@ -273,14 +268,8 @@ export default function ContactForm({
         return (
           <>
             <div className="py-6 text-left md:text-center">
-              {formHeader && (
-                <Text as="h1" variant="heading3xl">
-                  Join Our Course Waitlist
-                </Text>
-              )}
-              <Text as="p" variant="bodyMd">
-                Please provide your personal information.
-              </Text>
+              {formHeader && <h1>Join Our Course Waitlist</h1>}
+              <p>Please provide your personal information.</p>
             </div>
 
             <div className="grid gap-3">
@@ -748,14 +737,9 @@ export default function ContactForm({
           <CardContent className="mx-auto max-w-3xl">
             <form onSubmit={handleSubmit} className="flex flex-col space-y-3">
               {renderStep()}
-              <Text
-                as="p"
-                variant="bodyMd"
-                aria-live="polite"
-                className="sr-only"
-              >
+              <p aria-live="polite" className="sr-only">
                 {state?.message}
-              </Text>
+              </p>
             </form>
           </CardContent>
         </Card>

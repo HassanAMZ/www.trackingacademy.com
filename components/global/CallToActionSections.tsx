@@ -1,5 +1,5 @@
-import FreeResoursesSection from "./FreeResoursesSection";
 import React from "react";
+import FreeResoursesSection from "./FreeResoursesSection";
 import LearnMoreHeader from "./LearnMoreHeader";
 
 const CallToActionSections = () => {

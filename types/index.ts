@@ -33,16 +33,7 @@ export interface GTMBlogViewProps {
 }
 
 // types/index.ts or types/clientTypes.ts
-import {
-  DetailedHTMLProps,
-  HTMLAttributes,
-  FC,
-  useRef,
-  useState,
-  ReactNode,
-  ChangeEvent,
-  JSX,
-} from "react";
+import { JSX, ReactNode } from "react";
 
 export interface ServiceCardProps {
   service: ServiceDetails;
@@ -78,6 +69,7 @@ export interface CourseSearchProps {
 export interface BlogContentProps {
   data: PostMetadata[];
   rawData?: PostMetadata[];
+  featuredPostId?: number;
   type: string;
 }
 export interface CourseContentProps {
@@ -85,7 +77,7 @@ export interface CourseContentProps {
   rawData?: CourseMetadata[];
   type: string;
 }
-export interface BlogContainerProps {
+export interface CategoryContainerProps {
   data: PostMetadata[];
   rawData?: PostMetadata[];
   type: string;
@@ -145,6 +137,7 @@ export interface PostMetadata {
   openGraph: { images: string[] };
   embedId: string;
   id?: string;
+  updatedDate?: string;
   slug?: string;
 }
 
@@ -326,13 +319,7 @@ export interface CourseMetadata {
   id?: string;
   slug?: string;
 }
-export interface TwoGridContentProps {
-  learnMoreHeader: string;
-  detailsList: Detail[];
-  primaryLink: Link;
-  imagesData: ImageData;
-  order: number; // For grid order
-}
+
 export interface HeadingTextsProps {
   heading: JSX.Element | string;
   subHeading?: JSX.Element | string;

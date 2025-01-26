@@ -1,18 +1,21 @@
-import React from "react";
-import getBlogsData from "utils/getBlogsData";
-import BlogContainer from "@/components/blog/container";
-import Container from "@/components/ui/container";
+import TestimonialGrid from "@/components/testimonial/testimonial-grid";
+import { Button } from "@/components/ui/button";
+import { ArrowRight } from "lucide-react";
+import { Link } from "next-view-transitions";
 
 export default async function Page() {
-  const data = await getBlogsData("app/portfolio");
-
-  const sortedData = (await Promise.all(data))
-    .filter((item) => item.draft === false)
-    .sort((a, b) => b.blogId - a.blogId);
-
   return (
-    <Container>
-      {/* <BlogContainer data={sortedData} type={"blog"} /> */}
-    </Container>
+    <main className="py-12">
+      <TestimonialGrid />
+
+      <div className="flex items-center justify-center space-x-4 py-12">
+        <Button size="lg" asChild>
+          <Link href="/contact">
+            Let’s Handle Your Tracking Setup
+            <ArrowRight className="ml-2 h-4 w-4" />
+          </Link>
+        </Button>
+      </div>
+    </main>
   );
 }

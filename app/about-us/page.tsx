@@ -1,17 +1,13 @@
-import React from "react";
 import LearnMore from "@/components/global/LearnMore";
-import Text from "@/components/ui/text";
 
 export default function Page() {
   return (
     <section className="py-8">
-      <Text as="h1" variant="heading3xl" className="text-center">
-        Hey, I'm Hassan 👋
-      </Text>
-      <Text as="p" variant="bodyMd" className="text-center">
+      <h1 className="text-center">Hey, I'm Hassan 👋</h1>
+      <p className="text-center">
         I'm a Top Rated Freelancer on Upwork, here's what you should know about
         me.
-      </Text>
+      </p>
 
       <div className="container-secondary divide-y p-4">
         <LearnMore

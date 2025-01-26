@@ -1,8 +1,8 @@
-import Image from "next/image";
-import React from "react";
-import Link from "next/link";
 import LearnMoreHeader from "@/components/global/LearnMoreHeader";
 import { HeroProps } from "@/types/index";
+import { Link } from "next-view-transitions";
+import Image from "next/image";
+import React from "react";
 
 const HeroComponent: React.FC<HeroProps> = ({ textGroup, links, images }) => {
   return (
@@ -12,30 +12,18 @@ const HeroComponent: React.FC<HeroProps> = ({ textGroup, links, images }) => {
           <Image
             alt="Shahzada Ali Hassan"
             src={images.background.desktop}
-            placeholder="blur"
-            blurDataURL={images.background.desktop}
-            quality={100}
-            fill
+            height={1080}
+            width={1920}
             className="hidden opacity-75 sm:block"
-            sizes="100vw"
-            style={{
-              objectFit: "cover",
-            }}
           />
         )}
         {images?.background?.mobile && (
           <Image
             alt="Mountains"
             src={images.background.mobile}
-            placeholder="blur"
-            blurDataURL={images.background.mobile}
-            quality={100}
+            height={1080}
+            width={1920}
             className="block object-right-bottom opacity-50 sm:hidden"
-            fill
-            sizes="100vw"
-            style={{
-              objectFit: "cover",
-            }}
           />
         )}
         <div className="relativ z-10 flex flex-col items-start justify-center px-4 py-20 sm:px-8 lg:px-14 lg:py-24">

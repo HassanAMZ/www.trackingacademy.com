@@ -1,63 +1,109 @@
-import React from "react";
-import HeroComponent from "@/components/global/HeroComponent";
-import CourseContainer from "@/components/courses/CourseContainer";
-import getCoursesData from "utils/getCoursesData";
+import { Link } from "next-view-transitions";
+import { ArrowRight, Clock, Book } from "lucide-react";
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import {
+  Card,
+  CardContent,
+  CardHeader,
+  CardTitle,
+  CardDescription,
+} from "@/components/ui/card";
+import Navbar from "@/components/global/navbar";
+import Container from "@/components/ui/container";
+import { promises as fs } from "fs";
+import path from "path";
 
-export default async function Page() {
-  const data = await getCoursesData();
-  const sortedData = (await Promise.all(data))
-    .filter((data) => data.draft === false)
-    .sort((a, b) => {
-      const dateA = new Date(a.date);
-      const dateB = new Date(b.date);
-      return dateB.getTime() - dateA.getTime();
-    });
+async function getCourses() {
+  const coursesDirectory = path.join(process.cwd(), "app/_courses-markdown");
+  const courseDirectories = await fs.readdir(coursesDirectory);
+
+  const courses = await Promise.all(
+    courseDirectories.map(async (courseDir) => {
+      const { metadata } = await import(
+        `@/app/_courses-markdown/${courseDir}/metadata.mdx`
+      );
+      return {
+        ...metadata,
+        slug: courseDir,
+      };
+    }),
+  );
+
+  return courses;
+}
+
+export default async function CoursesPage() {
+  const courses = await getCourses();
 
   return (
-    <div className="flex flex-col">
-      {/* <React.Fragment>
-    <HeroComponent
-     textGroup={{
-      welcomeText: "TrackingAcademy Courses",
-      heading: "Learn from technical marketing experts",
-      subHeading: {
-       one: "Sign up to join our waiting list and be the first to know when courses go live. ",
-       two: "Stay ahead in digital marketing with task-based learning from TrackingAcademy.",
-      },
-     }}
-     links={{
-      primary: { src: "#waiting-list", text: "Join Waiting List" },
-     }}
-     images={{
-      group: {
-       list: [
-        {
-         src: "/images/clients/001_1.jfif",
-         alt: "Imtiaz Ahmed - Job Ready Programmer",
-        },
-        { src: "/images/clients/007.jfif", alt: "Client" },
-        {
-         src: "/images/clients/008.jfif",
-         alt: "Pjipipp Herglotz - Kiss Agency",
-        },
-        {
-         src: "/images/clients/001.jpg",
-         alt: "Imtiaz Ahmed - Job Ready Programmer",
-        },
-       ],
-      },
-      background: {
-       desktop: "/images/hero/hero-image-md.png",
-       mobile: "/images/hero/hero-image-sm.png",
-      },
-     }}
-    />
-   </React.Fragment> */}
-      {sortedData.length === 0 && (
-        <React.Fragment>
-          <div className="grid min-h-[60vh] place-content-center py-8 text-left"></div>
-        </React.Fragment>
-      )}
-    </div>
+    <Container>
+      <Navbar />
+      <div className="container py-8 md:py-12">
+        <div className="flex flex-col gap-4">
+          <h1 className="text-4xl font-bold tracking-tight">
+            Available Courses
+          </h1>
+          <p className="text-muted-foreground">
+            Expand your knowledge with our comprehensive course catalog
+          </p>
+        </div>
+
+        <div className="mt-8 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+          {courses.map((course) => (
+            <Card
+              key={course.slug}
+              className="group relative flex h-full flex-col transition-colors hover:border-primary"
+            >
+              <CardHeader>
+                <div className="space-y-1">
+                  <CardTitle className="text-2xl">{course.title}</CardTitle>
+                  <CardDescription className="line-clamp-2">
+                    {course.description}
+                  </CardDescription>
+                </div>
+              </CardHeader>
+              <CardContent className="flex flex-1 flex-col justify-between">
+                <div className="space-y-4">
+                  {course.prerequisites && (
+                    <div className="space-y-2">
+                      <p className="text-sm text-muted-foreground">
+                        Prerequisites
+                      </p>
+                      <div className="flex flex-wrap gap-2">
+                        {course.prerequisites.map(
+                          (prereq: string[], index: string) => (
+                            <Badge key={index} variant="secondary">
+                              {prereq}
+                            </Badge>
+                          ),
+                        )}
+                      </div>
+                    </div>
+                  )}
+                  <div className="flex flex-wrap items-center gap-4 text-sm">
+                    <div className="flex items-center gap-1 text-muted-foreground">
+                      <Book className="h-4 w-4" />
+                      <span>{course.level}</span>
+                    </div>
+                    <div className="flex items-center gap-1 text-muted-foreground">
+                      <Clock className="h-4 w-4" />
+                      <span>{course.duration}</span>
+                    </div>
+                  </div>
+                </div>
+
+                <Link href={`/courses/${course.slug}`} className="mt-6">
+                  <Button className="w-full group-hover:bg-primary/90">
+                    Start Learning
+                    <ArrowRight className="ml-2 h-4 w-4" />
+                  </Button>
+                </Link>
+              </CardContent>
+            </Card>
+          ))}
+        </div>
+      </div>
+    </Container>
   );
 }

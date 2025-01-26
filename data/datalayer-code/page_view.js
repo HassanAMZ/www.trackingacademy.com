@@ -1,3 +1,5 @@
+window.dataLayer = window.dataLayer || [];
+
 (function (w, d, s, l, i) {
   w[l] = w[l] || [];
   w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
@@ -40,15 +42,6 @@ analytics.subscribe("page_viewed", (event) => {
     timestamp: event.timestamp || "",
     id: event.id || "",
   };
-  const newUrl = new URL(
-    page_data.location_query_string,
-    window.location.origin,
-  );
-  const newTitle = page_data.page_title;
-
-  if (newUrl && newTitle) {
-    history.pushState(null, newTitle, newUrl.toString());
-  }
   const dataLayerEvent = {
     event: "page_view",
     page_data: page_data,
@@ -56,7 +49,17 @@ analytics.subscribe("page_viewed", (event) => {
     event_data: event_data,
   };
 
-  window.dataLayer = window.dataLayer || [];
+  const newUrl = new URL(
+    dataLayerEvent.page_data.location_query_string,
+    window.location.origin,
+  );
+  const newTitle = dataLayerEvent.page_data.page_title;
+
+  if (newUrl && newTitle) {
+    history.pushState(null, newTitle, newUrl.toString());
+  }
+  window.dataLayer.push(dataLayerEvent);
+  logEventToConsole(dataLayerEvent);
   window.dataLayer.push(dataLayerEvent);
   logEventToConsole(dataLayerEvent);
 });

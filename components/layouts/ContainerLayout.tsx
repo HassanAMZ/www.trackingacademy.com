@@ -1,5 +1,5 @@
-import { ReactNode, FC } from "react";
 import { ContainerLayoutProps } from "@/types/index";
+import { FC } from "react";
 
 const ContainerLayout: FC<ContainerLayoutProps> = ({
   children,

@@ -1,8 +1,8 @@
 "use client";
 // components/tools/offer-analyzer.tsx
 import { useState } from "react";
+import { Alert, AlertDescription, AlertTitle } from "../ui/alert";
 import { Card, CardContent, CardHeader, CardTitle } from "../ui/card";
-import { Alert, AlertTitle, AlertDescription } from "../ui/alert";
 import Container from "../ui/container";
 
 interface OfferAnalysis {

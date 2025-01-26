@@ -1,9 +1,7 @@
 "use client";
 
-import * as React from "react";
-import Link from "next/link";
-import { usePathname } from "next/navigation";
-import { Menu, Briefcase, Wrench, FileText } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import Container from "@/components/ui/container";
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -14,11 +12,14 @@ import {
   navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
-import { Button } from "@/components/ui/button";
-import Container from "@/components/ui/container";
+import clsx from "clsx";
+import { FileText, Menu, Wrench } from "lucide-react";
+import { Link } from "next-view-transitions";
+import { usePathname } from "next/navigation";
+import React, { useState } from "react";
 import NavLink from "../navbar/NavLink";
 import { ModeToggle } from "./theme-switch";
-import clsx from "clsx";
+import { Card, CardContent } from "../ui/card";
 
 interface NavItem {
   title: string;
@@ -29,21 +30,35 @@ interface NavItem {
 const NAV_ITEMS: Record<string, NavItem[]> = {
   tools: [
     {
+      title: "All Tools",
+      href: "/tools",
+      description:
+        "Explore our complete collection of analytics and tracking tools",
+    },
+    {
       title: "UTM Builder",
       href: "/tools/utm-builder",
       description:
         "Start building your UTMs for Google Ads, Facebook Ads, TikTok, or custom, all at one place",
     },
-  ],
-  careers: [
     {
-      title: "Upwork Business Developer",
-      href: "/career/upwork-business-developer",
+      title: "UTM Validator",
+      href: "/tools/utm-validator",
       description:
-        "Join us as a Business Developer on Upwork to help grow our business.",
+        "Validate and analyze your UTM parameters to ensure proper tracking setup",
+    },
+    {
+      title: "Time Managment",
+      href: "/tools/time-managment",
+      description: "Track and manage time across different projects and tasks",
     },
   ],
   blogs: [
+    {
+      title: "All Blog Posts",
+      href: "/blog",
+      description: "Learn everything about web analytics.",
+    },
     {
       title: "Google Tag Manager",
       href: "/tags/google-tag-manager",
@@ -54,11 +69,6 @@ const NAV_ITEMS: Record<string, NavItem[]> = {
       href: "/tags/shopify",
       description:
         "Guides and tips for managing and growing your Shopify store.",
-    },
-    {
-      title: "WooCommerce",
-      href: "/tags/woocommerce",
-      description: "Explore our WooCommerce tutorials and best practices.",
     },
   ],
 };
@@ -91,8 +101,8 @@ const ListItem = React.forwardRef<HTMLAnchorElement, ListItemProps>(
 );
 ListItem.displayName = "ListItem";
 
-export default function Navbar() {
-  const [isSheetOpen, setSheetOpen] = React.useState(false);
+export default function Navbar({ className }: { className?: string }) {
+  const [isSheetOpen, setSheetOpen] = useState(false);
   const pathname = usePathname();
 
   const isActive = (path: string) => pathname.startsWith(path);
@@ -113,8 +123,7 @@ export default function Navbar() {
       href="/"
       className={clsx(
         navigationMenuTriggerStyle(),
-        "p-2 text-accent-foreground flex items-center justify-center font-extrabold",
-        isActive("/") && "text-accent-foreground bg-secondary",
+        "flex items-center justify-center p-2 font-extrabold",
       )}
     >
       TrackingAcademy
@@ -151,9 +160,9 @@ export default function Navbar() {
   );
 
   const DesktopNavigationMenu = () => (
-    <div className="hidden h-14 gap-3 p-2 lg:flex w-full justify-between items-center">
+    <div className="hidden h-14 w-full items-center justify-between gap-3 p-2 lg:flex">
       <NavigationMenu>
-        <NavigationMenuList className="w-full flex flex-col gap-4 text-lg font-medium lg:flex-row lg:items-center lg:gap-2 lg:text-sm">
+        <NavigationMenuList className="flex w-full flex-col gap-4 text-lg font-medium lg:flex-row lg:items-center lg:gap-2 lg:text-sm">
           <HomeNavigationButton />
           <NavigationMenuItem>
             <NavigationMenuTrigger>Tools</NavigationMenuTrigger>
@@ -164,15 +173,12 @@ export default function Navbar() {
               )}
             </NavigationMenuContent>
           </NavigationMenuItem>
-          <NavigationMenuItem>
+          {/* <NavigationMenuItem>
             <NavigationMenuTrigger>Careers</NavigationMenuTrigger>
             <NavigationMenuContent>
-              {renderNavigationMenuItems(
-                NAV_ITEMS.careers,
-                <Briefcase className="h-6 w-6" />,
-              )}
+              {renderNavigationMenuItems(NAV_ITEMS.careers, <Briefcase className="h-6 w-6" />)}
             </NavigationMenuContent>
-          </NavigationMenuItem>
+          </NavigationMenuItem> */}
           <NavigationMenuItem>
             <NavigationMenuTrigger>Blogs</NavigationMenuTrigger>
             <NavigationMenuContent>
@@ -193,7 +199,7 @@ export default function Navbar() {
 
   const MobileNavigationMenu = () => (
     <Sheet open={isSheetOpen} onOpenChange={setSheetOpen}>
-      <div className="flex w-full h-14 items-center justify-between gap-1 px-1 sm:gap-2 sm:px-3 lg:hidden">
+      <div className="flex h-14 w-full items-center justify-between gap-1 px-3 sm:gap-2 sm:px-3 lg:hidden">
         <SheetTrigger asChild>
           <Button variant="outline" size="icon" className="shrink-0 lg:hidden">
             <Menu className="h-5 w-5" />
@@ -206,7 +212,7 @@ export default function Navbar() {
 
       <SheetContent side="right" className="flex flex-col justify-between">
         <nav className="flex w-full flex-col space-y-4 py-4">
-          {["/", "/tools", "/career", "/blog"].map((path) => (
+          {["/", "/tools", "/blog"].map((path) => (
             <Link
               key={path}
               href={path}
@@ -231,11 +237,11 @@ export default function Navbar() {
 
   return (
     <div className="w-full pb-2 pt-4 lg:text-sm">
-      <Container className="bg-transparent">
-        <div className="rounded-lg flex bg-secondary/40 shadow">
+      <Container className={clsx("", className)}>
+        <header className="rounded-lg border">
           <MobileNavigationMenu />
           <DesktopNavigationMenu />
-        </div>
+        </header>
       </Container>
     </div>
   );

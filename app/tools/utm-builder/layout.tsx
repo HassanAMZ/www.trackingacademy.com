@@ -1,4 +1,3 @@
-import ContainerLayout from "@/components/layouts/ContainerLayout";
 import React, { ReactNode } from "react";
 
 export const metadata = {

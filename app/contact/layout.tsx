@@ -1,12 +1,11 @@
-import React, { ReactNode } from "react";
-import Container from "@/components/ui/container";
-import Navbar from "@/components/global/navbar";
+import TestimonialGrid from "@/components/testimonial/testimonial-grid";
+import { ReactNode } from "react";
 
 export default function Layout({ children }: { children: ReactNode }) {
   return (
-    <React.Fragment>
-      <Navbar />
+    <main className="space-y-5">
       {children}
-    </React.Fragment>
+      <TestimonialGrid />
+    </main>
   );
 }

@@ -22,18 +22,25 @@ const nextConfig = {
     remotePatterns: [
       {
         protocol: "https",
-        hostname: "i.ytimg.com",
+        hostname: "*.ytimg.com",
         port: "",
-        pathname: "/vi/**",
+        pathname: "**",
       },
       {
         protocol: "https",
-        hostname: "ytimg.com",
+        hostname: "*.googleusercontent.com",
         port: "",
-        pathname: "/vi/**",
+        pathname: "**",
+      },
+      {
+        protocol: "https",
+        hostname: "*.vercel-storage.com",
+        port: "",
+        pathname: "**",
       },
     ],
   },
+
   reactStrictMode: true,
   sassOptions: {
     includePaths: [path.join(__dirname, "styles")],

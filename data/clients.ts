@@ -78,7 +78,7 @@ const clients: Client[] = [
       name: "Imtiaz Ahmed",
       email: "imtiazahmad007@gmail.com",
       position: "CEO",
-      images: [{ name: "profile", url: "/images/clients/imtiaz-ahmad.jfif" }],
+      images: [{ name: "profile", url: "/images/clients/imtiaz-ahmad.png" }],
     },
     businessDetails: {
       email: "info@jobreadyprogrammer.com",
@@ -124,7 +124,7 @@ const clients: Client[] = [
       email: "",
       position: "Product Manager",
       images: [
-        { name: "profile", url: "/images/clients/matthieu-chauveau.jfif" },
+        { name: "profile", url: "/images/clients/matthieu-chauveau.png" },
       ],
     },
     businessDetails: {
@@ -145,7 +145,7 @@ const clients: Client[] = [
       conversions: { symbol: "%", code: "percentage", value: 57 },
       testimonial: {
         content:
-          "Shahzada is great. He is extremely knowledgable and friendly and helped us out tremendously. ",
+          "Shahzada is great. He is extremely knowledgable and friendly and helped us out tremendously.",
         projectTitle:
           "Send SevenRooms Events from Google Tag Manager to Google Analytics 4 (GTM - GA4)",
       },

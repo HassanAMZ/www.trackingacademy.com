@@ -1,5 +1,5 @@
-import React from "react";
 import { DetailsProps } from "@/types/index";
+import React from "react";
 
 const LearnMore: React.FC<DetailsProps> = ({ detailsList }) => {
   return (

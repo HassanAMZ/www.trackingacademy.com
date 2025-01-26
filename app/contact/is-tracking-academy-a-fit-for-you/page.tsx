@@ -1,13 +1,12 @@
-import ClientTestimonial from "@/components/home/testimonaials";
+import TestimonialGrid from "@/components/testimonial/testimonial-grid";
 import { Button } from "@/components/ui/button";
 import Container from "@/components/ui/container";
-import Link from "next/link";
-import React from "react";
+import { Link } from "next-view-transitions";
 
 export default function page() {
   return (
     <main className="py-4">
-      <ClientTestimonial />
+      <TestimonialGrid />
       <Container>
         <Button asChild className="w-full">
           <Link href="/contact">Book a Call</Link>

@@ -1,0 +1,139 @@
+export const metadata = {
+  title:
+    "[Shopify Customer Pixel] How to Track Shopify View Content Event Using Google Tag Manager and Facebook Pixel",
+  date: "2024-09-22",
+  blogId: 129,
+  keywords:
+    "Google Tag Manager, Shopify, Facebook Pixel, Ecommerce Tracking, Data Layer, Customer Pixel, View Content Event, Meta Pixel, View Item Event",
+  tags: [
+    "Google Tag Manager",
+    "Shopify",
+    "Facebook Pixel",
+    "Ecommerce Tracking",
+    "View Content",
+    "Data Layer",
+    "Meta Pixel",
+  ],
+  draft: false,
+  description:
+    "Learn how to track the Shopify View Content Event using Google Tag Manager and Facebook Pixel. This detailed guide walks you through setting up data layers, configuring event tags, and verifying pixel tracking to improve eCommerce tracking insights.",
+  openGraph: {
+    images: ["/static/blog/00029.png"],
+  },
+  embedId: "fHa_XQy2jkw",
+};
+
+Shopify has introduced new customer events, which replace the older method for creating data layer events. If you run a Shopify store, this change means you'll need to update your system to continue tracking key actions like "View Content" using Google Tag Manager (GTM) and Facebook Pixel. In this guide, I’ll walk you through the four steps to track these events, making it easier to configure and verify your Shopify store's performance.
+
+## Introduction
+
+Recently, Shopify revamped its **Customer Events** section, making it essential to switch from the older methods of data layer event creation to a newer system. Over the past few months, I’ve helped over 40 Shopify stores transition to this new setup.
+
+In this blog, I'll guide you through the process of configuring customer web pixels for tracking **View Content** events using **Google Tag Manager** and **Facebook Pixel**.
+
+## Step 1: Adding Data Layer Event Code
+
+1. **Navigate to Shopify Settings**:
+
+   - From your Shopify dashboard, head to **Settings** (found at the bottom left corner).
+   - Scroll to the **Customer Event** section, where you will trigger the View Content event.
+
+2. **Add a Custom Pixel**:
+
+   - Click the **Add Custom Pixel** button.
+   - Since we're working with Meta, rename it to "Meta View Content Data Layer" and click **Add Pixel**.
+
+3. **Configure Permissions**:
+
+   - Ensure the **Permissions** are set to **Not Required** and that **Data Sale Does Not Qualify**.
+
+4. **Insert Code Snippet**:
+
+   - Copy a pre-written code snippet (you can find the code in a blog post linked in the description).
+   - Paste this code into your Shopify store's custom pixel section.
+   - Update the Google Tag Manager (GTM) ID in the code. You can find this in your GTM account by clicking on the ID at the top of the dashboard.
+
+5. **Save and Connect**:
+   - Click **Save** and then **Connect** the pixel to your store.
+
+<DataLayerCodeBlock fileName="view_item.js" />
+
+### Testing the Data Layer Code
+
+To confirm that the View Content event works:
+
+- Visit your store's product pages.
+- Right-click on the page and open the **Inspect** tool.
+- Switch to the **Console** tab and look for the View Content event, along with key details like item ID, name, value, and currency.
+
+## Step 2: Setting Up Google Tag Manager Container
+
+1. **Access Google Tag Manager**:
+
+   - Go to your **Google Tag Manager** dashboard to create a container.
+
+2. **Add Facebook Pixel Template**:
+
+   - In GTM, navigate to **Templates**.
+   - Search for "Facebook Pixel by Facebook Archive Team" in the gallery and add it to your workspace.
+
+3. **Add Variable Templates**:
+
+   - Create a **Meta Pixel ID** constant variable:
+   - Go to **Variables** and click on **New**.
+   - Copy the Meta Pixel ID from Facebook Events Manager and add it as a constant in GTM.
+   - Import the **e-commerce parameter generator** template. This template helps pass all e-commerce data like content IDs and names.
+
+4. **Create Data Layer Variables**:
+   - Create a new data layer variable for the items array, which will hold product information.
+   - Rename this variable as `DLV ecommerce.items` for clarity.
+
+## Step 3: Configuring Facebook Pixel Tags
+
+1. **Create Facebook Pixel Tags in GTM**:
+
+   - Now that you've set up your variables, it's time to create the tags.
+   - Start by creating a new tag for **Page View** events:
+     - Set the trigger to fire on all pages.
+     - Use the Meta Pixel ID from the variable you created earlier.
+
+2. **Set Up View Content Tag**:
+   - Create a custom event trigger named **View Content** for product pages.
+   - Use the e-commerce parameters to track product details like name, price, and currency.
+   - Once set, save the changes.
+
+<AuthenticatedLayout>
+  <Button className="p-6">
+    <a href="/static/templates/Ecommerce-Parameter-Generator.tpl" download>
+      Click here to Download the Ecommerce Parameter Generator Template
+    </a>
+  </Button>
+</AuthenticatedLayout>
+
+## Step 4: Tracking View Content Events on Facebook Pixel
+
+1. **Finalize Facebook Pixel Tag**:
+
+   - With the trigger set to fire on product pages, configure the tag to track the View Content event.
+   - Add all relevant parameters, including **content ID**, **content name**, and **value**.
+   - Save the tag configuration.
+
+2. **Publish and Test**:
+   - After setting up all the tags, submit and publish your GTM container.
+
+### Testing & Verifying Pixel Events
+
+To make sure everything is working as intended:
+
+1. **Test with Facebook Pixel Helper**:
+
+   - Use the Facebook Pixel Helper extension to check if events like **Page View** and **View Content** are firing correctly.
+   - On your product pages, check for details like **content IDs**, **content name**, and **currency** in the Pixel Helper tool.
+
+2. **Verify in Facebook Events Manager**:
+   - Use the **Test Events** tool in Facebook Events Manager.
+   - Visit product pages, then go back to the Event Manager to confirm the correct data is being tracked.
+
+## Conclusion
+
+By following these four steps, you’ll be able to successfully set up tracking for View Content events on your Shopify store using the new customer event system. Whether you’re using Google Tag Manager or Facebook Pixel, this setup will ensure your e-commerce data is collected and ready for analysis. If you want to take your Shopify event tracking to the next level, check out our next guide on configuring **View Category** events.

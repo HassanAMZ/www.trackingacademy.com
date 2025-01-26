@@ -1,0 +1,129 @@
+export const metadata = {
+  title:
+    "[Shopify Customer Pixel] How to Configure GA4 Purchase Event Using Google Tag Manager",
+  date: "2024-09-08",
+  blogId: 125,
+  keywords:
+    "Google Tag Manager, Shopify, Google Analytics 4, Purchase Event, Ecommerce Tracking, Data Layer, Conversion Tracking",
+  tags: [
+    "Google Tag Manager",
+    "Shopify",
+    "GA4",
+    "Ecommerce Tracking",
+    "Purchase Event",
+    "Customer Pixel",
+  ],
+  draft: false,
+  description:
+    "Learn how to configure the GA4 Purchase Event on your Shopify store using Google Tag Manager. This step-by-step guide explains how to set up the data layer, create custom event tags, and validate purchase tracking to optimize your ecommerce analytics.",
+  openGraph: {
+    images: ["/static/blog/00025.png"],
+  },
+  embedId: "eV6tIZlAj64",
+};
+
+Setting up purchase event tracking on your Shopify store is crucial to understanding customer behavior and improving your marketing efforts. In this guide, we will walk you through how to configure the purchase event using the newer customer pixel section for Shopify store owners. This tutorial will cover how to use **Google Tag Manager** (GTM) and **Google Analytics** (GA4) to ensure accurate tracking of purchase events on your website.
+
+## Step 1: Ensuring the Data Layer Event Fires
+
+The first step in configuring purchase event tracking is to ensure that the **data layer event** is properly firing on your Shopify store. The data layer is an essential part of sending data between your store and Google Tag Manager (GTM).
+
+1. Navigate to **Settings** in your Shopify store (bottom left corner).
+2. Scroll down to find the **Customer Event Sections**.
+3. Check if your data layer event is firing correctly.
+
+This ensures that all customer interaction data will be collected accurately when a purchase is made.
+
+## Step 2: Adding a Purchase Event Pixel in Shopify
+
+Now, let’s add a **purchase event pixel** in Shopify, which will be responsible for creating the data layer for the purchase event.
+
+1. Go to the **Customer Event Section** in Shopify.
+2. Click on the **Add Pixel** button located at the top right.
+3. Rename the pixel to **Purchase and Data Layer**.
+4. In the settings, ensure that:
+   - Permissions are set to **Not Required**.
+   - Data Sale is set to the last option: **Does Not Qualify**.
+
+### Inserting the Pixel Code
+
+You can get the pixel code snippet, which will look like this:
+
+<DataLayerCodeBlock fileName="purchase.js" />
+
+Before adding the code, ensure to replace the **Google Tag Manager container ID** with your specific container ID.
+
+To get the GTM container ID:
+
+1. Go to [tagmanager.google.com](https://tagmanager.google.com).
+2. Copy the container ID from the top of your account and paste it into the Shopify pixel setup.
+
+## Step 3: Connecting Shopify Data Layer to Google Tag Manager
+
+After configuring the purchase event pixel, it’s important to connect the data layer from Shopify to Google Tag Manager.
+
+1. Scroll to the top of the **Customer Event Section**.
+2. Click on **Connect** to link the Shopify backend with GTM.
+3. Once connected, your Shopify store will start sending purchase event data to GTM.
+
+## Step 4: Testing Purchase Event Firing in Shopify
+
+Before moving to Google Tag Manager, let’s test if the purchase event is firing correctly in Shopify.
+
+1. Go to your **Shopify store** by clicking on **View Online Store**.
+2. Add a product to your cart or click **Buy It Now**.
+3. Use test information (like a test email and bogus credit card) to complete the purchase.
+4. Right-click on the page and choose **Inspect** to open the console.
+5. In the **Console** tab, check if a **Purchase Event** has fired. You should see detailed information such as:
+   - Coupon, currency, and item details.
+   - Transaction ID, shipping cost, and value.
+
+## Step 5: Setting Up the GA4 Configuration Tag in Google Tag Manager
+
+Now that Shopify is set up, we will move on to configuring Google Tag Manager to track the purchase event in Google Analytics.
+
+1. In Google Tag Manager, click **New Tag** and choose **GA4 Configuration**.
+2. Set the tag to fire on **All Pages** since this will track page views across your website.
+3. To get the **Measurement ID**:
+   - Go to your **Google Analytics** account.
+   - Copy the Measurement ID from the top of your GA4 account.
+4. Paste the Measurement ID into the tag configuration in GTM.
+
+Rename the tag as **GA4 Configuration Tag** and hit **Save**.
+
+## Step 6: Creating a Purchase Event Tag in Google Tag Manager
+
+After configuring the basic tracking tag, you’ll need to set up the **purchase event tag** specifically for when a customer makes a purchase.
+
+1. In Google Tag Manager, click **New Tag** and choose **GA4 Event**.
+2. Name the event **Purchase** (same as your Shopify event name).
+3. Under **Triggering**, select **Custom Event** and name it “Purchase”.
+4. Set the trigger to only fire when the **data layer event** for purchase has been triggered.
+
+Next, configure the tag to send eCommerce data:
+
+1. Set **Event Name** to **purchase**.
+2. Under **More Settings**, click on **E-commerce**.
+3. Select **Send E-commerce Data** and set it to **Data Layer**.
+
+Rename the tag as **GA4 Custom Event Purchase** and hit **Save**.
+
+## Step 7: Publishing and Testing the Purchase Event
+
+After configuring everything, the final step is to publish and test the purchase event tracking.
+
+1. In Google Tag Manager, click **Submit** to publish the changes.
+2. Name the version as **Tracking Academy GA4 Purchase Event**.
+3. Now, return to your Shopify store to do a final test purchase.
+
+### Testing in Shopify
+
+1. Add a product to the cart, fill in test details, and complete the purchase.
+2. Open the **Console** in the browser developer tools.
+3. Check if the **Purchase Event** and **GA4 Event** have been fired correctly.
+
+You should see detailed information such as transaction ID, tax, shipping, product details, and currency in the console.
+
+## Conclusion
+
+By following these steps, you can effectively configure and track purchase events on your Shopify store using Google Tag Manager and Google Analytics 4. This setup ensures you have complete visibility over every transaction, allowing you to optimize your marketing strategies based on data-driven insights.

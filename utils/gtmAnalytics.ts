@@ -90,7 +90,7 @@ const createItemFromCourses = (metadata: CourseMetadata) => {
 export {
   createItemFromBlog,
   createItemFromCourses,
-  initDataLayer,
   gtmCategoriesFromBlogs,
   gtmCategoriesFromCourses,
+  initDataLayer,
 };

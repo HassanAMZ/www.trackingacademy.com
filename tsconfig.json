@@ -5,6 +5,7 @@
       "@/components/*": ["components/*"],
       "@/context/*": ["app/context/*"],
       "@/app/*": ["app/*"],
+      "@/blog/*": ["app/blog/*"],
       "@/data/*": ["data/*"],
       "@/layouts/*": ["components/layouts/*"],
       "@/lib/*": ["lib/*"],
@@ -44,7 +45,9 @@
     "**/*.tsx",
     "**/*.js",
     "**/*.jsx",
-    ".next/types/**/*.ts"
+    ".next/types/**/*.ts",
+    "next.config.js",
+    "app/_courses-markdown/react-fundamentals/modules/intro/lessons/markdown.mdx"
   ],
   "exclude": ["node_modules"]
 }

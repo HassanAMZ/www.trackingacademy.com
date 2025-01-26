@@ -1,0 +1,106 @@
+export const metadata = {
+  title:
+    "[Shopify Customer Pixel] How to Configure GA4 Remove from Cart Event Using Google Tag Manager",
+  date: "2024-09-02",
+  blogId: 119,
+  keywords:
+    "Google Tag Manager, Shopify, Google Analytics 4, Remove from Cart Event, Ecommerce Tracking, Data Layer, Conversion Tracking",
+  tags: [
+    "Google Tag Manager",
+    "Shopify",
+    "GA4",
+    "Ecommerce Tracking",
+    "Remove from Cart Event",
+    "Customer Pixel",
+  ],
+  draft: false,
+  description:
+    "Learn how to set up the GA4 Remove from Cart event on your Shopify store using Google Tag Manager. This comprehensive guide walks you through configuring tags, triggers, and variables for precise ecommerce tracking.",
+  openGraph: {
+    images: ["/static/blog/00019.png"],
+  },
+  embedId: "73mhVPjKnSw",
+};
+
+Setting up the "Remove from Cart" event in your Shopify store using the latest customer pixel features is a crucial step for accurate eCommerce tracking. This guide will walk you through the process step-by-step, ensuring you can track when a customer removes an item from their cart and push that data to Google Analytics 4 (GA4).
+
+## Introduction
+
+Tracking customer actions like adding or removing items from their cart is essential for understanding user behavior on your Shopify store. This guide will show you how to set up a "Remove from Cart" event using Shopify's new customer pixel feature, which can then be linked to Google Analytics 4 for detailed tracking and analysis.
+
+## Adding a Customer Pixel in Shopify
+
+The first step is to add a customer pixel to your Shopify store.
+
+1. **Navigate to Settings:** Log in to your Shopify admin panel and click on the **Settings** option.
+2. **Access Customer Events:** Scroll down to find the **Customer Events** section, where you will see options for Sandbox events.
+3. **Add a New Pixel:** Click on the **Add Customer Pixel** button. You can rename this pixel to something meaningful, like "Data Layer." After renaming, click **Add Pixel** to proceed.
+
+<DataLayerCodeBlock fileName="remove_from_cart.js" />
+
+## Configuring Customer Pixel Settings
+
+After adding the pixel, the next critical step is to configure the pixel settings.
+
+1. **Set Permissions:** Ensure that the permissions are set to **Not Required**.
+2. **Data Settings:** Set the data classification to **Data Does Not Qualify as Sales Data**.
+3. **Add Code Snippet:** You will need to add a specific code snippet to your pixel. This snippet can be found in the video description or provided tutorial. Copy the snippet, as it is vital for the upcoming steps.
+
+## Updating Google Tag Manager Container ID
+
+Now, you need to update your Google Tag Manager (GTM) container ID within Shopify.
+
+1. **Locate GTM Container ID:** Go to your Google Tag Manager account and copy the container ID.
+2. **Paste in Shopify:** Return to Shopify's pixel settings and paste the GTM container ID where required.
+3. **Save Changes:** Click **Save Changes** to finalize the integration.
+
+## Testing Data Layer Events in Shopify
+
+With the customer pixel configured, it's time to test if the data layer events are working correctly.
+
+1. **Add Items to Cart:** On your Shopify store, add a few items to the cart.
+2. **Open Console:** Right-click on the page, select **Inspect**, and navigate to the **Console** tab.
+3. **Remove Items:** Remove an item from the cart to trigger the "Remove from Cart" event. You should see the event fire in the console, pushing relevant product data.
+
+## Setting Up a Google Tag Manager Configuration Tag
+
+To capture the "Remove from Cart" event in GA4, you need to set up a configuration tag in Google Tag Manager.
+
+1. **Create New Tag:** In your GTM container, create a new tag.
+2. **Select All Pages:** Set the trigger to fire on all pages.
+3. **Add Measurement ID:** Copy your GA4 measurement ID from your Google Analytics account and paste it into the GTM tag.
+4. **Save Tag:** Save the tag as "GA4 Configuration Tag."
+
+## Creating a Remove from Cart Event Trigger
+
+Next, you'll create a specific trigger for the "Remove from Cart" event.
+
+1. **Create Custom Event Trigger:** In GTM, create a new custom event trigger and name it "Remove from Cart."
+2. **Configure Trigger:** Set the trigger to fire only when the custom event, "Remove from Cart," is detected.
+3. **Save Changes:** Save the trigger with an appropriate name like "Custom Event: Remove from Cart."
+
+## Configuring the Google Analytics 4 Event Tag
+
+Now, let's configure the event tag to send "Remove from Cart" data to GA4.
+
+1. **Create GA4 Event Tag:** In GTM, create a new GA4 event tag.
+2. **Link Measurement ID:** Use the GA4 measurement ID you created earlier.
+3. **Set Event Name:** Name the event "Remove from Cart."
+4. **Enable E-commerce Data:** Under **More Settings**, ensure that e-commerce data is enabled to capture additional product details.
+5. **Save Tag:** Save the tag as "GA4 Custom Event: Remove from Cart."
+
+## Publishing and Verifying Event Tracking
+
+To activate the changes, you need to publish the tag in GTM.
+
+1. **Submit Changes:** Click on **Submit** in GTM and name the version something like "GA4 Remove from Cart."
+2. **Publish Changes:** Publish the changes to push the new event tracking live on your Shopify store.
+
+## Final Verification in Google Analytics
+
+Finally, verify that the "Remove from Cart" event is correctly tracking in GA4.
+
+1. **Check Real-Time Events:** Go to your Google Analytics account and check the real-time events to see if "Remove from Cart" is firing correctly.
+2. **Verify Data:** Ensure that all related data, such as product ID, quantity, and currency, are being sent correctly.
+
+And that's it! You have successfully set up and verified the "Remove from Cart" event on your Shopify store, and it’s now tracking in Google Analytics 4. This setup will help you better understand customer behavior and optimize your eCommerce strategy.

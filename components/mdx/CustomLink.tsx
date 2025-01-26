@@ -1,8 +1,8 @@
-import Link from "next/link";
-import React from "react";
-import clsx from "clsx";
-import { Button } from "../ui/button";
 import { cn } from "@/lib/utils";
+import clsx from "clsx";
+import { Link } from "next-view-transitions";
+import React from "react";
+import { Button } from "../ui/button";
 
 type CustomLinkProps = {
   href: string;
@@ -33,10 +33,10 @@ const CustomLink: React.FC<CustomLinkProps> = ({
 
   if (isAnchorLink) {
     return (
-      <a
+      <Link
         href={href}
         className={clsx(
-          "!p-0 whitespace-pre-wrap text-primary underline-offset-4 hover:underline",
+          "text-card-primary whitespace-pre-wrap !p-0 underline-offset-4 hover:underline dark:text-primary",
           className,
         )}
         {...rest}
@@ -49,7 +49,7 @@ const CustomLink: React.FC<CustomLinkProps> = ({
       <a
         target="_blank"
         rel="noopener noreferrer"
-        className={clsx("!p-0 ", className)}
+        className={clsx("!p-0", className)}
         href={isExternal}
         {...rest}
       />

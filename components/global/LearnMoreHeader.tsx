@@ -1,7 +1,7 @@
 // LearnMoreHeader.tsx
 
-import React from "react";
 import { LearnMoreHeaderProps } from "@/types/index"; // make sure to use the actual path
+import React from "react";
 
 const LearnMoreHeader: React.FC<LearnMoreHeaderProps> = ({ headingTexts }) => {
   if (!headingTexts.heading && !headingTexts.subHeading) return null;

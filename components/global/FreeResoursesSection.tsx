@@ -1,11 +1,13 @@
 "use client";
 
-import React, { useState } from "react";
+import {
+  HeadingTextsProps,
+  ImageGeneralProps,
+  LinksGroupProps,
+} from "@/types/index";
+import { Link } from "next-view-transitions";
 import Image from "next/image";
-import { HeadingTextsProps, LinksGroupProps } from "@/types/index";
-import Text from "@/components/ui/text";
-import { ImageGeneralProps } from "@/types/index";
-import Link from "next/link";
+import React from "react";
 
 const FreeResoursesSection: React.FC<
   ImageGeneralProps & { headingTexts: HeadingTextsProps } & {
@@ -28,12 +30,8 @@ const FreeResoursesSection: React.FC<
           <div
             className={`items-left flex flex-col justify-center gap-3 px-4 py-8 lg:col-span-3`}
           >
-            <Text as="h4" variant="headingLg">
-              {headingTexts.heading}
-            </Text>
-            <Text as="p" variant="bodyMd" className="textOpacity80">
-              {headingTexts.subHeading}
-            </Text>
+            <h4>{headingTexts.heading}</h4>
+            <p className="textOpacity80">{headingTexts.subHeading}</p>
             <div className="w-full rounded-lg border-2 border-white p-2 text-center font-semibold">
               <Link href={links.primary.src}>{links.primary.text}</Link>
             </div>

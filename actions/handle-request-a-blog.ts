@@ -1,10 +1,10 @@
 "use server";
 
-import { collection, doc, setDoc, Timestamp } from "firebase/firestore";
 import { db } from "@/app/firebase";
-import { z } from "zod";
-import { Resend } from "resend";
 import RequestABlogEmail from "@/components/emails/request-a-blog";
+import { collection, doc, setDoc, Timestamp } from "firebase/firestore";
+import { Resend } from "resend";
+import { z } from "zod";
 
 export async function handleRequestABlogForm(
   prevState: any,

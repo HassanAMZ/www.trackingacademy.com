@@ -139,4 +139,4 @@ const MonitorIcon = () => (
   </svg>
 );
 
-export { MonitorIcon, FacebookIcon, YouTubeIcon, InstagramIcon };
+export { FacebookIcon, InstagramIcon, MonitorIcon, YouTubeIcon };

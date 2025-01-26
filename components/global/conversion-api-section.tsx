@@ -1,18 +1,17 @@
 // src/components/HomePage/ConversionApiSection.tsx
-import React from "react";
-import { Card, CardHeader, CardContent, CardTitle } from "@/components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import Container from "@/components/ui/container";
-import Text from "@/components/ui/text";
+import React from "react";
 
 export const ConversionApiSection: React.FC = () => {
   return (
     <Container>
-      <div className="relative p-8 rounded-2xl bg-gradient-to-br from-pink-50 via-purple-50 to-blue-50">
-        <Text as="h2" variant="heading2xl" className="text-center py-6">
+      <div className="relative rounded-2xl bg-secondary p-8">
+        <h2 className="py-6 text-center">
           Maximise ROI with a high-quality Conversions API setup
-        </Text>
+        </h2>
 
-        <div className="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto">
+        <div className="mx-auto grid max-w-5xl gap-6 md:grid-cols-2">
           {[
             {
               title: "Drive efficient spend",
@@ -29,29 +28,22 @@ export const ConversionApiSection: React.FC = () => {
               note: "additional attributed purchase events.²",
             },
           ].map((card, index) => (
-            <Card
-              key={index}
-              className="bg-white/90 backdrop-blur text-center p-5"
-            >
+            <Card key={index} className="p-5 text-center backdrop-blur">
               <CardHeader>
                 <CardTitle className="text-xl">{card.title}</CardTitle>
               </CardHeader>
               <CardContent className="space-y-4">
-                <Text as="p" className="text-muted-foreground">
-                  {card.description}
-                </Text>
-                <span className="text-5xl md:text-6xl font-bold text-primary">
+                <p className="text-muted-foreground">{card.description}</p>
+                <span className="text-5xl font-bold text-primary md:text-6xl">
                   {card.percentage}
                 </span>
-                <Text as="p" className="text-muted-foreground">
-                  {card.note}
-                </Text>
+                <p className="text-muted-foreground">{card.note}</p>
               </CardContent>
             </Card>
           ))}
         </div>
 
-        <div className="mt-8 text-xs text-muted-foreground space-y-2 max-w-3xl mx-auto">
+        <div className="mx-auto mt-8 max-w-3xl space-y-2 text-xs text-muted-foreground">
           {/* Source citations from original component */}
         </div>
       </div>

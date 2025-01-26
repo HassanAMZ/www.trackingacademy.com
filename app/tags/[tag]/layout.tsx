@@ -1,6 +1,6 @@
-import getTags from "utils/getTags";
-import formatString from "utils/formatString";
 import React, { ReactNode } from "react";
+import formatString from "utils/formatString";
+import getTags from "utils/getTags";
 import reverseFormatString from "utils/reverseFormatString";
 
 export async function generateMetadata(props: any) {
@@ -21,6 +21,5 @@ export async function generateStaticParams(): Promise<{ tag: string }[]> {
 }
 
 export default async function Layout({ children }: { children: ReactNode }) {
-  const tags = await getTags();
   return <React.Fragment>{children}</React.Fragment>;
 }

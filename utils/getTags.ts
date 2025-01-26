@@ -1,11 +1,11 @@
 import fs from "fs";
-import path from "path";
 import matter, { GrayMatterFile } from "gray-matter";
+import path from "path";
 import getFiles from "utils/getFiles";
 import extractMetaFromStringForBlog from "./extractMetaFromStringForBlog";
 
 export default async function getTags(): Promise<string[]> {
-  const blogDirectory = path.join(process.cwd(), "app/blog");
+  const blogDirectory = path.join(process.cwd(), "app/_blog-markdown");
   const allPostsFiles = getFiles(blogDirectory);
   const mdxFiles = allPostsFiles.filter(
     (file) => path.extname(file) === ".mdx",

@@ -1,0 +1,125 @@
+export const metadata = {
+  title:
+    "Google Ads Remarking: Purchase Event Tracking on Shopify using Google Tag Manager",
+  date: "2024-02-05",
+  blogId: 92,
+  Keywords: `google ads remarketing, google tag manager, purchase event tracking, audiances`,
+  tags: [
+    "Google Ads",
+    "Shopify",
+    "Google Ads Remarketing Tracking",
+    "Google Tag Manager",
+    "Purchase",
+  ],
+  draft: false,
+  description: `Discover how to supercharge your Shopify store with Google Ads Remarketing Tags for Purchase Event in shopify using Google Tag Manager. In this comprehensive tutorial, we delve into setting up dynamic remarketing tags for your Shopify store, specifically focusing on the crucial purchase event. Learn step-by-step how to embed the tracking script, test your setup, and ensure your ads are perfectly targeted. `,
+  openGraph: {
+    images: ["/static/blog/00001.png"],
+  },
+  embedId: "0KJ0GHJ3RNA",
+};
+
+### Introduction
+
+Setting up Google Tag Manager (GTM) for Google Ads conversion tracking is crucial for understanding user interactions and optimizing ad campaigns. This comprehensive guide walks you through configuring GTM for dynamic Google Ads conversion tracking on a Shopify store. We will cover the following steps:
+
+1. Adding GTM to your Shopify store.
+2. Setting up Google Ads conversion actions.
+3. Configuring GTM to fire the conversion tracking tag.
+4. Testing and verifying the setup.
+
+### Step 1: Adding GTM to Your Shopify Store
+
+**1.1. Adding GTM to the Theme Files**
+
+First, you need to add the GTM container snippet to your Shopify store’s theme files.
+
+1. Go to your [Google Tag Manager](https://tagmanager.google.com/) account and copy the container code.
+2. In your Shopify admin, navigate to **Online Store > Themes**.
+3. Click on **Actions > Edit Code**.
+4. In the **theme.liquid** file, paste the GTM container code right after the opening `<head>` tag.
+5. Similarly, paste the GTM container code for the body section right after the opening `<body>` tag.
+6. Save the changes.
+
+**1.2. Adding GTM to the Checkout Page**
+
+To ensure GTM is active on the checkout and order confirmation pages, follow these steps:
+
+1. In your Shopify admin, go to **Settings > Checkout**.
+2. Scroll down to the **Order Status Page** section.
+3. Paste the GTM container code into the **Additional Scripts** section.
+4. Save the changes.
+
+### Step 2: Setting Up Google Ads Conversion Actions
+
+**2.1. Creating a Conversion Action**
+
+1. Go to your [Google Ads](https://ads.google.com/) account.
+2. Navigate to **Tools & Settings > Measurement > Conversions**.
+3. Click on **+ New Conversion Action**.
+4. Select **Website** as the conversion source.
+5. Enter your website URL and click **Scan**.
+6. Choose **Manual setup** for the conversion action.
+7. Select **Purchase** as the conversion category.
+8. Name the conversion action (e.g., "GTM Purchase").
+9. Choose **Use different values for each conversion** if you want to track purchase values dynamically.
+10. Configure other settings as needed and click **Create and Continue**.
+
+**2.2. Capturing Conversion ID and Label**
+
+1. After creating the conversion action, Google Ads will provide a **Conversion ID** and **Conversion Label**.
+2. Copy these values for use in GTM.
+
+### Step 3: Configuring GTM to Fire the Conversion Tracking Tag
+
+**3.1. Creating Variables in GTM**
+
+1. Go to your GTM container.
+2. Navigate to **Variables > User-Defined Variables**.
+3. Create a new **Constant Variable** for the **Conversion ID** and name it `GoogleAdsConversionID`.
+4. Create another **Constant Variable** for the **Conversion Label** and name it `GoogleAdsConversionLabel`.
+
+**3.2. Creating a Data Layer Script**
+
+You need a data layer script to push purchase details to GTM. Here’s an example script you can use:
+
+<DataLayerCode type="purchase" subType="main" />
+
+Paste this script into the **Additional Scripts** section in the **Order Status Page** settings of Shopify.
+
+**3.3. Creating a Trigger in GTM**
+
+1. In GTM, navigate to **Triggers**.
+2. Click **New** and select **Custom Event**.
+3. Name the trigger `PurchaseEventTrigger`.
+4. Set the Event Name to `purchase`.
+5. Save the trigger.
+
+**3.4. Creating the Tag in GTM**
+
+1. In GTM, navigate to **Tags**.
+2. Click **New** and select **Tag Configuration > Google Ads Conversion Tracking**.
+3. Enter the **Conversion ID** and **Conversion Label** using the variables you created earlier.
+4. Configure additional parameters such as `transactionId`, `transactionTotal`, and `transactionProducts` by creating Data Layer Variables for each.
+5. Set the trigger to `PurchaseEventTrigger`.
+6. Save the tag.
+
+### Step 4: Testing and Verifying the Setup
+
+**4.1. Preview and Debug in GTM**
+
+1. In GTM, click on **Preview** to open the GTM debug window.
+2. Navigate through your Shopify store, adding products to the cart and completing a purchase.
+3. On the order confirmation page, ensure that the `purchase` event is firing and that the tag is triggered correctly.
+
+**4.2. Verifying in Google Ads**
+
+1. Go to your Google Ads account.
+2. Check the **Conversions** section to see if the test purchase was recorded.
+3. It may take some time for the conversion to appear, so be patient and check back later.
+
+### Conclusion
+
+Configuring GTM for Google Ads conversion tracking on a Shopify store involves several steps, but it ensures accurate tracking of user interactions and conversions. By following this guide, you can set up a robust tracking system that provides valuable insights for optimizing your Google Ads campaigns.
+
+By implementing these steps, you'll have a comprehensive setup for tracking conversions on your Shopify store using Google Tag Manager and Google Ads. This will help you measure the effectiveness of your campaigns and make data-driven decisions to improve your marketing strategies.

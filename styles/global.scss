@@ -142,3 +142,24 @@ html {
     --chart-line-color: #00ff00; /* Dark mode line color */
   }
 }
+
+//Hero-3 keyframes
+@keyframes gradientAnimation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.animate-gradient {
+  animation: gradientAnimation 1s ease infinite;
+}
+
+.bg-300\% {
+  background-size: 300% 300%;
+}

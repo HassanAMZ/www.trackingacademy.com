@@ -1,5 +1,4 @@
 import { ButtonProps } from "@/types/index";
-import Text from "@/components/ui/text";
 
 const SelectionButton: React.FC<ButtonProps> = ({
   children,
@@ -14,9 +13,7 @@ const SelectionButton: React.FC<ButtonProps> = ({
     }`}
     onClick={onClick}
   >
-    <Text as="p" variant="bodyMd" className="w-full font-bold">
-      {children}
-    </Text>
+    <p className="w-full font-bold">{children}</p>
   </button>
 );
 

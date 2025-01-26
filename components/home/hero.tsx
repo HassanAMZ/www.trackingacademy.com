@@ -1,13 +1,10 @@
-import React, { FC, ReactNode } from "react";
-import Link from "next/link";
-import { Button } from "@/components/ui/button";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { Button } from "@/components/ui/button";
 import Container from "@/components/ui/container";
-import Text from "@/components/ui/text";
-import { CheckCircle, Star } from "lucide-react";
-import TrackingTable from "../global/tracking-table";
-import TestimonialsCarousel2 from "../for-freelancers/testimonials-carousal-2";
 import { Client } from "@/data/clients";
+import { CheckCircle } from "lucide-react";
+import { Link } from "next-view-transitions";
+import { FC, ReactNode } from "react";
 
 interface HeroProps {
   heading: ReactNode;
@@ -37,19 +34,17 @@ const Hero: FC<HeroProps> = ({
   clients,
 }) => {
   return (
-    <Container className="grid-cols-1 items-start justify-center gap-4 text-left grid lg:grid-cols-3 lg:py-8">
-      <div className="lg:col-span-2 space-y-5">
+    <Container className="grid grid-cols-1 items-start justify-center gap-4 text-left lg:grid-cols-3 lg:py-8">
+      <div className="space-y-5 lg:col-span-2">
         {heading}
         {subheading && subheading}
         {carousel && carousel}
 
-        <div className="py-4 grid grid-cols-1 sm:grid-cols-2 gap-2 max-w-xl">
+        <div className="grid max-w-xl grid-cols-1 gap-2 py-4 sm:grid-cols-2">
           {benefits.map((benefit, index) => (
             <div key={index} className="flex items-center gap-2">
-              <CheckCircle className="text-primary h-6 w-6" />
-              <Text as="p" variant="bodyMd" applyMargin={false} className="">
-                {benefit}
-              </Text>
+              <CheckCircle className="h-6 w-6 text-primary" />
+              <p>{benefit}</p>
             </div>
           ))}
         </div>
@@ -74,17 +69,13 @@ const Hero: FC<HeroProps> = ({
               >
                 <AvatarImage
                   src={client.clientDetails.images[0].url}
-                  alt={`@${client.clientDetails.name
-                    .toLowerCase()
-                    .replace(" ", "-")}`}
+                  alt={`@${client.clientDetails.name.toLowerCase().replace(" ", "-")}`}
                 />
                 <AvatarFallback>{client.clientDetails.name[0]}</AvatarFallback>
               </Avatar>
             ))}
           </div>
-          <Text as="p" variant="bodyMd" className="pl-8 text-sm">
-            {clientCountText}
-          </Text>
+          <p className="pl-8 text-sm">{clientCountText}</p>
         </div>
       </div>
 

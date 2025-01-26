@@ -1,4 +1,4 @@
-import { Card, CardContent, CardHeader } from "@/components/ui/card";
+import { Card, CardContent } from "@/components/ui/card";
 import { CaseStudy } from "@/types/index";
 import Image from "next/image";
 import ConversionChart from "../global/AccuracyChart";
@@ -24,12 +24,12 @@ export function CaseStudyCard({ caseStudy }: CaseStudyCardProps) {
   return (
     <Card className="overflow-hidden">
       <CardContent className="p-6 md:p-8">
-        <div className="grid md:grid-cols-[2fr,1fr] gap-8  items-center">
+        <div className="grid items-center gap-8 md:grid-cols-[2fr,1fr]">
           <div className="space-y-8">
             {/* Company Section */}
             <div className="space-y-4">
               {company.logo && (
-                <div className="h-12 w-48 relative ">
+                <div className="relative h-12 w-48">
                   <Image
                     src={company.logo}
                     alt={company.name}
@@ -39,7 +39,7 @@ export function CaseStudyCard({ caseStudy }: CaseStudyCardProps) {
                 </div>
               )}
               <h2 className="text-2xl font-bold">{company.name}</h2>
-              <p className="text-muted-foreground leading-relaxed">
+              <p className="leading-relaxed text-muted-foreground">
                 {company.description}
               </p>
             </div>
@@ -51,11 +51,11 @@ export function CaseStudyCard({ caseStudy }: CaseStudyCardProps) {
                   <div className="text-4xl font-bold text-primary">
                     {stat.value}
                   </div>
-                  <p className="text-sm text-muted-foreground leading-tight">
+                  <p className="text-sm leading-tight text-muted-foreground">
                     {stat.label}
                   </p>
                   {stat.description && (
-                    <p className="text-xs text-muted-foreground mt-1">
+                    <p className="mt-1 text-xs text-muted-foreground">
                       {stat.description}
                     </p>
                   )}
@@ -77,7 +77,7 @@ export function CaseStudyCard({ caseStudy }: CaseStudyCardProps) {
 
           {/* Image Section */}
           {image && (
-            <div className=" hidden md:block  rounded-lg ">
+            <div className="hidden rounded-lg md:block">
               <Image
                 src={image.src}
                 alt={image.alt}

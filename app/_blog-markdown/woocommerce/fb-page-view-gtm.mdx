@@ -1,0 +1,108 @@
+export const metadata = {
+  title: "Configure Facebook Pixel on WooCommerce with Google Tag Manager",
+  date: "2024-04-30",
+  blogId: 99,
+  Keywords: `Facebook Pixel, Google Tag Manager, WooCommerce store, Facebook Ads, Website tracking`,
+  tags: [
+    "Facebook Pixel",
+    "Google Tag Manager",
+    "WooCommerce",
+    "Ecommerce Tracking",
+    "Page View",
+  ],
+  draft: false,
+  description:
+    "This guide teaches you how to configure Facebook Pixel on your WooCommerce store using Google Tag Manager. Track website visitor behavior and leverage data for effective Facebook advertising campaigns.",
+  openGraph: {
+    images: ["/static/blog/00009.png"],
+  },
+  embedId: "WIiAy4wj7pI",
+};
+
+This blog post is based on a video tutorial by Hassan, who helps businesses set up analytics and marketing tools. Here, you'll learn how to configure Facebook Pixel on your WooCommerce store using Google Tag Manager (GTM).
+
+## Who is this for?
+
+- Small business owners managing their WooCommerce stores
+- Digital marketers working with clients
+- Freelancers
+
+## What you won't find in this guide:
+
+- A deep dive into digital marketing strategies using Facebook Pixel data
+- Complex coding
+- General e-commerce training
+
+## Before you start:
+
+- Watch the entire video before implementing the steps to avoid confusion.
+- Take notes and refer back to the video if needed.
+- Ask questions in the comments section of the video if you get stuck.
+
+## Bonus
+
+The video description offers a downloadable Google Tag Manager container pre-configured with Facebook Pixel. You can import this container and replace the placeholder Facebook Pixel ID with your own.
+
+<AuthenticatedLayout>
+  [Download The GTM Container JSON
+  File](/static/json/FBWooCommerceGTMPageVIew.json).
+</AuthenticatedLayout>
+
+### Step 1: Configure Google Tag Manager Container
+
+There are two ways to add the GTM container code to your WooCommerce store:
+
+#### Option 1: Using a Plugin (Recommended)
+
+- Install the plugin called "GTM for WP" by Thomas Gregor.
+- Activate the plugin.
+- In the plugin settings, add your Google Tag Manager container ID (found in your GTM account).
+- Refresh the page to ensure the code is added.
+- Verify the container code using a browser extension like Google Tag Assistant.
+
+#### Option 2: Adding the Code Manually
+
+- Caution: Editing theme files can break your website if done incorrectly. Only proceed if comfortable with code.
+- Go to Appearances > Theme File Editor.
+- Locate the file named `header.php`.
+- Find the opening `<head>` tag.
+- Paste your Google Tag Manager container code before the closing `</head>` tag.
+- Save changes and refresh the page.
+- Verify the container code using a browser extension.
+
+### Step 2: Configure Facebook Pixel Tag
+
+Similar to adding the GTM container, you have two options for configuring the Facebook Pixel tag:
+
+#### Option 1: Using a Template (Recommended)
+
+- Go to your Facebook Business Manager and navigate to the Event Manager.
+- Copy your Facebook Pixel ID.
+- In GTM, go to Tags and click New.
+- Search for "Facebook Pixel" in the Community Template Gallery.
+- Add the template to your workspace.
+- Paste your Facebook Pixel ID into the designated field (or create a variable for it).
+- Set the trigger to fire on all pages (All Pages).
+- Name the tag (e.g., "Facebook Configuration Tag").
+- Preview the tag using the GTM preview mode to test functionality.
+- If satisfied, submit the changes to make them live on your website.
+
+#### Option 2: Using Custom HTML
+
+- In GTM, create a new tag with the tag type "Custom HTML."
+- Copy the Facebook Pixel code from your Facebook Business Manager.
+- Paste the code into the HTML field of the new tag.
+- Set the trigger to fire on all pages (All Pages).
+- Name the tag (e.g., "Custom HTML Facebook Configuration Tag").
+- Preview the tag using the GTM preview mode to test functionality.
+- If satisfied, submit the changes to make them live on your website.
+
+### Step 3: Test the Integration
+
+- Go to the Facebook Pixel Test Events section in your Business Manager.
+- Enter your website URL and test different website sections (homepage, product pages, etc.).
+- The Facebook Pixel Helper extension can also be used to verify if events are firing correctly.
+
+## Conclusion
+
+By following these steps, you'll be able to configure Facebook Pixel on your WooCommerce store using Google Tag Manager. This allows you to track website visitor behavior and leverage that data for effective Facebook advertising campaigns. Remember to refer to the video for a more detailed explanation with visual cues.

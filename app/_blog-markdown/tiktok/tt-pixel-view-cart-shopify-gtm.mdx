@@ -1,0 +1,190 @@
+export const metadata = {
+  title:
+    "Tracking TikTok Pixel View Cart Events on Shopify with Google Tag Manager",
+  date: "2023-12-13",
+  blogId: 83,
+  Keywords: `Tracking, TikTok Pixel, View Cart Events, Shopify Stores, Google Tag Manager Integration, Customer Engagement, Shopping Cart Behavior, Shopping Experience, Targeted Marketing Strategies, E-commerce Analytics, Product Data, Debugging Tools`,
+  tags: [
+    "View Cart",
+    "Shopify",
+    "E-commerce Engagement",
+    "Google Tag Manager",
+    "Shopping Cart Analysis",
+  ],
+  draft: false,
+  description: `In this blog post, we delve into the methods for effectively tracking View Cart events in Shopify stores using Google Tag Manager. Understanding these events is essential for analyzing customer engagement and shopping cart behavior. It provides valuable insights into how customers interact with their carts, which is key to enhancing the shopping experience, increasing engagement, and formulating targeted marketing strategies.`,
+  openGraph: {
+    images: ["/static/blog/00033.png"],
+  },
+  embedId: "fnblXXFNm-E",
+};
+
+In this Blog , we'll explore how to effectively integrate TikTok Pixel ViewCart
+Event with your Shopify store using Google Tag Manager (GTM). This integration is
+crucial for leveraging TikTok's dynamic ad capabilities based on user interactions
+on your site.
+
+## Section 1: Configuring Google Tag Manager on Shopify
+
+Begin by confirming the integration of the GTM Container with your Shopify store to monitor user activities.
+
+### Implementing Google Tag Manager on Shopify
+
+Start by embedding the Google Tag Manager scripts in your Shopify store. These are essential for monitoring user actions and gathering data.
+
+### Embedding GTM Container Scripts
+
+Proceed by incorporating the Google Tag Manager container's head and body scripts into your Shopify store's theme files.
+
+1. Access the theme.liquid file via the Shopify admin interface.
+2. Insert the GTM container's head script right below the `<head>` opening tag.
+3. Add the GTM container's body script immediately after the `<body>` opening tag.
+
+### GTM Container Scripts for Head
+
+<DataLayerCode type="googleTagManager" subType="head" />
+
+### GTM Container Scripts for Body
+
+<DataLayerCode type="googleTagManager" subType="body" />
+
+Post-script insertion, verify the configuration to confirm Google Tag Manager's proper functionality on your Shopify store.
+
+### Steps to Integrate GTM with Shopify:
+
+1. Log into the Shopify admin area and head to the Themes section.
+2. Choose the active theme and opt for 'Edit code'.
+3. Locate the theme.liquid file and embed the GTM scripts as directed.
+4. Save your modifications and assess the setup via GTM's preview mode.
+
+### Script Addition to Shopify
+
+1. Initiate by adding Google Tag Manager's head and body scripts to your Shopify store. Retrieve these from the Google Tag Manager container. Though the head script is pivotal, including both enhances comprehensive implementation.
+2. Next, locate and alter your Shopify theme file. Generally found at the top of your theme directory, insert the Google Tag Manager scripts beneath the opening head and body tags of your theme file.
+3. Post insertion, format the changes using Shopify's 'Format Liquid' feature to ensure code neatness and reduce error probability.
+
+### Google Tag Manager Preview
+
+Use Google Tag Manager’s preview mode to confirm correct setup. This checks the container's activation on your Shopify store, establishing a foundation for subsequent Analytics and Ads tracking and enhancements.
+
+> **Note**
+> Ensure to replace 'GTM-XXXX' with your specific Google Tag Manager container ID.
+
+## Section 2: Integrating TikTok Base Script in Tag Manager
+
+We're now shifting our focus to the integration of the TikTok base configuration tag within Google Tag Manager (GTM). This essential process involves the acquisition of your unique TikTok Pixel ID and its associated base script, which can be found in your TikTok Ads Manager. Once you've secured these, they need to be integrated into GTM via a custom HTML tag. Additionally, to streamline future modifications, we'll set up a variable specifically for the TikTok Pixel ID.
+
+#### Step 1: Gaining Access to TikTok Ads Manager
+
+1. **Sign In**: Log into your TikTok Ads Manager account.
+2. **Pixel Management**: For newcomers, initiate a new pixel creation in the pixel section. Existing users should retrieve their existing pixel ID.
+
+#### Step 2: Custom Pixel Configuration
+
+1. **Manual Selection**: Opt for a manual setup of your pixel, allowing for a more customized configuration.
+2. **Pixel Naming**: Assign a unique name to your pixel, ensuring you avoid any pre-set, automatic setup options.
+
+#### Step 3: Implementing Pixel in Google Tag Manager
+
+1. **GTM Dashboard Access**: Launch your Google Tag Manager interface.
+2. **HTML Tag Creation**: In GTM, craft a new custom HTML tag.
+3. **Script Embedding**: Embed the TikTok pixel script within this new tag.
+4. **Trigger Setup**: Set the trigger for this tag to activate across all pages, thereby enabling comprehensive page view tracking.
+
+#### Step 4: Variable Creation for Pixel ID
+
+1. **Variable Creation in GTM**: Within Google Tag Manager, proceed to create a new variable.
+2. **Pixel ID Assignment**: Link this variable to your TikTok Pixel ID.
+3. **Future-Proofing**: This approach simplifies future updates to the Pixel ID and ensures a consistent tracking configuration.
+
+#### Step 5: Verifying TikTok Pixel Functionality
+
+1. **Utilization of Verification Tools**: Implement tools like the TikTok Pixel Helper browser extension for testing.
+2. **Site Navigation and Testing**: Browse your Shopify store to confirm that pixel events (such as page views) are being correctly triggered.
+3. **Event Accuracy Check**: Make sure all key events are being accurately tracked and recorded.
+
+#### Step 6: Finalizing and Publishing Your Setup
+
+1. **Return to GTM**: Post-testing, revisit your Google Tag Manager setup.
+2. **Configuration Review and Finalization**: Thoroughly review all settings and configurations.
+3. **Publishing**: Publish your configurations, effectively activating the TikTok pixel on your Shopify store.
+
+By meticulously following these enhanced steps, you'll establish a robust and fully operational TikTok pixel on your Shopify store. This setup not only offers invaluable insights into customer interactions and behaviors but also lays the groundwork for refined marketing strategies and customer engagement enhancement.
+
+## Section 3: Writing InitiateCheckout Script in Shopify
+
+Here is the content converted into simple Markdown format without JSX:
+
+---
+
+This section focuses on capturing detailed data like item_id, item_name, value, quantity, etc., when the "custom_view_cart" event is triggered. The code snippets provided are designed to integrate the `dataLayer` object with Google Tag Manager (GTM) in a Shopify store context. The primary objective is to send an event named `custom_view_cart` whenever a user views the cart page in Shopify.
+
+### Head DataLayer Code
+
+This code snippet ensures the initialization of the `dataLayer` array and includes a specific snippet called 'datalayer-cart' for rendering on cart pages.
+
+<DataLayerCode type="viewCart" subType="head" />
+
+### Cart DataLayer Code
+
+This snippet contains the logic to populate the `dataLayer` object with product details whenever a View Cart event is triggered:
+
+1. Initial Logging: Confirms the script is loaded correctly.
+2. Cart Data & Product Details: Retrieves and formats cart data from Shopify for Google's ecommerce tracking.
+3. Cart Total Value: Calculates the total value of items in the cart.
+4. View Cart Event Listener: Sets up a listener for when the cart page loads, updating the `dataLayer` with the current cart information.
+
+<DataLayerCode type="viewCart" subType="main" />
+
+### Theme DataLayer Code
+
+This code renders the `head-datalayer` snippet. Depending on the setup of your Shopify theme, this is likely where the head datalayer code resides. Add this code GTM Body Code.
+
+<DataLayerCode type="viewCart" subType="theme" />
+
+### Steps to Add the DataLayer Code Snippets in Shopify:
+
+1. **Backup:** Before making any changes, always backup your current theme.
+2. **Access Theme Files:** Login to your Shopify Admin. Then, go to Online Store > Themes. Click on the "Actions" dropdown for your live theme and select "Edit code".
+3. **Add Head DataLayer Code:** In the left sidebar, locate and click on `theme.liquid`. Insert the "Head DataLayer Code" snippet within the `<head>` tags.
+4. **Add Checkout DataLayer Code:** Click "Add a new snippet" depending on your Shopify version. Name it `datalayer-cart.liquid`. Insert the "Cart DataLayer Code" snippet into this new file. Save changes.
+5. **Add Theme DataLayer Code:** Determine where you want this code to render (usually within the `<head>` tags in `theme.liquid`). Insert the "Theme DataLayer Code" snippet in the desired location. Save changes.
+6. **Test:** Visit a product page on your Shopify store. Open browser's developer console. Confirm that the `custom_view_item` event is fired and the `dataLayer` object contains the correct product details.
+
+The custom prefixes added to event names (like 'custom_view_cart') are intended to prevent conflicts with other possible integrations or plugins that might be using standard event names.
+
+## Section 4: Configuring the Custom View Cart Tag in Google Tag Manager
+
+In this section, we'll outline the steps to set up a custom View Cart tag in Google Tag Manager (GTM) for your Shopify store. This is essential for tracking View Cart events and improving your e-commerce analytics.
+
+1. **Access Your Google Tag Manager Container**: Log into your Google Tag Manager account and select the container associated with your Shopify store.
+
+2. **Create a New Tag**: Go to the "Tags" section in the GTM dashboard. Click "New" to create a new tag dedicated to tracking View Cart events.
+
+3. **Tag Configuration**: Choose a tag type that is optimal for tracking e-commerce cart viewing events. If a specific template for View Cart events exists, use it. Otherwise, consider creating a custom HTML tag.
+
+4. **Set Up the Trigger**: Create a new trigger that fires when the View Cart action occurs. Name it clearly (like "CE custom_view_cart") to ensure clarity.
+
+5. **Configure the Tag**: Enter necessary details such as your tracking ID or pixel ID. It's recommended to use variables for these details for easier future management.
+
+6. **Select the Event**: Choose "View Cart" as the event this tag will track.
+
+7. **Object Properties**: Configure object properties to capture details about the products in the cart, including their names, IDs, categories, and other relevant information. You can pull this data from your dataLayer or enter it manually.
+
+8. **Include the Currency Parameter**: Make sure to include the currency parameter in the data sent with the View Cart event, particularly if your store operates with multiple currencies.
+
+## Section 5: Testing and Verification of the View Cart Script
+
+After setting up the custom View Cart tag, it's crucial to test and verify its functionality for accurate event tracking.
+
+1. **Enable Preview Mode**: Switch on the preview mode in Google Tag Manager. This will allow you to see a debug view connected to your Shopify store for real-time monitoring of events, tags, and triggers.
+
+2. **Utilize Debugging Tools**: Use browser extensions or other tools to monitor the tracking of View Cart events. Verify that all the necessary product data is being captured.
+
+3. **Simulate Cart Viewing**: Browse through your Shopify store and add items to the cart, then view the cart. Check the debug window to ensure that the View Cart event is being triggered correctly.
+
+4. **Validate Event Data**: Review the data sent with each View Cart event. Confirm that it accurately represents the products in the cart, including their names, IDs, categories, and currency.
+
+5. **Submit and Publish Changes**: Once you are satisfied with the testing, submit your changes in Google Tag Manager and then publish them. This will enable the tracking of View Cart events on your Shopify store.
+
+By following these steps, you can effectively set up and test a custom View Cart event in Google Tag Manager, thereby enhancing your e-commerce tracking and gaining valuable insights into customer behavior in the shopping cart stage.

@@ -1,6 +1,5 @@
-import React from "react";
+import CategoryContainer from "@/components/blog/category-container";
 import formatString from "utils/formatString";
-import BlogContainer from "@/components/blog/container";
 
 import getTagsData from "utils/getTagsData";
 
@@ -16,7 +15,7 @@ export default async function Page(props: {
     : data;
   return (
     <div className="flex flex-col gap-2">
-      <BlogContainer rawData={data} data={filteredData} type="blog" />
+      <CategoryContainer rawData={data} data={filteredData} type="blog" />
     </div>
   );
 }

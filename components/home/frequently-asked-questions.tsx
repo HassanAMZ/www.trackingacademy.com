@@ -5,9 +5,6 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import Container from "@/components/ui/container";
-import Text from "@/components/ui/text";
-import Link from "next/link";
-import { Button } from "@/components/ui/button";
 import React from "react";
 interface FrequentlyAskedQuestionsProps {
   question: string;
@@ -130,9 +127,7 @@ const frequentlyAskedQuestions: FrequentlyAskedQuestionsProps[] = [
 export function FrequentlyAskedQuestions() {
   return (
     <React.Fragment>
-      <Text as="h2" variant="heading2xl" className="text-center">
-        Have questions in your mind?
-      </Text>
+      <h2 className="text-center">Have questions in your mind?</h2>
       <Container>
         <Accordion type="single" collapsible className="w-full">
           {frequentlyAskedQuestions.map((faq, index) => (

@@ -1,0 +1,98 @@
+export const metadata = {
+  title:
+    "[Shopify Customer Pixel] How to Configure GA4 Add to Cart Event Using Google Tag Manager",
+  date: "2024-09-05",
+  blogId: 122,
+  keywords:
+    "Google Tag Manager, Shopify, Google Analytics 4, Add to Cart Event, Ecommerce Tracking, Data Layer, Conversion Tracking",
+  tags: [
+    "Google Tag Manager",
+    "Shopify",
+    "GA4",
+    "Ecommerce Tracking",
+    "Add to Cart Event",
+    "Customer Pixel",
+  ],
+  draft: false,
+  description:
+    "Learn how to configure the GA4 Add to Cart event on your Shopify store using Google Tag Manager. This comprehensive guide walks you through setting up the data layer, creating event tags, and verifying tracking for improved ecommerce analytics.",
+  openGraph: {
+    images: ["/static/blog/00022.png"],
+  },
+  embedId: "oTACLpUpvKY",
+};
+
+In this guide, we'll walk through how to set up the "Add to Cart" event on a Shopify store using Google Tag Manager (GTM) and the new Customer Pixels feature. This setup is essential for tracking user interactions on your site, allowing you to gather valuable data for improving your store's performance.
+
+## Introduction
+
+In this tutorial, we will guide you through the steps to configure the "Add to Cart" event in a Shopify store using the new Customer Pixels and Google Tag Manager. This is a crucial step for tracking customer interactions and optimizing your e-commerce performance.
+
+## Copying the Customer Pixel Code
+
+The first step is to copy the Customer Pixel code from your Shopify backend. Navigate to the **Settings** section of your Shopify store and scroll down to the **Customer Events** section.
+
+## Adding Custom Pixels in Shopify
+
+Once you're in the Customer Events section, you'll see an option to add custom pixels. Click on **Add Custom Pixels** and create a new pixel. You can name it whatever you like; for this example, we’ll name it "Data Layer". After naming the pixel, click **Add Pixel**.
+
+## Setting Permissions and Data Sales
+
+Setting the correct permissions is crucial. Ensure that permissions are set to **Not Required** and that the data sales option is set to **Does Not Qualify as Data Sale**. This setup gives you more control over the consent settings, which is important for managing user data responsibly.
+
+## Pasting the Code Snippet
+
+After configuring the permissions, you'll need to paste a code snippet into your Shopify store. You can find this snippet in the video description or related resources. Once pasted, update the Google Tag Manager container ID within the snippet.
+
+<DataLayerCodeBlock fileName="add_to_cart.js" />
+
+## Finding and Adding Google Tag Manager ID
+
+To find your Google Tag Manager container ID, go to [tagmanager.google.com](https://tagmanager.google.com). Once logged in, navigate to your container and copy the container ID. Paste this ID into the appropriate section of your Shopify store’s code snippet.
+
+## Saving Changes and Connecting Customer Pixel
+
+After pasting the code and updating the container ID, save your changes. Once saved, connect your Customer Pixel with your website by clicking on **Connect**. Your pixel is now successfully added to the platform.
+
+## Verifying Add to Cart Event on Website
+
+To verify that the "Add to Cart" event is working, visit your Shopify store and navigate to any product page. Click on the **Add to Cart** button, then open the browser's console to check if the event has fired correctly. You should see the e-commerce object with all the relevant details like currency, items array, and more.
+
+## Configuring Google Analytics Tag
+
+Next, we’ll configure a Google Analytics tag in GTM. This tag will ensure that the "Add to Cart" event is tracked correctly in Google Analytics.
+
+- Go to your GTM container and create a new tag.
+- Since this configuration tag will fire on all pages, select **All Pages** as the trigger.
+- Choose **Google Tag** and enter your Google Analytics Measurement ID.
+
+## Setting Up Custom Event Triggers
+
+Now, we’ll set up a custom event trigger for the "Add to Cart" event.
+
+- In GTM, create a new custom event trigger.
+- Name this trigger "Custom Event Add to Cart".
+- This will help in tracking when the "Add to Cart" event is fired on your Shopify store.
+
+## Creating Google Analytics Event Tag
+
+Once the trigger is set up, create a new Google Analytics event tag.
+
+- Select **G4 Event** and choose the constant measurement ID created earlier.
+- Name the event "Add to Cart" and enable the option to send e-commerce data.
+- Rename the tag to "GA4 Custom Event Add to Cart" for clarity.
+
+## Publishing and Verifying Changes
+
+After creating the tag, publish the changes in GTM.
+
+- Name the publication step (e.g., "Tracking Academy G4 Add to Cart") and hit **Publish**.
+- Once published, refresh your Shopify store page to ensure the changes are live.
+
+## Using Plugins to Verify Event Hits
+
+To verify that the event hits are being sent to Google Analytics, use a plugin like Adswerve Data Layer. This tool shows all event hits, allowing you to confirm that the "Add to Cart" event and related data are firing correctly.
+
+## Conclusion and Next Steps
+
+Congratulations! You’ve successfully set up the "Add to Cart" event on your Shopify store using GTM and the new Customer Pixel. If you want to learn how to set up other events like "View Item", check out our other tutorials.

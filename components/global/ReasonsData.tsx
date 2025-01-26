@@ -1,7 +1,7 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
 import Image from "next/image";
+import React, { useEffect, useState } from "react";
 
 interface Reason {
   id: number;
@@ -61,7 +61,7 @@ const ReasonsData: React.FC<ReasonsDataProps> = ({
                 {reason.id}
               </p>
               <div className="flex flex-col">
-                <h3 className="text-xl font-bold ">{reason.title}</h3>
+                <h3 className="text-xl font-bold">{reason.title}</h3>
                 {activeId === reason.id && (
                   <p className="col-span-2 pb-2 text-sm lg:col-span-1 lg:pt-2">
                     {reason.paragraph}

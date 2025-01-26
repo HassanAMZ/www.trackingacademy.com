@@ -1,0 +1,42 @@
+export const metadata = {
+  title: "Pinterest dynamic URL UTM parameters for Tracking User's acquisition",
+  date: "2022-10-10",
+  blogId: 37,
+  keywords:
+    "Pinterest dynamic URL, UTM parameters, Tracking User's acquisition, traffic acquisition, pinterest ads, google analytics, iOS14+ users, dynamic URL parameters, pinterest ads manager, iOS14 changes, advertisers, data sharing limitations, opt-out, opt-in, tracking, source, _pid_ parameter, server-side tracking solution, conversion tracking, pinterest ads manager, conversion API, UTM parameters, UA, GA4, custom reports, ad set level, UTM Code, Destination URL, Ad Tracking URLs, UTM Parameter Image, Notes",
+  tags: ["pinterest", "utm parameters", "server tracking"],
+  draft: false,
+  description:
+    "To track the traffic acquisition for pinterest ads on google analytics for iOS14+ users. To track the performance of the pinterest ads in UA or GA4 using custom reports and secondary dimensions.",
+  openGraph: {
+    images: ["/static/blog/00024.png"],
+  },
+  embedId: "",
+};
+
+To track the traffic acquisition for pinterest ads on google analytics for iOS14+ users. In this article, we will walk through the steps to set up the dynamic URL parameters on the pinterest ads maanger.
+
+## Origin of the issue
+
+As a result of iOS14 changes, advertisers running campaigns will be affected by limitations on data sharing. The user can opt-out or opt-in of the tracking, either way the source of the traffic is lost.
+
+Therefore, when the app user clicks on one of the pinterest ads the _pid_ is not passed with the landing page URL. Before these updates, an _pid_ parameter was passed with the URL, which is a random string of aphla-numaric characters, containing all the information about pinterest ads, campaign, ad group etc.
+
+## Solution to the ATT
+
+There is the server side tracking solution to fix the pinterest ads reporting / conversion tracking on pinterest ads manager with conversion API. We can also, add UTM paramters in the URL and view the report in UA or GA4. we can build custom reports in UA and GA4 to visualize which pinterest ads are performing well. However, the inital step is to add the UTM paramters in each pinterest ad at ad set level.
+
+## UTM Code
+
+We need to update the URL code for all the pinterest ads, we are running on pinterest ads manager. Copy the code below and paste it under pinterest Campaign> Ad set> ad> Destination URL Or Ad Tracking URLs. Copy the code below & add it next to your destiantion URL.
+
+```javascript
+?utm_source=pinterest&utm_medium=paidsocial&utm_campaign={campaignname}&utm_id={campaignid}&utm_term={adgroupname}&utm_content={adid}
+```
+
+![UTM Parameter Image](/static/blog/00037_1.png)
+
+## Notes
+
+1. Updating the UTM paramter will unpublish the ads and they will be in "Review" for upto 48 hours.
+2. You can update the Destination URL or the Ad Tracking URLs, both work the same ways.

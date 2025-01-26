@@ -1,4 +1,3 @@
-import React from "react";
 import TagsContainer from "@/components/tag/TagsContainer";
 import getBlogAndTagsData from "utils/getBlogAndTagsData";
 

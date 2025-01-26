@@ -1,16 +1,15 @@
-import React from "react";
-import fs from "fs";
-import path from "path";
-import matter, { GrayMatterFile } from "gray-matter";
+import CategoryContainer from "@/components/blog/category-container";
 import { PostMetadata } from "@/types/index";
+import fs from "fs";
+import matter, { GrayMatterFile } from "gray-matter";
+import path from "path";
 import extractMetaFromStringForBlog from "utils/extractMetaFromStringForBlog";
 import getFiles from "utils/getFiles";
-import BlogContainer from "@/components/blog/container";
 
 export async function generateStaticParams(): Promise<
   (PostMetadata & { id: string; slug: string })[]
 > {
-  const blogDirectory = path.join(process.cwd(), "app/blog");
+  const blogDirectory = path.join(process.cwd(), "app/_blog-markdown");
   const allPostsFiles = getFiles(blogDirectory);
 
   // remove non-mdx files
@@ -57,7 +56,7 @@ export default async function Page(props: {
     : data;
   return (
     <div className="flex flex-col gap-2">
-      <BlogContainer rawData={data} data={filteredData} type="blog" />
+      <CategoryContainer rawData={data} data={filteredData} type="blog" />
     </div>
   );
 }

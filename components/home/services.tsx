@@ -1,6 +1,3 @@
-import React from "react";
-import Text from "@/components/ui/text";
-import FeatureCard from "./feature-card";
 import {
   BarChart,
   CheckCircle,
@@ -10,13 +7,12 @@ import {
   Zap,
 } from "lucide-react";
 import Container from "../ui/container";
+import FeatureCard from "./feature-card";
 
 export default function Services() {
   return (
-    <Container className="text-center space-y-5">
-      <Text as="h2" variant="heading2xl">
-        Look at what we have worked with in the Past
-      </Text>
+    <Container className="space-y-5 text-center">
+      <h2>Look at what we have worked with in the Past</h2>
       {/* <Text as="p" variant="bodyMd" >
     We have worked with all kinds of tech stacks such as Shopify, Google
     Analytics, and Salesforce. We know many tools and technologies to help you

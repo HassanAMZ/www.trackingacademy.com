@@ -1,273 +1,357 @@
 import React from "react";
-import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardHeader } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
-import { AlertCircle, CheckCircle2, ArrowRight } from "lucide-react";
+import Navbar from "@/components/global/navbar";
+import Hero from "@/components/landing-page/hero";
+import ProblemAwareness from "@/components/landing-page/problem-awareness";
+import OfferDetails from "@/components/landing-page/offer-detail-item";
+import ScarcityUrgency from "@/components/landing-page/scarcity-urgency";
+import SocialProof from "@/components/landing-page/social-proof";
+import ObjectionHandling from "@/components/landing-page/objection-handling";
+import DetailedCTA from "@/components/landing-page/detailed-cta";
+import TestimonialsCarousel from "@/components/testimonial/testimonial-carousal";
+import {
+  ArrowUpRight,
+  BarChart2,
+  Clock,
+  HeadphonesIcon,
+  Target,
+  TrendingUp,
+  Zap,
+  CheckSquare,
+} from "lucide-react";
+import WhyChooseSection from "@/components/home/why-choose-us";
+import AlternativesSection from "@/components/home/alternative-section";
 import Container from "@/components/ui/container";
-import Text from "@/components/ui/text";
-import VideoPlayer from "@/components/offers/offer-001/video-player";
-import Link from "next/link";
+import { testimonials } from "@/data/testimonials";
 
-// Hero Component
-const Hero = () => {
-  return (
-    <section className="relative bg-gradient-to-b from-primary/5 to-background py-12">
-      <Container>
-        <div className="flex flex-col items-center gap-4 text-center">
-          <Badge variant="outline" className="mb-2 border-primary/20">
-            Limited Time Offer for Shopify Store Owners
-          </Badge>
-
-          <Text as="h1" variant="heading3xl">
-            Transform Your Facebook Ads With{" "}
-            <span className="text-primary">95%+ Accurate</span> Tracking
-            <span className="text-primary"> — Or It's FREE!</span>
-          </Text>
-
-          <Text as="p" className="text-muted-foreground" variant="headingXl">
-            Say goodbye to data gaps, guesswork, and wasted ad spend. Our
-            exclusive system guarantees 95%+ accuracy in tracking your Facebook
-            Ads performance.
-          </Text>
-
-          <Button
-            asChild
-            size="lg"
-            className="text-xl px-12 py-7 shadow-2xl transform hover:-translate-y-1 transition-all my-4"
-          >
-            <Link href="/contact">
-              Get Your FREE Tracking Audit
-              <ArrowRight className="h-4 w-4" />
-            </Link>
-          </Button>
-
-          <div className="flex flex-col sm:flex-row items-center gap-4 text-sm">
-            <div className="flex items-center gap-1">
-              <CheckCircle2 className="h-4 w-4 text-primary" />
-              <span>95%+ Accuracy</span>
-            </div>
-            <div className="flex items-center gap-1">
-              <CheckCircle2 className="h-4 w-4 text-primary" />
-              <span>7-Day Setup</span>
-            </div>
-            <div className="flex items-center gap-1">
-              <CheckCircle2 className="h-4 w-4 text-primary" />
-              <span>Money-Back Guarantee</span>
-            </div>
-          </div>
-        </div>
-
-        <VideoPlayer
-          src="/videos/home/reason-comparison-horizontal.mp4"
-          placeholder="/images/home/reason-comparison-horizontal.gif"
-          className="hidden sm:block"
-        />
-        <VideoPlayer
-          src="/videos/home/reason-comparison-vertical.mp4"
-          placeholder="/images/home/reason-comparison-vertical.gif"
-          className="block sm:hidden"
-        />
-      </Container>
-    </section>
-  );
-};
-
-// Problem Section Component
-const ProblemSection = () => {
-  return (
-    <section className="py-8">
-      <Container>
-        <div className="flex flex-col items-center gap-4 text-center">
-          <Text as="h2" variant="headingXl">
-            Stop Losing Money to Inaccurate Facebook Ads Tracking
-          </Text>
-          <Text as="p" className="max-w-[700px]" variant="bodyLg">
-            Tracking gaps are costing you money. If you don't know which ads
-            work, every dollar you spend could be a dollar lost. Our service
-            pinpoints your current issues and delivers a 95%+ accurate tracking
-            solution.
-          </Text>
-        </div>
-      </Container>
-    </section>
-  );
-};
-
-// Solution Section Component with 7-Step Process
-const SolutionSection = () => {
-  const steps = [
-    {
-      title: "Precision Audit & Baseline Setup",
-      description:
-        "Complete audit of your current setup and identify tracking gaps",
-    },
-    {
-      title: "Custom Integration with Facebook Pixel",
-      description: "Ensures Facebook Pixel and Ads Manager capture everything",
-    },
-    {
-      title: "Data Layer Installation",
-      description: "Custom data layer for more reliable, server-side tracking",
-    },
-    {
-      title: "Server-Side GTM Setup",
-      description: "Google Containers configured and hosted in the cloud",
-    },
-    {
-      title: "Track Key E-Commerce Events",
-      description: "Track Add to Cart, Checkout, Purchase, and more",
-    },
-    {
-      title: "Subdomain & Analytics Integration",
-      description: "Custom subdomain and full Google Analytics setup",
-    },
-    {
-      title: "7-Day Monitoring & QA",
-      description: "Ensure perfect accuracy and optimize as needed",
-    },
-  ];
-
-  return (
-    <section className="py-16">
-      <Container>
-        <div className="flex flex-col items-center gap-8">
-          <div className="text-center">
-            <Text as="h2" variant="headingXl">
-              Here's How We Guarantee 95% Accuracy
-            </Text>
-            <Text as="p" className="mt-4" variant="bodyLg">
-              Our specialized system is designed for Shopify stores like yours.
-            </Text>
-          </div>
-
-          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3 w-full">
-            {steps.map((step, index) => (
-              <Card key={index} className="border-primary/20">
-                <CardHeader>
-                  <Badge className="w-fit mb-2">Step {index + 1}</Badge>
-                  <Text as="h3" className="font-semibold">
-                    {step.title}
-                  </Text>
-                </CardHeader>
-                <CardContent>
-                  <Text as="p" variant="bodyLg">
-                    {step.description}
-                  </Text>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-
-          <Button size="lg" className="mt-4" asChild>
-            <Link href="/contact">
-              Get Your FREE Tracking Audit
-              <ArrowRight className="h-4 w-4" />
-            </Link>
-          </Button>
-        </div>
-      </Container>
-    </section>
-  );
-};
-
-// Benefits Section Component
-const BenefitsSection = () => {
-  const benefits = [
-    {
-      title: "See Every Dollar's Impact",
-      description:
-        "With our 95%+ accuracy guarantee, you'll know exactly which ads bring the best results",
-    },
-    {
-      title: "Save Time and Effort",
-      description:
-        "Our system handles all the heavy lifting and ongoing optimizations",
-    },
-    {
-      title: "Risk-Free Guarantee",
-      description:
-        "If we don't hit 95% tracking accuracy, you don't pay. Simple as that",
-    },
-    {
-      title: "Custom Analytics Dashboard",
-      description:
-        "Get an intuitive, easy-to-read Google Analytics dashboard for instant insights",
-    },
-  ];
-
-  return (
-    <section className="py-16">
-      <Container>
-        <div className="flex flex-col items-center gap-8">
-          <Text as="h2" variant="headingXl" className="text-center">
-            Why Choose Our 95%+ Accuracy System?
-          </Text>
-
-          <div className="grid gap-6 md:grid-cols-2 w-full">
-            {benefits.map((benefit, index) => (
-              <Card key={index} className="border-primary/20">
-                <CardContent className="pt-6">
-                  <div className="flex gap-4">
-                    <CheckCircle2 className="h-6 w-6 text-primary shrink-0" />
-                    <div>
-                      <Text as="h3" className="font-semibold mb-2">
-                        {benefit.title}
-                      </Text>
-                      <Text as="p" variant="bodyLg">
-                        {benefit.description}
-                      </Text>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </Container>
-    </section>
-  );
-};
-
-// Guarantee Section Component
-const GuaranteeSection = () => {
-  return (
-    <section className="py-16">
-      <Container>
-        <Card className="bg-primary/5 border-primary/20">
-          <CardContent className="pt-6">
-            <div className="flex flex-col items-center text-center gap-4">
-              <AlertCircle className="h-12 w-12 text-primary" />
-              <Text as="h2" variant="headingXl">
-                Our "95%+ Accuracy or It's FREE" Guarantee
-              </Text>
-              <Text as="p" className="max-w-xl">
-                We're confident that our system will deliver precise, actionable
-                data for your Shopify store. If we don't meet our 95% accuracy
-                promise, you don't pay a single cent.
-              </Text>
-              <Button size="lg" className="mt-4" asChild>
-                <Link href="/contact">
-                  Start Your FREE Audit Today
-                  <ArrowRight className="ml-2 h-4 w-4" />
-                </Link>
-              </Button>
-            </div>
-          </CardContent>
-        </Card>
-      </Container>
-    </section>
-  );
-};
-
-// Main Page Component that combines all sections
 export default function HomePage() {
   return (
-    <main className="flex min-h-screen flex-col">
-      <Hero />
-      <ProblemSection />
-      <SolutionSection />
-      <BenefitsSection />
-      <GuaranteeSection />
+    <main>
+      <Navbar />
+
+      <Hero
+        badgeText="Stop Losing Revenue"
+        headingText="Stop Losing 50% of Your Ad Spend – Track 95% of Conversions Accurately Post-iOS 18!"
+        subheadingText="Our Done-for-You Server-Side Tracking System Helps You Recover Lost Revenue, Track Conversions with 95% Accuracy, and Effortlessly Boost ROI – Guaranteed."
+        ctaButtonText="Book an Introduction Call"
+        ctaButtonLink="/contact"
+        supportingButtonText="Check Case Studies"
+        supportingButtonLink="#case-studies"
+        youtubeEmbedId="9MGpL_AmEYM"
+        supportingComponent={
+          <TestimonialsCarousel className="mx-auto max-w-2xl" />
+        }
+      />
+      <ProblemAwareness
+        headingText="The Hidden Costs of Inefficient Analytics and Outdated Systems"
+        paragraphText="Manual processes and chaotic data overwhelm teams, draining time and money while delivering few actionable insights."
+        redPillPoints={[
+          "Weak Analytics Limit Growth",
+          "Manual Tasks Drain Resources ",
+          "Lack of Clear Insights",
+          "Inability to Optimize Campaigns",
+          "Revenue Loss ",
+        ]}
+        imageUrl="/images/hero/matrix.png"
+        bluePillPoints={[
+          "Maximize Return on Ads Spent",
+          "Automated Tracking Workflow",
+          "Seamless Growth ",
+          "Guaranteed ROI Boost ",
+          "Data-Driven Decisions",
+        ]}
+      />
+
+      {/* <DreamOutcome
+        heading="Imagine Effortless Growth"
+        subheading="Our System Ensures Precision, Saves Time, and Maximizes ROI"
+        dreamOutcomeList={[
+          {
+            icon: "TrendingUp",
+            text: "Double Your ROI Effortlessly",
+            image: "/images/hero/003.png",
+            description:
+              "Maximize your marketing efficiency and ensure every dollar works harder for you.",
+          },
+          {
+            icon: "Lightbulb",
+            text: "Achieve Stress-Free Scaling",
+            image: "/images/hero/001.png",
+            description:
+              "Expand your business with ease and confidence, free from operational headaches.",
+          },
+          {
+            icon: "Target",
+            text: "Reclaim 20+ Hours Monthly",
+            image: "/images/hero/002.png",
+            description:
+              "Automate repetitive tasks and reclaim your time for high-impact activities.",
+          },
+        ]}
+      /> */}
+
+      <WhyChooseSection
+        heading="Why Work With Us?"
+        subheading="We bridge the gap between your data insights and marketing strategy, delivering key metrics and actionable recommendations."
+        eyebrow="What Sets Us Apart"
+        value={[
+          "A dedicated data team that understands marketing needs",
+          "Proven frameworks to align business strategies with precise measurement",
+          "Relieve yourself from data headaches and focus on scaling your business with sharp insights",
+        ]}
+        image="/images/hero/unified-dashboard.png"
+      />
+
+      <OfferDetails
+        headerTitle="The Conversion Confidence Suite"
+        headerDescription="A complete system designed to solve your tracking headaches, recover lost revenue, and supercharge your ROI."
+        offerItems={[
+          {
+            title: "Conversion Tracking Audit",
+            description:
+              "Identify gaps and implement advanced tracking solutions for 95% accuracy.",
+            icon: Zap,
+            benefits: [
+              "Comprehensive analysis of your tracking setup",
+              "Identify and fix data leaks",
+              "Custom implementation plan for robust tracking",
+              "Verification and testing for seamless performance",
+            ],
+            image: "/images/hero/tracking-aduit.png",
+          },
+
+          {
+            title: "Measurement Planning",
+            description:
+              "Develop a comprehensive strategy for your tracking setup to ensure accurate and actionable data.",
+            icon: Target,
+            benefits: [
+              "Identify and define key metrics for tracking",
+              "Plan the measurement strategy across platforms",
+              "Set clear objectives for campaign tracking",
+              "Ensure alignment with business goals and ROI objectives",
+            ],
+            image: "/images/hero/measurement-planning.png",
+          },
+
+          {
+            title: "Server-Side Tracking Setup",
+            description:
+              "Implement Google Analytics 4, Google Tag Manager, Meta Pixel, and Conversion API for precise, server-side tracking.",
+            icon: BarChart2,
+            benefits: [
+              "Implement GA4 and GTM for precise tracking",
+              "Set up Meta Pixel and Conversion API for server-side tracking",
+              "Ensure accurate conversion tracking post-iOS 18 updates",
+              "Test and verify for seamless data flow and accuracy",
+            ],
+            image: "/images/hero/unified-dashboard.png",
+          },
+          {
+            title: "Real-Time Insights Dashboards",
+            description:
+              "Custom dashboards providing instant clarity on performance, ROAS, and campaign effectiveness.",
+            icon: BarChart2,
+            benefits: [
+              "Live performance metrics for ad campaigns",
+              "Customizable KPI tracking and alerts",
+              "Audience behavior analysis and segmentation",
+              "Automated performance alerts for optimization",
+            ],
+            image: "/images/hero/real-time-dashboard.png",
+          },
+          // {
+          //   title: "A single source of truth",
+          //   description:
+          //     "Seamlessly unify platforms like Google Analytics, Facebook Ads, and CRMs.",
+          //   icon: BookOpen,
+          //   benefits: [
+          //     "Step-by-step integration of major platforms",
+          //     "Custom API connections for unique tech stacks",
+          //     "Optimization for streamlined data flow",
+          //     "Training to maintain integrations seamlessly",
+          //   ],
+          //   image: "/images/hero/unified-dashboard.png",
+          // },
+          {
+            title: "Priority Automation Support",
+            description:
+              "Tools, templates, and expert support to streamline workflows and automate processes.",
+            icon: HeadphonesIcon,
+            benefits: [
+              "Personalized automation strategy",
+              "Time-saving workflow automations",
+              "Pre-built automation templates",
+              "24/7 expert support for troubleshooting",
+            ],
+            image: "/images/hero/customer-support.png",
+          },
+        ]}
+      />
+      <ScarcityUrgency
+        title="Limited to Only 5 Projects Per Month"
+        description="To ensure personalized attention and maximize results, this offer is limited to 5 businesses Every Month."
+        spotsLeft={5}
+        daysRemaining={10}
+        buttonText="Book an Introduction Call"
+        buttonLink="/contact"
+        iconSize={12}
+      />
+
+      <SocialProof
+        sectionTitle="Our Clients Are Seeing Results – Will You Be Next?"
+        sectionDescription="Here’s how we’ve transformed other businesses like yours."
+        testimonials={testimonials}
+        stats={[
+          { label: "Average ROI Increase", value: "60%", icon: ArrowUpRight },
+          {
+            label: "Time Saved Monthly",
+            value: "20+ hours",
+            icon: Clock,
+          },
+          { label: "Client Satisfaction", value: "98%", icon: TrendingUp },
+        ]}
+        resultsTitle="The Results Speak for Themselves"
+      />
+      <ScarcityUrgency
+        title="Limited to Only 5 Projects Per Month"
+        description="To ensure personalized attention and maximize results, this offer is limited to 5 businesses Every Month."
+        spotsLeft={5}
+        daysRemaining={10}
+        buttonText="Book an Introduction Call"
+        buttonLink="/contact"
+        iconSize={12}
+      />
+      <OfferDetails
+        headerTitle="Exclusive Bonuses for Early Action-Takers"
+        headerDescription="Get over $1,200 in value with these exclusive bonuses."
+        offerItems={[
+          {
+            title: "E-commerce Conversion Checklist",
+            description:
+              "The ultimate checklist to maximize your online store’s conversions.",
+            icon: CheckSquare,
+            price: "$500",
+            benefits: [
+              "300+ critical conversion checkpoints",
+              "Insights from 15+ years of CRO experience",
+              "Decrease customer acquisition costs",
+              "Increase average order value and conversion rates",
+            ],
+            image: "/images/hero/ecommerce-conversion-checklist.png",
+          },
+          // {
+          //   title: "Ad Efficiency Blueprint",
+          //   description: "A step-by-step guide to optimize every ad dollar.",
+          //   icon: FileText,
+          //   price: "$800",
+          //   benefits: [
+          //     "Comprehensive analysis of your tracking setup",
+          //     "Identify and fix data leaks",
+          //     "Custom implementation plan for robust tracking",
+          //     "Verification and testing for seamless performance",
+          //   ],
+          //   image: "/images/social-sharing.png",
+          // },
+          {
+            title: "Advanced Tools & Calculators",
+            description:
+              "Pre-built tools & Calculators for effortless KPI tracking.",
+            icon: BarChart2,
+            price: "$700",
+            benefits: [
+              "Live performance metrics for ad campaigns",
+              "Customizable KPI tracking and alerts",
+              "Audience behavior analysis and segmentation",
+              "Automated performance alerts for optimization",
+            ],
+            image: "/images/hero/tools-and-calculators.png",
+          },
+        ]}
+      />
+
+      <ObjectionHandling
+        sectionTitle="Our Guarantees – Your Success is Risk-Free"
+        guarantees={[
+          // {
+          //   title: "Double ROI Guarantee",
+          //   description:
+          //     "Double your return on ad spend in 90 days, or we work with you for free until you do.",
+          //   icon: TrendingUp,
+          // },
+          {
+            title: "30 Day Money Back Guarantee",
+            description:
+              "If the tracking is not 95% accurate in 30 days, we will give you all the money back.",
+            image: "/images/hero/money-back.png",
+          },
+        ]}
+      />
+
+      <AlternativesSection
+        heading="Other Options to Consider"
+        subheading="Our service is ideal for you if you prioritize:"
+        values={[
+          {
+            number: "1",
+            title: "Tailored data solutions",
+            description:
+              "Customized to address your specific business requirements",
+          },
+          {
+            number: "2",
+            title: "Strategic insights",
+            description:
+              "Going beyond data to offer clear growth-driving steps",
+          },
+          {
+            number: "3",
+            title: "Premium service",
+            description:
+              "We handle the complexities so you can concentrate on strategy",
+          },
+          {
+            number: "4",
+            title: "Scalable partnerships",
+            description: "We adapt as your data needs grow and evolve",
+          },
+        ]}
+        alternatives={[
+          {
+            title: "In-house marketing team",
+            content:
+              "A great option if you have the expertise, resources, and time to build, manage, and refine a comprehensive data measurement system (data collection, storage, cleaning, and visualization).",
+          },
+          {
+            title: "Pre-built tools",
+            content:
+              "Our solution is perfect for those who prefer focusing on marketing and growth rather than wrestling with data intricacies. We manage the entire data strategy and provide unbiased, actionable feedback on your next steps.",
+          },
+          {
+            title: "Full-service agencies",
+            content:
+              "These agencies handle campaigns and creativity but often lack deep expertise in analytics. While their focus is broad, we specialize in crafting seamless data infrastructures and insightful dashboards tailored to your unique metrics, offering clarity and precise recommendations unmatched by generalist agencies.",
+          },
+          {
+            title: "Freelancers",
+            content:
+              "Freelancers excel in one-off analytics tasks but may lack the strategic perspective to develop integrated, enterprise-level data systems aligned with your business goals. We prioritize understanding your model deeply, crafting bespoke data solutions, and maintaining an ongoing partnership that consistently provides actionable insights—not just sporadic projects.",
+          },
+        ]}
+      />
+
+      <DetailedCTA
+        heading="Fix Your Tracking, Maximize Your ROI"
+        subheading="Act now to secure your spot and exclusive bonuses."
+        listItems={[
+          "Track 95% of conversions with accuracy",
+          "Save 20+ hours per month",
+          "Boost your ad spend ROI",
+          "Get peace of mind with guaranteed results",
+        ]}
+        buttonText="Secure Your Spot Today!"
+        buttonLink="/contact"
+        footerText="Limited to 5 spots per month. Don’t wait!"
+      />
     </main>
   );
 }
