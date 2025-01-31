@@ -105,7 +105,7 @@ function FeatureCard({
   checked?: boolean;
 }) {
   return (
-    <Card className="border-none shadow-sm">
+    <Card className="border-none shadow-xs">
       <CardContent className="p-6">
         <div className="flex gap-4">
           {checked && (

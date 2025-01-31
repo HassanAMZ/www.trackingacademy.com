@@ -73,7 +73,7 @@ const DreamOutcome: React.FC<DreamOutcomeProps> = ({
                         >
                           <CollapsibleTrigger className="flex w-full items-center space-x-4">
                             <IconComponent />
-                            <h4 className="flex-grow text-left text-xl font-semibold">
+                            <h4 className="grow text-left text-xl font-semibold">
                               {outcome.text}
                             </h4>
                             {isOpen ? (

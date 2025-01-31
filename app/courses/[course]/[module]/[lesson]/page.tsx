@@ -104,7 +104,7 @@ export default async function LessonPage({
           <div className="space-y-4">
             <div className="flex items-center justify-between">
               <Badge>Lesson {metadata.order}</Badge>
-              <div className="flex items-center text-sm text-muted-foreground">
+              <div className="text-muted-foreground flex items-center text-sm">
                 <Clock className="mr-1 h-4 w-4" />
                 {metadata.duration}
               </div>
@@ -115,7 +115,7 @@ export default async function LessonPage({
           </div>
         </CardHeader>
         <CardContent>
-          <div className="prose dark:prose-invert max-w-none">
+          <div className="max-w-none">
             <LessonContent />
           </div>
         </CardContent>

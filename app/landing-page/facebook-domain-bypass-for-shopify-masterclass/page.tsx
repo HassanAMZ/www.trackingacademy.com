@@ -237,13 +237,13 @@
 //   ];
 
 //   return (
-//     <div className="bg-gradient-to-br from-background via-background to-primary/5">
+//     <div className="bg-linear-to-br from-background via-background to-primary/5">
 //       {/* Hero Section with Subtle Animations */}
 //       <Container className="relative overflow-hidden py-12 text-center">
-//         <div className="absolute inset-0 -z-10 animate-pulse rounded-3xl bg-gradient-to-r from-primary/10 to-primary/20 blur-2xl"></div>
+//         <div className="absolute inset-0 -z-10 animate-pulse rounded-3xl bg-linear-to-r from-primary/10 to-primary/20 blur-2xl"></div>
 
 //         <div className="animate-fade-in-up">
-//           <h1 className="to-primary-600 animate-text mb-6 bg-gradient-to-r from-primary bg-clip-text">
+//           <h1 className="to-primary-600 animate-text mb-6 bg-linear-to-r from-primary bg-clip-text">
 //             Unlock the Underground Meta Ad Strategy That Turns Blocked Domains
 //             into Predictable Cash Machines - Without Platform Shutdown Risks
 //           </h1>
@@ -272,7 +272,7 @@
 //             ].map((feature, index) => (
 //               <div
 //                 key={index}
-//                 className="hover:scale-103 flex items-center rounded-xl bg-card/50 p-3 shadow-sm transition-all hover:shadow-md"
+//                 className="hover:scale-103 flex items-center rounded-xl bg-card/50 p-3 shadow-xs transition-all hover:shadow-md"
 //               >
 //                 <feature.icon
 //                   className={`mr-2 ${feature.color} animate-pulse`}
@@ -303,7 +303,7 @@
 //         <Text
 //           as="h2"
 //           variant="headingXl"
-//           className="to-primary-600 mb-16 bg-gradient-to-r from-primary bg-clip-text text-center text-transparent"
+//           className="to-primary-600 mb-16 bg-linear-to-r from-primary bg-clip-text text-center text-transparent"
 //         >
 //           Your Path to Ad Domination
 //         </Text>
@@ -421,7 +421,7 @@
 //         <Text
 //           as="h2"
 //           variant="headingXl"
-//           className="to-primary-600 mb-16 bg-gradient-to-r from-primary bg-clip-text text-center text-transparent"
+//           className="to-primary-600 mb-16 bg-linear-to-r from-primary bg-clip-text text-center text-transparent"
 //         >
 //           Meta Ad Domination Masterclass Breakdown
 //         </Text>

@@ -35,7 +35,7 @@ const SocialProof: React.FC<SocialProofProps> = ({
   resultsTitle,
 }) => {
   return (
-    <section className="min-h-screen bg-gradient-to-b from-primary/5 to-background py-24">
+    <section className="min-h-screen bg-linear-to-b from-primary/5 to-background py-24">
       <Container className="space-y-6">
         {/* Section Title */}
         {sectionTitle && <h2 className="text-center">{sectionTitle}</h2>}

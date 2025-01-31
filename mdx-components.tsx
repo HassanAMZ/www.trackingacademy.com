@@ -11,6 +11,7 @@ import { Button } from "@/components/ui/button";
 import type { MDXComponents } from "mdx/types";
 import Image from "next/image";
 import DataLayerCodeBlock from "./components/mdx/datalayer-code";
+import clsx from "clsx";
 export function useMDXComponents(components: MDXComponents): MDXComponents {
   const createId = (content: string) =>
     content
@@ -60,8 +61,22 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
       <h6 id={createId(props.children as string)}>{props.children}</h6>
     ),
     li: (props) => <li {...props}>{props.children}</li>,
-    ol: (props) => <ol {...props}>{props.children}</ol>,
-    ul: (props) => <ul {...props}>{props.children}</ul>,
+    ol: (props) => (
+      <ol
+        className={clsx("my-6 ml-6 list-decimal [&>li]:mt-2", props.className)}
+        {...props}
+      >
+        {props.children}
+      </ol>
+    ),
+    ul: (props) => (
+      <ul
+        className={clsx("my-6 ml-6 list-disc [&>li]:mt-2", props.className)}
+        {...props}
+      >
+        {props.children}
+      </ul>
+    ),
     img: (props) => (
       // @ts-ignore
       <Image src={props.src} width={1920} height={1080} {...props} />

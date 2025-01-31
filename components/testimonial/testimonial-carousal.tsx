@@ -43,7 +43,7 @@ const TestimonialsCarousel: React.FC<{ className?: string }> = ({
   return (
     <Card
       className={clsx(
-        "relative h-48 bg-background/80 backdrop-blur-sm",
+        "relative h-48 bg-background/80 backdrop-blur-xs",
         className,
       )}
     >
@@ -59,7 +59,7 @@ const TestimonialsCarousel: React.FC<{ className?: string }> = ({
         </div>
 
         {/* Quote */}
-        <div className="flex flex-grow items-center justify-center">
+        <div className="flex grow items-center justify-center">
           <p className="line-clamp-3 font-semibold italic">
             "{currentTestimonial.quote}"
           </p>

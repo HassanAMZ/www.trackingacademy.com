@@ -81,7 +81,7 @@ const CategoryContainer: React.FC<CategoryContainerProps> = ({
         data={data}
         onSearch={(filtered) => setFilteredData(filtered)}
       />
-      <div className="grid gap-2 lg:grid-cols-[1fr,250px]">
+      <div className="grid gap-2 lg:grid-cols-[1fr_250px]">
         <Tabs defaultValue="All" className="col-span-1 col-start-1 w-full">
           <TabsList className="mb-4">
             {categories.map((category) => (

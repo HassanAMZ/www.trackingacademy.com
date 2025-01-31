@@ -9,7 +9,7 @@ import React from "react";
 
 export const HeroSection: React.FC = () => {
   return (
-    <section className="relative bg-gradient-to-b from-primary/5 to-background">
+    <section className="relative bg-linear-to-b from-primary/5 to-background">
       <Container className="py-8">
         <div className="flex flex-col items-center gap-6 text-center">
           <Badge variant="outline" className="mb-2 border-primary/20">
@@ -23,7 +23,7 @@ export const HeroSection: React.FC = () => {
             <span className="text-primary"> FREE! 💯</span>
           </h1>
 
-          <YoutubeEmbed embedId="9MGpL_AmEYM" className="!max-w-4xl" />
+          <YoutubeEmbed embedId="9MGpL_AmEYM" className="max-w-4xl!" />
 
           <h2 className="max-w-3xl">
             Tracking gaps are costing you money. If you don't know which ads

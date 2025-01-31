@@ -23,7 +23,7 @@ const NavigationLinks: React.FC = () => {
               >
                 {link.title}
               </NavLink>
-              <div className="nested-links border-dominant bg-complementary absolute z-20 hidden flex-row rounded-lg border-2 p-2 shadow group-hover:flex">
+              <div className="nested-links border-dominant bg-complementary absolute z-20 hidden flex-row rounded-lg border-2 p-2 shadow-sm group-hover:flex">
                 {link.children.map((childLink) => (
                   <NavLink
                     key={`nav-link-${childLink.title}`}

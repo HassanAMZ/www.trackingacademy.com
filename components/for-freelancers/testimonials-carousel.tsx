@@ -55,7 +55,7 @@ export function TestimonialsCarousel() {
               width={500}
               height={200}
             />
-            <Card className="relative space-y-4 shadow">
+            <Card className="relative space-y-4 shadow-sm">
               <div className="absolute -top-4 right-4 flex space-x-1">
                 <Star />
                 <Star />

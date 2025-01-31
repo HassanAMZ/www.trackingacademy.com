@@ -164,7 +164,7 @@ const FeatureCard: FC<FeatureCardPorps> = ({
   return (
     <Dialog>
       <DialogTrigger asChild>
-        <div className="flex cursor-pointer flex-col items-center rounded-lg border p-6 shadow">
+        <div className="flex cursor-pointer flex-col items-center rounded-lg border p-6 shadow-sm">
           {icon}
           <h3 className="mb-2 text-primary">{title}</h3>
           <p>{description}</p>

@@ -20,7 +20,7 @@ const ProblemAwareness: React.FC<ProblemAwarenessProps> = ({
   imageUrl = "/images/social-sharing.png?height=400&width=300",
 }) => {
   return (
-    <section className="bg-gradient-to-b from-primary/5 to-background py-16">
+    <section className="bg-linear-to-b from-primary/5 to-background py-16">
       <Container className="space-y-6">
         <div className="mx-auto max-w-3xl text-center">
           {headingText && <h2 className="mb-4">{headingText}</h2>}

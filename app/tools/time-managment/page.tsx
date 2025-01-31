@@ -327,7 +327,7 @@ const BusinessTimeManagement: React.FC = () => {
     <main className="flex bg-background">
       {/* Main Content */}
       <div className="flex-1 overflow-y-auto">
-        <div className="grid gap-3 lg:grid-cols-[2fr,1fr]">
+        <div className="grid gap-3 lg:grid-cols-[2fr_1fr]">
           <Card className="col-span-1 col-start-1">
             <CardHeader>
               <CardTitle className="flex items-center gap-2">

@@ -214,7 +214,7 @@ const UTMValidator = () => {
     <main className="flex">
       {/* Main Content */}
       <div className="flex-1 overflow-y-auto">
-        <div className="grid gap-3 lg:grid-cols-[2fr,1fr]">
+        <div className="grid gap-3 lg:grid-cols-[2fr_1fr]">
           <div className="space-y-6">
             <Card>
               <CardHeader>

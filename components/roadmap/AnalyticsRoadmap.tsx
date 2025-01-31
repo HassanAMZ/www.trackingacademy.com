@@ -40,25 +40,25 @@ const MainNode: React.FC<{ data: NodeData }> = ({ data }) => (
       id="top"
       type="target"
       position={Position.Top}
-      className="h-2 w-2 !bg-primary"
+      className="h-2 w-2 bg-primary!"
     />
     <Handle
       id="bottom"
       type="source"
       position={Position.Bottom}
-      className="h-2 w-2 !bg-primary"
+      className="h-2 w-2 bg-primary!"
     />
     <Handle
       id="left"
       type="source"
       position={Position.Left}
-      className="h-2 w-2 !bg-primary"
+      className="h-2 w-2 bg-primary!"
     />
     <Handle
       id="right"
       type="source"
       position={Position.Right}
-      className="h-2 w-2 !bg-primary"
+      className="h-2 w-2 bg-primary!"
     />
   </div>
 );
@@ -75,7 +75,7 @@ const SubNode: React.FC<{ data: NodeData & SubItem }> = ({ data }) => (
       id={data.isEven ? "left" : "right"}
       type="target"
       position={data.isEven ? Position.Left : Position.Right}
-      className="h-2 w-2 !bg-secondary"
+      className="h-2 w-2 bg-secondary!"
     />
   </div>
 );

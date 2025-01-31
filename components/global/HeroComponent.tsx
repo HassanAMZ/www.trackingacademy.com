@@ -7,7 +7,7 @@ import React from "react";
 const HeroComponent: React.FC<HeroProps> = ({ textGroup, links, images }) => {
   return (
     <React.Fragment>
-      <section className="text-complementary bg-dominant relative flex h-full flex-col items-center justify-center rounded-lg shadow lg:h-[80vh]">
+      <section className="text-complementary bg-dominant relative flex h-full flex-col items-center justify-center rounded-lg shadow-sm lg:h-[80vh]">
         {images?.background?.desktop && (
           <Image
             alt="Shahzada Ali Hassan"

@@ -58,7 +58,7 @@ const OfferDetails: React.FC<OfferDetailsProps> = ({
                     <div className="space-y-4">
                       {item.benefits.map((benefit, idx) => (
                         <div key={idx} className="flex items-start">
-                          <CheckCircle className="mr-2 mt-1 h-6 w-6 flex-shrink-0 stroke-primary" />
+                          <CheckCircle className="mr-2 mt-1 h-6 w-6 shrink-0 stroke-primary" />
                           <span>{benefit}</span>
                         </div>
                       ))}

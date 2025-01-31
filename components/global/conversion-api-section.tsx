@@ -28,7 +28,7 @@ export const ConversionApiSection: React.FC = () => {
               note: "additional attributed purchase events.²",
             },
           ].map((card, index) => (
-            <Card key={index} className="p-5 text-center backdrop-blur">
+            <Card key={index} className="p-5 text-center backdrop-blur-sm">
               <CardHeader>
                 <CardTitle className="text-xl">{card.title}</CardTitle>
               </CardHeader>

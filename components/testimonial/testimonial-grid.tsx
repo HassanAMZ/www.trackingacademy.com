@@ -18,7 +18,7 @@ function TestimonialGrid({
     <div className="columns-1 gap-6 space-y-8 [column-fill:_balance] md:columns-2 lg:columns-3">
       {testimonials.map((testimonial, index) => (
         <div key={index} className="break-inside-avoid">
-          <Card className="h-fit bg-background/50 backdrop-blur-sm">
+          <Card className="h-fit bg-background/50 backdrop-blur-xs">
             <CardContent className="p-6">
               <Quote className="mb-4 h-8 w-8 text-primary" />
               <p className="mb-4 italic">{testimonial.quote}</p>

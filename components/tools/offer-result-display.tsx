@@ -63,7 +63,7 @@ export function OfferResultDisplay({ generation }: OfferResultDisplayProps) {
                       ([key, value]) => (
                         <div
                           key={key}
-                          className="rounded-lg border p-3 shadow-sm"
+                          className="rounded-lg border p-3 shadow-xs"
                         >
                           <div className="mb-2 flex items-center justify-between">
                             <h4 className="font-medium">

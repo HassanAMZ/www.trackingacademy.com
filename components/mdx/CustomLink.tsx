@@ -23,7 +23,7 @@ const CustomLink: React.FC<CustomLinkProps> = ({
 
   if (isInternalLink) {
     return (
-      <Button asChild className={cn("!p-0", className)} variant={"link"}>
+      <Button asChild className={cn("p-0!", className)} variant={"link"}>
         <Link href={href} {...rest}>
           {rest.children}
         </Link>
@@ -36,7 +36,7 @@ const CustomLink: React.FC<CustomLinkProps> = ({
       <Link
         href={href}
         className={clsx(
-          "text-card-primary whitespace-pre-wrap !p-0 underline-offset-4 hover:underline dark:text-primary",
+          "text-card-primary whitespace-pre-wrap p-0! underline-offset-4 hover:underline dark:text-primary",
           className,
         )}
         {...rest}
@@ -49,7 +49,7 @@ const CustomLink: React.FC<CustomLinkProps> = ({
       <a
         target="_blank"
         rel="noopener noreferrer"
-        className={clsx("!p-0", className)}
+        className={clsx("p-0!", className)}
         href={isExternal}
         {...rest}
       />

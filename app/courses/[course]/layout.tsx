@@ -19,7 +19,7 @@ export default async function Layout({
         <SidebarInset className="w-full">
           <Navbar />
 
-          <Container className="grid gap-2 p-2 lg:grid-cols-[1fr,250px]">
+          <Container className="grid gap-2 p-2 lg:grid-cols-[1fr_250px]">
             <div>{children}</div>
             <ContactUs />
           </Container>

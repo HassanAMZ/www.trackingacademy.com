@@ -90,7 +90,7 @@ const BlogHeader: React.FC<PostMetadataProps> = ({ metadata }) => {
                   priority
                 />
               ) : (
-                <YoutubeEmbed embedId={metadata.embedId} className="!p-0" />
+                <YoutubeEmbed embedId={metadata.embedId} className="p-0!" />
               )}
             </div>
           </div>

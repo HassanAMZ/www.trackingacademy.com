@@ -93,7 +93,7 @@ export default async function ModulePage({
                 Module {metadata.order}
               </Badge>
             </div>
-            <div className="flex items-center gap-4 text-sm text-muted-foreground">
+            <div className="text-muted-foreground flex items-center gap-4 text-sm">
               <div className="flex items-center gap-1">
                 <Clock className="h-4 w-4" />
                 {metadata.duration}
@@ -103,14 +103,14 @@ export default async function ModulePage({
                 {lessons.length} Lessons
               </div>
             </div>
-            <p className="text-lg text-muted-foreground">
+            <p className="text-muted-foreground text-lg">
               {metadata.description}
             </p>
           </div>
         </CardHeader>
       </Card>
 
-      <div className="prose dark:prose-invert max-w-none">
+      <div className="max-w-none">
         <ModuleContent />
       </div>
 
@@ -127,19 +127,19 @@ export default async function ModulePage({
               href={`/courses/${course}/${module}/${lesson.slug}`}
               className="block"
             >
-              <Card className="transition-colors hover:border-primary">
+              <Card className="hover:border-primary transition-colors">
                 <CardHeader className="flex flex-row items-center justify-between space-y-0">
                   <div className="space-y-1">
                     <div className="flex items-center gap-2">
                       <CardTitle>{lesson.title}</CardTitle>
                       <Badge variant="outline">Lesson {lesson.order}</Badge>
                     </div>
-                    <div className="flex items-center gap-2 text-sm text-muted-foreground">
+                    <div className="text-muted-foreground flex items-center gap-2 text-sm">
                       <Clock className="h-4 w-4" />
                       {lesson.duration}
                     </div>
                   </div>
-                  <ChevronRight className="h-5 w-5 text-muted-foreground" />
+                  <ChevronRight className="text-muted-foreground h-5 w-5" />
                 </CardHeader>
               </Card>
             </Link>

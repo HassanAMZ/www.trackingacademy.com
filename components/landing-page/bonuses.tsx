@@ -33,7 +33,7 @@ const Bonuses: React.FC<BonusesProps> = ({
   actionButtonLink,
 }) => {
   return (
-    <section className="bg-gradient-to-b from-primary/5 to-background py-24">
+    <section className="bg-linear-to-b from-primary/5 to-background py-24">
       <Container className="flex w-full flex-col items-center space-y-16">
         {/* Header Section */}
         {sectionTitle && (
@@ -76,7 +76,7 @@ const Bonuses: React.FC<BonusesProps> = ({
                             <ul className="space-y-3">
                               {bonus.details.map((detail, idx) => (
                                 <li key={idx} className="flex items-start">
-                                  <CheckCircle className="mr-2 mt-1 h-6 w-6 flex-shrink-0 text-primary" />
+                                  <CheckCircle className="mr-2 mt-1 h-6 w-6 shrink-0 text-primary" />
                                   <span>{detail}</span>
                                 </li>
                               ))}
@@ -91,7 +91,7 @@ const Bonuses: React.FC<BonusesProps> = ({
                             <ul className="space-y-3">
                               {bonus.features.map((feature, idx) => (
                                 <li key={idx} className="flex items-start">
-                                  <CheckCircle className="mr-2 mt-1 h-6 w-6 flex-shrink-0 text-primary" />
+                                  <CheckCircle className="mr-2 mt-1 h-6 w-6 shrink-0 text-primary" />
                                   <span>{feature}</span>
                                 </li>
                               ))}
@@ -100,7 +100,7 @@ const Bonuses: React.FC<BonusesProps> = ({
                         )}
                         {/* Value  */}
 
-                        <div className="inline-block w-fit rounded-lg bg-background/80 p-4 backdrop-blur-sm">
+                        <div className="inline-block w-fit rounded-lg bg-background/80 p-4 backdrop-blur-xs">
                           <p className="text-primary">
                             {bonus.value}
                             <span className="ml-2 text-lg font-normal text-muted-foreground">

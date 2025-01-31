@@ -31,7 +31,7 @@ export default function WhyChooseSection({
         <div className="space-y-8">
           {value.map((text, i) => (
             <div key={i} className="flex gap-4">
-              <div className="flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-full bg-primary text-primary-foreground">
+              <div className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-primary text-primary-foreground">
                 <Check className="h-4 w-4" />
               </div>
               <div className="text-lg">{text}</div>

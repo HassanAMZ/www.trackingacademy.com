@@ -22,7 +22,7 @@ const DetailedCTA: React.FC<DetailedCTAProps> = ({
   footerText,
 }) => {
   return (
-    <section className="bg-gradient-to-b from-primary/5 to-background py-24">
+    <section className="bg-linear-to-b from-primary/5 to-background py-24">
       <Container className="text-center">
         {/* Heading */}
         {heading && <h2 className="mb-4">{heading}</h2>}

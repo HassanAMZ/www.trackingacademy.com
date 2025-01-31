@@ -24,7 +24,7 @@ export function CaseStudyCard({ caseStudy }: CaseStudyCardProps) {
   return (
     <Card className="overflow-hidden">
       <CardContent className="p-6 md:p-8">
-        <div className="grid items-center gap-8 md:grid-cols-[2fr,1fr]">
+        <div className="grid items-center gap-8 md:grid-cols-[2fr_1fr]">
           <div className="space-y-8">
             {/* Company Section */}
             <div className="space-y-4">
