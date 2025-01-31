@@ -58,11 +58,7 @@ export default function CAPIPage() {
       icon: iconMap[item.icon as IconName],
     }));
 
-  // Transform stats to include icon components
-  const statsWithIcons = MetaConversionConfig.socialProof.stats.map((stat) => ({
-    ...stat,
-    icon: iconMap[stat.icon as IconName],
-  }));
+
 
   // Transform bonuses to include icon components
   const bonusesWithIcons = MetaConversionConfig.bonuses.bonuses.map(
@@ -99,7 +95,7 @@ export default function CAPIPage() {
 
       <SocialProof
         {...MetaConversionConfig.socialProof}
-        stats={statsWithIcons}
+     
       />
 
       <Bonuses {...MetaConversionConfig.bonuses} bonuses={bonusesWithIcons} />

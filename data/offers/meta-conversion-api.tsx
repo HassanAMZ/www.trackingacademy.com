@@ -158,23 +158,7 @@ const MetaConversionConfig = {
         image: "/images/social-sharing.png",
       },
     ],
-    stats: [
-      {
-        label: "Average CPA Reduction",
-        value: "30%",
-        icon: "ArrowDownRight",
-      },
-      {
-        label: "Tracking Accuracy",
-        value: "95%+",
-        icon: "Target",
-      },
-      {
-        label: "Setup Time",
-        value: "7 Days",
-        icon: "Clock",
-      },
-    ],
+   
   },
 
   bonuses: {
