@@ -2,7 +2,7 @@ import { Button } from "@/components/ui/button";
 import { Link } from "next-view-transitions";
 import { Card, CardContent, CardHeader, CardTitle } from "../ui/card";
 
-export default function ContactUs() {
+export default function CallToActionMessageUs() {
   return (
     <Card className="space-y-4 self-start rounded-lg p-6 lg:sticky lg:top-8">
       <CardHeader className="p-0">

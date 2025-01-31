@@ -1,6 +1,6 @@
 "use client";
 
-import ContactUs from "@/components/blog/contact-us";
+import ContactUs from "@/components/blog/call-to-action-message-us";
 import Navbar from "@/components/global/navbar";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -437,9 +437,9 @@ const UTMBuilder: React.FC = () => {
                   className={errors.url ? "border-destructive" : ""}
                 />
                 {errors.url && (
-                  <p className="mt-1 text-sm text-destructive">{errors.url}</p>
+                  <p className="text-destructive mt-1 text-sm">{errors.url}</p>
                 )}
-                <p className="mt-1 text-sm text-muted-foreground">
+                <p className="text-muted-foreground mt-1 text-sm">
                   Enter the full URL of the page you want to track
                 </p>
               </div>
@@ -462,11 +462,11 @@ const UTMBuilder: React.FC = () => {
                         }
                       />
                       {errors[key as keyof typeof errors] && (
-                        <p className="mt-1 text-sm text-destructive">
+                        <p className="text-destructive mt-1 text-sm">
                           {errors[key as keyof typeof errors]}
                         </p>
                       )}
-                      <p className="mt-1 text-sm text-muted-foreground">
+                      <p className="text-muted-foreground mt-1 text-sm">
                         {getHelperTextForField(key)}
                       </p>
                     </div>
@@ -533,13 +533,13 @@ const UTMBuilder: React.FC = () => {
                 <CardTitle>Generated URL</CardTitle>
               </CardHeader>
               <CardContent>
-                <div className="relative break-all rounded-lg bg-muted p-4 text-sm">
+                <div className="bg-muted relative rounded-lg p-4 text-sm break-all">
                   {finalUrl || "Enter a website URL to generate"}
                   {finalUrl && (
                     <Button
                       variant="ghost"
                       size="icon"
-                      className="absolute right-2 top-2"
+                      className="absolute top-2 right-2"
                       onClick={copyToClipboard}
                     >
                       <Copy size={16} />

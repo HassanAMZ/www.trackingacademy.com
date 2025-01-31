@@ -12,8 +12,8 @@ const TestimonialsCarousel: React.FC<{ className?: string }> = ({
   className,
 }) => {
   const generateRandomMetrics = () => {
-    const randomConversions = Math.floor(Math.random() * 9) * 5 + 20;
-    const randomROAS = Math.floor(Math.random() * 9) * 5 + 20;
+    const randomConversions = Math.floor(Math.random() * 9) * 5 + 27;
+    const randomROAS = Math.floor(Math.random() * 9) * 4 + 14;
     return { conversions: randomConversions, roas: randomROAS };
   };
 
@@ -43,14 +43,14 @@ const TestimonialsCarousel: React.FC<{ className?: string }> = ({
   return (
     <Card
       className={clsx(
-        "relative h-48 bg-background/80 backdrop-blur-xs",
+        "bg-background/80 relative h-48 backdrop-blur-xs",
         className,
       )}
     >
       <CardContent className="flex h-full flex-col px-6 py-4">
         {/* Stars */}
         <div className="absolute -top-2 right-4 flex space-x-1">
-          {Array.from({ length: 10 }, (_, index) => (
+          {Array.from({ length: 5 }, (_, index) => (
             <Star
               key={index}
               className="h-5 w-5 fill-yellow-300 stroke-yellow-300"
@@ -67,7 +67,7 @@ const TestimonialsCarousel: React.FC<{ className?: string }> = ({
 
         {/* Author Info */}
         <div className="flex items-center gap-2">
-          <div className="mr-2 flex h-10 w-10 items-center justify-center rounded-full bg-primary text-white">
+          <div className="bg-primary mr-2 flex h-10 w-10 items-center justify-center rounded-full text-white">
             {currentTestimonial.author[0].toUpperCase()}
           </div>
           <div className="text-left text-xs">
@@ -80,7 +80,7 @@ const TestimonialsCarousel: React.FC<{ className?: string }> = ({
         </div>
 
         {/* Metrics */}
-        <div className="absolute -bottom-3 right-2 flex rotate-3 space-x-2">
+        <div className="absolute right-2 -bottom-3 flex rotate-3 space-x-2">
           <Button
             variant="secondary"
             size="sm"
@@ -89,7 +89,7 @@ const TestimonialsCarousel: React.FC<{ className?: string }> = ({
             +{currentTestimonial.roas}% ROAS
           </Button>
         </div>
-        <div className="absolute -bottom-3 right-28 flex -rotate-3 space-x-2">
+        <div className="absolute right-28 -bottom-3 flex -rotate-3 space-x-2">
           <Button
             variant="secondary"
             size="sm"

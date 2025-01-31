@@ -1,4 +1,4 @@
-import ContactUs from "@/components/blog/contact-us";
+import ContactUs from "@/components/blog/call-to-action-message-us";
 import { CourseSidebar } from "@/components/courses/course-sidebar";
 import Navbar from "@/components/global/navbar";
 import Container from "@/components/ui/container";

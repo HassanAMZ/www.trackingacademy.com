@@ -1,6 +1,6 @@
 "use client";
 
-import ContactUs from "@/components/blog/contact-us";
+import ContactUs from "@/components/blog/call-to-action-message-us";
 import Navbar from "@/components/global/navbar";
 import YoutubeEmbed from "@/components/global/youtube-embed";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
@@ -169,7 +169,7 @@ const UTMValidator = () => {
       )}
       <div>
         <div className="font-medium">{title}</div>
-        <div className="text-sm text-muted-foreground">{description}</div>
+        <div className="text-muted-foreground text-sm">{description}</div>
       </div>
     </div>
   );
@@ -187,7 +187,7 @@ const UTMValidator = () => {
       >
         {param} {REQUIRED_UTM_PARAMS.includes(param) && !value && " (Required)"}
       </div>
-      <div className="break-all text-sm">
+      <div className="text-sm break-all">
         {decodeURIComponent(value) || "-"}
       </div>
     </div>
@@ -195,15 +195,15 @@ const UTMValidator = () => {
 
   const EmptyState = () => (
     <div className="py-8 text-center">
-      <AlertCircle className="mx-auto h-12 w-12 text-muted-foreground" />
+      <AlertCircle className="text-muted-foreground mx-auto h-12 w-12" />
       <h3 className="mt-4 text-lg font-semibold">No URL Analyzed</h3>
-      <p className="mt-2 text-sm text-muted-foreground">
+      <p className="text-muted-foreground mt-2 text-sm">
         Enter a URL with UTM parameters to validate and analyze its tracking
         components.
       </p>
-      <div className="mt-4 rounded-lg bg-muted p-4">
+      <div className="bg-muted mt-4 rounded-lg p-4">
         <p className="text-sm font-medium">Example URL:</p>
-        <p className="mt-1 text-xs text-muted-foreground">
+        <p className="text-muted-foreground mt-1 text-xs">
           https://example.com?utm_source=facebook&utm_medium=social&utm_campaign=spring_sale
         </p>
       </div>
@@ -291,7 +291,7 @@ const UTMValidator = () => {
                 <CardContent>
                   <div className="space-y-4">
                     <div>
-                      <h3 className="mb-2 font-semibold text-primary">
+                      <h3 className="text-primary mb-2 font-semibold">
                         UTM Parameters
                       </h3>
                       <div className="space-y-2">
@@ -318,7 +318,7 @@ const UTMValidator = () => {
 
                     {Object.keys(parsedParams.otherParams).length > 0 && (
                       <div>
-                        <h3 className="mb-2 font-semibold text-primary">
+                        <h3 className="text-primary mb-2 font-semibold">
                           Other Parameters
                         </h3>
                         <div className="space-y-2">

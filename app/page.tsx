@@ -89,18 +89,6 @@ export default function HomePage() {
         ]}
       /> */}
 
-      <WhyChooseSection
-        heading="Why Work With Us?"
-        subheading="We bridge the gap between your data insights and marketing strategy, delivering key metrics and actionable recommendations."
-        eyebrow="What Sets Us Apart"
-        value={[
-          "A dedicated data team that understands marketing needs",
-          "Proven frameworks to align business strategies with precise measurement",
-          "Relieve yourself from data headaches and focus on scaling your business with sharp insights",
-        ]}
-        image="/images/hero/unified-dashboard.png"
-      />
-
       <OfferDetails
         headerTitle="The Conversion Confidence Suite"
         headerDescription="A complete system designed to solve your tracking headaches, recover lost revenue, and supercharge your ROI."
@@ -201,16 +189,6 @@ export default function HomePage() {
         sectionTitle="Our Clients Are Seeing Results – Will You Be Next?"
         sectionDescription="Here’s how we’ve transformed other businesses like yours."
         testimonials={testimonials}
-        stats={[
-          { label: "Average ROI Increase", value: "60%", icon: ArrowUpRight },
-          {
-            label: "Time Saved Monthly",
-            value: "20+ hours",
-            icon: Clock,
-          },
-          { label: "Client Satisfaction", value: "98%", icon: TrendingUp },
-        ]}
-        resultsTitle="The Results Speak for Themselves"
       />
       <ScarcityUrgency
         title="Limited to Only 5 Projects Per Month"
@@ -267,6 +245,18 @@ export default function HomePage() {
             image: "/images/hero/tools-and-calculators.png",
           },
         ]}
+      />
+
+      <WhyChooseSection
+        heading="Why Work With Us?"
+        subheading="We bridge the gap between your data insights and marketing strategy, delivering key metrics and actionable recommendations."
+        eyebrow="What Sets Us Apart"
+        value={[
+          "A dedicated data team that understands marketing needs",
+          "Proven frameworks to align business strategies with precise measurement",
+          "Relieve yourself from data headaches and focus on scaling your business with sharp insights",
+        ]}
+        image="/images/hero/unified-dashboard.png"
       />
 
       <ObjectionHandling

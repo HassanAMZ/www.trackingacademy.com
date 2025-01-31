@@ -20,7 +20,7 @@ const ProblemAwareness: React.FC<ProblemAwarenessProps> = ({
   imageUrl = "/images/social-sharing.png?height=400&width=300",
 }) => {
   return (
-    <section className="bg-linear-to-b from-primary/5 to-background py-16">
+    <section className="from-primary/5 to-background bg-linear-to-b py-16">
       <Container className="space-y-6">
         <div className="mx-auto max-w-3xl text-center">
           {headingText && <h2 className="mb-4">{headingText}</h2>}
@@ -38,8 +38,8 @@ const ProblemAwareness: React.FC<ProblemAwarenessProps> = ({
                   className="bg-red-100 p-4 transition-colors hover:bg-red-200"
                 >
                   <div className="flex items-center justify-center space-x-4">
-                    <AlertTriangle className="mt-1 h-6 w-6 text-destructive" />
-                    <div className="flex-1 text-destructive">{point}</div>
+                    <AlertTriangle className="text-destructive mt-1 h-6 w-6" />
+                    <h4 className="text-destructive flex-1">{point}</h4>
                   </div>
                 </Card>
               ))}
@@ -64,7 +64,7 @@ const ProblemAwareness: React.FC<ProblemAwarenessProps> = ({
                 >
                   <div className="flex items-center justify-center space-x-4">
                     <CircleCheck className="mt-1 h-6 w-6 text-blue-500" />
-                    <div className="flex-1 text-blue-700">{point}</div>
+                    <h4 className="flex-1 text-blue-700">{point}</h4>
                   </div>
                 </Card>
               ))}

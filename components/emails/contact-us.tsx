@@ -12,23 +12,23 @@ import { Timestamp } from "firebase/firestore";
 
 type ContactUsEmailProps = {
   name: string;
-  company: string;
+  roleType: string;
   website: string;
   interest: string;
   projectDescription: string;
-  collaborationType: string;
   budget: string;
   email: string;
+  phone: string;
   createdAt: Timestamp;
 };
 
-export default function ContactUsNewEmail({
+export default function ContactUsEmail({
   name,
-  company,
+  roleType,
   website,
   interest,
   projectDescription,
-  collaborationType,
+  phone,
   budget,
   email,
   createdAt,
@@ -47,7 +47,7 @@ export default function ContactUsNewEmail({
           </Text>
           <ul>
             <li>
-              <Text>Company: {company}</Text>
+              <Text>Role Type: {roleType}</Text>
             </li>
             <li>
               <Text>Website: {website}</Text>
@@ -59,13 +59,13 @@ export default function ContactUsNewEmail({
               <Text>Project Description: {projectDescription}</Text>
             </li>
             <li>
-              <Text>Collaboration Type: {collaborationType}</Text>
-            </li>
-            <li>
               <Text>Budget: {budget}</Text>
             </li>
             <li>
               <Text>Email: {email}</Text>
+            </li>
+            <li>
+              <Text>Phone Number: {phone}</Text>
             </li>
             <li>
               <Text>Timestamp: {createdAt.toDate().toLocaleString()}</Text>

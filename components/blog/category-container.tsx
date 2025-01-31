@@ -10,7 +10,7 @@ import BlogSearch from "@/components/blog/search";
 import SingleBlogCard from "@/components/blog/single-card";
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import ContactUs from "./contact-us";
+import ContactUs from "./call-to-action-message-us";
 
 const BlogContent: React.FC<BlogContentProps> = ({
   data,

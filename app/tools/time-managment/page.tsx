@@ -19,7 +19,7 @@ import {
 } from "lucide-react";
 import Navbar from "@/components/global/navbar";
 import YoutubeEmbed from "@/components/global/youtube-embed";
-import ContactUs from "@/components/blog/contact-us";
+import ContactUs from "@/components/blog/call-to-action-message-us";
 
 interface Question {
   id: string;
@@ -324,7 +324,7 @@ const BusinessTimeManagement: React.FC = () => {
   };
 
   return (
-    <main className="flex bg-background">
+    <main className="bg-background flex">
       {/* Main Content */}
       <div className="flex-1 overflow-y-auto">
         <div className="grid gap-3 lg:grid-cols-[2fr_1fr]">

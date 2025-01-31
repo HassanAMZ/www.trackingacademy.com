@@ -18,18 +18,18 @@ function TestimonialGrid({
     <div className="columns-1 gap-6 space-y-8 [column-fill:_balance] md:columns-2 lg:columns-3">
       {testimonials.map((testimonial, index) => (
         <div key={index} className="break-inside-avoid">
-          <Card className="h-fit bg-background/50 backdrop-blur-xs">
+          <Card className="bg-background/50 h-fit backdrop-blur-xs">
             <CardContent className="p-6">
-              <Quote className="mb-4 h-8 w-8 text-primary" />
+              <Quote className="text-primary mb-4 h-8 w-8" />
               <p className="mb-4 italic">{testimonial.quote}</p>
               <div className="flex items-center">
-                <div className="mr-4 flex h-10 w-10 items-center justify-center rounded-full bg-primary text-white">
+                <div className="bg-primary mr-4 flex h-10 w-10 items-center justify-center rounded-full text-white">
                   {testimonial.author[0].toUpperCase()}
                 </div>
                 <div>
                   <p className="font-semibold">{testimonial.author}</p>
                   {testimonial.role && ( // Conditionally render role if it exists
-                    <p className="text-sm text-muted-foreground">
+                    <p className="text-muted-foreground text-sm">
                       {testimonial.role}
                     </p>
                   )}
