@@ -131,12 +131,9 @@ export default function ContactForm() {
                     <SelectValue placeholder="Select your budget" />
                   </SelectTrigger>
                   <SelectContent>
-                    <SelectItem value="less-than-100">
-                      $ Less than 100
-                    </SelectItem>
-                    <SelectItem value="100-500">$100 - $500</SelectItem>
                     <SelectItem value="500-1000">$500 - $1000</SelectItem>
-                    <SelectItem value="1000-5000">$1000 - $5000</SelectItem>
+                    <SelectItem value="1000-5000">$1000 - $2000</SelectItem>
+                    <SelectItem value="1000-5000">$2000 - $5000</SelectItem>
                     <SelectItem value="not-sure">I don't know</SelectItem>
                   </SelectContent>
                 </Select>
