@@ -64,9 +64,7 @@ export default function ContactUsEmail({
 
           {/* Hero Section */}
           <Section style={heroSection}>
-            <Heading style={heading}>
-              Thank You for Contacting Us, {name} !
-            </Heading>
+            <Heading style={heading}>Thank You for Contacting Us !</Heading>
             <Text style={greeting}>Hi {name},</Text>
             <Text style={paragraph}>
               We've received your inquiry and appreciate you taking the time to

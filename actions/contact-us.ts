@@ -7,10 +7,27 @@ import { redirect } from "next/navigation";
 import { Resend } from "resend";
 import { z } from "zod";
 
-export async function createContact(formData: FormData) {
-  const resend = new Resend(process.env.NEXT_PUBLIC_RESEND_API_KEY);
+// Performance monitoring helper
+const timeLog = async (name: string, fn: () => Promise<any>) => {
+  const start = performance.now();
+  const result = await fn();
+  const end = performance.now();
+  console.log(`${name} took ${(end - start).toFixed(2)}ms`);
+  return result;
+};
 
-  // Generate a timestamp ID based on the current time
+export async function createContact(formData: FormData) {
+  const overallStart = performance.now();
+
+  // Initialize services
+  const initStart = performance.now();
+  const resend = new Resend(process.env.NEXT_PUBLIC_RESEND_API_KEY);
+  console.log(
+    `Resend initialization took ${(performance.now() - initStart).toFixed(2)}ms`,
+  );
+
+  // Generate timestamp ID
+  const timestampStart = performance.now();
   const timestamp = new Date();
   const timestampId =
     timestamp.getFullYear().toString() +
@@ -19,9 +36,14 @@ export async function createContact(formData: FormData) {
     timestamp.getHours().toString().padStart(2, "0") +
     timestamp.getMinutes().toString().padStart(2, "0") +
     timestamp.getSeconds().toString().padStart(2, "0");
+  console.log(
+    `Timestamp generation took ${(performance.now() - timestampStart).toFixed(2)}ms`,
+  );
 
   const contactsCollection = collection(db, "contacts");
 
+  // Data validation
+  const validationStart = performance.now();
   const schema = z.object({
     name: z.string().min(1),
     roleType: z.string().min(1),
@@ -45,13 +67,21 @@ export async function createContact(formData: FormData) {
     phone: formData.get("phone"),
     createdAt: Timestamp.now(),
   });
+  console.log(
+    `Data validation took ${(performance.now() - validationStart).toFixed(2)}ms`,
+  );
 
   try {
-    // Use `doc` and `setDoc` to specify the document ID
+    // Firebase write
+    const writeStart = performance.now();
     const contactDocRef = doc(contactsCollection, timestampId);
-
     await setDoc(contactDocRef, data);
+    console.log(
+      `Firebase write took ${(performance.now() - writeStart).toFixed(2)}ms`,
+    );
 
+    // Email sending
+    const emailStart = performance.now();
     await resend.emails.send({
       from: "no-reply@trackingacademy.com",
       to: data.email,
@@ -69,8 +99,12 @@ export async function createContact(formData: FormData) {
         createdAt: data.createdAt,
       }),
     });
+    console.log(
+      `Email sending took ${(performance.now() - emailStart).toFixed(2)}ms`,
+    );
 
-    // Store user data in cookies
+    // Cookie setting
+    const cookieStart = performance.now();
     (await cookies()).set(
       "user_data",
       JSON.stringify({
@@ -78,9 +112,18 @@ export async function createContact(formData: FormData) {
       }),
       { httpOnly: true, path: "/", maxAge: 60 * 60 * 24 * 365 },
     );
+    console.log(
+      `Cookie setting took ${(performance.now() - cookieStart).toFixed(2)}ms`,
+    );
   } catch (e) {
     console.error("Failed to create contact or send email", e);
     return { message: "Failed to create contact" };
   }
+
+  const overallEnd = performance.now();
+  console.log(
+    `Total execution time: ${(overallEnd - overallStart).toFixed(2)}ms`,
+  );
+
   redirect("/contact/book-a-meeting");
 }
