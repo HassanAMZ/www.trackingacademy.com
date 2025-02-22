@@ -26,9 +26,7 @@ type ContactUsEmailProps = {
   createdAt: Timestamp;
 };
 
-const baseUrl = process.env.VERCEL_URL
-  ? `https://${process.env.VERCEL_URL}`
-  : "";
+const baseUrl = "https://your-domain.com";
 
 export default function ContactUsEmail({
   name,
@@ -46,15 +44,13 @@ export default function ContactUsEmail({
       <Head>
         <title>Contact Form Submission</title>
       </Head>
-      <Preview>
-        {name} ! Thanks for reaching out! We'll be in touch soon.
-      </Preview>
+      <Preview>{name} ! Thanks for reaching out! We'll be in touch soon.</Preview>
       <Body style={main}>
         <Container style={container}>
           {/* Header */}
           <Section style={header}>
             <Img
-              src={`${baseUrl}/logo.svg`}
+              src={`${baseUrl}/logo.png`}
               width="150"
               height="50"
               alt="Logo"
@@ -64,20 +60,21 @@ export default function ContactUsEmail({
 
           {/* Hero Section */}
           <Section style={heroSection}>
+<<<<<<< HEAD
             <Heading style={heading}>Thank You for Contacting Us !</Heading>
+=======
+            <Heading style={heading}>Thank You for Contacting Us!</Heading>
+>>>>>>> parent of 9ba6d48 (fixed google claneder form)
             <Text style={greeting}>Hi {name},</Text>
             <Text style={paragraph}>
-              We've received your inquiry and appreciate you taking the time to
-              reach out. Our team will review your request and get back to you
-              shortly.
+              We've received your inquiry and appreciate you taking the time to reach out. 
+              Our team will review your request and get back to you shortly.
             </Text>
           </Section>
 
           {/* Details Section */}
           <Section style={detailsSection}>
-            <Heading as="h2" style={subheading}>
-              Your Request Details
-            </Heading>
+            <Heading as="h2" style={subheading}>Your Request Details</Heading>
             <Row style={detailRow}>
               <Column style={detailLabel}>Role Type:</Column>
               <Column style={detailValue}>{roleType}</Column>
@@ -85,9 +82,7 @@ export default function ContactUsEmail({
             <Row style={detailRow}>
               <Column style={detailLabel}>Website:</Column>
               <Column style={detailValue}>
-                <Link href={website} style={link}>
-                  {website}
-                </Link>
+                <Link href={website} style={link}>{website}</Link>
               </Column>
             </Row>
             <Row style={detailRow}>
@@ -105,34 +100,25 @@ export default function ContactUsEmail({
             <Row style={detailRow}>
               <Column style={detailLabel}>Contact:</Column>
               <Column style={detailValue}>
-                Email: {email}
-                <br />
+                Email: {email}<br />
                 Phone: {phone}
               </Column>
             </Row>
             <Row style={detailRow}>
               <Column style={detailLabel}>Submitted:</Column>
-              <Column style={detailValue}>
-                {createdAt.toDate().toLocaleString()}
-              </Column>
+              <Column style={detailValue}>{createdAt.toDate().toLocaleString()}</Column>
             </Row>
           </Section>
 
           {/* Footer */}
           <Section style={footer}>
             <Text style={footerText}>
-              Best Regards,
-              <br />
+              Best Regards,<br />
               <span style={signature}>Shahzada Ali Hassan</span>
             </Text>
             <Text style={footerLinks}>
-              <Link href={`${baseUrl}`} style={link}>
-                Website
-              </Link>{" "}
-              |{" "}
-              <Link href={`${baseUrl}/contact`} style={link}>
-                Contact
-              </Link>{" "}
+              <Link href={`${baseUrl}`} style={link}>Website</Link> |{" "}
+              <Link href={`${baseUrl}/contact`} style={link}>Contact</Link> |{" "}
             </Text>
           </Section>
         </Container>
@@ -143,8 +129,7 @@ export default function ContactUsEmail({
 
 const main = {
   backgroundColor: "#f6f9fc",
-  fontFamily:
-    '-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif',
+  fontFamily: '-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif',
 };
 
 const container = {
