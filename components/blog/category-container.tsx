@@ -63,7 +63,7 @@ const CategoryContainer: React.FC<CategoryContainerProps> = ({
   const categories = useMemo(() => {
     const allTags = data.flatMap((post) => post.tags);
     const uniqueTags = ["All", ...new Set(allTags)];
-    return uniqueTags.slice(0, 6); // Limit to 6 categories including "All"
+    return uniqueTags.slice(0, 4); // Limit to 6 categories including "All"
   }, [data]);
 
   const filterByCategory = (category: string) => {
