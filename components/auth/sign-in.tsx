@@ -20,7 +20,7 @@ export function SignIn() {
   };
 
   return (
-    <form onSubmit={handleSignIn} className="space-y-4">
+    <form id="signin" onSubmit={handleSignIn} className="space-y-4">
       <Input
         type="email"
         placeholder="Email"

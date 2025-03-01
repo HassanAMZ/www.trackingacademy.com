@@ -735,7 +735,11 @@ export default function ContactForm({
         {renderNavigation()}
         <Card className="rounded-t-lg">
           <CardContent className="mx-auto max-w-3xl">
-            <form onSubmit={handleSubmit} className="flex flex-col space-y-3">
+            <form
+              id="enroll-now"
+              onSubmit={handleSubmit}
+              className="flex flex-col space-y-3"
+            >
               {renderStep()}
               <p aria-live="polite" className="sr-only">
                 {state?.message}

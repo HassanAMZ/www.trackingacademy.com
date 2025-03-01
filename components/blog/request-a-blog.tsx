@@ -50,7 +50,11 @@ const RequestABlogForm: React.FC<RequestABlogFormProps> = ({ searchTerm }) => {
   }
 
   return (
-    <form action={formAction} className="mt-4 w-full max-w-md space-y-4">
+    <form
+      action={formAction}
+      className="mt-4 w-full max-w-md space-y-4"
+      id="request-a-blog"
+    >
       <Input
         type="email"
         name="email"

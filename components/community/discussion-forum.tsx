@@ -225,7 +225,7 @@ export function SocialDiscussionForum() {
       </Tabs>
 
       {user && (
-        <form onSubmit={handleSubmitPost}>
+        <form id="discussion-forum" onSubmit={handleSubmitPost}>
           <Textarea
             value={newPost}
             onChange={(e) => setNewPost(e.target.value)}

@@ -31,7 +31,11 @@ function SubmitButton() {
 export default function ContactForm() {
   return (
     <div className="w-full py-12">
-      <form action={createContact} className="flex flex-col space-y-3">
+      <form
+        id="contact-form"
+        action={createContact}
+        className="flex flex-col space-y-3"
+      >
         <div className="pt-12 pb-6 text-center">
           <h1>
             Contact now and Stop Losing 50% of Your Ad Spend – Track 95% of

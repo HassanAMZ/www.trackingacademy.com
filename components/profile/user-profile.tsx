@@ -47,7 +47,11 @@ export function UserProfile() {
   }
 
   return (
-    <form onSubmit={handleUpdateProfile} className="space-y-4">
+    <form
+      id="user-profile"
+      onSubmit={handleUpdateProfile}
+      className="space-y-4"
+    >
       <Input
         type="text"
         placeholder="Display Name"

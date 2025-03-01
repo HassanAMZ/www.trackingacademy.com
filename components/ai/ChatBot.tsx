@@ -142,7 +142,7 @@ export default function ChatBot() {
         </CardHeader>
 
         <CardContent className="space-y-4">
-          <div className="h-[500px] space-y-4 overflow-y-auto rounded-lg bg-secondary/10 p-4">
+          <div className="bg-secondary/10 h-[500px] space-y-4 overflow-y-auto rounded-lg p-4">
             {messages.map((message) => (
               <div
                 key={message.id}
@@ -199,7 +199,7 @@ export default function ChatBot() {
             )}
 
             {error && (
-              <div className="flex flex-col items-center gap-2 text-destructive">
+              <div className="text-destructive flex flex-col items-center gap-2">
                 <p>An error occurred. Please try again.</p>
                 <Button onClick={handleReload} variant="outline" size="sm">
                   <RotateCcw className="mr-2 h-4 w-4" />
@@ -209,7 +209,7 @@ export default function ChatBot() {
             )}
           </div>
 
-          <form onSubmit={handleFormSubmit} className="flex gap-2">
+          <form id="chatbot" onSubmit={handleFormSubmit} className="flex gap-2">
             <Input
               type="file"
               onChange={(e) => setFiles(e.target.files || undefined)}

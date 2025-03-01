@@ -32,7 +32,7 @@ export function SignUp() {
   };
 
   return (
-    <form onSubmit={handleSignUp} className="space-y-4">
+    <form id="signup" onSubmit={handleSignUp} className="space-y-4">
       <Input
         type="text"
         placeholder="Display Name"
