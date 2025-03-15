@@ -29,35 +29,36 @@ export default function HomePage() {
       <Navbar />
 
       <Hero
-        badgeText="Stop Losing Revenue"
-        headingText="Stop Losing 50% of Your Ad Spend – Track 95% of Conversions Accurately Post-iOS 18!"
-        subheadingText="Our Done-for-You Server-Side Tracking System Helps You Recover Lost Revenue, Track Conversions with 95% Accuracy, and Effortlessly Boost ROI – Guaranteed."
-        ctaButtonText="Book an Introduction Call"
+        badgeText="Never Lose Another Sale to Bad Tracking"
+        headingText="The #1 GDPR-Compliant Tracking That Saves 30%+ of Your Ad Spend Instantly"
+        subheadingText="Fix Broken Tracking, Recover Hidden Revenue & Scale Your Ads—Even After iOS 18. Our Done-for-You System Guarantees 95%+ Accurate Data While Staying Fully Legal in the EU."
+        ctaButtonText="Get a Free Tracking Audit"
         ctaButtonLink="/contact"
-        supportingButtonText="Check Case Studies"
+        supportingButtonText="See Real Results"
         supportingButtonLink="#case-studies"
         youtubeEmbedId="9MGpL_AmEYM"
         supportingComponent={
           <TestimonialsCarousel className="mx-auto max-w-2xl" />
         }
       />
+
       <ProblemAwareness
         headingText="The Hidden Costs of Inefficient Analytics and Outdated Systems"
         paragraphText="Manual processes and chaotic data overwhelm teams, draining time and money while delivering few actionable insights."
         redPillPoints={[
-          "Weak Analytics Limit Growth",
-          "Manual Tasks Drain Resources ",
-          "Lack of Clear Insights",
-          "Inability to Optimize Campaigns",
-          "Revenue Loss ",
+          "Up to 30% of Conversions Go Untracked",
+          "Ad Costs Rising – But ROAS is Dropping",
+          "Chaotic Data Makes Scaling Impossible",
+          "Your Competitors Are Tracking, You’re Not",
+          "You're Spending More & Earning Less",
         ]}
         imageUrl="/images/hero/matrix.png"
         bluePillPoints={[
-          "Maximize Return on Ads Spent",
-          "Automated Tracking Workflow",
-          "Seamless Growth ",
-          "Guaranteed ROI Boost ",
-          "Data-Driven Decisions",
+          "Track 95%+ of Conversions Accurately",
+          "Increase ROAS Without Spending More",
+          "Get Data That Makes Scaling Easy",
+          "Stay Compliant & Profitable",
+          "Turn Every Dollar into More Revenue",
         ]}
       />
 
@@ -161,6 +162,20 @@ export default function HomePage() {
           //   image: "/images/hero/unified-dashboard.png",
           // },
           {
+            title: "GDPR Cookie Consent CMP",
+            description:
+              "Ensure full GDPR, CCPA & ePrivacy compliance with a seamless Consent Management Platform (CMP).",
+            icon: CheckSquare,
+            benefits: [
+              "Automated consent banner setup",
+              "Customizable for your brand & legal needs",
+              "Blocks non-compliant tracking until user approval",
+              "Google Consent Version 2 implementation",
+              "Fully compliant with GDPR, CCPA & ePrivacy regulations",
+            ],
+            image: "/images/hero/gdpr-cmp.png",
+          },
+          {
             title: "Priority Automation Support",
             description:
               "Tools, templates, and expert support to streamline workflows and automate processes.",
@@ -180,7 +195,7 @@ export default function HomePage() {
         description="To ensure personalized attention and maximize results, this offer is limited to 5 businesses Every Month."
         spotsLeft={5}
         daysRemaining={10}
-        buttonText="Book an Introduction Call"
+        buttonText="Get a Free Tracking Audit"
         buttonLink="/contact"
         iconSize={12}
       />
@@ -195,7 +210,7 @@ export default function HomePage() {
         description="To ensure personalized attention and maximize results, this offer is limited to 5 businesses Every Month."
         spotsLeft={5}
         daysRemaining={10}
-        buttonText="Book an Introduction Call"
+        buttonText="Get a Free Tracking Audit"
         buttonLink="/contact"
         iconSize={12}
       />
