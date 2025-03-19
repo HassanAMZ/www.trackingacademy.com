@@ -123,11 +123,11 @@ export default function ContactForm() {
 
                 {/* Tracking Issue Description */}
                 <div className="grid w-full items-center gap-3">
-                  <Label htmlFor="trackingIssues">
+                  <Label htmlFor="projectDescription">
                     What tracking issues are you facing?
                   </Label>
                   <Textarea
-                    name="trackingIssues"
+                    name="projectDescription"
                     required
                     placeholder="Describe the issues with your tracking..."
                   />
