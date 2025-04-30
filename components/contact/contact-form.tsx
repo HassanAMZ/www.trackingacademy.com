@@ -22,9 +22,11 @@ function SubmitButton() {
       type="submit"
       disabled={pending}
       size="lg"
-      className={`hover:bg-primary/90 w-full p-8 text-lg whitespace-pre-wrap ${pending ? "cursor-not-allowed opacity-50" : ""}`}
+      className={`hover:bg-primary/90 w-full p-8 text-lg font-bold whitespace-pre-wrap ${pending ? "cursor-not-allowed opacity-50" : ""}`}
     >
-      {pending ? "Submitting..." : "Claim My Free Tracking Audit"}
+      {pending
+        ? "Submitting..."
+        : "I am Ready to Fix my Tracking, Boost my ROAS"}
     </Button>
   );
 }
@@ -34,15 +36,17 @@ export default function ContactForm() {
     <div className="w-full py-12">
       <form id="contact-form" action={createContact} name="free-audit">
         <div className="flex flex-col space-y-3">
-          <div className="pt-12 pb-6 text-center">
-            <h1>
-              Claim Your Free Tracking Audit – Find & Fix Hidden Revenue Leaks!
-            </h1>
-            <h4 className="pt-4 text-gray-600">
-              Fill out the form below to get a <strong>free audit</strong> of
-              your tracking setup & see how much revenue you’re missing.
+          <section className="space-y-4 pt-12 pb-6 text-center">
+            <h1>You're One Step Away From Fixing Your Tracking Blindspot</h1>
+            <h4 className="pt-3 text-gray-700">
+              We help businesses recover 30%+ of invisible conversions and slash
+              wasted ad spend—fast.
+              <br />
+              <span className="text-primary font-semibold">
+                Book your implementation call now to get started.
+              </span>
             </h4>
-          </div>
+          </section>
 
           <Card className="rounded-t-lg">
             <CardContent>
@@ -93,29 +97,24 @@ export default function ContactForm() {
 
                 {/* Interest Selection */}
                 <div className="grid w-full items-center gap-3">
-                  <Label htmlFor="interest">What do you need audited?</Label>
+                  <Label htmlFor="interest">
+                    On a scale of 1–10, how critical is it for you to fix your
+                    tracking setup?
+                  </Label>
                   <Select name="interest">
                     <SelectTrigger>
                       <SelectValue placeholder="Select an option" />
                     </SelectTrigger>
                     <SelectContent>
-                      <SelectItem value="google-tag-manager">
-                        Google Tag Manager
+                      <SelectItem value="not-urgent">1: Not Urgent</SelectItem>
+                      <SelectItem value="somewhat-important">
+                        2-4: Somewhat Important
                       </SelectItem>
-                      <SelectItem value="facebook-pixel-capi">
-                        Facebook Pixel & Conversion API
+                      <SelectItem value="very-important">
+                        5-7: Very Important
                       </SelectItem>
-                      <SelectItem value="google-analytics-4">
-                        Google Analytics 4
-                      </SelectItem>
-                      <SelectItem value="tiktok-pixel-event-api">
-                        TikTok Pixel & Event API
-                      </SelectItem>
-                      <SelectItem value="gdpr-cmp">
-                        GDPR Cookie Consent CMP
-                      </SelectItem>
-                      <SelectItem value="something-else">
-                        Something Else
+                      <SelectItem value="top-priority">
+                        8-10: Top Priority
                       </SelectItem>
                     </SelectContent>
                   </Select>
@@ -124,7 +123,8 @@ export default function ContactForm() {
                 {/* Tracking Issue Description */}
                 <div className="grid w-full items-center gap-3">
                   <Label htmlFor="projectDescription">
-                    What tracking issues are you facing?
+                    What’s the biggest issue you’re facing with tracking right
+                    now?
                   </Label>
                   <Textarea
                     name="projectDescription"
@@ -135,16 +135,23 @@ export default function ContactForm() {
 
                 {/* Budget Selection */}
                 <div className="grid w-full items-center gap-3">
-                  <Label htmlFor="budget">Estimated Budget</Label>
+                  <Label htmlFor="budget">
+                    Monthly Marketing Adspent Budget (USD)?
+                  </Label>
                   <Select name="budget">
                     <SelectTrigger>
-                      <SelectValue placeholder="Select your budget" />
+                      <SelectValue placeholder="Facebook Ads, Google Ads etc. Budget" />
                     </SelectTrigger>
                     <SelectContent>
-                      <SelectItem value="500-1000">$500 - $1,000</SelectItem>
-                      <SelectItem value="1000-2000">$1,000 - $2,000</SelectItem>
-                      <SelectItem value="2000-5000">$2,000 - $5,000</SelectItem>
-                      <SelectItem value="5000+">$5,000+</SelectItem>
+                      <SelectItem value="1000">Less than 1,000$</SelectItem>
+                      <SelectItem value="1000-5000">$1,000 - $5,000</SelectItem>
+                      <SelectItem value="5000-10000">
+                        $5,000 - $10,000
+                      </SelectItem>
+                      <SelectItem value="10000-25000">
+                        $10,000 - $25,000
+                      </SelectItem>
+                      <SelectItem value="25000+">$25,000+</SelectItem>
                       <SelectItem value="not-sure">Not sure yet</SelectItem>
                     </SelectContent>
                   </Select>
@@ -178,7 +185,8 @@ export default function ContactForm() {
 
               {/* Urgency Message Below Form */}
               <p className="mt-4 text-center text-sm text-gray-500">
-                🚀 <strong>Only 5 Free Audits Available This Month!</strong>{" "}
+                🚀{" "}
+                <strong>Only 5 New Clients are Onbaorded Every Month!</strong>{" "}
                 Secure yours now before we fill up.
               </p>
             </CardContent>

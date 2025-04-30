@@ -33,7 +33,7 @@ const SolutionSection = ({ steps }: { steps: any }) => {
 
           <Button size="lg" className="mt-4" asChild>
             <Link href="/contact">
-              Get Your FREE Tracking Audit
+              Unlock 30% More Conversions
               <ArrowRight className="h-4 w-4" />
             </Link>
           </Button>

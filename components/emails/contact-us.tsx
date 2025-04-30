@@ -98,7 +98,7 @@ export default function ContactUsEmail({
               <Column style={detailValue}>{projectDescription}</Column>
             </Row>
             <Row style={detailRow}>
-              <Column style={detailLabel}>Budget:</Column>
+              <Column style={detailLabel}>Ad Spent Budget:</Column>
               <Column style={detailValue}>{budget}</Column>
             </Row>
             <Row style={detailRow}>

@@ -11,7 +11,7 @@ const GuaranteeSection = () => {
         <Card className="border-primary/20 bg-primary/5">
           <CardContent className="pt-6">
             <div className="flex flex-col items-center gap-4 text-center">
-              <AlertCircle className="h-12 w-12 text-primary" />
+              <AlertCircle className="text-primary h-12 w-12" />
               <h2>Our "95%+ Accuracy or It's FREE" Guarantee</h2>
               <p className="max-w-xl">
                 We're confident that our system will deliver precise, actionable
@@ -20,7 +20,7 @@ const GuaranteeSection = () => {
               </p>
               <Button size="lg" className="mt-4" asChild>
                 <Link href="/contact">
-                  Start Your FREE Audit Today
+                  Track Smarter. Scale Faster.
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </Link>
               </Button>

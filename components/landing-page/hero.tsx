@@ -32,10 +32,14 @@ const Hero: React.FC<HeroProps> = ({
   return (
     <section className="grid place-content-center overflow-hidden py-16">
       <Container className="flex flex-col items-center justify-center space-y-8 text-center">
-        {badgeText && <Badge variant="outline">{badgeText}</Badge>}
+        {badgeText && (
+          <Badge variant="outline" className="text-red-500">
+            {badgeText}
+          </Badge>
+        )}
         {headingText && <h1 className="max-w-6xl">{headingText}</h1>}
         {subheadingText && (
-          <h3 className="max-w-4xl text-muted-foreground">{subheadingText}</h3>
+          <h3 className="text-muted-foreground max-w-4xl">{subheadingText}</h3>
         )}
 
         <div className="flex max-w-xl items-center space-x-4">
@@ -43,7 +47,7 @@ const Hero: React.FC<HeroProps> = ({
             <Button
               size="lg"
               asChild
-              className="whitespace-pre-wrap p-8 text-lg hover:bg-primary/90"
+              className="hover:bg-primary/90 p-8 text-lg font-bold whitespace-pre-wrap"
             >
               <Link href={ctaButtonLink}>{ctaButtonText}</Link>
             </Button>
@@ -56,9 +60,9 @@ const Hero: React.FC<HeroProps> = ({
         </div>
 
         <div className="w-full">
-          {supportingComponent ||
-            (youtubeEmbedId && <YoutubeEmbed embedId={youtubeEmbedId} />)}
+          {youtubeEmbedId && <YoutubeEmbed embedId={youtubeEmbedId} />}
         </div>
+        <div className="w-full">{supportingComponent}</div>
       </Container>
     </section>
   );

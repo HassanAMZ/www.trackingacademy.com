@@ -113,7 +113,10 @@ export default function Navbar({ className }: { className?: string }) {
   const renderCallToAction = () => (
     <Button asChild>
       <Link href={"/contact"}>
-        <span className="block">Get a Free Tracking Audit</span>
+        <div>
+          Reclaim the <span className="hidden sm:inline-flex">30% of</span>{" "}
+          Sales You're Missing
+        </div>
       </Link>
     </Button>
   );

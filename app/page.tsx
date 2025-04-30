@@ -27,14 +27,13 @@ export default function HomePage() {
   return (
     <main>
       <Navbar />
-
       <Hero
-        badgeText="Never Lose Another Sale to Bad Tracking"
-        headingText="The #1 GDPR-Compliant Tracking That Saves 30%+ of Your Ad Spend Instantly"
-        subheadingText="Fix Broken Tracking, Recover Hidden Revenue & Scale Your Ads—Even After iOS 18. Our Done-for-You System Guarantees 95%+ Accurate Data While Staying Fully Legal in the EU."
-        ctaButtonText="Get a Free Tracking Audit"
+        badgeText="WARNING: What Every Business Owner Must Know"
+        headingText="The Hidden 'Tracking Blindspot' Silently Costing You Thousands In Wasted Ad Spend Every Month"
+        subheadingText="Discover how our server-side tracking system recovers 30%+ of your 'invisible' conversions, slashes wasted ad spend by 20%+, and gives you the accurate data you need to scale profitably - even with iOS 18 and strict privacy laws."
+        ctaButtonText="Eliminate My Tracking Blindspot"
         ctaButtonLink="/contact"
-        supportingButtonText="See Real Results"
+        supportingButtonText="View Client Results"
         supportingButtonLink="#case-studies"
         youtubeEmbedId="9MGpL_AmEYM"
         supportingComponent={
@@ -195,7 +194,7 @@ export default function HomePage() {
         description="To ensure personalized attention and maximize results, this offer is limited to 5 businesses Every Month."
         spotsLeft={5}
         daysRemaining={10}
-        buttonText="Get a Free Tracking Audit"
+        buttonText="Get Accurate Conversion Data"
         buttonLink="/contact"
         iconSize={12}
       />
@@ -210,7 +209,7 @@ export default function HomePage() {
         description="To ensure personalized attention and maximize results, this offer is limited to 5 businesses Every Month."
         spotsLeft={5}
         daysRemaining={10}
-        buttonText="Get a Free Tracking Audit"
+        buttonText="Stop Wasting Ad Budget Today"
         buttonLink="/contact"
         iconSize={12}
       />

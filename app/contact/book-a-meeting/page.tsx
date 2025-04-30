@@ -40,17 +40,16 @@ export default async function Page() {
           user_data={transformedUserData}
         />
       )}
-
       {/* HEADER SECTION */}
       <Container className="max-w-6xl">
         <section className="space-y-4 py-12 text-center">
-          <h1>Your Free Audit is Now in Progress!</h1>
+          <h1>You're One Step Away From Fixing Your Tracking Blindspot</h1>
           <h4 className="pt-3 text-gray-700">
-            We’re analyzing your tracking setup and will complete your audit
-            within <strong>the next 48 hours.</strong>
+            We help businesses recover 30%+ of invisible conversions and slash
+            wasted ad spend—fast.
             <br />
             <span className="text-primary font-semibold">
-              Book your call now to review the results before slots fill up!
+              Book your implementation call now to get started.
             </span>
           </h4>
         </section>
@@ -68,38 +67,35 @@ export default async function Page() {
 
       {/* NEXT STEPS SECTION */}
       <Container className="flex max-w-5xl flex-col gap-6 space-y-3 py-12">
-        <h1 className="text-center">🎯 What Happens Next?</h1>
+        <h1 className="text-center">🚀 What Happens Next?</h1>
 
         <h4>
           <span className="text-primary">✅ Step 1: </span>
-          Your tracking audit is being prepared. We’ll send you an email with
-          the full report within 48 hours.
+          Book your implementation call using the calendar above.
         </h4>
 
         <h4>
           <span className="text-primary">✅ Step 2: </span>
-          Book your audit review call now to go over the findings and{" "}
-          <strong>fix any critical issues immediately</strong>.
+          On the call, we’ll walk you through exactly how we’ll deploy your
+          upgraded tracking system—customized for your tech stack.
         </h4>
 
         <h4>
           <span className="text-primary">✅ Step 3: </span>
-          Once booked, you’ll receive a{" "}
-          <strong>calendar invite & meeting link</strong>—make sure to accept
-          it!
+          You’ll get a clear plan, timeline, and see real examples of how we
+          recover lost conversions and ad performance.
         </h4>
 
         <h4>
           <span className="text-primary">✅ Step 4: </span>
-          Please be at your computer during the meeting—we’ll{" "}
-          <strong>share our screen</strong> to show you exactly what needs
-          fixing.
+          Be at your computer—our team will screen share and answer any
+          technical questions live.
         </h4>
 
         <h4>
           <span className="text-primary">✅ Step 5: </span>
-          Watch the video below to <strong>prepare for the call</strong> and see
-          what we’ll cover during the session.
+          Watch the quick video below to prepare for the call and see what's
+          possible when your tracking is fully fixed.
         </h4>
       </Container>
 
