@@ -22,6 +22,8 @@ import WhyChooseSection from "@/components/home/why-choose-us";
 import AlternativesSection from "@/components/home/alternative-section";
 import Container from "@/components/ui/container";
 import { testimonials } from "@/data/testimonials";
+import CaseStudy from "@/components/global/CaseStudy";
+import caseStudies from "@/data/case-studies";
 
 export default function HomePage() {
   return (
@@ -29,7 +31,7 @@ export default function HomePage() {
       <Navbar />
       <Hero
         badgeText="WARNING: What Every Business Owner Must Know"
-        headingText="The Hidden 'Tracking Blindspot' Silently Costing You Thousands In Wasted Ad Spend Every Month"
+        headingText="95% Accurate Tracking or Your Money Back – Scale Your Ads with Confidence!"
         subheadingText="Discover how our server-side tracking system recovers 30%+ of your 'invisible' conversions, slashes wasted ad spend by 20%+, and gives you the accurate data you need to scale profitably - even with iOS 18 and strict privacy laws."
         ctaButtonText="Eliminate My Tracking Blindspot"
         ctaButtonLink="/contact"
@@ -40,6 +42,8 @@ export default function HomePage() {
           <TestimonialsCarousel className="mx-auto max-w-2xl" />
         }
       />
+
+      <CaseStudy client={caseStudies[1]} />
 
       <ProblemAwareness
         headingText="The Hidden Costs of Inefficient Analytics and Outdated Systems"
