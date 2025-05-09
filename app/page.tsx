@@ -43,7 +43,7 @@ export default function HomePage() {
         }
       />
 
-      <CaseStudy client={caseStudies[1]} />
+      {/* <CaseStudy client={caseStudies[1]} /> */}
 
       <ProblemAwareness
         headingText="The Hidden Costs of Inefficient Analytics and Outdated Systems"

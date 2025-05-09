@@ -31,7 +31,7 @@ export default function Page() {
   }, []);
 
   return (
-    <Container className="min-h-screen w-full max-w-5xl p-4">
+    <Container className="min-h-screen w-full max-w-5xl py-4">
       <h1 className="text-primary p-4 text-center">
         Get $300 Off – 3-Day “See Your Sales Again” Tracking Setup
       </h1>
@@ -40,7 +40,7 @@ export default function Page() {
         your ad performance, staying compliant with Meta Ads policies and a
         future-proof system.
       </h4>
-      <div id="hubspot-form" className="p-4"></div>
+      <div id="hubspot-form"></div>
     </Container>
   );
 }
