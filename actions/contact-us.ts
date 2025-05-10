@@ -7,15 +7,18 @@ import { redirect } from "next/navigation";
 import { Resend } from "resend";
 import { z } from "zod";
 
-export async function createContact(formData: FormData) {
+export async function createContact(
+  formData: FormData,
+  redirectUrl: string = "/contact/book-a-meeting",
+): Promise<void> {
   const overallStart = performance.now();
 
   // Ensure Resend API Key exists
-  if (!process.env.NEXT_PUBLIC_RESEND_API_KEY) {
+  if (!process.env.RESEND_API_KEY) {
     console.error("Missing Resend API Key");
-    return { message: "Internal server error" };
+    throw new Error("Internal server error");
   }
-  const resend = new Resend(process.env.NEXT_PUBLIC_RESEND_API_KEY);
+  const resend = new Resend(process.env.RESEND_API_KEY);
 
   // Generate timestamp ID
   const timestamp = new Date();
@@ -55,7 +58,7 @@ export async function createContact(formData: FormData) {
     });
   } catch (validationError) {
     console.error("Validation failed", validationError);
-    return { message: "Invalid form data" };
+    throw new Error("Invalid form data");
   }
 
   try {
@@ -102,11 +105,13 @@ export async function createContact(formData: FormData) {
     }
   } catch (e) {
     console.error("Failed to create contact or send email", e);
-    return { message: "Failed to create contact" };
+    throw new Error("Failed to create contact");
   }
 
   console.log(
     `Total execution time: ${(performance.now() - overallStart).toFixed(2)}ms`,
   );
-  redirect("/contact/book-a-meeting");
+
+  // Use redirect instead of returning data
+  redirect(redirectUrl);
 }

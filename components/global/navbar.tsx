@@ -254,7 +254,7 @@ export default function Navbar({ className }: { className?: string }) {
   return (
     <div className="w-full pt-4 pb-2 lg:text-sm">
       <Container className={clsx("", className)}>
-        <header className="rounded-lg border">
+        <header className="rounded-lg shadow">
           <MobileNavigationMenu />
           <DesktopNavigationMenu />
         </header>

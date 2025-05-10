@@ -6,17 +6,18 @@ const nextConfig = {
   transpilePackages: ["geist"],
   pageExtensions: ["js", "jsx", "ts", "tsx", "mdx", "md"],
   experimental: {
-    turbo: {
-      rules: {
-        "*.svg": {
-          loaders: ["@svgr/webpack"],
-          as: "*.js",
-        },
-      },
-    },
+    viewTransition: true,
     mdxRs: true,
     optimizeServerReact: true,
     webpackBuildWorker: true,
+  },
+  turbopack: {
+    rules: {
+      "*.svg": {
+        loaders: ["@svgr/webpack"],
+        as: "*.js",
+      },
+    },
   },
   images: {
     remotePatterns: [

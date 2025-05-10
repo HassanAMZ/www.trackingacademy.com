@@ -13,6 +13,29 @@ import {
 import { Checkbox } from "@/components/ui/checkbox";
 import { useFormStatus } from "react-dom";
 import { Card, CardContent } from "../ui/card";
+import { useState } from "react";
+import { useFormState } from "react-dom";
+
+// Initial state for form
+const initialState = {
+  error: null,
+};
+
+// Client action wrapper
+const clientCreateContact =
+  (redirectUrl: string) => async (_prevState: any, formData: FormData) => {
+    try {
+      await createContact(formData, redirectUrl);
+      return { error: null };
+    } catch (error) {
+      return {
+        error:
+          error instanceof Error
+            ? error.message
+            : "An error occurred during form submission.",
+      };
+    }
+  };
 
 function SubmitButton() {
   const { pending } = useFormStatus();
@@ -29,11 +52,27 @@ function SubmitButton() {
     </Button>
   );
 }
+type ContactFormProps = {
+  redirectUrl?: string;
+};
 
-export default function ContactForm() {
+export default function ContactForm({
+  redirectUrl = "/contact/book-a-meeting",
+}: ContactFormProps) {
+  const [state, formAction] = useFormState(
+    clientCreateContact(redirectUrl),
+    initialState,
+  );
+
   return (
     <div className="w-full py-6">
-      <form id="contact-form" action={createContact} name="tracking-audit">
+      <form id="contact-form" action={formAction} name="tracking-audit">
+        {state.error && (
+          <div className="mb-4 rounded border border-red-300 bg-red-100 p-3 text-red-700">
+            {state.error}
+          </div>
+        )}
+
         <div className="flex flex-col space-y-6">
           <div className="grid gap-6 md:grid-cols-2">
             {/* First Name Input */}

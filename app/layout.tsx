@@ -6,7 +6,7 @@ import "@/styles/global.css";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { GeistSans } from "geist/font/sans";
 import type { Metadata } from "next";
-import { ViewTransitions } from "next-view-transitions";
+import { unstable_ViewTransition as ViewTransition } from "react";
 import { ReactNode, Suspense } from "react";
 import { AuthContextProvider } from "./context/AuthContext";
 export const metadata: Metadata = {
@@ -19,7 +19,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
-    <ViewTransitions>
+    <ViewTransition>
       <html lang="en" className={GeistSans.className}>
         <body>
           <AuthContextProvider>
@@ -41,6 +41,6 @@ export default function RootLayout({ children }: { children: ReactNode }) {
           </AuthContextProvider>
         </body>
       </html>
-    </ViewTransitions>
+    </ViewTransition>
   );
 }
