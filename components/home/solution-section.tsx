@@ -10,7 +10,7 @@ export function SolutionsSection() {
           We help <span className="text-primary">high-growth</span> businesses
           build bespoke data measurement systems
         </h2>
-        <p className="text-xl text-muted-foreground">
+        <p className="text-muted-foreground text-xl">
           and always-updated, action-ready reporting dashboards
         </p>
       </div>
@@ -19,7 +19,7 @@ export function SolutionsSection() {
         <Card>
           <CardContent className="pt-6">
             <div className="space-y-2">
-              <Database className="h-8 w-8 text-primary" />
+              <Database className="text-primary h-8 w-8" />
               <h3 className="text-xl font-bold">DATA GENERATION</h3>
               <p className="text-muted-foreground">
                 Integration, cleaning, and storage
@@ -31,7 +31,7 @@ export function SolutionsSection() {
         <Card>
           <CardContent className="pt-6">
             <div className="space-y-2">
-              <BarChart3 className="h-8 w-8 text-primary" />
+              <BarChart3 className="text-primary h-8 w-8" />
               <h3 className="text-xl font-bold">DATA VISUALIZATION</h3>
               <p className="text-muted-foreground">
                 Your plan vs. your outcomes and leading indicators
@@ -43,7 +43,7 @@ export function SolutionsSection() {
         <Card>
           <CardContent className="pt-6">
             <div className="space-y-2">
-              <MessageSquare className="h-8 w-8 text-primary" />
+              <MessageSquare className="text-primary h-8 w-8" />
               <h3 className="text-xl font-bold">DATA COMMUNICATION</h3>
               <p className="text-muted-foreground">
                 Strategy, optimization, and improvement

@@ -33,32 +33,32 @@ interface SidebarProps {
 
 const MainNode: React.FC<{ data: NodeData }> = ({ data }) => (
   <div>
-    <Card className="min-w-[200px] bg-primary p-4 text-primary-foreground">
+    <Card className="bg-primary text-primary-foreground min-w-[200px] p-4">
       <div className="text-lg font-semibold">{data.title}</div>
     </Card>
     <Handle
       id="top"
       type="target"
       position={Position.Top}
-      className="h-2 w-2 bg-primary!"
+      className="bg-primary! h-2 w-2"
     />
     <Handle
       id="bottom"
       type="source"
       position={Position.Bottom}
-      className="h-2 w-2 bg-primary!"
+      className="bg-primary! h-2 w-2"
     />
     <Handle
       id="left"
       type="source"
       position={Position.Left}
-      className="h-2 w-2 bg-primary!"
+      className="bg-primary! h-2 w-2"
     />
     <Handle
       id="right"
       type="source"
       position={Position.Right}
-      className="h-2 w-2 bg-primary!"
+      className="bg-primary! h-2 w-2"
     />
   </div>
 );
@@ -66,7 +66,7 @@ const MainNode: React.FC<{ data: NodeData }> = ({ data }) => (
 const SubNode: React.FC<{ data: NodeData & SubItem }> = ({ data }) => (
   <div>
     <Card
-      className="min-w-[180px] cursor-pointer bg-secondary p-2 text-secondary-foreground hover:bg-secondary/80"
+      className="bg-secondary text-secondary-foreground hover:bg-secondary/80 min-w-[180px] cursor-pointer p-2"
       onClick={() => data.onClick?.(data)}
     >
       <div className="text-sm">{data.title}</div>
@@ -75,17 +75,17 @@ const SubNode: React.FC<{ data: NodeData & SubItem }> = ({ data }) => (
       id={data.isEven ? "left" : "right"}
       type="target"
       position={data.isEven ? Position.Left : Position.Right}
-      className="h-2 w-2 bg-secondary!"
+      className="bg-secondary! h-2 w-2"
     />
   </div>
 );
 
 const Sidebar: React.FC<SidebarProps> = ({ data, onClose }) =>
   !data ? null : (
-    <div className="fixed right-0 top-0 h-full w-96 overflow-y-auto border-l bg-card p-6 text-card-foreground shadow-lg">
+    <div className="bg-card text-card-foreground fixed top-0 right-0 h-full w-96 overflow-y-auto border-l p-6 shadow-lg">
       <div className="mb-4 flex items-center justify-between">
         <h2 className="text-xl font-bold">{data.title}</h2>
-        <button onClick={onClose} className="rounded p-1 hover:bg-secondary">
+        <button onClick={onClose} className="hover:bg-secondary rounded p-1">
           <X size={24} />
         </button>
       </div>

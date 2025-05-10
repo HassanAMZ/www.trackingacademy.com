@@ -13,7 +13,7 @@ export function HeroSection() {
           We build measurement systems enabling companies to act faster & make a
           bigger impact!{" "}
         </h1>
-        <p className="max-w-4xl text-xl text-muted-foreground">
+        <p className="text-muted-foreground max-w-4xl text-xl">
           Finally, a single source of truth for your leading revenue metrics,
           without burdening your internal team. Get always updated: data
           integration, cleaning, and custom visualization plus a dedicated Slack

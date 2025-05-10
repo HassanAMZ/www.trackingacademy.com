@@ -44,7 +44,7 @@ export default function CodeBlock({ language, children }: CodeBlockProps) {
         <CardContent>
           <pre
             ref={codeRef}
-            className="overflow-x-auto rounded bg-background p-4 text-sm"
+            className="bg-background overflow-x-auto rounded p-4 text-sm"
           >
             <code className="block w-[250px]">{children}</code>
           </pre>

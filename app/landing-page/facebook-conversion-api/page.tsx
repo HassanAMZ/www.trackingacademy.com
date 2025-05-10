@@ -58,8 +58,6 @@ export default function CAPIPage() {
       icon: iconMap[item.icon as IconName],
     }));
 
-
-
   // Transform bonuses to include icon components
   const bonusesWithIcons = MetaConversionConfig.bonuses.bonuses.map(
     (bonus) => ({
@@ -93,10 +91,7 @@ export default function CAPIPage() {
 
       <ScarcityUrgency {...MetaConversionConfig.scarcityUrgency} />
 
-      <SocialProof
-        {...MetaConversionConfig.socialProof}
-     
-      />
+      <SocialProof {...MetaConversionConfig.socialProof} />
 
       <Bonuses {...MetaConversionConfig.bonuses} bonuses={bonusesWithIcons} />
       {/* 

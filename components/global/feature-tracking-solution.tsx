@@ -10,15 +10,15 @@ export default function TrackingSolution() {
           <div className="mb-6 flex items-center justify-center gap-3">
             <span className="text-lg font-medium">Tracking</span>
             <div className="flex gap-2">
-              <Facebook className="h-6 w-6 text-muted-foreground" />
-              <BarChart3 className="h-6 w-6 text-muted-foreground" />
-              <Cloud className="h-6 w-6 text-muted-foreground" />
+              <Facebook className="text-muted-foreground h-6 w-6" />
+              <BarChart3 className="text-muted-foreground h-6 w-6" />
+              <Cloud className="text-muted-foreground h-6 w-6" />
             </div>
           </div>
-          <h1 className="mb-6 text-4xl font-bold text-foreground md:text-5xl">
+          <h1 className="text-foreground mb-6 text-4xl font-bold md:text-5xl">
             The World Class Tracking & Attribution Solution
           </h1>
-          <p className="mx-auto max-w-3xl text-xl text-muted-foreground">
+          <p className="text-muted-foreground mx-auto max-w-3xl text-xl">
             Restore confidence in your FB ad attribution reporting with accurate
             & actionable attribution.
           </p>
@@ -50,13 +50,13 @@ export default function TrackingSolution() {
             <div className="flex items-center justify-center">
               <div className="relative h-[600px] w-full">
                 {/* Center Card - Accuracy */}
-                <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
-                  <Card className="h-40 w-40 bg-primary/10">
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+                  <Card className="bg-primary/10 h-40 w-40">
                     <CardContent className="flex h-full flex-col items-center justify-center">
-                      <span className="text-3xl font-bold text-primary">
+                      <span className="text-primary text-3xl font-bold">
                         95%
                       </span>
-                      <span className="text-sm text-primary">accurate</span>
+                      <span className="text-primary text-sm">accurate</span>
                     </CardContent>
                   </Card>
                 </div>
@@ -110,9 +110,9 @@ function FeatureCard({
         <div className="flex gap-4">
           {checked && (
             <div className="mt-1">
-              <div className="flex h-6 w-6 items-center justify-center rounded-full bg-primary/10">
+              <div className="bg-primary/10 flex h-6 w-6 items-center justify-center rounded-full">
                 <svg
-                  className="h-4 w-4 text-primary"
+                  className="text-primary h-4 w-4"
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"

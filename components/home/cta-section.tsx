@@ -10,7 +10,7 @@ export function CTASection() {
           We build measurement systems enabling companies to act faster & make a
           bigger impact!
         </h2>
-        <p className="mx-auto max-w-[800px] text-xl text-muted-foreground">
+        <p className="text-muted-foreground mx-auto max-w-[800px] text-xl">
           Finally, a single source of truth for your leading revenue metrics,
           without burdening your internal team.
         </p>
@@ -25,7 +25,7 @@ export function CTASection() {
       <Card className="mt-12">
         <CardContent className="p-8">
           <div className="mb-4 flex items-center space-x-2">
-            <Clock className="h-5 w-5 text-primary" />
+            <Clock className="text-primary h-5 w-5" />
             <span className="text-sm">Less than 3 minutes</span>
           </div>
           <h3 className="mb-4 text-2xl font-bold">

@@ -39,7 +39,7 @@ export function CaseStudyCard({ caseStudy }: CaseStudyCardProps) {
                 </div>
               )}
               <h2 className="text-2xl font-bold">{company.name}</h2>
-              <p className="leading-relaxed text-muted-foreground">
+              <p className="text-muted-foreground leading-relaxed">
                 {company.description}
               </p>
             </div>
@@ -48,14 +48,14 @@ export function CaseStudyCard({ caseStudy }: CaseStudyCardProps) {
             <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
               {statistics.map((stat, index) => (
                 <div key={index} className="space-y-2">
-                  <div className="text-4xl font-bold text-primary">
+                  <div className="text-primary text-4xl font-bold">
                     {stat.value}
                   </div>
-                  <p className="text-sm leading-tight text-muted-foreground">
+                  <p className="text-muted-foreground text-sm leading-tight">
                     {stat.label}
                   </p>
                   {stat.description && (
-                    <p className="mt-1 text-xs text-muted-foreground">
+                    <p className="text-muted-foreground mt-1 text-xs">
                       {stat.description}
                     </p>
                   )}
@@ -71,7 +71,7 @@ export function CaseStudyCard({ caseStudy }: CaseStudyCardProps) {
 
             {/* Source Citation */}
             {source && (
-              <p className="text-xs text-muted-foreground">Source: {source}</p>
+              <p className="text-muted-foreground text-xs">Source: {source}</p>
             )}
           </div>
 

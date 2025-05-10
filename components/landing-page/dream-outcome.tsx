@@ -51,7 +51,7 @@ const DreamOutcome: React.FC<DreamOutcomeProps> = ({
         <div>
           {heading && <h2 className="mb-4 text-4xl font-bold">{heading}</h2>}
           {subheading && (
-            <p className="text-xl text-muted-foreground">{subheading}</p>
+            <p className="text-muted-foreground text-xl">{subheading}</p>
           )}
         </div>
 

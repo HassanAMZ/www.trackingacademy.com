@@ -60,5 +60,4 @@ analytics.subscribe("page_viewed", (event) => {
   }
   window.dataLayer.push(dataLayerEvent);
   logEventToConsole(dataLayerEvent);
-
 });

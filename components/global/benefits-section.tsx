@@ -14,7 +14,7 @@ const BenefitsSection = ({ benefits }: { benefits: any }) => {
               <Card key={index} className="border-primary/20">
                 <CardContent className="pt-6">
                   <div className="flex gap-4">
-                    <CheckCircle2 className="h-6 w-6 shrink-0 text-primary" />
+                    <CheckCircle2 className="text-primary h-6 w-6 shrink-0" />
                     <div>
                       <h3 className="mb-2 font-semibold">{benefit.title}</h3>
                       <p>{benefit.description}</p>

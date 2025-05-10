@@ -48,7 +48,7 @@ const TestimonialsCarousel2: React.FC = () => {
         <strong>{currentTestimonial.clientTitle}</strong> at{" "}
         <strong>{currentTestimonial.businessName}</strong>
       </p>
-      <div className="absolute -bottom-4 right-0 mb-2 mr-2 flex space-x-4">
+      <div className="absolute right-0 -bottom-4 mr-2 mb-2 flex space-x-4">
         <Button
           variant="outline"
           className="m-0 h-max rotate-3 transform rounded-lg p-1 text-sm font-semibold"

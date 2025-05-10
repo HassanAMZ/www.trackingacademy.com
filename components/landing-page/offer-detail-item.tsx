@@ -43,7 +43,7 @@ const OfferDetails: React.FC<OfferDetailsProps> = ({
           offerItems.map((item, index) => (
             <section
               key={index}
-              className={`rounded-lg bg-primary/5 px-4 py-20 shadow-md`}
+              className={`bg-primary/5 rounded-lg px-4 py-20 shadow-md`}
             >
               <Container className="grid grid-cols-1 items-center justify-between gap-6 md:grid-cols-2">
                 <div className="space-y-5">
@@ -58,7 +58,7 @@ const OfferDetails: React.FC<OfferDetailsProps> = ({
                     <div className="space-y-4">
                       {item.benefits.map((benefit, idx) => (
                         <div key={idx} className="flex items-start">
-                          <CheckCircle className="mr-2 mt-1 h-6 w-6 shrink-0 stroke-primary" />
+                          <CheckCircle className="stroke-primary mt-1 mr-2 h-6 w-6 shrink-0" />
                           <span>{benefit}</span>
                         </div>
                       ))}
@@ -68,7 +68,7 @@ const OfferDetails: React.FC<OfferDetailsProps> = ({
                   {item.price && (
                     <h3>
                       Total Value:
-                      <span className="mx-2 rounded-lg bg-primary p-2 text-secondary">
+                      <span className="bg-primary text-secondary mx-2 rounded-lg p-2">
                         {item.price}
                       </span>
                     </h3>

@@ -15,7 +15,7 @@ export default function WorkHistory() {
       {clientImages.map((image, index) => (
         <div
           key={index}
-          className="overflow-hidden rounded-lg bg-secondary object-contain filter"
+          className="bg-secondary overflow-hidden rounded-lg object-contain filter"
         >
           <Image
             src={image}

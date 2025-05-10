@@ -71,7 +71,7 @@ const BlogSearch: React.FC<BlogSearchProps> = ({ data, onSearch }) => {
               onChange={(e) => setSearchTerm(e.target.value)}
               className="pr-12"
             />
-            <Button className="absolute right-0 top-0 h-full w-12">
+            <Button className="absolute top-0 right-0 h-full w-12">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 className="mx-auto h-6 w-6"

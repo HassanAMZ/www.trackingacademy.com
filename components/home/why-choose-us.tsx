@@ -19,19 +19,19 @@ export default function WhyChooseSection({
 }: WhyChooseSectionProps) {
   return (
     <Container className="py-12">
-      <div className="mb-6 inline-block rounded-full bg-primary/10 px-3 py-1 text-sm font-medium text-primary">
+      <div className="bg-primary/10 text-primary mb-6 inline-block rounded-full px-3 py-1 text-sm font-medium">
         {eyebrow}
       </div>
 
       <h2>{heading}</h2>
 
-      <h4 className="max-w-3xl text-muted-foreground">{subheading}</h4>
+      <h4 className="text-muted-foreground max-w-3xl">{subheading}</h4>
 
       <div className="grid items-center justify-center gap-12 md:grid-cols-2">
         <div className="space-y-8">
           {value.map((text, i) => (
             <div key={i} className="flex gap-4">
-              <div className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-primary text-primary-foreground">
+              <div className="bg-primary text-primary-foreground flex h-6 w-6 shrink-0 items-center justify-center rounded-full">
                 <Check className="h-4 w-4" />
               </div>
               <div className="text-lg">{text}</div>

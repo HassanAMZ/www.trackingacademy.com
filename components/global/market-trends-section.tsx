@@ -10,7 +10,7 @@ export const MarketTrendsSection = ({ trendCards }: { trendCards: any }) => {
         {trendCards.map((card: any, index: any) => (
           <Card key={index} className="border-primary/20">
             <CardHeader className="pb-0!">
-              <card.icon className="h-12 w-12 text-primary" />
+              <card.icon className="text-primary h-12 w-12" />
               <CardTitle className="text-xl">
                 <span className="text-primary">{card.title}</span> are
               </CardTitle>
@@ -22,7 +22,7 @@ export const MarketTrendsSection = ({ trendCards }: { trendCards: any }) => {
         ))}
       </div>
 
-      <p className="text-center text-muted-foreground">
+      <p className="text-muted-foreground text-center">
         And as a result, the picture of the customer journey is no longer
         complete
       </p>

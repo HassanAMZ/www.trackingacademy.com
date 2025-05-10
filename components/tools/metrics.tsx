@@ -49,7 +49,7 @@ export const ProjectionTable: React.FC<ProjectionTableProps> = ({
     <Table className="">
       <TableHeader>
         <TableRow>
-          <TableHead className="sticky left-0 bg-background">
+          <TableHead className="bg-background sticky left-0">
             Milestone
           </TableHead>
           <TableHead>Income</TableHead>
@@ -72,7 +72,7 @@ export const ProjectionTable: React.FC<ProjectionTableProps> = ({
 
           return (
             <TableRow key={label} className="">
-              <TableCell className="sticky left-0 bg-background">
+              <TableCell className="bg-background sticky left-0">
                 {label}
               </TableCell>
               <TableCell>${formatNumber(milestone.income)}</TableCell>
@@ -117,7 +117,7 @@ export const MetricItem: React.FC<{
   value: string | number;
 }> = ({ label, value }) => (
   <div className="flex items-center justify-between">
-    <span className="text-sm text-muted-foreground">{label}</span>
+    <span className="text-muted-foreground text-sm">{label}</span>
     <span className="font-medium">{value}</span>
   </div>
 );
@@ -316,11 +316,11 @@ export const MilestoneMetrics: React.FC<MilestoneMetricsProps> = ({
             <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
               <MetricCard
                 title="Financial Metrics"
-                icon={<DollarSign className="h-4 w-4 text-primary" />}
+                icon={<DollarSign className="text-primary h-4 w-4" />}
               >
                 <div className="space-y-2">
                   <div className="flex justify-between">
-                    <span className="text-sm text-muted-foreground">
+                    <span className="text-muted-foreground text-sm">
                       Income
                     </span>
                     <span className="font-medium">
@@ -328,7 +328,7 @@ export const MilestoneMetrics: React.FC<MilestoneMetricsProps> = ({
                     </span>
                   </div>
                   <div className="flex justify-between">
-                    <span className="text-sm text-muted-foreground">
+                    <span className="text-muted-foreground text-sm">
                       Expenses
                     </span>
                     <span className="font-medium">
@@ -336,7 +336,7 @@ export const MilestoneMetrics: React.FC<MilestoneMetricsProps> = ({
                     </span>
                   </div>
                   <div className="flex justify-between">
-                    <span className="text-sm text-muted-foreground">
+                    <span className="text-muted-foreground text-sm">
                       Marketing
                     </span>
                     <span className="font-medium">
@@ -344,7 +344,7 @@ export const MilestoneMetrics: React.FC<MilestoneMetricsProps> = ({
                     </span>
                   </div>
                   <div className="flex justify-between">
-                    <span className="text-sm text-muted-foreground">
+                    <span className="text-muted-foreground text-sm">
                       Operations
                     </span>
                     <span className="font-medium">
@@ -356,11 +356,11 @@ export const MilestoneMetrics: React.FC<MilestoneMetricsProps> = ({
 
               <MetricCard
                 title="Business Metrics"
-                icon={<Target className="h-4 w-4 text-secondary" />}
+                icon={<Target className="text-secondary h-4 w-4" />}
               >
                 <div className="space-y-2">
                   <div className="flex justify-between">
-                    <span className="text-sm text-muted-foreground">
+                    <span className="text-muted-foreground text-sm">
                       Contracts
                     </span>
                     <span className="font-medium">
@@ -368,7 +368,7 @@ export const MilestoneMetrics: React.FC<MilestoneMetricsProps> = ({
                     </span>
                   </div>
                   <div className="flex justify-between">
-                    <span className="text-sm text-muted-foreground">
+                    <span className="text-muted-foreground text-sm">
                       Projects
                     </span>
                     <span className="font-medium">
@@ -376,13 +376,13 @@ export const MilestoneMetrics: React.FC<MilestoneMetricsProps> = ({
                     </span>
                   </div>
                   <div className="flex justify-between">
-                    <span className="text-sm text-muted-foreground">CAC</span>
+                    <span className="text-muted-foreground text-sm">CAC</span>
                     <span className="font-medium">
                       ${Math.round(milestone.cac)}
                     </span>
                   </div>
                   <div className="flex justify-between">
-                    <span className="text-sm text-muted-foreground">
+                    <span className="text-muted-foreground text-sm">
                       LTV:CAC
                     </span>
                     <span className="font-medium">
@@ -394,11 +394,11 @@ export const MilestoneMetrics: React.FC<MilestoneMetricsProps> = ({
 
               <MetricCard
                 title="Team Metrics"
-                icon={<Users className="h-4 w-4 text-accent" />}
+                icon={<Users className="text-accent h-4 w-4" />}
               >
                 <div className="space-y-2">
                   <div className="flex justify-between">
-                    <span className="text-sm text-muted-foreground">
+                    <span className="text-muted-foreground text-sm">
                       Employees
                     </span>
                     <span className="font-medium">
@@ -406,7 +406,7 @@ export const MilestoneMetrics: React.FC<MilestoneMetricsProps> = ({
                     </span>
                   </div>
                   <div className="flex justify-between">
-                    <span className="text-sm text-muted-foreground">
+                    <span className="text-muted-foreground text-sm">
                       Team Leads
                     </span>
                     <span className="font-medium">
@@ -414,7 +414,7 @@ export const MilestoneMetrics: React.FC<MilestoneMetricsProps> = ({
                     </span>
                   </div>
                   <div className="flex justify-between">
-                    <span className="text-sm text-muted-foreground">
+                    <span className="text-muted-foreground text-sm">
                       2nd Level Leaders
                     </span>
                     <span className="font-medium">
@@ -422,7 +422,7 @@ export const MilestoneMetrics: React.FC<MilestoneMetricsProps> = ({
                     </span>
                   </div>
                   <div className="flex justify-between">
-                    <span className="text-sm text-muted-foreground">
+                    <span className="text-muted-foreground text-sm">
                       3rd Level Leaders
                     </span>
                     <span className="font-medium">

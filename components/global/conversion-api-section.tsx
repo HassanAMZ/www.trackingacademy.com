@@ -6,7 +6,7 @@ import React from "react";
 export const ConversionApiSection: React.FC = () => {
   return (
     <Container>
-      <div className="relative rounded-2xl bg-secondary p-8">
+      <div className="bg-secondary relative rounded-2xl p-8">
         <h2 className="py-6 text-center">
           Maximise ROI with a high-quality Conversions API setup
         </h2>
@@ -34,7 +34,7 @@ export const ConversionApiSection: React.FC = () => {
               </CardHeader>
               <CardContent className="space-y-4">
                 <p className="text-muted-foreground">{card.description}</p>
-                <span className="text-5xl font-bold text-primary md:text-6xl">
+                <span className="text-primary text-5xl font-bold md:text-6xl">
                   {card.percentage}
                 </span>
                 <p className="text-muted-foreground">{card.note}</p>
@@ -43,7 +43,7 @@ export const ConversionApiSection: React.FC = () => {
           ))}
         </div>
 
-        <div className="mx-auto mt-8 max-w-3xl space-y-2 text-xs text-muted-foreground">
+        <div className="text-muted-foreground mx-auto mt-8 max-w-3xl space-y-2 text-xs">
           {/* Source citations from original component */}
         </div>
       </div>

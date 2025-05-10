@@ -19,7 +19,7 @@ const NavigationLinks: React.FC = () => {
             <div key={`nav-link-${link.title}`} className="group relative">
               <NavLink
                 href={link.href}
-                className="transition-all duration-300 hover:text-accent hover:underline"
+                className="hover:text-accent transition-all duration-300 hover:underline"
               >
                 {link.title}
               </NavLink>
@@ -28,7 +28,7 @@ const NavigationLinks: React.FC = () => {
                   <NavLink
                     key={`nav-link-${childLink.title}`}
                     href={childLink.href}
-                    className="mx-2 transition-all duration-300 hover:text-accent hover:underline"
+                    className="hover:text-accent mx-2 transition-all duration-300 hover:underline"
                   >
                     {childLink.title}
                   </NavLink>
@@ -42,7 +42,7 @@ const NavigationLinks: React.FC = () => {
           <NavLink
             key={`nav-link-${link.title}`}
             href={link.href}
-            className="transition-all duration-300 hover:text-accent hover:underline"
+            className="hover:text-accent transition-all duration-300 hover:underline"
           >
             {link.title}
           </NavLink>

@@ -6,7 +6,7 @@ const Footer = () => {
 
   return (
     <Container>
-      <footer className="bg-background py-8 text-foreground">
+      <footer className="bg-background text-foreground py-8">
         <div className="container mx-auto flex flex-wrap items-center justify-between px-4">
           <div className="w-full md:w-1/2">
             <h6 className="mb-2 font-bold uppercase">About Us</h6>
@@ -39,7 +39,7 @@ const Footer = () => {
           </div>
         </div>
         <div className="container mx-auto mt-4 px-4 text-center">
-          <p className="text-sm text-muted-foreground">
+          <p className="text-muted-foreground text-sm">
             &copy; {currentYear} TrackingAcademy. All rights reserved.
           </p>
         </div>

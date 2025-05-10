@@ -158,7 +158,6 @@ const MetaConversionConfig = {
         image: "/images/social-sharing.png",
       },
     ],
-   
   },
 
   bonuses: {
