@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import Container from "@/components/ui/container";
 import { Client } from "@/data/clients";
 import { CheckCircle } from "lucide-react";
-import { Link } from "next-view-transitions";
+import Link from "next/link";
 import { FC, ReactNode } from "react";
 
 interface HeroProps {
@@ -43,7 +43,7 @@ const Hero: FC<HeroProps> = ({
         <div className="grid max-w-xl grid-cols-1 gap-2 py-4 sm:grid-cols-2">
           {benefits.map((benefit, index) => (
             <div key={index} className="flex items-center gap-2">
-              <CheckCircle className="h-6 w-6 text-primary" />
+              <CheckCircle className="text-primary h-6 w-6" />
               <p>{benefit}</p>
             </div>
           ))}

@@ -1,5 +1,5 @@
 import { getCourseModules, getCourses } from "@/utils/course-utils";
-import { Link } from "next-view-transitions";
+import Link from "next/link";
 import { BookOpen, Clock, GraduationCap, ChevronRight } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import {
@@ -62,7 +62,7 @@ export default async function CoursePage({
             {modules.length} Modules
           </Badge>
         </div>
-        <p className="text-lg text-muted-foreground">{metadata.description}</p>
+        <p className="text-muted-foreground text-lg">{metadata.description}</p>
       </div>
 
       {metadata.prerequisites && (
@@ -89,7 +89,7 @@ export default async function CoursePage({
         <div className="grid gap-4 md:grid-cols-2">
           {modules.map((module) => (
             <Link key={module.slug} href={`/courses/${course}/${module.slug}`}>
-              <Card className="transition-colors hover:border-primary">
+              <Card className="hover:border-primary transition-colors">
                 <CardHeader className="flex flex-row items-start justify-between space-y-0">
                   <div className="space-y-1">
                     <div className="flex items-center gap-2">
@@ -100,16 +100,16 @@ export default async function CoursePage({
                       {module.metadata.description}
                     </CardDescription>
                   </div>
-                  <ChevronRight className="h-5 w-5 text-muted-foreground" />
+                  <ChevronRight className="text-muted-foreground h-5 w-5" />
                 </CardHeader>
                 <CardContent>
                   <div className="space-y-4">
                     <div className="flex items-center justify-between text-sm">
-                      <div className="flex items-center gap-2 text-muted-foreground">
+                      <div className="text-muted-foreground flex items-center gap-2">
                         <BookOpen className="h-4 w-4" />
                         {module.lessons.length} Lessons
                       </div>
-                      <div className="flex items-center gap-2 text-muted-foreground">
+                      <div className="text-muted-foreground flex items-center gap-2">
                         <Clock className="h-4 w-4" />
                         {module.metadata.duration}
                       </div>

@@ -1,7 +1,7 @@
 import Image from "next/image";
 
 import type { ServiceCardProps } from "@/types/index";
-import { Link } from "next-view-transitions";
+import Link from "next/link";
 
 const ServiceCard: React.FC<ServiceCardProps> = ({ service }) => {
   let formattedDescription = service.description.replace(/\n/g, "<br>");

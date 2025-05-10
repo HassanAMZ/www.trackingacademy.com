@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import Container from "@/components/ui/container";
 import { ArrowRight, Clock, Users } from "lucide-react";
-import { Link } from "next-view-transitions";
+import Link from "next/link";
 import React from "react";
 
 interface ScarcityUrgencyProps {
@@ -25,7 +25,7 @@ const ScarcityUrgency: React.FC<ScarcityUrgencyProps> = ({
 }) => {
   return (
     <Container className="flex items-center justify-center">
-      <section className="flex w-full flex-col items-center justify-center space-y-8 rounded-lg bg-primary px-8 py-24 text-center text-primary-foreground">
+      <section className="bg-primary text-primary-foreground flex w-full flex-col items-center justify-center space-y-8 rounded-lg px-8 py-24 text-center">
         {/* Title Section */}
         {title && <h2 className="max-w-3xl">{title}</h2>}
 
@@ -62,7 +62,7 @@ const ScarcityUrgency: React.FC<ScarcityUrgencyProps> = ({
           <Button
             size="lg"
             asChild
-            className="whitespace-pre-wrap bg-background p-8 text-lg text-primary hover:bg-background/90"
+            className="bg-background text-primary hover:bg-background/90 p-8 text-lg whitespace-pre-wrap"
           >
             <Link href={buttonLink}>{buttonText}</Link>
           </Button>

@@ -1,5 +1,5 @@
 import { ArrowRight } from "lucide-react";
-import { Link } from "next-view-transitions";
+import Link from "next/link";
 import { Badge } from "../ui/badge";
 import { Button } from "../ui/button";
 import { Card, CardContent, CardHeader } from "../ui/card";

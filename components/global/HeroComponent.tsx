@@ -1,6 +1,6 @@
 import LearnMoreHeader from "@/components/global/LearnMoreHeader";
 import { HeroProps } from "@/types/index";
-import { Link } from "next-view-transitions";
+import Link from "next/link";
 import Image from "next/image";
 import React from "react";
 
@@ -38,10 +38,10 @@ const HeroComponent: React.FC<HeroProps> = ({ textGroup, links, images }) => {
                     height={1080}
                     key={index}
                     className={`absolute rounded-full opacity-90 ${
-                      index === 0 ? "left-0 top-0 z-10" : ""
-                    } ${index === 1 ? "left-4 top-0 z-20" : ""} ${
-                      index === 2 ? "left-8 top-0 z-30" : ""
-                    } ${index === 3 ? "left-12 top-0 z-30" : ""} `}
+                      index === 0 ? "top-0 left-0 z-10" : ""
+                    } ${index === 1 ? "top-0 left-4 z-20" : ""} ${
+                      index === 2 ? "top-0 left-8 z-30" : ""
+                    } ${index === 3 ? "top-0 left-12 z-30" : ""} `}
                   />
                 ))}
               </div>

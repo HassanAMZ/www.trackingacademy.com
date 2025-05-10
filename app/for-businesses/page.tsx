@@ -6,7 +6,7 @@ import Services from "@/components/home/services";
 import { Button } from "@/components/ui/button";
 import Container from "@/components/ui/container";
 import clients from "@/data/clients";
-import { Link } from "next-view-transitions";
+import Link from "next/link";
 export default function Home() {
   return (
     <main className="space-y-5">

@@ -8,7 +8,7 @@ import { Badge } from "@/components/ui/badge";
 import { CalendarIcon } from "lucide-react";
 import { SingleBlogCardProps } from "@/types/index";
 import Image from "next/image";
-import { Link } from "next-view-transitions";
+import Link from "next/link";
 
 const SingleBlogCard: React.FC<SingleBlogCardProps> = ({
   post,
@@ -42,7 +42,7 @@ const SingleBlogCard: React.FC<SingleBlogCardProps> = ({
           </CardHeader>
           <CardContent>
             <p
-              className={`line-clamp-3 text-muted-foreground ${isMain ? "mb-4" : "mb-2"}`}
+              className={`text-muted-foreground line-clamp-3 ${isMain ? "mb-4" : "mb-2"}`}
             >
               {post.description}
             </p>
@@ -54,7 +54,7 @@ const SingleBlogCard: React.FC<SingleBlogCardProps> = ({
               ))}
             </div>
           </CardContent>
-          <CardFooter className="text-sm text-muted-foreground">
+          <CardFooter className="text-muted-foreground text-sm">
             <CalendarIcon className="mr-2 h-4 w-4" />
             {post.date}
           </CardFooter>

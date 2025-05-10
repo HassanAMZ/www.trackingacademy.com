@@ -1,7 +1,7 @@
 import Navbar from "@/components/global/navbar";
 import { Button } from "@/components/ui/button";
 import Container from "@/components/ui/container";
-import { Link } from "next-view-transitions";
+import Link from "next/link";
 import React from "react";
 
 export default function NotFound() {

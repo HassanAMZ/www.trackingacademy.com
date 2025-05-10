@@ -7,7 +7,7 @@ import {
   CardDescription,
 } from "@/components/ui/card";
 import Container from "@/components/ui/container";
-import { Link } from "next-view-transitions";
+import Link from "next/link";
 import {
   BookMarked,
   BriefcaseBusiness,
@@ -58,7 +58,7 @@ export default async function Page() {
                 <Link href={`/tools/${tool.slug}`} className="block h-full">
                   <CardHeader>
                     <div className="flex items-center gap-2">
-                      <div className="rounded-lg bg-primary/10 p-2">
+                      <div className="bg-primary/10 rounded-lg p-2">
                         <Icon className="h-6 w-6" />
                       </div>
                       <CardTitle>{tool.name}</CardTitle>

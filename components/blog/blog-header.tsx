@@ -4,7 +4,7 @@ import generateSchema from "@/components/seo/generateSchema";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
 import { PostMetadataProps } from "@/types/index";
-import { Link } from "next-view-transitions";
+import Link from "next/link";
 import Image from "next/image";
 import Script from "next/script";
 import React from "react";
@@ -49,7 +49,7 @@ const BlogHeader: React.FC<PostMetadataProps> = ({ metadata }) => {
                       </time>
                     </div>
 
-                    <div className="flex items-center text-sm text-muted-foreground">
+                    <div className="text-muted-foreground flex items-center text-sm">
                       {metadata.updatedDate && (
                         <div>
                           <span>

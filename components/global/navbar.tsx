@@ -15,7 +15,7 @@ import Image from "next/image";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import clsx from "clsx";
 import { FileText, Menu, Wrench } from "lucide-react";
-import { Link } from "next-view-transitions";
+import Link from "next/link";
 import { usePathname } from "next/navigation";
 import React, { useState } from "react";
 import NavLink from "../navbar/NavLink";

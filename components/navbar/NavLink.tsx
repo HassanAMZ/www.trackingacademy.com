@@ -2,7 +2,7 @@
 
 import { NavLinkProps } from "@/types/index";
 import clsx from "clsx";
-import { Link } from "next-view-transitions";
+import Link from "next/link";
 
 const NavLink: React.FC<NavLinkProps> = ({ href, children, className }) => {
   return (

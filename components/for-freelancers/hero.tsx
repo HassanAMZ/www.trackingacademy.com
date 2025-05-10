@@ -1,7 +1,7 @@
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import clients from "@/data/clients";
-import { Link } from "next-view-transitions";
+import Link from "next/link";
 import Container from "../ui/container";
 import TestimonialsCarousel2 from "./testimonials-carousal-2";
 import { TestimonialsCarousel } from "./testimonials-carousel";

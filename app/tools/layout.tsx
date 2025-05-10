@@ -14,7 +14,7 @@ import {
   SidebarInset,
   SidebarTrigger,
 } from "@/components/ui/sidebar";
-import { Link } from "next-view-transitions";
+import Link from "next/link";
 import Navbar from "@/components/global/navbar";
 import Container from "@/components/ui/container";
 import {
@@ -109,7 +109,7 @@ function ToolsSidebar({
                 <SidebarMenuButton asChild>
                   <Link
                     href={`/tools/${tool.slug}`}
-                    className="flex items-center gap-2 rounded-md px-4 py-2 transition-colors hover:bg-accent"
+                    className="hover:bg-accent flex items-center gap-2 rounded-md px-4 py-2 transition-colors"
                   >
                     <tool.icon className="h-4 w-4" />
                     <span className="flex-1 truncate font-medium group-data-[collapsible=icon]:hidden">

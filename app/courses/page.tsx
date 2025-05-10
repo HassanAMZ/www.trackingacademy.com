@@ -1,4 +1,4 @@
-import { Link } from "next-view-transitions";
+import Link from "next/link";
 import { ArrowRight, Clock, Book } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -53,7 +53,7 @@ export default async function CoursesPage() {
           {courses.map((course) => (
             <Card
               key={course.slug}
-              className="group relative flex h-full flex-col transition-colors hover:border-primary"
+              className="group hover:border-primary relative flex h-full flex-col transition-colors"
             >
               <CardHeader>
                 <div className="space-y-1">
@@ -67,7 +67,7 @@ export default async function CoursesPage() {
                 <div className="space-y-4">
                   {course.prerequisites && (
                     <div className="space-y-2">
-                      <p className="text-sm text-muted-foreground">
+                      <p className="text-muted-foreground text-sm">
                         Prerequisites
                       </p>
                       <div className="flex flex-wrap gap-2">
@@ -82,11 +82,11 @@ export default async function CoursesPage() {
                     </div>
                   )}
                   <div className="flex flex-wrap items-center gap-4 text-sm">
-                    <div className="flex items-center gap-1 text-muted-foreground">
+                    <div className="text-muted-foreground flex items-center gap-1">
                       <Book className="h-4 w-4" />
                       <span>{course.level}</span>
                     </div>
-                    <div className="flex items-center gap-1 text-muted-foreground">
+                    <div className="text-muted-foreground flex items-center gap-1">
                       <Clock className="h-4 w-4" />
                       <span>{course.duration}</span>
                     </div>
@@ -94,7 +94,7 @@ export default async function CoursesPage() {
                 </div>
 
                 <Link href={`/courses/${course.slug}`} className="mt-6">
-                  <Button className="w-full group-hover:bg-primary/90">
+                  <Button className="group-hover:bg-primary/90 w-full">
                     Start Learning
                     <ArrowRight className="ml-2 h-4 w-4" />
                   </Button>

@@ -4,15 +4,15 @@ import { Button } from "@/components/ui/button";
 import Container from "@/components/ui/container";
 
 import { ArrowRight, CheckCircle2 } from "lucide-react";
-import { Link } from "next-view-transitions";
+import Link from "next/link";
 import React from "react";
 
 export const HeroSection: React.FC = () => {
   return (
-    <section className="relative bg-linear-to-b from-primary/5 to-background">
+    <section className="from-primary/5 to-background relative bg-linear-to-b">
       <Container className="py-8">
         <div className="flex flex-col items-center gap-6 text-center">
-          <Badge variant="outline" className="mb-2 border-primary/20">
+          <Badge variant="outline" className="border-primary/20 mb-2">
             ATTENTION: Business Owners Losing Money on Paid Ads 🚨
           </Badge>
 
@@ -34,7 +34,7 @@ export const HeroSection: React.FC = () => {
           <Button
             asChild
             size="lg"
-            className="transform whitespace-pre-wrap px-12 py-7 text-xl shadow-2xl transition-all hover:-translate-y-1"
+            className="transform px-12 py-7 text-xl whitespace-pre-wrap shadow-2xl transition-all hover:-translate-y-1"
           >
             <Link href="/contact">
               Book a FREE CALL and Sky Rocket Your Business
@@ -49,7 +49,7 @@ export const HeroSection: React.FC = () => {
               "100% Money-Back Promise",
             ].map((feature) => (
               <div key={feature} className="flex items-center gap-1">
-                <CheckCircle2 className="h-4 w-4 text-primary" />
+                <CheckCircle2 className="text-primary h-4 w-4" />
                 <span>{feature}</span>
               </div>
             ))}

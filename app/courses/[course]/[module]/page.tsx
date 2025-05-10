@@ -8,7 +8,7 @@ import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
 import { Clock, BookOpen, ChevronRight } from "lucide-react";
 import Container from "@/components/ui/container";
-import { Link } from "next-view-transitions";
+import Link from "next/link";
 import {
   Breadcrumb,
   BreadcrumbItem,

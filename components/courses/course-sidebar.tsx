@@ -9,7 +9,7 @@ import {
   SidebarMenuButton,
   SidebarHeader,
 } from "@/components/ui/sidebar";
-import { Link } from "next-view-transitions";
+import Link from "next/link";
 
 import { getCourseModules } from "@/utils/course-utils";
 import {
@@ -49,10 +49,10 @@ export async function CourseSidebar({ course }: CourseSidebarProps) {
             <SidebarGroup className="w-full">
               <SidebarGroupLabel asChild className="p-0">
                 <CollapsibleTrigger>
-                  <div className="flex w-full items-center justify-between rounded-md px-4 py-2 transition-colors hover:bg-accent">
+                  <div className="hover:bg-accent flex w-full items-center justify-between rounded-md px-4 py-2 transition-colors">
                     <div className="flex items-center gap-2">
                       {/* <BookOpen className="h-4 w-4" /> */}
-                      <span className="font-mono text-xs text-muted-foreground">
+                      <span className="text-muted-foreground font-mono text-xs">
                         M{(moduleIndex + 1).toString().padStart(2, "0")}
                       </span>
                       <span className="line-clamp-1 text-left font-medium group-data-[collapsible=icon]:hidden">
@@ -71,9 +71,9 @@ export async function CourseSidebar({ course }: CourseSidebarProps) {
                       <SidebarMenuButton asChild>
                         <Link
                           href={`/courses/${course}/${module.slug}/${lesson.slug}`}
-                          className="flex items-center gap-2 rounded-md px-4 py-1 transition-colors hover:bg-accent/50"
+                          className="hover:bg-accent/50 flex items-center gap-2 rounded-md px-4 py-1 transition-colors"
                         >
-                          <span className="font-mono text-xs text-muted-foreground">
+                          <span className="text-muted-foreground font-mono text-xs">
                             L{lesson.order.toString().padStart(2, "0")}
                           </span>
                           <span className="flex-1 truncate font-medium group-data-[collapsible=icon]:hidden">

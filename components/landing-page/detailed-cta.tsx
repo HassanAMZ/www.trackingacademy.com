@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import Container from "@/components/ui/container";
 import { ArrowRight, CheckCircle } from "lucide-react";
-import { Link } from "next-view-transitions";
+import Link from "next/link";
 import React from "react";
 
 interface DetailedCTAProps {
@@ -22,14 +22,14 @@ const DetailedCTA: React.FC<DetailedCTAProps> = ({
   footerText,
 }) => {
   return (
-    <section className="bg-linear-to-b from-primary/5 to-background py-24">
+    <section className="from-primary/5 to-background bg-linear-to-b py-24">
       <Container className="text-center">
         {/* Heading */}
         {heading && <h2 className="mb-4">{heading}</h2>}
 
         {/* Subheading */}
         {subheading && (
-          <h4 className="mb-8 text-muted-foreground">{subheading}</h4>
+          <h4 className="text-muted-foreground mb-8">{subheading}</h4>
         )}
 
         {/* List Items */}
@@ -38,7 +38,7 @@ const DetailedCTA: React.FC<DetailedCTAProps> = ({
             <ul className="mb-8 grid grid-cols-2 gap-5 text-left">
               {listItems.map((item, index) => (
                 <li key={index} className="mb-2 flex items-center">
-                  <CheckCircle className="mr-2 h-5 w-5 text-primary" />
+                  <CheckCircle className="text-primary mr-2 h-5 w-5" />
                   {item}
                 </li>
               ))}
@@ -51,7 +51,7 @@ const DetailedCTA: React.FC<DetailedCTAProps> = ({
           <Button
             size="lg"
             asChild
-            className="whitespace-pre-wrap p-8 text-lg hover:bg-primary/90"
+            className="hover:bg-primary/90 p-8 text-lg whitespace-pre-wrap"
           >
             <Link href={buttonLink}>
               {buttonText}
@@ -62,7 +62,7 @@ const DetailedCTA: React.FC<DetailedCTAProps> = ({
 
         {/* Footer Text */}
         {footerText && (
-          <p className="py-4 text-muted-foreground">{footerText}</p>
+          <p className="text-muted-foreground py-4">{footerText}</p>
         )}
       </Container>
     </section>

@@ -9,7 +9,7 @@ import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
 import Container from "@/components/ui/container";
 import { SidebarTrigger } from "@/components/ui/sidebar";
 import { Badge, Clock, ArrowLeft, ArrowRight } from "lucide-react";
-import { Link } from "next-view-transitions";
+import Link from "next/link";
 import {
   Breadcrumb,
   BreadcrumbItem,

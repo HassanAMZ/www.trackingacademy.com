@@ -3,7 +3,7 @@
 import React from "react";
 
 import { WhyUsProps } from "@/types/index"; // make sure to use the actual path
-import { Link } from "next-view-transitions";
+import Link from "next/link";
 
 const WhyUs: React.FC<WhyUsProps> = ({
   links,
@@ -27,7 +27,7 @@ const WhyUs: React.FC<WhyUsProps> = ({
           )}
         </div>
         <button className="bg-complementary rounded-lg border-2 border-gray-100 p-2 text-left">
-          <Link className="font-semibold text-accent" href={links.primary.src}>
+          <Link className="text-accent font-semibold" href={links.primary.src}>
             {links.primary.text}
           </Link>
         </button>
