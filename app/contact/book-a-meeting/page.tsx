@@ -44,7 +44,7 @@ export default async function Page() {
       <Container className="max-w-6xl">
         <section className="space-y-4 py-12 text-center">
           <h1>You're One Step Away From Fixing Your Tracking Blindspot</h1>
-          <h4 className="pt-3 text-gray-700">
+          <h4 className="text-muted-foreground pt-3">
             We help businesses recover 30%+ of invisible conversions and slash
             wasted ad spend—fast.
             <br />
@@ -57,7 +57,7 @@ export default async function Page() {
 
       {/* BOOKING SECTION */}
       <Container className="max-w-5xl">
-        <div className="bg-complementary bg-secondary flex w-full items-center justify-center rounded-lg p-6 shadow-lg">
+        <div className="flex w-full items-center justify-center rounded-lg p-6 shadow-lg">
           <iframe
             src="https://calendar.google.com/calendar/appointments/schedules/AcZssZ0wgUDGuk7YMLv1IcsYbgeQwVYnRt39plBBMKmO55fulvLIeQ2ZZqBOGm1IpXYK7zvyl7YBLnlq?gv=true"
             className="min-h-[75vh] w-full rounded-lg border"

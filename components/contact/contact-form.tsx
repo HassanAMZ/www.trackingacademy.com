@@ -10,7 +10,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { Textarea } from "@/components/ui/textarea";
+import { Checkbox } from "@/components/ui/checkbox";
 import { useFormStatus } from "react-dom";
 import { Card, CardContent } from "../ui/card";
 
@@ -22,175 +22,178 @@ function SubmitButton() {
       type="submit"
       disabled={pending}
       size="lg"
-      className={`hover:bg-primary/90 w-full p-8 text-lg font-bold whitespace-pre-wrap ${pending ? "cursor-not-allowed opacity-50" : ""}`}
+      variant="default"
+      className={`bg-primary hover:bg-primary/90 w-full p-6 text-lg font-bold ${pending ? "cursor-not-allowed opacity-50" : ""}`}
     >
-      {pending
-        ? "Submitting..."
-        : "I am Ready to Fix my Tracking, Boost my ROAS"}
+      {pending ? "Submitting..." : "Submit"}
     </Button>
   );
 }
 
 export default function ContactForm() {
   return (
-    <div className="w-full py-12">
-      <form id="contact-form" action={createContact} name="free-audit">
-        <div className="flex flex-col space-y-3">
-          <section className="space-y-4 pt-12 pb-6 text-center">
-            <h1>You're One Step Away From Fixing Your Tracking Blindspot</h1>
-            <h4 className="pt-3 text-gray-700">
-              We help businesses recover 30%+ of invisible conversions and slash
-              wasted ad spend—fast.
-              <br />
-              <span className="text-primary font-semibold">
-                Book your implementation call now to get started.
-              </span>
-            </h4>
-          </section>
+    <div className="w-full py-6">
+      <form id="contact-form" action={createContact} name="tracking-audit">
+        <div className="flex flex-col space-y-6">
+          <div className="grid gap-6 md:grid-cols-2">
+            {/* First Name Input */}
+            <div className="grid w-full items-start gap-1.5">
+              <Label htmlFor="firstName" className="font-medium">
+                First Name<span className="text-red-500">*</span>
+              </Label>
+              <Input
+                required
+                type="text"
+                id="firstName"
+                name="firstName"
+                className="h-12 p-2.5"
+              />
+            </div>
 
-          <Card className="rounded-t-lg">
-            <CardContent>
-              <div className="grid gap-6 py-6 md:grid-cols-2">
-                {/* Name Input */}
-                <div className="grid w-full items-center gap-3">
-                  <Label htmlFor="name">Full Name</Label>
-                  <Input
-                    required
-                    type="text"
-                    name="name"
-                    placeholder="Your Name"
-                  />
-                </div>
+            {/* Last Name Input */}
+            <div className="grid w-full items-start gap-1.5">
+              <Label htmlFor="lastName" className="font-medium">
+                Last Name<span className="text-red-500">*</span>
+              </Label>
+              <Input
+                required
+                type="text"
+                id="lastName"
+                name="lastName"
+                className="h-12 p-2.5"
+              />
+            </div>
+          </div>
 
-                {/* Role Selection */}
-                <div className="grid w-full items-center gap-3">
-                  <Label htmlFor="roleType">I am a...</Label>
-                  <Select name="roleType">
-                    <SelectTrigger>
-                      <SelectValue placeholder="Select an option" />
-                    </SelectTrigger>
-                    <SelectContent>
-                      <SelectItem value="owner">Business Owner</SelectItem>
-                      <SelectItem value="marketing-agency">
-                        Marketing Agency
-                      </SelectItem>
-                      <SelectItem value="employee">Company Employee</SelectItem>
-                      <SelectItem value="freelancer">Freelancer</SelectItem>
-                      <SelectItem value="developer">Developer</SelectItem>
-                      <SelectItem value="something-else">
-                        Something Else
-                      </SelectItem>
-                    </SelectContent>
-                  </Select>
-                </div>
+          {/* Email Input - Full Width */}
+          <div className="grid w-full items-start gap-1.5">
+            <Label htmlFor="email" className="font-medium">
+              Email<span className="text-red-500">*</span>
+            </Label>
+            <Input
+              required
+              type="email"
+              id="email"
+              name="email"
+              className="h-12 p-2.5"
+            />
+          </div>
 
-                {/* Website Input */}
-                <div className="grid w-full items-center gap-3">
-                  <Label htmlFor="website">Your Website</Label>
-                  <Input
-                    required
-                    type="url"
-                    name="website"
-                    placeholder="https://yourwebsite.com"
-                  />
-                </div>
+          {/* Website URL Input - Full Width */}
+          <div className="grid w-full items-start gap-1.5">
+            <Label htmlFor="website" className="font-medium">
+              Website URL<span className="text-red-500">*</span>
+            </Label>
+            <Input
+              required
+              type="url"
+              id="website"
+              name="website"
+              className="h-12 p-2.5"
+            />
+          </div>
 
-                {/* Interest Selection */}
-                <div className="grid w-full items-center gap-3">
-                  <Label htmlFor="interest">
-                    On a scale of 1–10, how critical is it for you to fix your
-                    tracking setup?
-                  </Label>
-                  <Select name="interest">
-                    <SelectTrigger>
-                      <SelectValue placeholder="Select an option" />
-                    </SelectTrigger>
-                    <SelectContent>
-                      <SelectItem value="not-urgent">1: Not Urgent</SelectItem>
-                      <SelectItem value="somewhat-important">
-                        2-4: Somewhat Important
-                      </SelectItem>
-                      <SelectItem value="very-important">
-                        5-7: Very Important
-                      </SelectItem>
-                      <SelectItem value="top-priority">
-                        8-10: Top Priority
-                      </SelectItem>
-                    </SelectContent>
-                  </Select>
-                </div>
+          {/* Budget Dropdown - Full Width */}
+          <div className="grid w-full items-start gap-1.5">
+            <Label htmlFor="budget" className="font-medium">
+              What's your Monthly Ads Spent Budget?
+            </Label>
+            <Select name="budget">
+              <SelectTrigger className="h-12 p-2.5">
+                <SelectValue placeholder="0 to 1,000$" />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectItem value="0-1000">0 to 1,000$</SelectItem>
+                <SelectItem value="1000-5000">$1,000 - $5,000</SelectItem>
+                <SelectItem value="5000-10000">$5,000 - $10,000</SelectItem>
+                <SelectItem value="10000-25000">$10,000 - $25,000</SelectItem>
+                <SelectItem value="25000+">$25,000+</SelectItem>
+              </SelectContent>
+            </Select>
+          </div>
 
-                {/* Tracking Issue Description */}
-                <div className="grid w-full items-center gap-3">
-                  <Label htmlFor="projectDescription">
-                    What’s the biggest issue you’re facing with tracking right
-                    now?
-                  </Label>
-                  <Textarea
-                    name="projectDescription"
-                    required
-                    placeholder="Describe the issues with your tracking..."
-                  />
-                </div>
-
-                {/* Budget Selection */}
-                <div className="grid w-full items-center gap-3">
-                  <Label htmlFor="budget">
-                    Monthly Marketing Adspent Budget (USD)?
-                  </Label>
-                  <Select name="budget">
-                    <SelectTrigger>
-                      <SelectValue placeholder="Facebook Ads, Google Ads etc. Budget" />
-                    </SelectTrigger>
-                    <SelectContent>
-                      <SelectItem value="1000">Less than 1,000$</SelectItem>
-                      <SelectItem value="1000-5000">$1,000 - $5,000</SelectItem>
-                      <SelectItem value="5000-10000">
-                        $5,000 - $10,000
-                      </SelectItem>
-                      <SelectItem value="10000-25000">
-                        $10,000 - $25,000
-                      </SelectItem>
-                      <SelectItem value="25000+">$25,000+</SelectItem>
-                      <SelectItem value="not-sure">Not sure yet</SelectItem>
-                    </SelectContent>
-                  </Select>
-                </div>
-
-                {/* Email Input */}
-                <div className="grid w-full items-center gap-3">
-                  <Label htmlFor="email">Email Address</Label>
-                  <Input
-                    required
-                    type="email"
-                    name="email"
-                    placeholder="your@email.com"
-                  />
-                </div>
-
-                {/* Phone Input */}
-                <div className="grid w-full items-center gap-3">
-                  <Label htmlFor="phone">Phone Number</Label>
-                  <Input
-                    required
-                    type="text"
-                    name="phone"
-                    placeholder="+1 (555) 123-4567"
-                  />
-                </div>
+          {/* Issues Checkboxes - Full Width */}
+          <div className="grid w-full items-start gap-1.5">
+            <Label htmlFor="issues" className="font-medium">
+              Which of these issues are you experiencing?
+            </Label>
+            <div className="mt-1 space-y-2">
+              <div className="flex items-start">
+                <Checkbox
+                  id="issue-1"
+                  name="issues"
+                  value="cant-see-purchases"
+                />
+                <Label htmlFor="issue-1" className="ml-2 text-sm font-normal">
+                  I can't see purchases or conversions from my ads
+                </Label>
               </div>
+              <div className="flex items-start">
+                <Checkbox
+                  id="issue-2"
+                  name="issues"
+                  value="domain-restricted"
+                />
+                <Label htmlFor="issue-2" className="ml-2 text-sm font-normal">
+                  My domain is Restricted or Blocked
+                </Label>
+              </div>
+              <div className="flex items-start">
+                <Checkbox id="issue-3" name="issues" value="tracking-broken" />
+                <Label htmlFor="issue-3" className="ml-2 text-sm font-normal">
+                  My tracking is totally broken
+                </Label>
+              </div>
+              <div className="flex items-start">
+                <Checkbox id="issue-4" name="issues" value="dont-trust-roas" />
+                <Label htmlFor="issue-4" className="ml-2 text-sm font-normal">
+                  I don't trust the ROAS Meta shows me
+                </Label>
+              </div>
+              <div className="flex items-start">
+                <Checkbox id="issue-5" name="issues" value="scaling-issues" />
+                <Label htmlFor="issue-5" className="ml-2 text-sm font-normal">
+                  I'm scaling but don't know what's working
+                </Label>
+              </div>
+              <div className="flex items-start">
+                <Checkbox id="issue-6" name="issues" value="others" />
+                <Label htmlFor="issue-6" className="ml-2 text-sm font-normal">
+                  Others
+                </Label>
+              </div>
+            </div>
+          </div>
 
-              {/* Submit Button */}
-              <SubmitButton />
+          {/* Urgency Scale - Full Width */}
+          <div className="grid w-full items-start gap-1.5">
+            <Label htmlFor="urgency" className="font-medium">
+              On a scale from 1–10, how urgent is it to fix your tracking?
+              <span className="text-red-500">*</span>
+            </Label>
+            <Select name="urgency" required>
+              <SelectTrigger className="h-12 p-2.5">
+                <SelectValue placeholder="Select an option" />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectItem value="1">1 (Not Urgent)</SelectItem>
+                <SelectItem value="2">2</SelectItem>
+                <SelectItem value="3">3</SelectItem>
+                <SelectItem value="4">4</SelectItem>
+                <SelectItem value="5">5</SelectItem>
+                <SelectItem value="6">6</SelectItem>
+                <SelectItem value="7">7</SelectItem>
+                <SelectItem value="8">8</SelectItem>
+                <SelectItem value="9">9</SelectItem>
+                <SelectItem value="10">10 (Extremely Urgent)</SelectItem>
+              </SelectContent>
+            </Select>
+          </div>
 
-              {/* Urgency Message Below Form */}
-              <p className="mt-4 text-center text-sm text-gray-500">
-                🚀{" "}
-                <strong>Only 5 New Clients are Onbaorded Every Month!</strong>{" "}
-                Secure yours now before we fill up.
-              </p>
-            </CardContent>
-          </Card>
+          {/* Submit Button */}
+          <div className="mt-6">
+            <SubmitButton />
+          </div>
         </div>
       </form>
     </div>

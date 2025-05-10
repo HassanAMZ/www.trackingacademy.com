@@ -26,30 +26,31 @@ export async function createContact(formData: FormData) {
 
   const contactsCollection = collection(db, "contacts");
 
+  // Process checkbox values (multiple selections)
+  const issues = formData.getAll("issues");
+
   // Data validation
   const schema = z.object({
-    name: z.string().min(1),
-    roleType: z.string().min(1),
-    website: z.string().url(),
-    interest: z.string().min(1),
-    projectDescription: z.string().min(1),
-    budget: z.string().min(1),
-    email: z.string().email(),
-    phone: z.string().min(1),
+    firstName: z.string().min(1, "First name is required"),
+    lastName: z.string().min(1, "Last name is required"),
+    email: z.string().email("Invalid email address"),
+    website: z.string().url("Invalid website URL"),
+    budget: z.string().optional(),
+    issues: z.array(z.string()).optional(),
+    urgency: z.string().min(1, "Urgency level is required"),
     createdAt: z.instanceof(Timestamp),
   });
 
   let data;
   try {
     data = schema.parse({
-      name: formData.get("name"),
-      roleType: formData.get("roleType"),
-      website: formData.get("website"),
-      interest: formData.get("interest"),
-      projectDescription: formData.get("projectDescription"),
-      budget: formData.get("budget"),
+      firstName: formData.get("firstName"),
+      lastName: formData.get("lastName"),
       email: formData.get("email"),
-      phone: formData.get("phone"),
+      website: formData.get("website"),
+      budget: formData.get("budget") || "Not specified",
+      issues: issues.length > 0 ? issues : ["Not specified"],
+      urgency: formData.get("urgency"),
       createdAt: Timestamp.now(),
     });
   } catch (validationError) {
@@ -60,6 +61,23 @@ export async function createContact(formData: FormData) {
   try {
     const contactDocRef = doc(contactsCollection, timestampId);
 
+    // For email, combine first and last name
+    const fullName = `${data.firstName} ${data.lastName}`;
+
+    // Format issues for email display
+    const issuesFormatted = (data.issues ?? []).join(", ");
+
+    // Prepare email data
+    const emailData = {
+      name: fullName,
+      website: data.website,
+      issues: issuesFormatted,
+      urgency: data.urgency,
+      budget: data.budget || "Not specified",
+      email: data.email,
+      createdAt: data.createdAt,
+    };
+
     // Execute Firebase write and email sending in parallel
     await Promise.all([
       setDoc(contactDocRef, data),
@@ -67,8 +85,8 @@ export async function createContact(formData: FormData) {
         from: "no-reply@trackingacademy.com",
         to: data.email,
         cc: ["reactjswebdev@gmail.com", "analytics@shahzadaalihassan.com"],
-        subject: `Hi, ${data.name}!`,
-        react: ContactUsEmail(data),
+        subject: `Thank you for your interest, ${fullName}!`,
+        react: ContactUsEmail(emailData),
       }),
     ]);
 
