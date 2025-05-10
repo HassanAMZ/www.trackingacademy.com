@@ -5,4 +5,16 @@ module.exports = {
   printWidth: 100,
   tabWidth: 2,
   plugins: ["prettier-plugin-tailwindcss", "prettier-plugin-organize-imports"],
+  importOrder: [
+    "^react(.*)$",
+    "^next(.*)$",
+    "<THIRD_PARTY_MODULES>",
+    "^@/components/(.*)$",
+    "^@/lib/(.*)$",
+    "^@/utils/(.*)$",
+    "^[./]", // relative imports
+  ],
+  importOrderSeparation: true,
+  importOrderSortSpecifiers: true,
+  tailwindFunctions: ["clsx", "cn"], // for prettier-plugin-tailwindcss
 };

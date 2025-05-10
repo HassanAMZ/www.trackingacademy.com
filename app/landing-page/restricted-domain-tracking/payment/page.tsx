@@ -15,7 +15,7 @@ export default async function IndexPage() {
 
   const { client_secret: clientSecret } = await stripe.paymentIntents.create({
     amount: calculateOrderAmount(items),
-    currency: "eur",
+    currency: "usd",
     automatic_payment_methods: {
       enabled: true,
     },
