@@ -44,7 +44,7 @@ export default function Page() {
               {" "}
               Fix Broken Facebook Tracking
             </span>{" "}
-            for Ecom brands so they can finally{" "}
+            for Businesses so they can finally{" "}
             <span className="underline text-primary">scale again</span>
           </h1>
           <h4 className="text-muted-foreground max-w-5xl">
