@@ -12,7 +12,7 @@ export default function Page() {
         your ad performance, staying compliant with Meta Ads policies and a
         future-proof system.
       </h4>
-      <ContactForm redirectUrl="/landing-page/restricted-domain-tracking/book-a-meeting" />
+      <ContactForm redirectUrl="/landing-page/3-days-see-every-sale/book-a-meeting" />
     </Container>
   );
 }

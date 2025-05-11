@@ -35,7 +35,7 @@ function PaymentForm() {
       elements,
       confirmParams: {
         return_url:
-          "http://localhost:3000/landing-page/restricted-domain-tracking/success",
+          "http://localhost:3000/landing-page/3-days-see-every-sale/success",
         receipt_email: email,
       },
     });

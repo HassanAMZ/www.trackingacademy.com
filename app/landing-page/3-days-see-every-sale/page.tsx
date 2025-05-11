@@ -29,7 +29,7 @@ export default function HomePage() {
         headingText="$300 Off – 3-Day 'See Your Sales Again' Tracking Setup"
         subheadingText="Restore accurate tracking for AddToCart, InitiateCheckout, and Purchase events. Get your Meta algorithm the data it needs to optimize for better ROAS and conversions – all with a 95% accuracy guarantee or your money back."
         ctaButtonText="Claim Your $300 Off Today"
-        ctaButtonLink="restricted-domain-tracking/contact"
+        ctaButtonLink="3-days-see-every-sale/contact"
         supportingButtonText="View Client Results"
         supportingButtonLink="#case-studies"
         youtubeEmbedId="9MGpL_AmEYM"
@@ -150,7 +150,7 @@ export default function HomePage() {
         spotsLeft={10}
         daysRemaining={14}
         buttonText="Claim Your $300 Off Now"
-        buttonLink="restricted-domain-tracking/contact"
+        buttonLink="3-days-see-every-sale/contact"
         iconSize={12}
       />
 
@@ -165,7 +165,7 @@ export default function HomePage() {
         spotsLeft={10}
         daysRemaining={14}
         buttonText="See Your Sales Again"
-        buttonLink="restricted-domain-tracking/contact"
+        buttonLink="3-days-see-every-sale/contact"
         iconSize={12}
       />
       <OfferDetails
@@ -333,7 +333,7 @@ export default function HomePage() {
           "95% accuracy guaranteed or your money back",
         ]}
         buttonText="Claim Your $300 Off Now"
-        buttonLink="restricted-domain-tracking/contact"
+        buttonLink="3-days-see-every-sale/contact"
         footerText="Limited to first 10 customers. Offer expires at the end of the month!"
       />
     </main>
