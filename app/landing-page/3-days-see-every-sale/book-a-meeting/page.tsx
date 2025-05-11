@@ -27,7 +27,9 @@ export default function Page() {
   return (
     <section className="grid min-h-screen place-content-center overflow-hidden py-12">
       <Container className="flex w-full max-w-6xl flex-col items-center space-y-8 text-center">
-        <h1>You’ve Locked in Your $300 Coupon — Now Book Your Setup Call</h1>
+        <h1 className="text-primary">
+          You’ve Locked in Your $300 Coupon — Now Book Your Setup Call
+        </h1>
         <h4 className="text-muted-foreground max-w-5xl">
           This 15-minute call is to confirm your eligibility, answer any
           questions, and get your 3-Day “See Every Sale” Tracking System

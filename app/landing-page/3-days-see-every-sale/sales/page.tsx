@@ -63,8 +63,9 @@ export default function Page() {
     <section className="grid min-h-screen place-content-center overflow-hidden py-12">
       <Container className="flex max-w-6xl flex-col items-center space-y-8 text-center">
         <h1>
-          3-Day “See Every Sale” Tracking Setup For Facebook's Data Sharing
-          Restrictions
+          300$ off: 3-Day{" "}
+          <span className="text-primary"> “See Every Sale”</span> Tracking Setup
+          For Facebook's Data Sharing Restrictions
         </h1>
         <h4 className="text-muted-foreground max-w-3xl">
           Discover how our 3-Day ‘See Every Sale’ System brings back your
@@ -83,12 +84,13 @@ export default function Page() {
           className="hover:bg-primary/90 flex flex-col py-20 text-xl font-bold text-wrap whitespace-pre-wrap sm:py-16 md:py-12"
           asChild
         >
-          <Link href="https://buy.stripe.com/28odUW1U72AD87ubIK?prefilled_promo_code=300OFFRESTRICTEDDATA">
+          <Link href="./book-a-meeting">
             <div>
-              💰 Ready to reclaim your Meta tracking (and $300 off)?
-              <span className="mt-2 block text-sm font-medium opacity-90">
-                Click here and the Discount code will be added to the checkout
-                automatically
+              🔒 Book Your Free 15-Minute Setup Call
+              <br />
+              <span className="mt-2 block text-sm font-medium ">
+                We’ll confirm your eligibility, answer questions, and reserve
+                your $300 discount — setup begins right after
               </span>
             </div>
           </Link>
@@ -101,15 +103,15 @@ export default function Page() {
             className="max-w-lg text-wrap whitespace-pre-wrap"
             asChild
           >
-            <Link href="./book-a-meeting">
+            <Link href="https://buy.stripe.com/28odUW1U72AD87ubIK?prefilled_promo_code=300OFFRESTRICTEDDATA">
               <div>
                 <span className="underline">
-                  🔒 Book Your Free 15-Minute Setup Call
+                  💰 Ready to reclaim your Meta tracking (and $300 off)?
                 </span>
                 <br />
-                <span>
-                  We’ll confirm your eligibility, answer questions, and reserve
-                  your $300 discount — setup begins right after
+                <span className="">
+                  Click here and the Discount code will be added to the checkout
+                  automatically
                 </span>
               </div>
             </Link>
