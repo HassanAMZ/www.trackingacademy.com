@@ -97,11 +97,9 @@ export default function Page() {
             </div>
           </Button>
 
-          <h1 className="pt-12">Don't just take our word for it</h1>
-          <h4 className="text-muted-foreground max-w-5xl">
-            See how ecommerce brands like yours are scaling faster with accurate
-            Facebook tracking.
-          </h4>
+          <h1 className="pt-12 pb-6">
+            100+ Satisfied Customers Can’t Be Wrong
+          </h1>
 
           <TestimonialsCarousel />
         </Container>
