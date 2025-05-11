@@ -25,7 +25,7 @@ function TestimonialGrid({
                 <div className="bg-primary mr-4 flex h-10 w-10 items-center justify-center rounded-full text-white">
                   {testimonial.author[0].toUpperCase()}
                 </div>
-                <div>
+                <div className="items-start flex flex-col">
                   <p className="font-semibold">{testimonial.author}</p>
                   {testimonial.role && ( // Conditionally render role if it exists
                     <p className="text-muted-foreground text-sm">

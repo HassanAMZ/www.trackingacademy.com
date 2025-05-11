@@ -2,6 +2,7 @@
 
 import CouponOptInForm from "@/components/landing-page/coupon-optin";
 import TestimonialsCarousel from "@/components/testimonial/testimonial-carousal";
+import TestimonialGrid from "@/components/testimonial/testimonial-grid";
 import { Button } from "@/components/ui/button";
 import Container from "@/components/ui/container";
 import {
@@ -95,7 +96,17 @@ export default function Page() {
               </span>
             </div>
           </Button>
+
+          <h1 className="pt-12">Don't just take our word for it</h1>
+          <h4 className="text-muted-foreground max-w-5xl">
+            See how ecommerce brands like yours are scaling faster with accurate
+            Facebook tracking.
+          </h4>
+
           <TestimonialsCarousel />
+        </Container>
+        <Container className="py-12">
+          <TestimonialGrid />
         </Container>
       </section>
 
