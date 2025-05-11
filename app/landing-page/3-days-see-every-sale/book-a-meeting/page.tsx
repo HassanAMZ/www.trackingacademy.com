@@ -26,15 +26,20 @@ export default function Page() {
   }, []);
 
   return (
-    <Container className="min-h-screen w-full max-w-5xl p-4">
-      <h1 className="text-primary p-4 text-center">Book a call</h1>
-      <h4 className="text-muted-foreground p-4 text-center">
-        Schedule a time that works for you
-      </h4>
-      <div
-        className="meetings-iframe-container"
-        data-src="https://meetings.hubspot.com/shahzada-ali?embed=true"
-      ></div>
-    </Container>
+    <section className="grid min-h-screen place-content-center overflow-hidden py-12">
+      <Container className="flex w-full max-w-6xl flex-col items-center space-y-8 text-center">
+        <h1>You’ve Locked in Your $300 Coupon — Now Book Your Setup Call</h1>
+        <h4 className="text-muted-foreground max-w-5xl">
+          This 15-minute call is to confirm your eligibility, answer any
+          questions, and get your 3-Day “See Every Sale” Tracking System
+          started.
+        </h4>
+
+        <div
+          className="meetings-iframe-container w-full"
+          data-src="https://meetings.hubspot.com/shahzada-ali?embed=true"
+        ></div>
+      </Container>
+    </section>
   );
 }

@@ -35,18 +35,20 @@ export default function Page() {
 
   return (
     <>
-      <section className="grid min-h-screen place-content-center overflow-hidden py-16">
-        <Container className="flex max-w-7xl flex-col items-center space-y-8 text-center">
+      <section className="grid min-h-screen place-content-center overflow-hidden py-12">
+        <Container className="flex max-w-6xl flex-col items-center space-y-8 text-center">
           <h1>
-            Fix Your Facebook's Data Sharing Restrictions and Restore 95%+
-            Accurate Data for Facebook Ads
+            300$ off: 3-Day “See Every Sale” Tracking Setup For Facebook's Data
+            Sharing Restrictions
           </h1>
-          <h4 className="text-muted-foreground max-w-4xl">
-            All done-for-you, in just 3 days, without violating Facebook's
-            policies or getting flagged. Track every ecommerce event.
+          <h4 className="text-muted-foreground max-w-5xl">
+            Fix Your Facebook's Data Sharing Restrictions and Restore 95%+
+            Accurate Data for Facebook Ads. All done-for-you, in just 3 days,
+            without violating Facebook's policies or getting flagged. Track
+            every ecommerce event.
           </h4>
 
-          <div className="grid w-full max-w-6xl gap-8 px-3 py-6 md:grid-cols-2">
+          <div className="grid w-full gap-8 px-3 py-6 md:grid-cols-2">
             {/* Left: Bullet Points */}
             <div className="order-1 flex flex-col justify-around space-y-6 text-left sm:-order-1 md:pr-4">
               {bulletPoints.map((point, i) => (
@@ -57,7 +59,7 @@ export default function Page() {
                     </div>
                   </div>
                   <h4 className="text-foreground ml-3">
-                    <span className="font-medium">{point.title}</span>{" "}
+                    <span className="font-semibold">{point.title}</span>{" "}
                     {point.subtitle}
                   </h4>
                 </div>
@@ -70,7 +72,7 @@ export default function Page() {
                 <Image
                   src="/images/hero/data-sharing-restrcition-03.png"
                   alt="Illustration of social sharing and data tracking"
-                  width={1080}
+                  width={1920}
                   height={1080}
                   className="rounded-lg"
                 />
@@ -81,11 +83,11 @@ export default function Page() {
           {/* CTA Button */}
           <Button
             size="lg"
-            className="hover:bg-primary/90 flex flex-col py-20 text-xl font-bold text-wrap whitespace-pre-wrap sm:py-16 md:py-12"
+            className="hover:bg-primary/90 flex flex-col py-20 text-xl font-bold text-wrap whitespace-pre-wrap hover:cursor-pointer sm:py-16 md:py-12"
             onClick={() => setIsModalOpen(true)}
           >
             <div>
-              Claim Your $300 Coupon for 3-Day "See Every Sale™" Tracking
+              🎟️ Claim Your $300 Coupon for 3-Day "See Every Sale" Tracking
               System
               <span className="mt-2 block text-sm font-medium opacity-90">
                 Limited to the first 10 clients — act fast before it expires
@@ -103,7 +105,7 @@ export default function Page() {
               Claim Your $300 Coupon
             </DialogTitle>
           </DialogHeader>
-          <CouponOptInForm redirectUrl="/landing-page/3-days-see-every-sale/book-a-meeting" />
+          <CouponOptInForm redirectUrl="/landing-page/3-days-see-every-sale/sales" />
         </DialogContent>
       </Dialog>
     </>

@@ -1,4 +1,5 @@
-import React from "react";
+"use client";
+import React, { useState } from "react";
 import Navbar from "@/components/global/navbar";
 import Hero from "@/components/landing-page/hero";
 import ProblemAwareness from "@/components/landing-page/problem-awareness";
@@ -8,6 +9,8 @@ import SocialProof from "@/components/landing-page/social-proof";
 import ObjectionHandling from "@/components/landing-page/objection-handling";
 import DetailedCTA from "@/components/landing-page/detailed-cta";
 import TestimonialsCarousel from "@/components/testimonial/testimonial-carousal";
+import { Button } from "@/components/ui/button";
+import Link from "next/link";
 import {
   BarChart2,
   CheckSquare,
@@ -22,29 +25,32 @@ import CaseStudy from "@/components/global/CaseStudy";
 import caseStudies from "@/data/case-studies";
 
 export default function HomePage() {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
   return (
     <main>
       <Hero
-        badgeText="WARNING: Domain Restricted? Cannot See Conversions?"
-        headingText="$300 Off – 3-Day 'See Your Sales Again' Tracking Setup"
-        subheadingText="Restore accurate tracking for AddToCart, InitiateCheckout, and Purchase events. Get your Meta algorithm the data it needs to optimize for better ROAS and conversions – all with a 95% accuracy guarantee or your money back."
-        ctaButtonText="Claim Your $300 Off Today"
-        ctaButtonLink="3-days-see-every-sale/contact"
-        supportingButtonText="View Client Results"
-        supportingButtonLink="#case-studies"
-        youtubeEmbedId="9MGpL_AmEYM"
+        badgeText="WARNING: Missing Meta Conversion Data Costing You Sales?"
+        headingText="3-Day “See Every Sale” Tracking Setup For Facebook's Data Sharing Restrictions"
+        subheadingText="Fix Your Facebook's Data Sharing Restrictions and Restore 95%+
+            Accurate Data for Facebook Ads. All done-for-you, in just 3 days,
+            without violating Facebook's policies or getting flagged. Track
+            every ecommerce event."
         supportingComponent={
           <TestimonialsCarousel className="mx-auto max-w-2xl" />
         }
+        youtubeEmbedId="9MGpL_AmEYM"
+        ctaButtonLink="https://buy.stripe.com/28odUW1U72AD87ubIK?prefilled_promo_code=300OFFRESTRICTEDDATA"
+        supportingButtonText="View Client Results"
+        supportingButtonLink="#case-studies"
+        ctaButtonText="💰 Ready to reclaim your Meta tracking (and $300 off)?"
       />
 
-      {/* <CaseStudy client={caseStudies[1]} /> */}
-
       <ProblemAwareness
-        headingText="The Hidden Costs of Restricted Domains & Lost Conversion Data"
+        headingText="The Hidden Costs of Missing Conversion Data"
         paragraphText="Without accurate funnel tracking, your Meta ads lack the data to optimize for conversions, resulting in wasted budget and poor ROAS."
         redPillPoints={[
-          "Can't See AddToCart, Checkout & Purchase Events",
+          "Can't See Add to Cart, Checkout & Purchase Events",
           "Meta Algorithm Can't Optimize for Conversions",
           "Wasting Ad Budget on Poorly Targeted Audiences",
           "Unable to Scale Due to Missing Data",
@@ -56,13 +62,13 @@ export default function HomePage() {
           "Give Meta the Data it Needs to Optimize",
           "Make Informed Scaling Decisions",
           "Stay Compliant With Meta's Policies",
-          "Outperform Competitors With Better Data",
+          "Track 30% More Conversions Than Standard Setups",
         ]}
       />
 
       <OfferDetails
-        headerTitle="3-Day 'See Your Sales Again' Tracking Setup"
-        headerDescription="A complete system designed to solve your domain restriction issues, recover lost conversion data, and supercharge your Meta ads ROAS."
+        headerTitle="3-Day 'See Every Sale' Tracking System"
+        headerDescription="A complete system designed to fix Facebook's data sharing restrictions and restore 95%+ accurate data for every key event — all done-for-you in just 3 days."
         offerItems={[
           {
             title: "3-Day Tracking Implementation",
@@ -73,12 +79,12 @@ export default function HomePage() {
               "Comprehensive audit of your current setup",
               "Custom tracking implementation for your specific needs",
               "Full recovery of middle and bottom funnel events",
-              "Compliant with Meta's latest policies",
+              "Works for banned, blocked, or blacklisted niches",
             ],
             image: "/images/hero/tracking-aduit.png",
           },
           {
-            title: "Looker Studio Ecommerce Report",
+            title: "Looker Studio Ecommerce Dashboard",
             description:
               "Visualize your sales data with a custom, easy-to-read dashboard tailored for your business.",
             icon: BarChart2,
@@ -104,12 +110,38 @@ export default function HomePage() {
             image: "/images/hero/measurement-planning.png",
           },
           {
-            title: "E-commerce Conversion Checklist",
+            title: "Google Ads Conversion Tracking",
+            description:
+              "Implement accurate Google Ads conversion tracking to maximize your PPC performance.",
+            icon: Target,
+            benefits: [
+              "95% accurate conversion tracking",
+              "Custom conversion setup tailored to your business",
+              "Proper attribution modeling",
+              "Enhanced campaign optimization",
+            ],
+            image: "/images/hero/measurement-planning.png",
+          },
+          {
+            title: "GDPR & CCPA Cookie Consent Setup",
+            description:
+              "Stay compliant with privacy regulations while maintaining effective tracking.",
+            icon: CheckSquare,
+            benefits: [
+              "Fully compliant cookie consent system",
+              "Customized for your specific business needs",
+              "Balanced for both compliance and tracking effectiveness",
+              "Future-proofed against privacy regulation changes",
+            ],
+            image: "/images/hero/ecommerce-conversion-checklist.png",
+          },
+          {
+            title: "47-Point Ecom Conversion Checklist",
             description:
               "Optimize your funnel with our proven checklist to boost conversions and ROAS.",
             icon: CheckSquare,
             benefits: [
-              "300+ critical conversion checkpoints",
+              "47 critical conversion checkpoints",
               "Insights from top converting stores",
               "Decrease customer acquisition costs",
               "Increase average order value and conversion rates",
@@ -117,15 +149,15 @@ export default function HomePage() {
             image: "/images/hero/ecommerce-conversion-checklist.png",
           },
           {
-            title: "Advanced Tools & Calculators",
+            title: "ROI & LTV Tracking Toolkit",
             description:
               "Access powerful tools to analyze and scale your ad campaigns with confidence.",
             icon: BarChart2,
             benefits: [
               "ROAS calculators and forecasting tools",
+              "Customer lifetime value tracking",
               "Budget allocation optimizers",
               "Campaign performance analyzers",
-              "Audience insights tools",
             ],
             image: "/images/hero/tools-and-calculators.png",
           },
@@ -149,28 +181,28 @@ export default function HomePage() {
         description="To ensure personalized attention and maximize results, this offer is limited to the first 10 businesses and expires at the end of the month."
         spotsLeft={10}
         daysRemaining={14}
-        buttonText="Claim Your $300 Off Now"
-        buttonLink="3-days-see-every-sale/contact"
         iconSize={12}
+        buttonLink="https://buy.stripe.com/28odUW1U72AD87ubIK?prefilled_promo_code=300OFFRESTRICTEDDATA"
+        buttonText={`🎟️ Claim Your $300 Coupon for 3-Day "See Every Sale" Tracking System `}
       />
 
       <SocialProof
-        sectionTitle="Health & Wellness Businesses Trust Our Tracking Solution"
+        sectionTitle="Ecommerce Brands Trust Our Tracking Solution"
         sectionDescription="See how we've helped businesses just like yours restore tracking and scale their ad campaigns."
         testimonials={testimonials}
       />
       <ScarcityUrgency
         title="Only 10 Spots Available at $300 Off"
-        description="Secure your spot before prices return to $1,500. This discount expires at the end of the month."
+        description="Secure your spot before prices return to $1,500. This discount expires at the end of the month!"
         spotsLeft={10}
         daysRemaining={14}
-        buttonText="See Your Sales Again"
-        buttonLink="3-days-see-every-sale/contact"
         iconSize={12}
+        buttonLink="https://buy.stripe.com/28odUW1U72AD87ubIK?prefilled_promo_code=300OFFRESTRICTEDDATA"
+        buttonText={`💸 Claim Your 3-Day "See Every Sale" Tracking System Now.`}
       />
       <OfferDetails
-        headerTitle="Total Value: $3,200 - Yours for Just $1,200"
-        headerDescription="Here's everything included in your 3-Day 'See Your Sales Again' Tracking Setup."
+        headerTitle="Total Value: $9,100 - Yours for Just $1,200"
+        headerDescription="Here's everything included in your 3-Day 'See Every Sale' Tracking System."
         offerItems={[
           {
             title: "3-Day Tracking Implementation",
@@ -182,16 +214,16 @@ export default function HomePage() {
               "Comprehensive audit of your current setup",
               "Custom tracking implementation",
               "Full recovery of middle and bottom funnel events",
-              "Compliant with Meta's latest policies",
+              "Works for banned, blocked, or blacklisted niches",
             ],
             image: "/images/hero/tracking-aduit.png",
           },
           {
-            title: "Looker Studio Ecommerce Report",
+            title: "Looker Studio Ecommerce Dashboard",
             description:
               "Visualize your sales data with a custom, easy-to-read dashboard.",
             icon: BarChart2,
-            price: "$500",
+            price: "$2,000",
             benefits: [
               "Custom dashboard for your specific KPIs",
               "Live performance metrics for ad campaigns",
@@ -205,7 +237,7 @@ export default function HomePage() {
             description:
               "Ensure precise Google Analytics 4 tracking for reliable data.",
             icon: Target,
-            price: "$500",
+            price: "$1,200",
             benefits: [
               "Proper GA4 implementation and configuration",
               "Custom event tracking tailored to your business",
@@ -215,12 +247,40 @@ export default function HomePage() {
             image: "/images/hero/measurement-planning.png",
           },
           {
-            title: "E-commerce Conversion Checklist",
+            title: "Google Ads Conversion Tracking",
+            description:
+              "Implement accurate Google Ads conversion tracking for maximum PPC performance.",
+            icon: Target,
+            price: "$1,200",
+            benefits: [
+              "95% accurate conversion tracking",
+              "Custom conversion setup tailored to your business",
+              "Proper attribution modeling",
+              "Enhanced campaign optimization",
+            ],
+            image: "/images/hero/measurement-planning.png",
+          },
+          {
+            title: "GDPR & CCPA Cookie Consent Setup",
+            description:
+              "Stay compliant with privacy regulations while maintaining effective tracking.",
+            icon: CheckSquare,
+            price: "$1,200",
+            benefits: [
+              "Fully compliant cookie consent system",
+              "Customized for your specific business needs",
+              "Balanced for both compliance and tracking effectiveness",
+              "Future-proofed against privacy regulation changes",
+            ],
+            image: "/images/hero/ecommerce-conversion-checklist.png",
+          },
+          {
+            title: "47-Point Ecom Conversion Checklist",
             description: "Optimize your funnel with our proven checklist.",
             icon: CheckSquare,
-            price: "$500",
+            price: "$1,500",
             benefits: [
-              "300+ critical conversion checkpoints",
+              "47 critical conversion checkpoints",
               "Insights from top converting stores",
               "Decrease customer acquisition costs",
               "Increase average order value and conversion rates",
@@ -228,16 +288,16 @@ export default function HomePage() {
             image: "/images/hero/ecommerce-conversion-checklist.png",
           },
           {
-            title: "Advanced Tools & Calculators",
+            title: "ROI & LTV Tracking Toolkit",
             description:
               "Access powerful tools to analyze and scale your campaigns.",
             icon: BarChart2,
-            price: "$700",
+            price: "$500",
             benefits: [
               "ROAS calculators and forecasting tools",
+              "Customer lifetime value tracking",
               "Budget allocation optimizers",
               "Campaign performance analyzers",
-              "Audience insights tools",
             ],
             image: "/images/hero/tools-and-calculators.png",
           },
@@ -246,13 +306,14 @@ export default function HomePage() {
 
       <WhyChooseSection
         heading="Why Choose Our Tracking Solution?"
-        subheading="We specialize in helping health and wellness businesses restore their Meta ads tracking and scale with confidence."
+        subheading="We specialize in helping ecommerce brands restore their Meta ads tracking and scale with confidence."
         eyebrow="What Sets Us Apart"
         value={[
           "100% client satisfaction with proven ROAS improvements",
-          "Expert team that understands Meta's policies and restrictions",
-          "Advanced tracking methods that stay compliant and future-proof",
-          "Rapid 3-day implementation to get you back on track fast",
+          "Policy-safe approach that doesn't violate Meta's guidelines",
+          "Works for banned, blocked, or blacklisted niches",
+          "Future-proofed against Apple & browser tracking restrictions",
+          "30% more conversion tracking than standard Meta setups",
         ]}
         image="/images/hero/unified-dashboard.png"
       />
@@ -270,8 +331,8 @@ export default function HomePage() {
       />
 
       <AlternativesSection
-        heading="Your Options When Facing Domain Restrictions"
-        subheading="Our service is ideal for health and wellness businesses who:"
+        heading="Your Options When Facing Meta Tracking Issues"
+        subheading="Our service is ideal for ecommerce brands who:"
         values={[
           {
             number: "1",
@@ -293,9 +354,9 @@ export default function HomePage() {
           },
           {
             number: "4",
-            title: "Value expertise",
+            title: "Are in banned or restricted niches",
             description:
-              "Work with specialists in Meta ads tracking and compliance",
+              "Our system works even if you've been banned or throttled",
           },
         ]}
         alternatives={[
@@ -305,19 +366,19 @@ export default function HomePage() {
               "A viable option if you have technical expertise and time to navigate Meta's complex tracking requirements and server-side implementations. Most business owners waste weeks trying before seeking professional help.",
           },
           {
-            title: "Hire a General Agency",
+            title: "Use Sketchy Third-Party Scripts",
             content:
-              "While agencies can help with ad creative and campaigns, most lack the specialized knowledge needed to solve domain restriction issues and implement proper tracking that remains compliant with Meta's policies.",
+              "Some solutions violate Meta's policies and put your ad account at risk of being banned. Our solution is 100% policy-compliant while still delivering accurate data.",
           },
           {
             title: "Stop Running Meta Ads",
             content:
-              "Some businesses simply give up on Meta ads when facing tracking issues. This means missing out on one of the most effective marketing channels for health and wellness businesses.",
+              "Some businesses simply give up on Meta ads when facing tracking issues. This means missing out on one of the most effective marketing channels for ecommerce brands.",
           },
           {
             title: "Our 3-Day Solution",
             content:
-              "We specialize exclusively in solving tracking issues for health and wellness businesses. With our proven system, you'll have accurate tracking in just 3 days without the headaches, wasted time, or missed opportunities.",
+              "We specialize exclusively in solving tracking issues for ecommerce brands. With our proven system, you'll have accurate tracking in just 3 days without the headaches, wasted time, or policy violations.",
           },
         ]}
       />
@@ -326,15 +387,15 @@ export default function HomePage() {
         heading="Claim Your $300 Off Today"
         subheading="Restore Your Meta Ads Tracking in Just 3 Days"
         listItems={[
-          "See your AddToCart, Checkout & Purchase events again",
+          "See your ViewContent, AddToCart, Checkout & Purchase events again",
           "Get the data Meta needs to optimize your campaigns",
           "Make informed scaling decisions with accurate tracking",
-          "Increase ROAS with our proven tracking system",
+          "Works for banned, blocked, or blacklisted niches",
           "95% accuracy guaranteed or your money back",
         ]}
-        buttonText="Claim Your $300 Off Now"
-        buttonLink="3-days-see-every-sale/contact"
         footerText="Limited to first 10 customers. Offer expires at the end of the month!"
+        buttonText={`🚀 Get Started With Your "See Every Sale" `}
+        buttonLink="https://buy.stripe.com/28odUW1U72AD87ubIK?prefilled_promo_code=300OFFRESTRICTEDDATA"
       />
     </main>
   );

@@ -36,7 +36,7 @@ export default function CouponRequestEmail({
     <Html>
       <Head>
         <title>
-          Your $300 Coupon Code for the 3-Day "See Every Sale™" Tracking System
+          Your $300 Coupon Code for the 3-Day "See Every Sale" Tracking System
         </title>
       </Head>
       <Preview>
@@ -62,7 +62,7 @@ export default function CouponRequestEmail({
 
             <Text style={greeting}>Hi {name},</Text>
             <Text style={paragraph}>
-              Thanks for your interest in our 3-Day "See Every Sale™" Tracking
+              Thanks for your interest in our 3-Day "See Every Sale" Tracking
               System. Here's your exclusive $300 coupon code to use during
               checkout:
             </Text>
@@ -73,8 +73,8 @@ export default function CouponRequestEmail({
             </Section>
 
             <Text style={paragraph}>
-              This coupon gives you $300 OFF the complete 3-Day "See Every
-              Sale™" Tracking System — helping you fix Facebook's data sharing
+              This coupon gives you $300 OFF the complete 3-Day "See Every Sale"
+              Tracking System — helping you fix Facebook's data sharing
               restrictions and restore 95%+ accurate data for every ecommerce
               event.
             </Text>
@@ -98,10 +98,10 @@ export default function CouponRequestEmail({
             <Text style={smallText}>
               Or use this direct link to purchase with your coupon:{" "}
               <Link
-                href="https://buy.stripe.com/28odUW1U72AD87ubIK"
+                href="https://buy.stripe.com/28odUW1U72AD87ubIK?prefilled_promo_code=300OFFRESTRICTEDDATA"
                 style={link}
               >
-                https://buy.stripe.com/28odUW1U72AD87ubIK
+                https://buy.stripe.com/28odUW1U72AD87ubIK?prefilled_promo_code=300OFFRESTRICTEDDATA
               </Link>
             </Text>
           </Section>
@@ -112,8 +112,8 @@ export default function CouponRequestEmail({
               What You'll Get With Your Purchase:
             </Heading>
             <Text style={bonusPoint}>
-              ✅ Complete "See Every Sale™" Tracking System ($1,500 value -
-              $300 OFF with your coupon)
+              ✅ Complete "See Every Sale" Tracking System ($1,500 value - $300
+              OFF with your coupon)
             </Text>
             <Text style={bonusPoint}>
               ✅ Looker Studio Ecommerce Dashboard Setup ($2,000 Value)

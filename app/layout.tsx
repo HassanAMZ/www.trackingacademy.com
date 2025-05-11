@@ -20,13 +20,13 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <ViewTransition>
-      <html lang="en" className={GeistSans.className}>
+      <html lang="en" className={GeistSans.className} suppressHydrationWarning>
         <body>
           <AuthContextProvider>
             <ThemeProvider
               attribute="class"
               defaultTheme="light"
-              enableSystem={true}
+              enableSystem
               disableTransitionOnChange
             >
               {children}

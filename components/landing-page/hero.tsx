@@ -33,7 +33,7 @@ const Hero: React.FC<HeroProps> = ({
     <section className="grid place-content-center overflow-hidden py-16">
       <Container className="flex flex-col items-center justify-center space-y-8 text-center">
         {badgeText && (
-          <Badge variant="outline" className="text-red-500">
+          <Badge variant="outline" className="text-destructive">
             {badgeText}
           </Badge>
         )}
