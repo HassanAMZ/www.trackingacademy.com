@@ -1,22 +1,22 @@
-import { ChevronDown, BookOpen, GraduationCap } from "lucide-react";
 import {
   Sidebar,
   SidebarContent,
   SidebarGroup,
   SidebarGroupLabel,
-  SidebarMenu,
-  SidebarMenuItem,
-  SidebarMenuButton,
   SidebarHeader,
+  SidebarMenu,
+  SidebarMenuButton,
+  SidebarMenuItem,
 } from "@/components/ui/sidebar";
+import { ChevronDown, GraduationCap } from "lucide-react";
 import Link from "next/link";
 
-import { getCourseModules } from "@/utils/course-utils";
 import {
   Collapsible,
   CollapsibleContent,
   CollapsibleTrigger,
 } from "@/components/ui/collapsible";
+import { getCourseModules } from "@/utils/course-utils";
 
 type CourseSidebarProps = {
   course: string;

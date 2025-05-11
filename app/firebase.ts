@@ -1,8 +1,8 @@
 // config/firebase.ts
 import { initializeApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
-import { getFirestore } from "firebase/firestore";
 import { getDatabase } from "firebase/database";
+import { getFirestore } from "firebase/firestore";
 
 interface FirebaseConfig {
   apiKey: string;

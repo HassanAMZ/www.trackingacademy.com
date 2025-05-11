@@ -13,14 +13,7 @@ import {
 } from "@/components/ui/card";
 import { useAuth } from "@/context/AuthContext";
 import { PersonIcon } from "@radix-ui/react-icons";
-import {
-  ArrowRight,
-  CheckCircle,
-  CircleCheck,
-  CircleCheckIcon,
-  Download,
-  Loader2,
-} from "lucide-react";
+import { CheckCircle, Download, Loader2 } from "lucide-react";
 import { useEffect, useState } from "react";
 import Container from "../ui/container";
 

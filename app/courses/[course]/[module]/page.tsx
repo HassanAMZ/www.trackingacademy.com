@@ -1,14 +1,4 @@
-import {
-  getCourseModules,
-  getCourses,
-  getModuleContent,
-} from "@/utils/course-utils";
-import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Separator } from "@/components/ui/separator";
-import { Clock, BookOpen, ChevronRight } from "lucide-react";
-import Container from "@/components/ui/container";
-import Link from "next/link";
 import {
   Breadcrumb,
   BreadcrumbItem,
@@ -17,8 +7,17 @@ import {
   BreadcrumbPage,
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
+import { Card, CardHeader, CardTitle } from "@/components/ui/card";
+import { Separator } from "@/components/ui/separator";
 import { SidebarTrigger } from "@/components/ui/sidebar";
+import {
+  getCourseModules,
+  getCourses,
+  getModuleContent,
+} from "@/utils/course-utils";
+import { BookOpen, ChevronRight, Clock } from "lucide-react";
 import { Metadata } from "next";
+import Link from "next/link";
 
 export async function generateMetadata({
   params,

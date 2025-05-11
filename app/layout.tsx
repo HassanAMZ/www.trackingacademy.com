@@ -6,8 +6,11 @@ import "@/styles/global.css";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { GeistSans } from "geist/font/sans";
 import type { Metadata } from "next";
-import { unstable_ViewTransition as ViewTransition } from "react";
-import { ReactNode, Suspense } from "react";
+import {
+  ReactNode,
+  Suspense,
+  unstable_ViewTransition as ViewTransition,
+} from "react";
 import { AuthContextProvider } from "./context/AuthContext";
 export const metadata: Metadata = {
   title: "TrackingAcademy - Top Rated Web Analytics Agency",

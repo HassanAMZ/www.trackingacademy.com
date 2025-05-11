@@ -1,6 +1,4 @@
-import { Card, CardContent } from "@/components/ui/card";
 import Container from "@/components/ui/container";
-import { Quote } from "lucide-react";
 import React from "react";
 import TestimonialGrid from "../testimonial/testimonial-grid";
 

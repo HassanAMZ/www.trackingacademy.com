@@ -4,13 +4,13 @@ import generateSchema from "@/components/seo/generateSchema";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
 import { PostMetadataProps } from "@/types/index";
-import Link from "next/link";
 import Image from "next/image";
+import Link from "next/link";
 import Script from "next/script";
 import React from "react";
 import YoutubeEmbed from "../global/youtube-embed";
+import { Card, CardContent } from "../ui/card";
 import BreadCrumbs from "./bread-crumb";
-import { CardContent, Card } from "../ui/card";
 
 const BlogHeader: React.FC<PostMetadataProps> = ({ metadata }) => {
   const schema = generateSchema(metadata);

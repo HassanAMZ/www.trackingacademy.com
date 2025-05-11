@@ -1,7 +1,5 @@
 "use client";
 
-import React, { useState } from "react";
-import Image from "next/image";
 import { Card, CardContent } from "@/components/ui/card";
 import {
   Collapsible,
@@ -9,14 +7,16 @@ import {
   CollapsibleTrigger,
 } from "@/components/ui/collapsible";
 import {
-  ChevronRight,
   ChevronDown,
+  ChevronRight,
+  Lightbulb,
   Rocket,
   Target,
-  Trophy,
-  Lightbulb,
   TrendingUp,
+  Trophy,
 } from "lucide-react";
+import Image from "next/image";
+import React, { useState } from "react";
 import Container from "../ui/container";
 
 interface DreamOutcomeProps {

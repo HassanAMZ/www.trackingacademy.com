@@ -1,7 +1,6 @@
 "use client";
 
 import ContactUs from "@/components/blog/call-to-action-message-us";
-import Navbar from "@/components/global/navbar";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { toast } from "@/components/ui/hooks/use-toast";

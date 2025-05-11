@@ -1,9 +1,8 @@
 "use client";
 
-import { useState } from "react";
-import Container from "@/components/ui/container";
-import { Button } from "@/components/ui/button";
 import YoutubeEmbed from "@/components/global/youtube-embed";
+import { Button } from "@/components/ui/button";
+import Container from "@/components/ui/container";
 import Link from "next/link";
 
 import { useEffect } from "react";

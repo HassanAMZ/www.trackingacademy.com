@@ -1,30 +1,30 @@
-import React from "react";
-import { Input } from "@/components/ui/input";
 import { Card } from "@/components/ui/card";
+import { Input } from "@/components/ui/input";
+import React from "react";
 
 import {
-  LineChart,
+  CartesianGrid,
+  Cell,
+  Legend,
   Line,
+  LineChart,
+  Pie,
+  PieChart,
+  ResponsiveContainer,
+  Tooltip,
   XAxis,
   YAxis,
-  CartesianGrid,
-  Tooltip,
-  Legend,
-  ResponsiveContainer,
-  PieChart,
-  Pie,
-  Cell,
 } from "recharts";
 
-import { DollarSign, Users, Target } from "lucide-react";
 import { BusinessMetrics } from "@/utils/business-calculator";
+import { DollarSign, Target, Users } from "lucide-react";
 import {
-  TableHeader,
-  TableRow,
   Table,
-  TableHead,
   TableBody,
   TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
 } from "../ui/table";
 
 interface ProjectionTableProps {

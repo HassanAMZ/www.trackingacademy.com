@@ -1,16 +1,15 @@
 "use client";
-import React, { useState } from "react";
-import Navbar from "@/components/global/navbar";
+import AlternativesSection from "@/components/home/alternative-section";
+import WhyChooseSection from "@/components/home/why-choose-us";
+import DetailedCTA from "@/components/landing-page/detailed-cta";
 import Hero from "@/components/landing-page/hero";
-import ProblemAwareness from "@/components/landing-page/problem-awareness";
+import ObjectionHandling from "@/components/landing-page/objection-handling";
 import OfferDetails from "@/components/landing-page/offer-detail-item";
+import ProblemAwareness from "@/components/landing-page/problem-awareness";
 import ScarcityUrgency from "@/components/landing-page/scarcity-urgency";
 import SocialProof from "@/components/landing-page/social-proof";
-import ObjectionHandling from "@/components/landing-page/objection-handling";
-import DetailedCTA from "@/components/landing-page/detailed-cta";
 import TestimonialsCarousel from "@/components/testimonial/testimonial-carousal";
-import { Button } from "@/components/ui/button";
-import Link from "next/link";
+import { testimonials } from "@/data/testimonials";
 import {
   BarChart2,
   CheckSquare,
@@ -18,11 +17,7 @@ import {
   Target,
   Zap,
 } from "lucide-react";
-import WhyChooseSection from "@/components/home/why-choose-us";
-import AlternativesSection from "@/components/home/alternative-section";
-import { testimonials } from "@/data/testimonials";
-import CaseStudy from "@/components/global/CaseStudy";
-import caseStudies from "@/data/case-studies";
+import { useState } from "react";
 
 export default function HomePage() {
   const [isModalOpen, setIsModalOpen] = useState(false);

@@ -1,7 +1,6 @@
-import React from "react";
-import { Card, CardContent } from "../ui/card";
-import { Quote } from "lucide-react";
 import { testimonials as clientTestimonails } from "@/data/testimonials";
+import { Quote } from "lucide-react";
+import { Card, CardContent } from "../ui/card";
 
 interface Testimonial {
   quote: string;

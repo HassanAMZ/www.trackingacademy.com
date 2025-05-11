@@ -1,12 +1,12 @@
+import { Badge } from "@/components/ui/badge";
 import {
   Card,
   CardContent,
   CardFooter,
   CardHeader,
 } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
-import { CalendarIcon } from "lucide-react";
 import { SingleBlogCardProps } from "@/types/index";
+import { CalendarIcon } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 

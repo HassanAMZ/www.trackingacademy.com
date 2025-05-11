@@ -1,5 +1,5 @@
-import { Database, BarChart3, MessageSquare } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
+import { BarChart3, Database, MessageSquare } from "lucide-react";
 import { Badge } from "../ui/badge";
 
 export function SolutionsSection() {

@@ -1,6 +1,5 @@
 import { Button } from "@/components/ui/button";
 import Container from "@/components/ui/container";
-import { ArrowRight, Clock, Users } from "lucide-react";
 import Link from "next/link";
 import React from "react";
 

@@ -1,18 +1,17 @@
 "use client";
 
-import { useState } from "react";
-import Container from "@/components/ui/container";
-import ContactForm from "@/components/contact/contact-form";
+import CouponOptInForm from "@/components/landing-page/coupon-optin";
 import { Button } from "@/components/ui/button";
-import { Check } from "lucide-react";
+import Container from "@/components/ui/container";
 import {
   Dialog,
   DialogContent,
   DialogHeader,
   DialogTitle,
 } from "@/components/ui/dialog";
+import { Check } from "lucide-react";
 import Image from "next/image";
-import CouponOptInForm from "@/components/landing-page/coupon-optin";
+import { useState } from "react";
 
 const bulletPoints = [
   {

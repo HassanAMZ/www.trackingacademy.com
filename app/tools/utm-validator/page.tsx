@@ -1,7 +1,6 @@
 "use client";
 
 import ContactUs from "@/components/blog/call-to-action-message-us";
-import Navbar from "@/components/global/navbar";
 import YoutubeEmbed from "@/components/global/youtube-embed";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";

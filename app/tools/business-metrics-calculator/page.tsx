@@ -1,10 +1,13 @@
 "use client";
 
-import React, { useState, useMemo } from "react";
-import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
-import { Input } from "@/components/ui/input";
+import {
+  MetricInput,
+  MoneyUsagePieChart,
+  ProjectionChart,
+  ProjectionTable,
+} from "@/components/tools/metrics";
 import { Button } from "@/components/ui/button";
-import { Settings, BarChart } from "lucide-react";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import {
   Dialog,
   DialogContent,
@@ -12,18 +15,14 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
-import {
-  MetricInput,
-  ProjectionChart,
-  MoneyUsagePieChart,
-  ProjectionTable,
-} from "@/components/tools/metrics";
+import { Input } from "@/components/ui/input";
 import {
   BusinessParams,
   DEFAULT_BUSINESS_PARAMS,
   calculateBusinessMetrics,
 } from "@/utils/business-calculator";
-import Container from "@/components/ui/container";
+import { BarChart, Settings } from "lucide-react";
+import React, { useMemo, useState } from "react";
 
 const BusinessGrowthCalculator: React.FC = () => {
   const [yearsToProject, setYearsToProject] = useState<string>("10");

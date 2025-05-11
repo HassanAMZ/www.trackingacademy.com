@@ -1,17 +1,17 @@
-import Link from "next/link";
-import { ArrowRight, Clock, Book } from "lucide-react";
+import Navbar from "@/components/global/navbar";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import {
   Card,
   CardContent,
+  CardDescription,
   CardHeader,
   CardTitle,
-  CardDescription,
 } from "@/components/ui/card";
-import Navbar from "@/components/global/navbar";
 import Container from "@/components/ui/container";
 import { promises as fs } from "fs";
+import { ArrowRight, Book, Clock } from "lucide-react";
+import Link from "next/link";
 import path from "path";
 
 async function getCourses() {

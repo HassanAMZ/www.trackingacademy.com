@@ -1,17 +1,17 @@
-import {
-  collection,
-  doc,
-  getDocs,
-  getDoc,
-  addDoc,
-  updateDoc,
-  query,
-  where,
-  deleteDoc,
-  Timestamp,
-} from "firebase/firestore";
-import { Proposal } from "@/types/proposal";
 import { db } from "@/app/firebase";
+import { Proposal } from "@/types/proposal";
+import {
+  addDoc,
+  collection,
+  deleteDoc,
+  doc,
+  getDoc,
+  getDocs,
+  query,
+  Timestamp,
+  updateDoc,
+  where,
+} from "firebase/firestore";
 
 // Helper function to serialize dates
 const serializeProposal = (proposal: any): Proposal => {

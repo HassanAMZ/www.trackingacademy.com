@@ -1,25 +1,24 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
-import { Card, CardHeader, CardContent, CardTitle } from "@/components/ui/card";
-import { Input } from "@/components/ui/input";
+import ContactUs from "@/components/blog/call-to-action-message-us";
+import YoutubeEmbed from "@/components/global/youtube-embed";
 import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import {
-  Target,
-  ClipboardList,
-  Calendar,
-  Clock,
   BarChart,
-  Scale,
-  Download,
-  ChevronRight,
+  Calendar,
   ChevronLeft,
+  ChevronRight,
+  ClipboardList,
+  Clock,
+  Download,
+  Scale,
   Settings,
+  Target,
 } from "lucide-react";
-import Navbar from "@/components/global/navbar";
-import YoutubeEmbed from "@/components/global/youtube-embed";
-import ContactUs from "@/components/blog/call-to-action-message-us";
+import React, { useEffect, useState } from "react";
 
 interface Question {
   id: string;

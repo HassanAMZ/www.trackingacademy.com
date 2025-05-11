@@ -11,16 +11,15 @@ import {
   NavigationMenuTrigger,
   navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu";
-import Image from "next/image";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import clsx from "clsx";
 import { FileText, Menu, Wrench } from "lucide-react";
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import React, { useState } from "react";
 import NavLink from "../navbar/NavLink";
 import { ModeToggle } from "./theme-switch";
-import { Card, CardContent } from "../ui/card";
 
 interface NavItem {
   title: string;

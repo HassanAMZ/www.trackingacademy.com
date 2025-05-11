@@ -1,9 +1,9 @@
 import { GTMCustomEvent } from "@/components/analytics/GTMEvents";
 import YoutubeEmbed from "@/components/global/youtube-embed";
 import Container from "@/components/ui/container";
-import React from "react";
-import { cookies } from "next/headers";
 import { RequestCookie } from "next/dist/compiled/@edge-runtime/cookies";
+import { cookies } from "next/headers";
+import React from "react";
 
 export default async function Page() {
   const cookieStore = await cookies();

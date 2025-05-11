@@ -1,29 +1,22 @@
-import React from "react";
 import Navbar from "@/components/global/navbar";
+import AlternativesSection from "@/components/home/alternative-section";
+import WhyChooseSection from "@/components/home/why-choose-us";
+import DetailedCTA from "@/components/landing-page/detailed-cta";
 import Hero from "@/components/landing-page/hero";
-import ProblemAwareness from "@/components/landing-page/problem-awareness";
+import ObjectionHandling from "@/components/landing-page/objection-handling";
 import OfferDetails from "@/components/landing-page/offer-detail-item";
+import ProblemAwareness from "@/components/landing-page/problem-awareness";
 import ScarcityUrgency from "@/components/landing-page/scarcity-urgency";
 import SocialProof from "@/components/landing-page/social-proof";
-import ObjectionHandling from "@/components/landing-page/objection-handling";
-import DetailedCTA from "@/components/landing-page/detailed-cta";
 import TestimonialsCarousel from "@/components/testimonial/testimonial-carousal";
+import { testimonials } from "@/data/testimonials";
 import {
-  ArrowUpRight,
   BarChart2,
-  Clock,
+  CheckSquare,
   HeadphonesIcon,
   Target,
-  TrendingUp,
   Zap,
-  CheckSquare,
 } from "lucide-react";
-import WhyChooseSection from "@/components/home/why-choose-us";
-import AlternativesSection from "@/components/home/alternative-section";
-import Container from "@/components/ui/container";
-import { testimonials } from "@/data/testimonials";
-import CaseStudy from "@/components/global/CaseStudy";
-import caseStudies from "@/data/case-studies";
 
 export default function HomePage() {
   return (

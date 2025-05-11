@@ -1,8 +1,7 @@
 "use client";
 
-import { useEffect } from "react";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import Container from "@/components/ui/container";
+import { useEffect } from "react";
 
 export default function Page() {
   useEffect(() => {

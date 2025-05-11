@@ -1,16 +1,4 @@
 import {
-  getAdjacentLessons,
-  getCourseModules,
-  getCourses,
-  getModuleContent,
-} from "@/utils/course-utils";
-import { Button } from "@/components/ui/button";
-import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
-import Container from "@/components/ui/container";
-import { SidebarTrigger } from "@/components/ui/sidebar";
-import { Badge, Clock, ArrowLeft, ArrowRight } from "lucide-react";
-import Link from "next/link";
-import {
   Breadcrumb,
   BreadcrumbItem,
   BreadcrumbLink,
@@ -18,7 +6,18 @@ import {
   BreadcrumbPage,
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { SidebarTrigger } from "@/components/ui/sidebar";
+import {
+  getAdjacentLessons,
+  getCourseModules,
+  getCourses,
+  getModuleContent,
+} from "@/utils/course-utils";
+import { ArrowLeft, ArrowRight, Badge, Clock } from "lucide-react";
 import { Metadata } from "next";
+import Link from "next/link";
 
 export async function generateStaticParams() {
   const courses = await getCourses();

@@ -1,6 +1,3 @@
-import { getCourseModules, getCourses } from "@/utils/course-utils";
-import Link from "next/link";
-import { BookOpen, Clock, GraduationCap, ChevronRight } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import {
   Card,
@@ -9,8 +6,10 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import Container from "@/components/ui/container";
+import { getCourseModules, getCourses } from "@/utils/course-utils";
+import { BookOpen, ChevronRight, Clock, GraduationCap } from "lucide-react";
 import { Metadata } from "next";
+import Link from "next/link";
 
 export async function generateMetadata({
   params,

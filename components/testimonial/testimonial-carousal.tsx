@@ -2,11 +2,10 @@
 
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
+import { testimonials } from "@/data/testimonials";
 import clsx from "clsx";
 import { Star } from "lucide-react";
-import Image from "next/image";
 import React, { useEffect, useMemo, useState } from "react";
-import { testimonials } from "@/data/testimonials";
 
 const TestimonialsCarousel: React.FC<{ className?: string }> = ({
   className,

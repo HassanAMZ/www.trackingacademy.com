@@ -1,17 +1,15 @@
 import {
   Body,
+  Button,
   Container,
   Head,
   Heading,
   Html,
-  Preview,
-  Text,
-  Section,
-  Row,
-  Column,
-  Link,
   Img,
-  Button,
+  Link,
+  Preview,
+  Section,
+  Text,
 } from "@react-email/components";
 import { Timestamp } from "firebase/firestore";
 

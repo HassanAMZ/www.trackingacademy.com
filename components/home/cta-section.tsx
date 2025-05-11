@@ -1,7 +1,7 @@
 import { Clock } from "lucide-react";
+import Image from "next/image";
 import { Button } from "../ui/button";
 import { Card, CardContent } from "../ui/card";
-import Image from "next/image";
 export function CTASection() {
   return (
     <section className="container space-y-8 py-24">

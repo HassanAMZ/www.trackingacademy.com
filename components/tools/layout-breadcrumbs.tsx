@@ -1,12 +1,12 @@
 "use client";
 
 import { useSelectedLayoutSegments } from "next/navigation";
-import React, { useState, useEffect } from "react";
+import React from "react";
 import {
   Breadcrumb,
-  BreadcrumbList,
   BreadcrumbItem,
   BreadcrumbLink,
+  BreadcrumbList,
   BreadcrumbSeparator,
 } from "../ui/breadcrumb";
 

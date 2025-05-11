@@ -5,8 +5,8 @@ import {
   ImageGeneralProps,
   LinksGroupProps,
 } from "@/types/index";
-import Link from "next/link";
 import Image from "next/image";
+import Link from "next/link";
 import React from "react";
 
 const FreeResoursesSection: React.FC<

@@ -1,12 +1,12 @@
 "use client";
 
-import { useState, useEffect } from "react";
-import { doc, getDoc, updateDoc } from "firebase/firestore";
-import { useAuth } from "@/context/AuthContext";
+import { db } from "@/app/firebase";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { db } from "@/app/firebase";
+import { useAuth } from "@/context/AuthContext";
+import { doc, getDoc, updateDoc } from "firebase/firestore";
+import { useEffect, useState } from "react";
 
 export function UserProfile() {
   const { user } = useAuth();

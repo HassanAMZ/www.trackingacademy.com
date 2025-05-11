@@ -1,9 +1,7 @@
 // CAPIPage.tsx
 import Bonuses from "@/components/landing-page/bonuses";
 import DetailedCTA from "@/components/landing-page/detailed-cta";
-import DreamOutcome from "@/components/landing-page/dream-outcome";
 import Hero from "@/components/landing-page/hero";
-import ObjectionHandling from "@/components/landing-page/objection-handling";
 import OfferDetails from "@/components/landing-page/offer-detail-item";
 import ProblemAwareness from "@/components/landing-page/problem-awareness";
 import ScarcityUrgency from "@/components/landing-page/scarcity-urgency";

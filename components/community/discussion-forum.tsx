@@ -1,33 +1,32 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
-import {
-  collection,
-  query,
-  orderBy,
-  where,
-  addDoc,
-  onSnapshot,
-  doc,
-  updateDoc,
-  getDocs,
-} from "firebase/firestore";
 import { db } from "@/app/firebase";
-import { useAuth } from "@/context/AuthContext";
+import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
 import {
   Card,
-  CardHeader,
   CardContent,
   CardFooter,
+  CardHeader,
 } from "@/components/ui/card";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import Container from "@/components/ui/container";
+import { Input } from "@/components/ui/input";
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Textarea } from "@/components/ui/textarea";
-import { Heart, MessageCircle, Loader2, AlertCircle } from "lucide-react";
-import Container from "@/components/ui/container";
-import { Alert, AlertTitle, AlertDescription } from "@/components/ui/alert";
+import { useAuth } from "@/context/AuthContext";
+import {
+  addDoc,
+  collection,
+  doc,
+  onSnapshot,
+  orderBy,
+  query,
+  updateDoc,
+  where,
+} from "firebase/firestore";
+import { AlertCircle, Heart, Loader2, MessageCircle } from "lucide-react";
+import React, { useEffect, useState } from "react";
 import { toast } from "../ui/hooks/use-toast";
 
 interface Post {

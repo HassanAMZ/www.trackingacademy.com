@@ -2,7 +2,7 @@ import ContactUs from "@/components/blog/call-to-action-message-us";
 import { CourseSidebar } from "@/components/courses/course-sidebar";
 import Navbar from "@/components/global/navbar";
 import Container from "@/components/ui/container";
-import { SidebarProvider, SidebarInset } from "@/components/ui/sidebar";
+import { SidebarInset, SidebarProvider } from "@/components/ui/sidebar";
 
 export default async function Layout({
   children,

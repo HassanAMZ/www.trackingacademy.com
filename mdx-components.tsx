@@ -8,10 +8,10 @@ import GiscusComments from "@/components/mdx/GiscusComents";
 import Note from "@/components/mdx/Note";
 import ToolsHeroSection from "@/components/tools/ToolsHeroSection";
 import { Button } from "@/components/ui/button";
+import clsx from "clsx";
 import type { MDXComponents } from "mdx/types";
 import Image from "next/image";
 import DataLayerCodeBlock from "./components/mdx/datalayer-code";
-import clsx from "clsx";
 export function useMDXComponents(components: MDXComponents): MDXComponents {
   const createId = (content: string) =>
     content

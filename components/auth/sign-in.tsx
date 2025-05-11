@@ -1,10 +1,10 @@
 "use client";
 
-import { useState } from "react";
-import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "@/app/firebase";
-import { Input } from "../ui/input";
+import { signInWithEmailAndPassword } from "firebase/auth";
+import { useState } from "react";
 import { Button } from "../ui/button";
+import { Input } from "../ui/input";
 
 export function SignIn() {
   const [email, setEmail] = useState("");
