@@ -39,15 +39,19 @@ export default function Page() {
       <section className="grid min-h-screen place-content-center overflow-hidden py-12">
         <Container className="flex max-w-6xl flex-col items-center space-y-8 text-center">
           <h1>
-            300$ off: 3-Day —{" "}
-            <span className="text-primary">“See Every Sale”</span> Tracking
-            Setup For Facebook's Data Sharing Restrictions
+            We
+            <span className="text-primary">
+              {" "}
+              Fix Broken Facebook Tracking
+            </span>{" "}
+            for Ecom brands so they can finally{" "}
+            <span className="underline text-primary">scale again</span>
           </h1>
           <h4 className="text-muted-foreground max-w-5xl">
-            We fix broken Facebook tracking for ecommerce brands so they can
-            finally scale again. All done-for-you, in just 3 days, with 95%
-            Accurate Data Tracking, without Violating Facebook's policies or
-            getting flagged.
+            <span className="text-primary font-semibold">300$ off:</span> “See
+            Every Sale” Tracking Setup For Facebook's Data Sharing Restrictions.
+            All done-for-you, in just 3 days, with 95% Accurate Data Tracking,
+            without Violating Facebook's policies.
           </h4>
 
           <div className="grid w-full gap-8 px-3 py-6 md:grid-cols-2">

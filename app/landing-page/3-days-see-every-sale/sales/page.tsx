@@ -63,9 +63,8 @@ export default function Page() {
     <section className="grid min-h-screen place-content-center overflow-hidden py-12">
       <Container className="flex max-w-6xl flex-col items-center space-y-8 text-center">
         <h1>
-          300$ off: 3-Day{" "}
-          <span className="text-primary"> “See Every Sale”</span> Tracking Setup
-          For Facebook's Data Sharing Restrictions
+          300$ OFF: <span className="text-primary"> “See Every Sale”</span>{" "}
+          Tracking Setup For Facebook's Data Sharing Restrictions
         </h1>
         <h4 className="text-muted-foreground max-w-3xl">
           Discover how our 3-Day ‘See Every Sale’ System brings back your
