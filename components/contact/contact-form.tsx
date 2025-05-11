@@ -68,7 +68,7 @@ export default function ContactForm({
     <div className="w-full py-6">
       <form id="contact-form" action={formAction} name="tracking-audit">
         {state.error && (
-          <div className="mb-4 rounded border border-red-300 bg-red-100 p-3 text-red-700">
+          <div className="border-destructive bg-destructive/50 text-destructive mb-4 rounded border p-3">
             {state.error}
           </div>
         )}
@@ -78,7 +78,7 @@ export default function ContactForm({
             {/* First Name Input */}
             <div className="grid w-full items-start gap-1.5">
               <Label htmlFor="firstName" className="font-medium">
-                First Name<span className="text-red-500">*</span>
+                First Name<span className="text-destructive">*</span>
               </Label>
               <Input
                 required
@@ -92,7 +92,7 @@ export default function ContactForm({
             {/* Last Name Input */}
             <div className="grid w-full items-start gap-1.5">
               <Label htmlFor="lastName" className="font-medium">
-                Last Name<span className="text-red-500">*</span>
+                Last Name<span className="text-destructive">*</span>
               </Label>
               <Input
                 required
@@ -107,7 +107,7 @@ export default function ContactForm({
           {/* Email Input - Full Width */}
           <div className="grid w-full items-start gap-1.5">
             <Label htmlFor="email" className="font-medium">
-              Email<span className="text-red-500">*</span>
+              Email<span className="text-destructive">*</span>
             </Label>
             <Input
               required
@@ -121,7 +121,7 @@ export default function ContactForm({
           {/* Website URL Input - Full Width */}
           <div className="grid w-full items-start gap-1.5">
             <Label htmlFor="website" className="font-medium">
-              Website URL<span className="text-red-500">*</span>
+              Website URL<span className="text-destructive">*</span>
             </Label>
             <Input
               required
@@ -208,7 +208,7 @@ export default function ContactForm({
           <div className="grid w-full items-start gap-1.5">
             <Label htmlFor="urgency" className="font-medium">
               On a scale from 1–10, how urgent is it to fix your tracking?
-              <span className="text-red-500">*</span>
+              <span className="text-destructive">*</span>
             </Label>
             <Select name="urgency" required>
               <SelectTrigger className="h-12 p-2.5">

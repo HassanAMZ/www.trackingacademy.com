@@ -35,7 +35,7 @@ const ProblemAwareness: React.FC<ProblemAwarenessProps> = ({
               redPillPoints.map((point, index) => (
                 <Card
                   key={index}
-                  className="bg-red-100 p-4 transition-colors hover:bg-red-200"
+                  className="bg-destructive/10 hover:bg-destructive/20 p-4 transition-colors"
                 >
                   <div className="flex items-center justify-center space-x-4">
                     <AlertTriangle className="text-destructive mt-1 h-6 w-6" />

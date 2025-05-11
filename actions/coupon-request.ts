@@ -78,19 +78,33 @@ export async function createCouponRequest(
 
     // Set cookie for user data
     try {
-      (await cookies()).set(
-        "coupon_user",
-        JSON.stringify({
-          name: data.name,
-          email: data.email,
-          couponCode: data.couponCode,
-        }),
-        {
-          httpOnly: true,
-          path: "/",
-          maxAge: 60 * 60 * 24 * 7, // 7 days
-        },
-      );
+      const cookieStore = await cookies();
+
+      cookieStore.set("name", data.name, {
+        httpOnly: false,
+        path: "/",
+        maxAge: 60 * 60 * 24 * 7,
+      });
+      cookieStore.set("email", data.email, {
+        httpOnly: false,
+        path: "/",
+        maxAge: 60 * 60 * 24 * 7,
+      });
+      cookieStore.set("phone", data.phone, {
+        httpOnly: false,
+        path: "/",
+        maxAge: 60 * 60 * 24 * 7,
+      });
+      cookieStore.set("timestamp_id", timestampId, {
+        httpOnly: false,
+        path: "/",
+        maxAge: 60 * 60 * 24 * 7,
+      });
+      cookieStore.set("form_submission_timestamp", new Date().toISOString(), {
+        httpOnly: false,
+        path: "/",
+        maxAge: 60 * 60 * 24 * 7,
+      });
     } catch (cookieError) {
       console.warn("Failed to set cookie", cookieError);
     }

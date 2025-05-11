@@ -165,7 +165,7 @@ const UTMValidator = () => {
       {check ? (
         <CheckCircle2 className="mt-1 text-green-500" size={20} />
       ) : (
-        <XCircle className="mt-1 text-red-500" size={20} />
+        <XCircle className="text-destructive mt-1" size={20} />
       )}
       <div>
         <div className="font-medium">{title}</div>

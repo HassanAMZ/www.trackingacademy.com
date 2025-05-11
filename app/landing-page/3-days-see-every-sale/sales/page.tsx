@@ -6,7 +6,60 @@ import { Button } from "@/components/ui/button";
 import YoutubeEmbed from "@/components/global/youtube-embed";
 import Link from "next/link";
 
+import { useEffect } from "react";
+
 export default function Page() {
+  useEffect(() => {
+    const formTimestamp = document.cookie
+      .split("; ")
+      .find((row) => row.startsWith("form_submission_timestamp="))
+      ?.split("=")[1];
+
+    if (formTimestamp) {
+      const name = getCookie("name");
+      const email = getCookie("email");
+      const phone = getCookie("phone");
+      const timestamp_id = getCookie("timestamp_id");
+
+      let first_name = "";
+      let last_name = "";
+
+      if (name) {
+        const parts = name.trim().split(" ");
+        first_name = parts[0];
+        last_name = parts.length > 1 ? parts.slice(1).join(" ") : ""; // Handles multi-part last names too
+      }
+
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push({
+        event: "gtm_custom_event",
+        datalayer_event_name: "Lead",
+        form_submission_id: timestamp_id,
+        user_data: {
+          email,
+          phone,
+          address: {
+            first_name,
+            last_name,
+          },
+        },
+      });
+
+      console.log("Lead event pushed to dataLayer.");
+    }
+
+    function getCookie(name: string): string | undefined {
+      const value = document.cookie
+        .split("; ")
+        .find((row) => row.startsWith(name + "="))
+        ?.split("=")[1];
+
+      return value ? decodeURIComponent(value) : undefined;
+    }
+
+    document.cookie = "form_submission_timestamp=; Max-Age=0; path=/";
+  }, []);
+
   return (
     <section className="grid min-h-screen place-content-center overflow-hidden py-12">
       <Container className="flex max-w-6xl flex-col items-center space-y-8 text-center">
