@@ -51,7 +51,7 @@ export default function Page() {
             <span className="text-primary font-semibold">300$ off:</span> “See
             Every Sale” Tracking Setup For Facebook's Data Sharing Restrictions.
             All done-for-you, in just 3 days, with 95% Accurate Data Tracking,
-            without Violating Facebook's policies.
+            without Violating Any Facebook's policies.
           </h4>
 
           <div className="grid w-full gap-8 px-3 py-6 md:grid-cols-2">

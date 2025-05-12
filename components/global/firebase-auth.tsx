@@ -163,62 +163,67 @@ export const FirebaseAuth = () => {
                 Access code examples, starter files, and other resources
               </p>
             </div>
-
             {/* 
-          <Tabs defaultValue="signin" className="space-y-4">
-            <TabsList className="grid w-full grid-cols-2">
-              <TabsTrigger value="signin">Sign In</TabsTrigger>
-              <TabsTrigger value="signup">Sign Up</TabsTrigger>
-            </TabsList>
+            <Tabs defaultValue="signin" className="space-y-4">
+              <TabsList className="grid w-full grid-cols-2">
+                <TabsTrigger value="signin">Sign In</TabsTrigger>
+                <TabsTrigger value="signup">Sign Up</TabsTrigger>
+              </TabsList>
 
-            <TabsContent value="signin">
-              <form onSubmit={(e) => handleSubmit(e, false)} className="space-y-4">
-                <div className="space-y-2">
-                  <Input
-                    type="email"
-                    placeholder="Email"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    required
-                  />
-                  <Input
-                    type="password"
-                    placeholder="Password"
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
-                    required
-                  />
-                </div>
-                <Button type="submit" className="w-full">
-                  Sign In
-                </Button>
-              </form>
-            </TabsContent>
+              <TabsContent value="signin">
+                <form
+                  onSubmit={(e) => handleSubmit(e, false)}
+                  className="space-y-4"
+                >
+                  <div className="space-y-2">
+                    <Input
+                      type="email"
+                      placeholder="Email"
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
+                      required
+                    />
+                    <Input
+                      type="password"
+                      placeholder="Password"
+                      value={password}
+                      onChange={(e) => setPassword(e.target.value)}
+                      required
+                    />
+                  </div>
+                  <Button type="submit" className="w-full">
+                    Sign In
+                  </Button>
+                </form>
+              </TabsContent>
 
-            <TabsContent value="signup">
-              <form onSubmit={(e) => handleSubmit(e, true)} className="space-y-4">
-                <div className="space-y-2">
-                  <Input
-                    type="email"
-                    placeholder="Email"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    required
-                  />
-                  <Input
-                    type="password"
-                    placeholder="Password"
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
-                    required
-                  />
-                </div>
-                <Button type="submit" className="w-full">
-                  Sign Up
-                </Button>
-              </form>
-            </TabsContent>
-          </Tabs> */}
+              <TabsContent value="signup">
+                <form
+                  onSubmit={(e) => handleSubmit(e, true)}
+                  className="space-y-4"
+                >
+                  <div className="space-y-2">
+                    <Input
+                      type="email"
+                      placeholder="Email"
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
+                      required
+                    />
+                    <Input
+                      type="password"
+                      placeholder="Password"
+                      value={password}
+                      onChange={(e) => setPassword(e.target.value)}
+                      required
+                    />
+                  </div>
+                  <Button type="submit" className="w-full">
+                    Sign Up
+                  </Button>
+                </form>
+              </TabsContent>
+            </Tabs> */}
 
             <div className="relative">
               <div className="absolute inset-0 flex items-center">
@@ -236,10 +241,14 @@ export const FirebaseAuth = () => {
               <PersonIcon className="mr-2 h-4 w-4" />
               Continue with Google
             </Button>
-            {/* <Button onClick={() => handleAuth('facebook')} className="w-full" variant="outline">
-            <PersonIcon className="mr-2 h-4 w-4" />
-            Continue with Facebook
-          </Button> */}
+            <Button
+              onClick={() => handleAuth("facebook")}
+              className="w-full"
+              variant="outline"
+            >
+              <PersonIcon className="mr-2 h-4 w-4" />
+              Continue with Facebook
+            </Button>
 
             <div className="flex max-w-3xl items-center justify-between space-y-3 pb-5">
               <div className="flex">
