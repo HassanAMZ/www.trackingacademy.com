@@ -1,4 +1,5 @@
 import GTMAnalytics from "@/components/analytics/gtm";
+import Instantly from "@/components/analytics/instantly";
 import VercelAnalytics from "@/components/analytics/vercel";
 import { ThemeProvider } from "@/components/global/theme-provider";
 import CanonicalTag from "@/components/seo/CanonicalTag";
@@ -36,6 +37,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
             </ThemeProvider>
 
             <Suspense>
+              <Instantly />
               <GTMAnalytics />
               <VercelAnalytics />
               <CanonicalTag />
