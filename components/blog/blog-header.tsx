@@ -36,7 +36,10 @@ const BlogHeader: React.FC<PostMetadataProps> = ({ metadata }) => {
 
                 <div className="flex items-center space-x-4">
                   <Avatar className="h-12 w-12">
-                    <AvatarImage src="/avatar.jpg" alt="ShahzadaAliHassan" />
+                    <AvatarImage
+                      src="/images/avatars/hassan.png"
+                      alt="ShahzadaAliHassan"
+                    />
                     <AvatarFallback>SAH</AvatarFallback>
                   </Avatar>
 

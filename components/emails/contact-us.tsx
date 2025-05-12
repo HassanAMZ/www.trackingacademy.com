@@ -50,8 +50,8 @@ export default function ContactUsEmail({
           <Section style={header}>
             <Img
               src={`${baseUrl}/logo.png`}
-              width="150"
-              height="50"
+              width="100"
+              height="100"
               alt="Logo"
               style={logo}
             />

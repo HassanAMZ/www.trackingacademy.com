@@ -124,17 +124,10 @@ export default function Navbar({ className }: { className?: string }) {
     <NavLink href="/">
       <Image
         alt="logo"
-        height={1080}
-        width={1080}
-        src={"/logo-square.png"}
-        className="flex h-9 w-9 rounded sm:hidden"
-      />
-      <Image
-        alt="logo"
-        height={1920}
-        width={1080}
+        height={100}
+        width={100}
         src={"/logo.png"}
-        className="hidden h-9 w-fit rounded sm:flex"
+        className="h-9 w-fit rounded sm:flex"
       />
     </NavLink>
   );

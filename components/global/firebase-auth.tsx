@@ -13,7 +13,7 @@ import {
 } from "@/components/ui/card";
 import { useAuth } from "@/context/AuthContext";
 import { PersonIcon } from "@radix-ui/react-icons";
-import { CheckCircle, Download, Loader2 } from "lucide-react";
+import { CheckCircle, Download, GithubIcon, Loader2 } from "lucide-react";
 import { useEffect, useState } from "react";
 import Container from "../ui/container";
 
@@ -26,6 +26,7 @@ export const FirebaseAuth = () => {
   const {
     user,
     googleSignIn,
+    githubSignIn,
     facebookSignIn,
     emailSignIn,
     emailSignUp,
@@ -37,13 +38,15 @@ export const FirebaseAuth = () => {
   const [password, setPassword] = useState<string>("");
 
   const handleAuth = async (
-    provider: "google" | "facebook" | "email",
+    provider: "google" | "github" | "facebook" | "email",
     isSignUp = false,
   ) => {
     try {
       setError("");
       if (provider === "google") {
         await googleSignIn();
+      } else if (provider === "github") {
+        await githubSignIn();
       } else if (provider === "facebook") {
         await facebookSignIn();
       } else if (provider === "email") {
@@ -140,7 +143,6 @@ export const FirebaseAuth = () => {
         </div>
 
         {/* Right Column: Sign In */}
-
         <Card className="w-full">
           <CardHeader className="space-y-1">
             <CardTitle className="text-2xl">
@@ -163,67 +165,6 @@ export const FirebaseAuth = () => {
                 Access code examples, starter files, and other resources
               </p>
             </div>
-            {/* 
-            <Tabs defaultValue="signin" className="space-y-4">
-              <TabsList className="grid w-full grid-cols-2">
-                <TabsTrigger value="signin">Sign In</TabsTrigger>
-                <TabsTrigger value="signup">Sign Up</TabsTrigger>
-              </TabsList>
-
-              <TabsContent value="signin">
-                <form
-                  onSubmit={(e) => handleSubmit(e, false)}
-                  className="space-y-4"
-                >
-                  <div className="space-y-2">
-                    <Input
-                      type="email"
-                      placeholder="Email"
-                      value={email}
-                      onChange={(e) => setEmail(e.target.value)}
-                      required
-                    />
-                    <Input
-                      type="password"
-                      placeholder="Password"
-                      value={password}
-                      onChange={(e) => setPassword(e.target.value)}
-                      required
-                    />
-                  </div>
-                  <Button type="submit" className="w-full">
-                    Sign In
-                  </Button>
-                </form>
-              </TabsContent>
-
-              <TabsContent value="signup">
-                <form
-                  onSubmit={(e) => handleSubmit(e, true)}
-                  className="space-y-4"
-                >
-                  <div className="space-y-2">
-                    <Input
-                      type="email"
-                      placeholder="Email"
-                      value={email}
-                      onChange={(e) => setEmail(e.target.value)}
-                      required
-                    />
-                    <Input
-                      type="password"
-                      placeholder="Password"
-                      value={password}
-                      onChange={(e) => setPassword(e.target.value)}
-                      required
-                    />
-                  </div>
-                  <Button type="submit" className="w-full">
-                    Sign Up
-                  </Button>
-                </form>
-              </TabsContent>
-            </Tabs> */}
 
             <div className="relative">
               <div className="absolute inset-0 flex items-center">
@@ -237,18 +178,20 @@ export const FirebaseAuth = () => {
               </div>
             </div>
 
-            <Button onClick={() => handleAuth("google")} className="w-full">
-              <PersonIcon className="mr-2 h-4 w-4" />
-              Continue with Google
-            </Button>
-            <Button
-              onClick={() => handleAuth("facebook")}
-              className="w-full"
-              variant="outline"
-            >
-              <PersonIcon className="mr-2 h-4 w-4" />
-              Continue with Facebook
-            </Button>
+            <div className="space-y-2">
+              <Button onClick={() => handleAuth("google")} className="w-full">
+                <PersonIcon className="mr-2 h-4 w-4" />
+                Continue with Google
+              </Button>
+              <Button
+                onClick={() => handleAuth("github")}
+                className="w-full"
+                variant="outline"
+              >
+                <GithubIcon className="mr-2 h-4 w-4" />
+                Continue with GitHub
+              </Button>
+            </div>
 
             <div className="flex max-w-3xl items-center justify-between space-y-3 pb-5">
               <div className="flex">
@@ -274,7 +217,7 @@ export const FirebaseAuth = () => {
                   <AvatarFallback>IA</AvatarFallback>
                 </Avatar>
               </div>
-              <p className="text-muted-foreground text-sm">2,000+ Signups</p>
+              <p className="text-muted-foreground text-sm">2,700+ Signups</p>
             </div>
           </CardContent>
         </Card>

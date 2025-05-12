@@ -47,8 +47,8 @@ export default function CouponRequestEmail({
           <Section style={header}>
             <Img
               src={`${baseUrl}/logo.png`}
-              width="150"
-              height="50"
+              width="100"
+              height="100"
               alt="Tracking Academy Logo"
               style={logo}
             />

@@ -5,6 +5,7 @@ import { GTMEvent } from "@/types/index";
 import {
   createUserWithEmailAndPassword,
   FacebookAuthProvider,
+  GithubAuthProvider,
   GoogleAuthProvider,
   onAuthStateChanged,
   signInWithEmailAndPassword,
@@ -46,6 +47,7 @@ export interface DataLayerEvent {
 export interface AuthContextType {
   user: User | null;
   googleSignIn: () => Promise<void>;
+  githubSignIn: () => Promise<void>;
   facebookSignIn: () => Promise<void>;
   emailSignIn: (email: string, password: string) => Promise<void>;
   emailSignUp: (email: string, password: string) => Promise<void>;
@@ -115,6 +117,23 @@ export const AuthContextProvider = ({ children }: AuthContextProviderProps) => {
     } catch (error) {
       console.error("Google SignIn error:", error);
       pushDataLayerEvent("user_signup_failed", null, "failure", "google");
+      throw error;
+    }
+  };
+
+  const githubSignIn = async (): Promise<void> => {
+    try {
+      const provider = new GithubAuthProvider();
+      const result = await signInWithPopup(auth, provider);
+      pushDataLayerEvent(
+        "user_signup_success",
+        result.user,
+        "success",
+        "github",
+      );
+    } catch (error) {
+      console.error("GitHub SignIn error:", error);
+      pushDataLayerEvent("user_signup_failed", null, "failure", "github");
       throw error;
     }
   };
@@ -201,6 +220,7 @@ export const AuthContextProvider = ({ children }: AuthContextProviderProps) => {
       value={{
         user,
         googleSignIn,
+        githubSignIn,
         facebookSignIn,
         emailSignIn,
         emailSignUp,
