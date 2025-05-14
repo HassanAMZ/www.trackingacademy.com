@@ -29,7 +29,7 @@ export default function Page() {
       <Container className="flex w-full max-w-6xl flex-col items-center space-y-8 text-center">
         <h1>
           You’ve Locked in Your $300 Coupon —
-          <span className="text-primary"> Now Book Your Setup Call</span>
+          <span className="text-primary"> Now Book Your First Diagnositc Call</span>
         </h1>
 
         <h4 className="text-muted-foreground max-w-3xl">
