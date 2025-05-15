@@ -128,7 +128,7 @@ const MetaConversionConfig = {
       "Due to our intensive QA process and dedication to results, we only take on 10 new clients each month.",
     spotsLeft: 10,
     daysRemaining: 7,
-    buttonText: "Secure Your Spot Now!",
+    ctaButtonText: "Secure Your Spot Now!",
     buttonLink: "/contact",
   },
 

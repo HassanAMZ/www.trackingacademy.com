@@ -2,16 +2,16 @@ import YoutubeEmbed from "@/components/global/youtube-embed";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import Container from "@/components/ui/container";
-
 import Link from "next/link";
 import React, { ReactNode } from "react";
 
 interface HeroProps {
   badgeText?: string;
-  headingText?: string;
-  subheadingText?: string;
+  headingText?: ReactNode;
+  subheadingText?: ReactNode;
   ctaButtonText?: string;
   ctaButtonLink?: string;
+  subtextForButtonCta?: string; // New prop for button subtext
   supportingButtonText?: string;
   supportingButtonLink?: string;
   youtubeEmbedId?: string;
@@ -23,9 +23,10 @@ const Hero: React.FC<HeroProps> = ({
   headingText,
   subheadingText,
   ctaButtonText,
+  ctaButtonLink,
+  subtextForButtonCta,
   supportingButtonText,
   supportingButtonLink,
-  ctaButtonLink,
   youtubeEmbedId,
   supportingComponent,
 }) => {
@@ -37,19 +38,47 @@ const Hero: React.FC<HeroProps> = ({
             {badgeText}
           </Badge>
         )}
-        {headingText && <h1 className="max-w-6xl">{headingText}</h1>}
-        {subheadingText && (
-          <h3 className="text-muted-foreground max-w-4xl">{subheadingText}</h3>
+        {headingText && (
+          <div className="max-w-6xl">
+            {typeof headingText === "string" ? (
+              <h1>{headingText}</h1>
+            ) : (
+              headingText
+            )}
+          </div>
         )}
+        {subheadingText && (
+          <div className="text-muted-foreground max-w-4xl">
+            {typeof subheadingText === "string" ? (
+              <h3>{subheadingText}</h3>
+            ) : (
+              subheadingText
+            )}
+          </div>
+        )}
+
+        <div className="w-full">
+          {youtubeEmbedId && (
+            <YoutubeEmbed className="max-w-4xl" embedId={youtubeEmbedId} />
+          )}
+        </div>
 
         <div className="flex max-w-xl items-center space-x-4">
           {ctaButtonText && ctaButtonLink && (
             <Button
               size="lg"
-              asChild
-              className="hover:bg-primary/90 p-8 text-lg font-bold whitespace-pre-wrap"
+              className="hover:bg-primary/90 flex flex-col py-20 text-xl font-bold text-wrap whitespace-pre-wrap hover:cursor-pointer sm:py-16 md:py-12"
             >
-              <Link href={ctaButtonLink}>{ctaButtonText}</Link>
+              <Link href={ctaButtonLink}>
+                <div>
+                  {ctaButtonText}
+                  {subtextForButtonCta && (
+                    <span className="mt-2 block text-sm font-medium opacity-90">
+                      {subtextForButtonCta}
+                    </span>
+                  )}
+                </div>
+              </Link>
             </Button>
           )}
           {/* {supportingButtonText && supportingButtonLink && (
@@ -59,9 +88,6 @@ const Hero: React.FC<HeroProps> = ({
           )} */}
         </div>
 
-        <div className="w-full">
-          {youtubeEmbedId && <YoutubeEmbed embedId={youtubeEmbedId} />}
-        </div>
         <div className="w-full">{supportingComponent}</div>
       </Container>
     </section>

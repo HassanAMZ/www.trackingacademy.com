@@ -60,7 +60,7 @@ const RestrictedDomainTracking = {
       "Due to high demand and manual implementation, we are only accepting 10 new clients this month for this special $300 discount.",
     spotsLeft: 10,
     daysRemaining: 21, // Update based on today's date
-    buttonText: "Claim $300 Off Now",
+    ctaButtonText: "Claim $300 Off Now",
     buttonLink: "/contact",
   },
 

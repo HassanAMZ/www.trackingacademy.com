@@ -41,7 +41,7 @@ export default function HomePage() {
       <ProblemAwareness
         headingText="The Hidden Costs of Inefficient Analytics and Outdated Systems"
         paragraphText="Manual processes and chaotic data overwhelm teams, draining time and money while delivering few actionable insights."
-        redPillPoints={[
+        bluePillPoints={[
           "Up to 30% of Conversions Go Untracked",
           "Ad Costs Rising – But ROAS is Dropping",
           "Chaotic Data Makes Scaling Impossible",
@@ -49,7 +49,7 @@ export default function HomePage() {
           "You're Spending More & Earning Less",
         ]}
         imageUrl="/images/hero/matrix.png"
-        bluePillPoints={[
+        redPillPoints={[
           "Track 95%+ of Conversions Accurately",
           "Increase ROAS Without Spending More",
           "Get Data That Makes Scaling Easy",
@@ -191,7 +191,7 @@ export default function HomePage() {
         description="To ensure personalized attention and maximize results, this offer is limited to 5 businesses Every Month."
         spotsLeft={5}
         daysRemaining={10}
-        buttonText="Get Accurate Conversion Data"
+        ctaButtonText="Get Accurate Conversion Data"
         buttonLink="/contact"
         iconSize={12}
       />
@@ -206,7 +206,7 @@ export default function HomePage() {
         description="To ensure personalized attention and maximize results, this offer is limited to 5 businesses Every Month."
         spotsLeft={5}
         daysRemaining={10}
-        buttonText="Stop Wasting Ad Budget Today"
+        ctaButtonText="Stop Wasting Ad Budget Today"
         buttonLink="/contact"
         iconSize={12}
       />

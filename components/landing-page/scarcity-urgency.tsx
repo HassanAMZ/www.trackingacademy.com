@@ -8,8 +8,11 @@ interface ScarcityUrgencyProps {
   description?: string;
   spotsLeft?: number;
   daysRemaining?: number;
-  buttonText?: string;
+  ctaButtonText?: string;
+  subtextForButtonCta?: string;
   buttonLink?: string;
+  supportingButtonText?: string; // New prop for supporting button text
+  supportingButtonLink?: string; // New prop for supporting button link
   iconSize?: number;
 }
 
@@ -18,8 +21,11 @@ const ScarcityUrgency: React.FC<ScarcityUrgencyProps> = ({
   description,
   spotsLeft,
   daysRemaining,
-  buttonText,
+  ctaButtonText,
+  subtextForButtonCta,
   buttonLink = "/contact", // Default fallback link
+  supportingButtonText,
+  supportingButtonLink,
   iconSize = 12, // Default icon size
 }) => {
   return (
@@ -57,15 +63,31 @@ const ScarcityUrgency: React.FC<ScarcityUrgencyProps> = ({
         )} */}
 
         {/* Button Section */}
-        {buttonText && (
-          <Button
-            size="lg"
-            asChild
-            className="bg-background text-primary hover:bg-background/90 p-8 text-lg whitespace-pre-wrap"
-          >
-            <Link href={buttonLink}>{buttonText}</Link>
-          </Button>
-        )}
+        <div className="flex max-w-xl items-center space-x-4">
+          {ctaButtonText && (
+            <Button
+              size="lg"
+              asChild
+              className="bg-background text-primary hover:bg-background/90 flex flex-col py-20 text-xl font-bold text-wrap whitespace-pre-wrap sm:py-16 md:py-12"
+            >
+              <Link href={buttonLink}>
+                <div>
+                  {ctaButtonText}
+                  {subtextForButtonCta && (
+                    <span className="mt-2 block text-sm font-medium opacity-90">
+                      {subtextForButtonCta}
+                    </span>
+                  )}
+                </div>
+              </Link>
+            </Button>
+          )}
+          {supportingButtonText && supportingButtonLink && (
+            <Button size="lg" asChild variant="ghost">
+              <Link href={supportingButtonLink}>{supportingButtonText}</Link>
+            </Button>
+          )}
+        </div>
       </section>
     </Container>
   );

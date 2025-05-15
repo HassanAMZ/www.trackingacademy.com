@@ -29,22 +29,21 @@ const ProblemAwareness: React.FC<ProblemAwarenessProps> = ({
           )}
         </div>
 
-        <div className="grid items-end justify-center gap-2 md:grid-cols-3">
+        <div className="grid items-end justify-center gap-2 md:grid-cols-3 pt-12">
           <div className="space-y-4">
-            {redPillPoints &&
-              redPillPoints.map((point, index) => (
+            {bluePillPoints &&
+              bluePillPoints.map((point, index) => (
                 <Card
                   key={index}
-                  className="bg-destructive/10 hover:bg-destructive/20 p-4 transition-colors"
+                  className="bg-blue-100/10 hover:bg-blue-200/20 p-4 transition-colors"
                 >
                   <div className="flex items-center justify-center space-x-4">
-                    <AlertTriangle className="text-destructive mt-1 h-6 w-6" />
-                    <h4 className="text-destructive flex-1">{point}</h4>
+                    <AlertTriangle className="text-blue-500 mt-1 h-6 w-6" />
+                    <h4 className="text-blue-700 flex-1">{point}</h4>
                   </div>
                 </Card>
               ))}
           </div>
-
           <div className="flex w-full items-center justify-center">
             <Image
               src={imageUrl || "/images/social-sharing.png"}
@@ -52,19 +51,19 @@ const ProblemAwareness: React.FC<ProblemAwarenessProps> = ({
               width={1080}
               height={1080}
               className="rounded-lg"
+              style={{ transform: "scaleX(-1)" }}
             />
           </div>
-
           <div className="space-y-4">
-            {bluePillPoints &&
-              bluePillPoints.map((point, index) => (
+            {redPillPoints &&
+              redPillPoints.map((point, index) => (
                 <Card
                   key={index}
-                  className="bg-blue-100 p-4 transition-colors hover:bg-blue-200"
+                  className="bg-red-100 p-4 transition-colors hover:bg-red-200"
                 >
                   <div className="flex items-center justify-center space-x-4">
-                    <CircleCheck className="mt-1 h-6 w-6 text-blue-500" />
-                    <h4 className="flex-1 text-blue-700">{point}</h4>
+                    <CircleCheck className="mt-1 h-6 w-6 text-red-500" />
+                    <h4 className="flex-1 text-red-700">{point}</h4>
                   </div>
                 </Card>
               ))}
