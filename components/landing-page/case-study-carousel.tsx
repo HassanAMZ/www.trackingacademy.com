@@ -1,16 +1,9 @@
 "use client";
 
+import { CaseStudy } from "@/data/case-studies";
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
-interface CaseStudy {
-  id: string;
-  title: string;
-  description: string;
-  imageUrl: string;
-  siteUrl: string;
-  caseStudyUrl: string;
-}
 
 interface CaseStudyCarouselProps {
   caseStudies: CaseStudy[];
@@ -87,7 +80,7 @@ export default function CaseStudyCarousel({
       >
         {items.map((caseStudy, index) => (
           <Link
-            href={caseStudy.caseStudyUrl}
+            href={`/case-study/${caseStudy.id}`}
             key={`${caseStudy.id}-${index}`}
             target="_blank"
             rel="noopener noreferrer"
@@ -95,7 +88,7 @@ export default function CaseStudyCarousel({
             style={{ width: `${itemWidth}px`, height: `${itemHeight}px` }}
           >
             <Image
-              src={caseStudy.imageUrl || "/placeholder.svg"}
+              src={caseStudy.mobileUrl || "/placeholder.svg"}
               alt={caseStudy.title}
               fill
               sizes={`${itemWidth}px`}
@@ -104,21 +97,21 @@ export default function CaseStudyCarousel({
             />
 
             {/* Gradient overlay that intensifies on hover */}
-            <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent opacity-70 group-hover:opacity-90 transition-opacity duration-300"></div>
+            <div className="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-70 group-hover:opacity-90 transition-opacity duration-300"></div>
 
             {/* Case study details that scale up on hover */}
-            <div className="absolute inset-x-0 bottom-0 p-4 transform transition-transform duration-300 text-left group-hover:scale-105 z-10">
-              <h3 className="text-white font-bold text-lg mb-1">
+            <div className="absolute text-secondary inset-x-0 bottom-0 p-4 transform transition-transform duration-300 text-left group-hover:scale-110 z-10">
+              <h3 className="font-bold text-lg mb-1 line-clamp-2">
                 {caseStudy.title}
               </h3>
-              <p className="text-white/80 text-sm group-hover:text-white transition-colors duration-300">
+              <p className=" text-sm transition-colors duration-300 line-clamp-2">
                 {caseStudy.description}
               </p>
             </div>
 
             {/* Outline icon that appears on hover */}
             <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-              <div className="rounded-full p-3 border-2 border-primary/90 transform transition-transform duration-300  bg-primary group-hover:scale-110">
+              <div className="rounded-full p-3 border-2 border-primary/90 transform transition-transform duration-300  bg-primary group-hover:scale-120 ">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="24"

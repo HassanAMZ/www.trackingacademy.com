@@ -12,52 +12,8 @@ import {
   DialogHeader,
   DialogTitle,
 } from "@/components/ui/dialog";
+import { caseStudies } from "@/data/case-studies";
 import { useState } from "react";
-
-// Your case studies data
-const caseStudies = [
-  {
-    id: "cs1",
-    title: "TRADERS WHY INSTANT WORKS",
-    description: "Increased conversion by 45% for this e-commerce brand",
-    imageUrl: "/images/for-businesses/client-holidayparken-mobile-home.png",
-    siteUrl: "https://example.com/site1",
-    caseStudyUrl: "/case-studies/instant-works",
-  },
-  {
-    id: "cs2",
-    title: "LOVE NATURAL SKINCARE",
-    description: "Optimized landing page with 32% higher CTR",
-    imageUrl: "/images/for-businesses/client-makescents-mobile-home.png",
-    siteUrl: "https://example.com/site2",
-    caseStudyUrl: "/case-studies/love-natural",
-  },
-  {
-    id: "cs3",
-    title: "LOVE NATURAL SKINCARE",
-    description: "Optimized landing page with 32% higher CTR",
-    imageUrl: "/images/for-businesses/client-pandaparken-mobile-home.png",
-    siteUrl: "https://example.com/site2",
-    caseStudyUrl: "/case-studies/love-natural",
-  },
-  {
-    id: "cs4",
-    title: "LOVE NATURAL SKINCARE",
-    description: "Optimized landing page with 32% higher CTR",
-    imageUrl: "/images/for-businesses/client-easyloanapproval-mobile-home.png",
-    siteUrl: "https://example.com/site2",
-    caseStudyUrl: "/case-studies/love-natural",
-  },
-  {
-    id: "cs5",
-    title: "LOVE NATURAL SKINCARE",
-    description: "Optimized landing page with 32% higher CTR",
-    imageUrl: "/images/for-businesses/client-nook-mobile-home.png",
-    siteUrl: "https://example.com/site2",
-    caseStudyUrl: "/case-studies/love-natural",
-  },
-  // Add more case studies...
-];
 
 export default function Page() {
   const [isModalOpen, setIsModalOpen] = useState(false);
