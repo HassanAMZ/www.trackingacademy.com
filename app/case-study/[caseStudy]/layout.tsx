@@ -5,10 +5,11 @@ export async function generateMetadata({
 }: {
   params: Promise<{ caseStudy: string }>;
 }) {
+  const { caseStudy: caseStudyId } = await params;
+
   const caseStudyData =
     caseStudies.find(
-      async (study) =>
-        study.id.toLowerCase() === (await params).caseStudy.toLowerCase(),
+      (study) => study.id.toLowerCase() === caseStudyId.toLowerCase(),
     ) || null;
 
   if (!caseStudyData) {

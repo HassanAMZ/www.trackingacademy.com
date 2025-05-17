@@ -2,6 +2,7 @@ export interface Analytics {
   period: string;
   recoveredFromAdBlockersPercentage: number;
   recoveredFromTrackingPreventionPercentage: number;
+  accuracy: number;
 }
 
 export interface Testimonial {
@@ -63,6 +64,7 @@ export const caseStudies: CaseStudy[] = [
       period: "30 days",
       recoveredFromAdBlockersPercentage: 3.4,
       recoveredFromTrackingPreventionPercentage: 45.22,
+      accuracy: 100,
     },
     testimonial: {
       quote:
@@ -166,6 +168,12 @@ export const caseStudies: CaseStudy[] = [
     mobileUrl: "/images/for-businesses/client-peachandcream-mobile-home.png",
     siteUrl: "https://peachandcream.com",
 
+    analytics: {
+      period: "30 days",
+      recoveredFromAdBlockersPercentage: 2.79,
+      recoveredFromTrackingPreventionPercentage: 31.92,
+      accuracy: 97,
+    },
     testimonial: {
       quote:
         "Super helpful, quick, and comprehensive. Shahzada solved our problem efficiently, complementing a nicely done work in an effective way.",
