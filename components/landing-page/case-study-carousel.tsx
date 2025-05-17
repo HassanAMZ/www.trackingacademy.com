@@ -16,8 +16,8 @@ interface CaseStudyCarouselProps {
 export default function CaseStudyCarousel({
   caseStudies,
   speed = 0.75,
-  itemWidth = 412 / 1.5,
-  itemHeight = 893 / 1.5,
+  itemWidth = 412 / 1.75,
+  itemHeight = 893 / 1.75,
   className = "",
 }: CaseStudyCarouselProps) {
   const [isPaused, setIsPaused] = useState(false);

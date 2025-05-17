@@ -33,7 +33,7 @@ export default function CaseStudyContent({ caseStudy }: CaseStudyContentProps) {
         <CardHeader>
           <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
             <div>
-              <CardTitle>{caseStudy.title}</CardTitle>
+              <h1 className="py-4">{caseStudy.title}</h1>
               <p className="text-muted-foreground mt-2">
                 {caseStudy.description}
               </p>
@@ -43,7 +43,7 @@ export default function CaseStudyContent({ caseStudy }: CaseStudyContentProps) {
         </CardHeader>
         <CardContent>
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-            <div className="lg:col-span-2 space-y-6">
+            <div className="lg:col-span-2 space-y-8">
               <Image
                 width={1080}
                 height={1920}
@@ -93,7 +93,7 @@ export default function CaseStudyContent({ caseStudy }: CaseStudyContentProps) {
               </div>
 
               <h2 className="mb-4">Challenges Faced</h2>
-              <div className="space-y-4 mb-6">
+              <div className="gap-4 mb-6 grid grid-cols-1 md:grid-cols-2">
                 {caseStudy.challenges.map((challenge, index) => (
                   <Card key={index}>
                     <CardContent>
@@ -109,7 +109,7 @@ export default function CaseStudyContent({ caseStudy }: CaseStudyContentProps) {
               </div>
 
               <h2 className="mb-4">Solutions Implemented</h2>
-              <div className="space-y-4 mb-6">
+              <div className="gap-4 mb-6 grid grid-cols-1 md:grid-cols-2">
                 {caseStudy.solutions.map((solution, index) => (
                   <Card key={index}>
                     <CardContent>
@@ -125,11 +125,14 @@ export default function CaseStudyContent({ caseStudy }: CaseStudyContentProps) {
               </div>
 
               <h2 className="mb-4">Project Milestones</h2>
-              <div className="space-y-4 mb-6">
+              <div className="gap-4 mb-6 grid grid-cols-1 md:grid-cols-2">
                 {caseStudy.milestones.map((milestone, index) => (
                   <Card key={index} className="py-8 px-4">
                     <div className="flex items-center justify-between">
                       <div className="space-y-2">
+                        <Badge variant="outline">
+                          Milestone {milestone.day}
+                        </Badge>
                         <h4>{milestone.name}</h4>
                         <p className="text-muted-foreground">
                           {milestone.description}
@@ -139,7 +142,6 @@ export default function CaseStudyContent({ caseStudy }: CaseStudyContentProps) {
                           {milestone.expectedOutcome}
                         </p>
                       </div>
-                      <Badge variant="outline">Day {milestone.day}</Badge>
                     </div>
                   </Card>
                 ))}
