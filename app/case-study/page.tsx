@@ -13,9 +13,9 @@ export default function CaseStudiesPage() {
     <Container className=" py-12">
       <h1 className="mb-8 text-center">Our Case Studies</h1>
       <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto">
-        Discover how Tracking Academy has empowered businesses with cutting-edge
-        analytics and tracking solutions to drive data-driven decisions and
-        boost campaign performance.
+        Discover how we has empowered businesses with cutting-edge analytics and
+        tracking solutions to drive data-driven decisions and boost campaign
+        performance.
       </p>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {caseStudies.map((caseStudy) => (
@@ -35,7 +35,7 @@ export default function CaseStudiesPage() {
               </Link>
               <CardTitle className="mt-4">{caseStudy.title}</CardTitle>
               <div className="mt-2 w-fit flex flex-wrap gap-2">
-                {caseStudy.platforms.slice(0, 3).map((platform, index) => (
+                {caseStudy.platforms.slice(0, 2).map((platform, index) => (
                   <li
                     key={index}
                     className="flex items-center flex-wrap text-wrap "

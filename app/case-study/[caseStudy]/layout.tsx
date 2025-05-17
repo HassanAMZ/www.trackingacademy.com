@@ -1,20 +1,21 @@
-import { caseStudies } from "@/data/case-studies";
-import type { Metadata } from "next";
-import { ReactNode } from "react";
+import { caseStudies, CaseStudy } from "@/data/case-studies";
 
-interface CaseStudyLayoutProps {
-  params: {
-    caseStudy: string;
-  };
-  children: ReactNode;
+async function getCaseStudyBySlug(slug: string): Promise<CaseStudy | null> {
+  return (
+    caseStudies.find(
+      (study) => study.id.toLowerCase() === slug.toLowerCase(),
+    ) || null
+  );
 }
 
 export async function generateMetadata({
   params,
-}: CaseStudyLayoutProps): Promise<Metadata> {
-  const caseStudy = caseStudies.find((cs) => cs.id === params.caseStudy);
-
-  if (!caseStudy) {
+}: {
+  params: Promise<{ caseStudy: string }>;
+}) {
+  // Load your case study data from the slug (string)
+  const caseStudyData = await getCaseStudyBySlug((await params).caseStudy); // you need to define this function
+  if (!caseStudyData) {
     return {
       title: "Case Study Not Found",
       description: "The requested case study could not be found.",
@@ -22,24 +23,28 @@ export async function generateMetadata({
   }
 
   return {
-    title: `${caseStudy.title} | Tracking Academy Case Study`,
-    description: caseStudy.description,
+    title: `${caseStudyData.title} | Tracking Academy Case Study`,
+    description: caseStudyData.description,
     openGraph: {
-      title: `${caseStudy.title} | Tracking Academy`,
-      description: caseStudy.description,
-      images: [caseStudy.imageUrl],
+      title: `${caseStudyData.title} | Tracking Academy`,
+      description: caseStudyData.description,
+      images: ["/images/social-sharing.png"],
       type: "website",
       locale: "en_US",
     },
     twitter: {
       card: "summary_large_image",
-      title: `${caseStudy.title} | Tracking Academy`,
-      description: caseStudy.description,
-      images: [caseStudy.imageUrl],
+      title: `${caseStudyData.title} | Tracking Academy`,
+      description: caseStudyData.description,
+      images: ["/images/social-sharing.png"],
     },
   };
 }
 
-export default function CaseStudyLayout({ children }: CaseStudyLayoutProps) {
+export default function CaseStudyLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return <>{children}</>;
 }

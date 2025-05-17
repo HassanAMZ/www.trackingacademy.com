@@ -54,7 +54,7 @@ export const caseStudies: CaseStudy[] = [
     plan: "Pro+",
     title: "Comprehensive Tracking Solution for Foxy.ai",
     description:
-      "Tracking Academy implemented a robust analytics and tracking infrastructure for Foxy.ai, addressing conversion tracking discrepancies and bypassing ad blockers with server-side tracking.",
+      "We implemented a robust analytics and tracking infrastructure for Foxy.ai, addressing conversion tracking discrepancies and bypassing ad blockers with server-side tracking.",
     imageUrl: "/images/for-businesses/client-foxyai-desktop-home.png",
     mobileUrl: "/images/for-businesses/client-foxyai-mobile-home.png",
     siteUrl: "https://foxy.ai",
@@ -161,7 +161,7 @@ export const caseStudies: CaseStudy[] = [
     plan: "Standard",
     title: "Shopify Pixel Tracking for Peach and Cream",
     description:
-      "Tracking Academy resolved Meta Pixel tracking issues for Peach and Cream's Shopify store, enabling compliant ad scaling for wellness products while navigating restrictions on intimacy products.",
+      "We resolved Meta Pixel tracking issues for Peach and Cream's Shopify store, enabling compliant ad scaling for wellness products while navigating restrictions on intimacy products.",
     imageUrl: "/images/for-businesses/client-peachandcream-desktop-home.png",
     mobileUrl: "/images/for-businesses/client-peachandcream-mobile-home.png",
     siteUrl: "https://peachandcream.com",
@@ -239,7 +239,7 @@ export const caseStudies: CaseStudy[] = [
     plan: "Standard",
     title: "Google Analytics 4 Tracking for ClickFunnels",
     description:
-      "Tracking Academy fixed inaccurate tracking on a ClickFunnels landing page funnel, integrating GA4 and Meta tracking with a real-time analytics dashboard.",
+      "We fixed inaccurate tracking on a ClickFunnels landing page funnel, integrating GA4 and Meta tracking with a real-time analytics dashboard.",
     imageUrl: "/images/for-businesses/client-askdrnandi-desktop-home.png",
     mobileUrl: "/images/for-businesses/client-askdrnandi-mobile-home.png",
     siteUrl: "https://offers.askdrnandi.com",

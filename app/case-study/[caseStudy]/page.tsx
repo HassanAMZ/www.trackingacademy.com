@@ -13,23 +13,20 @@ import {
   ChartTooltipContent,
 } from "@/components/ui/chart";
 import Container from "@/components/ui/container";
-import { caseStudies } from "@/data/case-studies";
+import { CaseStudy } from "@/data/case-studies";
 import { Calendar, DollarSign, Globe, Users } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { use, useEffect } from "react";
+import { useEffect } from "react";
 import { Bar, BarChart, CartesianGrid, XAxis } from "recharts";
 
-interface CaseStudyPageProps {
-  params: Promise<{
-    caseStudy: string;
-  }>;
-}
-
-export default function CaseStudyPage({ params }: CaseStudyPageProps) {
-  const { caseStudy: caseStudyId } = use(params);
-  const caseStudy = caseStudies.find((cs) => cs.id === caseStudyId);
+export default async function Page({
+  params,
+}: {
+  params: Promise<{ caseStudy: CaseStudy }>;
+}) {
+  const { caseStudy } = await params;
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -86,9 +83,9 @@ export default function CaseStudyPage({ params }: CaseStudyPageProps) {
           <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
             <div>
               <CardTitle>{caseStudy.title}</CardTitle>
-              <h4 className="text-muted-foreground mt-2">
+              <p className="text-muted-foreground mt-2">
                 {caseStudy.description}
-              </h4>
+              </p>
             </div>
             <Badge variant="secondary">{caseStudy.plan}</Badge>
           </div>
