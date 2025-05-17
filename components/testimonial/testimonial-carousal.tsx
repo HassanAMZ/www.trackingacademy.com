@@ -11,8 +11,8 @@ const TestimonialsCarousel: React.FC<{ className?: string }> = ({
   className,
 }) => {
   const generateRandomMetrics = () => {
-    const randomConversions = Math.floor(Math.random() * 9) * 5 + 27;
-    const randomROAS = Math.floor(Math.random() * 9) * 4 + 14;
+    const randomConversions = Math.floor(Math.random() * 9) * 4 + 27;
+    const randomROAS = Math.floor(Math.random() * 9) * 3 + 14;
     return { conversions: randomConversions, roas: randomROAS };
   };
 
