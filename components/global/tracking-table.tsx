@@ -11,16 +11,16 @@ interface TrackingData {
 
 // Predefined tracking data
 const trackingData: TrackingData[] = [
-  { date: "2023-10-01", before: 62, after: 96 },
-  { date: "2023-10-08", before: 64, after: 97 },
-  { date: "2023-10-15", before: 61, after: 95 },
-  { date: "2023-10-22", before: 63, after: 98 },
-  { date: "2023-10-29", before: 65, after: 99 },
-  { date: "2023-11-05", before: 66, after: 96 },
-  { date: "2023-11-12", before: 67, after: 97 },
-  { date: "2023-11-19", before: 62, after: 95 },
-  { date: "2023-11-26", before: 64, after: 98 },
-  { date: "2023-12-03", before: 63, after: 99 },
+  { date: "2024-12-01", before: 62, after: 96 },
+  { date: "2024-12-08", before: 64, after: 97 },
+  { date: "2024-12-15", before: 61, after: 95 },
+  { date: "2024-12-22", before: 63, after: 98 },
+  { date: "2024-12-29", before: 65, after: 99 },
+  { date: "2025-01-05", before: 66, after: 96 },
+  { date: "2025-01-12", before: 67, after: 97 },
+  { date: "2025-01-19", before: 62, after: 95 },
+  { date: "2025-01-26", before: 64, after: 98 },
+  { date: "2025-02-03", before: 63, after: 99 },
 ];
 
 // Precomputed averages
