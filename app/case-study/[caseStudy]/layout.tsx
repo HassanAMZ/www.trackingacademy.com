@@ -1,20 +1,16 @@
-import { caseStudies, CaseStudy } from "@/data/case-studies";
-
-async function getCaseStudyBySlug(slug: string): Promise<CaseStudy | null> {
-  return (
-    caseStudies.find(
-      (study) => study.id.toLowerCase() === slug.toLowerCase(),
-    ) || null
-  );
-}
+import { caseStudies } from "@/data/case-studies";
 
 export async function generateMetadata({
   params,
 }: {
   params: Promise<{ caseStudy: string }>;
 }) {
-  // Load your case study data from the slug (string)
-  const caseStudyData = await getCaseStudyBySlug((await params).caseStudy); // you need to define this function
+  const caseStudyData =
+    caseStudies.find(
+      async (study) =>
+        study.id.toLowerCase() === (await params).caseStudy.toLowerCase(),
+    ) || null;
+
   if (!caseStudyData) {
     return {
       title: "Case Study Not Found",
