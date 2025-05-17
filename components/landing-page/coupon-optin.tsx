@@ -69,10 +69,7 @@ export default function CouponOptInForm({
             <strong>300OFFRESTRICTEDDATA</strong>
           </p>
           <Button
-            onClick={() =>
-              (window.location.href =
-                "/landing-page/3-days-see-every-sale/sales")
-            }
+            onClick={() => (window.location.href = "/landing-page/sales")}
             className="bg-primary hover:bg-primary/90 p-4 font-bold"
           >
             Watch Our Free Training Now

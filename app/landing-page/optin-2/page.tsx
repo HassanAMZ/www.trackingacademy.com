@@ -109,7 +109,7 @@ export default function Page() {
               Claim Your $300 Coupon
             </DialogTitle>
           </DialogHeader>
-          <CouponOptInForm redirectUrl="/landing-page/3-days-see-every-sale/sales" />
+          <CouponOptInForm redirectUrl="/landing-page/sales" />
         </DialogContent>
       </Dialog>
     </>

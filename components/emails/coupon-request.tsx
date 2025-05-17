@@ -88,7 +88,7 @@ export default function CouponRequestEmail({
               restore your tracking and maximize your ad performance.
             </Text>
             <Button
-              href="https://trackingacademy.com/landing-page/3-days-see-every-sale/sales"
+              href="https://trackingacademy.com/landing-page/sales"
               style={ctaButton}
             >
               Watch Free Training Now
