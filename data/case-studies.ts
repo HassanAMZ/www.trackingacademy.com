@@ -49,6 +49,100 @@ export interface CaseStudy {
 
 export const caseStudies: CaseStudy[] = [
   {
+    id: "everyevent",
+    name: "EveryEvent.uk Google Ads Tracking",
+    url: "https://www.everyevent.uk",
+    plan: "Standard",
+    title:
+      "Keyword-Level Conversion & Session Duration Tracking for EveryEvent.uk",
+    description:
+      "EveryEvent.uk needed to know which Google Ads keywords were driving real engagement on their Bubble.io site. In a 50-day engagement, we implemented a DataLayer-driven GTM setup, linked GA4 with Google Ads & Search Console, and added a CookieScript CMP—unlocking per-keyword conversion and session-length reporting without compromising GDPR compliance.",
+    imageUrl: "/images/for-businesses/client-everyevent-desktop-home.png",
+    mobileUrl: "/images/for-businesses/client-everyevent-mobile-home.png",
+    siteUrl: "https://www.everyevent.uk",
+    testimonial: {
+      quote:
+        "Shahzada was excellent in delivering our work. He took the time to write detailed guides, amended work towards our requirements, and was very patient in nature. I would definitely recommend!",
+      author: "James Hague",
+      role: "Client",
+      image:
+        "https://www.upwork.com/profile-portraits/c1T4Jo2OBFm_LbopMPP0yyryc82Y5fDei3Wffv0dBQTbNxZqjegp8aXOOmBboNbpCr",
+    },
+    platforms: [
+      "Bubble.io",
+      "Google Analytics 4",
+      "Google Tag Manager",
+      "Google Search Console",
+      "CookieScript CMP",
+    ],
+    milestones: [
+      {
+        day: 1,
+        name: "Audit & Access Provisioning",
+        description:
+          "Verified GA4, GTM, GSC and Bubble.io access; reviewed existing tracking gaps",
+        expectedOutcome: "All accounts linked and initial audit complete",
+      },
+      {
+        day: 2,
+        name: "DataLayer & GTM Setup",
+        description:
+          "Built out a generic DataLayer for form submissions and button clicks",
+        expectedOutcome: "Unified event schema in place, ready to push to GTM",
+      },
+      {
+        day: 3,
+        name: "GA4 & Ads Integration",
+        description:
+          "Configured GA4 events, linked Google Ads & Search Console for keyword data",
+        expectedOutcome:
+          "Keyword‐level conversions and session metrics flowing into GA4",
+      },
+      {
+        day: 4,
+        name: "CMP Deployment & Testing",
+        description:
+          "Installed CookieScript for GDPR consent; end-to-end QA of all events",
+        expectedOutcome:
+          "Full compliance and accurate reporting verified in GA4",
+      },
+    ],
+    projectTimeline: {
+      startDate: "Aug 29, 2024",
+      endDate: "Oct 17, 2024",
+      durationDays: 50,
+    },
+    owner: "Shahzada Ali Hassan",
+    client: "James Hague",
+    budget: 300,
+    technologies: [
+      "Google Analytics 4",
+      "Google Tag Manager",
+      "Google Search Console",
+      "Bubble.io",
+      "CookieScript CMP",
+      "JavaScript DataLayer",
+    ],
+    challenges: [
+      "Couldn’t attribute conversions to specific Google Ads keywords",
+      "No session-length reporting per keyword",
+      "Site lacked tag management and consent tooling",
+      "Form submissions weren’t real HTML forms (no <form> tags)",
+    ],
+    solutions: [
+      "Built a DataLayer-first event schema for both form submissions and button clicks",
+      "Set up GTM triggers to capture keyword params and session duration",
+      "Linked GA4 with Google Ads & Search Console to pull in keyword data",
+      "Deployed CookieScript CMP for GDPR-compliant consent management",
+    ],
+    results: [
+      "Keyword-level conversion rates visible in GA4’s Acquisition→Overview report",
+      "Session duration metrics segmented by keyword now available",
+      "Marketing decisions driven by accurate, ad-attributed data",
+      "Full GDPR compliance ensured via CookieScript integration",
+    ],
+  },
+  {
     id: "logmycare",
     name: "Google Tag Manager Help",
     url: "https://www.logmycare.co.uk",
