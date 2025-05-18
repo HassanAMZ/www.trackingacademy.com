@@ -46,7 +46,7 @@ function StatsSection() {
       >
         <Card className="mb-6 w-full bg-background/80 backdrop-blur-xs overflow-hidden relative transition-all duration-300 group-hover:scale-[1.02] group-hover:shadow-lg">
           {/* Gradient overlay that appears on hover - similar to TestimonialCard */}
-          <div className="absolute inset-0 bg-gradient-to-t from-primary/20 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100 z-10"></div>
+          <div className="absolute inset-0 bg-linear-to-t from-primary/20 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100 z-10"></div>
 
           <CardHeader className="relative z-20">
             <CardTitle className="flex items-center gap-2">

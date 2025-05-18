@@ -23,7 +23,7 @@ const HeroComponent: React.FC<HeroProps> = ({ textGroup, links, images }) => {
             src={images.background.mobile}
             height={1080}
             width={1920}
-            className="block object-right-bottom opacity-50 sm:hidden"
+            className="block object-bottom-right opacity-50 sm:hidden"
           />
         )}
         <div className="relativ z-10 flex flex-col items-start justify-center px-4 py-20 sm:px-8 lg:px-14 lg:py-24">

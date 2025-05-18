@@ -31,7 +31,7 @@ const Hero: React.FC<HeroProps> = ({
   supportingComponent,
 }) => {
   return (
-    <section className="grid place-content-center overflow-hidden py-16">
+    <section className="grid place-content-center py-12">
       <Container className="flex flex-col items-center justify-center space-y-8 text-center">
         {badgeText && (
           <Badge variant="outline" className="text-destructive">
@@ -50,7 +50,7 @@ const Hero: React.FC<HeroProps> = ({
         {subheadingText && (
           <div className="text-muted-foreground max-w-4xl">
             {typeof subheadingText === "string" ? (
-              <h3>{subheadingText}</h3>
+              <h4>{subheadingText}</h4>
             ) : (
               subheadingText
             )}
@@ -87,9 +87,8 @@ const Hero: React.FC<HeroProps> = ({
             </Button>
           )} */}
         </div>
-
-        <div className="w-full">{supportingComponent}</div>
       </Container>
+      <div className="w-full py-12  overflow-hidden">{supportingComponent}</div>
     </section>
   );
 };

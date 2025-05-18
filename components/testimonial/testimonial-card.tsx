@@ -49,7 +49,7 @@ export function TestimonialCard({
     >
       {/* Gradient overlay that appears on hover */}
       {linkEnabled && (
-        <div className="absolute inset-0 bg-gradient-to-t from-primary/20 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100 z-10"></div>
+        <div className="absolute inset-0 bg-linear-to-t from-primary/20 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100 z-10"></div>
       )}
 
       <CardContent className="p-0 flex flex-col h-full relative z-20 space-y-4">
@@ -74,7 +74,7 @@ export function TestimonialCard({
         </div>
 
         {/* Quote content */}
-        <div className="flex-grow flex items-center p-4 pt-2">
+        <div className="grow flex items-center p-4 pt-2">
           <h4 className="italic text-foreground/90">{quote}</h4>
         </div>
 

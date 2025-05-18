@@ -75,7 +75,7 @@ export default function Page() {
             <div className="flex gap-4">
               {bulletPoints.map((point, i) => (
                 <div key={i} className="flex items-start">
-                  {/* <div className="mt-1 flex-shrink-0">
+                  {/* <div className="mt-1 shrink-0">
                     <div className="bg-primary flex h-5 w-5 items-center justify-center rounded">
                       <Check className="text-primary-foreground h-4 w-4" />
                     </div>

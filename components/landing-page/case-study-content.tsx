@@ -38,7 +38,9 @@ export default function CaseStudyContent({ caseStudy }: CaseStudyContentProps) {
                 {caseStudy.description}
               </p>
             </div>
-            <Badge variant="secondary">{caseStudy.plan}</Badge>
+            <Badge variant="secondary" className=" text-nowrap ">
+              {caseStudy.plan}
+            </Badge>
           </div>
         </CardHeader>
         <CardContent>

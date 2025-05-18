@@ -7,7 +7,7 @@ export default function PrivacyPolicy() {
     <>
       <Navbar />
       <div className="flex min-h-screen flex-col">
-        <main className="container mx-auto flex-grow px-4 py-8">
+        <main className="container mx-auto grow px-4 py-8">
           <h2 className="mb-6 text-3xl font-bold">Privacy Policy</h2>
           <section className="space-y-4">
             <h3 className="text-xl font-semibold">Introduction</h3>

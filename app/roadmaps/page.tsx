@@ -175,7 +175,7 @@ const roadmapData: roadmapDataProps[] = [
 export default function Roadmap() {
   return (
     <Container>
-      <div className="flex min-h-[100dvh] flex-col">
+      <div className="flex min-h-screen flex-col">
         <section className="bg-muted w-full py-12 md:py-24 lg:py-32">
           <div className="rounded-lg px-4 text-center md:px-6">
             <div className="space-y-4">
