@@ -257,7 +257,7 @@ export default function CaseStudyContent({ caseStudy }: CaseStudyContentProps) {
                 className="hover:bg-primary/90 flex flex-col py-20 text-center text-xl font-bold text-wrap whitespace-pre-wrap mx-auto"
                 asChild
               >
-                <Link href="book-a-meeting">
+                <Link href="../contact/book-a-meeting">
                   <div>
                     🔒 Book Your Free 15-Minute Setup Call
                     <br />
@@ -278,7 +278,7 @@ export default function CaseStudyContent({ caseStudy }: CaseStudyContentProps) {
         className="hidden md:flex hover:bg-primary/90  flex-col py-20 text-center text-xl font-bold text-wrap whitespace-pre-wrap sm:py-16 md:py-12 mx-auto"
         asChild
       >
-        <Link href="book-a-meeting">
+        <Link href="../contact/book-a-meeting">
           <div>
             🔒 Book Your Free 15-Minute Setup Call
             <br />
