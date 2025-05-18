@@ -50,7 +50,7 @@ export default function CaseStudyContent({ caseStudy }: CaseStudyContentProps) {
                   height={1920}
                   src={caseStudy.imageUrl || "/images/social-sharing.png"}
                   alt={caseStudy.name}
-                  className="scale-105 object-cover object-top"
+                  className="scale-102 object-cover"
                 />
               </div>
 
@@ -132,9 +132,7 @@ export default function CaseStudyContent({ caseStudy }: CaseStudyContentProps) {
                   <Card key={index} className="px-4 py-8">
                     <div className="flex items-center justify-between">
                       <div className="space-y-2">
-                        <Badge variant="outline">
-                          Milestone {milestone.day}
-                        </Badge>
+                        <Badge variant="outline">Milestone {index + 1}</Badge>
                         <h4>{milestone.name}</h4>
                         <p className="text-muted-foreground">
                           {milestone.description}
@@ -165,7 +163,7 @@ export default function CaseStudyContent({ caseStudy }: CaseStudyContentProps) {
                   <CardTitle>Testimonial</CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <blockquote className="text-muted-foreground mb-4 italic">
+                  <blockquote className="text-primary mb-4 italic font-semibold">
                     "{caseStudy.testimonial.quote}"
                   </blockquote>
                   <div className="flex items-center">

@@ -16,9 +16,9 @@ interface CaseStudyCarouselProps {
 
 export default function CaseStudyCarousel({
   caseStudies,
-  speed = 0.75,
-  itemWidth = 412 / 1.75,
-  itemHeight = 893 / 1.75,
+  speed = 1,
+  itemWidth = 412 / 1.5,
+  itemHeight = 893 / 1.5,
   className = "",
 }: CaseStudyCarouselProps) {
   const [isPaused, setIsPaused] = useState(false);
@@ -93,7 +93,7 @@ export default function CaseStudyCarousel({
               alt={caseStudy.title}
               width={1080}
               height={1920}
-              className="scale-105 object-cover transition-opacity duration-300 group-hover:opacity-80"
+              className="scale-102 object-cover transition-opacity duration-300 group-hover:opacity-80"
             />
 
             {/* Gradient overlay that intensifies on hover */}
@@ -101,10 +101,12 @@ export default function CaseStudyCarousel({
 
             {/* Case study details that scale up on hover */}
             <div className="text-white absolute inset-x-0 bottom-0 z-10 transform p-4 text-left transition-transform duration-300 group-hover:scale-110">
-              <h3 className="mb-1 line-clamp-3 underline">{caseStudy.title}</h3>
-              <h4 className="line-clamp-3 transition-colors duration-300">
-                {caseStudy.description}
+              <h4 className="mb-1 line-clamp-3 hover:underline">
+                {caseStudy.title}
               </h4>
+              <p className="line-clamp-2 transition-colors duration-300">
+                {caseStudy.description}
+              </p>
             </div>
 
             {/* Outline icon that appears on hover */}

@@ -1,5 +1,6 @@
 "use client";
 
+import YoutubeEmbed from "@/components/global/youtube-embed";
 import CouponOptInForm from "@/components/landing-page/coupon-optin";
 import TestimonialsCarousel from "@/components/testimonial/testimonial-carousal";
 import TestimonialGrid from "@/components/testimonial/testimonial-grid";
@@ -37,7 +38,7 @@ export default function Page() {
   return (
     <>
       <section className="grid min-h-screen place-content-center overflow-hidden py-12">
-        <Container className="flex max-w-6xl flex-col items-center space-y-8 text-center">
+        <Container className="flex max-w-7xl flex-col items-center space-y-8 text-center">
           <h1>
             We
             <span className="text-primary">
@@ -54,26 +55,11 @@ export default function Page() {
             without Violating Any Facebook's policies.
           </h4>
 
-          <div className="grid w-full gap-8 px-3 py-6 md:grid-cols-2">
-            {/* Left: Bullet Points */}
-            <div className="order-1 flex flex-col justify-around space-y-6 text-left sm:-order-1 md:pr-4">
-              {bulletPoints.map((point, i) => (
-                <div key={i} className="flex items-start">
-                  <div className="mt-1 flex-shrink-0">
-                    <div className="bg-primary flex h-5 w-5 items-center justify-center rounded">
-                      <Check className="text-primary-foreground h-4 w-4" />
-                    </div>
-                  </div>
-                  <h4 className="text-foreground ml-3">
-                    <span className="font-semibold">{point.title}</span>{" "}
-                    <span className="">{point.subtitle}</span>
-                  </h4>
-                </div>
-              ))}
-            </div>
-
+          <div className="grid w-full gap-8 px-3 py-6 ">
             {/* Right: Image */}
-            <div className="flex items-center justify-center">
+            <YoutubeEmbed embedId="9MGpL_AmEYM" className="max-w-4xl" />
+
+            {/* <div className="flex items-center justify-center">
               <div className="bg-muted w-full overflow-hidden rounded-md">
                 <Image
                   src="/images/hero/data-sharing-restrcition-03.png"
@@ -83,6 +69,25 @@ export default function Page() {
                   className="rounded-lg"
                 />
               </div>
+            </div> */}
+
+            {/* Left: Bullet Points */}
+            <div className="flex gap-4">
+              {bulletPoints.map((point, i) => (
+                <div key={i} className="flex items-start">
+                  {/* <div className="mt-1 flex-shrink-0">
+                    <div className="bg-primary flex h-5 w-5 items-center justify-center rounded">
+                      <Check className="text-primary-foreground h-4 w-4" />
+                    </div>
+                  </div> */}
+                  <h4 className="text-foreground ml-3">
+                    <span className="font-semibold text-primary">
+                      {point.title}
+                    </span>{" "}
+                    <span className="">{point.subtitle}</span>
+                  </h4>
+                </div>
+              ))}
             </div>
           </div>
 
@@ -102,10 +107,10 @@ export default function Page() {
           </Button>
 
           <h1 className="pt-12 pb-6">
-            100+ Satisfied Customers Can't Be Wrong
+            300+ Satisfied Customers Can't Be Wrong
           </h1>
 
-          <TestimonialsCarousel />
+          {/* <TestimonialsCarousel /> */}
         </Container>
         <Container className="py-12">
           <TestimonialGrid />

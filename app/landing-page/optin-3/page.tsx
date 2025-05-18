@@ -1,5 +1,6 @@
 "use client";
 
+import YoutubeEmbed from "@/components/global/youtube-embed";
 import CaseStudyCarousel from "@/components/landing-page/case-study-carousel";
 import CouponOptInForm from "@/components/landing-page/coupon-optin";
 import TestimonialsCarousel from "@/components/testimonial/testimonial-carousal";
@@ -21,7 +22,7 @@ export default function Page() {
   return (
     <>
       <section className="min-h-screen overflow-x-hidden py-12">
-        <Container className="flex max-w-6xl flex-col items-center space-y-12 py-4 text-center">
+        <Container className="flex max-w-6xl flex-col items-center space-y-6 py-4 text-center">
           <h1>
             We{" "}
             <span className="text-primary">Fix Broken Facebook Tracking </span>{" "}
@@ -34,7 +35,10 @@ export default function Page() {
             All done-for-you, in just 3 days, with 95% Accurate Data Tracking,
             without Violating Any Facebook's policies.{" "}
           </h4>
+
+          <YoutubeEmbed embedId="9MGpL_AmEYM" className="max-w-4xl" />
           {/* CTA Button */}
+
           <Button
             size="lg"
             className="hover:bg-primary/90 flex flex-col py-20 text-xl font-bold text-wrap whitespace-pre-wrap hover:cursor-pointer sm:py-16 md:py-12"
@@ -54,7 +58,7 @@ export default function Page() {
         </div>
         <Container className="flex flex-col items-center space-y-12 pb-4 text-center">
           <h1 className="max-w-full pt-12 pb-6 text-2xl break-words sm:text-3xl md:text-4xl">
-            100+ Satisfied Customers Can't Be Wrong
+            300+ Satisfied Customers Can't Be Wrong
           </h1>
           {/* <TestimonialsCarousel /> */}
           <TestimonialGrid />

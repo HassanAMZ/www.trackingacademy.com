@@ -77,10 +77,10 @@ export default function Page() {
         />
         <Container>
           <h1 className="pt-12 pb-6 text-center">
-            100+ Satisfied Customers Can't Be Wrong
+            300+ Satisfied Customers Can't Be Wrong
           </h1>
 
-          <TestimonialsCarousel />
+          {/* <TestimonialsCarousel /> */}
         </Container>
         <Container className="space-y-12 py-12">
           <TestimonialGrid />

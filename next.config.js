@@ -27,6 +27,14 @@ const nextConfig = {
       },
       {
         protocol: "https",
+        hostname: "quinnportfolio.com",
+      },
+      {
+        protocol: "https",
+        hostname: "www.upwork.com",
+      },
+      {
+        protocol: "https",
         hostname: "*.ytimg.com",
         port: "",
         pathname: "**",
