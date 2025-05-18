@@ -1,6 +1,5 @@
-import Image from "next/image";
-
 import type { ServiceCardProps } from "@/types/index";
+import Image from "next/image";
 import Link from "next/link";
 
 const ServiceCard: React.FC<ServiceCardProps> = ({ service }) => {

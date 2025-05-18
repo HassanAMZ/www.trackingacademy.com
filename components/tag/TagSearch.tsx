@@ -1,5 +1,6 @@
 // TagSearch.tsx
 "use client";
+
 import { TagSearchProps } from "@/types/index"; // Ensure you have this type
 import React, { useEffect, useState } from "react";
 

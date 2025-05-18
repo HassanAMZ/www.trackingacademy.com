@@ -18,8 +18,8 @@ import {
 import { Input } from "@/components/ui/input";
 import {
   BusinessParams,
-  DEFAULT_BUSINESS_PARAMS,
   calculateBusinessMetrics,
+  DEFAULT_BUSINESS_PARAMS,
 } from "@/utils/business-calculator";
 import { BarChart, Settings } from "lucide-react";
 import React, { useMemo, useState } from "react";

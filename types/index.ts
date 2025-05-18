@@ -1,5 +1,8 @@
 "use client";
 
+// types/index.ts or types/clientTypes.ts
+import { JSX, ReactNode } from "react";
+
 export interface GTMEvent {
   event: string;
   datalayer_event_name: string;
@@ -31,9 +34,6 @@ export interface UTMParams {
 export interface GTMBlogViewProps {
   metadata: PostMetadata;
 }
-
-// types/index.ts or types/clientTypes.ts
-import { JSX, ReactNode } from "react";
 
 export interface ServiceCardProps {
   service: ServiceDetails;

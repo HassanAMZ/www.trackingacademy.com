@@ -1,4 +1,5 @@
 "use client";
+
 import { PreProps } from "@/types/index";
 import AuthenticatedLayout from "../layouts/AuthenticatedLayout";
 import Pre from "./Pre";

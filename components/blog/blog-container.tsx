@@ -1,6 +1,7 @@
 import BlogHeader from "@/components/blog/blog-header";
 import ContactUs from "./call-to-action-message-us";
 import TableOfContents from "./table-of-content";
+
 export default async function BlogContainer({
   slug,
   category,

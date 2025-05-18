@@ -1,5 +1,6 @@
 // TagsContainer.tsx
 "use client";
+
 import TagContent from "@/components/tag/TagContent";
 import TagSearch from "@/components/tag/TagSearch";
 import { TagContainerProps } from "@/types/index"; // Ensure you have this type

@@ -1,9 +1,9 @@
 // LearnMoreHeader.tsx
 
-import React from "react";
-
 import { WhyUsProps } from "@/types/index"; // make sure to use the actual path
+
 import Link from "next/link";
+import React from "react";
 
 const WhyUs: React.FC<WhyUsProps> = ({
   links,

@@ -1,4 +1,5 @@
 "use client";
+
 // components/tools/offer-analyzer.tsx
 import { useState } from "react";
 import { Alert, AlertDescription, AlertTitle } from "../ui/alert";

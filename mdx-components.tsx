@@ -12,6 +12,7 @@ import clsx from "clsx";
 import type { MDXComponents } from "mdx/types";
 import Image from "next/image";
 import DataLayerCodeBlock from "./components/mdx/datalayer-code";
+
 export function useMDXComponents(components: MDXComponents): MDXComponents {
   const createId = (content: string) =>
     content

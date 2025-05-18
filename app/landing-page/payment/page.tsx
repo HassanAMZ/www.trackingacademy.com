@@ -1,5 +1,10 @@
 "use client";
 
+import { Alert, AlertDescription } from "@/components/ui/alert";
+import { Button } from "@/components/ui/button";
+import { Card } from "@/components/ui/card";
+import { Input } from "@/components/ui/input";
+import { Separator } from "@/components/ui/separator";
 import {
   Elements,
   PaymentElement,
@@ -9,12 +14,6 @@ import {
 import { loadStripe, StripeElementsOptions } from "@stripe/stripe-js";
 import { CheckCircle, Loader2 } from "lucide-react";
 import { FormEvent, useEffect, useState } from "react";
-
-import { Alert, AlertDescription } from "@/components/ui/alert";
-import { Button } from "@/components/ui/button";
-import { Card } from "@/components/ui/card";
-import { Input } from "@/components/ui/input";
-import { Separator } from "@/components/ui/separator";
 
 // Product types
 export interface Product {

@@ -6,6 +6,7 @@ import {
 } from "@/components/ui/accordion";
 import Container from "@/components/ui/container";
 import React from "react";
+
 interface FrequentlyAskedQuestionsProps {
   question: string;
   answer: string;

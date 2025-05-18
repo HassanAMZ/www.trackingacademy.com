@@ -1,6 +1,5 @@
 import CategoryContainer from "@/components/blog/category-container";
 import formatString from "utils/formatString";
-
 import getTagsData from "utils/getTagsData";
 
 export default async function Page(props: {

@@ -4,6 +4,7 @@ import {
   PostMetadata,
   PostMetadataProps,
 } from "@/types/index";
+
 interface OptionalUserData {
   id?: string;
   phone?: string;

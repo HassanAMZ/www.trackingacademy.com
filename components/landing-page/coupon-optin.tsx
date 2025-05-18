@@ -1,4 +1,5 @@
 "use client";
+
 import { createCouponRequest } from "@/actions/coupon-request";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";

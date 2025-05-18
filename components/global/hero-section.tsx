@@ -2,7 +2,6 @@ import YoutubeEmbed from "@/components/global/youtube-embed";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import Container from "@/components/ui/container";
-
 import { ArrowRight, CheckCircle2 } from "lucide-react";
 import Link from "next/link";
 import React from "react";

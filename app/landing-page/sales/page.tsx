@@ -1,4 +1,5 @@
 "use client";
+
 import AlternativesSection from "@/components/home/alternative-section";
 import WhyChooseSection from "@/components/home/why-choose-us";
 import DetailedCTA from "@/components/landing-page/detailed-cta";

@@ -1,4 +1,5 @@
 "use client";
+
 import { createWaitlist } from "@/actions/handle-enroll-now";
 import {
   Select,
@@ -17,6 +18,7 @@ import { Card, CardContent } from "../ui/card";
 import Container from "../ui/container";
 import { Input } from "../ui/input";
 import { Label } from "../ui/label";
+
 interface FormData {
   firstName: string;
   lastName: string;

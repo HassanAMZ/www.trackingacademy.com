@@ -1,7 +1,6 @@
+import { SingleGridContentProps } from "@/types/index";
 import Image from "next/image";
 import React from "react";
-
-import { SingleGridContentProps } from "@/types/index";
 
 const SingleGridContent: React.FC<SingleGridContentProps> = ({
   imagesData,

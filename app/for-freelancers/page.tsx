@@ -4,6 +4,7 @@ import { TestimonialsCarousel } from "@/components/for-freelancers/testimonials-
 import Hero from "@/components/home/hero";
 import WorkHistory from "@/components/home/work-history";
 import clients from "@/data/clients";
+
 export default function ForFreelancers() {
   return (
     <main className="">

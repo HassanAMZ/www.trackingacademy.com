@@ -1,4 +1,5 @@
 "use server";
+
 import { db } from "@/app/firebase";
 import CouponRequestEmail from "@/components/emails/coupon-request";
 import { collection, doc, setDoc, Timestamp } from "firebase/firestore";

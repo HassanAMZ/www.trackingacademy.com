@@ -1,8 +1,8 @@
+import fs from "fs";
+import path from "path";
 import CategoryContainer from "@/components/blog/category-container";
 import { PostMetadata } from "@/types/index";
-import fs from "fs";
 import matter, { GrayMatterFile } from "gray-matter";
-import path from "path";
 import extractMetaFromStringForBlog from "utils/extractMetaFromStringForBlog";
 import getFiles from "utils/getFiles";
 

@@ -13,6 +13,7 @@ import {
   unstable_ViewTransition as ViewTransition,
 } from "react";
 import { AuthContextProvider } from "./context/AuthContext";
+
 export const metadata: Metadata = {
   title: "TrackingAcademy - Top Rated Web Analytics Agency",
   description: `Blog for Web Analysts and Marketing People`,

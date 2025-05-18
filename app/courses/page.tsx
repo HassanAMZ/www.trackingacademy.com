@@ -1,3 +1,5 @@
+import { promises as fs } from "fs";
+import path from "path";
 import Navbar from "@/components/global/navbar";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -9,10 +11,8 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import Container from "@/components/ui/container";
-import { promises as fs } from "fs";
 import { ArrowRight, Book, Clock } from "lucide-react";
 import Link from "next/link";
-import path from "path";
 
 async function getCourses() {
   const coursesDirectory = path.join(process.cwd(), "app/_courses-markdown");
