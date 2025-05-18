@@ -94,12 +94,11 @@ export default function CouponRequestEmail({
               Watch Free Training Now
             </Button>
             <Text style={smallText}>
-              Or use this direct link to purchase with your coupon:{" "}
               <Link
-                href="https://buy.stripe.com/28odUW1U72AD87ubIK?prefilled_promo_code=300OFFRESTRICTEDDATA"
+                href="/landing-page/payment?prefilled_promo_code=300OFFRESTRICTEDDATA"
                 style={link}
               >
-                https://buy.stripe.com/28odUW1U72AD87ubIK?prefilled_promo_code=300OFFRESTRICTEDDATA
+                Or use this direct link to purchase with your coupon:{" "}
               </Link>
             </Text>
           </Section>

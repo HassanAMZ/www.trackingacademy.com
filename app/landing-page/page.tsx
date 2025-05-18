@@ -103,7 +103,7 @@ export default function Page() {
             className="max-w-lg text-wrap whitespace-pre-wrap"
             asChild
           >
-            <Link href="https://buy.stripe.com/28odUW1U72AD87ubIK?prefilled_promo_code=300OFFRESTRICTEDDATA">
+            <Link href="/landing-page/payment?prefilled_promo_code=300OFFRESTRICTEDDATA">
               <div>
                 <span className="underline">
                   💰 Ready to reclaim your Meta tracking (and $300 off)?
