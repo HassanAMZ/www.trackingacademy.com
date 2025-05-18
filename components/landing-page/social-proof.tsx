@@ -40,9 +40,8 @@ const SocialProof: React.FC<SocialProofProps> = ({
           </h4>
         )}
 
-        {testimonials && testimonials.length > 0 && (
-          <TestimonialGrid testimonials={testimonials} />
-        )}
+        <TestimonialGrid />
+
         {/* Results Stats */}
         {/* {resultsTitle && stats && stats.length > 0 && (
           <div className="mt-16 rounded-lg bg-primary/5 p-8">

@@ -49,7 +49,298 @@ export interface CaseStudy {
 
 export const caseStudies: CaseStudy[] = [
   {
-    id: "gtm-ss-tracking",
+    id: "logmycare",
+    name: "Google Tag Manager Help",
+    url: "https://www.logmycare.co.uk",
+    plan: "Standard",
+    title: "Enhanced GTM Setup & UTM Attribution for LogMyCare",
+    description:
+      "LogMyCare’s custom site was losing UTM parameters and missing key conversions in GA4 and Meta. Over a 20-day engagement, we overhauled their GTM container—implementing click-URL triggers, fixing attribution breaks, and building a repeatable process so the client can spin up new conversion tags on demand.",
+    imageUrl: "/images/for-businesses/client-logmycare-desktop-home.png",
+    mobileUrl: "/images/for-businesses/client-logmycare-mobile-home.png",
+    siteUrl: "https://www.logmycare.co.uk",
+    testimonial: {
+      quote: `This guy is one of the best.. I came back 2 years later and he's still amazing. Can't wait to work with him again.`,
+      author: "Derrick Kityo",
+      role: "Client",
+      image:
+        "https://media.licdn.com/dms/image/v2/D4E03AQGs9gPLo0m1RQ/profile-displayphoto-shrink_800_800/B4EZREbsm9GwAc-/0/1736314899859?e=1753315200&v=beta&t=DRPuvIVfCcOdaJIqdNylU6n0gp2deF90ebYOB81vxbQ",
+    },
+    platforms: [
+      "Google Tag Manager",
+      "Google Analytics 4",
+      "Facebook Pixel",
+      "Slack",
+    ],
+    milestones: [
+      {
+        day: 1,
+        name: "Kickoff & Access Setup",
+        description:
+          "Secured GTM admin access, invited to Slack channel, audited existing tags",
+        expectedOutcome:
+          "Transparent communication channel and full environment visibility",
+      },
+      {
+        day: 2,
+        name: "Core Event Tracking",
+        description:
+          "Built click-URL triggers for GA4 and Meta Conversion API events",
+        expectedOutcome:
+          "All primary buttons and pageviews tracked with correct parameters",
+      },
+      {
+        day: 3,
+        name: "UTM & Attribution Fix",
+        description:
+          "Diagnosed stripped UTM parameters, validated source/medium in GA4 reports",
+        expectedOutcome:
+          "Stable session attribution and accurate traffic source reporting",
+      },
+      {
+        day: 4,
+        name: "Training & Handoff",
+        description:
+          "Walked through dynamic tag creation, delivered step-by-step docs",
+        expectedOutcome:
+          "Client empowered to launch new page-level conversion tags independently",
+      },
+    ],
+    projectTimeline: {
+      startDate: "Oct 2, 2024",
+      endDate: "Oct 21, 2024",
+      durationDays: 20,
+    },
+    owner: "Shahzada Ali Hassan",
+    client: "Derrick Kityo",
+    budget: 160,
+    technologies: [
+      "Google Tag Manager",
+      "UTM Tracking",
+      "Event Tracking",
+      "Analytics Dashboard",
+    ],
+    challenges: [
+      "UTM parameters stripped by redirects, breaking session attribution",
+      "No dynamic process to roll out new conversion tags",
+      "Client needed reliable GA4 & Meta event data without manual upkeep",
+    ],
+    solutions: [
+      "Implemented click-URL triggers in GTM for all key CTAs",
+      "Documented & trained client on on-the-fly tag creation",
+      "Set up Slack channel for real-time support and iterative tweaks",
+    ],
+    results: [
+      "Full restoration of GA4 & Meta conversion tracking across the site",
+      "Accurate source/medium attribution with no session resets",
+      "Client now self-sufficient: can add new conversion events instantly",
+    ],
+  },
+  {
+    id: "everskin",
+    name: "Everskin Webflow & ClinicMinds",
+    url: "https://www.everskin.ch",
+    plan: "Standard",
+    title:
+      "Server-Side GTM & Meta CAPI-G Implementation for Webflow & ClinicMinds",
+    description:
+      "Everskin needed a robust, compliant tracking setup across their Webflow site and the external ClinicMinds booking tool. Over 46 days, we deployed a custom Server-Side GTM on Stape, integrated advanced Cookiebot Consent Mode V2, configured Meta CAPI-G, set up cross-domain tracking and GA4-to-Ads conversion imports, and captured key booking events—all with full deduplication and future scalability.",
+    imageUrl: "/images/for-businesses/client-everskin-desktop-home.png",
+    mobileUrl: "/images/for-businesses/client-everskin-mobile-home.png",
+    siteUrl: "https://www.everskin.ch",
+    testimonial: {
+      quote:
+        "One of the best freelancers to collaborate with. Referred to others already – knows everything about tracking & attribution, works fast and delivers ahead of schedule. Solved things others took way more time for and fixed problems instantaneously. Amazing work, Shahzada!!",
+      author: "Julian Grimme",
+      role: "Client",
+      image:
+        "https://media.licdn.com/dms/image/v2/C5603AQG_CkBefGBKRA/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1591132529975?e=1753315200&v=beta&t=S44IDZno13irWO0SngW8tuwYE_rYQRDkF85MpstBjhI",
+    },
+    platforms: [
+      "Webflow",
+      "Google Tag Manager",
+      "Server-Side GTM",
+      "Stape",
+      "Meta Pixel",
+      "Meta Conversion API (CAPI-G)",
+      "Cookiebot",
+      "ClinicMinds",
+    ],
+    milestones: [
+      {
+        day: 1,
+        name: "Access & Architecture Review",
+        description:
+          "Secured access to Webflow, GTM web & server containers, Meta & GA4 accounts",
+        expectedOutcome:
+          "Environment prepared and implementation plan locked in",
+      },
+      {
+        day: 2,
+        name: "Server-Side GTM Deployment",
+        description:
+          "Deployed SS-GTM on Stape using a custom subdomain and tested ingestion",
+        expectedOutcome: "Server container live and ready to accept events",
+      },
+      {
+        day: 3,
+        name: "Consent Mode Integration",
+        description:
+          "Configured Cookiebot V2 Consent Mode in GTM for granular tag firing",
+        expectedOutcome:
+          "Client-side tags respect user consent; server-side CAPI unaffected",
+      },
+      {
+        day: 4,
+        name: "Meta CAPI-G PageView Setup",
+        description:
+          "Implemented CAPI-G in the server container, added dedupe via event_id",
+        expectedOutcome: "Accurate PageView data flowing into Meta",
+      },
+      {
+        day: 10,
+        name: "GA4 & Google Ads Conversion Import",
+        description:
+          "Enabled cross-domain tracking, marked GA4 booking event as conversion, imported into Google Ads",
+        expectedOutcome:
+          "Booking conversions available for Google Ads optimization",
+      },
+      {
+        day: 21,
+        name: "ClinicMinds Booking Events",
+        description:
+          "Hooked into native ClinicMinds dataLayer (ServiceSelected → AppointmentBooked)",
+        expectedOutcome:
+          "End-to-end funnel events captured and deduplicated across environments",
+      },
+      {
+        day: 46,
+        name: "Final QA & Handover",
+        description:
+          "Validated all tags, events, deduplication rules, delivered documentation",
+        expectedOutcome:
+          "Stable, scalable tracking framework in client’s hands",
+      },
+    ],
+    projectTimeline: {
+      startDate: "Sep 6, 2024",
+      endDate: "Oct 21, 2024",
+      durationDays: 46,
+    },
+    owner: "Shahzada Ali Hassan",
+    client: "Julian Grimme",
+    budget: 290,
+    technologies: [
+      "Server-Side Tracking",
+      "Web Analytics",
+      "Conversion API (CAPI-G)",
+      "Consent Management",
+      "Cross-Domain Tracking",
+      "Event Tracking",
+    ],
+    challenges: [
+      "Webflow doesn’t natively support server-side CAPI",
+      "Integrating advanced Cookiebot V2 consent in GTM",
+      "Ensuring deduplication between pixel & server-side hits",
+      "Limited data parameters exposed by ClinicMinds",
+    ],
+    solutions: [
+      "Deployed SS-GTM on Stape with a custom subdomain",
+      "Configured Cookiebot Consent Mode V2 in GTM triggers",
+      "Implemented Meta CAPI-G and event_id deduplication",
+      "Set up GA4 booking conversion import into Google Ads",
+      "Tracked ClinicMinds booking events via native dataLayer",
+    ],
+    results: [
+      "100% server-side PageView tracking with deduplication",
+      "Compliant Meta CAPI-G firing alongside Cookiebot consent",
+      "Booking conversions visible in Google Ads & GA4",
+      "Scalable framework for future event expansions",
+    ],
+  },
+  {
+    id: "kodanik",
+    name: "GTM Ecommerce Troubleshooting",
+    url: "https://www.upwork.com/agencies/1718262069083348992/",
+    plan: "Hourly",
+
+    title: "Fixed Custom GTM Ecommerce Tracking in Just One Hour",
+    description:
+      "A custom‐built e-commerce site was showing revenue in GTM Preview and GA4 real-time but not in the standard reports. In a focused one-hour Zoom session, we crafted custom JavaScript variables to simulate the missing dataLayer parameters and restored full revenue visibility, allowing the client to calculate ROAS accurately.",
+    imageUrl: "/images/for-businesses/client-kodanik-desktop-home.png",
+    mobileUrl: "/images/for-businesses/client-kodanik-mobile-home.png",
+    siteUrl: "https://www.upwork.com/agencies/1718262069083348992/",
+    testimonial: {
+      quote:
+        "Hassan resolved a complex GTM issue in just one hour, after I had spent nearly a month working with Google Support with no success. His expertise is exceptional, and I highly recommend his services!",
+      author: "Luis Boani",
+      role: "Client",
+      image:
+        "https://www.upwork.com/profile-portraits/c1Wsleh3GpJUkUr430pJOjyBrFOitQX1GEU7yb_6rhLw4mXVlJoDZ3itd3pRvqqNrw",
+    },
+    platforms: [
+      "Custom Build Website",
+      "Google Tag Manager",
+      "Google Analytics 4",
+    ],
+    milestones: [
+      {
+        day: 1,
+        name: "Initial Diagnosis",
+        description:
+          "Reviewed GTM Preview and GA4 real-time data to pinpoint why revenue wasn’t persisting.",
+        expectedOutcome:
+          "Clear understanding of which dataLayer parameters were missing downstream.",
+      },
+      {
+        day: 2,
+        name: "Custom JS Variable Implementation",
+        description:
+          "Created and tested custom JavaScript variables in GTM to emulate the missing dataLayer keys on purchase events.",
+        expectedOutcome:
+          "Revenue values now firing correctly into GA4 standard reports.",
+      },
+      {
+        day: 3,
+        name: "Validation & Handover",
+        description:
+          "Validated tracking in GA4 across multiple test orders and walked the client through monitoring in Looker Studio.",
+        expectedOutcome:
+          "Client empowered to monitor revenue reporting and calculate ROAS without backend changes.",
+      },
+    ],
+    projectTimeline: {
+      startDate: "Oct 21, 2024",
+      endDate: "Oct 23, 2024",
+      durationDays: 3,
+    },
+    owner: "Shahzada Ali Hassan",
+    client: "Luis Boani",
+    budget: 191.67,
+    technologies: [
+      "Web Analytics",
+      "DataLayer Debugging",
+      "Custom JavaScript",
+      "GTM Implementation",
+    ],
+    challenges: [
+      "Revenue only visible in GTM Preview & GA4 real-time, not in reports",
+      "No backend access to adjust the original dataLayer",
+      "Google Support unable to resolve after 20+ emails",
+    ],
+    solutions: [
+      "Built custom JavaScript variables to reconstruct missing dataLayer parameters",
+      "Live debugging and implementation during a one-hour Zoom session",
+      "Provided reporting workaround via Looker Studio for immediate visibility",
+    ],
+    results: [
+      "Revenue now populates in all GA4 reports",
+      "Issue resolved in just one hour",
+      "Client regained confidence to measure ROAS accurately",
+    ],
+  },
+  {
+    id: "leadr",
     name: "GTM | Pixel | Server Side Tracking",
     url: "https://leadr.co",
     plan: "Fixed Price",

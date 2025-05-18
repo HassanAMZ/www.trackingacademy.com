@@ -1,6 +1,7 @@
 "use client";
 
 import { CaseStudy } from "@/data/case-studies";
+import { ExternalLink } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
@@ -99,30 +100,17 @@ export default function CaseStudyCarousel({
             <div className="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-70 transition-opacity duration-300 group-hover:opacity-90"></div>
 
             {/* Case study details that scale up on hover */}
-            <div className="text-secondary absolute inset-x-0 bottom-0 z-10 transform p-4 text-left transition-transform duration-300 group-hover:scale-110">
+            <div className="text-white absolute inset-x-0 bottom-0 z-10 transform p-4 text-left transition-transform duration-300 group-hover:scale-110">
               <h3 className="mb-1 line-clamp-3 underline">{caseStudy.title}</h3>
-              <h4 className="line-clamp-2 text-muted transition-colors duration-300">
+              <h4 className="line-clamp-3 transition-colors duration-300">
                 {caseStudy.description}
               </h4>
             </div>
 
             {/* Outline icon that appears on hover */}
-            <div className="absolute inset-0 flex items-center justify-center opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-              <div className="border-primary/90 bg-primary transform rounded-full border-2 p-3 transition-transform duration-300 group-hover:scale-120">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  className="text-secondary fill-secondary"
-                >
-                  <path d="M7 7h10v10" />
-                  <path d="M7 17 17 7" />
-                </svg>
+            <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 opacity-0 transition-opacity duration-300 group-hover:opacity-100 z-30">
+              <div className="bg-primary text-white rounded-full p-3 shadow-lg">
+                <ExternalLink className="h-6 w-6" />
               </div>
             </div>
           </Link>

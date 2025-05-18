@@ -1,7 +1,7 @@
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { ExternalLink, Star } from "lucide-react";
+import { ExternalLink, Quote, Star } from "lucide-react";
 import Link from "next/link";
 import type { ReactNode } from "react";
 import { Badge } from "../ui/badge";
@@ -55,9 +55,7 @@ export function TestimonialCard({
       <CardContent className="p-0 flex flex-col h-full relative z-20 space-y-4">
         {/* Header section with stars and project name */}
         <div className="flex justify-between items-start p-4 pb-0">
-          <div className="text-5xl text-primary/20 font-serif leading-none">
-            "
-          </div>
+          <Quote className="text-primary mb-4 h-12 w-12" />
           <div className="flex flex-col items-end gap-2">
             <div className="flex space-x-1">
               {Array.from({ length: 5 }, (_, i) => (
@@ -77,7 +75,7 @@ export function TestimonialCard({
 
         {/* Quote content */}
         <div className="flex-grow flex items-center p-4 pt-2">
-          <p className="italic text-foreground/90">{quote}</p>
+          <h4 className="italic text-foreground/90">{quote}</h4>
         </div>
 
         {/* Footer with author and metrics */}
