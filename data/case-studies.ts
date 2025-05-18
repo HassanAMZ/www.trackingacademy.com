@@ -63,7 +63,7 @@ export const caseStudies: CaseStudy[] = [
       period: "9 months",
       recoveredFromAdBlockersPercentage: 5.0,
       recoveredFromTrackingPreventionPercentage: 40.0,
-      accuracy: 97,
+      accuracy: 96,
     },
     testimonial: {
       quote: "Pleasure to work with. Can highly recommend.",
