@@ -49,6 +49,497 @@ export interface CaseStudy {
 
 export const caseStudies: CaseStudy[] = [
   {
+    id: "gtm-ss-tracking",
+    name: "GTM | Pixel | Server Side Tracking",
+    url: "https://leadr.co",
+    plan: "Fixed Price",
+    title: "Unified GTM & Server-Side Tracking Setup for Leadr.co",
+    description:
+      "Led end-to-end implementation of a server-side GTM container, consolidated client- and server-side tagging, managed a seamless domain migration, and delivered comprehensive training. The result: bulletproof analytics across Facebook, TikTok, Google Ads, GA4, Hyros and more—no duplicate events, no data gaps.",
+    imageUrl: "/images/for-businesses/client-leadr-desktop-home.png",
+    mobileUrl: "/images/for-businesses/client-leadr-mobile-home.png",
+    siteUrl: "https://leadr.co",
+    testimonial: {
+      quote:
+        "Hassan was an absolute pleasure to work with! His expertise in setting up Google Tag Manager was clear from the start, and he delivered an incredible setup that exceeded our expectations. He listened closely to our needs and implemented exactly what we were looking for. Hassan’s knowledge, professionalism, and commitment to getting the job done right made the whole process smooth and efficient. Highly recommended for anyone needing GTM expertise or analytics support!",
+      author: "Nick Ahrens",
+      role: "Client",
+      image:
+        "https://media.licdn.com/dms/image/v2/C5603AQGvfIbKT8ENFw/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1564159301386?e=1753315200&v=beta&t=dDBt76VLXIC89xX9pq63Xr9XcTYoNVd4rZm9DfwY3m0s",
+    },
+    platforms: [
+      "Google Tag Manager",
+      "Stape.io",
+      "Server-Side Tracking",
+      "Facebook Pixel",
+      "TikTok Pixel",
+      "Hyros Tracking",
+      "HubSpot",
+      "Google Ads",
+      "Google Analytics 4",
+      "EverWebinar",
+      "WebinarJam",
+    ],
+    milestones: [
+      {
+        day: 1,
+        name: "Audit Existing Tracking",
+        description:
+          "Performed a full audit of current GTM, hard-coded pixels and tag setups across multiple page builders.",
+        expectedOutcome:
+          "A clear roadmap identifying gaps, overlaps and opportunities for consolidation.",
+      },
+      {
+        day: 2,
+        name: "Server-Side Container Setup",
+        description:
+          "Configured and secured a server-side GTM container via Stape.io to bypass ad blockers and privacy restrictions.",
+        expectedOutcome:
+          "Reliable, consistent data capture for all critical events.",
+      },
+      {
+        day: 3,
+        name: "Pixel & Tag Deployment",
+        description:
+          "Deployed Facebook, TikTok, Hyros, HubSpot, Google Ads conversion & remarketing tags, and GA4 through GTM.",
+        expectedOutcome:
+          "All tracking centrally managed with no duplicate or missing events.",
+      },
+      {
+        day: 4,
+        name: "Domain Migration Support",
+        description:
+          "Coordinated DNS updates and migrated tracking code from thought-leader.com to leadr.co across all properties.",
+        expectedOutcome:
+          "Zero downtime and uninterrupted event flow post-migration.",
+      },
+      {
+        day: 5,
+        name: "Spreadsheet-Driven Rollout",
+        description:
+          "Prioritized and instrumented URLs based on the client’s spreadsheet of pages and key user flows.",
+        expectedOutcome:
+          "Every high-priority page fully tagged and ready for testing.",
+      },
+      {
+        day: 6,
+        name: "Testing & Debugging",
+        description:
+          "Executed end-to-end QA across desktop, mobile, live & staging environments, resolving discrepancies.",
+        expectedOutcome:
+          "Confirmed 99%+ accuracy and proper deduplication in all analytics platforms.",
+      },
+      {
+        day: 7,
+        name: "Training & Handoff",
+        description:
+          "Delivered detailed documentation and Loom videos on adding, testing and maintaining tags in GTM.",
+        expectedOutcome:
+          "Client team fully empowered to manage and extend their tracking stack.",
+      },
+    ],
+    projectTimeline: {
+      startDate: "Oct 9, 2024",
+      endDate: "Nov 4, 2024",
+      durationDays: 27,
+    },
+    owner: "Shahzada Ali Hassan",
+    client: "Nick Ahrens",
+    budget: 1155,
+    technologies: [
+      "Google Tag Manager",
+      "Stape.io",
+      "Server-Side Tracking",
+      "Facebook Pixel",
+      "TikTok Pixel",
+      "Hyros Tracking",
+      "HubSpot",
+      "Google Ads",
+      "Google Analytics 4",
+      "EverWebinar",
+      "WebinarJam",
+    ],
+    challenges: [
+      "Fragmented tracking across multiple page builders and legacy scripts",
+      "Potential for duplicate events from hard-coded pixels alongside GTM",
+      "Risk of data loss due to ad blockers and browser privacy changes",
+      "Complex domain migration requiring DNS and tag continuity",
+    ],
+    solutions: [
+      "Consolidated all tags into a single GTM container (client + server)",
+      "Deployed Stape.io server-side tracking to bypass blockers",
+      "Removed legacy scripts and enforced a single source of truth",
+      "Managed DNS updates and container code swap during domain switch",
+      "Built QA protocols and provided hands-on training with documentation",
+    ],
+    results: [
+      "Achieved 99% data accuracy and eliminated duplicate event firing",
+      "Ensured seamless, uninterrupted tracking through domain migration",
+      "Centralized tag management for faster updates and easier debugging",
+      "Empowered the client with clear documentation and video tutorials",
+    ],
+  },
+  {
+    id: "tobi-consent-mode",
+    name: "Tobi.com Consent Mode Implementation",
+    url: "https://tobi.com",
+    plan: "Standard",
+    title:
+      "Restored 80% Lost Sessions at Tobi.com with Manual gtag() Consent Mode",
+    description:
+      "After GDPR cookie‐consent went live, Tobi.com saw an 80% drop in reported sessions—crippling their data-driven decisions. In just 5 days, we rolled out a manual gtag() consent mode via GTM, rebuilt the consent flow, and restored tracking accuracy and trust in their analytics.",
+    imageUrl: "/images/for-businesses/client-tobi-desktop-home.png",
+    mobileUrl: "/images/for-businesses/client-tobi-mobile-home.png",
+    siteUrl: "https://tobi.com",
+    analytics: {
+      period: "30 days",
+      recoveredFromAdBlockersPercentage: 4.0,
+      recoveredFromTrackingPreventionPercentage: 76.5,
+      accuracy: 98,
+    },
+    testimonial: {
+      quote:
+        "Hassan quickly fixed our consent‐mode setup and brought our session counts back from the brink. His documentation and QA gave us full confidence in our data again.",
+      author: "Winston Abiera",
+      role: "Head of Analytics, Tobi Corp",
+      image:
+        "https://media.licdn.com/dms/image/v2/D4D03AQHpin2QRF60dQ/profile-displayphoto-shrink_800_800/B4DZXKWdWsHAAc-/0/1742856640473?e=1753315200&v=beta&t=OispemTc8tLcJ2e_PiyV5s0G81Gq30eAwKMCzcNeVh0",
+    },
+    platforms: [
+      "Custom Website",
+      "Google Tag Manager",
+      "gtag.js",
+      "Google Analytics 4",
+    ],
+    milestones: [
+      {
+        day: 1,
+        name: "Default Consent State Setup",
+        description:
+          "Injected gtag('consent','default',…) above GTM with ad_storage & analytics_storage denied by default",
+        expectedOutcome:
+          "All tags held from firing until explicit user consent",
+      },
+      {
+        day: 2,
+        name: "GTM Initialization & Consent Integration",
+        description:
+          "Placed GTM container snippet below default-consent code and enabled url_passthrough",
+        expectedOutcome:
+          "GTM loads with consent mode enabled—no tags fire prematurely",
+      },
+      {
+        day: 3,
+        name: "Consent Update Functions",
+        description:
+          "Built updateConsent() & saveConsentAndApply() to push consent updates and 'consent_updated' events",
+        expectedOutcome:
+          "User interactions dynamically update consent state in dataLayer",
+      },
+      {
+        day: 4,
+        name: "Decision Detection & Banner Logic",
+        description:
+          "Stored & checked user decisions in localStorage; fired consent_updated on page load if set",
+        expectedOutcome:
+          "Existing consents auto-apply; new users see consent banner",
+      },
+      {
+        day: 5,
+        name: "QA & Production Roll-out",
+        description:
+          "End-to-end test of consent flow, tag firing, and dataLayer events across key pages",
+        expectedOutcome:
+          "Consent mode live in production with verified session/event tracking",
+      },
+    ],
+    projectTimeline: {
+      startDate: "Sep 13, 2024",
+      endDate: "Sep 18, 2024",
+      durationDays: 5,
+    },
+    owner: "Shahzada Ali Hassan",
+    client: "Winston Abiera",
+    budget: 900,
+    technologies: [
+      "JavaScript",
+      "Google Tag Manager",
+      "gtag.js",
+      "LocalStorage",
+      "Consent Management",
+      "Cookie Banner",
+    ],
+    challenges: [
+      "80% drop in sessions after cookie-consent rollout",
+      "All tags blocked by default-deny mode",
+      "No persistence of consent decisions across pages",
+    ],
+    solutions: [
+      "Manually set default deny state for ad_storage & analytics_storage",
+      "Created robust consent update functions with dataLayer events",
+      "Leveraged localStorage for decision persistence & auto-firing consent_updated",
+      "Integrated consent banner UI with on-click handlers",
+    ],
+    results: [
+      "Restored 80% of lost sessions within 30 days",
+      "Reached 98% accuracy in session & event tracking",
+      "Automated consent logic ensures GDPR compliance",
+      "Marketing team regained full confidence in analytics data",
+    ],
+  },
+  {
+    id: "elitednd",
+    name: "Google Ads Conversion Setup with GTM",
+    url: "https://elitednd.com",
+    plan: "Standard",
+    title: "Advanced Google Ads Conversion Tracking via GTM on WordPress",
+    description:
+      "Elite Adventures (elitednd.com) needed bullet-proof Google Ads conversion tracking on a tight 24-48 hour timeline. We deployed a fully custom GTM stack to capture page views, scroll depth, button clicks, MEC booking steps, checkout and purchase—then mapped each event to Google Ads conversions and delivered a self-serve Loom tutorial and docs so the team could reproduce and scale it themselves.",
+    imageUrl: "/images/for-businesses/client-elitednd-desktop-home.png",
+    mobileUrl: "/images/for-businesses/client-elitednd-mobile-home.png",
+    siteUrl: "https://elitednd.com",
+    testimonial: {
+      quote: "It was great to work with him, thank you for your fast work.",
+      author: "David Laroche",
+      role: "Client",
+      image: "",
+    },
+    platforms: [
+      "WordPress",
+      "Google Tag Manager",
+      "Google Analytics 4",
+      "Google Ads",
+      "Modern Event Calendar",
+    ],
+    milestones: [
+      {
+        day: 1,
+        name: "Requirements & Access Setup",
+        description:
+          "Gather requirements and secure admin access to WordPress, GTM, GA4 & Google Ads.",
+        expectedOutcome: "Environment ready and tracking plan finalized.",
+      },
+      {
+        day: 2,
+        name: "Tag Configuration & Testing",
+        description:
+          "Build and QA custom GTM tags/triggers for page_view, scroll, button clicks and MEC steps.",
+        expectedOutcome:
+          "All key events fire reliably in GTM Preview/Debug mode.",
+      },
+      {
+        day: 3,
+        name: "Google Ads Conversion Mapping",
+        description:
+          "Link GTM-fired events to Google Ads conversion actions, assign dynamic values/scores.",
+        expectedOutcome:
+          "Conversion actions appear in Google Ads and record test conversions.",
+      },
+      {
+        day: 4,
+        name: "Tutorial & Documentation Delivery",
+        description:
+          "Record detailed Loom tutorial and hand off comprehensive setup docs.",
+        expectedOutcome:
+          "Client can reproduce, extend and optimize the conversion setup independently.",
+      },
+    ],
+    projectTimeline: {
+      startDate: "Nov 27, 2024",
+      endDate: "Dec 27, 2024",
+      durationDays: 31,
+    },
+    owner: "Shahzada Ali Hassan",
+    client: "David Laroche",
+    budget: 250,
+    technologies: [
+      "GTM Custom Tags & Triggers",
+      "GA4 Event Tracking",
+      "Google Ads Conversion Actions",
+      "WordPress Modern Event Calendar",
+      "Loom Video Tutorials",
+    ],
+    challenges: [
+      "Strict 24–48 hour turnaround",
+      "No dedicated thank-you pages for events",
+      "Complex booking flow via Modern Event Calendar",
+      "Need to score & value-map disparate user actions",
+    ],
+    solutions: [
+      "Custom GTM triggers & variables for every interaction",
+      "Dynamic event parameters to capture value & currency",
+      "Direct GTM→Google Ads conversion linkage",
+      "Step-by-step Loom videos + written docs for client self-serve",
+    ],
+    results: [
+      "Real-time visibility into funnel drop-offs and conversions",
+      "All key booking steps & purchases tracked and scored",
+      "Conversion actions live in Google Ads for bidding optimization",
+      "Client empowered to reproduce and scale without extra help",
+    ],
+  },
+  {
+    id: "walkfulton-twitter-pixel",
+    name: "Walk Fulton Twitter Pixel Setup",
+    url: "https://walkfulton.com",
+    plan: "Standard",
+    title: "Migrated Twitter Pixel to Shopify .liquid Templates",
+    description:
+      "Walk Fulton needed their Twitter conversion events moved off checkout extensions and into Shopify's .liquid files. In under 4 weeks we disabled the old extensions, injected Liquid-based pixel scripts on the checkout-thank you flow, and verified event delivery in both Twitter Ads Manager and GA4.",
+    imageUrl: "/images/for-businesses/client-walkfulton-desktop-home.png",
+    mobileUrl: "/images/for-businesses/client-walkfulton-mobile-home.png",
+    siteUrl: "https://walkfulton.com",
+    // no top-line analytics available for this job
+    testimonial: {
+      quote:
+        "I can't say enough good things about Shahzada. Some of the nuances of our project were over my head, but he understood them completely and executed everything smoothly and quickly. Would 10000% recommend working with Shahzada.",
+      author: "Libie Motchan",
+      role: "Co-Founder of Fulton",
+      image:
+        "https://media.licdn.com/dms/image/v2/C4D03AQHbWO4h0DVsDA/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1613856010270?e=1753315200&v=beta&t=7IVe-5PfttGloanC8SAJBphHE1NZvhs5bM-OX8Q-Krc",
+    },
+    platforms: [
+      "Shopify",
+      "Shopify Liquid",
+      "Google Tag Manager",
+      "Twitter Ads Manager",
+    ],
+    milestones: [
+      {
+        day: 1,
+        name: "Pixel Migration Planning",
+        description:
+          "Audit existing Twitter events in checkout extensions and prepare Liquid scripts",
+        expectedOutcome:
+          "Detailed migration plan and .liquid templates ready for implementation",
+      },
+      {
+        day: 7,
+        name: "Liquid Script Injection",
+        description:
+          "Disabled checkout extension events and deployed Twitter pixel code into checkout.liquid and thank_you.liquid",
+        expectedOutcome:
+          "Conversion events firing via .liquid; old extension turned off",
+      },
+      {
+        day: 14,
+        name: "End-to-End Validation",
+        description:
+          "Tested purchase and post-purchase events in Twitter Ads Manager and GA4",
+        expectedOutcome:
+          "100% of test orders recorded correctly in both systems",
+      },
+      {
+        day: 25,
+        name: "Project Close-Out",
+        description:
+          "Delivered final report, handed off documentation, and confirmed no pending tasks",
+        expectedOutcome:
+          "Client satisfied, contract closed with $350 milestone paid",
+      },
+    ],
+    projectTimeline: {
+      startDate: "Jul 31, 2024",
+      endDate: "Aug 25, 2024",
+      durationDays: 26,
+    },
+    owner: "Shahzada Ali Hassan",
+    client: "Libie Motchan",
+    budget: 350,
+    technologies: ["Event Tracking", "Liquid Templating", "Analytics Tagging"],
+    challenges: [
+      "Checkout extension events not firing on thank-you pages",
+      "Client needed full control via .liquid rather than Shopify apps",
+      "Verification across two analytics platforms",
+    ],
+    solutions: [
+      "Replaced extension hooks with native .liquid script injections",
+      "Disabled legacy customer-events and checkout extensions",
+      "Built test harness in GTM and validated in both Twitter Ads Manager & GA4",
+    ],
+    results: [
+      "All purchase events recorded reliably in Twitter Ads Manager",
+      "GA4 mirrored Twitter conversions at 100% during testing",
+      "Client able to retire checkout extensions and own their Liquid templates",
+    ],
+  },
+  {
+    id: "restrank",
+    name: "Restrank Outbound Click Tracking",
+    url: "https://restrank.com",
+    plan: "Standard",
+    title: "Restored Outbound Click Conversion Tracking for Restrank.com",
+    description:
+      "After pausing campaigns and changing domains, Restrank.com's outbound click conversions stopped firing properly. In 3 days, I audited GTM and Google Ads, updated triggers for affiliate domains, and restored accurate GA4 and Ads tracking—enabling data-driven campaign optimization again.",
+    imageUrl: "/images/for-businesses/client-restrank-desktop-home.png",
+    mobileUrl: "/images/for-businesses/client-restrank-mobile-home.png",
+    siteUrl: "https://restrank.com",
+    testimonial: {
+      quote:
+        "He is very good in fixing any Google Tracking Code issues you have; we hired him twice and we will hire him again when we need more help. Thanks",
+      author: "Hayam Sh",
+      role: "Client",
+      image:
+        "https://media.licdn.com/dms/image/v2/C5603AQGUgP-vA1neBw/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1575128939684?e=1753315200&v=beta&t=E9Yk6Bn85dEF_hGOtLXSRuyc4JKI9LIURf98Z2ohTHw",
+    },
+    platforms: ["Google Tag Manager", "Google Analytics 4", "Google Ads"],
+    milestones: [
+      {
+        day: 1,
+        name: "Audit & Diagnosis",
+        description:
+          "Troubleshot GTM container and Google Ads conversion tag issues after tracking went stale",
+        expectedOutcome:
+          "Identified root cause of outbound click conversion failures",
+      },
+      {
+        day: 2,
+        name: "Tag & Trigger Fixes",
+        description:
+          "Updated GTM outbound-click triggers for affiliate hostnames and republished container",
+        expectedOutcome:
+          "Outbound click events flowing into GA4 and Ads debug view",
+      },
+      {
+        day: 3,
+        name: "Verification & Testing",
+        description:
+          "Validated conversion firing in GA4, GTM debug, and Google Ads reports",
+        expectedOutcome:
+          "Accurate outbound-click conversions restored for campaign optimization",
+      },
+    ],
+    projectTimeline: {
+      startDate: "Oct 30, 2024",
+      endDate: "Jan 4, 2025",
+      durationDays: 66,
+    },
+    owner: "Shahzada Ali Hassan",
+    client: "Hayam Sh",
+    budget: 100,
+    technologies: [
+      "Google Tag Manager",
+      "Google Analytics 4",
+      "Google Ads Conversion Tracking",
+      "Event Tracking",
+    ],
+    challenges: [
+      "Conversion tracking paused after domain change and ad downtime",
+      "Google Ads flagged conversion actions as “Need attention”",
+      "Affiliate outbound clicks not firing in GA4 or Ads",
+    ],
+    solutions: [
+      "Conducted full GTM and Ads audit to diagnose broken tags",
+      "Reconfigured triggers for affiliate domains in GTM",
+      "Re-linked GA4 events and Ads conversion actions, republished container",
+    ],
+    results: [
+      "Outbound click conversions resumed firing correctly within 24 hours",
+      "Accurate affiliate link tracking restored across GA4 and Google Ads",
+      "Client regained confidence in campaign attribution and optimization",
+    ],
+  },
+  {
     id: "ticketsonsale",
     name: "TicketOnSale Facebook Tracking",
     url: "https://ticketsonsale.com",
@@ -173,7 +664,8 @@ export const caseStudies: CaseStudy[] = [
         "Ali is one of the best freelancers I've worked with, his conscientiousness to get the job complete is exceptional. Thank you for your help and I hope to work again in the future.",
       author: "Chris Lister",
       role: "Client",
-      image: "/images/chris-lister.jpg",
+      image:
+        "https://media.licdn.com/dms/image/v2/C5603AQFz9djiofei_Q/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1517517848739?e=1753315200&v=beta&t=nC7KDjX0t-IdkP5wt7uVhBjqDOvY9UCgVMHLvUePVng",
     },
     platforms: [
       "Squarespace",
@@ -274,7 +766,8 @@ export const caseStudies: CaseStudy[] = [
         "Shahzada's work was very well-done, and he supplied a full report of the changes he made, which was impressive and above and beyond what I expected. I do think my request was a bit outside of his usual expertise and I wish we had taken some more time to clarify the project, but otherwise I'm very happy with the outcome.",
       author: "Jacob Monash",
       role: "Client",
-      image: "/images/jacob-monash.jpg",
+      image:
+        "https://media.licdn.com/dms/image/v2/C4D03AQFCnaSLO7s_uw/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1590713786190?e=1753315200&v=beta&t=MGFRBkPqh_B53jbtB6X-V68TAkC6QwxszskX2kwur0M",
     },
     platforms: [
       "Squarespace",
@@ -365,7 +858,8 @@ export const caseStudies: CaseStudy[] = [
         "Hassan was great to work with! He made the complex conversion tracking process smooth and stress-free, ensuring spot-on tracking that improved campaign performance.",
       author: "Sam Emara",
       role: "Client",
-      image: "/images/sam-emara.jpg",
+      image:
+        "https://media.licdn.com/dms/image/v2/D4D03AQGQU-m8ANtFOA/profile-displayphoto-shrink_800_800/B4DZTKU3QoG8Ac-/0/1738561254956?e=1753315200&v=beta&t=Knbezk-30hgki5ItTBvgKtgLioy09enrONAoaT2ZTSM",
     },
     platforms: [
       "Custom Build Website",
@@ -459,7 +953,7 @@ export const caseStudies: CaseStudy[] = [
         "Super helpful, quick, and comprehensive. Shahzada solved our problem efficiently, complementing a nicely done work in an effective way.",
       author: "Mathieu Frechette",
       role: "Client",
-      image: "/images/mathieu-frechette.jpg",
+      image: "",
     },
     platforms: [
       "Shopify",
@@ -533,7 +1027,8 @@ export const caseStudies: CaseStudy[] = [
       quote: "Hassan is a rockstar, exceptional work as always.",
       author: "Alina Islam",
       role: "Client",
-      image: "/images/alina-islam.jpg",
+      image:
+        "https://media.licdn.com/dms/image/v2/D4D03AQEtUd6HatiLfA/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1682871311747?e=1753315200&v=beta&t=rd_OWgyOai3ginEMAINspl6UA3PdOMK6_rlSkIDwi_o",
     },
     platforms: ["ClickFunnels", "Google Analytics 4", "Google Tag Manager"],
     milestones: [

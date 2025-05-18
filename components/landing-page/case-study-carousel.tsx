@@ -90,10 +90,9 @@ export default function CaseStudyCarousel({
             <Image
               src={caseStudy.mobileUrl || "/placeholder.svg"}
               alt={caseStudy.title}
-              fill
-              sizes={`${itemWidth}px`}
-              className="object-cover transition-opacity duration-300 group-hover:opacity-80"
-              loading="lazy"
+              width={1080}
+              height={1920}
+              className="scale-105 object-cover transition-opacity duration-300 group-hover:opacity-80"
             />
 
             {/* Gradient overlay that intensifies on hover */}
@@ -101,12 +100,10 @@ export default function CaseStudyCarousel({
 
             {/* Case study details that scale up on hover */}
             <div className="text-secondary absolute inset-x-0 bottom-0 z-10 transform p-4 text-left transition-transform duration-300 group-hover:scale-110">
-              <h3 className="mb-1 line-clamp-2 text-lg font-bold">
-                {caseStudy.title}
-              </h3>
-              <p className="line-clamp-2 text-sm transition-colors duration-300">
+              <h3 className="mb-1 line-clamp-3 underline">{caseStudy.title}</h3>
+              <h4 className="line-clamp-2 text-muted transition-colors duration-300">
                 {caseStudy.description}
-              </p>
+              </h4>
             </div>
 
             {/* Outline icon that appears on hover */}

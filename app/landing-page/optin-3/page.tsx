@@ -56,7 +56,7 @@ export default function Page() {
           <h1 className="max-w-full pt-12 pb-6 text-2xl break-words sm:text-3xl md:text-4xl">
             100+ Satisfied Customers Can't Be Wrong
           </h1>
-          <TestimonialsCarousel />
+          {/* <TestimonialsCarousel /> */}
           <TestimonialGrid />
 
           {/* CTA Button */}

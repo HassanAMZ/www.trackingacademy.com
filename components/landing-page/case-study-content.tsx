@@ -44,13 +44,15 @@ export default function CaseStudyContent({ caseStudy }: CaseStudyContentProps) {
         <CardContent>
           <div className="grid grid-cols-1 gap-8 lg:grid-cols-3">
             <div className="space-y-8 lg:col-span-2">
-              <Image
-                width={1080}
-                height={1920}
-                src={caseStudy.imageUrl || "/images/social-sharing.png"}
-                alt={caseStudy.name}
-                className="w-full rounded border"
-              />
+              <div className="overflow-hidden rounded-lg">
+                <Image
+                  width={1080}
+                  height={1920}
+                  src={caseStudy.imageUrl || "/images/social-sharing.png"}
+                  alt={caseStudy.name}
+                  className="scale-105 object-cover object-top"
+                />
+              </div>
 
               <h2>Project Overview</h2>
               <div className="mb-6 grid grid-cols-1 gap-4 sm:grid-cols-2">
