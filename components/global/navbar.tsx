@@ -13,7 +13,7 @@ import {
 } from "@/components/ui/navigation-menu";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import clsx from "clsx";
-import { FileText, Menu, Wrench } from "lucide-react";
+import { Briefcase, FileText, Menu, Wrench } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -69,6 +69,76 @@ const NAV_ITEMS: Record<string, NavItem[]> = {
       href: "/tags/shopify",
       description:
         "Guides and tips for managing and growing your Shopify store.",
+    },
+    {
+      title: "Ecommerce Tracking",
+      href: "/tags/ecommerce-tracking",
+      description: "Master ecommerce tracking implementation and optimization.",
+    },
+    {
+      title: "Google Ads",
+      href: "/tags/google-ads",
+      description: "Get more from your Google Ads with proper tracking setup.",
+    },
+    {
+      title: "Facebook Pixel",
+      href: "/tags/facebook-pixel",
+      description: "Implement and optimize Facebook Pixel for better ROAS.",
+    },
+    {
+      title: "Customer Pixel",
+      href: "/tags/customer-pixel",
+      description: "Learn about custom tracking pixels for specialized needs.",
+    },
+    {
+      title: "WooCommerce",
+      href: "/tags/woocommerce",
+      description:
+        "WooCommerce tracking implementation and optimization guides.",
+    },
+    {
+      title: "GA4",
+      href: "/tags/ga4",
+      description:
+        "Transition to and maximize Google Analytics 4 capabilities.",
+    },
+  ],
+  caseStudies: [
+    {
+      title: "All Case Studies",
+      href: "/case-study",
+      description: "Discover our success stories with real-world clients.",
+    },
+    {
+      title: "Vision4kids",
+      href: "/case-study/vision4kids",
+      description:
+        "Recovered 100% of Facebook Conversions with Server-Side Tracking",
+    },
+    {
+      title: "Horton Golf Park",
+      href: "/case-study/hortongolfpark",
+      description: "Unified Appointment & Lead Tracking with GA4 & GTM",
+    },
+    {
+      title: "CutThePod",
+      href: "/case-study/cutthepod",
+      description: "End-to-End UTM & Funnel Tracking for CutThePod",
+    },
+    {
+      title: "EveryEvent.uk",
+      href: "/case-study/everyevent",
+      description: "Keyword-Level Conversion & Session Duration Tracking",
+    },
+    {
+      title: "LogMyCare",
+      href: "/case-study/logmycare",
+      description: "Enhanced GTM Setup & UTM Attribution",
+    },
+    {
+      title: "Everskin",
+      href: "/case-study/everskin",
+      description: "Server-Side GTM & Meta CAPI-G Implementation",
     },
   ],
 };
@@ -126,8 +196,8 @@ export default function Navbar({ className }: { className?: string }) {
         alt="logo"
         height={100}
         width={100}
-        src={"/logo.png"}
-        className="h-9 w-fit rounded sm:flex"
+        src={"/logo-navbar.png"}
+        className="h-9 w-fit rounded-full sm:flex"
       />
     </NavLink>
   );
@@ -175,12 +245,15 @@ export default function Navbar({ className }: { className?: string }) {
               )}
             </NavigationMenuContent>
           </NavigationMenuItem>
-          {/* <NavigationMenuItem>
-            <NavigationMenuTrigger>Careers</NavigationMenuTrigger>
+          <NavigationMenuItem>
+            <NavigationMenuTrigger>Case Studies</NavigationMenuTrigger>
             <NavigationMenuContent>
-              {renderNavigationMenuItems(NAV_ITEMS.careers, <Briefcase className="h-6 w-6" />)}
+              {renderNavigationMenuItems(
+                NAV_ITEMS.caseStudies,
+                <Briefcase className="h-6 w-6" />,
+              )}
             </NavigationMenuContent>
-          </NavigationMenuItem> */}
+          </NavigationMenuItem>
           <NavigationMenuItem>
             <NavigationMenuTrigger>Blogs</NavigationMenuTrigger>
             <NavigationMenuContent>
@@ -220,7 +293,7 @@ export default function Navbar({ className }: { className?: string }) {
 
       <SheetContent side="right" className="flex flex-col justify-between">
         <nav className="flex w-full flex-col space-y-4 py-4">
-          {["/", "/tools", "/blog"].map((path) => (
+          {["/", "/tools", "/case-study", "/blog"].map((path) => (
             <Link
               key={path}
               href={path}
@@ -233,7 +306,9 @@ export default function Navbar({ className }: { className?: string }) {
             >
               {path === "/"
                 ? "TrackingAcademy"
-                : path.slice(1).charAt(0).toUpperCase() + path.slice(2)}
+                : path === "/case-study"
+                  ? "Case Studies"
+                  : path.slice(1).charAt(0).toUpperCase() + path.slice(2)}
             </Link>
           ))}
           {renderCallToAction()}
@@ -246,7 +321,7 @@ export default function Navbar({ className }: { className?: string }) {
   return (
     <div className="w-full pt-4 pb-2 lg:text-sm">
       <Container className={clsx("", className)}>
-        <header className="rounded-lg shadow">
+        <header className="rounded-lg border">
           <MobileNavigationMenu />
           <DesktopNavigationMenu />
         </header>

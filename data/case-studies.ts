@@ -420,13 +420,13 @@ export const caseStudies: CaseStudy[] = [
   },
   {
     id: "everyevent",
-    name: "EveryEvent.uk Google Ads Tracking",
+    name: "EveryEvent Google Ads Tracking",
     url: "https://www.everyevent.uk",
     plan: "Standard",
     title:
-      "Keyword-Level Conversion & Session Duration Tracking for EveryEvent.uk",
+      "Keyword-Level Conversion & Session Duration Tracking for EveryEvent",
     description:
-      "EveryEvent.uk needed to know which Google Ads keywords were driving real engagement on their Bubble.io site. In a 50-day engagement, we implemented a DataLayer-driven GTM setup, linked GA4 with Google Ads & Search Console, and added a CookieScript CMP—unlocking per-keyword conversion and session-length reporting without compromising GDPR compliance.",
+      "EveryEvent needed to know which Google Ads keywords were driving real engagement on their Bubble.io site. In a 50-day engagement, we implemented a DataLayer-driven GTM setup, linked GA4 with Google Ads & Search Console, and added a CookieScript CMP—unlocking per-keyword conversion and session-length reporting without compromising GDPR compliance.",
     imageUrl: "/images/for-businesses/client-everyevent-desktop-home.png",
     mobileUrl: "/images/for-businesses/client-everyevent-mobile-home.png",
     siteUrl: "https://www.everyevent.uk",

@@ -46,7 +46,7 @@ export default function HomePage() {
           "Up to 30% of Conversions Go Untracked",
           "Ad Costs Rising – But ROAS is Dropping",
           "Chaotic Data Makes Scaling Impossible",
-          "Your Competitors Are Tracking, You're Not",
+          "Your Competitors Are Tracking",
           "You're Spending More & Earning Less",
         ]}
         imageUrl="/images/hero/matrix.png"
