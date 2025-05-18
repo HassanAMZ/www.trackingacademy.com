@@ -143,6 +143,275 @@ export const caseStudies: CaseStudy[] = [
       "Streamlined analytics setup for future campaigns",
     ],
   },
+
+  {
+    id: "superperformancereview",
+    name: "GDS Setup",
+    url: "https://superperformancereview.com.au",
+    plan: "Standard",
+    title: "End-to-End Tracking Overhaul for SuperPerformanceReview",
+    description:
+      "Over 140 days, we completely revamped SuperPerformanceReview’s analytics and ad tracking stack—fixing broken funnel events, isolating TikTok pixel to the enquiry subdomain, enriching user data in GA4, Facebook CAPI and Google Ads, and building a unified Looker Studio dashboard. The result: flawless funnel_submission firing, improved deduplication rates, and actionable ad optimizations across Facebook, TikTok and Google Ads.",
+    imageUrl:
+      "/images/for-businesses/client-superperformancereview-desktop-home.png",
+    mobileUrl:
+      "/images/for-businesses/client-superperformancereview-mobile-home.png",
+    siteUrl: "https://superperformancereview.com.au",
+    testimonial: {
+      quote: "Very happy working with Hassan! Does a great job!",
+      author: "David Bodnar",
+      role: "Client",
+      image:
+        "https://media.licdn.com/dms/image/v2/C5603AQGe2BYyQjzy3w/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1526351315644?e=1753315200&v=beta&t=4u5M5cceDWcsNFhJ_Al4n7CKmtadsgRyfKqHlMesohs",
+    },
+    platforms: [
+      "Custom Build Website",
+      "Google Tag Manager",
+      "Google Analytics 4",
+      "Facebook Pixel",
+      "Facebook Conversion API",
+      "TikTok Pixel",
+      "Stape (Server-Side Tagging)",
+      "Google Ads",
+    ],
+    milestones: [
+      {
+        name: "Funnel Parameter Audit & Rename",
+        description:
+          "Renamed funnel_name parameter on root domain and performance-review subfolder",
+        expectedOutcome: "Consistent funnel identifiers across all pages",
+      },
+      {
+        name: "DataLayer & Event Implementation",
+        description:
+          "Added dataLayer snippet and GTM trigger for funnel_submission on /performance-review",
+        expectedOutcome: "Lead event firing reliably at final step",
+      },
+      {
+        name: "TikTok Pixel Domain Isolation",
+        description:
+          "Updated GTM to restrict TikTok client pixel to enquiry.superperformancereview.com.au",
+        expectedOutcome: "Eliminated cross-domain deduplication issues",
+      },
+      {
+        name: "User Data Enrichment",
+        description:
+          "Configured Facebook CAPI and Google Ads conversion tags to send user_detail parameters",
+        expectedOutcome: "Maximized match rates for ad optimization",
+      },
+      {
+        name: "Looker Studio Dashboard & Supermetrics",
+        description:
+          "Built unified dashboard with UTM term filters and connected Facebook, TikTok and GA4 data",
+        expectedOutcome: "Single-pane view of ad performance metrics",
+      },
+    ],
+    projectTimeline: {
+      startDate: "Apr 15, 2023",
+      endDate: "Sep 1, 2023",
+      durationDays: 140,
+    },
+    owner: "Shahzada Ali Hassan",
+    client: "David Bodnar",
+    budget: 1150,
+    technologies: [
+      "Web Analytics",
+      "Event Tracking",
+      "Advertising Pixel",
+      "Server-Side Tagging",
+      "Consent Management",
+      "Analytics Dashboard",
+    ],
+    challenges: [
+      "Broken funnel_submission event on performance-review funnel",
+      "High deduplication rates between client-side and server-side TikTok events",
+      "Lack of user_detail parameters in Facebook CAPI and Google Ads",
+      "No unified reporting of UTM performance across channels",
+    ],
+    solutions: [
+      "Renamed and standardized funnel_name parameters",
+      "Inserted dataLayer code for missing funnel_submission event",
+      "Restricted TikTok pixel to enquiry subdomain only",
+      "Enhanced CAPI and GAds tags with full user_detail payloads",
+      "Built Looker Studio dashboard with Supermetrics connectors",
+    ],
+    results: [
+      "100% reliable funnel_submission event firing at final step",
+      "TikTok deduplication rates improved by 50%+",
+      "Ad platforms now receive full user detail for better optimization",
+      "Unified dashboard delivering real-time CPA, CPL and CTR by UTM term",
+    ],
+  },
+  {
+    id: "shepherd",
+    name: "Shepherd.com Analytics Overhaul",
+    url: "https://shepherd.com",
+    plan: "Custom",
+    title: "Full GTM Server-Side Tracking & GA Overhaul for Shepherd.com",
+    description:
+      "Shepherd.com was losing critical conversion data to ad-blockers, nested-element misfires and a tangled GTM/GA4/FB setup. Over four months we rebuilt their entire analytics stack—from server-side GTM on a custom subdomain to a modular, data-attribute event schema—restoring >98% accuracy and slashing 2.1M monthly Stape requests.",
+    imageUrl: "/images/for-businesses/client-shepherd-desktop-home.png",
+    mobileUrl: "/images/for-businesses/client-shepherd-mobile-home.png",
+    siteUrl: "https://shepherd.com",
+    testimonial: {
+      quote:
+        "Shahzada knows Google Analytics and Google Data Studio inside and out. He helped me set everything up so I can better understand how visitors use my website. He is easy to work with, and I will use him in the future when I need changes to GA. He is a pleasure to work with :)",
+      author: "Ben Fox",
+      role: "Client",
+      image:
+        "https://www.upwork.com/profile-portraits/c10N4c0hBLWz_aq22wrokGPtD2F7eE5J40yBT2nToh7WULZYVjKHduM42NesQc0xhu",
+    },
+    platforms: [
+      "Custom Built Website",
+      "Google Tag Manager",
+      "GTM Server-Side",
+      "Google Analytics (UA)",
+      "Facebook Pixel",
+      "Facebook Conversion API",
+      "Stape",
+      "Zapier",
+    ],
+    milestones: [
+      {
+        name: "Server-Side Tagging Launch",
+        description:
+          "Provisioned GTM server container on a custom subdomain via Stape",
+        expectedOutcome:
+          "Analytics scripts load from your own domain, bypassing ad-blockers",
+      },
+      {
+        name: "UA Goals & Bounce Fix",
+        description:
+          "Configured Universal Analytics with key goals and non-interactive hits",
+        expectedOutcome:
+          "Accurate bounce rates and reliable conversion tracking",
+      },
+      {
+        name: "Custom Event Schema",
+        description:
+          "Implemented data-attribute-based click tracking for bookstores, buttons, etc.",
+        expectedOutcome:
+          "Flexible, self-documented events that any dev can add via HTML",
+      },
+      {
+        name: "Optimization & Handoff",
+        description:
+          "Paused unused GA4/FB tags, optimized Stape usage, delivered full docs",
+        expectedOutcome:
+          "2.1M monthly requests saved and a clear playbook for future tags",
+      },
+    ],
+    projectTimeline: {
+      startDate: "Mar 22, 2022",
+      endDate: "Jul 21, 2022",
+      durationDays: 121,
+    },
+    owner: "Shahzada Ali Hassan",
+    client: "Ben Fox",
+    budget: 1700,
+    technologies: [
+      "Tag Management",
+      "Server-Side Tracking",
+      "Web Analytics",
+      "Event Tracking",
+      "Consent Management",
+      "Data Layer",
+    ],
+    challenges: [
+      "Massive data loss from ad-blockers & iOS tracking prevention",
+      "Nested elements caused duplicate event fires",
+      "High Stape.io event consumption threatening quota",
+      "Complex GTM + GA4 + FB Pixel integration",
+    ],
+    solutions: [
+      "Deployed GTM server container on Stape proxy with custom subdomain",
+      "Shifted all click/scroll depth tracking to a simple data-attribute schema",
+      "Paused GA4 & FB tags until UA sunset; rewrote scroll triggers for UA only",
+      "Delivered full handover docs so devs can add new events via HTML only",
+    ],
+    results: [
+      "Achieved >98% tracking accuracy across browsers & bypassed ad-blockers",
+      "Saved ~2.1M monthly requests on Stape.io—well under quota",
+      "Onboarded a flexible event model: new button clicks require only HTML attributes",
+      "UA goals & custom reports now feed real-time insights into marketing ROI",
+    ],
+  },
+  {
+    id: "shakethatweight",
+    name: "Shake That Weight GTM & Data Layer Setup",
+    url: "https://www.shakethatweight.com",
+    plan: "Standard",
+    title: "GTM and Custom Data Layer Setup for Shake That Weight",
+    description:
+      "Shake That Weight needed a robust tag-management framework and a structured data layer to capture every key user interaction. Over 14 billed hours at $110/hr, we audited their existing setup, built a custom JavaScript data layer, configured both web and server GTM containers, and handed over a self-maintainable analytics architecture.",
+    imageUrl: "/images/for-businesses/client-shakethatweight-desktop-home.png",
+    mobileUrl: "/images/for-businesses/client-shakethatweight-mobile-home.png",
+    siteUrl: "https://www.shakethatweight.com",
+    testimonial: {
+      quote:
+        "Excellent experience with Shahzada. He is very knowledgably in all areas of tracking and analytics; I would highly recommend him.",
+      author: "Matthew Cooper",
+      role: "Client",
+      image:
+        "https://media.licdn.com/dms/image/v2/C4E03AQFlKA0jExzouw/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1658151953406?e=1753315200&v=beta&t=eUkdBvXncjIzkVA7WF4p1xfNHkb4L96Tr7IWfJMLgmQ",
+    },
+    platforms: ["Google Tag Manager", "Custom Data Layer", "Server-Side GTM"],
+    milestones: [
+      {
+        name: "Audit & Access Provisioning",
+        description:
+          "Secured GTM account access and audited existing tag setup",
+        expectedOutcome: "Scope and gaps clearly defined",
+      },
+      {
+        name: "Data Layer Development",
+        description:
+          "Built and deployed a custom JavaScript data layer for all key events",
+        expectedOutcome:
+          "Consistent, structured event payloads available in GTM",
+      },
+      {
+        name: "Server-Side GTM Configuration",
+        description:
+          "Configured GTM server container for enhanced data integrity and privacy",
+        expectedOutcome: "Server-side endpoint processing event data reliably",
+      },
+      {
+        name: "Testing & Handover",
+        description:
+          "Validated event accuracy end-to-end and trained the client",
+        expectedOutcome: "Client empowered to manage tags and analyze data",
+      },
+    ],
+    projectTimeline: {
+      startDate: "Apr 4, 2023",
+      endDate: "Jan 9, 2024",
+      durationDays: 280,
+    },
+    owner: "Shahzada Ali Hassan",
+    client: "Matt Cooper",
+    budget: 1540.01,
+    technologies: [
+      "Google Tag Manager",
+      "JavaScript Data Layer",
+      "Server-Side Tracking",
+    ],
+    challenges: [
+      "No structured data layer to capture granular interactions",
+      "Existing GTM setup was fragmented and undocumented",
+      "Client had no server-side container for privacy-safe tracking",
+    ],
+    solutions: [
+      "Designed and implemented a custom JS data layer schema",
+      "Migrated all tags into a unified GTM workspace",
+      "Deployed and validated a GTM server container for improved data integrity",
+    ],
+    results: [
+      "Full event coverage achieved in just 14 billed hours",
+      "Granular user interactions now available for analysis",
+      "Client equipped with self-maintainable GTM architecture",
+    ],
+  },
   {
     id: "hortongolfpark",
     name: "GA4 Setup and Report",

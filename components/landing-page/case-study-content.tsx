@@ -87,13 +87,13 @@ export default function CaseStudyContent({ caseStudy }: CaseStudyContentProps) {
                     {caseStudy.projectTimeline.durationDays} days)
                   </span>
                 </div>
-                <div className="flex items-center">
+                {/* <div className="flex items-center">
                   <DollarSign className="text-primary mr-2 h-5 w-5" />
                   <span>
                     <strong>Budget:</strong> $
                     {caseStudy.budget.toLocaleString()}
                   </span>
-                </div>
+                </div> */}
               </div>
 
               <h2 className="mb-4">Challenges Faced</h2>

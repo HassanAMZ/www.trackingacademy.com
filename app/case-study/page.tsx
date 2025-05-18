@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import Container from "@/components/ui/container";
 import { caseStudies } from "@/data/case-studies";
+import { ExternalLink } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -19,43 +20,54 @@ export default function CaseStudiesPage() {
       </p>
       <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
         {caseStudies.map((caseStudy) => (
-          <Card
+          <Link
             key={caseStudy.id}
-            className="shadow-md transition-shadow hover:shadow-lg"
+            href={`/case-study/${caseStudy.id}`}
+            className="group block h-full"
           >
-            <CardHeader>
-              <Link href={`/case-study/${caseStudy.id}`}>
-                <Image
-                  width={1080}
-                  height={1920}
-                  src={caseStudy.imageUrl}
-                  alt={caseStudy.name}
-                  className="h-48 w-full rounded-t-lg"
-                />
-              </Link>
-              <CardTitle className="mt-4">{caseStudy.title}</CardTitle>
-              <div className="mt-2 flex w-fit flex-wrap gap-2">
-                {caseStudy.platforms.slice(0, 2).map((platform, index) => (
-                  <li
-                    key={index}
-                    className="flex flex-wrap items-center text-wrap"
-                  >
-                    <Badge variant={"secondary"}>{platform}</Badge>
-                  </li>
-                ))}
-              </div>
-            </CardHeader>
-            <CardContent>
-              <p className="text-muted-foreground mb-4 line-clamp-3">
-                {caseStudy.description}
-              </p>
-              <Button asChild variant="outline" className="w-full">
-                <Link href={`/case-study/${caseStudy.id}`}>
+            <Card className="bg-background/80 backdrop-blur-xs overflow-hidden flex flex-col h-full transition-all duration-300 group-hover:scale-[1.02] group-hover:shadow-lg relative">
+              {/* Gradient overlay that appears on hover - similar to TestimonialCard */}
+              <div className="absolute inset-0 bg-gradient-to-t from-primary/20 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100 z-10"></div>
+
+              <CardHeader className="relative z-20">
+                <div className="overflow-hidden rounded-lg border">
+                  <Image
+                    width={1080}
+                    height={1920}
+                    src={caseStudy.imageUrl}
+                    alt={caseStudy.name}
+                    className="object-cover transition-transform duration-300 group-hover:scale-105"
+                  />
+                </div>
+                <CardTitle className="mt-4">{caseStudy.title}</CardTitle>
+                <div className="mt-2 flex w-fit flex-wrap gap-2">
+                  {caseStudy.platforms.slice(0, 2).map((platform, index) => (
+                    <li
+                      key={index}
+                      className="flex flex-wrap items-center text-wrap"
+                    >
+                      <Badge variant={"secondary"}>{platform}</Badge>
+                    </li>
+                  ))}
+                </div>
+              </CardHeader>
+              <CardContent className="relative z-20">
+                <p className="text-muted-foreground mb-4 line-clamp-3">
+                  {caseStudy.description}
+                </p>
+                <Button variant="outline" className="w-full  cursor-pointer ">
                   View Case Study
-                </Link>
-              </Button>
-            </CardContent>
-          </Card>
+                </Button>
+              </CardContent>
+
+              {/* External link icon that appears on hover - similar to TestimonialCard */}
+              <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 opacity-0 transition-opacity duration-300 group-hover:opacity-100 z-30">
+                <div className="bg-primary text-white rounded-full p-3 shadow-lg">
+                  <ExternalLink className="h-6 w-6" />
+                </div>
+              </div>
+            </Card>
+          </Link>
         ))}
       </div>
     </Container>
