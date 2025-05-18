@@ -98,8 +98,8 @@ const ProductDetails = ({
     : originalAmount;
 
   return (
-    <div className="bg-muted p-6 rounded-lg space-y-4">
-      <div className="flex justify-between items-center">
+    <div className="bg-muted space-y-4 rounded-lg p-6">
+      <div className="flex items-center justify-between">
         <h2 className="text-xl font-semibold">{product.name}</h2>
         <span className="text-lg font-bold">{originalAmount}</span>
       </div>
@@ -107,8 +107,8 @@ const ProductDetails = ({
       <p className="text-muted-foreground text-sm">{product.description}</p>
 
       {appliedPromo && (
-        <div className="bg-accent p-3 rounded border border-accent">
-          <div className="flex justify-between items-center">
+        <div className="bg-accent border-accent rounded border p-3">
+          <div className="flex items-center justify-between">
             <span className="text-accent-foreground font-medium">
               Promo: {appliedPromo.code}
             </span>
@@ -119,7 +119,7 @@ const ProductDetails = ({
 
       <Separator />
 
-      <div className="flex justify-between items-center pt-2">
+      <div className="flex items-center justify-between pt-2">
         <span className="font-medium">Total</span>
         <span className="text-xl font-bold">{finalAmount}</span>
       </div>
@@ -162,7 +162,7 @@ const PromoCodeForm = ({
           {isLoading ? (
             <Loader2 className="h-4 w-4 animate-spin" />
           ) : success ? (
-            <CheckCircle className="h-4 w-4 text-primary" />
+            <CheckCircle className="text-primary h-4 w-4" />
           ) : (
             "Apply"
           )}
@@ -176,7 +176,7 @@ const PromoCodeForm = ({
       )}
 
       {success && (
-        <Alert variant="default" className="py-2 bg-accent border-accent">
+        <Alert variant="default" className="bg-accent border-accent py-2">
           <AlertDescription className="text-accent-foreground">
             Promo code applied successfully!
           </AlertDescription>
@@ -334,8 +334,8 @@ const CheckoutPage = () => {
 
   if (isLoading) {
     return (
-      <div className="h-screen flex items-center justify-center">
-        <Loader2 className="h-8 w-8 animate-spin text-primary" />
+      <div className="flex h-screen items-center justify-center">
+        <Loader2 className="text-primary h-8 w-8 animate-spin" />
         <span className="ml-2">Loading checkout...</span>
       </div>
     );
@@ -343,7 +343,7 @@ const CheckoutPage = () => {
 
   if (!product) {
     return (
-      <div className="container max-w-md mx-auto p-6">
+      <div className="container mx-auto max-w-md p-6">
         <Alert variant="destructive">
           <AlertDescription>
             Failed to load product information. Please try again later.
@@ -366,17 +366,17 @@ const CheckoutPage = () => {
   };
 
   return (
-    <div className="container mx-auto py-12 px-4">
-      <div className="max-w-4xl mx-auto">
-        <h1 className="text-3xl font-bold mb-8 text-center">Checkout</h1>
+    <div className="container mx-auto px-4 py-12">
+      <div className="mx-auto max-w-4xl">
+        <h1 className="mb-8 text-center text-3xl font-bold">Checkout</h1>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
           {/* Product info and promo section */}
           <div className="space-y-6">
             <ProductDetails product={product} appliedPromo={appliedPromo} />
 
             <Card className="p-4">
-              <h3 className="font-medium mb-3">Have a promo code?</h3>
+              <h3 className="mb-3 font-medium">Have a promo code?</h3>
               <PromoCodeForm
                 onApply={handleApplyPromoCode}
                 isLoading={isApplyingPromo}
@@ -389,7 +389,7 @@ const CheckoutPage = () => {
           {/* Payment section */}
           <div>
             <Card className="p-6">
-              <h2 className="text-xl font-semibold mb-6">Payment Details</h2>
+              <h2 className="mb-6 text-xl font-semibold">Payment Details</h2>
               {clientSecret ? (
                 <Elements stripe={stripePromise} options={elementsOptions}>
                   <CheckoutForm

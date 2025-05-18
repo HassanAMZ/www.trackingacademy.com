@@ -22,16 +22,16 @@ export const metadata = {
   embedId: "AWyc90km7tQ",
 };
 
-Tracking purchase events on Shopify can feel overwhelming, but with the right approach, it’s a straightforward process. In this guide, I’ll walk you through the exact steps I’ve used to set up purchase event tracking for over 40 Shopify stores in just four months. We’ll use Google Tag Manager, Shopify's customer pixel feature, and Facebook Pixel integration.
+Tracking purchase events on Shopify can feel overwhelming, but with the right approach, it's a straightforward process. In this guide, I'll walk you through the exact steps I've used to set up purchase event tracking for over 40 Shopify stores in just four months. We'll use Google Tag Manager, Shopify's customer pixel feature, and Facebook Pixel integration.
 
-To make things simple, we’ll divide this process into four main sections:
+To make things simple, we'll divide this process into four main sections:
 
 1. Setting Up the Data Layer Event
 2. Installing Google Tag Manager on Shopify
 3. Creating Tags, Triggers, and Variables for Facebook Pixel
 4. Testing Purchase Event Tracking
 
-Let’s get started!
+Let's get started!
 
 ## 1. Setting Up the Data Layer Event
 
@@ -39,7 +39,7 @@ The first step is creating a data layer event to collect detailed purchase infor
 
 ### Steps:
 
-1. In Shopify’s admin, navigate to Settings > Customer Events.
+1. In Shopify's admin, navigate to Settings > Customer Events.
 2. Click Add Custom Pixel at the top.
 3. Name the pixel something descriptive, such as "Meta Purchase Data Layer".
 4. Adjust these settings: Permissions: Set to "Not Required". Data Sale: Set to "Does Not Qualify as Data Sale".
@@ -121,13 +121,13 @@ Testing ensures the setup is working correctly before going live.
 
 1. Preview Mode in GTM:
 
-- Use GTM’s preview mode to check if the tag fires when a purchase is made.
+- Use GTM's preview mode to check if the tag fires when a purchase is made.
 
 2. Testing in Shopify:
 
 - Go to your store's front end and add items to the cart.
-- Complete a test purchase using Shopify’s "bogus" payment gateway.
-- Open the browser’s developer tools (Inspect > Console) and search for "data layer".
+- Complete a test purchase using Shopify's "bogus" payment gateway.
+- Open the browser's developer tools (Inspect > Console) and search for "data layer".
 - Verify the purchase event data is firing correctly.
 
 3. Verify in Facebook Events Manager:
@@ -145,6 +145,6 @@ Once the setup is verified, publish your GTM container:
 
 ## Conclusion
 
-By following these steps, you’ve successfully configured purchase event tracking for your Shopify store using GTM, Facebook Pixel, and Shopify’s customer pixel feature. This setup allows you to gather accurate purchase data for optimizing ad campaigns and improving e-commerce performance.
+By following these steps, you've successfully configured purchase event tracking for your Shopify store using GTM, Facebook Pixel, and Shopify's customer pixel feature. This setup allows you to gather accurate purchase data for optimizing ad campaigns and improving e-commerce performance.
 
 Want to track other events, like "Add to Cart" or "Begin Checkout"? Stay tuned for my next tutorial!

@@ -10,18 +10,18 @@ import Link from "next/link";
 
 export default function CaseStudiesPage() {
   return (
-    <Container className=" py-12">
+    <Container className="py-12">
       <h1 className="mb-8 text-center">Our Case Studies</h1>
-      <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto">
+      <p className="text-muted-foreground mx-auto mb-12 max-w-2xl text-center">
         Discover how we has empowered businesses with cutting-edge analytics and
         tracking solutions to drive data-driven decisions and boost campaign
         performance.
       </p>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
         {caseStudies.map((caseStudy) => (
           <Card
             key={caseStudy.id}
-            className="shadow-md hover:shadow-lg transition-shadow"
+            className="shadow-md transition-shadow hover:shadow-lg"
           >
             <CardHeader>
               <Link href={`/case-study/${caseStudy.id}`}>
@@ -30,15 +30,15 @@ export default function CaseStudiesPage() {
                   height={1920}
                   src={caseStudy.imageUrl}
                   alt={caseStudy.name}
-                  className="w-full h-48 rounded-t-lg"
+                  className="h-48 w-full rounded-t-lg"
                 />
               </Link>
               <CardTitle className="mt-4">{caseStudy.title}</CardTitle>
-              <div className="mt-2 w-fit flex flex-wrap gap-2">
+              <div className="mt-2 flex w-fit flex-wrap gap-2">
                 {caseStudy.platforms.slice(0, 2).map((platform, index) => (
                   <li
                     key={index}
-                    className="flex items-center flex-wrap text-wrap "
+                    className="flex flex-wrap items-center text-wrap"
                   >
                     <Badge variant={"secondary"}>{platform}</Badge>
                   </li>

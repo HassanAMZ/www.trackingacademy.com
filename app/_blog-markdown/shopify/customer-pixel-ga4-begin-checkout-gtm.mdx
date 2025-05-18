@@ -50,7 +50,7 @@ Once the pixel is set up in Shopify, the next step is configuring your GTM conta
 To verify that everything is working:
 
 - **Test the Setup:** Add a product to your cart in the Shopify store and proceed to checkout.
-- **Inspect the Event:** Use your browser’s developer tools (Inspect > Console) to confirm that the "Begin Checkout" event is firing correctly. You should see the event alongside details like the items in the cart, the total value, and the currency used.
+- **Inspect the Event:** Use your browser's developer tools (Inspect > Console) to confirm that the "Begin Checkout" event is firing correctly. You should see the event alongside details like the items in the cart, the total value, and the currency used.
 
 <DataLayerCodeBlock fileName="begin_checkout.js" />
 
@@ -58,7 +58,7 @@ To verify that everything is working:
 
 Before we move forward, let's briefly discuss the sandbox environment and the importance of customer pixels:
 
-- **Sandbox Environment:** This is a testing ground within Shopify where you can simulate transactions without affecting your live store. It’s particularly useful for testing custom events like "Begin Checkout."
+- **Sandbox Environment:** This is a testing ground within Shopify where you can simulate transactions without affecting your live store. It's particularly useful for testing custom events like "Begin Checkout."
 - **Customer Pixels:** These are small pieces of code that track user behavior on your site. By setting up the "Begin Checkout" pixel, you are effectively monitoring when users are most likely to convert, providing invaluable insights for your marketing efforts.
 
 ### 6. Adding Google Analytics Page View Event
@@ -71,7 +71,7 @@ To further enhance your tracking, it's important to configure the page view even
 
 ### 7. Creating Tags, Triggers, and Variables for Begin Checkout
 
-Now, let’s set up the "Begin Checkout" event in GTM:
+Now, let's set up the "Begin Checkout" event in GTM:
 
 - **Create a Custom Event Trigger:** In GTM, create a new trigger that listens specifically for the "Begin Checkout" event.
 - **Name and Configure the Tag:** Create a tag in GTM that sends this event data to Google Analytics. Name it "GA4 Custom Event - Begin Checkout."

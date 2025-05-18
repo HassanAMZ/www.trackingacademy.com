@@ -23,11 +23,11 @@ export const metadata = {
   embedId: "ZFppBMUPPac",
 };
 
-Tracking specific customer actions like “Add Shipping Info” is essential for optimizing your Shopify store’s performance. In this detailed tutorial, I’ll guide you through setting up this event using Google Tag Manager, Shopify, and Facebook Pixel. By the end of this guide, you’ll be able to configure and verify the event for accurate tracking.
+Tracking specific customer actions like “Add Shipping Info” is essential for optimizing your Shopify store's performance. In this detailed tutorial, I'll guide you through setting up this event using Google Tag Manager, Shopify, and Facebook Pixel. By the end of this guide, you'll be able to configure and verify the event for accurate tracking.
 
 ### Introduction to Setting Up the “Add Shipping Info” Event
 
-This tutorial explains how I’ve successfully set up the “Add Shipping Info” event across 40+ Shopify stores in the last four months. The process uses Shopify’s **Customer Events**, **Google Tag Manager**, and the **Facebook Pixel**, making it scalable and precise. The steps are divided into four main sections:
+This tutorial explains how I've successfully set up the “Add Shipping Info” event across 40+ Shopify stores in the last four months. The process uses Shopify's **Customer Events**, **Google Tag Manager**, and the **Facebook Pixel**, making it scalable and precise. The steps are divided into four main sections:
 
 1. Configuring Customer Events in Shopify.
 2. Setting up Google Tag Manager on the website.
@@ -47,20 +47,20 @@ To start, log into your Shopify admin panel and navigate to the **Settings** at 
 
 <DataLayerCodeBlock fileName="add_shipping_info.js" />
 
-Once done, connect this pixel with the Shopify backend by saving the changes and ensuring it’s correctly integrated.
+Once done, connect this pixel with the Shopify backend by saving the changes and ensuring it's correctly integrated.
 
 ### Step 2: Setting Up Google Tag Manager Integration
 
-To integrate Google Tag Manager, start by obtaining your Google Tag Manager ID. Here’s how:
+To integrate Google Tag Manager, start by obtaining your Google Tag Manager ID. Here's how:
 
 1. Log into Google Tag Manager and copy the **Container ID** from the dashboard. This ID appears as something like `GTM-XXXXXXX`.
 2. Return to the Shopify backend, paste the ID in the designated field within the custom pixel setup, and save the changes.
 
-Verify the integration by visiting your Shopify store and triggering the checkout process. Use the browser’s **Developer Tools Console** to inspect if the event fires correctly when entering shipping information.
+Verify the integration by visiting your Shopify store and triggering the checkout process. Use the browser's **Developer Tools Console** to inspect if the event fires correctly when entering shipping information.
 
 ### Step 3: Adding Tags, Variables, and Triggers in Google Tag Manager
 
-With the basics in place, it’s time to add the necessary configurations in Google Tag Manager.
+With the basics in place, it's time to add the necessary configurations in Google Tag Manager.
 
 #### Importing Templates
 
@@ -79,7 +79,7 @@ Next, import the **e-commerce parameter generator** template. Download this from
 
 #### Creating Variables
 
-You’ll need three variables for this setup:
+You'll need three variables for this setup:
 
 1. **Facebook Pixel ID:**
    - Create a constant variable named `Meta Pixel ID` and paste your Facebook Pixel ID into the value field.
@@ -107,15 +107,15 @@ Save the tag and associate it with the `Add Shipping Info` trigger.
 
 ### Step 4: Testing and Verifying the Setup
 
-Testing is crucial to confirm everything works as expected. Here’s how:
+Testing is crucial to confirm everything works as expected. Here's how:
 
 1. **Preview Mode in Google Tag Manager:**
    - Activate the **Preview Mode** in Google Tag Manager and simulate the checkout process on your store. Check if the `add_shipping_info` tag fires when entering shipping information.
 2. **Facebook Pixel Helper:**
-   - Use the **Facebook Pixel Helper** browser extension to verify that the event is recorded correctly. Look for the event in the helper’s console.
+   - Use the **Facebook Pixel Helper** browser extension to verify that the event is recorded correctly. Look for the event in the helper's console.
 3. **Facebook Events Manager:**
    - Navigate to the **Test Events** section in Facebook Events Manager and connect your store. Trigger the event by entering test data during checkout. Ensure that the **Add Shipping Info** event is visible with all expected parameters like content name, IDs, and values.
 
 ### Conclusion and Next Steps
 
-By following these steps, you’ve successfully configured and verified the **Add Shipping Info** event on your Shopify store using Google Tag Manager and Facebook Pixel. This setup provides granular tracking, helping you understand customer behavior during checkout. To take your tracking further, consider setting up the **Add Payment Info** event. For a detailed guide, check out the next tutorial in this series.
+By following these steps, you've successfully configured and verified the **Add Shipping Info** event on your Shopify store using Google Tag Manager and Facebook Pixel. This setup provides granular tracking, helping you understand customer behavior during checkout. To take your tracking further, consider setting up the **Add Payment Info** event. For a detailed guide, check out the next tutorial in this series.

@@ -6,9 +6,9 @@ export default function TermsOfService() {
   return (
     <>
       <Navbar />
-      <div className="min-h-screen flex flex-col">
-        <main className="container mx-auto px-4 py-8 flex-grow">
-          <h2 className="text-3xl font-bold mb-6">Terms of Service</h2>
+      <div className="flex min-h-screen flex-col">
+        <main className="container mx-auto flex-grow px-4 py-8">
+          <h2 className="mb-6 text-3xl font-bold">Terms of Service</h2>
           <section className="space-y-4">
             <h3 className="text-xl font-semibold">Introduction</h3>
             <p>
@@ -38,7 +38,7 @@ export default function TermsOfService() {
         </main>
 
         <footer className="border-t">
-          <div className="container mx-auto px-4 py-4 flex justify-between">
+          <div className="container mx-auto flex justify-between px-4 py-4">
             <p>&copy; 2025 Conversion Confidence. All rights reserved.</p>
             <div className="flex gap-4">
               <Link href="/privacy-policy">

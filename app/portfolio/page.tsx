@@ -11,7 +11,7 @@ export default async function Page() {
       <div className="flex items-center justify-center space-x-4 py-12">
         <Button size="lg" asChild>
           <Link href="/contact">
-            Let’s Handle Your Tracking Setup
+            Let's Handle Your Tracking Setup
             <ArrowRight className="ml-2 h-4 w-4" />
           </Link>
         </Button>

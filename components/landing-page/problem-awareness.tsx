@@ -29,17 +29,17 @@ const ProblemAwareness: React.FC<ProblemAwarenessProps> = ({
           )}
         </div>
 
-        <div className="grid items-end justify-center gap-2 md:grid-cols-3 pt-12">
+        <div className="grid items-end justify-center gap-2 pt-12 md:grid-cols-3">
           <div className="space-y-4">
             {bluePillPoints &&
               bluePillPoints.map((point, index) => (
                 <Card
                   key={index}
-                  className="bg-blue-100/10 hover:bg-blue-200/20 p-4 transition-colors"
+                  className="bg-blue-100/10 p-4 transition-colors hover:bg-blue-200/20"
                 >
                   <div className="flex items-center justify-center space-x-4">
-                    <AlertTriangle className="text-blue-500 mt-1 h-6 w-6" />
-                    <h4 className="text-blue-700 flex-1">{point}</h4>
+                    <AlertTriangle className="mt-1 h-6 w-6 text-blue-500" />
+                    <h4 className="flex-1 text-blue-700">{point}</h4>
                   </div>
                 </Card>
               ))}

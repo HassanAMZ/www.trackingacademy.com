@@ -38,7 +38,7 @@ export default function Page() {
 
   return (
     <>
-      <section className="grid min-h-screen overflow-hidden py-12 space-y-6 place-content-center">
+      <section className="grid min-h-screen place-content-center space-y-6 overflow-hidden py-12">
         <Hero
           heading={
             <h1>
@@ -59,7 +59,7 @@ export default function Page() {
           customCtaButton={
             <Button
               size="lg"
-              className="max-w-4xl text-center hover:bg-primary/90 flex flex-col py-20 text-xl font-bold text-wrap whitespace-pre-wrap hover:cursor-pointer sm:py-16 md:py-12 md:text-left"
+              className="hover:bg-primary/90 flex max-w-4xl flex-col py-20 text-center text-xl font-bold text-wrap whitespace-pre-wrap hover:cursor-pointer sm:py-16 md:py-12 md:text-left"
               onClick={() => setIsModalOpen(true)}
             >
               <div>
@@ -77,17 +77,17 @@ export default function Page() {
         />
         <Container>
           <h1 className="pt-12 pb-6 text-center">
-            100+ Satisfied Customers Can’t Be Wrong
+            100+ Satisfied Customers Can't Be Wrong
           </h1>
 
           <TestimonialsCarousel />
         </Container>
-        <Container className="py-12 space-y-12">
+        <Container className="space-y-12 py-12">
           <TestimonialGrid />
 
           <Button
             size="lg"
-            className="max-w-4xl text-center hover:bg-primary/90 flex flex-col py-20 text-xl font-bold text-wrap whitespace-pre-wrap hover:cursor-pointer sm:py-16 md:py mx-auto"
+            className="hover:bg-primary/90 md:py mx-auto flex max-w-4xl flex-col py-20 text-center text-xl font-bold text-wrap whitespace-pre-wrap hover:cursor-pointer sm:py-16"
             onClick={() => setIsModalOpen(true)}
           >
             <div>

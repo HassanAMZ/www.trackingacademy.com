@@ -28,8 +28,11 @@ export default function Page() {
     <section className="grid min-h-screen place-content-center overflow-hidden py-12">
       <Container className="flex w-full max-w-6xl flex-col items-center space-y-8 text-center">
         <h1>
-          You’ve Locked in Your $300 Coupon —
-          <span className="text-primary"> Now Book Your First Diagnositc Call</span>
+          You've Locked in Your $300 Coupon —
+          <span className="text-primary">
+            {" "}
+            Now Book Your First Diagnositc Call
+          </span>
         </h1>
 
         <h4 className="text-muted-foreground max-w-3xl">

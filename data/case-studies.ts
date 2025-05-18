@@ -164,7 +164,7 @@ export const caseStudies: CaseStudy[] = [
     plan: "Standard",
     title: "Cleaned Up Mailchimp Ecommerce Data & Upgraded Server-Side GTM",
     description:
-      "Chris Lister’s site was failing to surface purchase data in Mailchimp and was running an outdated server-side tagging container. Over 6 months, we upgraded his GTM server container to v2.3.0, rebuilt his Mailchimp tagging via GTM, defined a robust purchase DataLayer, and guided backend API integration so that every order now flows into Mailchimp’s ecommerce reports accurately.",
+      "Chris Lister's site was failing to surface purchase data in Mailchimp and was running an outdated server-side tagging container. Over 6 months, we upgraded his GTM server container to v2.3.0, rebuilt his Mailchimp tagging via GTM, defined a robust purchase DataLayer, and guided backend API integration so that every order now flows into Mailchimp's ecommerce reports accurately.",
     imageUrl: "/images/for-businesses/client-thebestofexmoor-desktop-home.png",
     mobileUrl: "/images/for-businesses/client-thebestofexmoor-mobile-home.png",
     siteUrl: "https://www.thebestofexmoor.co.uk",
@@ -329,13 +329,13 @@ export const caseStudies: CaseStudy[] = [
     ],
     challenges: [
       "Calendly iframe prevented direct gclid access",
-      "OptinMonster’s native GA integration conflicted with GTM",
+      "OptinMonster's native GA integration conflicted with GTM",
       "PII restrictions barred passing user email into analytics",
     ],
     solutions: [
       "Removed all native form analytics integrations; consolidated via GTM",
       "Injected hidden gclid fields into forms via JavaScript before submission",
-      "Developed Looker Studio dashboard in client’s own account for ad-to-conversion mapping",
+      "Developed Looker Studio dashboard in client's own account for ad-to-conversion mapping",
     ],
     results: [
       "Every Calendly booking and OptinMonster signup now captures gclid in GA4",

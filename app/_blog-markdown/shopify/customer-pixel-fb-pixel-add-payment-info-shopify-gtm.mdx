@@ -38,7 +38,7 @@ To make this process easier, I have divided the steps into four sections. In the
 
 The first thing we need to do is ensure that our web pixel is properly connected to our backend. To do this, navigate to the settings on your Shopify backend and scroll down to the customer event section. Once you are in the customer event section, click on the button that says "Add Custom Pixel."
 
-Here, we will add the pixel. Let’s rename it to "Meta Add Payment Info" and call it "Data Layer." After that, hit the "Add Pixels" button. It is crucial to set the permissions to "Not Required" and the data sale to "Does Not Qualify."
+Here, we will add the pixel. Let's rename it to "Meta Add Payment Info" and call it "Data Layer." After that, hit the "Add Pixels" button. It is crucial to set the permissions to "Not Required" and the data sale to "Does Not Qualify."
 
 ### DataLayer code for add_payment_info
 
@@ -48,13 +48,13 @@ Next, you will find a link in the description of this blog post that will take y
 
 ## Step 2: Verify the Event
 
-Before moving on to the next step, let’s verify if the event is working correctly. Go to the front end of your store and click on "Inspect" to see all the events firing inside the data layer. Make sure to switch to the console tab instead of the elements tab. Since the ad payment info event will fire during the checkout process, navigate directly to the checkout page. Once you are on the checkout page, add user information one by one to trigger the event. For this test, you can use dummy information.
+Before moving on to the next step, let's verify if the event is working correctly. Go to the front end of your store and click on "Inspect" to see all the events firing inside the data layer. Make sure to switch to the console tab instead of the elements tab. Since the ad payment info event will fire during the checkout process, navigate directly to the checkout page. Once you are on the checkout page, add user information one by one to trigger the event. For this test, you can use dummy information.
 
-As soon as you click on the "Pay Now" button, the ad payment info event should trigger. It’s important to note that this event only triggers when you click the "Pay Now" button, not when you simply click outside the input box. Check the data layer event to ensure it contains all the necessary information, such as the items array, currency, coupon, and shipping value. If everything looks good, we can move on to the next step.
+As soon as you click on the "Pay Now" button, the ad payment info event should trigger. It's important to note that this event only triggers when you click the "Pay Now" button, not when you simply click outside the input box. Check the data layer event to ensure it contains all the necessary information, such as the items array, currency, coupon, and shipping value. If everything looks good, we can move on to the next step.
 
 ## Step 3: Configure Google Tag Manager
 
-Now that we have verified the event, let’s move on to Google Tag Manager to create the variables, tags, and triggers needed for the event. Once you are in the tag section of GTM, go to the templates because we need a few templates before we start working on the tags directly. We will need two templates: one for the tags and one for the variables. To get the tag template, search for the template gallery and use the tag created by Simo, which was later sold to the Facebook archive team. Search for Facebook, select the tag created by the Facebook archive team, and click on "Add to Workspace." Confirm by clicking the "Add" button, and this tag template will be available for us.
+Now that we have verified the event, let's move on to Google Tag Manager to create the variables, tags, and triggers needed for the event. Once you are in the tag section of GTM, go to the templates because we need a few templates before we start working on the tags directly. We will need two templates: one for the tags and one for the variables. To get the tag template, search for the template gallery and use the tag created by Simo, which was later sold to the Facebook archive team. Search for Facebook, select the tag created by the Facebook archive team, and click on "Add to Workspace." Confirm by clicking the "Add" button, and this tag template will be available for us.
 
 For the variable templates, we will import this from the same description video link. Click on "Import" and select the tag template from the blog post. After clicking the save button, this will be automatically created. Next, we need to create three variables for this project. The first variable will be the Facebook pixel ID, which is a constant variable. Create a constant variable to securely hold the pixel ID. Copy the ID from your Facebook Events Manager and paste it here. Rename this variable as "Meta Pixel ID" and hit "Save Changes."
 
@@ -80,11 +80,11 @@ Add the Facebook pixel ID through the constant variable we created earlier. The 
 
 Once you have filled in all the necessary information, click on "Save Changes" and rename this tag as "Meta Add Payment Info." Click on "Save."
 
-Unfortunately, we won’t be able to test this event using the preview button, so we need to submit the changes. Rename this version as "Tracking Academy and Meta Add Payment Info" and hit "Publish."
+Unfortunately, we won't be able to test this event using the preview button, so we need to submit the changes. Rename this version as "Tracking Academy and Meta Add Payment Info" and hit "Publish."
 
 ## Final Verification
 
-Before getting too excited, let’s verify if everything is working correctly. Go back to the Shopify front end and navigate to the cart page. From the cart page, go directly to the checkout page since we already have an item in the cart.
+Before getting too excited, let's verify if everything is working correctly. Go back to the Shopify front end and navigate to the cart page. From the cart page, go directly to the checkout page since we already have an item in the cart.
 
 To change things up, add one more quantity. Now, instead of filling in all the details, skip directly to the card section. Add some test details and as soon as you click on "Pay Now," you will see that the ad payment info event has fired.
 

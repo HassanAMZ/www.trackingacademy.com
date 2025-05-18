@@ -68,7 +68,7 @@ export default function Page() {
           Tracking Setup For Facebook's Data Sharing Restrictions
         </h1>
         <h4 className="text-muted-foreground max-w-3xl">
-          Discover how our 3-Day ‘See Every Sale’ System brings back your
+          Discover how our 3-Day ‘See Every Sale' System brings back your
           conversion tracking — without any risk, tech headaches, or shady
           third-party tools.
         </h4>
@@ -88,8 +88,8 @@ export default function Page() {
             <div>
               🔒 Book Your Free 15-Minute Setup Call
               <br />
-              <span className="mt-2 block text-sm font-medium ">
-                We’ll confirm your eligibility, answer questions, and reserve
+              <span className="mt-2 block text-sm font-medium">
+                We'll confirm your eligibility, answer questions, and reserve
                 your $300 discount — setup begins right after
               </span>
             </div>

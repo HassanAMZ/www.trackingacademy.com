@@ -5,7 +5,7 @@ import { ReactNode } from "react";
 export const metadata: Metadata = {
   title: "Terms of Service | Conversion Confidence",
   description:
-    "Review the terms that govern your use of Conversion Confidence’s tracking tools and services. Transparent and straightforward policies.",
+    "Review the terms that govern your use of Conversion Confidence's tracking tools and services. Transparent and straightforward policies.",
   openGraph: {
     title: "Terms of Service | Conversion Confidence",
     description:

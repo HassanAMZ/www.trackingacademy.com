@@ -34,10 +34,10 @@ const TestimonialsCarousel2: React.FC = () => {
   const currentTestimonial = clientTestimonials[currentIndex];
 
   return (
-    <div className="relative max-w-xl space-y-1 rounded-lg border px-6 py-2 shadow-sm mx-auto md:mx-0">
+    <div className="relative mx-auto max-w-xl space-y-1 rounded-lg border px-6 py-2 shadow-sm md:mx-0">
       <div className="absolute -top-4 right-0 flex space-x-1">
         {[...Array(5)].map((_, i) => (
-          <Star key={i} className="text-amber-400 fill-amber-400" />
+          <Star key={i} className="fill-amber-400 text-amber-400" />
         ))}
       </div>
       <p className="font-semibold italic">

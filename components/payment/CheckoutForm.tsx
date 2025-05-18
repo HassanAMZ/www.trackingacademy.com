@@ -101,7 +101,7 @@ function PaymentForm() {
         />
       </div>
 
-      <div className="bg-white rounded-lg p-4 border">
+      <div className="rounded-lg border bg-white p-4">
         <PaymentElement options={paymentElementOptions} />
       </div>
 
@@ -114,7 +114,7 @@ function PaymentForm() {
       )}
 
       {success && (
-        <Alert className="bg-green-50 border-green-200">
+        <Alert className="border-green-200 bg-green-50">
           <CheckCircle className="h-4 w-4 text-green-500" />
           <AlertTitle className="text-green-700">Success</AlertTitle>
           <AlertDescription className="text-green-600">
@@ -126,7 +126,7 @@ function PaymentForm() {
       <Button
         type="submit"
         disabled={isLoading || !stripe || !elements}
-        className="w-full h-12 text-base font-medium"
+        className="h-12 w-full text-base font-medium"
       >
         {isLoading ? (
           <>
@@ -138,7 +138,7 @@ function PaymentForm() {
         )}
       </Button>
 
-      <p className="text-xs text-center text-muted-foreground">
+      <p className="text-muted-foreground text-center text-xs">
         Your payment is secured with 256-bit SSL encryption
       </p>
     </form>
@@ -165,14 +165,14 @@ export default function CheckoutForm({
   };
 
   return (
-    <div className="w-full max-w-md mx-auto">
+    <div className="mx-auto w-full max-w-md">
       {clientSecret ? (
         <Elements stripe={stripePromise} options={options}>
           <PaymentForm />
         </Elements>
       ) : (
-        <div className="text-center p-4">
-          <Loader2 className="h-8 w-8 animate-spin mx-auto mb-2" />
+        <div className="p-4 text-center">
+          <Loader2 className="mx-auto mb-2 h-8 w-8 animate-spin" />
           <p>Loading payment form...</p>
         </div>
       )}

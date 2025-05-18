@@ -2,7 +2,7 @@ const servicesDetails = [
   {
     id: "002",
     title: "GA4 migrated from UA for your Shopify eCommerce Store",
-    description: `Welcome to my Google Analytics 4, and Google Tag Manager tracking Project! As Universal Analytics will stop processing new data by Jul 2023 and Google has launched the new and improved GA4. I’m a Google-certified, top-rated web analyst and have configured 200+ stores & websites with google tag manager, and google analytics 4 in the span of the last 2 years.
+    description: `Welcome to my Google Analytics 4, and Google Tag Manager tracking Project! As Universal Analytics will stop processing new data by Jul 2023 and Google has launched the new and improved GA4. I'm a Google-certified, top-rated web analyst and have configured 200+ stores & websites with google tag manager, and google analytics 4 in the span of the last 2 years.
   
       With this Upwork Project, I will provide:
        • Intregrate GA4, and GTM.

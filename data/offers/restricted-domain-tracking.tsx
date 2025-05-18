@@ -67,11 +67,11 @@ const RestrictedDomainTracking = {
   socialProof: {
     sectionTitle: "Trusted by Health & Wellness Brands",
     sectionDescription:
-      "We’ve helped dozens of wellness businesses restore Meta tracking and scale their ads confidently.",
+      "We've helped dozens of wellness businesses restore Meta tracking and scale their ads confidently.",
     testimonials: [
       {
         quote:
-          "We couldn’t track any purchases before. Within 3 days, everything was back—and our ROAS doubled.",
+          "We couldn't track any purchases before. Within 3 days, everything was back—and our ROAS doubled.",
         author: "Lindsey T.",
         role: "Wellness Brand Owner",
         image: "/images/social-sharing.png",
@@ -133,7 +133,7 @@ const RestrictedDomainTracking = {
       {
         title: "95%+ Tracking Accuracy Guaranteed",
         description:
-          "If our setup doesn't give you 95%+ conversion tracking accuracy, you’ll get 100% of your money back.",
+          "If our setup doesn't give you 95%+ conversion tracking accuracy, you'll get 100% of your money back.",
         icon: "Shield",
       },
     ],
@@ -151,7 +151,7 @@ const RestrictedDomainTracking = {
     ],
     buttonText: "Claim Your Spot Now",
     buttonLink: "/contact",
-    footerText: "Offer expires at the end of the month. Don’t wait.",
+    footerText: "Offer expires at the end of the month. Don't wait.",
   },
 };
 

@@ -76,13 +76,13 @@ export default async function Page() {
 
         <h4>
           <span className="text-primary">✅ Step 2: </span>
-          On the call, we’ll walk you through exactly how we’ll deploy your
+          On the call, we'll walk you through exactly how we'll deploy your
           upgraded tracking system—customized for your tech stack.
         </h4>
 
         <h4>
           <span className="text-primary">✅ Step 3: </span>
-          You’ll get a clear plan, timeline, and see real examples of how we
+          You'll get a clear plan, timeline, and see real examples of how we
           recover lost conversions and ad performance.
         </h4>
 

@@ -20,15 +20,15 @@ export default function Page() {
 
   return (
     <>
-      <section className="min-h-screen py-12 overflow-x-hidden">
-        <Container className="flex flex-col items-center space-y-12 text-center py-4 max-w-6xl">
+      <section className="min-h-screen overflow-x-hidden py-12">
+        <Container className="flex max-w-6xl flex-col items-center space-y-12 py-4 text-center">
           <h1>
             We{" "}
             <span className="text-primary">Fix Broken Facebook Tracking </span>{" "}
             for Businesses so they can finally{" "}
-            <span className="underline text-primary">scale again</span>
+            <span className="text-primary underline">scale again</span>
           </h1>
-          <h4 className=" text-muted-foreground max-w-5xl">
+          <h4 className="text-muted-foreground max-w-5xl">
             <span className="text-primary font-semibold">300$ off:</span> “See
             Every Sale” Tracking Setup For Facebook's Data Sharing Restrictions.
             All done-for-you, in just 3 days, with 95% Accurate Data Tracking,
@@ -52,8 +52,8 @@ export default function Page() {
         <div className="w-full max-w-full overflow-hidden py-12">
           <CaseStudyCarousel caseStudies={caseStudies} />
         </div>
-        <Container className="flex flex-col items-center space-y-12 text-center pb-4">
-          <h1 className="pt-12 pb-6 text-2xl sm:text-3xl md:text-4xl max-w-full break-words">
+        <Container className="flex flex-col items-center space-y-12 pb-4 text-center">
+          <h1 className="max-w-full pt-12 pb-6 text-2xl break-words sm:text-3xl md:text-4xl">
             100+ Satisfied Customers Can't Be Wrong
           </h1>
           <TestimonialsCarousel />
@@ -62,7 +62,7 @@ export default function Page() {
           {/* CTA Button */}
           <Button
             size="lg"
-            className="mx-auto hover:bg-primary/90 flex flex-col py-20 text-xl font-bold text-wrap whitespace-pre-wrap hover:cursor-pointer sm:py-16 md:py-12"
+            className="hover:bg-primary/90 mx-auto flex flex-col py-20 text-xl font-bold text-wrap whitespace-pre-wrap hover:cursor-pointer sm:py-16 md:py-12"
             onClick={() => setIsModalOpen(true)}
           >
             <div>

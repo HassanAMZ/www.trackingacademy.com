@@ -45,7 +45,7 @@ export default function Page() {
               Fix Broken Facebook Tracking
             </span>{" "}
             for Businesses so they can finally{" "}
-            <span className="underline text-primary">scale again</span>
+            <span className="text-primary underline">scale again</span>
           </h1>
           <h4 className="text-muted-foreground max-w-5xl">
             <span className="text-primary font-semibold">300$ off:</span> “See
@@ -65,7 +65,7 @@ export default function Page() {
                     </div>
                   </div>
                   <h4 className="text-foreground ml-3">
-                    <span className="font-semibold ">{point.title}</span>{" "}
+                    <span className="font-semibold">{point.title}</span>{" "}
                     <span className="">{point.subtitle}</span>
                   </h4>
                 </div>
@@ -102,7 +102,7 @@ export default function Page() {
           </Button>
 
           <h1 className="pt-12 pb-6">
-            100+ Satisfied Customers Can’t Be Wrong
+            100+ Satisfied Customers Can't Be Wrong
           </h1>
 
           <TestimonialsCarousel />

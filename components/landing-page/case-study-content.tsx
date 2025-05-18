@@ -22,16 +22,16 @@ export default function CaseStudyContent({ caseStudy }: CaseStudyContentProps) {
   }, []);
 
   return (
-    <Container className="py-4 space-y-8">
+    <Container className="space-y-8 py-4">
       <Link
         href="/case-study"
-        className="text-primary hover:underline mb-6 inline-block"
+        className="text-primary mb-6 inline-block hover:underline"
       >
         ← Back to Case Studies
       </Link>
       <Card className="shadow">
         <CardHeader>
-          <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+          <div className="flex flex-col items-start justify-between gap-4 sm:flex-row sm:items-center">
             <div>
               <h1 className="py-4">{caseStudy.title}</h1>
               <p className="text-muted-foreground mt-2">
@@ -42,8 +42,8 @@ export default function CaseStudyContent({ caseStudy }: CaseStudyContentProps) {
           </div>
         </CardHeader>
         <CardContent>
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-            <div className="lg:col-span-2 space-y-8">
+          <div className="grid grid-cols-1 gap-8 lg:grid-cols-3">
+            <div className="space-y-8 lg:col-span-2">
               <Image
                 width={1080}
                 height={1920}
@@ -53,9 +53,9 @@ export default function CaseStudyContent({ caseStudy }: CaseStudyContentProps) {
               />
 
               <h2>Project Overview</h2>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
+              <div className="mb-6 grid grid-cols-1 gap-4 sm:grid-cols-2">
                 <div className="flex items-center">
-                  <Globe className="w-5 h-5 mr-2 text-primary" />
+                  <Globe className="text-primary mr-2 h-5 w-5" />
                   <span>
                     <strong>Website:</strong>{" "}
                     <a
@@ -69,13 +69,13 @@ export default function CaseStudyContent({ caseStudy }: CaseStudyContentProps) {
                   </span>
                 </div>
                 <div className="flex items-center">
-                  <Users className="w-5 h-5 mr-2 text-primary" />
+                  <Users className="text-primary mr-2 h-5 w-5" />
                   <span>
                     <strong>Client:</strong> {caseStudy.client}
                   </span>
                 </div>
                 <div className="flex items-center">
-                  <Calendar className="w-5 h-5 mr-2 text-primary" />
+                  <Calendar className="text-primary mr-2 h-5 w-5" />
                   <span>
                     <strong>Timeline:</strong>{" "}
                     {caseStudy.projectTimeline.startDate} -{" "}
@@ -84,7 +84,7 @@ export default function CaseStudyContent({ caseStudy }: CaseStudyContentProps) {
                   </span>
                 </div>
                 <div className="flex items-center">
-                  <DollarSign className="w-5 h-5 mr-2 text-primary" />
+                  <DollarSign className="text-primary mr-2 h-5 w-5" />
                   <span>
                     <strong>Budget:</strong> $
                     {caseStudy.budget.toLocaleString()}
@@ -93,7 +93,7 @@ export default function CaseStudyContent({ caseStudy }: CaseStudyContentProps) {
               </div>
 
               <h2 className="mb-4">Challenges Faced</h2>
-              <div className="gap-4 mb-6 grid grid-cols-1 md:grid-cols-2">
+              <div className="mb-6 grid grid-cols-1 gap-4 md:grid-cols-2">
                 {caseStudy.challenges.map((challenge, index) => (
                   <Card key={index}>
                     <CardContent>
@@ -109,7 +109,7 @@ export default function CaseStudyContent({ caseStudy }: CaseStudyContentProps) {
               </div>
 
               <h2 className="mb-4">Solutions Implemented</h2>
-              <div className="gap-4 mb-6 grid grid-cols-1 md:grid-cols-2">
+              <div className="mb-6 grid grid-cols-1 gap-4 md:grid-cols-2">
                 {caseStudy.solutions.map((solution, index) => (
                   <Card key={index}>
                     <CardContent>
@@ -125,9 +125,9 @@ export default function CaseStudyContent({ caseStudy }: CaseStudyContentProps) {
               </div>
 
               <h2 className="mb-4">Project Milestones</h2>
-              <div className="gap-4 mb-6 grid grid-cols-1 md:grid-cols-2">
+              <div className="mb-6 grid grid-cols-1 gap-4 md:grid-cols-2">
                 {caseStudy.milestones.map((milestone, index) => (
-                  <Card key={index} className="py-8 px-4">
+                  <Card key={index} className="px-4 py-8">
                     <div className="flex items-center justify-between">
                       <div className="space-y-2">
                         <Badge variant="outline">
@@ -148,7 +148,7 @@ export default function CaseStudyContent({ caseStudy }: CaseStudyContentProps) {
               </div>
 
               <h2 className="mb-4">Technologies Used</h2>
-              <div className="flex flex-wrap gap-2 mb-6">
+              <div className="mb-6 flex flex-wrap gap-2">
                 {caseStudy.technologies.map((tech, index) => (
                   <Badge key={index} variant="secondary">
                     {tech}
@@ -163,11 +163,11 @@ export default function CaseStudyContent({ caseStudy }: CaseStudyContentProps) {
                   <CardTitle>Testimonial</CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <blockquote className="italic text-muted-foreground mb-4">
+                  <blockquote className="text-muted-foreground mb-4 italic">
                     "{caseStudy.testimonial.quote}"
                   </blockquote>
                   <div className="flex items-center">
-                    <Avatar className="w-10 h-10 mr-4">
+                    <Avatar className="mr-4 h-10 w-10">
                       <AvatarImage
                         src={caseStudy.testimonial.image}
                         alt={caseStudy.testimonial.author}
@@ -186,7 +186,7 @@ export default function CaseStudyContent({ caseStudy }: CaseStudyContentProps) {
                 </CardContent>
               </Card>
 
-              <div className="space-y-6 mb-6">
+              <div className="mb-6 space-y-6">
                 {caseStudy.analytics && (
                   <>
                     <Card>
@@ -202,7 +202,7 @@ export default function CaseStudyContent({ caseStudy }: CaseStudyContentProps) {
                           </span>
                         </p>
 
-                        <p className="text-muted-foreground ">
+                        <p className="text-muted-foreground">
                           Enhanced data capture from ad blockers and tracking
                           prevention by{" "}
                           <span className="text-primary font-bold">
@@ -240,7 +240,7 @@ export default function CaseStudyContent({ caseStudy }: CaseStudyContentProps) {
                   <CardTitle>Platforms</CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <ul className="space-y-2 flex flex-wrap gap-x-2">
+                  <ul className="flex flex-wrap gap-x-2 space-y-2">
                     {caseStudy.platforms.map((platform, index) => (
                       <li key={index} className="flex items-center">
                         <Button size="sm" variant="secondary">
@@ -254,7 +254,7 @@ export default function CaseStudyContent({ caseStudy }: CaseStudyContentProps) {
 
               <Button
                 size="lg"
-                className="hover:bg-primary/90 flex flex-col py-20 text-center text-xl font-bold text-wrap whitespace-pre-wrap mx-auto"
+                className="hover:bg-primary/90 mx-auto flex flex-col py-20 text-center text-xl font-bold text-wrap whitespace-pre-wrap"
                 asChild
               >
                 <Link href="../contact/book-a-meeting">
@@ -262,7 +262,7 @@ export default function CaseStudyContent({ caseStudy }: CaseStudyContentProps) {
                     🔒 Book Your Free 15-Minute Setup Call
                     <br />
                     <span className="mt-2 block text-sm font-medium">
-                      We’ll confirm your eligibility, answer questions — setup
+                      We'll confirm your eligibility, answer questions — setup
                       begins right after
                     </span>
                   </div>
@@ -275,7 +275,7 @@ export default function CaseStudyContent({ caseStudy }: CaseStudyContentProps) {
 
       <Button
         size="lg"
-        className="hidden md:flex hover:bg-primary/90  flex-col py-20 text-center text-xl font-bold text-wrap whitespace-pre-wrap sm:py-16 md:py-12 mx-auto"
+        className="hover:bg-primary/90 mx-auto hidden flex-col py-20 text-center text-xl font-bold text-wrap whitespace-pre-wrap sm:py-16 md:flex md:py-12"
         asChild
       >
         <Link href="../contact/book-a-meeting">
@@ -283,7 +283,7 @@ export default function CaseStudyContent({ caseStudy }: CaseStudyContentProps) {
             🔒 Book Your Free 15-Minute Setup Call
             <br />
             <span className="mt-2 block text-sm font-medium">
-              We’ll confirm your eligibility, answer questions — setup begins
+              We'll confirm your eligibility, answer questions — setup begins
               right after
             </span>
           </div>

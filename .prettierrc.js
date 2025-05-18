@@ -5,7 +5,7 @@ module.exports = {
   singleQuote: true,
   printWidth: 100,
   tabWidth: 2,
-  plugins: [require("prettier-plugin-tailwindcss")],
+  plugins: ["prettier-plugin-tailwindcss"],
   importOrder: [
     "^react(.*)$",
     "^next(.*)$",

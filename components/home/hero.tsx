@@ -36,13 +36,13 @@ const Hero: FC<HeroProps> = ({
   customCtaButton,
 }) => {
   return (
-    <Container className="grid grid-cols-1 items-center md:items-start justify-center gap-4 text-center md:text-left lg:grid-cols-3 lg:py-8">
+    <Container className="grid grid-cols-1 items-center justify-center gap-4 text-center md:items-start md:text-left lg:grid-cols-3 lg:py-8">
       <div className="space-y-5 lg:col-span-2">
         {heading}
         {subheading && subheading}
         {carousel && carousel}
 
-        <div className="grid items-center md:items-start justify-center max-w-xl grid-cols-1 gap-2 py-4 sm:grid-cols-2">
+        <div className="grid max-w-xl grid-cols-1 items-center justify-center gap-2 py-4 sm:grid-cols-2 md:items-start">
           {benefits.map((benefit, index) => (
             <div key={index} className="flex items-center gap-2">
               <CheckCircle className="text-primary h-6 w-6" />

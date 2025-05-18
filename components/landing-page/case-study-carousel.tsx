@@ -84,7 +84,7 @@ export default function CaseStudyCarousel({
             key={`${caseStudy.id}-${index}`}
             target="_blank"
             rel="noopener noreferrer"
-            className={`w-[${itemWidth}px] h-[${itemHeight}px] relative mx-1 rounded overflow-hidden shadow-lg transition-all duration-300 hover:scale-x-[1.02] group cursor-pointer`}
+            className={`w-[${itemWidth}px] h-[${itemHeight}px] group relative mx-1 cursor-pointer overflow-hidden rounded shadow-lg transition-all duration-300 hover:scale-x-[1.02]`}
             style={{ width: `${itemWidth}px`, height: `${itemHeight}px` }}
           >
             <Image
@@ -97,21 +97,21 @@ export default function CaseStudyCarousel({
             />
 
             {/* Gradient overlay that intensifies on hover */}
-            <div className="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-70 group-hover:opacity-90 transition-opacity duration-300"></div>
+            <div className="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-70 transition-opacity duration-300 group-hover:opacity-90"></div>
 
             {/* Case study details that scale up on hover */}
-            <div className="absolute text-secondary inset-x-0 bottom-0 p-4 transform transition-transform duration-300 text-left group-hover:scale-110 z-10">
-              <h3 className="font-bold text-lg mb-1 line-clamp-2">
+            <div className="text-secondary absolute inset-x-0 bottom-0 z-10 transform p-4 text-left transition-transform duration-300 group-hover:scale-110">
+              <h3 className="mb-1 line-clamp-2 text-lg font-bold">
                 {caseStudy.title}
               </h3>
-              <p className=" text-sm transition-colors duration-300 line-clamp-2">
+              <p className="line-clamp-2 text-sm transition-colors duration-300">
                 {caseStudy.description}
               </p>
             </div>
 
             {/* Outline icon that appears on hover */}
-            <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-              <div className="rounded-full p-3 border-2 border-primary/90 transform transition-transform duration-300  bg-primary group-hover:scale-120 ">
+            <div className="absolute inset-0 flex items-center justify-center opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+              <div className="border-primary/90 bg-primary transform rounded-full border-2 p-3 transition-transform duration-300 group-hover:scale-120">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="24"
@@ -121,7 +121,7 @@ export default function CaseStudyCarousel({
                   strokeWidth="2"
                   strokeLinecap="round"
                   strokeLinejoin="round"
-                  className="text-secondary fill-secondary "
+                  className="text-secondary fill-secondary"
                 >
                   <path d="M7 7h10v10" />
                   <path d="M7 17 17 7" />

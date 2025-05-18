@@ -45,7 +45,7 @@ export default function HomePage() {
           "Up to 30% of Conversions Go Untracked",
           "Ad Costs Rising – But ROAS is Dropping",
           "Chaotic Data Makes Scaling Impossible",
-          "Your Competitors Are Tracking, You’re Not",
+          "Your Competitors Are Tracking, You're Not",
           "You're Spending More & Earning Less",
         ]}
         imageUrl="/images/hero/matrix.png"
@@ -198,7 +198,7 @@ export default function HomePage() {
 
       <SocialProof
         sectionTitle="Our Clients Are Seeing Results – Will You Be Next?"
-        sectionDescription="Here’s how we’ve transformed other businesses like yours."
+        sectionDescription="Here's how we've transformed other businesses like yours."
         testimonials={testimonials}
       />
       <ScarcityUrgency
@@ -217,7 +217,7 @@ export default function HomePage() {
           {
             title: "E-commerce Conversion Checklist",
             description:
-              "The ultimate checklist to maximize your online store’s conversions.",
+              "The ultimate checklist to maximize your online store's conversions.",
             icon: CheckSquare,
             price: "$500",
             benefits: [
@@ -351,7 +351,7 @@ export default function HomePage() {
         ]}
         buttonText="Secure Your Spot Today!"
         buttonLink="/contact"
-        footerText="Limited to 5 spots per month. Don’t wait!"
+        footerText="Limited to 5 spots per month. Don't wait!"
       />
     </main>
   );

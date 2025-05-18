@@ -42,7 +42,7 @@ Before diving into conversion tracking, it's essential to ensure that GTM is fir
    - Go to 'Themes', click 'Actions', and then 'Edit Code'.
    - Locate the `<head>` tag and paste the GTM head script.
    - Find the opening `<body>` tag (use Ctrl + F for convenience) and paste the GTM body script.
-3. **Save Changes**: Format the code, save the file, and verify the script’s functionality on your store.
+3. **Save Changes**: Format the code, save the file, and verify the script's functionality on your store.
 
 ## Step 2: Writing the Data Layer Script for View Item Event
 
@@ -152,7 +152,7 @@ The final step in this process is to ensure that all changes made in GTM are sav
 
 ## Step 4: Creating Conversion Actions in Google Ads
 
-Creating conversion actions in Google Ads is a crucial step in the process of tracking and enhancing the effectiveness of your online advertising. This step involves a detailed setup within Google Ads and integration with Google Tag Manager (GTM) to ensure accurate tracking of user interactions with your Shopify store. Let’s delve deeper into each aspect of this process.
+Creating conversion actions in Google Ads is a crucial step in the process of tracking and enhancing the effectiveness of your online advertising. This step involves a detailed setup within Google Ads and integration with Google Tag Manager (GTM) to ensure accurate tracking of user interactions with your Shopify store. Let's delve deeper into each aspect of this process.
 
 ### Setting Up Conversion Action
 
@@ -170,20 +170,20 @@ Creating conversion actions in Google Ads is a crucial step in the process of tr
 #### 3. Custom Event Setup
 
 - **Choosing Manual Action**: Opt for a manual setup of the conversion action. This gives you greater control and customization over the tracking process.
-- **Defining the Conversion Action**: Categorize your conversion action under 'Other'. This category is used for tracking actions that don’t fit into the standard options like 'Purchase' or 'Sign-up'.
+- **Defining the Conversion Action**: Categorize your conversion action under 'Other'. This category is used for tracking actions that don't fit into the standard options like 'Purchase' or 'Sign-up'.
 - **Naming the Conversion Event**: Name your conversion event, such as 'View Item', to clearly identify it in your reports. Choose a name that is descriptive and aligns with the action you are tracking.
 
 #### 4. Conversion Value and Count Settings
 
 - **Assigning Value to Each Conversion**: Determine the value of each conversion action. This could be a fixed amount or a variable value based on the product viewed. Accurately assigning value is key to understanding the return on investment (ROI) of your ads.
-- **Deciding on Count Frequency**: Choose how often to count conversions. 'Every' counts all conversions after an ad interaction, while 'Unique' counts only one conversion per ad interaction. The choice depends on what’s more meaningful for your business model – multiple interactions or unique engagements.
+- **Deciding on Count Frequency**: Choose how often to count conversions. 'Every' counts all conversions after an ad interaction, while 'Unique' counts only one conversion per ad interaction. The choice depends on what's more meaningful for your business model – multiple interactions or unique engagements.
 
 ### Integrating with Google Tag Manager
 
 #### 1. Obtaining Conversion ID and Label from Google Ads
 
 - **Locating Conversion ID and Label**: After setting up the conversion action in Google Ads, you'll receive a unique Conversion ID and Label. These are critical for linking your conversion tracking with GTM.
-- **Importance of ID and Label**: The Conversion ID connects your GTM to your Google Ads account, while the Label identifies the specific conversion action you’ve set up. Together, they ensure that the data sent from GTM is accurately reflected in your Google Ads reporting.
+- **Importance of ID and Label**: The Conversion ID connects your GTM to your Google Ads account, while the Label identifies the specific conversion action you've set up. Together, they ensure that the data sent from GTM is accurately reflected in your Google Ads reporting.
 
 #### 2. Tag Configuration in GTM
 
@@ -191,12 +191,12 @@ Creating conversion actions in Google Ads is a crucial step in the process of tr
 - **Setting Up Tag Type**: Choose 'Google Ads Conversion Tracking' as the tag type. This option is specifically designed to send conversion data to Google Ads.
 - **Inputting Conversion Details**: Enter the Conversion ID and Label that you obtained from Google Ads. This links the tag directly to your specific conversion action.
 - **Defining Trigger for the Tag**: Set up a trigger that fires this tag whenever the 'custom_view_item' event occurs on your Shopify store. This ensures that every time a user views an item – an action you've defined as valuable – the information is sent to Google Ads.
-- **Adding Conversion Value and Currency**: Input the conversion value and currency code. If you’ve set up dynamic values in your conversion action, use GTM’s variable feature to pull this data directly from your website, ensuring accurate value reporting for each conversion.
+- **Adding Conversion Value and Currency**: Input the conversion value and currency code. If you've set up dynamic values in your conversion action, use GTM's variable feature to pull this data directly from your website, ensuring accurate value reporting for each conversion.
 
 #### Finalizing and Testing
 
 - **Saving and Publishing Changes in GTM**: After configuring your tag and its trigger, save the changes and publish your container. This updates your live GTM configuration, enabling the new tracking setup.
-- **Testing and Verification**: Use GTM’s preview mode and Google Ads' conversion tracking tools to test and verify that the conversion action is being tracked correctly. Look for the conversion action in your Google Ads account to confirm it's recording data as expected.
+- **Testing and Verification**: Use GTM's preview mode and Google Ads' conversion tracking tools to test and verify that the conversion action is being tracked correctly. Look for the conversion action in your Google Ads account to confirm it's recording data as expected.
 
 ## Step 5: Applying Conversion Actions to Specific Campaigns
 
@@ -206,25 +206,25 @@ In the realm of digital advertising, the integration of conversion actions into 
 
 #### 1. Verify Conversion Action in Google Ads
 
-Before integrating the conversion actions with your campaigns, it’s paramount to ensure that these actions are correctly set up and recognized by Google Ads.
+Before integrating the conversion actions with your campaigns, it's paramount to ensure that these actions are correctly set up and recognized by Google Ads.
 
 - **Checking Conversion Action Status**: Go to the 'Conversions' section in your Google Ads account. Here, under the 'Other' category, look for your newly created conversion action named 'custom_view_item' or the name you assigned.
-- **Understanding Conversion Status**: The status should be 'Active', indicating that Google Ads recognizes the conversion action. If it’s not active, you might need to troubleshoot by checking if the tag in Google Tag Manager is firing correctly or if there are any discrepancies in the setup.
+- **Understanding Conversion Status**: The status should be 'Active', indicating that Google Ads recognizes the conversion action. If it's not active, you might need to troubleshoot by checking if the tag in Google Tag Manager is firing correctly or if there are any discrepancies in the setup.
 - **Importance of Active Status**: An active status is crucial because it means that Google Ads is now ready to record and analyze data related to this specific conversion action. This data is vital for optimizing your campaigns based on user interactions with your Shopify store products.
 
 #### 2. Assigning to Campaigns
 
 Once the conversion action is verified and active, the next step is to assign this action to specific campaigns in your Google Ads account.
 
-- **Selecting the Desired Campaign**: In your Google Ads dashboard, navigate to the 'Campaigns' section. Here, choose the campaign you wish to optimize with the view item conversion action. It’s essential to select campaigns that align with the objectives of the conversion action. For example, if the conversion action is related to viewing a specific category of products, it should be linked to campaigns targeting similar audiences or products.
+- **Selecting the Desired Campaign**: In your Google Ads dashboard, navigate to the 'Campaigns' section. Here, choose the campaign you wish to optimize with the view item conversion action. It's essential to select campaigns that align with the objectives of the conversion action. For example, if the conversion action is related to viewing a specific category of products, it should be linked to campaigns targeting similar audiences or products.
 - **Campaign Settings Adjustment**: Within the chosen campaign, go to the 'Settings' tab. This area allows you to modify various aspects of your campaign, including the goals and objectives.
 
-- **Integrating Conversion Action under Goals**: Scroll down to find the 'Goals' section. Here, you will see an option to link conversion actions to the campaign. It’s important to understand that linking the correct conversion action to the campaign aligns the campaign’s objectives with the actions you deem valuable, such as viewing items in your case.
+- **Integrating Conversion Action under Goals**: Scroll down to find the 'Goals' section. Here, you will see an option to link conversion actions to the campaign. It's important to understand that linking the correct conversion action to the campaign aligns the campaign's objectives with the actions you deem valuable, such as viewing items in your case.
 
-- **Customization of Conversion Actions for Campaigns**: Depending on the campaign’s nature and goals, you might want to link different conversion actions. For instance, for a campaign aimed at generating awareness, linking view item conversions would be appropriate. Conversely, for a campaign focused on sales, linking purchase-related conversions would be more suitable.
+- **Customization of Conversion Actions for Campaigns**: Depending on the campaign's nature and goals, you might want to link different conversion actions. For instance, for a campaign aimed at generating awareness, linking view item conversions would be appropriate. Conversely, for a campaign focused on sales, linking purchase-related conversions would be more suitable.
 
 - **Saving the Changes**: After selecting the 'custom_view_item' conversion action (or any other relevant action), save your changes. This action ensures that moving forward, the campaign's performance will be evaluated against the conversion action you've set, providing valuable insights into user behavior and campaign effectiveness.
 
 ## Conclusion
 
-By following these steps, you’ll successfully track view item conversions in your Shopify store. This enables better-targeted campaigns and more efficient ad spending in Google Ads. Remember, continuous monitoring and tweaking are essential for optimal performance. Keep learning and evolving your strategies for the best results in your e-commerce journey.
+By following these steps, you'll successfully track view item conversions in your Shopify store. This enables better-targeted campaigns and more efficient ad spending in Google Ads. Remember, continuous monitoring and tweaking are essential for optimal performance. Keep learning and evolving your strategies for the best results in your e-commerce journey.

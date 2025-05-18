@@ -23,13 +23,13 @@ export const metadata = {
   embedId: "xs_LOeKkcmg",
 };
 
-Shopify recently introduced the **Customer Event Section**, a new way to track eCommerce events. In this post, I’ll walk you through setting up the **Facebook Pixel View Category Event** using **Google Tag Manager (GTM)** and Shopify’s new **Customer Event** features.
+Shopify recently introduced the **Customer Event Section**, a new way to track eCommerce events. In this post, I'll walk you through setting up the **Facebook Pixel View Category Event** using **Google Tag Manager (GTM)** and Shopify's new **Customer Event** features.
 
-Whether you're managing a single Shopify store or migrating multiple stores, this step-by-step guide will help you efficiently track essential eCommerce events like **View Category** and improve your store’s performance.
+Whether you're managing a single Shopify store or migrating multiple stores, this step-by-step guide will help you efficiently track essential eCommerce events like **View Category** and improve your store's performance.
 
 ## Introduction to Shopify Customer Events
 
-Shopify’s **Customer Event Section** is a new method of tracking eCommerce events, replacing the older **data layer**. Over the last few months, many Shopify stores have successfully migrated to this new setup. This guide will show you how to configure the **View Category Event** for the Facebook Pixel using **Google Tag Manager** in Shopify’s Customer Event Section.
+Shopify's **Customer Event Section** is a new method of tracking eCommerce events, replacing the older **data layer**. Over the last few months, many Shopify stores have successfully migrated to this new setup. This guide will show you how to configure the **View Category Event** for the Facebook Pixel using **Google Tag Manager** in Shopify's Customer Event Section.
 
 We'll walk through a **4-step process**:
 
@@ -61,7 +61,7 @@ To start, we need to add a **custom data layer event** to Shopify.
    - Set **Data Sale** to "Does Not Qualify as Data Sale."
 
 5. **Add the Code Snippet**:
-   - Remove any demo code and paste the **View Category Event** code into the section for adding your custom pixel code. You can find this snippet in the video’s description or a linked blog post.
+   - Remove any demo code and paste the **View Category Event** code into the section for adding your custom pixel code. You can find this snippet in the video's description or a linked blog post.
 
 <DataLayerCodeBlock fileName="view_item_list.js" />
 
@@ -82,7 +82,7 @@ Now that the data layer event is set up, it's time to integrate **Google Tag Man
    - After saving, click the **Connect** button to link the pixel to your Shopify store.
 
 4. **Verify Connection**:
-   - Go to the **Online Store** and use **Inspect** mode in your browser’s console to ensure the data layer event is firing correctly. You should see the **View Item List Event** triggered along with product details like item name, value, and currency.
+   - Go to the **Online Store** and use **Inspect** mode in your browser's console to ensure the data layer event is firing correctly. You should see the **View Item List Event** triggered along with product details like item name, value, and currency.
 
 ## Step 3: Configuring Facebook Pixel Tags
 
@@ -138,11 +138,11 @@ For the **View Category Event**, we will pass additional information from the da
 
 ## Verifying Pixel Events in Shopify
 
-Before we wrap up, let’s verify that everything works as expected.
+Before we wrap up, let's verify that everything works as expected.
 
 1. **Test the Pixel Events**:
 
-   - Visit your Shopify store’s frontend and go to a category page.
+   - Visit your Shopify store's frontend and go to a category page.
    - Use the **Meta Pixel Helper** browser extension to verify that the **View Category Event** has fired. The event should include the **content IDs**, **content array**, **currency**, and other parameters.
 
 2. **Check in Facebook Events Manager**:
@@ -151,7 +151,7 @@ Before we wrap up, let’s verify that everything works as expected.
 
 ## Conclusion
 
-By following this guide, you’ve successfully set up and tested the **View Category Event** using Shopify’s new **Customer Event Section** and **Google Tag Manager**. This method ensures you can track customer interactions efficiently, helping improve your store’s performance and marketing strategies.
+By following this guide, you've successfully set up and tested the **View Category Event** using Shopify's new **Customer Event Section** and **Google Tag Manager**. This method ensures you can track customer interactions efficiently, helping improve your store's performance and marketing strategies.
 
 For further information on how to track more events, check out [this related post](#).
 
