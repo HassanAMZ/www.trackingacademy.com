@@ -56,8 +56,8 @@ export const caseStudies: CaseStudy[] = [
       "Recovered 100% of Facebook Conversions for Vision4kids with Server-Side Tracking",
     description:
       "Over a 10-month engagement, Vision4kids’ analytics setup had been fragmented by conflicting GTM containers and third-party changes—Facebook CAPI was broken, GA4 events were firing twice, and key fundraising conversions were lost. We rebuilt their entire server-side pipeline, consolidated GTM containers, and delivered a bullet-proof SST + CAPI integration that restored full conversion visibility and unlocked reliable ROAS reporting.",
-    imageUrl: "/images/for-businesses/client-vision4kids-desktop.png",
-    mobileUrl: "/images/for-businesses/client-vision4kids-mobile.png",
+    imageUrl: "/images/for-businesses/client-vision4kids-desktop-home.png",
+    mobileUrl: "/images/for-businesses/client-vision4kids-mobile-home.png",
     siteUrl: "https://vision4kids.org",
     analytics: {
       period: "9 months",
@@ -151,8 +151,8 @@ export const caseStudies: CaseStudy[] = [
     title: "Unified Appointment & Lead Tracking with GA4 & GTM",
     description:
       "For a beginner-golf campaign on Hounslow Golf Park we built a bulletproof GA4+GTM setup—capturing JotForm and Acuity Scheduling events via a PostMessage script, and surfacing them alongside Meta/Google Ads data in custom Looker Studio dashboards for crystal-clear ROI reporting.",
-    imageUrl: "/images/for-businesses/client-hortongolfpark-desktop.png",
-    mobileUrl: "/images/for-businesses/client-hortongolfpark-mobile.png",
+    imageUrl: "/images/for-businesses/client-hortongolfpark-desktop-home.png",
+    mobileUrl: "/images/for-businesses/client-hortongolfpark-mobile-home.png",
     siteUrl: "https://hortongolfpark.com/learn-golf/give-golf-a-go",
     testimonial: {
       quote:

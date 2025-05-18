@@ -1,6 +1,7 @@
 import Navbar from "@/components/global/navbar";
 import AlternativesSection from "@/components/home/alternative-section";
 import WhyChooseSection from "@/components/home/why-choose-us";
+import CaseStudyCarousel from "@/components/landing-page/case-study-carousel";
 import DetailedCTA from "@/components/landing-page/detailed-cta";
 import Hero from "@/components/landing-page/hero";
 import ObjectionHandling from "@/components/landing-page/objection-handling";
@@ -9,6 +10,7 @@ import ProblemAwareness from "@/components/landing-page/problem-awareness";
 import ScarcityUrgency from "@/components/landing-page/scarcity-urgency";
 import SocialProof from "@/components/landing-page/social-proof";
 import TestimonialsCarousel from "@/components/testimonial/testimonial-carousal";
+import { caseStudies } from "@/data/case-studies";
 import { testimonials } from "@/data/testimonials";
 import {
   BarChart2,
@@ -31,9 +33,7 @@ export default function HomePage() {
         supportingButtonText="View Client Results"
         supportingButtonLink="#case-studies"
         youtubeEmbedId="9MGpL_AmEYM"
-        supportingComponent={
-          <TestimonialsCarousel className="mx-auto max-w-2xl" />
-        }
+        supportingComponent={<CaseStudyCarousel caseStudies={caseStudies} />}
       />
 
       {/* <CaseStudy client={caseStudies[1]} /> */}
