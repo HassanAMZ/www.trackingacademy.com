@@ -190,66 +190,132 @@
     -moz-osx-font-smoothing: grayscale;
   }
 }
+
 @layer base {
+  /* Headings with improved responsive scaling and consistent rhythm */
   h1 {
     @apply scroll-m-20 text-3xl font-extrabold tracking-tight sm:text-4xl lg:text-5xl;
   }
   h2 {
-    @apply scroll-m-20 pb-2 text-3xl font-semibold tracking-tight first:mt-0;
+    @apply scroll-m-20 text-2xl font-semibold tracking-tight first:mt-0 sm:text-3xl;
   }
   h3 {
-    @apply scroll-m-20 text-2xl font-semibold tracking-tight;
+    @apply scroll-m-20 text-xl font-medium tracking-tight sm:text-2xl;
   }
   h4 {
-    @apply scroll-m-20 text-xl font-semibold tracking-tight;
+    @apply scroll-m-20 text-lg font-semibold tracking-tight sm:text-xl;
   }
-  .text-small {
+  h5 {
+    @apply scroll-m-20 text-base font-semibold tracking-tight;
+  }
+  h6 {
+    @apply scroll-m-20 text-sm font-semibold tracking-wide uppercase;
+  }
+
+  /* Base text styles with improved line heights for readability */
+  p {
+    @apply max-w-prose text-base leading-7;
+  }
+
+  /* Text size utilities with appropriate line heights */
+  .text-xs {
+    @apply text-xs leading-5;
+  }
+  .text-sm {
     @apply text-sm leading-5;
   }
-  .text-normal {
+  .text-base {
     @apply text-base leading-7;
   }
-  .text-medium {
+  .text-lg {
     @apply text-lg leading-7;
   }
-  .text-large {
+  .text-xl {
     @apply text-xl leading-8;
   }
-  p {
-    @apply leading-7;
+  .text-2xl {
+    @apply text-2xl leading-8;
   }
-  p.small {
-    @apply text-sm leading-5 not-first:mt-4;
+  .text-3xl {
+    @apply text-3xl leading-9;
   }
-  p.medium {
-    @apply text-lg leading-7 not-first:mt-6;
-  }
-  p.large {
-    @apply text-xl leading-8 not-first:mt-8;
-  }
+
+  /* Semantic text styles */
   .lead {
-    @apply text-muted-foreground text-xl;
+    @apply text-muted-foreground text-xl leading-8 sm:text-2xl sm:leading-9;
+    @apply mt-4 mb-6;
   }
-  .large {
-    @apply text-lg font-semibold;
-  }
+
   small {
-    @apply text-sm leading-none font-medium;
+    @apply text-sm leading-tight font-medium;
   }
+
   .muted {
     @apply text-muted-foreground text-sm;
   }
-  blockquote {
-    @apply mt-6 border-l-2 border-slate-300 pl-6 text-slate-800 italic dark:border-slate-600 dark:text-slate-200;
-  }
-  /* ul {
-    @apply my-6 ml-6 list-disc [&>li]:mt-2;
-  } */
-  /* code {
-    @apply rounded bg-slate-100 font-mono text-sm font-semibold text-slate-900 dark:bg-slate-800 dark:text-slate-400;
-  } */
-}
 
+  /* Consistent paragraph variations */
+  p.small {
+    @apply mb-3 text-sm leading-5;
+  }
+  p.medium {
+    @apply mb-5 text-lg leading-7;
+  }
+  p.large {
+    @apply mb-6 text-xl leading-8;
+  }
+
+  /* Block elements */
+  blockquote {
+    @apply my-6 border-l-2 border-slate-300 pl-6 text-slate-800 italic dark:border-slate-600 dark:text-slate-200;
+    @apply text-lg;
+  }
+
+  /* List styles - uncommented and improved */
+  ul,
+  ol {
+    @apply my-4 ml-6 space-y-2;
+  }
+
+  ul {
+    @apply list-disc;
+  }
+
+  ol {
+    @apply list-decimal;
+  }
+
+  /* Code styles - uncommented and improved */
+  code {
+    @apply rounded bg-slate-100 px-1.5 py-0.5 font-mono text-sm font-medium text-slate-900 dark:bg-slate-800 dark:text-slate-400;
+  }
+
+  pre {
+    @apply my-6 overflow-x-auto rounded-lg bg-slate-100 p-4 dark:bg-slate-800;
+  }
+
+  pre code {
+    @apply bg-transparent p-0 text-sm;
+  }
+
+  /* Responsive container widths for text readability */
+  .container-prose {
+    @apply mx-auto max-w-prose px-4 sm:px-6;
+  }
+
+  /* Fluid typography for special cases */
+  .fluid-text {
+    @apply text-base;
+    font-size: clamp(1rem, 0.75rem + 1vw, 1.25rem);
+    line-height: 1.5;
+  }
+
+  /* Line length control for optimal readability */
+  .readable {
+    @apply max-w-prose;
+    max-width: 65ch;
+  }
+}
 html {
   scroll-behavior: smooth;
   -ms-overflow-style: none;

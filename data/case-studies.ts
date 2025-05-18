@@ -48,6 +48,193 @@ export interface CaseStudy {
 
 export const caseStudies: CaseStudy[] = [
   {
+    id: "vision4kids",
+    name: "Vision4kids Facebook SST & GA4 Recovery",
+    url: "https://vision4kids.org",
+    plan: "Standard",
+    title:
+      "Recovered 100% of Facebook Conversions for Vision4kids with Server-Side Tracking",
+    description:
+      "Over a 10-month engagement, Vision4kids’ analytics setup had been fragmented by conflicting GTM containers and third-party changes—Facebook CAPI was broken, GA4 events were firing twice, and key fundraising conversions were lost. We rebuilt their entire server-side pipeline, consolidated GTM containers, and delivered a bullet-proof SST + CAPI integration that restored full conversion visibility and unlocked reliable ROAS reporting.",
+    imageUrl: "/images/for-businesses/client-vision4kids-desktop.png",
+    mobileUrl: "/images/for-businesses/client-vision4kids-mobile.png",
+    siteUrl: "https://vision4kids.org",
+    analytics: {
+      period: "9 months",
+      recoveredFromAdBlockersPercentage: 5.0,
+      recoveredFromTrackingPreventionPercentage: 40.0,
+      accuracy: 98,
+    },
+    testimonial: {
+      quote: "Pleasure to work with. Can highly recommend.",
+      author: "Thomas André Jensen",
+      role: "Client",
+      image:
+        "https://media.licdn.com/dms/image/v2/D4D03AQFbWlS7wVrG2A/profile-displayphoto-shrink_800_800/B4DZY9skHDHAAc-/0/1744791814987?e=1753315200&v=beta&t=_ryLYItbFjODHOdzKH30gl-UUD2n29y_QJdN_5IcbaE",
+    },
+    platforms: [
+      "Google Analytics 4",
+      "Google Tag Manager",
+      "Facebook Pixel",
+      "Facebook Conversion API",
+      "Stape",
+      "Zapier",
+    ],
+    milestones: [
+      {
+        name: "Access & Audit",
+        description:
+          "Reviewed existing GTM web & server containers, FB ad account, GA4 property.",
+        expectedOutcome:
+          "Clear scope, credentials in hand, no unknown blockers.",
+      },
+      {
+        name: "Server-Side Environment",
+        description:
+          "Provisioned and configured Stape server container, custom endpoint for FB CAPI.",
+        expectedOutcome:
+          "Server endpoint is receiving and decoding incoming events.",
+      },
+      {
+        name: "DataLayer & Triggers",
+        description:
+          "Standardized dataLayer pushes, fixed GTM trigger conditions across all key fundraising flows.",
+        expectedOutcome:
+          "All client-side and server-side events fire exactly once per user action.",
+      },
+      {
+        name: "Validation & Handover",
+        description:
+          "End-to-end QA in GA4, FB Ads Manager and custom dashboards; trained internal team.",
+        expectedOutcome:
+          "100% of historical conversions recovered, reliable daily reporting in place.",
+      },
+    ],
+    projectTimeline: {
+      startDate: "Jun 2, 2022",
+      endDate: "Apr 11, 2023",
+      durationDays: 313,
+    },
+    owner: "Shahzada Ali Hassan",
+    client: "Thomas André Jensen",
+    budget: 1842,
+    technologies: [
+      "Server-Side Tracking",
+      "Facebook Conversion API",
+      "Web Analytics",
+      "Event Tracking",
+      "Consent Management",
+    ],
+    challenges: [
+      "Conflicting GTM containers deploying duplicate tags",
+      "Broken Facebook CAPI after third-party changes",
+      "Missing dataLayer standards leading to unreliable GA4 metrics",
+    ],
+    solutions: [
+      "Rebuilt and consolidated GTM web + server containers",
+      "Deployed Stape SST pipeline with custom FB CAPI endpoint",
+      "Enforced strict dataLayer schema and trigger hygiene",
+      "Validated end-to-end flows across GA4 and FB Ads Manager",
+    ],
+    results: [
+      "Restored 100% of previously lost Facebook conversion data",
+      "Tracked fundraising conversions with 98% accuracy",
+      "Enabled confident, ROAS-driven ad spend decisions",
+      "Streamlined analytics setup for future campaigns",
+    ],
+  },
+  {
+    id: "hortongolfpark",
+    name: "GA4 Setup and Report",
+    url: "https://hortongolfpark.com/learn-golf/give-golf-a-go",
+    plan: "Standard",
+    title: "Unified Appointment & Lead Tracking with GA4 & GTM",
+    description:
+      "For a beginner-golf campaign on Hounslow Golf Park we built a bulletproof GA4+GTM setup—capturing JotForm and Acuity Scheduling events via a PostMessage script, and surfacing them alongside Meta/Google Ads data in custom Looker Studio dashboards for crystal-clear ROI reporting.",
+    imageUrl: "/images/for-businesses/client-hortongolfpark-desktop.png",
+    mobileUrl: "/images/for-businesses/client-hortongolfpark-mobile.png",
+    siteUrl: "https://hortongolfpark.com/learn-golf/give-golf-a-go",
+    testimonial: {
+      quote:
+        "Shahzada is by far the most comprehensive, transparent and skilled analytics expert I’ve worked with (and I’ve used many over the years). He managed to save me money by understanding the problem and doing such an efficient job. I couldn’t recommend anyone any higher.",
+      author: "James Wilkinson",
+      role: "Client",
+      image:
+        "https://media.licdn.com/dms/image/v2/D4E03AQEfR37YT--RlQ/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1673126931280?e=1753315200&v=beta&t=J9ZhXmu5Ym4vaa46qORRbWt7sin9iBEWS3d3n6f4qec",
+    },
+    platforms: [
+      "Google Analytics 4",
+      "Google Tag Manager",
+      "Looker Studio",
+      "JotForm",
+      "Acuity Scheduling",
+      "Meta Pixel",
+      "Google Ads",
+    ],
+    milestones: [
+      {
+        name: "Access & Audit",
+        description:
+          "Provisioned GA4, GTM and ad account access; audited existing setup",
+        expectedOutcome:
+          "Full visibility on current gaps and required migrations",
+      },
+      {
+        name: "Tracking Implementation",
+        description:
+          "Deployed GTM container, replaced direct GA4 snippet, added PostMessage script for iframe form tracking",
+        expectedOutcome:
+          "All JotForm and Acuity submissions firing as GA4 events",
+      },
+      {
+        name: "Dashboard Creation",
+        description:
+          "Built Looker Studio report to show leads, appointments, source/medium, cost per lead",
+        expectedOutcome: "Client-ready visualizations for monthly reporting",
+      },
+      {
+        name: "Replication & QA",
+        description:
+          "Copied tracking and dashboards to second subdomain (Horton Golf Park) and validated data integrity",
+        expectedOutcome: "Identical tracking accuracy on both properties",
+      },
+    ],
+    projectTimeline: {
+      startDate: "Dec 6, 2023",
+      endDate: "Aug 19, 2024",
+      durationDays: 256,
+    },
+    owner: "Shahzada Ali Hassan",
+    client: "James Wilkinson",
+    budget: 531.67,
+    technologies: [
+      "Google Tag Manager",
+      "Google Analytics 4",
+      "Looker Studio",
+      "PostMessage API",
+      "Acuity Scheduling",
+      "JotForm Tracking",
+    ],
+    challenges: [
+      "Acuity embed in iframe prevented standard event hooks",
+      "Multiple data sources (GA4, Meta Ads, Google Ads, JotForm)",
+      "Client unfamiliar with GA4 interface",
+      "Slow deployment via third-party hosts",
+    ],
+    solutions: [
+      "Leveraged window.postMessage for iframe form events",
+      "Migrated direct GA4 snippet to GTM container",
+      "Developed a templated Looker Studio dashboard",
+      "Cloned and QA’d all tracking on the secondary subdomain",
+    ],
+    results: [
+      "100% of form submissions tracked in GA4 within 24-48h",
+      "Accurate source/medium reporting for every lead",
+      "Monthly report handed off, saving client ongoing analytics hours",
+      "Replicated setup for charity site with zero data loss",
+    ],
+  },
+  {
     id: "rejuvica",
     name: "Shopify Checkout Extensibility Transfer",
     url: "https://www.rejuvica.com",
