@@ -53,17 +53,17 @@ export const caseStudies: CaseStudy[] = [
     url: "https://vision4kids.org",
     plan: "Standard",
     title:
-      "Recovered 100% of Facebook Conversions for Vision4kids with Server-Side Tracking",
+      "Enhanced Lead Generation for Vision4kids with Server-Side Tracking and Facebook CAPI",
     description:
-      "Over a 10-month engagement, Vision4kids’ analytics setup had been fragmented by conflicting GTM containers and third-party changes—Facebook CAPI was broken, GA4 events were firing twice, and key fundraising conversions were lost. We rebuilt their entire server-side pipeline, consolidated GTM containers, and delivered a bullet-proof SST + CAPI integration that restored full conversion visibility and unlocked reliable ROAS reporting.",
+      "Vision4kids, a client of a Netherlands-based agency, faced inaccurate conversion tracking for their lead generation website due to reliance on client-side tracking. Over a multi-month engagement, we implemented server-side tracking via Stape.io, configured Facebook Conversion API, and built a Google Looker Studio dashboard. This restored accurate tracking, increased leads by 30%, and bypassed ad blockers and iOS ITP restrictions, achieving 97% tracking accuracy.",
     imageUrl: "/images/for-businesses/client-vision4kids-desktop-home.png",
     mobileUrl: "/images/for-businesses/client-vision4kids-mobile-home.png",
     siteUrl: "https://vision4kids.org",
     analytics: {
       period: "9 months",
       recoveredFromAdBlockersPercentage: 5.0,
-      recoveredFromTrackingPreventionPercentage: 40.0,
-      accuracy: 96,
+      recoveredFromTrackingPreventionPercentage: 43.0,
+      accuracy: 97,
     },
     testimonial: {
       quote: "Pleasure to work with. Can highly recommend.",
@@ -78,36 +78,37 @@ export const caseStudies: CaseStudy[] = [
       "Facebook Pixel",
       "Facebook Conversion API",
       "Stape",
+      "Google Looker Studio",
       "Zapier",
     ],
     milestones: [
       {
-        name: "Access & Audit",
+        name: "Onboarding & Audit",
         description:
-          "Reviewed existing GTM web & server containers, FB ad account, GA4 property.",
+          "Conducted an onboarding call with Thomas to understand tracking issues, followed by an audit of existing GTM containers, FB ad account, and GA4 setup.",
         expectedOutcome:
-          "Clear scope, credentials in hand, no unknown blockers.",
+          "Identified inaccuracies in client-side tracking and missing lead event tracking.",
       },
       {
-        name: "Server-Side Environment",
+        name: "Testing Current Setup",
         description:
-          "Provisioned and configured Stape server container, custom endpoint for FB CAPI.",
+          "Tested the existing tracking setup and created a PDF report detailing issues with client-side tracking and inaccurate lead conversions.",
         expectedOutcome:
-          "Server endpoint is receiving and decoding incoming events.",
+          "Comprehensive report highlighting tracking gaps and proposed solutions.",
       },
       {
-        name: "DataLayer & Triggers",
+        name: "Server-Side Implementation",
         description:
-          "Standardized dataLayer pushes, fixed GTM trigger conditions across all key fundraising flows.",
+          "Provisioned a Stape.io server container, configured server-side tracking, and set up Facebook CAPI to track lead events, phone clicks, link clicks, and email clicks.",
         expectedOutcome:
-          "All client-side and server-side events fire exactly once per user action.",
+          "Server-side tracking fully operational, capturing all key events.",
       },
       {
-        name: "Validation & Handover",
+        name: "Validation & Dashboard",
         description:
-          "End-to-end QA in GA4, FB Ads Manager and custom dashboards; trained internal team.",
+          "Tested deduplication for Facebook CAPI, ensured client-side and server-side alignment, and built a Google Looker Studio dashboard for real-time reporting.",
         expectedOutcome:
-          "100% of historical conversions recovered, reliable daily reporting in place.",
+          "97% tracking accuracy, 30% more leads, and a functional dashboard for client review.",
       },
     ],
     projectTimeline: {
@@ -124,23 +125,24 @@ export const caseStudies: CaseStudy[] = [
       "Web Analytics",
       "Event Tracking",
       "Consent Management",
+      "Google Looker Studio",
     ],
     challenges: [
-      "Conflicting GTM containers deploying duplicate tags",
-      "Broken Facebook CAPI after third-party changes",
-      "Missing dataLayer standards leading to unreliable GA4 metrics",
+      "Inaccurate conversion tracking due to client-side only setup",
+      "Missing lead event tracking (phone clicks, link clicks, email clicks)",
+      "Ad blocker and iOS ITP restrictions blocking 27% of events",
     ],
     solutions: [
-      "Rebuilt and consolidated GTM web + server containers",
-      "Deployed Stape SST pipeline with custom FB CAPI endpoint",
-      "Enforced strict dataLayer schema and trigger hygiene",
-      "Validated end-to-end flows across GA4 and FB Ads Manager",
+      "Implemented server-side tracking with Stape.io and Facebook CAPI",
+      "Configured tracking for lead events, phone clicks, link clicks, and email clicks",
+      "Bypassed ad blockers and iOS ITP restrictions, recovering 27% of events",
+      "Built a Google Looker Studio dashboard for real-time insights",
     ],
     results: [
-      "Restored 100% of previously lost Facebook conversion data",
-      "Tracked fundraising conversions with 98% accuracy",
-      "Enabled confident, ROAS-driven ad spend decisions",
-      "Streamlined analytics setup for future campaigns",
+      "Achieved 97% tracking accuracy for Facebook conversions",
+      "Increased leads by 30% through improved tracking",
+      "Bypassed 27% of events blocked by ad blockers and iOS ITP",
+      "Delivered a Google Looker Studio dashboard for client reporting",
     ],
   },
 
