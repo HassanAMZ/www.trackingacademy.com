@@ -5,10 +5,12 @@ import { Client } from "@/data/clients";
 import { CheckCircle } from "lucide-react";
 import Link from "next/link";
 import { FC, ReactNode } from "react";
+import { Badge } from "../ui/badge";
 
 interface HeroProps {
   heading: ReactNode;
   subheading?: ReactNode;
+  eyebrow?: string;
   carousel: ReactNode;
   benefits: string[];
   ctaText?: string;
@@ -24,6 +26,7 @@ interface HeroProps {
 const Hero: FC<HeroProps> = ({
   heading,
   subheading,
+  eyebrow,
   carousel,
   benefits,
   ctaText,
@@ -36,13 +39,14 @@ const Hero: FC<HeroProps> = ({
   customCtaButton,
 }) => {
   return (
-    <Container className="grid grid-cols-1 items-center justify-center gap-4 text-center md:items-start md:text-left lg:grid-cols-3 lg:py-8">
+    <Container className="grid grid-cols-1 justify-center gap-4 md:items-center md:text-left lg:grid-cols-3 lg:py-8 ">
       <div className="space-y-5 lg:col-span-2">
+        {eyebrow && <Badge>{eyebrow}</Badge>}
         {heading}
         {subheading && subheading}
-        {carousel && carousel}
+        <div className="max-w-xl">{carousel && carousel}</div>
 
-        <div className="grid max-w-xl grid-cols-1 items-center justify-center gap-2 py-4 sm:grid-cols-2 md:items-start">
+        <div className="grid max-w-xl grid-cols-1  justify-center gap-2 py-4 sm:grid-cols-2 md:items-start">
           {benefits.map((benefit, index) => (
             <div key={index} className="flex items-center gap-2">
               <CheckCircle className="text-primary h-6 w-6" />
@@ -68,7 +72,7 @@ const Hero: FC<HeroProps> = ({
               </div>
             )}
 
-        <div className="flex items-center justify-start gap-2">
+        <div className="flex  justify-start gap-2">
           <div className="relative h-8 w-8">
             {clients.map((client, index) => (
               <Avatar

@@ -1,15 +1,20 @@
 "use client";
 
+import TestimonialsCarousel2 from "@/components/for-freelancers/testimonials-carousal-2";
+import TrackingTable from "@/components/global/tracking-table";
 import AlternativesSection from "@/components/home/alternative-section";
+import Hero from "@/components/home/hero";
 import WhyChooseSection from "@/components/home/why-choose-us";
 import DetailedCTA from "@/components/landing-page/detailed-cta";
-import Hero from "@/components/landing-page/hero";
 import ObjectionHandling from "@/components/landing-page/objection-handling";
 import OfferDetails from "@/components/landing-page/offer-detail-item";
 import ProblemAwareness from "@/components/landing-page/problem-awareness";
+import { ProcessSteps } from "@/components/landing-page/process-steps";
 import ScarcityUrgency from "@/components/landing-page/scarcity-urgency";
 import SocialProof from "@/components/landing-page/social-proof";
 import TestimonialsCarousel from "@/components/testimonial/testimonial-carousal";
+import { Button } from "@/components/ui/button";
+import clients from "@/data/clients";
 import { testimonials } from "@/data/testimonials";
 import {
   BarChart2,
@@ -18,32 +23,51 @@ import {
   Target,
   Zap,
 } from "lucide-react";
+import { useState } from "react";
 
 export default function HomePage() {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
   return (
     <main>
       <Hero
-        badgeText="WARNING: Missing Meta Conversion Data Costing You Sales?"
-        headingText={
-          <h1>
-            <span className="text-primary">Never Miss a Sale Again </span>-
-            Track 95% of Your Conversions -{" "}
-            <span className="text-primary"> Guaranteed!</span>
-          </h1>
+        eyebrow="#1 Highest Rated Ad Tracking Software For Shopify"
+        heading={
+          <h1 className="max-w-3xl">Stop losing 60% of ad conversion data</h1>
         }
-        subheadingText="Fix Your Facebook's Data Sharing Restrictions and Restore 95%+
-            Accurate Data for Facebook Ads. All done-for-you, in just 3 days,
-            without violating Facebook's policies or getting flagged. Track
-            every ecommerce event."
-        supportingComponent={
-          <TestimonialsCarousel className="mx-auto max-w-2xl" />
+        subheading={
+          <h4 className="max-w-2xl">
+            The only solution that pushes 100% accurate data into your ads
+            manager. Raise ROAS by 50% in just 1 week.
+          </h4>
         }
-        youtubeEmbedId="9MGpL_AmEYM"
-        ctaButtonLink="book-a-meeting"
-        supportingButtonText="View Client Results"
-        supportingButtonLink="#case-studies"
-        ctaButtonText="📅 Book Your Free Tracking Fix Session Now"
-        subtextForButtonCta="Only 10 spots left for $300 off — secure yours before the month ends!"
+        carousel={<TestimonialsCarousel2 />}
+        benefits={[
+          "100% done-for-you setup",
+          "95%+ accuracy ",
+          "One-time setup cost",
+          "Completed within 7 days",
+          "Improved ROAS by 20%",
+          "Scaleable Solution ",
+        ]}
+        customCtaButton={
+          <Button
+            size="lg"
+            className="hover:bg-primary/90 flex max-w-4xl flex-col py-20 text-center text-xl font-bold text-wrap whitespace-pre-wrap hover:cursor-pointer sm:py-16 md:py-12 md:text-left"
+            onClick={() => setIsModalOpen(true)}
+          >
+            <div>
+              🎟️ Claim Your $300 Coupon for 3-Day "See Every Sale" Tracking
+              System
+              <span className="mt-2 block text-sm font-medium opacity-90">
+                Limited to the first 10 clients — act fast before it expires
+              </span>
+            </div>
+          </Button>
+        }
+        supportingComponent={<TrackingTable />}
+        clients={clients}
+        clientCountText="1032+ websites configured with 95% accuracy"
       />
 
       <ProblemAwareness
@@ -65,6 +89,8 @@ export default function HomePage() {
           "Track 30% More Conversions Than Standard Setups",
         ]}
       />
+
+      {/* <ProcessSteps /> */}
 
       <OfferDetails
         headerTitle="3-Day 'See Every Sale' Tracking System"
@@ -182,7 +208,7 @@ export default function HomePage() {
         spotsLeft={10}
         daysRemaining={14}
         iconSize={12}
-        buttonLink="book-a-meeting"
+        buttonLink="see-every-sale/book-a-meeting"
         ctaButtonText="🚀 Start Scaling with a Free Strategy Call"
         subtextForButtonCta="Claim $300 off for the first 10 clients — offer expires this month!"
       />
@@ -198,7 +224,7 @@ export default function HomePage() {
         spotsLeft={10}
         daysRemaining={14}
         iconSize={12}
-        buttonLink="book-a-meeting"
+        buttonLink="see-every-sale/book-a-meeting"
         ctaButtonText="🎯 Get Your Free Ad Tracking Consultation"
         subtextForButtonCta="Secure $300 off and 95% accuracy — only for the first 10 this month!"
       />
@@ -397,7 +423,7 @@ export default function HomePage() {
         ]}
         footerText="Limited to first 10 customers. Offer expires at the end of the month!"
         buttonText={`📅 Book Your Free Strategy Session Today`}
-        buttonLink="book-a-meeting"
+        buttonLink="see-every-sale/book-a-meeting"
       />
     </main>
   );

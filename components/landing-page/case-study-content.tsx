@@ -68,7 +68,7 @@ export default function CaseStudyContent({ caseStudy }: CaseStudyContentProps) {
                       rel="noopener noreferrer"
                       className="text-primary hover:underline"
                     >
-                      {caseStudy.url}
+                      {caseStudy.id}
                     </a>
                   </span>
                 </div>

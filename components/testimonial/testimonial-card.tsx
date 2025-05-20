@@ -136,7 +136,12 @@ export function TestimonialCard({
 
   // Return either a linked card or just the card content
   return linkEnabled && linkUrl ? (
-    <Link href={linkUrl} className="group block h-full">
+    <Link
+      href={linkUrl}
+      className="group block h-full"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
       {cardContent}
     </Link>
   ) : (

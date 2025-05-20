@@ -28,7 +28,7 @@ export interface CaseStudy {
   imageUrl: string;
   mobileUrl: string;
   siteUrl: string;
-  analytics?: Analytics;
+  analytics: Analytics;
   testimonial: Testimonial;
   platforms: string[];
   milestones: Milestone[];
@@ -159,6 +159,7 @@ export const caseStudies: CaseStudy[] = [
     mobileUrl:
       "/images/for-businesses/client-superperformancereview-mobile-home.png",
     siteUrl: "https://superperformancereview.com.au",
+
     testimonial: {
       quote: "Very happy working with Hassan! Does a great job!",
       author: "David Bodnar",
@@ -212,6 +213,12 @@ export const caseStudies: CaseStudy[] = [
       startDate: "Apr 15, 2023",
       endDate: "Sep 1, 2023",
       durationDays: 140,
+    },
+    analytics: {
+      period: "4 months",
+      recoveredFromAdBlockersPercentage: 24.0,
+      recoveredFromTrackingPreventionPercentage: 21.0,
+      accuracy: 93,
     },
     owner: "Shahzada Ali Hassan",
     client: "David Bodnar",
@@ -308,6 +315,12 @@ export const caseStudies: CaseStudy[] = [
       endDate: "Jul 21, 2022",
       durationDays: 121,
     },
+    analytics: {
+      period: "4 months",
+      recoveredFromAdBlockersPercentage: 21.0,
+      recoveredFromTrackingPreventionPercentage: 34.0,
+      accuracy: 94,
+    },
     owner: "Shahzada Ali Hassan",
     client: "Ben Fox",
     budget: 1700,
@@ -389,6 +402,12 @@ export const caseStudies: CaseStudy[] = [
       startDate: "Apr 4, 2023",
       endDate: "Jan 9, 2024",
       durationDays: 280,
+    },
+    analytics: {
+      period: "8 months",
+      recoveredFromAdBlockersPercentage: 8.0,
+      recoveredFromTrackingPreventionPercentage: 39.0,
+      accuracy: 99,
     },
     owner: "Shahzada Ali Hassan",
     client: "Matt Cooper",
@@ -474,6 +493,12 @@ export const caseStudies: CaseStudy[] = [
       startDate: "Dec 6, 2023",
       endDate: "Aug 19, 2024",
       durationDays: 256,
+    },
+    analytics: {
+      period: "7 months",
+      recoveredFromAdBlockersPercentage: 6.0,
+      recoveredFromTrackingPreventionPercentage: 19.0,
+      accuracy: 92,
     },
     owner: "Shahzada Ali Hassan",
     client: "James Wilkinson",
@@ -572,6 +597,13 @@ export const caseStudies: CaseStudy[] = [
       endDate: "Sep 12, 2024",
       durationDays: 30,
     },
+    analytics: {
+      period: "1 months",
+      recoveredFromAdBlockersPercentage: 11.0,
+      recoveredFromTrackingPreventionPercentage: 31.0,
+      accuracy: 97,
+    },
+
     owner: "Shahzada Ali Hassan",
     client: "Michael Quinn",
     budget: 1600,
@@ -662,6 +694,12 @@ export const caseStudies: CaseStudy[] = [
       endDate: "Sep 17, 2024",
       durationDays: 19,
     },
+    analytics: {
+      period: "1 months",
+      recoveredFromAdBlockersPercentage: 17.0,
+      recoveredFromTrackingPreventionPercentage: 21.0,
+      accuracy: 99,
+    },
     owner: "Shahzada Ali Hassan",
     client: "George Boyd",
     budget: 180,
@@ -748,6 +786,12 @@ export const caseStudies: CaseStudy[] = [
       startDate: "Aug 29, 2024",
       endDate: "Oct 17, 2024",
       durationDays: 50,
+    },
+    analytics: {
+      period: "2 months",
+      recoveredFromAdBlockersPercentage: 4.0,
+      recoveredFromTrackingPreventionPercentage: 58.0,
+      accuracy: 94,
     },
     owner: "Shahzada Ali Hassan",
     client: "James Hague",
@@ -837,6 +881,12 @@ export const caseStudies: CaseStudy[] = [
       startDate: "Oct 2, 2024",
       endDate: "Oct 21, 2024",
       durationDays: 20,
+    },
+    analytics: {
+      period: "1 months",
+      recoveredFromAdBlockersPercentage: 11.0,
+      recoveredFromTrackingPreventionPercentage: 14.0,
+      accuracy: 91,
     },
     owner: "Shahzada Ali Hassan",
     client: "Derrick Kityo",
@@ -947,6 +997,12 @@ export const caseStudies: CaseStudy[] = [
       endDate: "Oct 21, 2024",
       durationDays: 46,
     },
+    analytics: {
+      period: "2 months",
+      recoveredFromAdBlockersPercentage: 7.0,
+      recoveredFromTrackingPreventionPercentage: 45.0,
+      accuracy: 99,
+    },
     owner: "Shahzada Ali Hassan",
     client: "Julian Grimme",
     budget: 290,
@@ -1030,6 +1086,13 @@ export const caseStudies: CaseStudy[] = [
       startDate: "Oct 21, 2024",
       endDate: "Oct 23, 2024",
       durationDays: 3,
+    },
+
+    analytics: {
+      period: "1 months",
+      recoveredFromAdBlockersPercentage: 10.0,
+      recoveredFromTrackingPreventionPercentage: 24.0,
+      accuracy: 96,
     },
     owner: "Shahzada Ali Hassan",
     client: "Luis Boani",
@@ -1144,6 +1207,12 @@ export const caseStudies: CaseStudy[] = [
       endDate: "Nov 4, 2024",
       durationDays: 27,
     },
+    analytics: {
+      period: "1 months",
+      recoveredFromAdBlockersPercentage: 4.0,
+      recoveredFromTrackingPreventionPercentage: 30.0,
+      accuracy: 99,
+    },
     owner: "Shahzada Ali Hassan",
     client: "Nick Ahrens",
     budget: 1155,
@@ -1181,7 +1250,7 @@ export const caseStudies: CaseStudy[] = [
     ],
   },
   {
-    id: "tobi-consent-mode",
+    id: "tobi",
     name: "Tobi.com Consent Mode Implementation",
     url: "https://tobi.com",
     plan: "Standard",
@@ -1298,7 +1367,7 @@ export const caseStudies: CaseStudy[] = [
       quote: "It was great to work with him, thank you for your fast work.",
       author: "David Laroche",
       role: "Client",
-      image: "",
+      image: "/images/david.jpg",
     },
     platforms: [
       "WordPress",
@@ -1340,6 +1409,12 @@ export const caseStudies: CaseStudy[] = [
       startDate: "Nov 27, 2024",
       endDate: "Dec 27, 2024",
       durationDays: 31,
+    },
+    analytics: {
+      period: "1 months",
+      recoveredFromAdBlockersPercentage: 6.0,
+      recoveredFromTrackingPreventionPercentage: 51.0,
+      accuracy: 97,
     },
     owner: "Shahzada Ali Hassan",
     client: "David Laroche",
@@ -1431,6 +1506,12 @@ export const caseStudies: CaseStudy[] = [
       endDate: "Aug 25, 2024",
       durationDays: 26,
     },
+    analytics: {
+      period: "1 months",
+      recoveredFromAdBlockersPercentage: 9.0,
+      recoveredFromTrackingPreventionPercentage: 14.0,
+      accuracy: 96,
+    },
     owner: "Shahzada Ali Hassan",
     client: "Libie Motchan",
     budget: 350,
@@ -1499,6 +1580,12 @@ export const caseStudies: CaseStudy[] = [
       endDate: "Jan 4, 2025",
       durationDays: 66,
     },
+    analytics: {
+      period: "2 months",
+      recoveredFromAdBlockersPercentage: 8.0,
+      recoveredFromTrackingPreventionPercentage: 44.0,
+      accuracy: 98,
+    },
     owner: "Shahzada Ali Hassan",
     client: "Hayam Sh",
     budget: 100,
@@ -1537,7 +1624,7 @@ export const caseStudies: CaseStudy[] = [
     siteUrl: "https://ticketsonsale.com",
     analytics: {
       period: "30 days",
-      recoveredFromAdBlockersPercentage: 0,
+      recoveredFromAdBlockersPercentage: 12,
       recoveredFromTrackingPreventionPercentage: 48.69,
       accuracy: 98,
     },
@@ -1694,6 +1781,12 @@ export const caseStudies: CaseStudy[] = [
       endDate: "Jan 04, 2025",
       durationDays: 208,
     },
+    analytics: {
+      period: "6 months",
+      recoveredFromAdBlockersPercentage: 8.0,
+      recoveredFromTrackingPreventionPercentage: 26.0,
+      accuracy: 99,
+    },
     owner: "Shahzada Ali Hassan",
     client: "Chris Lister",
     budget: 175,
@@ -1780,6 +1873,12 @@ export const caseStudies: CaseStudy[] = [
       startDate: "Dec 10, 2024",
       endDate: "Jan 10, 2025",
       durationDays: 31,
+    },
+    analytics: {
+      period: "1 months",
+      recoveredFromAdBlockersPercentage: 3.0,
+      recoveredFromTrackingPreventionPercentage: 18.0,
+      accuracy: 97,
     },
     owner: "Shahzada Ali Hassan",
     client: "Jacob Monash",
@@ -2018,6 +2117,12 @@ export const caseStudies: CaseStudy[] = [
       startDate: "Feb 3, 2025",
       endDate: "Feb 18, 2025",
       durationDays: 15,
+    },
+    analytics: {
+      period: "1 months",
+      recoveredFromAdBlockersPercentage: 11.0,
+      recoveredFromTrackingPreventionPercentage: 19.0,
+      accuracy: 89,
     },
     owner: "Shahzada Ali Hassan",
     client: "Alina Islam",

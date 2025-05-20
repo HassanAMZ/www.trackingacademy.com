@@ -252,25 +252,51 @@
     @apply scroll-m-20 text-3xl font-extrabold tracking-tight sm:text-4xl lg:text-5xl;
   }
   h2 {
-    @apply scroll-m-20 text-2xl font-semibold tracking-tight first:mt-0 sm:text-3xl;
+    @apply scroll-m-20 pb-2 text-3xl font-semibold tracking-tight first:mt-0;
   }
   h3 {
-    @apply scroll-m-20 text-xl font-medium tracking-tight sm:text-2xl;
+    @apply scroll-m-20 text-2xl font-semibold tracking-tight;
   }
   h4 {
-    @apply scroll-m-20 text-lg font-semibold tracking-tight sm:text-xl;
+    @apply scroll-m-20 text-xl font-semibold tracking-tight;
   }
-  h5 {
-    @apply scroll-m-20 text-base font-semibold tracking-tight;
+  .text-small {
+    @apply text-sm leading-5;
   }
-  h6 {
-    @apply scroll-m-20 text-sm font-semibold tracking-wide uppercase;
-  }
-
-  p {
+  .text-normal {
     @apply text-base leading-7;
   }
+  .text-medium {
+    @apply text-lg leading-7;
+  }
+  .text-large {
+    @apply text-xl leading-8;
+  }
+  p {
+    @apply leading-7;
+  }
 
+  p.small {
+    @apply text-sm leading-5 not-first:mt-4;
+  }
+  p.medium {
+    @apply text-lg leading-7 not-first:mt-6;
+  }
+  p.large {
+    @apply text-xl leading-8 not-first:mt-8;
+  }
+  .lead {
+    @apply text-muted-foreground text-xl;
+  }
+  .large {
+    @apply text-lg font-semibold;
+  }
+  small {
+    @apply text-sm leading-none font-medium;
+  }
+  .muted {
+    @apply text-muted-foreground text-sm;
+  }
   code {
     @apply rounded px-1.5 py-0.5 font-mono text-sm font-medium;
   }

@@ -17,22 +17,6 @@ import {
 import clients from "@/data/clients";
 import { useState } from "react";
 
-const bulletPoints = [
-  {
-    title: "Struggling with Restricted Data? ",
-    subtitle: "Discover What Facebook Won't Say — and the Fix You Need.",
-  },
-  {
-    title: "Fix Your Facebook Tracking in 3 Days ",
-    subtitle: "— With Our Simple 5-Step “See Every Sale” System",
-  },
-  {
-    title: "Our Stealth Tracking Method ",
-    subtitle:
-      "— Trusted By the Top 1% to Scale their Facebook Ads with Confidence",
-  },
-];
-
 export default function Page() {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
