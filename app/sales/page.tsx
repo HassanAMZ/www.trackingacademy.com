@@ -8,8 +8,7 @@ export default async function Page() {
   const sales = await getOffersData("app/sales");
   return (
     <div>
-      <Navbar />
-
+      <Navbar />{" "}
       <h3 className="container-primary py-6 text-center text-3xl font-bold">
         Active GPT Bots for Sales & Marketing Team
       </h3>

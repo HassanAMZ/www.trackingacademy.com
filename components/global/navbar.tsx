@@ -19,7 +19,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import React, { useState } from "react";
 import NavLink from "../navbar/NavLink";
-import { ModeToggle } from "./theme-switch";
+import { ThemeToggle } from "./theme-switch";
 
 interface NavItem {
   title: string;
@@ -47,11 +47,6 @@ const NAV_ITEMS: Record<string, NavItem[]> = {
       description:
         "Validate and analyze your UTM parameters to ensure proper tracking setup",
     },
-    {
-      title: "Time Managment",
-      href: "/tools/time-managment",
-      description: "Track and manage time across different projects and tasks",
-    },
   ],
   blogs: [
     {
@@ -71,23 +66,18 @@ const NAV_ITEMS: Record<string, NavItem[]> = {
         "Guides and tips for managing and growing your Shopify store.",
     },
     {
-      title: "Ecommerce Tracking",
-      href: "/tags/ecommerce-tracking",
-      description: "Master ecommerce tracking implementation and optimization.",
-    },
-    {
       title: "Google Ads",
       href: "/tags/google-ads",
       description: "Get more from your Google Ads with proper tracking setup.",
     },
     {
-      title: "Facebook Pixel",
+      title: "Facebook Fixel",
       href: "/tags/facebook-pixel",
       description: "Implement and optimize Facebook Pixel for better ROAS.",
     },
     {
-      title: "Customer Pixel",
-      href: "/tags/customer-pixel",
+      title: "Customer Events",
+      href: "/tags/customer-events",
       description: "Learn about custom tracking pixels for specialized needs.",
     },
     {
@@ -97,8 +87,8 @@ const NAV_ITEMS: Record<string, NavItem[]> = {
         "WooCommerce tracking implementation and optimization guides.",
     },
     {
-      title: "GA4",
-      href: "/tags/ga4",
+      title: "Google Analytics 4",
+      href: "/tags/google-analytics-4",
       description:
         "Transition to and maximize Google Analytics 4 capabilities.",
     },
@@ -266,7 +256,7 @@ export default function Navbar({ className }: { className?: string }) {
         </NavigationMenuList>
       </NavigationMenu>
       <div className="flex gap-2">
-        <ModeToggle />
+        <ThemeToggle />
         {renderCallToAction()}
       </div>
     </div>
@@ -289,8 +279,7 @@ export default function Navbar({ className }: { className?: string }) {
             </Button>
           </SheetTrigger>
         </div>
-      </div>
-
+      </div>{" "}
       <SheetContent side="right" className="flex flex-col justify-between">
         <nav className="flex w-full flex-col space-y-4 py-4">
           {["/", "/tools", "/case-study", "/blog"].map((path) => (
@@ -313,7 +302,7 @@ export default function Navbar({ className }: { className?: string }) {
           ))}
           {renderCallToAction()}
         </nav>
-        <ModeToggle />
+        <ThemeToggle />
       </SheetContent>
     </Sheet>
   );

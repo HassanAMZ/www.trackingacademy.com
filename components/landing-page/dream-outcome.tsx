@@ -53,8 +53,7 @@ const DreamOutcome: React.FC<DreamOutcomeProps> = ({
           {subheading && (
             <p className="text-muted-foreground text-xl">{subheading}</p>
           )}
-        </div>
-
+        </div>{" "}
         {dreamOutcomeList && dreamOutcomeList.length > 0 && (
           <div className="mt-16 space-y-8">
             <div className="grid items-center justify-center gap-8 md:grid-cols-2">
@@ -63,7 +62,6 @@ const DreamOutcome: React.FC<DreamOutcomeProps> = ({
                 {dreamOutcomeList.map((outcome, index) => {
                   const IconComponent = iconMap[outcome.icon];
                   const isOpen = index === openIndex;
-
                   return (
                     <Card key={index}>
                       <CardContent className="p-6">
@@ -92,10 +90,8 @@ const DreamOutcome: React.FC<DreamOutcomeProps> = ({
                     </Card>
                   );
                 })}
-              </div>
-
-              {/* Right side: Image */}
-
+              </div>{" "}
+              {/* Right side: Image */}{" "}
               <Image
                 src={
                   dreamOutcomeList[openIndex]?.image ||

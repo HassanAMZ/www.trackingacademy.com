@@ -6,23 +6,17 @@ export async function GET() {
   try {
     // Fetch the product details from Stripe
     // This is the product ID for your "3-Day See Every Sale Tracking System"
-    const productId = "prod_SI6QXbIdeTQbUY"; // Replace with your actual product ID
-
-    // Fetch both product and its price
+    const productId = "prod_SI6QXbIdeTQbUY"; // Replace with your actual product ID// Fetch both product and its price
     const product = await stripe.products.retrieve(productId);
     const prices = await stripe.prices.list({
       product: productId,
       active: true,
       limit: 1,
     });
-
     if (!prices.data.length) {
       throw new Error("No active price found for this product");
     }
-
-    const price = prices.data[0];
-
-    // Extract features from product metadata if available
+    const price = prices.data[0]; // Extract features from product metadata if available
     let features = [];
     if (product.metadata && product.metadata.features) {
       try {
@@ -34,9 +28,7 @@ export async function GET() {
           .split(",")
           .map((feature) => feature.trim());
       }
-    }
-
-    // If no features found in metadata, use any default ones you might have
+    } // If no features found in metadata, use any default ones you might have
     if (
       features.length === 0 &&
       product.metadata &&
@@ -45,9 +37,7 @@ export async function GET() {
       features = product.metadata.feature_list
         .split(",")
         .map((feature) => feature.trim());
-    }
-
-    // If still no features, use hardcoded ones as a fallback
+    } // If still no features, use hardcoded ones as a fallback
     if (features.length === 0) {
       features = [
         "Complete 'See Every Sale' Tracking System",
@@ -59,7 +49,6 @@ export async function GET() {
         "ROI & LTV Tracking Toolkit for Ecom Brands",
       ];
     }
-
     return NextResponse.json({
       id: product.id,
       name: product.name,

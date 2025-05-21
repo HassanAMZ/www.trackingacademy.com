@@ -8,7 +8,6 @@ function generateSchema(metadata: PostMetadataProps["metadata"]) {
     datePublished: new Date(metadata.date).toISOString(),
     dateModified: new Date(metadata.date).toISOString(),
     description: metadata.description,
-
     image: [
       {
         "@type": "ImageObject",

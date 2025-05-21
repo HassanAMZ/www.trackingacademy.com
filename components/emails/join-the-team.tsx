@@ -46,8 +46,7 @@ export default function JoinTheTeam({
           <ul>
             <li>
               <Text>Position Applied: {applyingPosition}</Text>
-            </li>
-
+            </li>{" "}
             <li>
               <Text>
                 Application Timestamp: {createdAt.toDate().toLocaleString()}

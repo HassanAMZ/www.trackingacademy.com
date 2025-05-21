@@ -12,7 +12,6 @@ export default async function Page() {
   // Transform the data structure
   const transformUserData = (data: any) => {
     const [first_name = "", last_name = ""] = (data.name || "").split(" ");
-
     return {
       email: data.email || "",
       phone: data.phone || "",
@@ -53,8 +52,7 @@ export default async function Page() {
             </span>
           </h4>
         </section>
-      </Container>
-
+      </Container>{" "}
       {/* BOOKING SECTION */}
       <Container className="max-w-5xl">
         <div className="flex w-full items-center justify-center rounded-lg p-6 shadow-lg">
@@ -63,42 +61,35 @@ export default async function Page() {
             className="min-h-[75vh] w-full rounded-lg border"
           ></iframe>
         </div>
-      </Container>
-
+      </Container>{" "}
       {/* NEXT STEPS SECTION */}
       <Container className="flex max-w-5xl flex-col gap-6 space-y-3 py-12">
-        <h1 className="text-center">🚀 What Happens Next?</h1>
-
+        <h1 className="text-center">🚀 What Happens Next?</h1>{" "}
         <h4>
           <span className="text-primary">✅ Step 1: </span>
           Book your implementation call using the calendar above.
-        </h4>
-
+        </h4>{" "}
         <h4>
           <span className="text-primary">✅ Step 2: </span>
           On the call, we'll walk you through exactly how we'll deploy your
           upgraded tracking system—customized for your tech stack.
-        </h4>
-
+        </h4>{" "}
         <h4>
           <span className="text-primary">✅ Step 3: </span>
           You'll get a clear plan, timeline, and see real examples of how we
           recover lost conversions and ad performance.
-        </h4>
-
+        </h4>{" "}
         <h4>
           <span className="text-primary">✅ Step 4: </span>
           Be at your computer—our team will screen share and answer any
           technical questions live.
-        </h4>
-
+        </h4>{" "}
         <h4>
           <span className="text-primary">✅ Step 5: </span>
           Watch the quick video below to prepare for the call and see what's
           possible when your tracking is fully fixed.
         </h4>
-      </Container>
-
+      </Container>{" "}
       {/* VIDEO SECTION */}
       <Container className="flex justify-center py-6">
         <YoutubeEmbed embedId="9MGpL_AmEYM" className="max-w-5xl" />

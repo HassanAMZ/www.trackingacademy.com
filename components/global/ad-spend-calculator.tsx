@@ -22,17 +22,16 @@ export default function AdSpendCalculator() {
 
   return (
     <Container className="max-w-2xl text-center">
-      {/* <p>Spoiler alert: it's more than you think.</p> */}
-
+      {/* <p>Spoiler alert: it's more than you think.</p> */}{" "}
       <Card className="backdrop-blur-sm text-left  items-center flex-col flex">
         <CardHeader>
-          <Badge variant={"outline"}>Calculate your wasted ad spend</Badge>
+          <Badge>Calculate your wasted ad spend</Badge>
         </CardHeader>
         <CardContent className="space-y-6">
           <h2 className="text-center">
-            Your Monthly Ad Spend
+            Your Current Ad Spend?
             <br />
-            <span className="text-primary font-black">
+            <span className="text-primary font-black py-2">
               ${formatNumber(adSpend)}
             </span>
           </h2>
@@ -45,10 +44,8 @@ export default function AdSpendCalculator() {
               onValueChange={(value) => setAdSpend(value[0])}
               className="my-4 cursor-pointer"
             />
-          </div>
-
-          <p>Average Additional Revenue </p>
-
+          </div>{" "}
+          <p>Average Additional Revenue </p>{" "}
           <div className="grid grid-cols-2 gap-2 ">
             <Card>
               <CardContent className="px-4">
@@ -66,14 +63,12 @@ export default function AdSpendCalculator() {
                 </h2>
               </CardContent>
             </Card>
-          </div>
-
+          </div>{" "}
           <p className=" text-center text-sm">
             Brands spending ${formatNumber(adSpend)} on ads recover on average $
             {formatNumber(monthlyRevenue)}/month by improved ROAS and reducing
             ad waste by 64%.
-          </p>
-
+          </p>{" "}
           <Button
             size="lg"
             className="hover:bg-primary/90 flex max-w-4xl flex-col py-20 text-center text-xl font-bold text-wrap whitespace-pre-wrap hover:cursor-pointer sm:py-16 md:py-20 "

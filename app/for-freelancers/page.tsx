@@ -26,8 +26,7 @@ export default function ForFreelancers() {
         ctaLink="/for-freelancers/enroll-now"
         supportingComponent={<TestimonialsCarousel />}
         clientCountText="2 students trained & 2 success stories"
-      />
-
+      />{" "}
       <WorkHistory />
       <Offer />
     </main>

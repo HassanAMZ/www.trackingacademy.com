@@ -63,15 +63,9 @@ export async function createContact(
   }
 
   try {
-    const contactDocRef = doc(contactsCollection, timestampId);
-
-    // For email, combine first and last name
-    const fullName = `${data.firstName} ${data.lastName}`;
-
-    // Format issues for email display
-    const issuesFormatted = (data.issues ?? []).join(", ");
-
-    // Prepare email data
+    const contactDocRef = doc(contactsCollection, timestampId); // For email, combine first and last name
+    const fullName = `${data.firstName} ${data.lastName}`; // Format issues for email display
+    const issuesFormatted = (data.issues ?? []).join(", "); // Prepare email data
     const emailData = {
       name: fullName,
       website: data.website,
@@ -80,9 +74,7 @@ export async function createContact(
       budget: data.budget || "Not specified",
       email: data.email,
       createdAt: data.createdAt,
-    };
-
-    // Execute Firebase write and email sending in parallel
+    }; // Execute Firebase write and email sending in parallel
     await Promise.all([
       setDoc(contactDocRef, data),
       resend.emails.send({
@@ -92,9 +84,7 @@ export async function createContact(
         subject: `Thank you for your interest, ${fullName}!`,
         react: ContactUsEmail(emailData),
       }),
-    ]);
-
-    // Set cookie asynchronously but safely
+    ]); // Set cookie asynchronously but safely
     try {
       (await cookies()).set("user_data", JSON.stringify(data), {
         httpOnly: true,

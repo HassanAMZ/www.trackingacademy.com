@@ -16,7 +16,6 @@ export default function CodeBlock({ language, children }: CodeBlockProps) {
 
   const handleCopy = async () => {
     if (!codeRef.current?.textContent) return;
-
     try {
       await navigator.clipboard.writeText(codeRef.current.textContent);
       setIsCopied(true);

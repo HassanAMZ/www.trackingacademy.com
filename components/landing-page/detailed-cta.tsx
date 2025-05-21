@@ -25,13 +25,10 @@ const DetailedCTA: React.FC<DetailedCTAProps> = ({
     <section className="from-primary/5 to-background bg-linear-to-b py-24">
       <Container className="text-center">
         {/* Heading */}
-        {heading && <h2 className="mb-4">{heading}</h2>}
-
-        {/* Subheading */}
+        {heading && <h2 className="mb-4">{heading}</h2>} {/* Subheading */}
         {subheading && (
           <h4 className="text-muted-foreground mb-8">{subheading}</h4>
-        )}
-
+        )}{" "}
         {/* List Items */}
         {listItems && listItems.length > 0 && (
           <div className="grid place-content-center">
@@ -44,8 +41,7 @@ const DetailedCTA: React.FC<DetailedCTAProps> = ({
               ))}
             </ul>
           </div>
-        )}
-
+        )}{" "}
         {/* Button */}
         {buttonText && buttonLink && (
           <Button
@@ -58,8 +54,7 @@ const DetailedCTA: React.FC<DetailedCTAProps> = ({
               <ArrowRight className="ml-2 h-4 w-4" />
             </Link>
           </Button>
-        )}
-
+        )}{" "}
         {/* Footer Text */}
         {footerText && (
           <p className="text-muted-foreground py-4">{footerText}</p>

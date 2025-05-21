@@ -46,8 +46,7 @@ function StatsSection() {
       >
         <Card className="mb-6 w-full bg-background/80 backdrop-blur-xs overflow-hidden relative transition-all duration-300 group-hover:scale-[1.02] group-hover:shadow-lg">
           {/* Gradient overlay that appears on hover - similar to TestimonialCard */}
-          <div className="absolute inset-0 bg-linear-to-t from-primary/20 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100 z-10"></div>
-
+          <div className="absolute inset-0 bg-linear-to-t from-primary/20 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100 z-10"></div>{" "}
           <CardHeader className="relative z-20">
             <CardTitle className="flex items-center gap-2">
               <Star className="h-6 w-6 text-primary fill-primary" />
@@ -55,8 +54,7 @@ function StatsSection() {
               <span className="text-3xl">·</span>
               <span className="font-normal">193 reviews</span>
             </CardTitle>
-          </CardHeader>
-
+          </CardHeader>{" "}
           <CardContent className="relative z-20">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {/* Star Breakdown */}
@@ -79,8 +77,7 @@ function StatsSection() {
                     </span>
                   </div>
                 ))}
-              </div>
-
+              </div>{" "}
               {/* Rating Categories */}
               <div className="space-y-4">
                 <h3 className="text-left">Rating breakdown</h3>
@@ -98,8 +95,7 @@ function StatsSection() {
                 </div>
               </div>
             </div>
-          </CardContent>
-
+          </CardContent>{" "}
           {/* External link icon that appears on hover - similar to TestimonialCard */}
           <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 opacity-0 transition-opacity duration-300 group-hover:opacity-100 z-30">
             <div className="bg-primary text-white rounded-full p-3 shadow-lg">
@@ -135,7 +131,6 @@ function TestimonialGrid() {
                   : []),
               ]
             : [];
-
           return (
             <TestimonialCard
               key={index}

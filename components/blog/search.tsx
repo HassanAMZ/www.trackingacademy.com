@@ -3,10 +3,15 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
-import { BlogSearchProps, PostMetadata } from "@/types/index";
+import { PostMetadata } from "@/types/index";
 import { useParams, usePathname } from "next/navigation";
 import React, { useEffect, useState } from "react";
 import RequestABlogForm from "./request-a-blog";
+
+interface BlogSearchProps {
+  data: PostMetadata[];
+  onSearch: (filtered: PostMetadata[]) => void;
+}
 
 const BlogSearch: React.FC<BlogSearchProps> = ({ data, onSearch }) => {
   const [searchTerm, setSearchTerm] = useState("");
@@ -17,7 +22,6 @@ const BlogSearch: React.FC<BlogSearchProps> = ({ data, onSearch }) => {
       .toLowerCase()
       .split(" ")
       .filter((word) => word);
-
     const filtered = data.filter((post) => {
       const matchesSearchTerm = searchWords.every(
         (word) =>
@@ -25,10 +29,8 @@ const BlogSearch: React.FC<BlogSearchProps> = ({ data, onSearch }) => {
           post.description.toLowerCase().includes(word) ||
           post.tags.some((tag) => tag.toLowerCase().includes(word)),
       );
-
       return matchesSearchTerm;
     });
-
     setResults(filtered);
     onSearch(filtered);
   }, [searchTerm]);

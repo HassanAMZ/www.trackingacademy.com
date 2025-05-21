@@ -60,13 +60,11 @@ export default function Page() {
         <Container>
           <h1 className="pt-12 pb-6 text-center">
             300+ Satisfied Customers Can't Be Wrong
-          </h1>
-
+          </h1>{" "}
           {/* <TestimonialsCarousel /> */}
         </Container>
         <Container className="space-y-12 py-12">
-          <TestimonialGrid />
-
+          <TestimonialGrid />{" "}
           <Button
             size="lg"
             className="hover:bg-primary/90 md:py mx-auto flex max-w-4xl flex-col py-20 text-center text-xl font-bold text-wrap whitespace-pre-wrap hover:cursor-pointer sm:py-16"
@@ -81,8 +79,7 @@ export default function Page() {
             </div>
           </Button>
         </Container>
-      </section>
-
+      </section>{" "}
       {/* Modal */}
       <Dialog open={isModalOpen} onOpenChange={setIsModalOpen}>
         <DialogContent className="sm:max-w-md">

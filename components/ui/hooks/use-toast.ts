@@ -77,7 +77,6 @@ export const reducer = (state: State, action: Action): State => {
         ...state,
         toasts: [action.toast, ...state.toasts].slice(0, TOAST_LIMIT),
       };
-
     case "UPDATE_TOAST":
       return {
         ...state,
@@ -85,11 +84,8 @@ export const reducer = (state: State, action: Action): State => {
           t.id === action.toast.id ? { ...t, ...action.toast } : t,
         ),
       };
-
     case "DISMISS_TOAST": {
-      const { toastId } = action;
-
-      // ! Side effects ! - This could be extracted into a dismissToast() action,
+      const { toastId } = action; // ! Side effects ! - This could be extracted into a dismissToast() action,
       // but I'll keep it here for simplicity
       if (toastId) {
         addToRemoveQueue(toastId);
@@ -98,7 +94,6 @@ export const reducer = (state: State, action: Action): State => {
           addToRemoveQueue(toast.id);
         });
       }
-
       return {
         ...state,
         toasts: state.toasts.map((t) =>

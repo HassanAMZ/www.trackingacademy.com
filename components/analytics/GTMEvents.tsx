@@ -1,7 +1,15 @@
 "use client";
 
 import React, { useEffect } from "react";
-import { initDataLayer } from "utils/gtmAnalytics";
+
+const initDataLayer = () => {
+  window.dataLayer = window.dataLayer || [];
+  window.dataLayer.push({
+    ecommerce: null,
+    event: "cleanup",
+    datalayer_event_name: "ecommerce_null",
+  });
+};
 
 interface GTMCustomEventProps {
   event_name: string;
@@ -16,14 +24,12 @@ const GTMCustomEvent: React.FC<GTMCustomEventProps> = ({
 }) => {
   useEffect(() => {
     initDataLayer();
-
     const eventPayload = {
       event: "gtm_custom_event",
       datalayer_event_name: event_name,
       ...(user_data ? { user_data: user_data } : {}),
       ...(event_details ? { event_details: event_details } : {}),
     };
-
     window.dataLayer.push(eventPayload);
   }, [event_name, event_details, user_data]);
 

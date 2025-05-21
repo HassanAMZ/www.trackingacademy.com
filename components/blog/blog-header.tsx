@@ -25,16 +25,13 @@ const BlogHeader: React.FC<PostMetadataProps> = ({ metadata }) => {
             id="blog-schema"
             type="application/ld+json"
             dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
-          />
-
+          />{" "}
           <div className="grid items-center justify-center gap-2 space-y-8 md:grid-cols-2">
-            {/* Breadcrumb and metadata section */}
-
+            {/* Breadcrumb and metadata section */}{" "}
             <div className="md:space-y-8">
               <div className="space-y-4 md:space-y-8">
                 <BreadCrumbs />
-                <h1>{metadata.title}</h1>
-
+                <h1>{metadata.title}</h1>{" "}
                 <div className="flex items-center space-x-4">
                   <Avatar className="h-12 w-12">
                     <AvatarImage
@@ -42,8 +39,7 @@ const BlogHeader: React.FC<PostMetadataProps> = ({ metadata }) => {
                       alt="ShahzadaAliHassan"
                     />
                     <AvatarFallback>SAH</AvatarFallback>
-                  </Avatar>
-
+                  </Avatar>{" "}
                   <div className="space-y-1">
                     <div className="flex items-center space-x-2">
                       <span className="font-medium">ShahzadaAliHassan</span>
@@ -51,8 +47,7 @@ const BlogHeader: React.FC<PostMetadataProps> = ({ metadata }) => {
                       <time className="text-muted-foreground">
                         {formatDate(metadata.date)}
                       </time>
-                    </div>
-
+                    </div>{" "}
                     <div className="text-muted-foreground flex items-center text-sm">
                       {metadata.updatedDate && (
                         <div>
@@ -65,8 +60,7 @@ const BlogHeader: React.FC<PostMetadataProps> = ({ metadata }) => {
                       <span></span>
                     </div>
                   </div>
-                </div>
-
+                </div>{" "}
                 <div className="flex flex-wrap gap-2">
                   {metadata.tags.map((tag, index) => (
                     <Link
@@ -80,8 +74,7 @@ const BlogHeader: React.FC<PostMetadataProps> = ({ metadata }) => {
                   ))}
                 </div>
               </div>
-            </div>
-
+            </div>{" "}
             {/* Hero Image/Video Section */}
             <div className="relative overflow-hidden rounded-xl">
               {metadata.embedId === "" ? (
@@ -97,8 +90,7 @@ const BlogHeader: React.FC<PostMetadataProps> = ({ metadata }) => {
                 <YoutubeEmbed embedId={metadata.embedId} className="p-0!" />
               )}
             </div>
-          </div>
-
+          </div>{" "}
           {/* As Seen On Section */}
           {/* <div className="py-4 border-t-2 border-b-2 ">
         <p className="text-sm text-muted-foreground mb-4">As seen on:</p>

@@ -1,6 +1,5 @@
 import TestimonialsCarousel2 from "@/components/for-freelancers/testimonials-carousal-2";
 import TrackingTable from "@/components/global/tracking-table";
-import FrequentlyAskedQuestions from "@/components/home/frequently-asked-questions";
 import Hero from "@/components/home/hero";
 import Services from "@/components/home/services";
 import { Button } from "@/components/ui/button";
@@ -31,8 +30,7 @@ export default function Home() {
         ctaLink="/contact"
         supportingComponent={<TrackingTable />}
         clientCountText="1032+ websites configured with 95% accuracy"
-      />
-
+      />{" "}
       {/* <Offer /> */}
       <Services />
       <Container>
@@ -44,9 +42,7 @@ export default function Home() {
             <Link href="/contact">Book a Call</Link>
           </Button>
         </Container>
-      </Container>
-
-      <FrequentlyAskedQuestions />
+      </Container>{" "}
       <Container>
         <Button asChild className="w-full">
           <Link href="/contact">Book a Call</Link>

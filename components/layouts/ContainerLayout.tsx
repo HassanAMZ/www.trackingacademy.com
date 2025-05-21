@@ -1,5 +1,10 @@
-import { ContainerLayoutProps } from "@/types/index";
-import { FC } from "react";
+import { FC, ReactNode } from "react";
+
+interface ContainerLayoutProps {
+  children: ReactNode;
+  className?: string; // Optional className prop
+  id?: string; // Optional id prop
+}
 
 const ContainerLayout: FC<ContainerLayoutProps> = ({
   children,

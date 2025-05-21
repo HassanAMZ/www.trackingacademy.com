@@ -25,7 +25,6 @@ export async function generateMetadata({
   if (blogSlug.length === 1) {
     const category = blogSlug[0];
     const categoryName = category.charAt(0).toUpperCase() + category.slice(1);
-
     return {
       title: `${categoryName} Insights | TrackingAcademy Blog`,
       description: `Learn how to optimize ${categoryName} tracking and maximize conversions for better ad performance and revenue growth.`,
@@ -42,7 +41,6 @@ export async function generateMetadata({
       const { metadata } = await import(
         `@/app/_blog-markdown/${category}/${slug}.mdx`
       );
-
       return {
         title: `${metadata.title} | TrackingAcademy Blog`,
         description:

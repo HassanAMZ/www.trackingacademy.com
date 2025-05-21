@@ -115,17 +115,13 @@ export default function LearningRoadmap(): JSX.Element {
   const sideOffset = 375;
 
   const nodes: Node[] = mainNodes.flatMap((mainNode, mainIndex) => {
-    const isEven = mainIndex % 2 === 0;
-
-    // Main node
+    const isEven = mainIndex % 2 === 0; // Main node
     const mainNodeEl: Node = {
       id: mainNode.id,
       type: "main",
       position: { x: 400, y: mainIndex * nodeVerticalSpacing + 5 },
       data: { title: mainNode.title },
-    };
-
-    // Sub nodes alternating between left and right
+    }; // Sub nodes alternating between left and right
     const subNodes: Node[] = mainNode.subItems.map((subItem, subIndex) => ({
       id: subItem.id,
       type: "sub",
@@ -142,7 +138,6 @@ export default function LearningRoadmap(): JSX.Element {
         isEven,
       },
     }));
-
     return [mainNodeEl, ...subNodes];
   });
 
@@ -164,7 +159,6 @@ export default function LearningRoadmap(): JSX.Element {
           (node) => node.id === mainNode.id,
         );
         const isEven = mainNodeIndex % 2 === 0;
-
         return {
           id: `e-${mainNode.id}-${subItem.id}`,
           source: mainNode.id,

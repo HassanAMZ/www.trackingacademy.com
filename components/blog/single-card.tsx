@@ -5,10 +5,17 @@ import {
   CardFooter,
   CardHeader,
 } from "@/components/ui/card";
-import { SingleBlogCardProps } from "@/types/index";
+import { PostMetadata } from "@/types/index";
 import { CalendarIcon } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+
+interface SingleBlogCardProps {
+  post: PostMetadata;
+  type: string;
+  isMain?: boolean;
+  className?: string;
+}
 
 const SingleBlogCard: React.FC<SingleBlogCardProps> = ({
   post,

@@ -22,8 +22,9 @@ const ObjectionHandling: React.FC<ObjectionHandlingProps> = ({
     <section className="bg-secondary/20 grid place-content-center py-12">
       <Container>
         {/* Section Title */}
-        {sectionTitle && <h2 className="mb-12 text-center">{sectionTitle}</h2>}
-
+        {sectionTitle && (
+          <h2 className="mb-12 text-center">{sectionTitle}</h2>
+        )}{" "}
         {/* Guarantees List */}
         {guarantees && guarantees.length > 0 && (
           <div className="space-y-8">

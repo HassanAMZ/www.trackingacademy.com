@@ -22,8 +22,7 @@ export default function TrackingSolution() {
             Restore confidence in your FB ad attribution reporting with accurate
             & actionable attribution.
           </p>
-        </div>
-
+        </div>{" "}
         {/* Main Content */}
         <div className="grid items-center gap-12 lg:grid-cols-2">
           {/* Left Column - Feature Cards */}
@@ -43,8 +42,7 @@ export default function TrackingSolution() {
               description="Instead of wasting weeks of work and risking costly setup errors - let our experts do it for you."
               checked
             />
-          </div>
-
+          </div>{" "}
           {/* Right Column - Circular Metrics Display */}
           <div className="relative">
             <div className="flex items-center justify-center">
@@ -59,8 +57,7 @@ export default function TrackingSolution() {
                       <span className="text-primary text-sm">accurate</span>
                     </CardContent>
                   </Card>
-                </div>
-
+                </div>{" "}
                 {/* Circular Metric Cards */}
                 {[
                   { angle: 0, roas: "4.2", revenue: "$710,000" },

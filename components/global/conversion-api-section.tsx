@@ -9,8 +9,7 @@ export const ConversionApiSection: React.FC = () => {
       <div className="bg-secondary relative rounded-2xl p-8">
         <h2 className="py-6 text-center">
           Maximise ROI with a high-quality Conversions API setup
-        </h2>
-
+        </h2>{" "}
         <div className="mx-auto grid max-w-5xl gap-6 md:grid-cols-2">
           {[
             {
@@ -41,8 +40,7 @@ export const ConversionApiSection: React.FC = () => {
               </CardContent>
             </Card>
           ))}
-        </div>
-
+        </div>{" "}
         <div className="text-muted-foreground mx-auto mt-8 max-w-3xl space-y-2 text-xs">
           {/* Source citations from original component */}
         </div>

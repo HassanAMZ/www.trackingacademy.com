@@ -11,7 +11,7 @@ interface Metric {
   value: string | number;
 }
 
-export interface TestimonialCardProps {
+interface TestimonialCardProps {
   quote: string;
   author: string;
   role?: string;
@@ -50,8 +50,7 @@ export function TestimonialCard({
       {/* Gradient overlay that appears on hover */}
       {linkEnabled && (
         <div className="absolute inset-0 bg-linear-to-t from-primary/20 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100 z-10"></div>
-      )}
-
+      )}{" "}
       <CardContent className="p-0 flex flex-col h-full relative z-20 space-y-4">
         {/* Header section with stars and project name */}
         <div className="flex justify-between items-start p-4 pb-0">
@@ -71,13 +70,11 @@ export function TestimonialCard({
               </div>
             )}
           </div>
-        </div>
-
+        </div>{" "}
         {/* Quote content */}
         <div className="grow flex items-center p-4 pt-2">
           <h4 className="italic text-foreground/90">{quote}</h4>
-        </div>
-
+        </div>{" "}
         {/* Footer with author and metrics */}
         <div className="p-4 pt-2">
           {/* Author info */}
@@ -97,8 +94,7 @@ export function TestimonialCard({
                 <Button size="sm">$ {budget}</Button>
               </div>
             )} */}
-          </div>
-
+          </div>{" "}
           {/* Metrics */}
           {metrics && metrics.length > 0 && (
             <div className="flex flex-wrap gap-2 mt-4">
@@ -118,11 +114,9 @@ export function TestimonialCard({
               ))}
             </div>
           )}
-        </div>
-
+        </div>{" "}
         {children}
-      </CardContent>
-
+      </CardContent>{" "}
       {/* External link icon that appears on hover */}
       {linkEnabled && (
         <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 opacity-0 transition-opacity duration-300 group-hover:opacity-100 z-30">

@@ -14,7 +14,6 @@ const TestimonialsCarousel2: React.FC = () => {
 
   const clientTestimonials = caseStudies.map((study) => {
     const { testimonial, analytics, name, id } = study;
-
     return {
       id: id,
       author: testimonial.author,
@@ -36,7 +35,6 @@ const TestimonialsCarousel2: React.FC = () => {
         (prevIndex) => (prevIndex + 1) % clientTestimonials.length,
       );
     }, 10000);
-
     return () => clearInterval(interval);
   }, [clientTestimonials.length]);
 

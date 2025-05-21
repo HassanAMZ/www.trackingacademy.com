@@ -71,8 +71,7 @@ export default function WaitListEmail({
             Thank you for your interest in our courses. You are now on our
             waitlist, and we will notify you as soon as registration opens. Here
             are the details we have on file:
-          </Text>
-
+          </Text>{" "}
           <Section>
             <Heading as="h2">Personal Information</Heading>
             <Text>
@@ -90,8 +89,7 @@ export default function WaitListEmail({
             <Text>
               <strong>Skills:</strong> {skills}
             </Text>
-          </Section>
-
+          </Section>{" "}
           <Section>
             <Heading as="h2">Background</Heading>
             <Text>
@@ -100,8 +98,7 @@ export default function WaitListEmail({
             <Text>
               <strong>Education:</strong> {education}
             </Text>
-          </Section>
-
+          </Section>{" "}
           <Section>
             <Heading as="h2">Course Preferences</Heading>
             <Text>
@@ -136,8 +133,7 @@ export default function WaitListEmail({
                 <strong>Additional Comments:</strong> {additionalComments}
               </Text>
             )}
-          </Section>
-
+          </Section>{" "}
           <Section>
             <Heading as="h2">Goals</Heading>
             <Text>
@@ -146,13 +142,11 @@ export default function WaitListEmail({
             <Text>
               <strong>Future Goals:</strong> {futureGoals}
             </Text>
-          </Section>
-
+          </Section>{" "}
           <Section>
             <Heading as="h2">Join Date</Heading>
             <Text>{createdAt.toDate().toLocaleString()}</Text>
-          </Section>
-
+          </Section>{" "}
           <Text className="text-sm">
             Stay tuned for updates, and feel free to contact us if you have any
             questions in the meantime.

@@ -1,7 +1,6 @@
 // AuthContext.tsx
 "use client";
 
-import { GTMEvent } from "@/types/index";
 import {
   createUserWithEmailAndPassword,
   FacebookAuthProvider,
@@ -22,7 +21,18 @@ import {
 } from "react";
 import { auth } from "../firebase";
 
-export interface UserData {
+declare global {
+  interface Window {
+    dataLayer: GTMEvent[];
+  }
+}
+interface GTMEvent {
+  event: string;
+  datalayer_event_name: string;
+  event_id?: number;
+  [key: string]: any;
+}
+interface UserData {
   id?: string;
   phone?: string;
   email?: string;
@@ -36,15 +46,7 @@ export interface UserData {
   };
 }
 
-export interface DataLayerEvent {
-  event: string;
-  datalayer_event_name: string;
-  authentication_status: string;
-  authentication_method: string;
-  user_data: UserData;
-}
-
-export interface AuthContextType {
+interface AuthContextType {
   user: User | null;
   googleSignIn: () => Promise<void>;
   githubSignIn: () => Promise<void>;
@@ -60,12 +62,6 @@ interface AuthContextProviderProps {
   children: ReactNode;
 }
 
-declare global {
-  interface Window {
-    dataLayer: GTMEvent[];
-  }
-}
-
 export const AuthContextProvider = ({ children }: AuthContextProviderProps) => {
   const [user, setUser] = useState<User | null>(null);
 
@@ -76,7 +72,6 @@ export const AuthContextProvider = ({ children }: AuthContextProviderProps) => {
     method: string,
   ) => {
     window.dataLayer = window.dataLayer || [];
-
     const userData: UserData = {
       id: user?.uid,
       phone: user?.providerData[0]?.phoneNumber ?? undefined,
@@ -94,7 +89,6 @@ export const AuthContextProvider = ({ children }: AuthContextProviderProps) => {
           : undefined,
       },
     };
-
     window.dataLayer.push({
       event: "gtm_custom_event",
       datalayer_event_name: eventName,

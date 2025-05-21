@@ -6,7 +6,6 @@ import { useEffect } from "react";
 export default function Page() {
   useEffect(() => {
     const existingScript = document.getElementById("hubspot-script");
-
     if (!existingScript) {
       const script = document.createElement("script");
       script.src =
@@ -14,9 +13,7 @@ export default function Page() {
       script.id = "hubspot-script";
       script.async = true;
       document.body.appendChild(script);
-    }
-
-    // Re-initialize if needed
+    } // Re-initialize if needed
     const container = document.querySelector(".meetings-iframe-container");
     if (container && container.getAttribute("data-src")) {
       // This triggers HubSpot's embed logic if already loaded
@@ -33,14 +30,12 @@ export default function Page() {
             {" "}
             Now Book Your First Diagnositc Call
           </span>
-        </h1>
-
+        </h1>{" "}
         <h4 className="text-muted-foreground max-w-3xl">
           This 15-minute call is to confirm your eligibility, answer any
           questions, and get your 3-Day “See Every Sale” Tracking System
           started.
-        </h4>
-
+        </h4>{" "}
         <div
           className="meetings-iframe-container w-full"
           data-src="https://meetings.hubspot.com/shahzada-ali?embed=true"

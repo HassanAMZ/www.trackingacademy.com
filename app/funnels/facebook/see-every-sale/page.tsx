@@ -84,15 +84,13 @@ export default function HomePage() {
                 title="Track Every Sale—Policy-Safe"
                 description="Recover the conversions your ad account is starving for. 95%+ accuracy with zero policy violations—even for restricted niches."
                 imageSrc="/images/social-sharing.png"
-              />
-
+              />{" "}
               {/* Feature 2 */}
               <FeatureCard
                 title="Works Even If You're Banned or Blocked"
                 description="Built specifically for blacklisted or throttled niches—health, finance, personal development & more. No sketchy workarounds."
                 imageSrc="/images/social-sharing.png"
-              />
-
+              />{" "}
               {/* Feature 3 */}
               <FeatureCard
                 title="95%+ Accuracy Without Code or UTMs"
@@ -106,8 +104,7 @@ export default function HomePage() {
                 title="Send Clean Data to Every Platform"
                 description="One-click integration to Facebook, Google, TikTok, and more. We inject compliant data directly into your ad accounts."
                 imageSrc="/images/social-sharing.png"
-              />
-
+              />{" "}
               {/* Feature 5 */}
               <FeatureCard
                 title="Your Ads Finally Optimize Again"
@@ -165,9 +162,7 @@ export default function HomePage() {
         }
         supportingComponent={<AdSpendCalculator />}
       />
-      <MarketingFeatures />
-
-      <AdSpendCalculator />
+      <MarketingFeatures /> <AdSpendCalculator />
       <ProblemAwareness
         headingText="The Hidden Costs of Missing Conversion Data"
         paragraphText="Without accurate funnel tracking, your Meta ads lack the data to optimize for conversions, resulting in wasted budget and poor ROAS."
@@ -186,10 +181,8 @@ export default function HomePage() {
           "Stay Compliant With Meta's Policies",
           "Track 30% More Conversions Than Standard Setups",
         ]}
-      />
-
-      <ProcessSteps />
-
+      />{" "}
+      <ProcessSteps />{" "}
       <OfferDetails
         headerTitle="3-Day 'See Every Sale' Tracking System"
         headerDescription="A complete system designed to fix Facebook's data sharing restrictions and restore 95%+ accurate data for every key event — all done-for-you in just 3 days."
@@ -309,8 +302,7 @@ export default function HomePage() {
         buttonLink="see-every-sale/book-a-meeting"
         ctaButtonText="🚀 Start Scaling with a Free Strategy Call"
         subtextForButtonCta="Claim $300 off for the first 10 clients — offer expires this month!"
-      />
-
+      />{" "}
       <SocialProof
         sectionTitle="Ecommerce Brands Trust Our Tracking Solution"
         sectionDescription="See how we've helped businesses just like yours restore tracking and scale their ad campaigns."
@@ -427,8 +419,7 @@ export default function HomePage() {
             image: "/images/hero/tools-and-calculators.png",
           },
         ]}
-      />
-
+      />{" "}
       <WhyChooseSection
         heading="Why Choose Our Tracking Solution?"
         subheading="We specialize in helping ecommerce brands restore their Meta ads tracking and scale with confidence."
@@ -441,8 +432,7 @@ export default function HomePage() {
           "30% more conversion tracking than standard Meta setups",
         ]}
         image="/images/hero/unified-dashboard.png"
-      />
-
+      />{" "}
       <ObjectionHandling
         sectionTitle="Our 95% Accuracy Guarantee"
         guarantees={[
@@ -453,8 +443,7 @@ export default function HomePage() {
             image: "/images/hero/money-back.png",
           },
         ]}
-      />
-
+      />{" "}
       <AlternativesSection
         heading="Your Options When Facing Meta Tracking Issues"
         subheading="Our service is ideal for ecommerce brands who:"
@@ -506,8 +495,7 @@ export default function HomePage() {
               "We specialize exclusively in solving tracking issues for ecommerce brands. With our proven system, you'll have accurate tracking in just 3 days without the headaches, wasted time, or policy violations.",
           },
         ]}
-      />
-
+      />{" "}
       <DetailedCTA
         heading="Claim Your $300 Off Today"
         subheading="Restore Your Meta Ads Tracking in Just 3 Days"

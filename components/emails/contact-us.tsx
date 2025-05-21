@@ -55,12 +55,10 @@ export default function ContactUsEmail({
               alt="Logo"
               style={logo}
             />
-          </Section>
-
+          </Section>{" "}
           {/* Hero Section */}
           <Section style={heroSection}>
-            <Heading style={heading}>Let's Fix Your Tracking!</Heading>
-
+            <Heading style={heading}>Let's Fix Your Tracking!</Heading>{" "}
             <Text style={greeting}>Hi {name},</Text>
             <Text style={paragraph}>
               Thanks for reaching out about improving your ad tracking. We've
@@ -71,8 +69,7 @@ export default function ContactUsEmail({
               We specialize in helping businesses recover lost conversions and
               optimize ad spend through proper tracking implementation.
             </Text>
-          </Section>
-
+          </Section>{" "}
           {/* Details Section */}
           <Section style={detailsSection}>
             <Heading as="h2" style={subheading}>
@@ -108,8 +105,7 @@ export default function ContactUsEmail({
                 {createdAt.toDate().toLocaleString()}
               </Column>
             </Row>
-          </Section>
-
+          </Section>{" "}
           {/* Next Steps */}
           <Section style={nextStepsSection}>
             <Heading as="h2" style={subheading}>
@@ -119,8 +115,7 @@ export default function ContactUsEmail({
               Our team will contact you within 24 hours to discuss your tracking
               issues and how we can help recover your lost conversions.
             </Text>
-          </Section>
-
+          </Section>{" "}
           {/* Footer */}
           <Section style={footer}>
             <Text style={footerText}>

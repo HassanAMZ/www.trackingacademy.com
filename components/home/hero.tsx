@@ -53,8 +53,7 @@ const Hero: FC<HeroProps> = ({
         {eyebrow && <Badge variant={"outline"}>{eyebrow}</Badge>}
         {heading}
         {subheading && subheading}
-        <div className="max-w-2xl">{carousel && carousel}</div>
-
+        <div className="max-w-2xl">{carousel && carousel}</div>{" "}
         <div className="grid justify-center gap-2 py-4 grid-cols-2 md:grid-cols-3 md:items-start">
           {benefits.map((benefit, index) => (
             <div key={index} className="flex items-center gap-2 ">
@@ -62,8 +61,7 @@ const Hero: FC<HeroProps> = ({
               <p>{benefit}</p>
             </div>
           ))}
-        </div>
-
+        </div>{" "}
         {/* CTA Section */}
         {customCtaButton
           ? customCtaButton
@@ -79,8 +77,7 @@ const Hero: FC<HeroProps> = ({
                   </Button>
                 )}
               </div>
-            )}
-
+            )}{" "}
         <div className="flex items-center gap-4 pt-2 md:flex-row flex-col">
           <div className="flex items-center">
             {caseStudies.slice(0, 6).map((study, index) => (
@@ -104,8 +101,7 @@ const Hero: FC<HeroProps> = ({
           </div>
           <div className="text-sm">{clientCountText}</div>
         </div>
-      </div>
-
+      </div>{" "}
       {supportingComponent}
     </Container>
   );

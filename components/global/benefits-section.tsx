@@ -8,8 +8,7 @@ const BenefitsSection = ({ benefits }: { benefits: any }) => {
     <section className="py-16">
       <Container>
         <div className="flex flex-col items-center gap-8">
-          <h2 className="text-center">Why Choose Our 95%+ Accuracy System?</h2>
-
+          <h2 className="text-center">Why Choose Our 95%+ Accuracy System?</h2>{" "}
           <div className="grid w-full gap-6 md:grid-cols-2">
             {benefits.map((benefit: any, index: any) => (
               <Card key={index} className="border-primary/20">

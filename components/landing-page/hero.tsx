@@ -55,14 +55,12 @@ const Hero: React.FC<HeroProps> = ({
               subheadingText
             )}
           </div>
-        )}
-
+        )}{" "}
         <div className="w-full">
           {youtubeEmbedId && (
             <YoutubeEmbed className="max-w-4xl" embedId={youtubeEmbedId} />
           )}
-        </div>
-
+        </div>{" "}
         <div className="flex max-w-xl items-center space-x-4">
           {ctaButtonText && ctaButtonLink && (
             <Button

@@ -118,14 +118,9 @@ export function calculateBusinessMetrics(
     );
     currentMetrics.ceo = Math.floor(
       currentMetrics.executiveTeam / params.executivesPerCEO,
-    );
-
-    // Calculate LTV:CAC
+    ); // Calculate LTV:CAC
     currentMetrics.ltvCac = currentMetrics.ltgp / currentMetrics.cac;
-
-    metrics.push({ ...currentMetrics });
-
-    // Apply growth for next month
+    metrics.push({ ...currentMetrics }); // Apply growth for next month
     const growthFactor = 1 + growthRate;
     currentMetrics.contracts *= growthFactor;
     currentMetrics.projects *= growthFactor;

@@ -74,7 +74,6 @@ export async function createWaitlist(prevState: any, formData: FormData) {
     // Use `doc` and `setDoc` to specify the document ID
     const contactDocRef = doc(contactsCollection, timestampId);
     await setDoc(contactDocRef, data);
-
     await resend.emails.send({
       from: "no-reply@trackingacademy.com",
       to: data.email,
@@ -103,9 +102,7 @@ export async function createWaitlist(prevState: any, formData: FormData) {
         futureGoals: data.futureGoals,
         createdAt: data.createdAt,
       }),
-    });
-
-    // Store user data in cookies
+    }); // Store user data in cookies
     (await cookies()).set(
       "user_data",
       JSON.stringify({
@@ -117,9 +114,7 @@ export async function createWaitlist(prevState: any, formData: FormData) {
         },
       }),
       { httpOnly: true, path: "/", maxAge: 60 * 60 * 24 * 7 },
-    ); // Expires in 7 days
-
-    return { message: `Added contact ${data.firstName} ${data.lastName}` };
+    ); // Expires in 7 daysreturn { message: `Added contact ${data.firstName} ${data.lastName}` };
   } catch (e) {
     console.error("Failed to create contact or send email", e);
     return { message: "Failed to create contact" };

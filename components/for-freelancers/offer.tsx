@@ -27,13 +27,10 @@ export default function ForFreelancersOffer() {
       <h2>
         Ready to see what you'll get?{" "}
         <span className="text-primary">Watch the video</span>
-      </h2>
-
+      </h2>{" "}
       <YoutubeEmbed embedId="9MGpL_AmEYM" />
-      <h1>Master Analytics and Tracking in 12 Weeks!</h1>
-
-      <p>Learn from experts and boost your skills with real-world projects.</p>
-
+      <h1>Master Analytics and Tracking in 12 Weeks!</h1>{" "}
+      <p>Learn from experts and boost your skills with real-world projects.</p>{" "}
       <div className="grid gap-6 md:grid-cols-3">
         <FeatureCard
           icon={<Rocket className="text-primary mb-4 h-12 w-12" />}
@@ -56,10 +53,8 @@ export default function ForFreelancersOffer() {
           dialogTitle="Full Curriculum"
           dialogDescription="Our curriculum covers all aspects of analytics and tracking, from the basics to advanced techniques. You will learn everything you need to succeed in this field."
         />
-      </div>
-
-      <h2>Solve Your Tracking Problems</h2>
-
+      </div>{" "}
+      <h2>Solve Your Tracking Problems</h2>{" "}
       <div className="grid gap-6 md:grid-cols-3">
         <FeatureCard
           icon={<ShieldCheck className="text-primary mb-4 h-12 w-12" />}
@@ -82,8 +77,7 @@ export default function ForFreelancersOffer() {
           dialogTitle="Ongoing Support"
           dialogDescription="Join our community of experts and receive ongoing support throughout your learning journey. You will never feel alone with our continuous assistance."
         />
-      </div>
-
+      </div>{" "}
       <div className="grid gap-6 md:grid-cols-3">
         <FeatureCard
           icon={<ShieldCheck className="text-primary mb-4 h-12 w-12" />}
@@ -106,8 +100,7 @@ export default function ForFreelancersOffer() {
           dialogTitle="Get Certified"
           dialogDescription="Earn a certificate upon successful completion of the course. Showcase your new skills to potential clients and employers."
         />
-      </div>
-
+      </div>{" "}
       <div className="grid gap-6 md:grid-cols-3">
         <FeatureCard
           icon={<Rocket className="text-primary mb-4 h-12 w-12" />}
@@ -130,17 +123,14 @@ export default function ForFreelancersOffer() {
           dialogTitle="Monthly Webinars"
           dialogDescription="Participate in monthly webinars with industry experts. Stay up-to-date with the latest trends and techniques in analytics and tracking."
         />
-      </div>
-
+      </div>{" "}
       <h2>
         Enroll now to master conversion tracking and analytics! Take the next
         step and join our training program today.
-      </h2>
-
+      </h2>{" "}
       <Button asChild className="w-full px-10 py-4">
         <Link href="/for-freelancers/enroll-now">Enroll Now</Link>
-      </Button>
-
+      </Button>{" "}
       <Separator />
     </Container>
   );

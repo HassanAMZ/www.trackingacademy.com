@@ -15,8 +15,7 @@ const SolutionSection = ({ steps }: { steps: any }) => {
             <p className="mt-4">
               Our specialized system is designed for Shopify stores like yours.
             </p>
-          </div>
-
+          </div>{" "}
           <div className="grid w-full gap-6 md:grid-cols-2 lg:grid-cols-3">
             {steps.map((step: any, index: any) => (
               <Card key={index} className="border-primary/20">
@@ -29,8 +28,7 @@ const SolutionSection = ({ steps }: { steps: any }) => {
                 </CardContent>
               </Card>
             ))}
-          </div>
-
+          </div>{" "}
           <Button size="lg" className="mt-4" asChild>
             <Link href="/contact">
               Unlock 30% More Conversions

@@ -1,23 +1,22 @@
-export interface Analytics {
+interface Analytics {
   period: string;
   recoveredFromAdBlockersPercentage: number;
   recoveredFromTrackingPreventionPercentage: number;
   accuracy: number;
 }
 
-export interface Testimonial {
+interface Testimonial {
   quote: string;
   author: string;
   role: string;
   image: string;
 }
 
-export interface Milestone {
+interface Milestone {
   name: string;
   description: string;
   expectedOutcome: string;
 }
-
 export interface CaseStudy {
   id: string;
   name: string;
@@ -159,7 +158,6 @@ export const caseStudies: CaseStudy[] = [
     mobileUrl:
       "/images/for-businesses/client-superperformancereview-mobile-home.png",
     siteUrl: "https://superperformancereview.com.au",
-
     testimonial: {
       quote: "Very happy working with Hassan! Does a great job!",
       author: "David Bodnar",
@@ -458,7 +456,7 @@ export const caseStudies: CaseStudy[] = [
       "Looker Studio",
       "JotForm",
       "Acuity Scheduling",
-      "Meta Pixel",
+      "Facebook Pixel",
       "Google Ads",
     ],
     milestones: [
@@ -603,7 +601,6 @@ export const caseStudies: CaseStudy[] = [
       recoveredFromTrackingPreventionPercentage: 31.0,
       accuracy: 97,
     },
-
     owner: "Shahzada Ali Hassan",
     client: "Michael Quinn",
     budget: 1600,
@@ -659,7 +656,7 @@ export const caseStudies: CaseStudy[] = [
       "Mailerlite",
       "Google Analytics 4",
       "Google Tag Manager",
-      "Meta Pixel",
+      "Facebook Pixel",
     ],
     milestones: [
       {
@@ -706,7 +703,7 @@ export const caseStudies: CaseStudy[] = [
     technologies: [
       "Google Tag Manager",
       "Google Analytics 4",
-      "Meta Pixel",
+      "Facebook Pixel",
       "UTM Tracking",
       "Form Event Tracking",
     ],
@@ -938,7 +935,7 @@ export const caseStudies: CaseStudy[] = [
       "Google Tag Manager",
       "Server-Side GTM",
       "Stape",
-      "Meta Pixel",
+      "Facebook Pixel",
       "Meta Conversion API (CAPI-G)",
       "Cookiebot",
       "ClinicMinds",
@@ -1039,7 +1036,6 @@ export const caseStudies: CaseStudy[] = [
     name: "GTM Ecommerce Troubleshooting",
     url: "https://www.upwork.com/agencies/1718262069083348992/",
     plan: "Hourly",
-
     title: "Fixed Custom GTM Ecommerce Tracking in Just One Hour",
     description:
       "A custom‐built e-commerce site was showing revenue in GTM Preview and GA4 real-time but not in the standard reports. In a focused one-hour Zoom session, we crafted custom JavaScript variables to simulate the missing dataLayer parameters and restored full revenue visibility, allowing the client to calculate ROAS accurately.",
@@ -1087,7 +1083,6 @@ export const caseStudies: CaseStudy[] = [
       endDate: "Oct 23, 2024",
       durationDays: 3,
     },
-
     analytics: {
       period: "1 months",
       recoveredFromAdBlockersPercentage: 10.0,

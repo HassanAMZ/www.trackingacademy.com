@@ -27,7 +27,6 @@ const OfferAnalyzer: React.FC = () => {
         /* Offer data */
       }),
     });
-
     const analysis = await response.json();
     setAnalysis(analysis);
   };

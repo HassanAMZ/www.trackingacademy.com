@@ -1,12 +1,12 @@
 import { BookMarked, BriefcaseBusiness, Clock, LinkIcon } from "lucide-react";
 
 // Define the icon type
-export interface IconType {
+interface IconType {
   icon: React.ElementType;
 }
 
 // Define the tool descriptions type
-export interface ToolDescriptions {
+interface ToolDescriptions {
   [key: string]: string;
 }
 

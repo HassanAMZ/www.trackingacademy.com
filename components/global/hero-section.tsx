@@ -13,23 +13,19 @@ export const HeroSection: React.FC = () => {
         <div className="flex flex-col items-center gap-6 text-center">
           <Badge variant="outline" className="border-primary/20 mb-2">
             ATTENTION: Business Owners Losing Money on Paid Ads 🚨
-          </Badge>
-
+          </Badge>{" "}
           <h1 className="max-w-5xl">
             Get <span className="text-primary">13% Increased</span> Return on
             Ads Spent & <span className="text-primary">11% Decreased </span>
             Cost Per Conversion — Or We'll Do It
             <span className="text-primary"> FREE! 💯</span>
-          </h1>
-
-          <YoutubeEmbed embedId="9MGpL_AmEYM" className="max-w-4xl!" />
-
+          </h1>{" "}
+          <YoutubeEmbed embedId="9MGpL_AmEYM" className="max-w-4xl!" />{" "}
           <h2 className="max-w-3xl">
             Tracking gaps are costing you money. If you don't know which ads
             work, every dollar you spend could be a dollar lost. We help you get
             95%+ accurate tracking.
-          </h2>
-
+          </h2>{" "}
           <Button
             asChild
             size="lg"
@@ -39,8 +35,7 @@ export const HeroSection: React.FC = () => {
               Book a FREE CALL and Sky Rocket Your Business
               <ArrowRight className="ml-2 h-4 w-4" />
             </Link>
-          </Button>
-
+          </Button>{" "}
           <div className="flex flex-col items-center gap-4 text-sm sm:flex-row">
             {[
               "95%+ Tracking Accuracy",

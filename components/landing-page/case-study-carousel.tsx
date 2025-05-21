@@ -34,31 +34,20 @@ export default function CaseStudyCarousel({
   useEffect(() => {
     const carousel = carouselRef.current;
     if (!carousel) return;
-
     const totalItems = caseStudies.length;
     const totalWidth = totalItemWidth * totalItems;
-
     const animate = () => {
       if (!isPaused && carousel) {
         // Update position
-        positionRef.current -= speed;
-
-        // Reset position when we've scrolled one full set of items
+        positionRef.current -= speed; // Reset position when we've scrolled one full set of items
         if (Math.abs(positionRef.current) >= totalWidth) {
           positionRef.current += totalWidth;
-        }
-
-        // Apply the transform
+        } // Apply the transform
         carousel.style.transform = `translateX(${positionRef.current}px)`;
       }
-
       animationRef.current = requestAnimationFrame(animate);
-    };
-
-    // Start the animation
-    animationRef.current = requestAnimationFrame(animate);
-
-    // Cleanup
+    }; // Start the animation
+    animationRef.current = requestAnimationFrame(animate); // Cleanup
     return () => {
       if (animationRef.current) {
         cancelAnimationFrame(animationRef.current);
@@ -94,11 +83,9 @@ export default function CaseStudyCarousel({
               width={1080}
               height={1920}
               className="scale-102 object-cover transition-opacity duration-300 group-hover:opacity-80"
-            />
-
+            />{" "}
             {/* Gradient overlay that intensifies on hover */}
-            <div className="absolute inset-0 bg-linear-to-t from-black to-transparent opacity-70 transition-opacity duration-300 group-hover:opacity-90"></div>
-
+            <div className="absolute inset-0 bg-linear-to-t from-black to-transparent opacity-70 transition-opacity duration-300 group-hover:opacity-90"></div>{" "}
             {/* Case study details that scale up on hover */}
             <div className="text-white absolute inset-x-0 bottom-0 z-10 transform p-4 text-left transition-transform duration-300 group-hover:scale-110">
               <h4 className="mb-1 line-clamp-3 hover:underline">
@@ -107,8 +94,7 @@ export default function CaseStudyCarousel({
               <p className="line-clamp-2 transition-colors duration-300">
                 {caseStudy.description}
               </p>
-            </div>
-
+            </div>{" "}
             {/* Outline icon that appears on hover */}
             <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 opacity-0 transition-opacity duration-300 group-hover:opacity-100 z-30">
               <div className="bg-primary text-white rounded-full p-3 shadow-lg">

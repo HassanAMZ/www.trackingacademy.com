@@ -53,12 +53,10 @@ export default function Page() {
             Every Sale” Tracking Setup For Facebook's Data Sharing Restrictions.
             All done-for-you, in just 3 days, with 95% Accurate Data Tracking,
             without Violating Any Facebook's policies.
-          </h4>
-
+          </h4>{" "}
           <div className="grid w-full gap-8 px-3 py-6 ">
             {/* Right: Image */}
-            <YoutubeEmbed embedId="9MGpL_AmEYM" className="max-w-4xl" />
-
+            <YoutubeEmbed embedId="9MGpL_AmEYM" className="max-w-4xl" />{" "}
             {/* <div className="flex items-center justify-center">
               <div className="bg-muted w-full overflow-hidden rounded-md">
                 <Image
@@ -69,8 +67,7 @@ export default function Page() {
                   className="rounded-lg"
                 />
               </div>
-            </div> */}
-
+            </div> */}{" "}
             {/* Left: Bullet Points */}
             <div className="flex gap-4">
               {bulletPoints.map((point, i) => (
@@ -89,8 +86,7 @@ export default function Page() {
                 </div>
               ))}
             </div>
-          </div>
-
+          </div>{" "}
           {/* CTA Button */}
           <Button
             size="lg"
@@ -104,19 +100,16 @@ export default function Page() {
                 Limited to the first 10 clients — act fast before it expires
               </span>
             </div>
-          </Button>
-
+          </Button>{" "}
           <h1 className="pt-12 pb-6">
             300+ Satisfied Customers Can't Be Wrong
-          </h1>
-
+          </h1>{" "}
           {/* <TestimonialsCarousel /> */}
         </Container>
         <Container className="py-12">
           <TestimonialGrid />
         </Container>
-      </section>
-
+      </section>{" "}
       {/* Modal */}
       <Dialog open={isModalOpen} onOpenChange={setIsModalOpen}>
         <DialogContent className="sm:max-w-md">

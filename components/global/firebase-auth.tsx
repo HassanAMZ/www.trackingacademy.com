@@ -140,8 +140,7 @@ export const FirebaseAuth = () => {
               </span>
             </div>
           </div>
-        </div>
-
+        </div>{" "}
         {/* Right Column: Sign In */}
         <Card className="w-full">
           <CardHeader className="space-y-1">
@@ -157,15 +156,13 @@ export const FirebaseAuth = () => {
               <Alert variant="destructive">
                 <AlertDescription>{error}</AlertDescription>
               </Alert>
-            )}
-
+            )}{" "}
             <div className="bg-muted/50 flex items-center justify-center rounded-lg p-4">
               <Download className="text-muted-foreground mr-2 h-6 w-6" />
               <p className="text-muted-foreground text-sm">
                 Access code examples, starter files, and other resources
               </p>
-            </div>
-
+            </div>{" "}
             <div className="relative">
               <div className="absolute inset-0 flex items-center">
                 <span className="w-full border-t" />
@@ -176,8 +173,7 @@ export const FirebaseAuth = () => {
                   continue with
                 </span>
               </div>
-            </div>
-
+            </div>{" "}
             <div className="space-y-2">
               <Button onClick={() => handleAuth("google")} className="w-full">
                 <PersonIcon className="mr-2 h-4 w-4" />
@@ -191,8 +187,7 @@ export const FirebaseAuth = () => {
                 <GithubIcon className="mr-2 h-4 w-4" />
                 Continue with GitHub
               </Button>
-            </div>
-
+            </div>{" "}
             <div className="flex max-w-3xl items-center justify-between space-y-3 pb-5">
               <div className="flex">
                 <Avatar className="h-10 w-10">

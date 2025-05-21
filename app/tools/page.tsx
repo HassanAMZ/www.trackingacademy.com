@@ -38,8 +38,7 @@ export default async function Page() {
   return (
     <Container>
       <div className="grid gap-6">
-        <h1>Analytics Tools</h1>
-
+        <h1>Analytics Tools</h1>{" "}
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {tools.map((tool) => {
             const Icon = tool.icon;

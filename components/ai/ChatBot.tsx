@@ -104,8 +104,7 @@ export default function ChatBot() {
                   <SelectItem value="anthropic">Anthropic</SelectItem>
                   <SelectItem value="openai">OpenAI</SelectItem>
                 </SelectContent>
-              </Select>
-
+              </Select>{" "}
               <Select value={model} onValueChange={handleModelChange}>
                 <SelectTrigger>
                   <SelectValue placeholder="Select model" />
@@ -120,8 +119,7 @@ export default function ChatBot() {
                     </SelectItem>
                   ))}
                 </SelectContent>
-              </Select>
-
+              </Select>{" "}
               <Select
                 value={systemMessage}
                 onValueChange={handleSystemMessageChange}
@@ -139,8 +137,7 @@ export default function ChatBot() {
               </Select>
             </div>
           </CardTitle>
-        </CardHeader>
-
+        </CardHeader>{" "}
         <CardContent className="space-y-4">
           <div className="bg-secondary/10 h-[500px] space-y-4 overflow-y-auto rounded-lg p-4">
             {messages.map((message) => (
@@ -163,8 +160,7 @@ export default function ChatBot() {
                     }`}
                   >
                     <Markdown>{message.content}</Markdown>
-                  </div>
-
+                  </div>{" "}
                   {message.experimental_attachments
                     ?.filter((attachment) =>
                       attachment.contentType?.startsWith("image/"),
@@ -178,8 +174,7 @@ export default function ChatBot() {
                         width={1920}
                         height={1080}
                       />
-                    ))}
-
+                    ))}{" "}
                   <Button
                     variant="ghost"
                     size="sm"
@@ -190,14 +185,12 @@ export default function ChatBot() {
                   </Button>
                 </div>
               </div>
-            ))}
-
+            ))}{" "}
             {isLoading && (
               <div className="flex justify-center">
                 <Loader2 className="h-6 w-6 animate-spin" />
               </div>
-            )}
-
+            )}{" "}
             {error && (
               <div className="text-destructive flex flex-col items-center gap-2">
                 <p>An error occurred. Please try again.</p>
@@ -207,8 +200,7 @@ export default function ChatBot() {
                 </Button>
               </div>
             )}
-          </div>
-
+          </div>{" "}
           <form id="chatbot" onSubmit={handleFormSubmit} className="flex gap-2">
             <Input
               type="file"
@@ -217,8 +209,7 @@ export default function ChatBot() {
               className="hidden"
               multiple
               accept="image/*"
-            />
-
+            />{" "}
             <Button
               type="button"
               variant="outline"
@@ -226,16 +217,14 @@ export default function ChatBot() {
               onClick={() => fileInputRef.current?.click()}
             >
               <ImagePlus className="h-4 w-4" />
-            </Button>
-
+            </Button>{" "}
             <Input
               value={input}
               onChange={handleInputChange}
               placeholder="Type your message..."
               disabled={isLoading}
               className="flex-1"
-            />
-
+            />{" "}
             {isLoading ? (
               <Button type="button" onClick={stop} variant="destructive">
                 <StopCircle className="h-4 w-4" />

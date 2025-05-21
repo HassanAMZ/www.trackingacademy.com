@@ -67,7 +67,6 @@ export const ProjectionTable: React.FC<ProjectionTableProps> = ({
         {MILESTONES.map(({ label, months }) => {
           const milestone = metrics[Math.min(months, metrics.length - 1)];
           if (!milestone) return null;
-
           return (
             <TableRow key={label} className="">
               <TableCell className="bg-background sticky left-0">
@@ -307,7 +306,6 @@ export const MilestoneMetrics: React.FC<MilestoneMetricsProps> = ({
       {MILESTONES.map(({ label, months }) => {
         const milestone = getMilestoneMetrics(months);
         if (!milestone) return null;
-
         return (
           <div key={label} className="space-y-4">
             <h3 className="text-lg font-semibold">{label}</h3>
@@ -350,8 +348,7 @@ export const MilestoneMetrics: React.FC<MilestoneMetricsProps> = ({
                     </span>
                   </div>
                 </div>
-              </MetricCard>
-
+              </MetricCard>{" "}
               <MetricCard
                 title="Business Metrics"
                 icon={<Target className="text-secondary h-4 w-4" />}
@@ -388,8 +385,7 @@ export const MilestoneMetrics: React.FC<MilestoneMetricsProps> = ({
                     </span>
                   </div>
                 </div>
-              </MetricCard>
-
+              </MetricCard>{" "}
               <MetricCard
                 title="Team Metrics"
                 icon={<Users className="text-accent h-4 w-4" />}

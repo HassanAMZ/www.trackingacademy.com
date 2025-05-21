@@ -9,8 +9,7 @@ export function ProblemsSection() {
           <span className="bg-secondary/20 rounded-md px-2">flawed</span> for at
           least one of these reasons:
         </h2>
-      </div>
-
+      </div>{" "}
       <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
         <Card className="bg-card/50">
           <CardContent className="pt-6">
@@ -25,8 +24,7 @@ export function ProblemsSection() {
               </p>
             </div>
           </CardContent>
-        </Card>
-
+        </Card>{" "}
         <Card className="bg-card/50">
           <CardContent className="pt-6">
             <div className="space-y-2">
@@ -40,8 +38,7 @@ export function ProblemsSection() {
               </p>
             </div>
           </CardContent>
-        </Card>
-
+        </Card>{" "}
         <Card className="bg-card/50">
           <CardContent className="pt-6">
             <div className="space-y-2">

@@ -27,8 +27,7 @@ const ProblemAwareness: React.FC<ProblemAwarenessProps> = ({
           {paragraphText && (
             <h4 className="text-muted-foreground">{paragraphText}</h4>
           )}
-        </div>
-
+        </div>{" "}
         <div className="grid items-end justify-center gap-2 pt-12 md:grid-cols-3">
           <div className="space-y-4">
             {bluePillPoints &&

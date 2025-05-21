@@ -26,8 +26,7 @@ export default function TestimonialCardUpwork({
               <h3 className="text-green-400 text-xl font-medium mb-3">
                 {title}
               </h3>
-              <p className=" mb-3">{quote}</p>
-
+              <p className=" mb-3">{quote}</p>{" "}
               <div className="flex items-center gap-4 mb-4">
                 <div className="flex">
                   {Array.from({ length: 5 }).map((_, i) => (

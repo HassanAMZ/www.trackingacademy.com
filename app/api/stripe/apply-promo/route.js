@@ -6,50 +6,35 @@ export async function POST(req) {
   try {
     const body = await req.json();
     const { priceId, promotionCode } = body;
-
     if (!promotionCode) {
       return NextResponse.json(
         { error: "Promotion code is required" },
         { status: 400 },
       );
-    }
-
-    // Get the Stripe price to retrieve the amount
+    } // Get the Stripe price to retrieve the amount
     const price = await stripe.prices.retrieve(priceId);
     if (!price || !price.unit_amount) {
       throw new Error("Invalid price object from Stripe");
-    }
-
-    // Validate promotion code
+    } // Validate promotion code
     const promotionCodes = await stripe.promotionCodes.list({
       code: promotionCode,
       active: true,
     });
-
     if (promotionCodes.data.length === 0) {
       return NextResponse.json(
         { error: "Invalid or expired promotion code" },
         { status: 400 },
       );
     }
-
-    const validPromo = promotionCodes.data[0];
-
-    // Get the coupon details to calculate discount amount
-    const coupon = await stripe.coupons.retrieve(validPromo.coupon.id);
-
-    // Calculate discount amount
+    const validPromo = promotionCodes.data[0]; // Get the coupon details to calculate discount amount
+    const coupon = await stripe.coupons.retrieve(validPromo.coupon.id); // Calculate discount amount
     let amountOff = 0;
     if (coupon.amount_off) {
       amountOff = coupon.amount_off;
     } else if (coupon.percent_off) {
       amountOff = Math.round((price.unit_amount * coupon.percent_off) / 100);
-    }
-
-    // Calculate final amount after discount
-    const finalAmount = Math.max(1, price.unit_amount - amountOff); // Ensure minimum 1 cent
-
-    // Create a new payment intent with the discounted amount
+    } // Calculate final amount after discount
+    const finalAmount = Math.max(1, price.unit_amount - amountOff); // Ensure minimum 1 cent// Create a new payment intent with the discounted amount
     const paymentIntent = await stripe.paymentIntents.create({
       amount: finalAmount,
       currency: price.currency || "usd",
@@ -62,7 +47,6 @@ export async function POST(req) {
         discountAmount: amountOff,
       },
     });
-
     return NextResponse.json({
       clientSecret: paymentIntent.client_secret,
       promoDetails: {

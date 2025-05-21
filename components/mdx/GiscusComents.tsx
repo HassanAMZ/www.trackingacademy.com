@@ -41,25 +41,20 @@ function GiscusComments() {
       "data-input-position",
       process.env.NEXT_PUBLIC_GISCUS_INPUT_POSITION || "",
     );
-
     const giscusTheme =
       theme === "dark"
         ? process.env.NEXT_PUBLIC_GISCUS_THEME_DARK || "dark"
         : process.env.NEXT_PUBLIC_GISCUS_THEME_LIGHT || "light";
-
     script.setAttribute("data-theme", giscusTheme);
-
     script.setAttribute("data-lang", process.env.NEXT_PUBLIC_GISCUS_LANG || "");
     script.setAttribute(
       "data-loading",
       process.env.NEXT_PUBLIC_GISCUS_LOADING || "",
     );
-
     const commentSection = document.getElementById("comment-section");
     if (commentSection) {
       commentSection.appendChild(script);
     }
-
     return () => {
       // Cleanup the script element on component unmount
       if (commentSection) {

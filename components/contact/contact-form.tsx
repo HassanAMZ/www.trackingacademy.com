@@ -69,8 +69,7 @@ export default function ContactForm({
           <div className="border-destructive bg-destructive/50 text-destructive mb-4 rounded border p-3">
             {state.error}
           </div>
-        )}
-
+        )}{" "}
         <div className="flex flex-col space-y-6">
           <div className="grid gap-6 md:grid-cols-2">
             {/* First Name Input */}
@@ -85,8 +84,7 @@ export default function ContactForm({
                 name="firstName"
                 className="h-12 p-2.5"
               />
-            </div>
-
+            </div>{" "}
             {/* Last Name Input */}
             <div className="grid w-full items-start gap-1.5">
               <Label htmlFor="lastName" className="font-medium">
@@ -100,8 +98,7 @@ export default function ContactForm({
                 className="h-12 p-2.5"
               />
             </div>
-          </div>
-
+          </div>{" "}
           {/* Email Input - Full Width */}
           <div className="grid w-full items-start gap-1.5">
             <Label htmlFor="email" className="font-medium">
@@ -114,8 +111,7 @@ export default function ContactForm({
               name="email"
               className="h-12 p-2.5"
             />
-          </div>
-
+          </div>{" "}
           {/* Website URL Input - Full Width */}
           <div className="grid w-full items-start gap-1.5">
             <Label htmlFor="website" className="font-medium">
@@ -128,8 +124,7 @@ export default function ContactForm({
               name="website"
               className="h-12 p-2.5"
             />
-          </div>
-
+          </div>{" "}
           {/* Budget Dropdown - Full Width */}
           <div className="grid w-full items-start gap-1.5">
             <Label htmlFor="budget" className="font-medium">
@@ -147,8 +142,7 @@ export default function ContactForm({
                 <SelectItem value="25000+">$25,000+</SelectItem>
               </SelectContent>
             </Select>
-          </div>
-
+          </div>{" "}
           {/* Issues Checkboxes - Full Width */}
           <div className="grid w-full items-start gap-1.5">
             <Label htmlFor="issues" className="font-medium">
@@ -200,8 +194,7 @@ export default function ContactForm({
                 </Label>
               </div>
             </div>
-          </div>
-
+          </div>{" "}
           {/* Urgency Scale - Full Width */}
           <div className="grid w-full items-start gap-1.5">
             <Label htmlFor="urgency" className="font-medium">
@@ -225,8 +218,7 @@ export default function ContactForm({
                 <SelectItem value="10">10 (Extremely Urgent)</SelectItem>
               </SelectContent>
             </Select>
-          </div>
-
+          </div>{" "}
           {/* Submit Button */}
           <div className="mt-6">
             <SubmitButton />

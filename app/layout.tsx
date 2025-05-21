@@ -35,8 +35,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
               disableTransitionOnChange
             >
               {children}
-            </ThemeProvider>
-
+            </ThemeProvider>{" "}
             <Suspense>
               <Instantly />
               <GTMAnalytics />

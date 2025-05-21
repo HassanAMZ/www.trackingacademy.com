@@ -13,8 +13,7 @@ export function SolutionsSection() {
         <p className="text-muted-foreground text-xl">
           and always-updated, action-ready reporting dashboards
         </p>
-      </div>
-
+      </div>{" "}
       <div className="grid gap-8 md:grid-cols-3">
         <Card>
           <CardContent className="pt-6">
@@ -26,8 +25,7 @@ export function SolutionsSection() {
               </p>
             </div>
           </CardContent>
-        </Card>
-
+        </Card>{" "}
         <Card>
           <CardContent className="pt-6">
             <div className="space-y-2">
@@ -38,8 +36,7 @@ export function SolutionsSection() {
               </p>
             </div>
           </CardContent>
-        </Card>
-
+        </Card>{" "}
         <Card>
           <CardContent className="pt-6">
             <div className="space-y-2">
@@ -51,8 +48,7 @@ export function SolutionsSection() {
             </div>
           </CardContent>
         </Card>
-      </div>
-
+      </div>{" "}
       <div className="flex flex-wrap justify-center gap-4">
         {[
           "SaaS",

@@ -152,8 +152,7 @@ export default function CaseStudy({ client }: CaseStudyProps) {
               {client.plan}
             </Badge>
           </div>
-        </div>
-
+        </div>{" "}
         <CardContent className="pt-6">
           <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {/* Subscription usage */}
@@ -181,8 +180,7 @@ export default function CaseStudy({ client }: CaseStudyProps) {
                   {client.subscription.usagePercentage}% used
                 </div>
               </CardContent>
-            </Card>
-
+            </Card>{" "}
             {/* Tracking prevention impact */}
             <Card className="bg-secondary/10">
               <CardContent className="p-4">
@@ -205,8 +203,7 @@ export default function CaseStudy({ client }: CaseStudyProps) {
                   {client.trackingPrevention.affectedPercentage}% affected
                 </div>
               </CardContent>
-            </Card>
-
+            </Card>{" "}
             {/* Recovered requests */}
             <Card className="bg-secondary/10">
               <CardContent className="p-4">
@@ -234,8 +231,7 @@ export default function CaseStudy({ client }: CaseStudyProps) {
                   tracking prevention recovery
                 </div>
               </CardContent>
-            </Card>
-
+            </Card>{" "}
             {/* AdBlocker recovery */}
             <Card className="bg-secondary/10">
               <CardContent className="p-4">
@@ -262,8 +258,7 @@ export default function CaseStudy({ client }: CaseStudyProps) {
             </Card>
           </div>
         </CardContent>
-      </Card>
-
+      </Card>{" "}
       {/* Tab Navigation */}
       <div className="mb-6 flex border-b">
         {(["overview", "events", "browsers"] as const).map((tab) => (
@@ -279,8 +274,7 @@ export default function CaseStudy({ client }: CaseStudyProps) {
             {tab.charAt(0).toUpperCase() + tab.slice(1)}
           </button>
         ))}
-      </div>
-
+      </div>{" "}
       {/* Tab Content */}
       {activeTab === "overview" && (
         <OverviewTab
@@ -378,8 +372,7 @@ function OverviewTab({
             ))}
           </div>
         </CardContent>
-      </Card>
-
+      </Card>{" "}
       {/* Browser Distribution */}
       <Card>
         <CardHeader>
@@ -421,8 +414,7 @@ function OverviewTab({
             </ResponsiveContainer>
           </div>
         </CardContent>
-      </Card>
-
+      </Card>{" "}
       {/* Top Events */}
       <Card className="lg:col-span-3">
         <CardHeader>

@@ -54,18 +54,14 @@ export async function createCouponRequest(
   }
 
   try {
-    const docRef = doc(couponRequestsCollection, timestampId);
-
-    // Prepare email data
+    const docRef = doc(couponRequestsCollection, timestampId); // Prepare email data
     const emailData = {
       name: data.name,
       email: data.email,
       phone: data.phone,
       couponCode: data.couponCode,
       createdAt: data.createdAt,
-    };
-
-    // Execute Firebase write and email sending in parallel
+    }; // Execute Firebase write and email sending in parallel
     await Promise.all([
       setDoc(docRef, data),
       resend.emails.send({
@@ -75,12 +71,9 @@ export async function createCouponRequest(
         subject: `Your $300 Coupon Code is Ready, ${data.name}!`,
         react: CouponRequestEmail(emailData),
       }),
-    ]);
-
-    // Set cookie for user data
+    ]); // Set cookie for user data
     try {
       const cookieStore = await cookies();
-
       cookieStore.set("name", data.name, {
         httpOnly: false,
         path: "/",

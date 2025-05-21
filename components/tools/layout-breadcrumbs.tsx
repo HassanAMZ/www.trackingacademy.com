@@ -31,8 +31,7 @@ const ToolBreadcrumbs: React.FC = () => {
       <BreadcrumbList>
         <BreadcrumbItem>
           <BreadcrumbLink href="/tools">Tools</BreadcrumbLink>
-        </BreadcrumbItem>
-
+        </BreadcrumbItem>{" "}
         {segments.map((segment, index) => (
           <React.Fragment key={segment}>
             <BreadcrumbSeparator />

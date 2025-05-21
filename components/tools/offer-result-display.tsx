@@ -25,9 +25,7 @@ export function OfferResultDisplay({ generation }: OfferResultDisplayProps) {
       setCopiedSections((prev) => ({
         ...prev,
         [sectionName]: true,
-      }));
-
-      // Reset copied state after 2 seconds
+      })); // Reset copied state after 2 seconds
       setTimeout(() => {
         setCopiedSections((prev) => ({
           ...prev,

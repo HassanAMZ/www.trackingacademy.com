@@ -105,14 +105,12 @@ export function ProcessSteps({
   return (
     <section className="from-primary/5 to-background bg-linear-to-b py-24">
       <Container className="w-full space-y-4">
-        <h1 className="text-center whitespace-pre-wrap">{title}</h1>
-
+        <h1 className="text-center whitespace-pre-wrap">{title}</h1>{" "}
         {subtitle && (
           <h4 className="text-center text-muted-foreground max-w-4xl pt-8 mx-auto whitespace-pre-wrap">
             {subtitle}
           </h4>
-        )}
-
+        )}{" "}
         {/* Navigation */}
         <div className="flex flex-row justify-between items-center mb-4 overflow-x-auto pb-2 pt-18">
           {steps.map((step) => (
@@ -131,8 +129,7 @@ export function ProcessSteps({
               <span className="sm:hidden">{step.title.split(" ")[0]}</span>
             </button>
           ))}
-        </div>
-
+        </div>{" "}
         {/* Progress Bar */}
         <div className="w-full h-0.5 bg-muted mb-8 md:mb-12 relative">
           <div
@@ -142,19 +139,15 @@ export function ProcessSteps({
               maxWidth: "100%",
             }}
           />
-        </div>
-
+        </div>{" "}
         {/* Content Section */}
         <div className="grid md:grid-cols-2 gap-8 md:gap-12 pt-8">
           <div className="space-y-4 md:space-y-6">
-            <p className="text-muted-foreground">{currentStep.date}</p>
-
+            <p className="text-muted-foreground">{currentStep.date}</p>{" "}
             <h2 className="text-3xl md:text-4xl font-bold">
               {currentStep.heading}
-            </h2>
-
-            <p className="text-muted-foreground">{currentStep.description}</p>
-
+            </h2>{" "}
+            <p className="text-muted-foreground">{currentStep.description}</p>{" "}
             {currentStep.link &&
               (currentStep.newTab ? (
                 <a
@@ -181,8 +174,7 @@ export function ProcessSteps({
                   </Button>
                 </Link>
               ))}
-          </div>
-
+          </div>{" "}
           {/* Media section */}
           <div className="rounded flex items-center justify-center">
             {currentStep.mediaComponent ? (

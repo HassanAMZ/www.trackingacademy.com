@@ -87,8 +87,7 @@ export default function CouponOptInForm({
           <div className="text-destructive border-destructive bg-destructive/50 mb-4 rounded border p-3">
             {state.error}
           </div>
-        )}
-
+        )}{" "}
         <div className="flex flex-col space-y-4">
           {/* Name Input */}
           <div className="grid w-full items-start gap-1.5">
@@ -103,8 +102,7 @@ export default function CouponOptInForm({
               placeholder="Enter your full name"
               className="h-12 p-2.5"
             />
-          </div>
-
+          </div>{" "}
           {/* Email Input */}
           <div className="grid w-full items-start gap-1.5">
             <Label htmlFor="email" className="font-medium">
@@ -118,8 +116,7 @@ export default function CouponOptInForm({
               placeholder="Enter your email address"
               className="h-12 p-2.5"
             />
-          </div>
-
+          </div>{" "}
           {/* Phone Input */}
           <div className="grid w-full items-start gap-1.5">
             <Label htmlFor="phone" className="font-medium">
@@ -133,14 +130,12 @@ export default function CouponOptInForm({
               placeholder="Enter your phone number"
               className="h-12 p-2.5"
             />
-          </div>
-
+          </div>{" "}
           {/* Submit Button */}
           <div className="mt-4">
             <SubmitButton />
           </div>
-        </div>
-
+        </div>{" "}
         <p className="text-muted-foreground mt-4 text-center text-xs">
           Limited offer for the first 10 clients only — act fast before it
           expires!

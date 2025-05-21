@@ -15,7 +15,6 @@ const TestimonialsCarousel: React.FC<{ className?: string }> = ({
     const interval = setInterval(() => {
       setCurrentIndex((prevIndex) => (prevIndex + 1) % caseStudies.length);
     }, 5000);
-
     return () => clearInterval(interval);
   }, []);
 

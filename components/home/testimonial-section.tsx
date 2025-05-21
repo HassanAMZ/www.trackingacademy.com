@@ -31,8 +31,7 @@ export function TestimonialsSection() {
         <h2 className="text-3xl font-bold md:text-4xl">
           High-growing businesses work with Vision Labs to activate their data
         </h2>
-      </div>
-
+      </div>{" "}
       <div className="grid gap-8 md:grid-cols-3">
         {testimonials.map((testimonial, i) => (
           <Card key={i}>

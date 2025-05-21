@@ -73,7 +73,6 @@ export default function OfferCreator() {
   // Generate offer using streamText and structured object
   const generateOffer = async () => {
     setIsLoading(true);
-
     try {
       const response = await fetch("/api/offer-creator", {
         method: "POST",
@@ -89,17 +88,14 @@ export default function OfferCreator() {
           guaranteeBonus: offerDetails.guaranteeBonus,
         }),
       });
-
       const reader = response.body?.getReader();
       const decoder = new TextDecoder();
       let result = "";
-
       while (true) {
         const { done, value } = (await reader?.read()) || {};
         if (done) break;
         result += decoder.decode(value);
       }
-
       setGeneration(JSON.parse(result));
       setIsLoading(false);
     } catch (error) {
@@ -135,8 +131,7 @@ export default function OfferCreator() {
                 ))}
               </SelectContent>
             </Select>
-          </div>
-
+          </div>{" "}
           {offerDetails.businessType === "Other" && (
             <div className="space-y-2">
               <Label>Specify Business Type</Label>
@@ -148,8 +143,7 @@ export default function OfferCreator() {
                 }
               />
             </div>
-          )}
-
+          )}{" "}
           {/* Target Audience */}
           <div className="space-y-2">
             <Label>Target Audience</Label>
@@ -160,8 +154,7 @@ export default function OfferCreator() {
                 handleInputChange("targetAudience", e.target.value)
               }
             />
-          </div>
-
+          </div>{" "}
           {/* Dream Outcome */}
           <div className="space-y-2">
             <Label>Dream Outcome</Label>
@@ -172,8 +165,7 @@ export default function OfferCreator() {
                 handleInputChange("dreamOutcome", e.target.value)
               }
             />
-          </div>
-
+          </div>{" "}
           {/* Effort Level */}
           <div className="space-y-2">
             <Label>Effort Level Required</Label>
@@ -192,8 +184,7 @@ export default function OfferCreator() {
                 ))}
               </SelectContent>
             </Select>
-          </div>
-
+          </div>{" "}
           {/* Probability of Success */}
           <div className="space-y-2">
             <Label>Probability of Success</Label>
@@ -214,8 +205,7 @@ export default function OfferCreator() {
                 ))}
               </SelectContent>
             </Select>
-          </div>
-
+          </div>{" "}
           {/* Unique Process & Guarantee */}
           <div className="space-y-2">
             <Label>Unique Process Description</Label>
@@ -226,8 +216,7 @@ export default function OfferCreator() {
                 handleInputChange("uniqueProcessDescription", e.target.value)
               }
             />
-          </div>
-
+          </div>{" "}
           <div className="space-y-2">
             <Label>Guarantee or Bonus</Label>
             <Input
@@ -237,8 +226,7 @@ export default function OfferCreator() {
                 handleInputChange("guaranteeBonus", e.target.value)
               }
             />
-          </div>
-
+          </div>{" "}
           {/* Generate Button */}
           <Button
             onClick={generateOffer}
@@ -246,8 +234,7 @@ export default function OfferCreator() {
             className="w-full"
           >
             Generate Hormozi-Style Offer
-          </Button>
-
+          </Button>{" "}
           {generation && !isLoading && (
             <OfferResultDisplay generation={generation} />
           )}

@@ -21,12 +21,9 @@ export default function WhyChooseSection({
     <Container className="py-12">
       <div className="bg-primary/10 text-primary mb-6 inline-block rounded-full px-3 py-1 text-sm font-medium">
         {eyebrow}
-      </div>
-
-      <h2>{heading}</h2>
-
-      <h4 className="text-muted-foreground max-w-3xl">{subheading}</h4>
-
+      </div>{" "}
+      <h2>{heading}</h2>{" "}
+      <h4 className="text-muted-foreground max-w-3xl">{subheading}</h4>{" "}
       <div className="grid items-center justify-center gap-12 md:grid-cols-2">
         <div className="space-y-8">
           {value.map((text, i) => (
@@ -37,8 +34,7 @@ export default function WhyChooseSection({
               <div className="text-lg">{text}</div>
             </div>
           ))}
-        </div>
-
+        </div>{" "}
         <div className="relative">
           <Image
             src={image || "/images/social-sharing.png"}

@@ -98,14 +98,12 @@ export async function createCareerApplication(
     expectedSalary: formData.get("expectedSalary"),
     salaryTargetIn3Years: formData.get("salaryTargetIn3Years"),
     futureInFiveYears: formData.get("futureInFiveYears"),
-
     createdAt: Timestamp.now(),
   });
 
   try {
     const applicationDocRef = doc(applicationsCollection, timestampId);
     await setDoc(applicationDocRef, data);
-
     await resend.emails.send({
       from: "no-reply@trackingacademy.com",
       to: data.email,
@@ -120,7 +118,6 @@ export async function createCareerApplication(
         createdAt: data.createdAt,
       }),
     });
-
     (await cookies()).set(
       "user_data",
       JSON.stringify({
@@ -133,7 +130,6 @@ export async function createCareerApplication(
       }),
       { httpOnly: true, path: "/", maxAge: 60 * 60 * 24 * 7 },
     );
-
     return {
       message: `Application submitted by ${data.firstName} ${data.lastName}`,
     };

@@ -8,8 +8,7 @@ export default async function Page() {
   const operations = await getOffersData("app/funnels");
   return (
     <div>
-      <Navbar />
-
+      <Navbar />{" "}
       <h3 className="container-primary py-6 text-center text-3xl font-bold">
         Funnels
       </h3>

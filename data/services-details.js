@@ -16,7 +16,6 @@ const servicesDetails = [
       Let's bring your analytics back to life!
       💌Message Us Now.
       Hassan`,
-
     packages: [
       {
         name: "Service Tier",
@@ -69,7 +68,6 @@ const servicesDetails = [
         I am open to custom requests. Let's bring your analytics back to life!
         💌Message Us Now.
         Hassan`,
-
     packages: [
       {
         name: "Service Tier",
@@ -177,7 +175,6 @@ const servicesDetails = [
       I am open to custom requests. Let's bring your analytics back to life!
       💌 Message Us Now.
       Hassan`,
-
     packages: [
       {
         name: "Service Tier",
@@ -234,7 +231,6 @@ const servicesDetails = [
       I am open to custom requests. Let's bring your analytics back to life!
       💌Message Us Now.
       Hassan`,
-
     packages: [
       {
         name: "Service Tier",
@@ -344,7 +340,6 @@ const servicesDetails = [
       I am open to custom requests. Let's improve your Bing Ads performance today!
       💌 Message Us Now.
       Hassan`,
-
     packages: [
       {
         name: "Service Tier",

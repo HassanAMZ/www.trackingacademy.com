@@ -47,8 +47,7 @@ export default function AlternativesSection({
   return (
     <Container className="py-12">
       <h2 className="mb-8">{heading}</h2>
-      <h4 className="text-muted-foreground mb-8">{subheading}</h4>
-
+      <h4 className="text-muted-foreground mb-8">{subheading}</h4>{" "}
       <div className="mb-12 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
         {values.map((prop) => (
           <Card key={prop.number} className="border-primary/20 border-2">
@@ -61,13 +60,11 @@ export default function AlternativesSection({
             </CardContent>
           </Card>
         ))}
-      </div>
-
+      </div>{" "}
       <div className="space-y-4">
         <div className="bg-primary/10 text-primary inline-block rounded-full px-3 py-1 text-sm font-medium">
           Alternatives:
-        </div>
-
+        </div>{" "}
         <div className="space-y-2">
           {alternatives.map((alternative, index) => (
             <Collapsible

@@ -30,14 +30,11 @@ function PaymentForm() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-
     if (!stripe || !elements) {
       return;
     }
-
     setIsLoading(true);
     setError(null);
-
     try {
       const { error: submitError } = await stripe.confirmPayment({
         elements,
@@ -52,7 +49,6 @@ function PaymentForm() {
           },
         },
       });
-
       if (submitError) {
         if (
           submitError.type === "card_error" ||
@@ -99,20 +95,17 @@ function PaymentForm() {
           required
           className="h-12"
         />
-      </div>
-
+      </div>{" "}
       <div className="rounded-lg border bg-white p-4">
         <PaymentElement options={paymentElementOptions} />
-      </div>
-
+      </div>{" "}
       {error && (
         <Alert variant="destructive">
           <AlertCircle className="h-4 w-4" />
           <AlertTitle>Error</AlertTitle>
           <AlertDescription>{error}</AlertDescription>
         </Alert>
-      )}
-
+      )}{" "}
       {success && (
         <Alert className="border-green-200 bg-green-50">
           <CheckCircle className="h-4 w-4 text-green-500" />
@@ -121,8 +114,7 @@ function PaymentForm() {
             {success}
           </AlertDescription>
         </Alert>
-      )}
-
+      )}{" "}
       <Button
         type="submit"
         disabled={isLoading || !stripe || !elements}
@@ -136,8 +128,7 @@ function PaymentForm() {
         ) : (
           "Secure Payment - $1,200"
         )}
-      </Button>
-
+      </Button>{" "}
       <p className="text-muted-foreground text-center text-xs">
         Your payment is secured with 256-bit SSL encryption
       </p>

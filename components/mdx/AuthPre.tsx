@@ -1,8 +1,14 @@
 "use client";
 
-import { PreProps } from "@/types/index";
 import AuthenticatedLayout from "../layouts/AuthenticatedLayout";
 import Pre from "./Pre";
+
+type PreProps = React.DetailedHTMLProps<
+  React.HTMLAttributes<HTMLPreElement>,
+  HTMLPreElement
+> & {
+  language?: string;
+};
 
 const AuthPre: React.FC<PreProps> = ({ language, children }) => {
   return (

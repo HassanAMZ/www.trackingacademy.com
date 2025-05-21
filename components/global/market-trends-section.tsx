@@ -4,8 +4,7 @@ import Container from "@/components/ui/container";
 export const MarketTrendsSection = ({ trendCards }: { trendCards: any }) => {
   return (
     <Container className="max-w-4xl! space-y-12">
-      <h2 className="text-center">How data fueled advertising is changing</h2>
-
+      <h2 className="text-center">How data fueled advertising is changing</h2>{" "}
       <div className="grid gap-4 md:grid-cols-3">
         {trendCards.map((card: any, index: any) => (
           <Card key={index} className="border-primary/20">
@@ -20,8 +19,7 @@ export const MarketTrendsSection = ({ trendCards }: { trendCards: any }) => {
             </CardContent>
           </Card>
         ))}
-      </div>
-
+      </div>{" "}
       <p className="text-muted-foreground text-center">
         And as a result, the picture of the customer journey is no longer
         complete

@@ -272,8 +272,7 @@ export default function ContactForm({
             <div className="py-6 text-left md:text-center">
               {formHeader && <h1>Join Our Course Waitlist</h1>}
               <p>Please provide your personal information.</p>
-            </div>
-
+            </div>{" "}
             <div className="grid gap-3">
               <div className="grid w-full items-center">
                 <Label className="pb-2" htmlFor="firstName">
@@ -290,8 +289,7 @@ export default function ContactForm({
                 {errors.firstName && (
                   <span className="text-destructive">{errors.firstName}</span>
                 )}
-              </div>
-
+              </div>{" "}
               <div className="grid w-full items-center">
                 <Label className="pb-2" htmlFor="lastName">
                   Last Name
@@ -307,8 +305,7 @@ export default function ContactForm({
                 {errors.lastName && (
                   <span className="text-destructive">{errors.lastName}</span>
                 )}
-              </div>
-
+              </div>{" "}
               <div className="grid w-full items-center">
                 <Label className="pb-2" htmlFor="email">
                   Email Address
@@ -324,8 +321,7 @@ export default function ContactForm({
                 {errors.email && (
                   <span className="text-destructive">{errors.email}</span>
                 )}
-              </div>
-
+              </div>{" "}
               <div className="grid w-full items-center">
                 <Label className="pb-2" htmlFor="phone">
                   Phone Number
@@ -342,8 +338,7 @@ export default function ContactForm({
                   <span className="text-destructive">{errors.phone}</span>
                 )}
               </div>
-            </div>
-
+            </div>{" "}
             <Button className="w-max self-end" type="button" onClick={nextStep}>
               Continue
             </Button>
@@ -370,8 +365,7 @@ export default function ContactForm({
                     {errors.currentOccupation}
                   </span>
                 )}
-              </div>
-
+              </div>{" "}
               <div className="grid w-full items-center">
                 <Label className="pb-2" htmlFor="interestedCourse">
                   Interested Course
@@ -389,8 +383,7 @@ export default function ContactForm({
                     {errors.interestedCourse}
                   </span>
                 )}
-              </div>
-
+              </div>{" "}
               <div className="grid w-full items-center">
                 <Label className="pb-2" htmlFor="skills">
                   Skills
@@ -405,8 +398,7 @@ export default function ContactForm({
                 {errors.skills && (
                   <span className="text-destructive">{errors.skills}</span>
                 )}
-              </div>
-
+              </div>{" "}
               <div className="grid w-full items-center">
                 <Label className="pb-2" htmlFor="referralSource">
                   How did you hear about us?
@@ -425,8 +417,7 @@ export default function ContactForm({
                   </span>
                 )}
               </div>
-            </div>
-
+            </div>{" "}
             <div className="flex justify-between">
               <Button type="button" variant={"outline"} onClick={prevStep}>
                 Previous
@@ -456,8 +447,7 @@ export default function ContactForm({
                 {errors.education && (
                   <span className="text-destructive">{errors.education}</span>
                 )}
-              </div>
-
+              </div>{" "}
               <div className="grid w-full items-center">
                 <Label className="pb-2" htmlFor="learningGoals">
                   Learning Goals
@@ -474,8 +464,7 @@ export default function ContactForm({
                     {errors.learningGoals}
                   </span>
                 )}
-              </div>
-
+              </div>{" "}
               <div className="grid w-full items-center">
                 <Label className="pb-2" htmlFor="preferredLearningStyle">
                   Preferred Learning Style
@@ -504,8 +493,7 @@ export default function ContactForm({
                     {errors.preferredLearningStyle}
                   </span>
                 )}
-              </div>
-
+              </div>{" "}
               <div className="grid w-full items-center">
                 <Label className="pb-2" htmlFor="budget">
                   Budget for the Course (USD)
@@ -521,8 +509,7 @@ export default function ContactForm({
                 {errors.budget && (
                   <span className="text-destructive">{errors.budget}</span>
                 )}
-              </div>
-
+              </div>{" "}
               <div className="grid w-full items-center">
                 <Label className="pb-2" htmlFor="availability">
                   Availability (Hours per week)
@@ -541,8 +528,7 @@ export default function ContactForm({
                   </span>
                 )}
               </div>
-            </div>
-
+            </div>{" "}
             <div className="flex justify-between">
               <Button type="button" variant={"outline"} onClick={prevStep}>
                 Previous
@@ -585,8 +571,7 @@ export default function ContactForm({
                     {errors.courseDurationPreference}
                   </span>
                 )}
-              </div>
-
+              </div>{" "}
               <div className="grid w-full items-center">
                 <Label className="pb-2" htmlFor="experienceLevel">
                   Experience Level
@@ -612,8 +597,7 @@ export default function ContactForm({
                     {errors.experienceLevel}
                   </span>
                 )}
-              </div>
-
+              </div>{" "}
               <div className="grid w-full items-center">
                 <Label className="pb-2" htmlFor="languagePreference">
                   Preferred Language for Course
@@ -641,8 +625,7 @@ export default function ContactForm({
                     {errors.languagePreference}
                   </span>
                 )}
-              </div>
-
+              </div>{" "}
               <div className="grid w-full items-center">
                 <Label className="pb-2" htmlFor="courseFormatPreference">
                   Preferred Course Format
@@ -668,8 +651,7 @@ export default function ContactForm({
                     {errors.courseFormatPreference}
                   </span>
                 )}
-              </div>
-
+              </div>{" "}
               <div className="grid w-full items-center">
                 <Label className="pb-2" htmlFor="expectations">
                   Expectations from the Course
@@ -686,8 +668,7 @@ export default function ContactForm({
                     {errors.expectations}
                   </span>
                 )}
-              </div>
-
+              </div>{" "}
               <div className="grid w-full items-center">
                 <Label className="pb-2" htmlFor="futureGoals">
                   Future Goals
@@ -702,8 +683,7 @@ export default function ContactForm({
                 {errors.futureGoals && (
                   <span className="text-destructive">{errors.futureGoals}</span>
                 )}
-              </div>
-
+              </div>{" "}
               <div className="grid w-full items-center">
                 <Label className="pb-2" htmlFor="additionalComments">
                   Additional Comments
@@ -715,13 +695,11 @@ export default function ContactForm({
                   onChange={handleInputChange}
                 />
               </div>
-            </div>
-
+            </div>{" "}
             <div className="flex justify-between">
               <Button type="button" variant={"outline"} onClick={prevStep}>
                 Previous
-              </Button>
-
+              </Button>{" "}
               <SubmitButton validateStep={() => validateStep(currentStep)} />
             </div>
           </>

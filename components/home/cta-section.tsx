@@ -15,14 +15,12 @@ export function CTASection() {
           Finally, a single source of truth for your leading revenue metrics,
           without burdening your internal team.
         </p>
-      </div>
-
+      </div>{" "}
       <div className="flex justify-center">
         <Button size="lg" className="text-lg">
           Book Intro call
         </Button>
-      </div>
-
+      </div>{" "}
       <Card className="mt-12">
         <CardContent className="p-8">
           <div className="mb-4 flex items-center space-x-2">

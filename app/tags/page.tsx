@@ -1,12 +1,35 @@
-import TagsContainer from "@/components/tag/TagsContainer";
+import TagContainer from "@/components/tag/tag-container";
+import Container from "@/components/ui/container";
+import { Tag } from "lucide-react";
+import { Metadata } from "next";
 import getBlogAndTagsData from "utils/getBlogAndTagsData";
 
-export default async function Page() {
+export const metadata: Metadata = {
+  title: "Browse Tags | Blog",
+  description: "Explore our content organized by tags",
+  openGraph: {
+    title: "Browse Tags | Blog",
+    description:
+      "Find content by topic and explore our entire collection organized by tags",
+    images: ["/images/tags-banner.jpg"], // Add your own OG image here
+  },
+};
+
+export default async function TagsPage() {
   const { tags, blogs } = await getBlogAndTagsData();
 
   return (
-    <div className="flex flex-col gap-2">
-      <TagsContainer tags={tags} type="tag" blogsData={blogs} />
-    </div>
+    <Container className="py-12">
+      <div className="mb-8 text-center">
+        <div className="flex items-center justify-center gap-2 mb-2">
+          <Tag className="h-8 w-8 text-primary" />
+          <h1 className="text-4xl font-bold">Browse by Tags</h1>
+        </div>
+        <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+          Discover {blogs.length} articles organized across {tags.length} topics
+        </p>
+      </div>{" "}
+      <TagContainer tags={tags} blogsData={blogs} />
+    </Container>
   );
 }

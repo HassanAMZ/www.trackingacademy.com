@@ -28,11 +28,9 @@ export async function continueConversation(
       system: system,
       messages: history,
     });
-
     for await (const text of textStream) {
       stream.update(text);
     }
-
     stream.done();
   })();
 

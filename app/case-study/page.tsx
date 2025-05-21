@@ -27,8 +27,7 @@ export default function CaseStudiesPage() {
           >
             <Card className="bg-background/80 backdrop-blur-xs overflow-hidden flex flex-col h-full transition-all duration-300 group-hover:scale-[1.02] group-hover:shadow-lg relative">
               {/* Gradient overlay that appears on hover - similar to TestimonialCard */}
-              <div className="absolute inset-0 bg-gradient-to-t from-primary/20 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100 z-10"></div>
-
+              <div className="absolute inset-0 bg-gradient-to-t from-primary/20 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100 z-10"></div>{" "}
               <CardHeader className="relative z-20">
                 <div className="overflow-hidden rounded-lg border">
                   <Image
@@ -58,8 +57,7 @@ export default function CaseStudiesPage() {
                 <Button variant="outline" className="w-full  cursor-pointer ">
                   View Case Study
                 </Button>
-              </CardContent>
-
+              </CardContent>{" "}
               {/* External link icon that appears on hover - similar to TestimonialCard */}
               <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 opacity-0 transition-opacity duration-300 group-hover:opacity-100 z-30">
                 <div className="bg-primary text-white rounded-full p-3 shadow-lg">

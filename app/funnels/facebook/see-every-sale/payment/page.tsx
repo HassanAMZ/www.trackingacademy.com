@@ -101,10 +101,8 @@ const ProductDetails = ({
       <div className="flex items-center justify-between">
         <h2 className="text-xl font-semibold">{product.name}</h2>
         <span className="text-lg font-bold">{originalAmount}</span>
-      </div>
-
-      <p className="text-muted-foreground text-sm">{product.description}</p>
-
+      </div>{" "}
+      <p className="text-muted-foreground text-sm">{product.description}</p>{" "}
       {appliedPromo && (
         <div className="bg-accent border-accent rounded border p-3">
           <div className="flex items-center justify-between">
@@ -114,10 +112,8 @@ const ProductDetails = ({
             <span className="text-accent-foreground">-{discountAmount}</span>
           </div>
         </div>
-      )}
-
-      <Separator />
-
+      )}{" "}
+      <Separator />{" "}
       <div className="flex items-center justify-between pt-2">
         <span className="font-medium">Total</span>
         <span className="text-xl font-bold">{finalAmount}</span>
@@ -166,14 +162,12 @@ const PromoCodeForm = ({
             "Apply"
           )}
         </Button>
-      </div>
-
+      </div>{" "}
       {error && (
         <Alert variant="destructive" className="py-2">
           <AlertDescription>{error}</AlertDescription>
         </Alert>
-      )}
-
+      )}{" "}
       {success && (
         <Alert variant="default" className="bg-accent border-accent py-2">
           <AlertDescription className="text-accent-foreground">
@@ -194,12 +188,9 @@ const CheckoutForm = ({ clientSecret, productDetails }: PaymentFormProps) => {
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
-
     if (!stripe || !elements) return;
-
     setIsProcessing(true);
     setPaymentError("");
-
     try {
       const { error } = await stripe.confirmPayment({
         elements,
@@ -212,7 +203,6 @@ const CheckoutForm = ({ clientSecret, productDetails }: PaymentFormProps) => {
           },
         },
       });
-
       if (error) {
         setPaymentError(error.message || "Payment failed. Please try again.");
       }
@@ -226,14 +216,12 @@ const CheckoutForm = ({ clientSecret, productDetails }: PaymentFormProps) => {
 
   return (
     <form onSubmit={handleSubmit} className="w-full space-y-6">
-      <PaymentElement />
-
+      <PaymentElement />{" "}
       {paymentError && (
         <Alert variant="destructive">
           <AlertDescription>{paymentError}</AlertDescription>
         </Alert>
-      )}
-
+      )}{" "}
       <Button
         type="submit"
         className="w-full"
@@ -273,9 +261,7 @@ const CheckoutPage = () => {
         });
         if (!productRes.ok) throw new Error("Failed to load product");
         const productData = await productRes.json();
-        setProduct(productData);
-
-        // Create initial payment intent
+        setProduct(productData); // Create initial payment intent
         const paymentRes = await fetch("/api/stripe/create-payment-intent", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
@@ -292,7 +278,6 @@ const CheckoutPage = () => {
         setIsLoading(false);
       }
     };
-
     initCheckout();
   }, []);
 
@@ -301,7 +286,6 @@ const CheckoutPage = () => {
     setIsApplyingPromo(true);
     setPromoError("");
     setPromoSuccess(false);
-
     try {
       const res = await fetch("/api/stripe/apply-promo", {
         method: "POST",
@@ -311,15 +295,11 @@ const CheckoutPage = () => {
           promotionCode: code,
         }),
       });
-
       const data = await res.json();
-
       if (!res.ok) {
         setPromoError(data.error || "Failed to apply promo code");
         return;
-      }
-
-      // Update client secret and promo details
+      } // Update client secret and promo details
       setClientSecret(data.clientSecret);
       setAppliedPromo(data.promoDetails);
       setPromoSuccess(true);
@@ -367,13 +347,11 @@ const CheckoutPage = () => {
   return (
     <div className="container mx-auto px-4 py-12">
       <div className="mx-auto max-w-4xl">
-        <h1 className="mb-8 text-center text-3xl font-bold">Checkout</h1>
-
+        <h1 className="mb-8 text-center text-3xl font-bold">Checkout</h1>{" "}
         <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
           {/* Product info and promo section */}
           <div className="space-y-6">
-            <ProductDetails product={product} appliedPromo={appliedPromo} />
-
+            <ProductDetails product={product} appliedPromo={appliedPromo} />{" "}
             <Card className="p-4">
               <h3 className="mb-3 font-medium">Have a promo code?</h3>
               <PromoCodeForm
@@ -383,8 +361,7 @@ const CheckoutPage = () => {
                 success={promoSuccess}
               />
             </Card>
-          </div>
-
+          </div>{" "}
           {/* Payment section */}
           <div>
             <Card className="p-6">

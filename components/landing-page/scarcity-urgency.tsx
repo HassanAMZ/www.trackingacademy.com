@@ -32,11 +32,9 @@ const ScarcityUrgency: React.FC<ScarcityUrgencyProps> = ({
     <Container className="flex items-center justify-center">
       <section className="bg-primary text-primary-foreground flex w-full flex-col items-center justify-center space-y-8 rounded-lg px-8 py-24 text-center">
         {/* Title Section */}
-        {title && <h2 className="max-w-3xl">{title}</h2>}
-
+        {title && <h2 className="max-w-3xl">{title}</h2>}{" "}
         {/* Description Section */}
-        {description && <h4 className="max-w-3xl">{description}</h4>}
-
+        {description && <h4 className="max-w-3xl">{description}</h4>}{" "}
         {/* Spots and Days Remaining */}
         {/* {(spotsLeft || daysRemaining) && (
           <div className="flex justify-center gap-12">
@@ -48,9 +46,7 @@ const ScarcityUrgency: React.FC<ScarcityUrgencyProps> = ({
                 </Text>
                 <Text>Spots Left</Text>
               </div>
-            )}
-
-            {daysRemaining !== undefined && (
+            )}        {daysRemaining !== undefined && (
               <div className="flex flex-col items-center">
                 <Clock className={`mb-2 h-${iconSize} w-${iconSize}`} />
                 <Text variant="headingXl" className="mb-1">
@@ -60,8 +56,7 @@ const ScarcityUrgency: React.FC<ScarcityUrgencyProps> = ({
               </div>
             )}
           </div>
-        )} */}
-
+        )} */}{" "}
         {/* Button Section */}
         <div className="flex max-w-xl items-center space-x-4">
           {ctaButtonText && (

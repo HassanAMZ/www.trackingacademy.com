@@ -17,7 +17,6 @@ export default async function getTags(): Promise<string[]> {
     const fileContents = fs.readFileSync(fileName, "utf8");
     const { content } = matter(fileContents) as GrayMatterFile<string>;
     const data = extractMetaFromStringForBlog(content);
-
     if (data && data.tags) {
       allTags.push(...data.tags);
     }

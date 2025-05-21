@@ -35,8 +35,7 @@ export default function TermsOfService() {
               analytics@TrackingAcademy.com.
             </p>
           </section>
-        </main>
-
+        </main>{" "}
         <footer className="border-t">
           <div className="container mx-auto flex justify-between px-4 py-4">
             <p>&copy; 2025 Conversion Confidence. All rights reserved.</p>

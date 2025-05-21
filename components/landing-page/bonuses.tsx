@@ -43,8 +43,7 @@ const Bonuses: React.FC<BonusesProps> = ({
               <p className="text-muted-foreground">{sectionDescription}</p>
             )}
           </div>
-        )}
-
+        )}{" "}
         {/* Bonuses List */}
         {bonuses && bonuses.length > 0 && (
           <div className="w-full space-y-12">
@@ -62,13 +61,11 @@ const Bonuses: React.FC<BonusesProps> = ({
                         <h3 className="flex items-center">
                           <bonus.icon className="text-primary mr-4 h-12 w-12" />
                           {bonus.title}
-                        </h3>
-
+                        </h3>{" "}
                         {/* Description */}
                         <p className="text-muted-foreground">
                           {bonus.description}
-                        </p>
-
+                        </p>{" "}
                         {/* Details List */}
                         {bonus.details && bonus.details.length > 0 && (
                           <div className="space-y-4">
@@ -82,8 +79,7 @@ const Bonuses: React.FC<BonusesProps> = ({
                               ))}
                             </ul>
                           </div>
-                        )}
-
+                        )}{" "}
                         {/* Features List */}
                         {bonus.features && bonus.features.length > 0 && (
                           <div className="space-y-4">
@@ -98,8 +94,7 @@ const Bonuses: React.FC<BonusesProps> = ({
                             </ul>
                           </div>
                         )}
-                        {/* Value  */}
-
+                        {/* Value  */}{" "}
                         <div className="bg-background/80 inline-block w-fit rounded-lg p-4 backdrop-blur-xs">
                           <p className="text-primary">
                             {bonus.value}
@@ -109,8 +104,7 @@ const Bonuses: React.FC<BonusesProps> = ({
                           </p>
                         </div>
                       </div>
-                    </div>
-
+                    </div>{" "}
                     {/* Image Side */}
                     {bonus.image && (
                       <div className="flex items-center justify-center">
@@ -128,14 +122,12 @@ const Bonuses: React.FC<BonusesProps> = ({
               </section>
             ))}
           </div>
-        )}
-
+        )}{" "}
         {/* Total Value and CTA Section */}
         {totalBonusValue && (
           <section className="bg-primary/10 w-full rounded-lg px-4 py-16 text-center shadow-lg">
             <Container className="space-y-8">
-              <h3>Total Bonus Value: {totalBonusValue}</h3>
-
+              <h3>Total Bonus Value: {totalBonusValue}</h3>{" "}
               {actionButtonText && actionButtonLink && (
                 <Button
                   size="lg"

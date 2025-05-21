@@ -214,16 +214,12 @@ const UTMBuilder: React.FC = () => {
         if (defaultValue) allTemplates.add(defaultValue);
       });
     });
-
     return allTemplates.has(value);
   };
 
   const buildFinalUrl = (): string => {
     if (!websiteUrl) return "";
-
-    const params = new URLSearchParams();
-
-    // Process UTM parameters
+    const params = new URLSearchParams(); // Process UTM parameters
     Object.entries(utmParams).forEach(([key, value]) => {
       if (value) {
         const paramKey = `utm_${key.toLowerCase()}`;
@@ -235,9 +231,7 @@ const UTMBuilder: React.FC = () => {
           params.append(paramKey, encodeURIComponent(value));
         }
       }
-    });
-
-    // Process custom fields
+    }); // Process custom fields
     customFields.forEach((field) => {
       if (field.name && field.value) {
         if (isTemplate(field.value)) {
@@ -248,32 +242,24 @@ const UTMBuilder: React.FC = () => {
         }
       }
     });
-
     const decodeDynamicPlaceholders = (
       params: URLSearchParams,
       platformDefaults: UTMParams,
     ): string => {
       // Build a map of encoded -> decoded placeholders
       const placeholderMap: { [key: string]: string } = {};
-
       Object.values(platformDefaults).forEach((value) => {
         if (value) {
           const encodedValue = encodeURIComponent(value);
           placeholderMap[encodedValue] = value;
         }
-      });
-
-      // Convert params to a query string
-      let queryString = params.toString();
-
-      // Replace only placeholders found in the map
+      }); // Convert params to a query string
+      let queryString = params.toString(); // Replace only placeholders found in the map
       Object.entries(placeholderMap).forEach(([encoded, decoded]) => {
         queryString = queryString.replace(new RegExp(encoded, "g"), decoded);
       });
-
       return queryString;
     };
-
     const queryString = decodeDynamicPlaceholders(
       params,
       platformConfigs[selectedPlatform].defaults,
@@ -293,7 +279,6 @@ const UTMBuilder: React.FC = () => {
       customFields,
       finalUrl,
     };
-
     const blob = new Blob([JSON.stringify(data, null, 2)], {
       type: "application/json",
     });
@@ -326,7 +311,6 @@ const UTMBuilder: React.FC = () => {
       source: !utmParams.source ? "Source is required" : "",
       medium: !utmParams.medium ? "Medium is required" : "",
     };
-
     setErrors(newErrors);
     return !Object.values(newErrors).some((error) => error);
   };
@@ -352,7 +336,6 @@ const UTMBuilder: React.FC = () => {
       });
       return;
     }
-
     try {
       await navigator.clipboard.writeText(finalUrl);
       toast({
@@ -424,8 +407,7 @@ const UTMBuilder: React.FC = () => {
                     ))}
                   </SelectContent>
                 </Select>
-              </div>
-
+              </div>{" "}
               {/* URL Input */}
               <div>
                 <Label>Website URL</Label>
@@ -523,8 +505,7 @@ const UTMBuilder: React.FC = () => {
                 </div>
               </div>
             </CardContent>
-          </Card>
-
+          </Card>{" "}
           {/* Preview */}
           <div className="space-y-6">
             <Card>
@@ -546,8 +527,7 @@ const UTMBuilder: React.FC = () => {
                   )}
                 </div>
               </CardContent>
-            </Card>
-
+            </Card>{" "}
             {finalUrl && validateUrl(websiteUrl) && (
               <Card>
                 <CardHeader>
@@ -564,8 +544,7 @@ const UTMBuilder: React.FC = () => {
                   </div>
                 </CardContent>
               </Card>
-            )}
-
+            )}{" "}
             <div className="flex justify-end gap-4">
               <Button
                 onClick={handleDownload}
@@ -574,8 +553,7 @@ const UTMBuilder: React.FC = () => {
               >
                 <Download size={16} /> Download Configuration
               </Button>
-            </div>
-
+            </div>{" "}
             <ContactUs />
           </div>
         </div>

@@ -52,32 +52,27 @@ export default function CouponRequestEmail({
               alt="Tracking Academy Logo"
               style={logo}
             />
-          </Section>
-
+          </Section>{" "}
           {/* Hero Section */}
           <Section style={heroSection}>
-            <Heading style={heading}>Your $300 Coupon Is Ready!</Heading>
-
+            <Heading style={heading}>Your $300 Coupon Is Ready!</Heading>{" "}
             <Text style={greeting}>Hi {name},</Text>
             <Text style={paragraph}>
               Thanks for your interest in our 3-Day "See Every Sale" Tracking
               System. Here's your exclusive $300 coupon code to use during
               checkout:
-            </Text>
-
+            </Text>{" "}
             {/* Coupon Code Box */}
             <Section style={couponBox}>
               <Text style={couponText}>{couponCode}</Text>
-            </Section>
-
+            </Section>{" "}
             <Text style={paragraph}>
               This coupon gives you $300 OFF the complete 3-Day "See Every Sale"
               Tracking System — helping you fix Facebook's data sharing
               restrictions and restore 95%+ accurate data for every ecommerce
               event.
             </Text>
-          </Section>
-
+          </Section>{" "}
           {/* CTA Section */}
           <Section style={ctaSection}>
             <Heading as="h2" style={subheading}>
@@ -101,8 +96,7 @@ export default function CouponRequestEmail({
                 Or use this direct link to purchase with your coupon:{" "}
               </Link>
             </Text>
-          </Section>
-
+          </Section>{" "}
           {/* What You'll Get */}
           <Section style={bonusSection}>
             <Heading as="h2" style={subheading}>
@@ -135,8 +129,7 @@ export default function CouponRequestEmail({
               Limited offer for the first 10 clients only — act fast before it
               expires!
             </Text>
-          </Section>
-
+          </Section>{" "}
           {/* Footer */}
           <Section style={footer}>
             <Text style={footerText}>

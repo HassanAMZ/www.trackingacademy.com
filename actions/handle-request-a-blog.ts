@@ -38,7 +38,6 @@ export async function handleRequestABlogForm(
   try {
     const requestDocRef = doc(requestsCollection, timestampId);
     await setDoc(requestDocRef, data);
-
     await resend.emails.send({
       from: "no-reply@trackingacademy.com",
       to: data.email,
@@ -50,7 +49,6 @@ export async function handleRequestABlogForm(
         createdAt: data.createdAt,
       }),
     });
-
     return { message: `Blog request received for ${data.searchTerm}` };
   } catch (e) {
     console.error("Failed to create blog request or send email", e);

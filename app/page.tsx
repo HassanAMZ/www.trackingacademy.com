@@ -34,10 +34,8 @@ export default function HomePage() {
         supportingButtonLink="#case-studies"
         youtubeEmbedId="9MGpL_AmEYM"
         supportingComponent={<CaseStudyCarousel caseStudies={caseStudies} />}
-      />
-
-      {/* <CaseStudy client={caseStudies[1]} /> */}
-
+      />{" "}
+      {/* <CaseStudy client={caseStudies[1]} /> */}{" "}
       <ProblemAwareness
         headingText="The Hidden Costs of Inefficient Analytics and Outdated Systems"
         paragraphText="Manual processes and chaotic data overwhelm teams, draining time and money while delivering few actionable insights."
@@ -56,8 +54,7 @@ export default function HomePage() {
           "Stay Compliant & Profitable",
           "Turn Every Dollar into More Revenue",
         ]}
-      />
-
+      />{" "}
       {/* <DreamOutcome
         heading="Imagine Effortless Growth"
         subheading="Our System Ensures Precision, Saves Time, and Maximizes ROI"
@@ -84,8 +81,7 @@ export default function HomePage() {
               "Automate repetitive tasks and reclaim your time for high-impact activities.",
           },
         ]}
-      /> */}
-
+      /> */}{" "}
       <OfferDetails
         headerTitle="The Conversion Confidence Suite"
         headerDescription="A complete system designed to solve your tracking headaches, recover lost revenue, and supercharge your ROI."
@@ -103,7 +99,6 @@ export default function HomePage() {
             ],
             image: "/images/hero/tracking-aduit.png",
           },
-
           {
             title: "Measurement Planning",
             description:
@@ -117,7 +112,6 @@ export default function HomePage() {
             ],
             image: "/images/hero/measurement-planning.png",
           },
-
           {
             title: "Server-Side Tracking Setup",
             description:
@@ -194,8 +188,7 @@ export default function HomePage() {
         ctaButtonText="Get Accurate Conversion Data"
         buttonLink="/contact"
         iconSize={12}
-      />
-
+      />{" "}
       <SocialProof
         sectionTitle="Our Clients Are Seeing Results – Will You Be Next?"
         sectionDescription="Here's how we've transformed other businesses like yours."
@@ -255,8 +248,7 @@ export default function HomePage() {
             image: "/images/hero/tools-and-calculators.png",
           },
         ]}
-      />
-
+      />{" "}
       <WhyChooseSection
         heading="Why Work With Us?"
         subheading="We bridge the gap between your data insights and marketing strategy, delivering key metrics and actionable recommendations."
@@ -267,8 +259,7 @@ export default function HomePage() {
           "Relieve yourself from data headaches and focus on scaling your business with sharp insights",
         ]}
         image="/images/hero/unified-dashboard.png"
-      />
-
+      />{" "}
       <ObjectionHandling
         sectionTitle="Our Guarantees – Your Success is Risk-Free"
         guarantees={[
@@ -285,8 +276,7 @@ export default function HomePage() {
             image: "/images/hero/money-back.png",
           },
         ]}
-      />
-
+      />{" "}
       <AlternativesSection
         heading="Other Options to Consider"
         subheading="Our service is ideal for you if you prioritize:"
@@ -337,8 +327,7 @@ export default function HomePage() {
               "Freelancers excel in one-off analytics tasks but may lack the strategic perspective to develop integrated, enterprise-level data systems aligned with your business goals. We prioritize understanding your model deeply, crafting bespoke data solutions, and maintaining an ongoing partnership that consistently provides actionable insights—not just sporadic projects.",
           },
         ]}
-      />
-
+      />{" "}
       <DetailedCTA
         heading="Fix Your Tracking, Maximize Your ROI"
         subheading="Act now to secure your spot and exclusive bonuses."

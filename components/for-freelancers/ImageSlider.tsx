@@ -24,14 +24,12 @@ const ImageSlider = () => {
           slidesToShow: 7,
         },
       },
-
       {
         breakpoint: 1024,
         settings: {
           slidesToShow: 4,
         },
       },
-
       {
         breakpoint: 480,
         settings: {

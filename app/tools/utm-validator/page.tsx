@@ -22,54 +22,7 @@ import { useEffect, useState } from "react";
 
 const REQUIRED_UTM_PARAMS = ["utm_source", "utm_medium", "utm_campaign"];
 
-interface PlatformConfig {
-  name: string;
-  description: string;
-}
-
-const platformConfigs: Record<string, PlatformConfig> = {
-  manual: {
-    name: "Custom URL",
-    description: "Validate any URL with UTM parameters",
-  },
-  google: {
-    name: "Google Ads",
-    description: "Validate Google Ads URL parameters",
-  },
-  facebook: {
-    name: "Facebook Ads",
-    description: "Validate Facebook Ads URL parameters",
-  },
-  tiktok: {
-    name: "TikTok Ads",
-    description: "Validate TikTok Ads URL parameters",
-  },
-  instagram: {
-    name: "Instagram Ads",
-    description: "Validate Instagram Ads URL parameters",
-  },
-  email: {
-    name: "Email Campaign",
-    description: "Validate email campaign URLs",
-  },
-  affiliate: {
-    name: "Affiliate",
-    description: "Validate affiliate tracking URLs",
-  },
-};
-
-const platformIcons = {
-  manual: BookMarked,
-  google: Chrome,
-  facebook: Facebook,
-  instagram: Instagram,
-  tiktok: TrendingUp,
-  email: Mail,
-  affiliate: Users,
-};
-
 const UTMValidator = () => {
-  const [selectedPlatform, setSelectedPlatform] = useState("manual");
   const [url, setUrl] = useState("");
   const [validationResults, setValidationResults] = useState({
     isHttps: false,
@@ -99,17 +52,13 @@ const UTMValidator = () => {
       });
       return;
     }
-
     setShowEmptyState(false);
-
     try {
       const urlObj = new URL(inputUrl);
       const params = new URLSearchParams(urlObj.search);
-
       const utmParams: Record<string, string> = {};
       const otherParams: Record<string, string> = {};
       const missingUtms: string[] = [];
-
       params.forEach((value, key) => {
         if (key.startsWith("utm_")) {
           utmParams[key] = value;
@@ -117,15 +66,12 @@ const UTMValidator = () => {
           otherParams[key] = value;
         }
       });
-
       REQUIRED_UTM_PARAMS.forEach((param) => {
         if (!utmParams[param]) {
           missingUtms.push(param);
         }
       });
-
       setParsedParams({ utmParams, otherParams });
-
       setValidationResults({
         isHttps: urlObj.protocol === "https:",
         isValidUrl: true,
@@ -229,8 +175,7 @@ const UTMValidator = () => {
                       value={url}
                       onChange={(e) => setUrl(e.target.value)}
                     />
-                  </div>
-
+                  </div>{" "}
                   {showEmptyState ? (
                     <EmptyState />
                   ) : (
@@ -280,8 +225,7 @@ const UTMValidator = () => {
                   )}
                 </div>
               </CardContent>
-            </Card>
-
+            </Card>{" "}
             {validationResults.isValidUrl && !showEmptyState && (
               <Card>
                 <CardHeader>
@@ -313,8 +257,7 @@ const UTMValidator = () => {
                             />
                           ))}
                       </div>
-                    </div>
-
+                    </div>{" "}
                     {Object.keys(parsedParams.otherParams).length > 0 && (
                       <div>
                         <h3 className="text-primary mb-2 font-semibold">
@@ -337,8 +280,7 @@ const UTMValidator = () => {
                 </CardContent>
               </Card>
             )}
-          </div>
-
+          </div>{" "}
           <div className="space-y-6">
             <Card>
               <CardHeader>

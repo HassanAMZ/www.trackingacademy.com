@@ -45,7 +45,6 @@ export const proposalsService = {
         content: data.content || [],
         clientPassword: Math.random().toString(36).slice(-8),
       });
-
       return docRef.id;
     } catch (error) {
       console.error("Error creating proposal:", error);
@@ -57,20 +56,16 @@ export const proposalsService = {
     try {
       const docRef = doc(db, "proposals", id);
       const docSnap = await getDoc(docRef);
-
       if (!docSnap.exists()) {
         return null;
       }
-
       const proposal = serializeProposal({
         id: docSnap.id,
         ...docSnap.data(),
       });
-
       if (proposal.status === "draft" || proposal.clientPassword === password) {
         return proposal;
       }
-
       return null;
     } catch (error) {
       console.error("Error getting proposal:", error);
@@ -83,7 +78,6 @@ export const proposalsService = {
       const proposalsRef = collection(db, "proposals");
       const q = query(proposalsRef, where("userId", "==", userId));
       const querySnapshot = await getDocs(q);
-
       return querySnapshot.docs.map((doc) =>
         serializeProposal({
           id: doc.id,
@@ -98,9 +92,7 @@ export const proposalsService = {
 
   async updateProposal(id: string, data: Partial<Proposal>) {
     try {
-      const docRef = doc(db, "proposals", id);
-
-      // Recursive function to sanitize the object
+      const docRef = doc(db, "proposals", id); // Recursive function to sanitize the object
       const sanitizeData = (input: any): any => {
         if (Array.isArray(input)) {
           // Recursively sanitize each element in the array
@@ -117,11 +109,8 @@ export const proposalsService = {
           // Convert undefined to null for non-object/array values
           return input === undefined ? null : input;
         }
-      };
-
-      // Sanitize the data object
+      }; // Sanitize the data object
       const sanitizedData = sanitizeData(data);
-
       console.log("Sanitized Data:", sanitizedData);
       await updateDoc(docRef, sanitizedData);
     } catch (error) {

@@ -4,10 +4,16 @@ import BlogSearch from "@/components/blog/search";
 import SingleBlogCard from "@/components/blog/single-card";
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { BlogContentProps, CategoryContainerProps } from "@/types/index";
+import { PostMetadata } from "@/types/index";
 import React, { useMemo, useState } from "react";
 import ContactUs from "./call-to-action-message-us";
 
+interface BlogContentProps {
+  data: PostMetadata[];
+  rawData?: PostMetadata[];
+  featuredPostId?: number;
+  type: string;
+}
 const BlogContent: React.FC<BlogContentProps> = ({
   data,
   type,
@@ -47,6 +53,12 @@ const BlogContent: React.FC<BlogContentProps> = ({
     </div>
   );
 };
+
+interface CategoryContainerProps {
+  data: PostMetadata[];
+  rawData?: PostMetadata[];
+  type: string;
+}
 
 const CategoryContainer: React.FC<CategoryContainerProps> = ({
   data,
