@@ -68,7 +68,7 @@ export const caseStudies: CaseStudy[] = [
     testimonial: {
       quote: "Pleasure to work with. Can highly recommend.",
       author: "Thomas André Jensen",
-      role: "Client",
+      role: "Digital Markerting Agency Owner",
       image:
         "https://media.licdn.com/dms/image/v2/D4D03AQFbWlS7wVrG2A/profile-displayphoto-shrink_800_800/B4DZY9skHDHAAc-/0/1744791814987?e=1753315200&v=beta&t=_ryLYItbFjODHOdzKH30gl-UUD2n29y_QJdN_5IcbaE",
     },
@@ -163,7 +163,7 @@ export const caseStudies: CaseStudy[] = [
     testimonial: {
       quote: "Very happy working with Hassan! Does a great job!",
       author: "David Bodnar",
-      role: "Client",
+      role: "Found & Owner",
       image:
         "https://media.licdn.com/dms/image/v2/C5603AQGe2BYyQjzy3w/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1526351315644?e=1753315200&v=beta&t=4u5M5cceDWcsNFhJ_Al4n7CKmtadsgRyfKqHlMesohs",
     },
@@ -266,7 +266,7 @@ export const caseStudies: CaseStudy[] = [
       quote:
         "Shahzada knows Google Analytics and Google Data Studio inside and out. He helped me set everything up so I can better understand how visitors use my website. He is easy to work with, and I will use him in the future when I need changes to GA. He is a pleasure to work with :)",
       author: "Ben Fox",
-      role: "Client",
+      role: "Business Owner",
       image:
         "https://www.upwork.com/profile-portraits/c10N4c0hBLWz_aq22wrokGPtD2F7eE5J40yBT2nToh7WULZYVjKHduM42NesQc0xhu",
     },
@@ -366,7 +366,7 @@ export const caseStudies: CaseStudy[] = [
       quote:
         "Excellent experience with Shahzada. He is very knowledgably in all areas of tracking and analytics; I would highly recommend him.",
       author: "Matthew Cooper",
-      role: "Client",
+      role: "Business Owner",
       image:
         "https://media.licdn.com/dms/image/v2/C4E03AQFlKA0jExzouw/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1658151953406?e=1753315200&v=beta&t=eUkdBvXncjIzkVA7WF4p1xfNHkb4L96Tr7IWfJMLgmQ",
     },
@@ -448,7 +448,7 @@ export const caseStudies: CaseStudy[] = [
       quote:
         "Shahzada is by far the most comprehensive, transparent and skilled analytics expert I’ve worked with (and I’ve used many over the years). He managed to save me money by understanding the problem and doing such an efficient job. I couldn’t recommend anyone any higher.",
       author: "James Wilkinson",
-      role: "Client",
+      role: "Digital Markerting Agency Owner",
       image:
         "https://media.licdn.com/dms/image/v2/D4E03AQEfR37YT--RlQ/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1673126931280?e=1753315200&v=beta&t=J9ZhXmu5Ym4vaa46qORRbWt7sin9iBEWS3d3n6f4qec",
     },
@@ -545,7 +545,7 @@ export const caseStudies: CaseStudy[] = [
       quote:
         "I had the pleasure of working with Shahzada on resolving some complex Shopify, Google Tag Manager, and Google Analytics tracking issues, and I couldn't be more satisfied with the outcome. Despite the significant time difference, Shahzada was very responsive when addressing every question and concern I had. His patience and expertise were evident throughout the process. Shahzada provided a clear and detailed plan, meticulously documented all changes, and executed the tracking setup with precision. His deep knowledge in setting up and debugging tracking systems ensured everything was handled flawlessly. I highly recommend Shahzada for anyone in need of expert consultancy in these areas. His professionalism and efficiency make him a great choice.",
       author: "Michael Quinn",
-      role: "Client",
+      role: "Digital Markerting Agency Owner",
       image:
         "https://quinnportfolio.com/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fportrait.38401bb2.jpg&w=640&q=75",
     },
@@ -650,7 +650,7 @@ export const caseStudies: CaseStudy[] = [
       quote:
         "What an absolute pro! Hassan understood exactly what my issue was. Something that for me, was so complicated. He made sense of what was needed, confidently went forward and solved my tracking issues quickly and efficiently. Not only did he do the job well, but he provided me with a very comprehensive document so that I understand the work he did going forward. I feel like I found the best on Upwork.",
       author: "George Boyd",
-      role: "Client",
+      role: "Business Owner",
       image:
         "https://www.upwork.com/profile-portraits/c1ctOT874I2mei6Luvdt8ZaQLU_pCQahFHQTZOx3DDlmn3kYfC3XJRiCrfLvcwwVQH",
     },
@@ -743,7 +743,7 @@ export const caseStudies: CaseStudy[] = [
       quote:
         "Shahzada was excellent in delivering our work. He took the time to write detailed guides, amended work towards our requirements, and was very patient in nature. I would definitely recommend!",
       author: "James Hague",
-      role: "Client",
+      role: "Digital Markerting Agency Owner",
       image:
         "https://www.upwork.com/profile-portraits/c1T4Jo2OBFm_LbopMPP0yyryc82Y5fDei3Wffv0dBQTbNxZqjegp8aXOOmBboNbpCr",
     },
@@ -837,7 +837,7 @@ export const caseStudies: CaseStudy[] = [
     testimonial: {
       quote: `This guy is one of the best.. I came back 2 years later and he's still amazing. Can't wait to work with him again.`,
       author: "Derrick Kityo",
-      role: "Client",
+      role: "Webflow Developer",
       image:
         "https://media.licdn.com/dms/image/v2/D4E03AQGs9gPLo0m1RQ/profile-displayphoto-shrink_800_800/B4EZREbsm9GwAc-/0/1736314899859?e=1753315200&v=beta&t=DRPuvIVfCcOdaJIqdNylU6n0gp2deF90ebYOB81vxbQ",
     },
@@ -929,7 +929,7 @@ export const caseStudies: CaseStudy[] = [
       quote:
         "One of the best freelancers to collaborate with. Referred to others already – knows everything about tracking & attribution, works fast and delivers ahead of schedule. Solved things others took way more time for and fixed problems instantaneously. Amazing work, Shahzada!!",
       author: "Julian Grimme",
-      role: "Client",
+      role: "Digital Markerting Agency Owner",
       image:
         "https://media.licdn.com/dms/image/v2/C5603AQG_CkBefGBKRA/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1591132529975?e=1753315200&v=beta&t=S44IDZno13irWO0SngW8tuwYE_rYQRDkF85MpstBjhI",
     },
@@ -1050,7 +1050,7 @@ export const caseStudies: CaseStudy[] = [
       quote:
         "Hassan resolved a complex GTM issue in just one hour, after I had spent nearly a month working with Google Support with no success. His expertise is exceptional, and I highly recommend his services!",
       author: "Luis Boani",
-      role: "Client",
+      role: "Digital Markerting Agency Owner",
       image:
         "https://www.upwork.com/profile-portraits/c1Wsleh3GpJUkUr430pJOjyBrFOitQX1GEU7yb_6rhLw4mXVlJoDZ3itd3pRvqqNrw",
     },
@@ -1134,7 +1134,7 @@ export const caseStudies: CaseStudy[] = [
       quote:
         "Hassan was an absolute pleasure to work with! His expertise in setting up Google Tag Manager was clear from the start, and he delivered an incredible setup that exceeded our expectations. He listened closely to our needs and implemented exactly what we were looking for. Hassan’s knowledge, professionalism, and commitment to getting the job done right made the whole process smooth and efficient. Highly recommended for anyone needing GTM expertise or analytics support!",
       author: "Nick Ahrens",
-      role: "Client",
+      role: "Digital Markerting Agency Owner",
       image:
         "https://media.licdn.com/dms/image/v2/C5603AQGvfIbKT8ENFw/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1564159301386?e=1753315200&v=beta&t=dDBt76VLXIC89xX9pq63Xr9XcTYoNVd4rZm9DfwY3m0s",
     },
@@ -1271,7 +1271,7 @@ export const caseStudies: CaseStudy[] = [
       quote:
         "Hassan quickly fixed our consent‐mode setup and brought our session counts back from the brink. His documentation and QA gave us full confidence in our data again.",
       author: "Winston Abiera",
-      role: "Head of Analytics, Tobi Corp",
+      role: "Head of Analytics",
       image:
         "https://media.licdn.com/dms/image/v2/D4D03AQHpin2QRF60dQ/profile-displayphoto-shrink_800_800/B4DZXKWdWsHAAc-/0/1742856640473?e=1753315200&v=beta&t=OispemTc8tLcJ2e_PiyV5s0G81Gq30eAwKMCzcNeVh0",
     },
@@ -1366,7 +1366,7 @@ export const caseStudies: CaseStudy[] = [
     testimonial: {
       quote: "It was great to work with him, thank you for your fast work.",
       author: "David Laroche",
-      role: "Client",
+      role: "Business Owner",
       image: "/images/david.jpg",
     },
     platforms: [
@@ -1456,12 +1456,11 @@ export const caseStudies: CaseStudy[] = [
     imageUrl: "/images/for-businesses/client-walkfulton-desktop-home.png",
     mobileUrl: "/images/for-businesses/client-walkfulton-mobile-home.png",
     siteUrl: "https://walkfulton.com",
-    // no top-line analytics available for this job
     testimonial: {
       quote:
         "I can't say enough good things about Shahzada. Some of the nuances of our project were over my head, but he understood them completely and executed everything smoothly and quickly. Would 10000% recommend working with Shahzada.",
       author: "Libie Motchan",
-      role: "Co-Founder of Fulton",
+      role: "Co-Founder",
       image:
         "https://media.licdn.com/dms/image/v2/C4D03AQHbWO4h0DVsDA/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1613856010270?e=1753315200&v=beta&t=7IVe-5PfttGloanC8SAJBphHE1NZvhs5bM-OX8Q-Krc",
     },
@@ -1547,7 +1546,7 @@ export const caseStudies: CaseStudy[] = [
       quote:
         "He is very good in fixing any Google Tracking Code issues you have; we hired him twice and we will hire him again when we need more help. Thanks",
       author: "Hayam Sh",
-      role: "Client",
+      role: "Digital Markerting Agency Owner",
       image:
         "https://media.licdn.com/dms/image/v2/C5603AQGUgP-vA1neBw/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1575128939684?e=1753315200&v=beta&t=E9Yk6Bn85dEF_hGOtLXSRuyc4JKI9LIURf98Z2ohTHw",
     },
@@ -1632,7 +1631,7 @@ export const caseStudies: CaseStudy[] = [
       quote:
         "We have worked with Hassan multiple times and we cannot speak highly enough about him. Thank you for completing this project for us. Do not hesitate to hire Hassan, if he says he can do it, he will.",
       author: "Ryan Bagley",
-      role: "Client",
+      role: "Digital Markerting Agency Owner",
       image: "/images/ryan-bagley.jpg",
     },
     platforms: [
@@ -1730,7 +1729,7 @@ export const caseStudies: CaseStudy[] = [
       quote:
         "Ali is one of the best freelancers I've worked with, his conscientiousness to get the job complete is exceptional. Thank you for your help and I hope to work again in the future.",
       author: "Chris Lister",
-      role: "Client",
+      role: "Founder & CEO",
       image:
         "https://media.licdn.com/dms/image/v2/C5603AQFz9djiofei_Q/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1517517848739?e=1753315200&v=beta&t=nC7KDjX0t-IdkP5wt7uVhBjqDOvY9UCgVMHLvUePVng",
     },
@@ -1833,7 +1832,7 @@ export const caseStudies: CaseStudy[] = [
       quote:
         "Shahzada's work was very well-done, and he supplied a full report of the changes he made, which was impressive and above and beyond what I expected. I do think my request was a bit outside of his usual expertise and I wish we had taken some more time to clarify the project, but otherwise I'm very happy with the outcome.",
       author: "Jacob Monash",
-      role: "Client",
+      role: "CEO and Owner",
       image:
         "https://media.licdn.com/dms/image/v2/C4D03AQFCnaSLO7s_uw/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1590713786190?e=1753315200&v=beta&t=MGFRBkPqh_B53jbtB6X-V68TAkC6QwxszskX2kwur0M",
     },
@@ -1928,7 +1927,7 @@ export const caseStudies: CaseStudy[] = [
       quote:
         "Hassan was great to work with! He made the complex conversion tracking process smooth and stress-free, ensuring spot-on tracking that improved campaign performance.",
       author: "Sam Emara",
-      role: "Client",
+      role: "Owner & CEO",
       image:
         "https://media.licdn.com/dms/image/v2/D4D03AQGQU-m8ANtFOA/profile-displayphoto-shrink_800_800/B4DZTKU3QoG8Ac-/0/1738561254956?e=1753315200&v=beta&t=Knbezk-30hgki5ItTBvgKtgLioy09enrONAoaT2ZTSM",
     },
@@ -2019,8 +2018,8 @@ export const caseStudies: CaseStudy[] = [
       quote:
         "Super helpful, quick, and comprehensive. Shahzada solved our problem efficiently, complementing a nicely done work in an effective way.",
       author: "Mathieu Frechette",
-      role: "Client",
-      image: "",
+      role: "CEO & Owner",
+      image: "/",
     },
     platforms: [
       "Shopify",
@@ -2090,7 +2089,7 @@ export const caseStudies: CaseStudy[] = [
     testimonial: {
       quote: "Hassan is a rockstar, exceptional work as always.",
       author: "Alina Islam",
-      role: "Client",
+      role: "Digital Markerting Agency Owner",
       image:
         "https://media.licdn.com/dms/image/v2/D4D03AQEtUd6HatiLfA/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1682871311747?e=1753315200&v=beta&t=rd_OWgyOai3ginEMAINspl6UA3PdOMK6_rlSkIDwi_o",
     },

@@ -11,7 +11,6 @@ import ScarcityUrgency from "@/components/landing-page/scarcity-urgency";
 import SocialProof from "@/components/landing-page/social-proof";
 import TestimonialsCarousel from "@/components/testimonial/testimonial-carousal";
 import { caseStudies } from "@/data/case-studies";
-import { testimonials } from "@/data/testimonials";
 import {
   BarChart2,
   CheckSquare,
@@ -200,7 +199,6 @@ export default function HomePage() {
       <SocialProof
         sectionTitle="Our Clients Are Seeing Results – Will You Be Next?"
         sectionDescription="Here's how we've transformed other businesses like yours."
-        testimonials={testimonials}
       />
       <ScarcityUrgency
         title="Limited to Only 5 Projects Per Month"

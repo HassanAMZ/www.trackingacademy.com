@@ -14,7 +14,6 @@ import {
   DialogHeader,
   DialogTitle,
 } from "@/components/ui/dialog";
-import clients from "@/data/clients";
 import { useState } from "react";
 
 export default function Page() {
@@ -56,7 +55,6 @@ export default function Page() {
             </Button>
           }
           supportingComponent={<TrackingTable />}
-          clients={clients}
           clientCountText="1032+ websites configured with 95% accuracy"
         />
         <Container>

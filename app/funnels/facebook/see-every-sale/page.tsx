@@ -12,33 +12,132 @@ import ProblemAwareness from "@/components/landing-page/problem-awareness";
 import { ProcessSteps } from "@/components/landing-page/process-steps";
 import ScarcityUrgency from "@/components/landing-page/scarcity-urgency";
 import SocialProof from "@/components/landing-page/social-proof";
-import TestimonialsCarousel from "@/components/testimonial/testimonial-carousal";
+import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import clients from "@/data/clients";
+import Container from "@/components/ui/container";
 import { testimonials } from "@/data/testimonials";
 import {
+  ArrowUpRight,
   BarChart2,
+  BarChart3,
   CheckSquare,
+  Code,
+  Database,
   HeadphonesIcon,
+  Share2,
   Target,
   Zap,
 } from "lucide-react";
+import Image from "next/image"; // Make sure this is imported at the top
 import { useState } from "react";
+import AdSpendCalculator from "../../../../components/global/ad-spend-calculator";
 
 export default function HomePage() {
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  type FeatureCardProps = {
+    title: string;
+    description: string;
+    imageSrc: string;
+    className?: string;
+  };
+
+  const FeatureCard = ({
+    title,
+    description,
+    imageSrc,
+    className,
+  }: FeatureCardProps) => (
+    <div
+      className={`rounded-lg bg-card p-6 flex flex-col shadow-md h-full ${className ?? ""}`}
+    >
+      <div className="mb-4">
+        <div className="overflow-hidden rounded-lg aspect-video bg-primary/10">
+          <Image
+            width={1080}
+            height={1920}
+            src={imageSrc || "/images/social-sharing.png"}
+            alt={"caseStudy.name"}
+            className="scale-102 object-cover"
+          />
+        </div>
+      </div>
+      <h4>{title}</h4>
+      <p>{description}</p>
+    </div>
+  );
+
+  function MarketingFeatures() {
+    return (
+      <div className="bg-background text-foreground py-16 md:py-24">
+        <Container>
+          <div className="text-center mb-12">
+            <Badge variant={"outline"}>Features</Badge>
+            <h2>
+              Stop losing money to blocked cookies,
+              <br />
+              trackers & poor AI modeling
+            </h2>
+          </div>
+          <div className="flex flex-col gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              {/* Feature 1 */}
+              <FeatureCard
+                title="Track Every Sale—Policy-Safe"
+                description="Recover the conversions your ad account is starving for. 95%+ accuracy with zero policy violations—even for restricted niches."
+                imageSrc="/images/social-sharing.png"
+              />
+
+              {/* Feature 2 */}
+              <FeatureCard
+                title="Works Even If You're Banned or Blocked"
+                description="Built specifically for blacklisted or throttled niches—health, finance, personal development & more. No sketchy workarounds."
+                imageSrc="/images/social-sharing.png"
+              />
+
+              {/* Feature 3 */}
+              <FeatureCard
+                title="95%+ Accuracy Without Code or UTMs"
+                description="No coding. No clunky UTM parameters. Just crystal-clear attribution powered by 360° first-party tracking and AI enrichment."
+                imageSrc="/images/social-sharing.png"
+              />
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              {/* Feature 4 */}
+              <FeatureCard
+                title="Send Clean Data to Every Platform"
+                description="One-click integration to Facebook, Google, TikTok, and more. We inject compliant data directly into your ad accounts."
+                imageSrc="/images/social-sharing.png"
+              />
+
+              {/* Feature 5 */}
+              <FeatureCard
+                title="Your Ads Finally Optimize Again"
+                description="With clean event data, Facebook's algorithm can actually do its job again—boosting ROAS and cutting wasted ad spend."
+                imageSrc="/images/social-sharing.png"
+              />
+            </div>
+          </div>
+        </Container>
+      </div>
+    );
+  }
 
   return (
     <main>
       <Hero
         eyebrow="#1 Highest Rated Ad Tracking Software For Shopify"
         heading={
-          <h1 className="max-w-3xl">Stop losing 60% of ad conversion data</h1>
+          <h1>
+            <span className="text-primary">Never Miss a Sale Again </span>-
+            Track 95% of Your Conversions -{" "}
+            <span className="text-primary"> Guaranteed!</span>
+          </h1>
         }
         subheading={
-          <h4 className="max-w-2xl">
-            The only solution that pushes 100% accurate data into your ads
-            manager. Raise ROAS by 50% in just 1 week.
+          <h4 className="text-muted-foreground max-w-3xl">
+            <span className="text-primary font-semibold">“See Every Sale”</span>{" "}
+            Tracking Setup For Facebook's Data Sharing Restrictions. All
+            done-for-you, in just 3 days, with 95% Accurate Data Tracking,
+            without Violating Any Facebook's policies.
           </h4>
         }
         carousel={<TestimonialsCarousel2 />}
@@ -46,7 +145,7 @@ export default function HomePage() {
           "100% done-for-you setup",
           "95%+ accuracy ",
           "One-time setup cost",
-          "Completed within 7 days",
+          "Completed within 3 days",
           "Improved ROAS by 20%",
           "Scaleable Solution ",
         ]}
@@ -54,7 +153,6 @@ export default function HomePage() {
           <Button
             size="lg"
             className="hover:bg-primary/90 flex max-w-4xl flex-col py-20 text-center text-xl font-bold text-wrap whitespace-pre-wrap hover:cursor-pointer sm:py-16 md:py-12 md:text-left"
-            onClick={() => setIsModalOpen(true)}
           >
             <div>
               🎟️ Claim Your $300 Coupon for 3-Day "See Every Sale" Tracking
@@ -65,11 +163,11 @@ export default function HomePage() {
             </div>
           </Button>
         }
-        supportingComponent={<TrackingTable />}
-        clients={clients}
-        clientCountText="1032+ websites configured with 95% accuracy"
+        supportingComponent={<AdSpendCalculator />}
       />
+      <MarketingFeatures />
 
+      <AdSpendCalculator />
       <ProblemAwareness
         headingText="The Hidden Costs of Missing Conversion Data"
         paragraphText="Without accurate funnel tracking, your Meta ads lack the data to optimize for conversions, resulting in wasted budget and poor ROAS."
@@ -90,7 +188,7 @@ export default function HomePage() {
         ]}
       />
 
-      {/* <ProcessSteps /> */}
+      <ProcessSteps />
 
       <OfferDetails
         headerTitle="3-Day 'See Every Sale' Tracking System"
@@ -216,7 +314,6 @@ export default function HomePage() {
       <SocialProof
         sectionTitle="Ecommerce Brands Trust Our Tracking Solution"
         sectionDescription="See how we've helped businesses just like yours restore tracking and scale their ad campaigns."
-        testimonials={testimonials}
       />
       <ScarcityUrgency
         title="Only 10 Spots Available at $300 Off"

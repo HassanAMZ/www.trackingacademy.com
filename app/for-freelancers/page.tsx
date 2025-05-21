@@ -3,7 +3,6 @@ import TestimonialsCarousel2 from "@/components/for-freelancers/testimonials-car
 import { TestimonialsCarousel } from "@/components/for-freelancers/testimonials-carousel";
 import Hero from "@/components/home/hero";
 import WorkHistory from "@/components/home/work-history";
-import clients from "@/data/clients";
 
 export default function ForFreelancers() {
   return (
@@ -26,7 +25,6 @@ export default function ForFreelancers() {
         ctaText="Enroll Now"
         ctaLink="/for-freelancers/enroll-now"
         supportingComponent={<TestimonialsCarousel />}
-        clients={clients}
         clientCountText="2 students trained & 2 success stories"
       />
 

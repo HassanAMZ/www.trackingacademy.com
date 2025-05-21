@@ -5,7 +5,6 @@ import Hero from "@/components/home/hero";
 import Services from "@/components/home/services";
 import { Button } from "@/components/ui/button";
 import Container from "@/components/ui/container";
-import clients from "@/data/clients";
 import Link from "next/link";
 
 export default function Home() {
@@ -31,7 +30,6 @@ export default function Home() {
         ctaText="Schedule a Meeting"
         ctaLink="/contact"
         supportingComponent={<TrackingTable />}
-        clients={clients}
         clientCountText="1032+ websites configured with 95% accuracy"
       />
 

@@ -1,8 +1,8 @@
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import Container from "@/components/ui/container";
-import { Client } from "@/data/clients";
-import { CheckCircle } from "lucide-react";
+import { caseStudies as CaseStudies, CaseStudy } from "@/data/case-studies";
+import { CheckCircle, Star } from "lucide-react";
 import Link from "next/link";
 import { FC, ReactNode } from "react";
 import { Badge } from "../ui/badge";
@@ -18,8 +18,8 @@ interface HeroProps {
   secondaryCtaText?: string;
   secondaryCtaLink?: string;
   supportingComponent: ReactNode;
-  clientCountText: string;
-  clients: Client[];
+  clientCountText?: ReactNode;
+  caseStudies?: CaseStudy[];
   customCtaButton?: ReactNode;
 }
 
@@ -34,22 +34,31 @@ const Hero: FC<HeroProps> = ({
   secondaryCtaText,
   secondaryCtaLink,
   supportingComponent,
-  clientCountText,
-  clients,
+  clientCountText = (
+    <div className="flex flex-col items-center md:items-start gap-2 ">
+      <div className="flex">
+        {Array.from({ length: 5 }).map((_, i) => (
+          <Star key={i} className="fill-amber-400 text-amber-400" />
+        ))}
+      </div>
+      <span>4.9 from 200 reviews || 1,000+ Websites Configured.</span>
+    </div>
+  ),
+  caseStudies = CaseStudies,
   customCtaButton,
 }) => {
   return (
-    <Container className="grid grid-cols-1 justify-center gap-4 md:items-center md:text-left lg:grid-cols-3 lg:py-8 ">
+    <Container className="grid grid-cols-1 justify-center gap-4 md:items-start md:text-left lg:grid-cols-3 py-8 ">
       <div className="space-y-5 lg:col-span-2">
-        {eyebrow && <Badge>{eyebrow}</Badge>}
+        {eyebrow && <Badge variant={"outline"}>{eyebrow}</Badge>}
         {heading}
         {subheading && subheading}
-        <div className="max-w-xl">{carousel && carousel}</div>
+        <div className="max-w-2xl">{carousel && carousel}</div>
 
-        <div className="grid max-w-xl grid-cols-1  justify-center gap-2 py-4 sm:grid-cols-2 md:items-start">
+        <div className="grid justify-center gap-2 py-4 grid-cols-2 md:grid-cols-3 md:items-start">
           {benefits.map((benefit, index) => (
-            <div key={index} className="flex items-center gap-2">
-              <CheckCircle className="text-primary h-6 w-6" />
+            <div key={index} className="flex items-center gap-2 ">
+              <CheckCircle className="text-primary h-5 w-5" />
               <p>{benefit}</p>
             </div>
           ))}
@@ -72,22 +81,28 @@ const Hero: FC<HeroProps> = ({
               </div>
             )}
 
-        <div className="flex  justify-start gap-2">
-          <div className="relative h-8 w-8">
-            {clients.map((client, index) => (
-              <Avatar
-                key={index}
-                className={`absolute left-${index * 4} top-0 z-${index + 1}`}
+        <div className="flex items-center gap-4 pt-2 md:flex-row flex-col">
+          <div className="flex items-center">
+            {caseStudies.slice(0, 6).map((study, index) => (
+              <Link
+                href={`/case-study/${study.id}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                key={study.id}
+                className={`relative z-[${10 - index}]`}
+                style={{ marginLeft: index === 0 ? 0 : "-25px" }} // overlap 25% of 32px avatar = 8px overlap
               >
-                <AvatarImage
-                  src={client.clientDetails.images[0].url}
-                  alt={`@${client.clientDetails.name.toLowerCase().replace(" ", "-")}`}
-                />
-                <AvatarFallback>{client.clientDetails.name[0]}</AvatarFallback>
-              </Avatar>
+                <Avatar className="h-16 w-16 border-2 border-primary-foreground">
+                  <AvatarImage
+                    src={study.testimonial.image}
+                    alt={`@${study.testimonial.author}`}
+                  />
+                  <AvatarFallback>{study.testimonial.author[0]}</AvatarFallback>
+                </Avatar>
+              </Link>
             ))}
           </div>
-          <p className="pl-8 text-sm">{clientCountText}</p>
+          <div className="text-sm">{clientCountText}</div>
         </div>
       </div>
 

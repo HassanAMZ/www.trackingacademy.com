@@ -36,7 +36,7 @@ export default function CaseStudiesPage() {
                     height={1920}
                     src={caseStudy.imageUrl}
                     alt={caseStudy.name}
-                    className="object-cover transition-transform duration-300 group-hover:scale-105"
+                    className="object-cover transition-transform duration-300 group-hover:scale-105 scale-x-103"
                   />
                 </div>
                 <CardTitle className="mt-4">{caseStudy.title}</CardTitle>
