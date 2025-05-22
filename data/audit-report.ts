@@ -86,12 +86,12 @@ const auditReports: AuditReport[] = [
       {
         name: "Ads",
         score: 53,
-        color: "warning",
+        color: "destructive",
       },
       {
         name: "Cookie prolong",
         score: 50,
-        color: "warning",
+        color: "destructive",
       },
       {
         name: "SEO",
