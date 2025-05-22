@@ -128,18 +128,23 @@ export default function ContactForm({
           {/* Budget Dropdown - Full Width */}
           <div className="grid w-full items-start gap-1.5">
             <Label htmlFor="budget" className="font-medium">
-              What's your Monthly Ads Spent Budget?
+              What's your Current Monthly Revenue?
             </Label>
-            <Select name="budget">
+            <Select name="revenue">
               <SelectTrigger className="h-12 p-2.5">
                 <SelectValue placeholder="0 to 1,000$" />
               </SelectTrigger>
               <SelectContent>
-                <SelectItem value="0-1000">0 to 1,000$</SelectItem>
-                <SelectItem value="1000-5000">$1,000 - $5,000</SelectItem>
+                <SelectItem value="no-option-selected">
+                  Select an Option
+                </SelectItem>
+                <SelectItem value="0">0 (Just Starting out)</SelectItem>
+                <SelectItem value="5000">$0 - $5,000</SelectItem>
                 <SelectItem value="5000-10000">$5,000 - $10,000</SelectItem>
                 <SelectItem value="10000-25000">$10,000 - $25,000</SelectItem>
-                <SelectItem value="25000+">$25,000+</SelectItem>
+                <SelectItem value="25000-50000">$25,000 - $50,000</SelectItem>
+                <SelectItem value="50000-100000">$50,000 - $100,000</SelectItem>
+                <SelectItem value="100000+">$100,000</SelectItem>
               </SelectContent>
             </Select>
           </div>{" "}

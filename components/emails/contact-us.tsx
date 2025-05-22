@@ -19,7 +19,7 @@ type ContactUsEmailProps = {
   website: string;
   issues: string;
   urgency: string;
-  budget: string;
+  revenue: string;
   email: string;
   createdAt: Timestamp;
 };
@@ -31,7 +31,7 @@ export default function ContactUsEmail({
   website,
   issues,
   urgency,
-  budget,
+  revenue,
   email,
   createdAt,
 }: ContactUsEmailProps) {
@@ -92,8 +92,8 @@ export default function ContactUsEmail({
               <Column style={detailValue}>{urgency}/10</Column>
             </Row>
             <Row style={detailRow}>
-              <Column style={detailLabel}>Ad Spent Budget:</Column>
-              <Column style={detailValue}>{budget}</Column>
+              <Column style={detailLabel}>Monthly Revenue:</Column>
+              <Column style={detailValue}>{revenue}</Column>
             </Row>
             <Row style={detailRow}>
               <Column style={detailLabel}>Email:</Column>
