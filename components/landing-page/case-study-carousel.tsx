@@ -17,8 +17,8 @@ interface CaseStudyCarouselProps {
 export default function CaseStudyCarousel({
   caseStudies,
   speed = 1,
-  itemWidth = 412 / 1.75,
-  itemHeight = 893 / 1.75,
+  itemWidth = 412 / 1.5,
+  itemHeight = 893 / 1.5,
   className = "",
 }: CaseStudyCarouselProps) {
   const [isPaused, setIsPaused] = useState(false);
@@ -57,7 +57,7 @@ export default function CaseStudyCarousel({
 
   return (
     <div
-      className={`bg-background overflow-hidden ${className}`}
+      className={`bg-background ${className}`}
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
     >
