@@ -142,11 +142,6 @@ export function TestimonialCard({
                 )}
               </div>
             </div>
-            {budget && (
-              <div className="flex items-center gap-2">
-                <Button size="sm">$ {budget}</Button>
-              </div>
-            )}
           </div>
 
           {/* Metrics */}
