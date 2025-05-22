@@ -132,19 +132,23 @@ export default function ContactForm({
             </Label>
             <Select name="revenue">
               <SelectTrigger className="h-12 p-2.5">
-                <SelectValue placeholder="0 to 1,000$" />
+                <SelectValue placeholder="Select an Option" />
               </SelectTrigger>
               <SelectContent>
-                <SelectItem value="no-option-selected">
-                  Select an Option
+                <SelectItem value="Less than 5000">Less than $5,000</SelectItem>
+                <SelectItem value="$5,000 - $10,000">
+                  $5,000 - $10,000
                 </SelectItem>
-                <SelectItem value="0">0 (Just Starting out)</SelectItem>
-                <SelectItem value="5000">$0 - $5,000</SelectItem>
-                <SelectItem value="5000-10000">$5,000 - $10,000</SelectItem>
-                <SelectItem value="10000-25000">$10,000 - $25,000</SelectItem>
-                <SelectItem value="25000-50000">$25,000 - $50,000</SelectItem>
-                <SelectItem value="50000-100000">$50,000 - $100,000</SelectItem>
-                <SelectItem value="100000+">$100,000</SelectItem>
+                <SelectItem value="$10,000 - $25,000">
+                  $10,000 - $25,000
+                </SelectItem>
+                <SelectItem value="$25,000 - $50,000">
+                  $25,000 - $50,000
+                </SelectItem>
+                <SelectItem value="$50,000 - $100,000">
+                  $50,000 - $100,000
+                </SelectItem>
+                <SelectItem value="100000+">$100,000+</SelectItem>
               </SelectContent>
             </Select>
           </div>{" "}
@@ -183,7 +187,7 @@ export default function ContactForm({
               <div className="flex items-start">
                 <Checkbox id="issue-4" name="issues" value="dont-trust-roas" />
                 <Label htmlFor="issue-4" className="ml-2 text-sm font-normal">
-                  I don't trust the ROAS Meta shows me
+                  I don't trust the ROAS my Ads shows me
                 </Label>
               </div>
               <div className="flex items-start">
@@ -193,8 +197,18 @@ export default function ContactForm({
                 </Label>
               </div>
               <div className="flex items-start">
-                <Checkbox id="issue-6" name="issues" value="others" />
+                <Checkbox
+                  id="issue-6"
+                  name="issues"
+                  value="cookie-consent-issues"
+                />
                 <Label htmlFor="issue-6" className="ml-2 text-sm font-normal">
+                  I'm faceing issues with GDPR, CCPA or Other Cookie Compliances
+                </Label>
+              </div>
+              <div className="flex items-start">
+                <Checkbox id="issue-7" name="issues" value="others" />
+                <Label htmlFor="issue-7" className="ml-2 text-sm font-normal">
                   Others
                 </Label>
               </div>
@@ -212,15 +226,14 @@ export default function ContactForm({
               </SelectTrigger>
               <SelectContent>
                 <SelectItem value="1">1 (Not Urgent)</SelectItem>
-                <SelectItem value="2">2</SelectItem>
-                <SelectItem value="3">3</SelectItem>
-                <SelectItem value="4">4</SelectItem>
-                <SelectItem value="5">5</SelectItem>
-                <SelectItem value="6">6</SelectItem>
-                <SelectItem value="7">7</SelectItem>
-                <SelectItem value="8">8</SelectItem>
-                <SelectItem value="9">9</SelectItem>
-                <SelectItem value="10">10 (Extremely Urgent)</SelectItem>
+                <SelectItem value="2-4">
+                  2-4: Somewhat important but not Urgent
+                </SelectItem>
+                <SelectItem value="5-6">5-6: It's Important</SelectItem>
+                <SelectItem value="7-8">7-8: It's Very Urgent</SelectItem>
+                <SelectItem value="9-10">
+                  9-10: It should have been fixed Yesterday..!!
+                </SelectItem>
               </SelectContent>
             </Select>
           </div>{" "}

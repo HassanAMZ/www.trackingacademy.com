@@ -10,6 +10,8 @@ import ProblemAwareness from "@/components/landing-page/problem-awareness";
 import ScarcityUrgency from "@/components/landing-page/scarcity-urgency";
 import SocialProof from "@/components/landing-page/social-proof";
 import TestimonialsCarousel from "@/components/testimonial/testimonial-carousal";
+import TestimonialGrid from "@/components/testimonial/testimonial-grid";
+import Container from "@/components/ui/container";
 import { caseStudies } from "@/data/case-studies";
 import {
   BarChart2,
@@ -90,7 +92,7 @@ export default function HomePage() {
             title: "Conversion Tracking Audit",
             description:
               "Identify gaps and implement advanced tracking solutions for 95% accuracy.",
-            icon: Zap,
+            icon: <Zap />,
             benefits: [
               "Comprehensive analysis of your tracking setup",
               "Identify and fix data leaks",
@@ -103,7 +105,7 @@ export default function HomePage() {
             title: "Measurement Planning",
             description:
               "Develop a comprehensive strategy for your tracking setup to ensure accurate and actionable data.",
-            icon: Target,
+            icon: <Target />,
             benefits: [
               "Identify and define key metrics for tracking",
               "Plan the measurement strategy across platforms",
@@ -116,7 +118,7 @@ export default function HomePage() {
             title: "Server-Side Tracking Setup",
             description:
               "Implement Google Analytics 4, Google Tag Manager, Meta Pixel, and Conversion API for precise, server-side tracking.",
-            icon: BarChart2,
+            icon: <BarChart2 />,
             benefits: [
               "Implement GA4 and GTM for precise tracking",
               "Set up Meta Pixel and Conversion API for server-side tracking",
@@ -129,7 +131,7 @@ export default function HomePage() {
             title: "Real-Time Insights Dashboards",
             description:
               "Custom dashboards providing instant clarity on performance, ROAS, and campaign effectiveness.",
-            icon: BarChart2,
+            icon: <BarChart2 />,
             benefits: [
               "Live performance metrics for ad campaigns",
               "Customizable KPI tracking and alerts",
@@ -155,7 +157,7 @@ export default function HomePage() {
             title: "GDPR Cookie Consent CMP",
             description:
               "Ensure full GDPR, CCPA & ePrivacy compliance with a seamless Consent Management Platform (CMP).",
-            icon: CheckSquare,
+            icon: <CheckSquare />,
             benefits: [
               "Automated consent banner setup",
               "Customizable for your brand & legal needs",
@@ -169,7 +171,7 @@ export default function HomePage() {
             title: "Priority Automation Support",
             description:
               "Tools, templates, and expert support to streamline workflows and automate processes.",
-            icon: HeadphonesIcon,
+            icon: <HeadphonesIcon />,
             benefits: [
               "Personalized automation strategy",
               "Time-saving workflow automations",
@@ -210,7 +212,7 @@ export default function HomePage() {
             title: "E-commerce Conversion Checklist",
             description:
               "The ultimate checklist to maximize your online store's conversions.",
-            icon: CheckSquare,
+            icon: <CheckSquare />,
             price: "$500",
             benefits: [
               "300+ critical conversion checkpoints",
@@ -237,7 +239,7 @@ export default function HomePage() {
             title: "Advanced Tools & Calculators",
             description:
               "Pre-built tools & Calculators for effortless KPI tracking.",
-            icon: BarChart2,
+            icon: <BarChart2 />,
             price: "$700",
             benefits: [
               "Live performance metrics for ad campaigns",
@@ -328,6 +330,9 @@ export default function HomePage() {
           },
         ]}
       />{" "}
+      <Container>
+        <TestimonialGrid upwork={true} />
+      </Container>
       <DetailedCTA
         heading="Fix Your Tracking, Maximize Your ROI"
         subheading="Act now to secure your spot and exclusive bonuses."

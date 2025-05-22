@@ -187,7 +187,7 @@ export default function Navbar({ className }: { className?: string }) {
         height={100}
         width={100}
         src={"/logo-navbar.png"}
-        className="h-9 w-fit  sm:flex"
+        className="h-8 w-fit  sm:flex"
       />
     </NavLink>
   );
@@ -224,17 +224,9 @@ export default function Navbar({ className }: { className?: string }) {
   const DesktopNavigationMenu = () => (
     <div className="hidden h-14 w-full items-center justify-between gap-3 p-2 lg:flex">
       <NavigationMenu>
-        <NavigationMenuList className="flex w-full flex-col gap-4 text-lg font-medium lg:flex-row lg:items-center lg:gap-2 lg:text-sm">
+        <NavigationMenuList className="flex w-full flex-col text-lg font-medium lg:flex-row lg:items-center lg:text-sm">
           <HomeNavigationButton />
-          <NavigationMenuItem>
-            <NavigationMenuTrigger>Tools</NavigationMenuTrigger>
-            <NavigationMenuContent>
-              {renderNavigationMenuItems(
-                NAV_ITEMS.tools,
-                <Wrench className="h-6 w-6" />,
-              )}
-            </NavigationMenuContent>
-          </NavigationMenuItem>
+
           <NavigationMenuItem>
             <NavigationMenuTrigger>Case Studies</NavigationMenuTrigger>
             <NavigationMenuContent>
@@ -245,6 +237,16 @@ export default function Navbar({ className }: { className?: string }) {
             </NavigationMenuContent>
           </NavigationMenuItem>
           <NavigationMenuItem>
+            <NavigationMenuTrigger>Tools</NavigationMenuTrigger>
+            <NavigationMenuContent>
+              {renderNavigationMenuItems(
+                NAV_ITEMS.tools,
+                <Wrench className="h-6 w-6" />,
+              )}
+            </NavigationMenuContent>
+          </NavigationMenuItem>
+
+          <NavigationMenuItem>
             <NavigationMenuTrigger>Blogs</NavigationMenuTrigger>
             <NavigationMenuContent>
               {renderNavigationMenuItems(
@@ -252,6 +254,12 @@ export default function Navbar({ className }: { className?: string }) {
                 <FileText className="h-6 w-6" />,
               )}
             </NavigationMenuContent>
+          </NavigationMenuItem>
+
+          <NavigationMenuItem>
+            <NavLink href="/pricing" className={navigationMenuTriggerStyle()}>
+              Pricing
+            </NavLink>
           </NavigationMenuItem>
         </NavigationMenuList>
       </NavigationMenu>
@@ -282,7 +290,7 @@ export default function Navbar({ className }: { className?: string }) {
       </div>{" "}
       <SheetContent side="right" className="flex flex-col justify-between">
         <nav className="flex w-full flex-col space-y-4 py-4">
-          {["/", "/tools", "/case-study", "/blog"].map((path) => (
+          {["/", "/tools", "/case-study", "/blog", "/pricing"].map((path) => (
             <Link
               key={path}
               href={path}
@@ -297,7 +305,9 @@ export default function Navbar({ className }: { className?: string }) {
                 ? "TrackingAcademy"
                 : path === "/case-study"
                   ? "Case Studies"
-                  : path.slice(1).charAt(0).toUpperCase() + path.slice(2)}
+                  : path === "/pricing"
+                    ? "Pricing"
+                    : path.slice(1).charAt(0).toUpperCase() + path.slice(2)}
             </Link>
           ))}
           {renderCallToAction()}
@@ -308,13 +318,13 @@ export default function Navbar({ className }: { className?: string }) {
   );
 
   return (
-    <div className="w-full pt-4 pb-2 lg:text-sm sticky top-0 z-50 ">
-      <Container className={clsx("", className)}>
-        <header className="bg-background/80">
+    <header className="w-full pt-4 pb-2 lg:text-sm">
+      <Container className={clsx(" ", className)}>
+        <div className="border">
           <MobileNavigationMenu />
           <DesktopNavigationMenu />
-        </header>
+        </div>
       </Container>
-    </div>
+    </header>
   );
 }

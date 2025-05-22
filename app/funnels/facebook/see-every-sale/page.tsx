@@ -115,7 +115,7 @@ export default function HomePage() {
             title: "3-Day Tracking Implementation",
             description:
               "Restore full funnel visibility with a compliant, future-proof tracking system in just 3 days.",
-            icon: Zap,
+            icon: <Zap />,
             benefits: [
               "Comprehensive audit of your current setup",
               "Custom tracking implementation for your specific needs",
@@ -128,7 +128,7 @@ export default function HomePage() {
             title: "Looker Studio Ecommerce Dashboard",
             description:
               "Visualize your sales data with a custom, easy-to-read dashboard tailored for your business.",
-            icon: BarChart2,
+            icon: <BarChart2 />,
             benefits: [
               "Custom dashboard for your specific KPIs",
               "Live performance metrics for ad campaigns",
@@ -141,7 +141,7 @@ export default function HomePage() {
             title: "95% Accurate GA4 Tracking Setup",
             description:
               "Ensure precise Google Analytics 4 tracking to make your data reliable and actionable.",
-            icon: Target,
+            icon: <Target />,
             benefits: [
               "Proper GA4 implementation and configuration",
               "Custom event tracking tailored to your business",
@@ -154,7 +154,7 @@ export default function HomePage() {
             title: "Google Ads Conversion Tracking",
             description:
               "Implement accurate Google Ads conversion tracking to maximize your PPC performance.",
-            icon: Target,
+            icon: <Target />,
             benefits: [
               "95% accurate conversion tracking",
               "Custom conversion setup tailored to your business",
@@ -167,7 +167,7 @@ export default function HomePage() {
             title: "GDPR & CCPA Cookie Consent Setup",
             description:
               "Stay compliant with privacy regulations while maintaining effective tracking.",
-            icon: CheckSquare,
+            icon: <CheckSquare />,
             benefits: [
               "Fully compliant cookie consent system",
               "Customized for your specific business needs",
@@ -180,7 +180,7 @@ export default function HomePage() {
             title: "47-Point Ecom Conversion Checklist",
             description:
               "Optimize your funnel with our proven checklist to boost conversions and ROAS.",
-            icon: CheckSquare,
+            icon: <CheckSquare />,
             benefits: [
               "47 critical conversion checkpoints",
               "Insights from top converting stores",
@@ -193,7 +193,7 @@ export default function HomePage() {
             title: "ROI & LTV Tracking Toolkit",
             description:
               "Access powerful tools to analyze and scale your ad campaigns with confidence.",
-            icon: BarChart2,
+            icon: <BarChart2 />,
             benefits: [
               "ROAS calculators and forecasting tools",
               "Customer lifetime value tracking",
@@ -206,7 +206,7 @@ export default function HomePage() {
             title: "Premium Support",
             description:
               "Get expert help with implementation and ongoing assistance to ensure your tracking stays accurate.",
-            icon: HeadphonesIcon,
+            icon: <HeadphonesIcon />,
             benefits: [
               "Dedicated support for implementation",
               "Training on using your new tracking setup",
@@ -249,7 +249,7 @@ export default function HomePage() {
             title: "3-Day Tracking Implementation",
             description:
               "Restore your full funnel visibility with a compliant tracking system.",
-            icon: Zap,
+            icon: <Zap />,
             price: "$1,500",
             benefits: [
               "Comprehensive audit of your current setup",
@@ -263,7 +263,7 @@ export default function HomePage() {
             title: "Looker Studio Ecommerce Dashboard",
             description:
               "Visualize your sales data with a custom, easy-to-read dashboard.",
-            icon: BarChart2,
+            icon: <BarChart2 />,
             price: "$2,000",
             benefits: [
               "Custom dashboard for your specific KPIs",
@@ -277,7 +277,7 @@ export default function HomePage() {
             title: "95% Accurate GA4 Tracking Setup",
             description:
               "Ensure precise Google Analytics 4 tracking for reliable data.",
-            icon: Target,
+            icon: <Target />,
             price: "$1,200",
             benefits: [
               "Proper GA4 implementation and configuration",
@@ -291,7 +291,7 @@ export default function HomePage() {
             title: "Google Ads Conversion Tracking",
             description:
               "Implement accurate Google Ads conversion tracking for maximum PPC performance.",
-            icon: Target,
+            icon: <Target />,
             price: "$1,200",
             benefits: [
               "95% accurate conversion tracking",
@@ -305,7 +305,7 @@ export default function HomePage() {
             title: "GDPR & CCPA Cookie Consent Setup",
             description:
               "Stay compliant with privacy regulations while maintaining effective tracking.",
-            icon: CheckSquare,
+            icon: <CheckSquare />,
             price: "$1,200",
             benefits: [
               "Fully compliant cookie consent system",
@@ -318,7 +318,7 @@ export default function HomePage() {
           {
             title: "47-Point Ecom Conversion Checklist",
             description: "Optimize your funnel with our proven checklist.",
-            icon: CheckSquare,
+            icon: <CheckSquare />,
             price: "$1,500",
             benefits: [
               "47 critical conversion checkpoints",
@@ -332,7 +332,7 @@ export default function HomePage() {
             title: "ROI & LTV Tracking Toolkit",
             description:
               "Access powerful tools to analyze and scale your campaigns.",
-            icon: BarChart2,
+            icon: <BarChart2 />,
             price: "$500",
             benefits: [
               "ROAS calculators and forecasting tools",

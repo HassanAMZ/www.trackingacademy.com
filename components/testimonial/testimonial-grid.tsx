@@ -1,13 +1,3 @@
-import { Badge } from "@/components/ui/badge";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
-import { Progress } from "@/components/ui/progress";
 import { caseStudies } from "@/data/case-studies";
 import { ExternalLink, Star } from "lucide-react";
 import Link from "next/link";
@@ -19,12 +9,24 @@ interface TestimonialGridProps {
   upwork?: boolean;
 }
 
+// Fisher-Yates shuffle
+function shuffleArray<T>(array: T[]): T[] {
+  const shuffled = [...array];
+  for (let i = shuffled.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+  }
+  return shuffled;
+}
+
 function TestimonialGrid({ upwork = false }: TestimonialGridProps) {
+  const randomizedCaseStudies = shuffleArray(caseStudies);
+
   return (
     <>
       {!upwork && <UpworkStats />}
       <div className="columns-1 sm:columns-2 lg:columns-3 space-y-4">
-        {caseStudies.map((currentCaseStudy, index) => {
+        {randomizedCaseStudies.map((currentCaseStudy, index) => {
           const metrics = currentCaseStudy.analytics
             ? [
                 {
@@ -42,6 +44,7 @@ function TestimonialGrid({ upwork = false }: TestimonialGridProps) {
                   : []),
               ]
             : [];
+
           return (
             <TestimonialCard
               key={index}

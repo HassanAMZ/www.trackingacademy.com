@@ -109,7 +109,7 @@ export default function CaseStudyComponent({
                 </Link>
               </Button>
               <Button
-                variant="secondary"
+                variant="outline"
                 size="sm"
                 className="flex items-center gap-1"
               >
@@ -117,10 +117,14 @@ export default function CaseStudyComponent({
                 {formatDate(caseStudy.projectTimeline.startDate)} -{" "}
                 {formatDate(caseStudy.projectTimeline.endDate)}
               </Button>
-              <Badge variant="outline" className="flex items-center gap-1">
+              <Button
+                variant="outline"
+                size="sm"
+                className="flex items-center gap-1"
+              >
                 <Clock className="h-3 w-3" />{" "}
                 {caseStudy.projectTimeline.durationDays} days
-              </Badge>
+              </Button>
             </div>{" "}
             <Tabs defaultValue="overview" className="w-full">
               <TabsList className="grid grid-cols-4 mb-4">
