@@ -38,6 +38,7 @@ const TestimonialsCarousel: React.FC<{ className?: string }> = ({
   return (
     <div className={clsx("relative", className)}>
       <TestimonialCard
+        projectTimeline={currentCaseStudy.projectTimeline}
         quote={currentCaseStudy.testimonial.quote}
         author={currentCaseStudy.testimonial.author}
         role={currentCaseStudy.testimonial.role}

@@ -1,33 +1,37 @@
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
+import { ProjectTimelineProps } from "@/data/case-studies";
 import { ExternalLink, Quote, Star } from "lucide-react";
 import Link from "next/link";
 import type { ReactNode } from "react";
 import { Badge } from "../ui/badge";
 
-interface Metric {
+export interface Metric {
   label: string;
   value: string | number;
 }
 
-interface TestimonialCardProps {
+export interface TestimonialCardProps {
   quote: string;
   author: string;
   role?: string;
   image?: string;
+  projectTimeline?: ProjectTimelineProps;
   budget?: number;
   projectName?: string;
-  linkUrl?: string;
+  linkUrl: string;
   metrics?: Metric[];
   className?: string;
   linkEnabled?: boolean;
+  upwork?: boolean;
   children?: ReactNode;
 }
 
 export function TestimonialCard({
   quote,
   author,
+  projectTimeline,
   role,
   budget,
   projectName,
@@ -36,9 +40,54 @@ export function TestimonialCard({
   image,
   className = "",
   linkEnabled = true,
+  upwork = false,
   children,
 }: TestimonialCardProps) {
-  // Extract the content to be reused
+  // Upwork variant
+  if (upwork) {
+    const upworkCardContent = (
+      <Card
+        className={`overflow-hidden bg-foreground dark:bg-background text-primary-foreground dark:text-foreground p-2 ${className}`}
+      >
+        <CardContent className="p-0">
+          <div className="p-6">
+            {projectName && (
+              <h3 className="text-green-400 text-xl font-medium mb-3">
+                {projectName}
+              </h3>
+            )}
+            <p className="mb-3">{quote}</p>
+            <div className="flex items-center gap-4 mb-4">
+              <div className="flex">
+                {Array.from({ length: 5 }).map((_, i) => (
+                  <Star
+                    key={i}
+                    className="h-5 w-5 fill-yellow-400 text-yellow-400"
+                  />
+                ))}
+              </div>
+              <span className="text-xl font-bold">5.0</span>
+              <span className="text-gray-400">|</span>
+              <span className="text-gray-400">{author}</span>
+            </div>
+            {children}
+          </div>
+        </CardContent>
+      </Card>
+    );
+
+    return linkEnabled && linkUrl ? (
+      <div>
+        <Link href={linkUrl} target="_blank" rel="noopener noreferrer">
+          {upworkCardContent}
+        </Link>
+      </div>
+    ) : (
+      <div>{upworkCardContent}</div>
+    );
+  }
+
+  // Default variant (original design)
   const cardContent = (
     <Card
       className={`bg-background/80 backdrop-blur-xs overflow-hidden flex flex-col h-full ${
@@ -50,7 +99,7 @@ export function TestimonialCard({
       {/* Gradient overlay that appears on hover */}
       {linkEnabled && (
         <div className="absolute inset-0 bg-linear-to-t from-primary/20 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100 z-10"></div>
-      )}{" "}
+      )}
       <CardContent className="p-0 flex flex-col h-full relative z-20 space-y-4">
         {/* Header section with stars and project name */}
         <div className="flex justify-between items-start p-4 pb-0">
@@ -70,11 +119,13 @@ export function TestimonialCard({
               </div>
             )}
           </div>
-        </div>{" "}
+        </div>
+
         {/* Quote content */}
         <div className="grow flex items-center p-4 pt-2">
           <h4 className="italic text-foreground/90">{quote}</h4>
-        </div>{" "}
+        </div>
+
         {/* Footer with author and metrics */}
         <div className="p-4 pt-2">
           {/* Author info */}
@@ -82,19 +133,22 @@ export function TestimonialCard({
             <div className="flex items-center gap-2">
               <Avatar className="h-10 w-10 shrink-0 group-hover:animate-spin">
                 <AvatarImage src={image} alt={author} />
-                <AvatarFallback>{author[0].toUpperCase()}</AvatarFallback>
+                <AvatarFallback>{author[0]?.toUpperCase()}</AvatarFallback>
               </Avatar>
               <div className="flex flex-col">
                 <p className="font-semibold">{author}</p>
-                {/* {role && <p className="text-muted-foreground text-xs">{role}</p>} */}
+                {role && (
+                  <p className="text-muted-foreground text-xs">{role}</p>
+                )}
               </div>
             </div>
-            {/* {budget && (
+            {budget && (
               <div className="flex items-center gap-2">
                 <Button size="sm">$ {budget}</Button>
               </div>
-            )} */}
-          </div>{" "}
+            )}
+          </div>
+
           {/* Metrics */}
           {metrics && metrics.length > 0 && (
             <div className="flex flex-wrap gap-2 mt-4">
@@ -114,9 +168,11 @@ export function TestimonialCard({
               ))}
             </div>
           )}
-        </div>{" "}
+        </div>
+
         {children}
-      </CardContent>{" "}
+      </CardContent>
+
       {/* External link icon that appears on hover */}
       {linkEnabled && (
         <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 opacity-0 transition-opacity duration-300 group-hover:opacity-100 z-30">

@@ -36,7 +36,8 @@ const OfferDetails: React.FC<OfferDetailsProps> = ({
               <h4 className="text-muted-foreground">{headerDescription}</h4>
             )}
           </div>
-        )}{" "}
+        )}
+
         {/* Render each offer item dynamically */}
         {offerItems.length > 0 &&
           offerItems.map((item, index) => (
@@ -62,7 +63,8 @@ const OfferDetails: React.FC<OfferDetailsProps> = ({
                         </div>
                       ))}
                     </div>
-                  )}{" "}
+                  )}
+
                   {item.price && (
                     <h3>
                       Total Value:
@@ -71,7 +73,8 @@ const OfferDetails: React.FC<OfferDetailsProps> = ({
                       </span>
                     </h3>
                   )}
-                </div>{" "}
+                </div>
+
                 {/* Render the image if image exists */}
                 {item.image && (
                   <Image

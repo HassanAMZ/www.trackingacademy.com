@@ -17,6 +17,11 @@ interface Milestone {
   description: string;
   expectedOutcome: string;
 }
+export interface ProjectTimelineProps {
+  startDate: string;
+  endDate: string;
+  durationDays: number;
+}
 export interface CaseStudy {
   id: string;
   name: string;
@@ -31,11 +36,7 @@ export interface CaseStudy {
   testimonial: Testimonial;
   platforms: string[];
   milestones: Milestone[];
-  projectTimeline: {
-    startDate: string;
-    endDate: string;
-    durationDays: number;
-  };
+  projectTimeline: ProjectTimelineProps;
   owner: string;
   client: string;
   budget: number;

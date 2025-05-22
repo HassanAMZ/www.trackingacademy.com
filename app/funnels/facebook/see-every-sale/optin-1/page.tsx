@@ -107,7 +107,7 @@ export default function Page() {
           {/* <TestimonialsCarousel /> */}
         </Container>
         <Container className="py-12">
-          <TestimonialGrid />
+          <TestimonialGrid upwork={true} />
         </Container>
       </section>{" "}
       {/* Modal */}

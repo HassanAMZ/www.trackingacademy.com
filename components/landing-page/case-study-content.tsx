@@ -29,7 +29,6 @@ import {
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
-import TestimonialCardUpwork from "../testimonial/testimonial-card-upwork";
 import Container from "../ui/container";
 
 export default function CaseStudyComponent({
@@ -458,12 +457,6 @@ export default function CaseStudyComponent({
           </div>
         </div>
       </div>
-      <TestimonialCardUpwork
-        href={`/case-study/${caseStudy.id}`}
-        title={caseStudy.name}
-        dateRange={`${formatDate(caseStudy.projectTimeline.startDate)} - ${formatDate(caseStudy.projectTimeline.endDate)}`}
-        quote={caseStudy.testimonial.quote}
-      />
     </Container>
   );
 }

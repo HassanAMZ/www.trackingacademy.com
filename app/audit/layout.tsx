@@ -1,0 +1,23 @@
+import Navbar from "@/components/global/navbar";
+import Container from "@/components/ui/container";
+import type { Metadata } from "next";
+import type React from "react";
+
+export const metadata: Metadata = {
+  title: "Website Audits | Tracking Academy",
+  description:
+    "Comprehensive website tracking and analytics audits to improve your data collection",
+};
+
+export default function AuditLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
+  return (
+    <>
+      <Navbar />
+      <Container className="py-8">{children}</Container>
+    </>
+  );
+}

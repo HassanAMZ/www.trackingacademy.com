@@ -97,7 +97,7 @@ export default function HomePage() {
               "Custom implementation plan for robust tracking",
               "Verification and testing for seamless performance",
             ],
-            image: "/images/hero/tracking-aduit.png",
+            image: "/images/hero/tracking-audit.png",
           },
           {
             title: "Measurement Planning",

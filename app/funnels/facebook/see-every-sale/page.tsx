@@ -1,10 +1,12 @@
 "use client";
 
 import TestimonialsCarousel2 from "@/components/for-freelancers/testimonials-carousal-2";
+import MarketingFeatures from "@/components/global/marketing-features";
 import TrackingTable from "@/components/global/tracking-table";
 import AlternativesSection from "@/components/home/alternative-section";
 import Hero from "@/components/home/hero";
 import WhyChooseSection from "@/components/home/why-choose-us";
+import CaseStudyCarousel from "@/components/landing-page/case-study-carousel";
 import DetailedCTA from "@/components/landing-page/detailed-cta";
 import ObjectionHandling from "@/components/landing-page/objection-handling";
 import OfferDetails from "@/components/landing-page/offer-detail-item";
@@ -15,6 +17,7 @@ import SocialProof from "@/components/landing-page/social-proof";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import Container from "@/components/ui/container";
+import { caseStudies } from "@/data/case-studies";
 import { testimonials } from "@/data/testimonials";
 import {
   ArrowUpRight,
@@ -33,91 +36,6 @@ import { useState } from "react";
 import AdSpendCalculator from "../../../../components/global/ad-spend-calculator";
 
 export default function HomePage() {
-  type FeatureCardProps = {
-    title: string;
-    description: string;
-    imageSrc: string;
-    className?: string;
-  };
-
-  const FeatureCard = ({
-    title,
-    description,
-    imageSrc,
-    className,
-  }: FeatureCardProps) => (
-    <div
-      className={`rounded-lg bg-card p-6 flex flex-col shadow-md h-full ${className ?? ""}`}
-    >
-      <div className="mb-4">
-        <div className="overflow-hidden rounded-lg aspect-video bg-primary/10">
-          <Image
-            width={1080}
-            height={1920}
-            src={imageSrc || "/images/social-sharing.png"}
-            alt={"caseStudy.name"}
-            className="scale-102 object-cover"
-          />
-        </div>
-      </div>
-      <h4>{title}</h4>
-      <p>{description}</p>
-    </div>
-  );
-
-  function MarketingFeatures() {
-    return (
-      <div className="bg-background text-foreground py-16 md:py-24">
-        <Container>
-          <div className="text-center mb-12">
-            <Badge variant={"outline"}>Features</Badge>
-            <h2>
-              Stop losing money to blocked cookies,
-              <br />
-              trackers & poor AI modeling
-            </h2>
-          </div>
-          <div className="flex flex-col gap-6">
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              {/* Feature 1 */}
-              <FeatureCard
-                title="Track Every Sale—Policy-Safe"
-                description="Recover the conversions your ad account is starving for. 95%+ accuracy with zero policy violations—even for restricted niches."
-                imageSrc="/images/social-sharing.png"
-              />{" "}
-              {/* Feature 2 */}
-              <FeatureCard
-                title="Works Even If You're Banned or Blocked"
-                description="Built specifically for blacklisted or throttled niches—health, finance, personal development & more. No sketchy workarounds."
-                imageSrc="/images/social-sharing.png"
-              />{" "}
-              {/* Feature 3 */}
-              <FeatureCard
-                title="95%+ Accuracy Without Code or UTMs"
-                description="No coding. No clunky UTM parameters. Just crystal-clear attribution powered by 360° first-party tracking and AI enrichment."
-                imageSrc="/images/social-sharing.png"
-              />
-            </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              {/* Feature 4 */}
-              <FeatureCard
-                title="Send Clean Data to Every Platform"
-                description="One-click integration to Facebook, Google, TikTok, and more. We inject compliant data directly into your ad accounts."
-                imageSrc="/images/social-sharing.png"
-              />{" "}
-              {/* Feature 5 */}
-              <FeatureCard
-                title="Your Ads Finally Optimize Again"
-                description="With clean event data, Facebook's algorithm can actually do its job again—boosting ROAS and cutting wasted ad spend."
-                imageSrc="/images/social-sharing.png"
-              />
-            </div>
-          </div>
-        </Container>
-      </div>
-    );
-  }
-
   return (
     <main>
       <Hero
@@ -162,7 +80,10 @@ export default function HomePage() {
         }
         supportingComponent={<AdSpendCalculator />}
       />
-      <MarketingFeatures /> <AdSpendCalculator />
+      <div className="w-full max-w-full overflow-hidden py-12">
+        <CaseStudyCarousel caseStudies={caseStudies} />
+      </div>
+      <MarketingFeatures />
       <ProblemAwareness
         headingText="The Hidden Costs of Missing Conversion Data"
         paragraphText="Without accurate funnel tracking, your Meta ads lack the data to optimize for conversions, resulting in wasted budget and poor ROAS."
@@ -183,6 +104,9 @@ export default function HomePage() {
         ]}
       />{" "}
       <ProcessSteps />{" "}
+      <div className="py-24">
+        <AdSpendCalculator />
+      </div>
       <OfferDetails
         headerTitle="3-Day 'See Every Sale' Tracking System"
         headerDescription="A complete system designed to fix Facebook's data sharing restrictions and restore 95%+ accurate data for every key event — all done-for-you in just 3 days."
@@ -198,7 +122,7 @@ export default function HomePage() {
               "Full recovery of middle and bottom funnel events",
               "Works for banned, blocked, or blacklisted niches",
             ],
-            image: "/images/hero/tracking-aduit.png",
+            image: "/images/hero/tracking-audit.png",
           },
           {
             title: "Looker Studio Ecommerce Dashboard",
@@ -333,7 +257,7 @@ export default function HomePage() {
               "Full recovery of middle and bottom funnel events",
               "Works for banned, blocked, or blacklisted niches",
             ],
-            image: "/images/hero/tracking-aduit.png",
+            image: "/images/hero/tracking-audit.png",
           },
           {
             title: "Looker Studio Ecommerce Dashboard",
