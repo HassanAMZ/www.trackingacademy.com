@@ -1,9 +1,12 @@
-// components/payment/promo-code-form.tsx
+"use client";
+
+import { Alert, AlertDescription } from "@/components/ui/alert";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { PromoCode } from "@/types/index";
+import type { PromoCode } from "@/types/index";
 import { Check, Loader2, X } from "lucide-react";
-import React, { useState } from "react";
+import type React from "react";
+import { useState } from "react";
 
 interface PromoCodeFormProps {
   onApply: (code: string) => void;
@@ -38,26 +41,29 @@ export const PromoCodeForm = ({
     <div className="space-y-3">
       {/* Applied Promo Display */}
       {appliedPromo && (
-        <div className="bg-green-50 border border-green-200 rounded-lg p-3">
-          <div className="flex items-center justify-between">
-            <div className="flex items-center space-x-2">
+        <Alert
+          variant="default"
+          className="bg-green-50 border-green-200 text-green-700"
+        >
+          <div className="flex items-center justify-between w-full">
+            <div className="flex items-center gap-2">
               <Check className="h-4 w-4 text-green-600" />
-              <span className="text-green-700 font-medium">
+              <span className="font-medium">
                 Code "{appliedPromo.code}" applied
               </span>
             </div>
-            <span className="text-green-700 font-semibold">
+            <span className="font-semibold">
               {appliedPromo.percentOff
                 ? `-${appliedPromo.percentOff}%`
                 : `-$${(appliedPromo.amountOff / 100).toFixed(2)}`}
             </span>
           </div>
-        </div>
+        </Alert>
       )}
 
       {/* Promo Code Input */}
       {!appliedPromo && (
-        <div className="flex space-x-2">
+        <div className="flex gap-2">
           <Input
             type="text"
             placeholder="Enter promo code"
@@ -66,6 +72,7 @@ export const PromoCodeForm = ({
             onKeyPress={handleKeyPress}
             disabled={isLoading}
             className="flex-1"
+            aria-label="Promo code"
           />
           <Button
             type="button"
@@ -80,24 +87,21 @@ export const PromoCodeForm = ({
 
       {/* Error Message */}
       {error && (
-        <div className="bg-red-50 border border-red-200 rounded-lg p-3">
-          <div className="flex items-center space-x-2">
-            <X className="h-4 w-4 text-red-600" />
-            <span className="text-red-700 text-sm">{error}</span>
-          </div>
-        </div>
+        <Alert variant="destructive">
+          <X className="h-4 w-4 text-destructive" />
+          <AlertDescription>{error}</AlertDescription>
+        </Alert>
       )}
 
       {/* Success Message */}
       {success && !error && !appliedPromo && (
-        <div className="bg-green-50 border border-green-200 rounded-lg p-3">
-          <div className="flex items-center space-x-2">
-            <Check className="h-4 w-4 text-green-600" />
-            <span className="text-green-700 text-sm">
-              Promo code applied successfully!
-            </span>
-          </div>
-        </div>
+        <Alert
+          variant="default"
+          className="bg-green-50 border-green-200 text-green-700"
+        >
+          <Check className="h-4 w-4 text-green-600" />
+          <AlertDescription>Promo code applied successfully!</AlertDescription>
+        </Alert>
       )}
     </div>
   );

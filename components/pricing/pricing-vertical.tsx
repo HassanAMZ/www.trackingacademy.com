@@ -153,7 +153,7 @@ export default function PricingVertical({ services }: PricingVerticalProps) {
                 asChild
               >
                 <Link
-                  href={service.ctaLink}
+                  href={`/payment/?product_id=${service.product_id}&price_id=${service.price_id}`}
                   className="flex items-center justify-center gap-2"
                 >
                   {service.cta}

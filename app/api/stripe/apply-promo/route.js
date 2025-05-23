@@ -93,6 +93,8 @@ export async function POST(req) {
       automatic_payment_methods: { enabled: true },
       metadata: {
         priceId,
+        collect_billing_details: "auto",
+
         productId:
           typeof price.product === "string" ? price.product : price.product.id,
         productName:

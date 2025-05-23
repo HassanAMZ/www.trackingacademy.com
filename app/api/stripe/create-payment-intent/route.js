@@ -48,6 +48,7 @@ export async function POST(req) {
       currency: price.currency || "usd",
       automatic_payment_methods: { enabled: true },
       metadata: {
+        collect_billing_details: "auto",
         priceId,
         productName: "3-Day See Every Sale Tracking System",
         ...(promoDetails && {
@@ -59,6 +60,7 @@ export async function POST(req) {
     });
     return NextResponse.json({
       clientSecret: paymentIntent.client_secret,
+
       ...(promoDetails && { promoDetails }),
     });
   } catch (err) {

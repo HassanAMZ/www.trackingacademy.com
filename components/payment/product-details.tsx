@@ -1,6 +1,14 @@
-import { Product, PromoCode } from "@/types/index";
+import { Badge } from "@/components/ui/badge";
+import {
+  Card,
+  CardContent,
+  CardFooter,
+  CardHeader,
+} from "@/components/ui/card";
+import { Separator } from "@/components/ui/separator";
+import type { Product, PromoCode } from "@/types/index";
 import { formatCurrency } from "@/utils/payment";
-import { CheckCircle } from "lucide-react";
+import { CheckCircle, Info } from "lucide-react";
 
 interface ProductDetailsProps {
   product: Product;
@@ -23,43 +31,74 @@ export const ProductDetails = ({
     : originalAmount;
 
   return (
-    <div className="p-6 space-y-4">
-      <div className="flex items-center justify-between">
-        <h2>{product.name}</h2>
-        <span>{originalAmount}</span>
-      </div>
-
-      <p className="text-muted-foreground">{product.description}</p>
-
-      {product.features && product.features.length > 0 && (
-        <div className="space-y-2">
-          <h3>Includes:</h3>
-          <ul className="text-muted-foreground space-y-1">
-            {product.features.map((feature: string, index: number) => (
-              <li key={index} className="flex items-start">
-                <CheckCircle className="h-4 w-4 text-secondary mr-2 mt-0.5 flex-shrink-0" />
-                {feature}
-              </li>
-            ))}
-          </ul>
+    <Card>
+      <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+        <div>
+          <h2 className="font-semibold">{product.name}</h2>
+          {product.description && (
+            <p className="text-muted-foreground">{product.description}</p>
+          )}
         </div>
-      )}
+        <span className="font-semibold">{originalAmount}</span>
+      </CardHeader>
 
-      {appliedPromo && (
-        <div className="p-3">
-          <div className="flex items-center justify-between">
-            <span className="text-accent">Promo: {appliedPromo.code}</span>
-            <span className="text-accent">-{discountAmount}</span>
+      <CardContent className="space-y-4">
+        {/* Features */}
+        {product.features && product.features.length > 0 && (
+          <div className="space-y-2">
+            <h3 className="font-medium">Includes:</h3>
+            <ul className="space-y-1.5">
+              {product.features.map((feature, index) => (
+                <li key={index} className="flex items-start">
+                  <CheckCircle className="h-4 w-4 text-primary mr-2 mt-0.5 flex-shrink-0" />
+                  <span className="text-muted-foreground">{feature}</span>
+                </li>
+              ))}
+            </ul>
           </div>
-        </div>
-      )}
+        )}
 
-      <div className="border-t pt-4">
-        <h4 className="flex items-center justify-between">
-          <span>Total</span>
-          <span>{finalAmount}</span>
-        </h4>
-      </div>
-    </div>
+        {/* Metadata */}
+        {product.metadata && Object.keys(product.metadata).length > 0 && (
+          <div className="space-y-2">
+            <h3 className="font-medium">Features:</h3>
+            <ul className="space-y-1.5">
+              {Object.entries(product.metadata).map(([key, value]) => (
+                <li key={key} className="flex items-start">
+                  <Info className="h-4 w-4 text-primary mr-2 mt-0.5 flex-shrink-0" />
+                  <span className="text-muted-foreground">
+                    <span className="font-medium">{key}:</span> {value}
+                  </span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
+
+        {/* Promo Code */}
+        {appliedPromo && (
+          <div className="rounded-md bg-muted p-3">
+            <div className="flex items-center justify-between">
+              <div className="flex items-center gap-2">
+                <Badge variant="outline" className="text-primary">
+                  PROMO
+                </Badge>
+                <span>{appliedPromo.code}</span>
+              </div>
+              <span className="text-primary">-{discountAmount}</span>
+            </div>
+          </div>
+        )}
+      </CardContent>
+
+      <Separator />
+
+      <CardFooter className="pt-4">
+        <div className="flex w-full items-center justify-between">
+          <span className="font-medium">Total</span>
+          <span className="font-bold text-lg">{finalAmount}</span>
+        </div>
+      </CardFooter>
+    </Card>
   );
 };

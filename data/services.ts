@@ -3,11 +3,12 @@ export interface Service {
   subtitle: string;
   description: string;
   price: string;
+  price_id: string;
+  product_id: string;
   popular: boolean;
   color: string;
   buttonVariant: string;
   cta: string;
-  ctaLink: string;
   accuracy: string;
   features: {
     [key: string]: string | boolean;
@@ -23,12 +24,14 @@ export const services: Service[] = [
     subtitle: "Client-Side Tracking",
     description:
       "Identify gaps in your current tracking setup and get a roadmap for improvements",
-    price: "€500",
+    price: "$500",
+
+    product_id: "prod_SMXsQEj0376cLO",
+    price_id: "price_1RRomYAE3E6zT9eTH0szeYoQ",
     popular: false,
     color: "border-muted",
     buttonVariant: "outline",
-    cta: "View Sample Audit",
-    ctaLink: "/audit",
+    cta: "Get Your Audit",
     accuracy: "60-70%",
     features: {
       "Google Ads Tracking": "Audit",
@@ -73,12 +76,13 @@ export const services: Service[] = [
     subtitle: "Client-Side Implementation",
     description:
       "Complete implementation of client-side tracking for improved conversion accuracy",
-    price: "€1,500",
+    price: "$1,500",
+    product_id: "prod_SMYDcMw9E4461R",
+    price_id: "price_1RRp6lAE3E6zT9eTts6wOZWE",
     popular: false,
     color: "border-muted",
     buttonVariant: "outline",
     cta: "Get Started Today",
-    ctaLink: "/contact",
     accuracy: "60-70%",
     features: {
       "Google Ads Tracking": "CST Setup",
@@ -124,12 +128,13 @@ export const services: Service[] = [
     subtitle: "Server-Side + Client-Side",
     description:
       "Comprehensive tracking with both client and server-side implementation for maximum accuracy",
-    price: "€2,500",
+    price: "$2,500",
+    product_id: "prod_SMYQIgiiJQQ2Al",
+    price_id: "price_1RRpK8AE3E6zT9eTRxMW2Dpq",
     popular: true,
     color: "border-primary",
     buttonVariant: "default",
     cta: "Reclaim Lost Conversions",
-    ctaLink: "/contact",
     accuracy: "95%+",
     features: {
       "Google Ads Tracking": "CST & SST",
@@ -189,11 +194,12 @@ export const services: Service[] = [
     description:
       "Advanced tracking with complete digital compliance for enterprise-level needs",
     price: "€5,000",
+    product_id: "prod_SMaBYVuzJgZfTK",
+    price_id: "price_1RRr1OAE3E6zT9eTlvyhObEb",
     popular: false,
     color: "border-muted",
     buttonVariant: "outline",
     cta: "Schedule Consultation",
-    ctaLink: "/contact",
     accuracy: "95%+",
     features: {
       "Google Ads Tracking": "Full Setup",

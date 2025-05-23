@@ -25,7 +25,8 @@ export interface Product {
   unitAmount: number;
   currency: string;
   priceId: string;
-  features?: string[];
+  features?: string[]; // ✅ Used for display
+  metadata?: { [key: string]: string }; // ✅ Optional raw metadata
   images?: string[];
 }
 
@@ -50,7 +51,7 @@ export interface PaymentData {
   } | null;
 }
 
-export interface PaymentPageProps {
+export interface PaymentContentProps {
   productId: string;
   priceId: string;
   onSuccess?: (paymentData: PaymentData) => void;

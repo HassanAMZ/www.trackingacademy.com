@@ -1,4 +1,3 @@
-// components/payment/LoadingState.tsx
 import { Loader2 } from "lucide-react";
 
 interface LoadingStateProps {
@@ -11,9 +10,14 @@ export const LoadingState = ({
   message = "Loading payment...",
 }: LoadingStateProps) => {
   return (
-    <div className={`flex items-center justify-center p-8 ${className}`}>
-      <Loader2 className="h-8 w-8 animate-spin" />
-      <span className="ml-2 text-muted-foreground">{message}</span>
+    <div
+      className={`flex items-center justify-center p-8 ${className}`}
+      aria-live="polite"
+    >
+      <div className="flex items-center gap-2">
+        <Loader2 className="h-6 w-6 animate-spin text-primary" />
+        <span className="text-muted-foreground">{message}</span>
+      </div>
     </div>
   );
 };

@@ -1,7 +1,4 @@
-// components/payment/PaymentForm.tsx
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
 import { PaymentData, Product, PromoCode } from "@/types/index";
 import { getSuccessUrl } from "@/utils/payment";
 import {
@@ -9,8 +6,8 @@ import {
   useElements,
   useStripe,
 } from "@stripe/react-stripe-js";
-import { Loader2 } from "lucide-react";
-import React, { FormEvent, useState } from "react";
+import { Loader2, LockIcon } from "lucide-react";
+import { FormEvent, useState } from "react";
 
 interface PaymentFormProps {
   product: Product;
@@ -79,7 +76,13 @@ export const PaymentForm = ({
   return (
     <div className="space-y-6">
       <div className="rounded-lg">
-        <PaymentElement />
+        <PaymentElement
+          options={{
+            fields: {
+              billingDetails: "auto", // or 'never' to hide them
+            },
+          }}
+        />
       </div>
 
       <Button
@@ -87,9 +90,10 @@ export const PaymentForm = ({
         onClick={handleFormSubmit}
         disabled={!stripe || isProcessing}
         className="w-full"
+        size="lg"
       >
         {isProcessing ? (
-          <div className="flex items-center justify-center space-x-2">
+          <div className="flex items-center justify-center gap-2">
             <Loader2 className="h-5 w-5 animate-spin" />
             <span>Processing...</span>
           </div>
@@ -98,9 +102,10 @@ export const PaymentForm = ({
         )}
       </Button>
 
-      <p className="text-muted-foreground text-center">
-        Your payment is secured with 256-bit SSL encryption
-      </p>
+      <div className="flex items-center justify-center gap-2 text-muted-foreground text-sm">
+        <LockIcon className="h-4 w-4" />
+        <span>Your payment is secured with 256-bit SSL encryption</span>
+      </div>
     </div>
   );
 };
