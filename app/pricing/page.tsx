@@ -2,6 +2,7 @@ import Navbar from "@/components/global/navbar";
 import FAQSection from "@/components/pricing/faq-section";
 import PricingVertical from "@/components/pricing/pricing-vertical";
 import Container from "@/components/ui/container";
+import { services } from "@/data/services";
 
 export default function PricingPage() {
   return (
@@ -14,7 +15,7 @@ export default function PricingPage() {
         </h4>
       </div>
 
-      <PricingVertical />
+      <PricingVertical services={services} />
 
       <FAQSection />
     </Container>

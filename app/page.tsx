@@ -330,9 +330,11 @@ export default function HomePage() {
           },
         ]}
       />{" "}
-      <Container>
-        <TestimonialGrid upwork={true} />
-      </Container>
+      <SocialProof
+        sectionTitle="Our Clients Are Seeing Results – Will You Be Next?"
+        sectionDescription="Here's how we've transformed other businesses like yours."
+        upwork={true}
+      />
       <DetailedCTA
         heading="Fix Your Tracking, Maximize Your ROI"
         subheading="Act now to secure your spot and exclusive bonuses."

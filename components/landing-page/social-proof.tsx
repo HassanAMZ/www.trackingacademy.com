@@ -6,10 +6,12 @@ interface SocialProofProps {
   sectionTitle?: string;
   sectionDescription?: string;
   resultsTitle?: string;
+  upwork?: boolean;
 }
 
 const SocialProof: React.FC<SocialProofProps> = ({
   sectionTitle,
+  upwork = false,
   sectionDescription,
 }) => {
   return (
@@ -23,7 +25,7 @@ const SocialProof: React.FC<SocialProofProps> = ({
             {sectionDescription}
           </h4>
         )}{" "}
-        <TestimonialGrid />
+        <TestimonialGrid upwork={upwork} />
       </Container>
     </section>
   );

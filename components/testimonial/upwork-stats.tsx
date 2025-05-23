@@ -85,11 +85,13 @@ function UpworkStats() {
                   {CATEGORIES.map((category) => (
                     <div
                       key={category.name}
-                      className="flex items-center gap-2"
+                      className="grid grid-cols-2 items-center gap-2 "
                     >
                       <span>{category.name}</span>
-                      <Star className="h-4 w-4 text-primary fill-primary" />
-                      <span className="font-medium">{category.rating}</span>
+                      <div className="flex flex-row gap-2 align-left items-center justify-center">
+                        <Star className="h-4 w-4 text-primary fill-primary" />
+                        <span className="font-medium">{category.rating}</span>
+                      </div>
                     </div>
                   ))}
                 </div>

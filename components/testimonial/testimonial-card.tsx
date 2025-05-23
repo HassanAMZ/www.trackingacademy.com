@@ -131,7 +131,7 @@ export function TestimonialCard({
           {/* Author info */}
           <div className="flex items-center justify-between gap-2">
             <div className="flex items-center gap-2">
-              <Avatar className="h-10 w-10 shrink-0 group-hover:animate-spin">
+              <Avatar className="h-10 w-10 shrink-0 ">
                 <AvatarImage src={image} alt={author} />
                 <AvatarFallback>{author[0]?.toUpperCase()}</AvatarFallback>
               </Avatar>

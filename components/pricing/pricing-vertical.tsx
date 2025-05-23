@@ -14,247 +14,34 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
+import { Service } from "@/data/services";
 import { ArrowRight, Check, HelpCircle, X } from "lucide-react";
 import Link from "next/link";
 
-export default function PricingVertical() {
-  const plans = [
-    {
-      name: "Basic Tracking Audit",
-      subtitle: "Client-Side Tracking",
-      description:
-        "Identify gaps in your current tracking setup and get a roadmap for improvements",
-      price: "€500",
-      popular: false,
-      color: "border-muted",
-      buttonVariant: "outline",
-      cta: "View Sample Audit",
-      ctaLink: "/audit",
-      accuracy: "60-70%",
-    },
-    {
-      name: "Professional Setup",
-      subtitle: "Client-Side Implementation",
-      description:
-        "Complete implementation of client-side tracking for improved conversion accuracy",
-      price: "€1,500",
-      popular: false,
-      color: "border-muted",
-      buttonVariant: "outline",
-      cta: "Get Started Today",
-      ctaLink: "/contact",
-      accuracy: "60-70%",
-    },
-    {
-      name: "Advanced Tracking",
-      subtitle: "Server-Side + Client-Side",
-      description:
-        "Comprehensive tracking with both client and server-side implementation for maximum accuracy",
-      price: "€2,500",
-      popular: true,
-      color: "border-primary",
-      buttonVariant: "default",
-      cta: "Reclaim Lost Conversions",
-      ctaLink: "/contact",
-      accuracy: "95%+",
-    },
-    {
-      name: "Enterprise Solution",
-      subtitle: "Full Compliance & Tracking",
-      description:
-        "Advanced tracking with complete digital compliance for enterprise-level needs",
-      price: "€5,000",
-      popular: false,
-      color: "border-muted",
-      buttonVariant: "outline",
-      cta: "Schedule Consultation",
-      ctaLink: "/contact",
-      accuracy: "95%+",
-    },
-  ];
+interface PricingVerticalProps {
+  services: Service[];
+}
 
-  const featureExplanations = {
-    "Google Ads Tracking":
-      "Track conversions from Google Ads campaigns with precision, ensuring accurate ROAS measurement and optimization opportunities.",
-    "META Ads Tracking":
-      "Accurately track Facebook and Instagram ad performance, even with iOS privacy changes and cookie restrictions.",
-    "LinkedIn Ads Tracking":
-      "Measure B2B campaign performance and lead generation from LinkedIn with accurate attribution.",
-    "X Ads Tracking":
-      "Track conversions from Twitter/X campaigns with precision for better campaign optimization.",
-    "TikTok Tracking":
-      "Capture accurate conversion data from TikTok campaigns, even with privacy restrictions.",
-    "Google Analytics":
-      "Set up proper GA4 implementation to track user behavior, conversions, and campaign performance.",
-    "Google Tag Manager":
-      "Implement a clean, organized tag management system for all your marketing and analytics tags.",
-    "Floodlight Tags":
-      "Set up Display & Video 360 conversion tracking for advanced campaign measurement.",
-    "Consent Solution":
-      "Implement a GDPR-compliant consent management platform that maintains tracking accuracy.",
-    "SST Anonymizer":
-      "Server-side solution that anonymizes user data while maintaining tracking accuracy, ensuring privacy compliance.",
-    "SST Cookie Extender":
-      "Extends cookie lifespans server-side to improve cross-device tracking and attribution windows.",
-    "SST Bot Detection":
-      "Filters out bot traffic server-side for cleaner analytics data and reduced data collection costs.",
-    "Multi-language Support":
-      "Localized consent banners and privacy policies for global compliance and better user experience.",
-    "Looker Studio Dashboard":
-      "Custom dashboard showing all your key metrics in one place for easy monitoring and decision making.",
-    "Cross-domain Tracking":
-      "Track users across multiple domains or subdomains for complete customer journey visibility.",
-    "Enhanced Ecommerce":
-      "Detailed tracking of product impressions, clicks, add-to-carts, checkouts, and purchases.",
-    "UTM Parameter Tracking":
-      "Accurate attribution of traffic sources, campaigns, and keywords.",
-    CST: "Client-Side Tracking captures user interactions directly in the browser. Only 60-70% accurate due to ad blockers, privacy settings, and browser restrictions.",
-    SST: "Server-Side Tracking processes data on secure servers, bypassing ad blockers and preserving user privacy while maintaining 95%+ accuracy. See our case studies at /case-study.",
-    Audit:
-      "Comprehensive review of your current tracking setup to identify gaps and opportunities for improvement. /",
-    Setup:
-      "Complete implementation of tracking solutions tailored to your specific business needs.",
-  };
-
-  const features = [
-    {
-      name: "Google Ads Tracking",
-      basic: "Audit",
-      pro: "CST Setup",
-      advanced: "CST & SST",
-      enterprise: "Full Setup",
-    },
-    {
-      name: "META Ads Tracking",
-      basic: "Audit",
-      pro: "CST Setup",
-      advanced: "CST & SST",
-      enterprise: "Full Setup",
-    },
-    {
-      name: "TikTok Tracking",
-      basic: "Audit",
-      pro: "CST Setup",
-      advanced: "CST & SST",
-      enterprise: "Full Setup",
-    },
-    {
-      name: "Google Analytics",
-      basic: "Audit",
-      pro: "CST Setup",
-      advanced: "CST & SST",
-      enterprise: "Full Setup",
-    },
-    {
-      name: "Google Tag Manager",
-      basic: "Audit",
-      pro: "CST Setup",
-      advanced: "CST Setup",
-      enterprise: "Full Setup",
-    },
-    {
-      name: "LinkedIn Ads Tracking",
-      basic: "Audit",
-      pro: false,
-      advanced: "CST & SST",
-      enterprise: "Full Setup",
-    },
-    {
-      name: "X Ads Tracking",
-      basic: "Audit",
-      pro: false,
-      advanced: "CST & SST",
-      enterprise: "Full Setup",
-    },
-    {
-      name: "Floodlight Tags",
-      basic: false,
-      pro: false,
-      advanced: "CST & SST",
-      enterprise: "Full Setup",
-    },
-    {
-      name: "Consent Solution",
-      basic: false,
-      pro: "Basic",
-      advanced: "Standard",
-      enterprise: "Advanced",
-    },
-    {
-      name: "Looker Studio Dashboard",
-      basic: false,
-      pro: false,
-      advanced: true,
-      enterprise: true,
-    },
-    {
-      name: "Cross-domain Tracking",
-      basic: false,
-      pro: false,
-      advanced: true,
-      enterprise: true,
-    },
-    {
-      name: "Enhanced Ecommerce",
-      basic: false,
-      pro: false,
-      advanced: true,
-      enterprise: true,
-    },
-    {
-      name: "UTM Parameter Tracking",
-      basic: false,
-      pro: false,
-      advanced: true,
-      enterprise: true,
-    },
-    {
-      name: "SST Anonymizer",
-      basic: false,
-      pro: false,
-      advanced: false,
-      enterprise: true,
-    },
-    {
-      name: "SST Cookie Extender",
-      basic: false,
-      pro: false,
-      advanced: false,
-      enterprise: true,
-    },
-    {
-      name: "SST Bot Detection",
-      basic: false,
-      pro: false,
-      advanced: false,
-      enterprise: true,
-    },
-    {
-      name: "Multi-language Support",
-      basic: false,
-      pro: false,
-      advanced: false,
-      enterprise: true,
-    },
-  ];
-
-  const FeatureWithTooltip = ({ featureName }: { featureName: string }) => (
+export default function PricingVertical({ services }: PricingVerticalProps) {
+  const FeatureWithTooltip = ({
+    featureName,
+    explanations,
+  }: {
+    featureName: string;
+    explanations: { [key: string]: string };
+  }) => (
     <TooltipProvider>
       <Tooltip>
         <TooltipTrigger asChild>
           <div className="flex items-center gap-1 cursor-help">
             {featureName}
-            <HelpCircle className="h-4 w-4 text-muted-foreground" />
+            {/* <HelpCircle className="h-4 w-4 text-muted-foreground" /> */}
           </div>
         </TooltipTrigger>
         <TooltipContent className="max-w-xs p-4">
           <p>
-            {featureExplanations[
-              featureName as keyof typeof featureExplanations
-            ] ||
-              featureExplanations[
-                featureName.split(" ")[0] as keyof typeof featureExplanations
-              ] ||
+            {explanations[featureName] ||
+              explanations[featureName.split(" ")[0]] ||
               "Improve your tracking accuracy and conversion data."}
           </p>
         </TooltipContent>
@@ -262,7 +49,13 @@ export default function PricingVertical() {
     </TooltipProvider>
   );
 
-  const ValueWithTooltip = ({ value }: { value: string }) => {
+  const ValueWithTooltip = ({
+    value,
+    explanations,
+  }: {
+    value: string;
+    explanations: { [key: string]: string };
+  }) => {
     const terms = value
       .split(" & ")
       .flatMap((term) => term.split(" "))
@@ -276,7 +69,7 @@ export default function PricingVertical() {
           <TooltipTrigger asChild>
             <div className="flex items-center gap-1 cursor-help">
               {value}
-              <HelpCircle className="h-3 w-3 text-muted-foreground" />
+              {/* <HelpCircle className="h-3 w-3 text-muted-foreground" /> */}
             </div>
           </TooltipTrigger>
           <TooltipContent className="max-w-xs p-4">
@@ -285,11 +78,7 @@ export default function PricingVertical() {
                 {term}:{" "}
                 {term === "Audit" ? (
                   <>
-                    {
-                      featureExplanations[
-                        term as keyof typeof featureExplanations
-                      ]
-                    }{" "}
+                    {explanations[term]}{" "}
                     <Link
                       href="/audit"
                       className="text-primary hover:underline"
@@ -300,11 +89,7 @@ export default function PricingVertical() {
                   </>
                 ) : term === "SST" ? (
                   <>
-                    {
-                      featureExplanations[
-                        term as keyof typeof featureExplanations
-                      ]
-                    }{" "}
+                    {explanations[term]}{" "}
                     <Link
                       href="/case-study"
                       className="text-primary hover:underline"
@@ -314,7 +99,7 @@ export default function PricingVertical() {
                     .
                   </>
                 ) : (
-                  featureExplanations[term as keyof typeof featureExplanations]
+                  explanations[term]
                 )}
               </p>
             ))}
@@ -324,47 +109,54 @@ export default function PricingVertical() {
     );
   };
 
+  // Extract all unique feature names from services
+  const featureNames = Array.from(
+    new Set(services.flatMap((service) => Object.keys(service.features))),
+  );
+
   return (
     <div className="space-y-8">
       {/* Pricing Cards */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-        {plans.map((plan, index) => (
-          <Card key={index} className={`flex flex-col h-full ${plan.color}`}>
+        {services.map((service, index) => (
+          <Card key={index} className={`flex flex-col h-full ${service.color}`}>
             <CardHeader>
               <div className="space-y-1">
-                <CardTitle>{plan.name}</CardTitle>
+                <CardTitle>{service.name}</CardTitle>
                 <p className="text-sm font-medium text-muted-foreground">
-                  {plan.subtitle}
+                  {service.subtitle}
                 </p>
               </div>
               <CardDescription className="pt-4">
-                {plan.description}
+                {service.description}
               </CardDescription>
             </CardHeader>
             <CardContent className="flex-grow">
-              <div className="text-3xl font-bold mb-2">{plan.price}</div>
+              <div className="text-3xl font-bold mb-2">{service.price}</div>
               <p className="text-sm text-muted-foreground">one-time payment</p>
               <div className="mt-4 flex items-center">
                 <span className="text-sm font-medium">Tracking Accuracy:</span>
                 <Badge
-                  variant={plan.accuracy.includes("95") ? "default" : "outline"}
+                  variant={
+                    service.accuracy.includes("95") ? "default" : "outline"
+                  }
                   className="ml-2"
                 >
-                  {plan.accuracy}
+                  {service.accuracy}
                 </Badge>
               </div>
             </CardContent>
             <CardFooter>
               <Button
                 className="w-full"
-                variant={plan.buttonVariant as any}
+                variant={service.buttonVariant as any}
                 asChild
               >
                 <Link
-                  href={plan.ctaLink}
+                  href={service.ctaLink}
                   className="flex items-center justify-center gap-2"
                 >
-                  {plan.cta}
+                  {service.cta}
                   <ArrowRight className="h-4 w-4" />
                 </Link>
               </Button>
@@ -384,77 +176,56 @@ export default function PricingVertical() {
         <CardContent>
           {/* Desktop View - Hidden on mobile */}
           <div className="hidden lg:block">
-            <div className="grid grid-cols-5 gap-4">
+            <div
+              style={{
+                gridTemplateColumns: `200px repeat(${services.length}, minmax(0, 1fr))`,
+              }}
+              className={`grid gap-4`}
+            >
               {/* Header Row */}
               <div className="font-semibold text-left py-3">Feature</div>
-              <div className="text-center py-3">
-                <div className="font-semibold">Basic Tracking Audit</div>
-                <div className="text-sm text-muted-foreground">€500</div>
-              </div>
-              <div className="text-center py-3">
-                <div className="font-semibold">Professional Setup</div>
-                <div className="text-sm text-muted-foreground">€1,500</div>
-              </div>
-              <div className="text-center py-3">
-                <div className="font-semibold">Advanced Tracking</div>
-                <div className="text-sm text-muted-foreground">€2,500</div>
-              </div>
-              <div className="text-center py-3">
-                <div className="font-semibold">Enterprise Solution</div>
-                <div className="text-sm text-muted-foreground">€5,000</div>
-              </div>
+              {services.map((service, index) => (
+                <div key={index} className="text-center py-3">
+                  <div className="font-semibold">{service.name}</div>
+                  <div className="text-sm text-muted-foreground">
+                    {service.price}
+                  </div>
+                </div>
+              ))}
 
               {/* Feature Rows */}
-              {features.map((feature, index) => (
+              {featureNames.map((featureName, index) => (
                 <div
                   key={index}
-                  className={`grid grid-cols-5 col-span-5 gap-4 py-3 ${index % 2 === 0 ? "bg-muted/50 rounded-lg" : ""}`}
+                  className={`grid gap-4 py-3 ${index % 2 === 0 ? "bg-muted/50 rounded-lg" : ""}`}
+                  style={{
+                    gridTemplateColumns: `200px repeat(${services.length}, minmax(0, 1fr))`,
+                    gridColumn: `span ${services.length + 1} / span ${services.length + 1}`, // +1 for the label column
+                  }}
                 >
                   <div className="font-medium px-4">
-                    <FeatureWithTooltip featureName={feature.name} />
+                    <FeatureWithTooltip
+                      featureName={featureName}
+                      explanations={services[0].featureExplanations}
+                    />
                   </div>
-                  <div className="flex justify-center items-center">
-                    {typeof feature.basic === "string" ? (
-                      <ValueWithTooltip value={feature.basic} />
-                    ) : feature.basic === true ? (
-                      <Check className="h-4 w-4 text-primary" />
-                    ) : (
-                      <X className="h-4 w-4 text-muted-foreground" />
-                    )}
-                  </div>
-                  <div className="flex justify-center items-center">
-                    {feature.pro ? (
-                      feature.pro === true ? (
+                  {services.map((service, serviceIndex) => (
+                    <div
+                      key={serviceIndex}
+                      className="flex justify-center items-center"
+                    >
+                      {typeof service.features[featureName] === "string" ? (
+                        <ValueWithTooltip
+                          value={service.features[featureName] as string}
+                          explanations={service.featureExplanations}
+                        />
+                      ) : service.features[featureName] === true ? (
                         <Check className="h-4 w-4 text-primary" />
                       ) : (
-                        <ValueWithTooltip value={feature.pro} />
-                      )
-                    ) : (
-                      <X className="h-4 w-4 text-muted-foreground" />
-                    )}
-                  </div>
-                  <div className="flex justify-center items-center">
-                    {feature.advanced ? (
-                      feature.advanced === true ? (
-                        <Check className="h-4 w-4 text-primary" />
-                      ) : (
-                        <ValueWithTooltip value={feature.advanced} />
-                      )
-                    ) : (
-                      <X className="h-4 w-4 text-muted-foreground" />
-                    )}
-                  </div>
-                  <div className="flex justify-center items-center">
-                    {feature.enterprise ? (
-                      feature.enterprise === true ? (
-                        <Check className="h-4 w-4 text-primary" />
-                      ) : (
-                        <ValueWithTooltip value={feature.enterprise} />
-                      )
-                    ) : (
-                      <X className="h-4 w-4 text-muted-foreground" />
-                    )}
-                  </div>
+                        <X className="h-4 w-4 text-muted-foreground" />
+                      )}
+                    </div>
+                  ))}
                 </div>
               ))}
             </div>
@@ -462,67 +233,53 @@ export default function PricingVertical() {
 
           {/* Mobile/Tablet View - Stacked Cards */}
           <div className="lg:hidden space-y-6">
-            {plans.map((plan, planIndex) => (
+            {services.map((service, planIndex) => (
               <div key={planIndex} className="border rounded-lg p-4">
                 <div className="flex items-center justify-between mb-4">
                   <div>
-                    <h3 className="font-semibold">{plan.name}</h3>
+                    <h3 className="font-semibold">{service.name}</h3>
                     <p className="text-sm text-muted-foreground">
-                      {plan.subtitle}
+                      {service.subtitle}
                     </p>
                   </div>
                   <div className="text-right">
-                    <div className="font-bold text-lg">{plan.price}</div>
+                    <div className="font-bold text-lg">{service.price}</div>
                     <Badge
                       variant={
-                        plan.accuracy.includes("95") ? "default" : "outline"
+                        service.accuracy.includes("95") ? "default" : "outline"
                       }
                     >
-                      {plan.accuracy}
+                      {service.accuracy}
                     </Badge>
                   </div>
                 </div>
 
                 <div className="space-y-3">
-                  {features.map((feature, featureIndex) => {
-                    let value;
-                    switch (planIndex) {
-                      case 0:
-                        value = feature.basic;
-                        break;
-                      case 1:
-                        value = feature.pro;
-                        break;
-                      case 2:
-                        value = feature.advanced;
-                        break;
-                      case 3:
-                        value = feature.enterprise;
-                        break;
-                      default:
-                        value = false;
-                    }
-
-                    return (
-                      <div
-                        key={featureIndex}
-                        className="flex items-center justify-between py-2 border-b border-border/50 last:border-b-0"
-                      >
-                        <div className="flex-1">
-                          <FeatureWithTooltip featureName={feature.name} />
-                        </div>
-                        <div className="flex items-center">
-                          {typeof value === "string" ? (
-                            <ValueWithTooltip value={value} />
-                          ) : value === true ? (
-                            <Check className="h-4 w-4 text-primary" />
-                          ) : (
-                            <X className="h-4 w-4 text-muted-foreground" />
-                          )}
-                        </div>
+                  {featureNames.map((featureName, featureIndex) => (
+                    <div
+                      key={featureIndex}
+                      className="flex items-center justify-between py-2 border-b border-border/50 last:border-b-0"
+                    >
+                      <div className="flex-1">
+                        <FeatureWithTooltip
+                          featureName={featureName}
+                          explanations={service.featureExplanations}
+                        />
                       </div>
-                    );
-                  })}
+                      <div className="flex items-center">
+                        {typeof service.features[featureName] === "string" ? (
+                          <ValueWithTooltip
+                            value={service.features[featureName] as string}
+                            explanations={service.featureExplanations}
+                          />
+                        ) : service.features[featureName] === true ? (
+                          <Check className="h-4 w-4 text-primary" />
+                        ) : (
+                          <X className="h-4 w-4 text-muted-foreground" />
+                        )}
+                      </div>
+                    </div>
+                  ))}
                 </div>
               </div>
             ))}
