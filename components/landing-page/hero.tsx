@@ -65,15 +65,13 @@ const Hero: React.FC<HeroProps> = ({
           {ctaButtonText && ctaButtonLink && (
             <Button
               size="lg"
-              className="hover:bg-primary/90 flex flex-col py-20 text-xl font-bold text-wrap whitespace-pre-wrap hover:cursor-pointer sm:py-16 md:py-12"
+              className="hover:bg-primary/90 flex flex-col py-20 text-wrap whitespace-pre-wrap hover:cursor-pointer "
             >
               <Link href={ctaButtonLink}>
                 <div>
-                  {ctaButtonText}
+                  <h3>{ctaButtonText}</h3>
                   {subtextForButtonCta && (
-                    <span className="mt-2 block text-sm font-medium opacity-90">
-                      {subtextForButtonCta}
-                    </span>
+                    <p className="opacity-80">{subtextForButtonCta}</p>
                   )}
                 </div>
               </Link>

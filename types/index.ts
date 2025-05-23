@@ -16,4 +16,44 @@ export interface PostMetadata {
 
 export interface PostMetadataProps {
   metadata: PostMetadata;
+} // types/index.ts
+
+export interface Product {
+  id: string;
+  name: string;
+  description?: string;
+  unitAmount: number;
+  currency: string;
+  priceId: string;
+  features?: string[];
+  images?: string[];
+}
+
+export interface PromoCode {
+  id: string;
+  code: string;
+  amountOff: number;
+  percentOff?: number;
+  active: boolean;
+  couponId?: string;
+  finalAmount?: number;
+}
+
+export interface PaymentData {
+  amount: number;
+  currency: string;
+  paymentIntentId?: string;
+  appliedPromo?: {
+    code: string;
+    amountOff: number;
+    couponId?: string;
+  } | null;
+}
+
+export interface PaymentPageProps {
+  productId: string;
+  priceId: string;
+  onSuccess?: (paymentData: PaymentData) => void;
+  onError?: (error: string) => void;
+  className?: string;
 }

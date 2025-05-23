@@ -31,7 +31,7 @@ export default function HomePage() {
         subheadingText="Discover how our server-side tracking system recovers 30%+ of your 'invisible' conversions, slashes wasted ad spend by 20%+, and gives you the accurate data you need to scale profitably - even with iOS 18 and strict privacy laws."
         ctaButtonText="👉 Eliminate My Tracking Blindspot"
         ctaButtonLink="/contact"
-        subtextForButtonCta="Recovers 30%+ of your 'invisible' conversions, slashes wasted ad spend by 20%+."
+        subtextForButtonCta="Recovers 30%+ of your 'invisible' conversions, slashes wasted ad spend by 20%+ and Scale your Ads"
         supportingButtonText="View Client Results"
         supportingButtonLink="#case-studies"
         youtubeEmbedId="9MGpL_AmEYM"

@@ -241,6 +241,12 @@
     scroll-behavior: smooth;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
   }
 }
 
@@ -257,43 +263,10 @@
   h4 {
     @apply scroll-m-20 text-xl font-semibold tracking-tight;
   }
-  .text-small {
-    @apply text-sm leading-5;
-  }
-  .text-normal {
-    @apply text-base leading-7;
-  }
-  .text-medium {
-    @apply text-lg leading-7;
-  }
-  .text-large {
-    @apply text-xl leading-8;
-  }
   p {
     @apply leading-7;
   }
 
-  p.small {
-    @apply text-sm leading-5 not-first:mt-4;
-  }
-  p.medium {
-    @apply text-lg leading-7 not-first:mt-6;
-  }
-  p.large {
-    @apply text-xl leading-8 not-first:mt-8;
-  }
-  .lead {
-    @apply text-muted-foreground text-xl;
-  }
-  .large {
-    @apply text-lg font-semibold;
-  }
-  small {
-    @apply text-sm leading-none font-medium;
-  }
-  .muted {
-    @apply text-muted-foreground text-sm;
-  }
   code {
     @apply rounded px-1.5 py-0.5 font-mono text-sm font-medium;
   }
