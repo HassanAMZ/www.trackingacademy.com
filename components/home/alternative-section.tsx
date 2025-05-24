@@ -45,7 +45,7 @@ export default function AlternativesSection({
   };
 
   return (
-    <Container className="py-12">
+    <Container className="py-24 space-y-4">
       <h2 className="mb-8">{heading}</h2>
       <h4 className="text-muted-foreground mb-8">{subheading}</h4>{" "}
       <div className="mb-12 grid gap-6 md:grid-cols-2 lg:grid-cols-4">

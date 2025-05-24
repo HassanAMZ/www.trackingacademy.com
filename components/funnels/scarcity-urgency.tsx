@@ -29,7 +29,7 @@ const ScarcityUrgency: React.FC<ScarcityUrgencyProps> = ({
   iconSize = 12, // Default icon size
 }) => {
   return (
-    <Container className="flex items-center justify-center pb-12">
+    <Container className="flex items-center justify-center pb-12 min-h-[75vh]">
       <section className="bg-primary text-primary-foreground flex w-full flex-col items-center justify-center space-y-8 rounded-lg px-8 py-24 text-center">
         {/* Title Section */}
         {title && <h2 className="max-w-3xl">{title}</h2>}{" "}

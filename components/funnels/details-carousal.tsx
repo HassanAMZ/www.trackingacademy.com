@@ -106,7 +106,7 @@ const DetailsCarousel: React.FC<DetailsCarouselProps> = ({
   }
 
   return (
-    <section className="py-16 overflow-hidden">
+    <section className="py-16 overflow-hidden from-accent/5 to-background bg-linear-to-b">
       <Container className="space-y-4">
         {/* Header Section */}
         {headerTitle && (

@@ -15,6 +15,7 @@ import Hero from "@/components/home/hero";
 import TestimonialGrid from "@/components/testimonial/testimonial-grid";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import Container from "@/components/ui/container";
 import {
   Dialog,
@@ -25,15 +26,113 @@ import {
 import { caseStudies } from "@/data/case-studies";
 import { services } from "@/data/services";
 import { PersonIcon } from "@radix-ui/react-icons";
-import { BarChart2, CheckSquare, Rocket, Target, Zap } from "lucide-react";
+import {
+  ArrowRight,
+  BarChart2,
+  CheckSquare,
+  Phone,
+  Rocket,
+  Settings,
+  Target,
+  TrendingUp,
+  Zap,
+} from "lucide-react";
 import { usePathname } from "next/navigation";
-import { useState } from "react";
+import React, { useState } from "react";
 
 export default function HomePage() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const pathname = usePathname();
   const service = services.find((s) => s.name === "See Every Sale");
   const redirectUrl = `${pathname.replace(/\/$/, "")}/payment?product_id=${service?.product_id}&price_id=${service?.price_id}&prefilled_promo_code=SEEEVERYSALE300OFF`;
+
+  const SimpleProcessFlow = () => {
+    const steps = [
+      {
+        number: "1",
+        title: "Onboard Call",
+        description:
+          "During the onboarding call, we'll analyze your current setup, understand your goals, and create a custom measurement plan tailored to your business.",
+        icon: <Phone className="w-6 h-6" />,
+        color: "bg-primary",
+      },
+      {
+        number: "2",
+        title: "3 Days Tracking Setup",
+        description:
+          "Our team implements everything for you. No work required on your end - we handle the entire technical setup in just 3 days, so you get the 95% accurate results.",
+        icon: <Settings className="w-6 h-6" />,
+        color: "bg-secondary",
+      },
+      {
+        number: "3",
+        title: "Watch ROAS Increase",
+        description:
+          "Sit back and watch your Facebook ads perform better with bulletproof tracking and crystal-clear attribution data and increase ROAS.",
+        icon: <TrendingUp className="w-6 h-6" />,
+        color: "bg-primary",
+      },
+    ];
+
+    return (
+      <Container className="p-12 min-h-screen from-primary/5 to-background bg-linear-to-b  grid place-content-center ">
+        {/* Header */}
+        <div className="text-center mb-16 space-y-4 mmx-to">
+          <h1>How It Works </h1>
+          <h4 className="text-muted-foreground">
+            Super simple process - we do all the heavy lifting so you can focus
+            on growing your business
+          </h4>
+        </div>
+        {/* Process Steps */}
+        <div className="flex flex-col lg:flex-row items-stretch justify-center gap-8 lg:gap-6">
+          {steps.map((step, index) => (
+            <React.Fragment key={step.number}>
+              {/* Card */}
+              <div className="flex-1 max-w-sm mx-auto lg:mx-0">
+                <Card className="h-full border-0 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 relative overflow-hidden">
+                  <CardHeader className="relative pb-4">
+                    {/* Step Number */}
+                    <div className="flex items-center justify-between mb-4">
+                      <div className="text-muted-foreground/20 select-none text-7xl">
+                        {step.number}
+                      </div>
+                      <div className={`p-3 shadow`}>{step.icon}</div>
+                    </div>
+
+                    <CardTitle>{step.title}</CardTitle>
+                  </CardHeader>
+
+                  <CardContent className="relative pt-0">
+                    <p className="text-muted-foreground">{step.description}</p>
+                  </CardContent>
+                </Card>
+              </div>
+
+              {/* Arrow between cards */}
+              {index < steps.length - 1 && (
+                <>
+                  {/* Desktop Arrow */}
+                  <div className="hidden lg:flex items-center justify-center px-4">
+                    <div className="bg-primary p-3 shadow">
+                      <ArrowRight className="w-6 h-6 text-primary-foreground" />
+                    </div>
+                  </div>
+
+                  {/* Mobile Arrow */}
+                  <div className="lg:hidden flex items-center justify-center py-4">
+                    <div className="bg-primary p-3 shadow rotate-90">
+                      <ArrowRight className="w-6 h-6 text-primary-foreground" />
+                    </div>
+                  </div>
+                </>
+              )}
+            </React.Fragment>
+          ))}
+        </div>
+      </Container>
+    );
+  };
 
   return (
     <main>
@@ -78,9 +177,9 @@ export default function HomePage() {
         }
         supportingComponent={<AdSpendCalculator cta={true} />}
       />
-      <div className="w-full max-w-full overflow-hidden py-12">
+      <div className="w-full max-w-full overflow-hidden py-12 min-h-screen">
         <Container className="pb-12 space-y-6 text-center max-w-4xl flex flex-col items-center">
-          <h1>Trusted by 1,000+ eCommerce brands </h1>
+          <h1>Trusted by 1,000+ eCommerce Stores </h1>
           <h4 className="max-w-3xl text-muted-foreground">
             See exactly how we restored tracking for ecommerce brands and the
             measurable impact on their ROAS, conversion rates, and scaling
@@ -89,7 +188,8 @@ export default function HomePage() {
         </Container>
         <CaseStudyCarousel caseStudies={caseStudies} />
       </div>
-      <DetailsCarousel
+      <SimpleProcessFlow />
+      {/* <DetailsCarousel
         headerTitle="How it Works?"
         headerDescription="A complete system designed to fix Facebook's data sharing restrictions and restore 95%+ accurate data for every key event — all done-for-you in just 3 days."
         items={[
@@ -139,7 +239,7 @@ export default function HomePage() {
             image: "/images/hero/customer-support.png",
           },
         ]}
-      />
+      /> */}
       {/* <ProblemAwareness
         headingText="The Hidden Costs of Missing Conversion Data"
         paragraphText="Without accurate funnel tracking, your Meta ads lack the data to optimize for conversions, resulting in wasted budget and poor ROAS."
@@ -268,7 +368,6 @@ export default function HomePage() {
         subtextForButtonCta="Only 10 spots available — get your coupon before it’s gone!"
       />
       <ObjectionHandling
-        sectionTitle="Our 95% Accuracy Guarantee"
         guarantees={[
           {
             title: "100% Money Back Guarantee",
@@ -344,8 +443,28 @@ export default function HomePage() {
         buttonText={`🎟️ Get My $300 Coupon Code`}
         buttonLink={redirectUrl}
       />
-      <Container className="py-12">
+      <Container className="py-24 from-primary/5 to-background bg-linear-to-b space-y-12">
+        <div className="mx-auto text-center max-w-4xl pb-6 space-y-6">
+          <h1>Join 300+ Happy Clients Who Fixed Their Tracking </h1>
+          <h4 className="text-muted-foreground">
+            See why leading ecommerce brands choose us to solve their Facebook
+            tracking nightmares and unlock consistent, scalable growth.
+          </h4>
+        </div>
         <TestimonialGrid upwork={true} />
+        <div className="pt-24 pb-12  from-primary/5 to-background bg-linear-to-b">
+          <Button
+            className="flex max-w-5xl flex-col items-center text-center font-bold mx-auto w-fit p-6 text-xl cursor-pointer"
+            onClick={() => setIsModalOpen(true)}
+          >
+            <div>
+              🎟️ Claim $300 OFF + $7,600 in Free Bonuses
+              <span className="mt-2 block text-sm font-medium opacity-90">
+                Limited to the first 10 clients — act fast before it expires
+              </span>
+            </div>
+          </Button>
+        </div>
       </Container>
       {/* Modal */}
       <Dialog open={isModalOpen} onOpenChange={setIsModalOpen}>
