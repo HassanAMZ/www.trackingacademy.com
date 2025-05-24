@@ -29,6 +29,7 @@ import {
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
+import { TestimonialCard } from "../testimonial/testimonial-card";
 import Container from "../ui/container";
 
 export default function CaseStudyComponent({
@@ -48,7 +49,7 @@ export default function CaseStudyComponent({
   };
 
   return (
-    <Container className="py-8">
+    <Container className="py-8 space-y-8">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
         <div className="lg:col-span-2">
           <div className="flex flex-col gap-6">
@@ -114,7 +115,6 @@ export default function CaseStudyComponent({
                 className="flex items-center gap-1"
               >
                 <Calendar className="h-4 w-4" />{" "}
-                {formatDate(caseStudy.projectTimeline.startDate)} -{" "}
                 {formatDate(caseStudy.projectTimeline.endDate)}
               </Button>
               <Button
@@ -127,10 +127,9 @@ export default function CaseStudyComponent({
               </Button>
             </div>{" "}
             <Tabs defaultValue="overview" className="w-full">
-              <TabsList className="grid grid-cols-4 mb-4">
+              <TabsList className="grid grid-cols-3 mb-4">
                 <TabsTrigger value="overview">Overview</TabsTrigger>
                 <TabsTrigger value="milestones">Milestones</TabsTrigger>
-                <TabsTrigger value="analytics">Analytics</TabsTrigger>
                 <TabsTrigger value="details">Details</TabsTrigger>
               </TabsList>{" "}
               <TabsContent value="overview" className="space-y-6">
@@ -200,73 +199,6 @@ export default function CaseStudyComponent({
                     </Card>
                   ))}
                 </div>
-              </TabsContent>{" "}
-              <TabsContent value="analytics" className="space-y-6">
-                <Card>
-                  <CardHeader>
-                    <CardTitle>Analytics Overview</CardTitle>
-                    <CardDescription>
-                      Data collected over {caseStudy.analytics.period}
-                    </CardDescription>
-                  </CardHeader>
-                  <CardContent className="space-y-6">
-                    <div className="space-y-2">
-                      <div className="flex justify-between">
-                        <span className="text-sm font-medium">
-                          Tracking Accuracy
-                        </span>
-                        <span className="text-sm font-medium">
-                          {caseStudy.analytics.accuracy}%
-                        </span>
-                      </div>
-                      <Progress
-                        value={caseStudy.analytics.accuracy}
-                        className="h-2"
-                      />
-                    </div>{" "}
-                    <div className="space-y-2">
-                      <div className="flex justify-between">
-                        <span className="text-sm font-medium">
-                          Recovered from Ad Blockers
-                        </span>
-                        <span className="text-sm font-medium">
-                          {
-                            caseStudy.analytics
-                              .recoveredFromAdBlockersPercentage
-                          }
-                          %
-                        </span>
-                      </div>
-                      <Progress
-                        value={
-                          caseStudy.analytics.recoveredFromAdBlockersPercentage
-                        }
-                        className="h-2"
-                      />
-                    </div>{" "}
-                    <div className="space-y-2">
-                      <div className="flex justify-between">
-                        <span className="text-sm font-medium">
-                          Recovered from Tracking Prevention
-                        </span>
-                        <span className="text-sm font-medium">
-                          {
-                            caseStudy.analytics
-                              .recoveredFromTrackingPreventionPercentage
-                          }
-                          %
-                        </span>
-                      </div>
-                      <Progress
-                        value={
-                          caseStudy.analytics
-                            .recoveredFromTrackingPreventionPercentage
-                        }
-                        className="h-2"
-                      />
-                    </div>
-                  </CardContent>
-                </Card>
               </TabsContent>{" "}
               <TabsContent value="details" className="space-y-6">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -390,6 +322,67 @@ export default function CaseStudyComponent({
             </Card>{" "}
             <Card>
               <CardHeader>
+                <CardTitle>Analytics Overview</CardTitle>
+                <CardDescription>
+                  Data collected over {caseStudy.analytics.period}
+                </CardDescription>
+              </CardHeader>
+              <CardContent className="space-y-6">
+                <div className="space-y-2">
+                  <div className="flex justify-between">
+                    <span className="text-sm font-medium">
+                      Tracking Accuracy
+                    </span>
+                    <span className="text-sm font-medium">
+                      {caseStudy.analytics.accuracy}%
+                    </span>
+                  </div>
+                  <Progress
+                    value={caseStudy.analytics.accuracy}
+                    className="h-2"
+                  />
+                </div>{" "}
+                <div className="space-y-2">
+                  <div className="flex justify-between">
+                    <span className="text-sm font-medium">
+                      Recovered from Ad Blockers
+                    </span>
+                    <span className="text-sm font-medium">
+                      {caseStudy.analytics.recoveredFromAdBlockersPercentage}%
+                    </span>
+                  </div>
+                  <Progress
+                    value={
+                      caseStudy.analytics.recoveredFromAdBlockersPercentage
+                    }
+                    className="h-2"
+                  />
+                </div>{" "}
+                <div className="space-y-2">
+                  <div className="flex justify-between">
+                    <span className="text-sm font-medium">
+                      Recovered from Tracking Prevention
+                    </span>
+                    <span className="text-sm font-medium">
+                      {
+                        caseStudy.analytics
+                          .recoveredFromTrackingPreventionPercentage
+                      }
+                      %
+                    </span>
+                  </div>
+                  <Progress
+                    value={
+                      caseStudy.analytics
+                        .recoveredFromTrackingPreventionPercentage
+                    }
+                    className="h-2"
+                  />
+                </div>
+              </CardContent>
+            </Card>
+            <Card>
+              <CardHeader>
                 <CardTitle>Project Timeline</CardTitle>
               </CardHeader>
               <CardContent className="space-y-4">
@@ -461,6 +454,13 @@ export default function CaseStudyComponent({
           </div>
         </div>
       </div>
+      <TestimonialCard
+        upwork={true}
+        quote={caseStudy.testimonial.quote}
+        projectName={caseStudy.title}
+        author={caseStudy.testimonial.author}
+        linkUrl={`/case-study/${caseStudy.id}`}
+      />
     </Container>
   );
 }

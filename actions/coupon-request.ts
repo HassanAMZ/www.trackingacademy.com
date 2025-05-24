@@ -46,7 +46,7 @@ export async function createCouponRequest(
       email: formData.get("email"),
       phone: formData.get("phone"),
       createdAt: Timestamp.now(),
-      couponCode: "300OFFRESTRICTEDDATA",
+      couponCode: "SEEEVERYSALE300OFF",
     });
   } catch (validationError) {
     console.error("Validation failed", validationError);

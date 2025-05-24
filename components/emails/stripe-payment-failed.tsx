@@ -88,7 +88,7 @@ export default function PaymentFailedEmail({
               You can retry your payment or contact our support team for
               assistance.
             </Text>
-            <Button href={`${baseUrl}/landing-page/payment`} style={ctaButton}>
+            <Button href={`${baseUrl}/funnels/payment`} style={ctaButton}>
               Retry Payment
             </Button>
           </Section>

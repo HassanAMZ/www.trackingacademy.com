@@ -1,8 +1,8 @@
 "use client";
 
+import CaseStudyCarousel from "@/components/case-study/case-study-carousel";
+import CouponOptInForm from "@/components/funnels/coupon-optin";
 import YoutubeEmbed from "@/components/global/youtube-embed";
-import CaseStudyCarousel from "@/components/landing-page/case-study-carousel";
-import CouponOptInForm from "@/components/landing-page/coupon-optin";
 import TestimonialsCarousel from "@/components/testimonial/testimonial-carousal";
 import TestimonialGrid from "@/components/testimonial/testimonial-grid";
 import { Button } from "@/components/ui/button";
@@ -83,7 +83,7 @@ export default function Page() {
               Claim Your $300 Coupon
             </DialogTitle>
           </DialogHeader>
-          <CouponOptInForm redirectUrl="/landing-page/sales" />
+          <CouponOptInForm redirectUrl="./profit" />
         </DialogContent>
       </Dialog>
     </>

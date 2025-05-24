@@ -78,6 +78,7 @@ export const PaymentForm = ({
       <div className="rounded-lg">
         <PaymentElement
           options={{
+            layout: "accordion", // 'accordion', 'tabs', or 'auto'
             fields: {
               billingDetails: "auto", // or 'never' to hide them
             },

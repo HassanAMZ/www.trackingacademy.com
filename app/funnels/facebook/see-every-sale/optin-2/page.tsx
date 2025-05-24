@@ -1,9 +1,9 @@
 "use client";
 
 import TestimonialsCarousel2 from "@/components/for-freelancers/testimonials-carousal-2";
+import CouponOptInForm from "@/components/funnels/coupon-optin";
 import TrackingTable from "@/components/global/tracking-table";
 import Hero from "@/components/home/hero";
-import CouponOptInForm from "@/components/landing-page/coupon-optin";
 import TestimonialsCarousel from "@/components/testimonial/testimonial-carousal";
 import TestimonialGrid from "@/components/testimonial/testimonial-grid";
 import { Button } from "@/components/ui/button";
@@ -88,7 +88,7 @@ export default function Page() {
               Claim Your $300 Coupon
             </DialogTitle>
           </DialogHeader>
-          <CouponOptInForm redirectUrl="/landing-page/sales" />
+          <CouponOptInForm redirectUrl="./profit" />
         </DialogContent>
       </Dialog>
     </>

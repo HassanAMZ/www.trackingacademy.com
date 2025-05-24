@@ -1,3 +1,4 @@
+import { services } from "@/data/services";
 import {
   Body,
   Button,
@@ -30,6 +31,8 @@ export default function CouponRequestEmail({
   couponCode,
   createdAt,
 }: CouponRequestEmailProps) {
+  const service = services.find((s) => s.name === "Basic Tracking Audit");
+
   return (
     <Html>
       <Head>
@@ -82,15 +85,10 @@ export default function CouponRequestEmail({
               Watch our free training to learn more about how we can help you
               restore your tracking and maximize your ad performance.
             </Text>
-            <Button
-              href="https://trackingacademy.com/landing-page/sales"
-              style={ctaButton}
-            >
-              Watch Free Training Now
-            </Button>
+
             <Text style={smallText}>
               <Link
-                href="/landing-page/payment?prefilled_promo_code=300OFFRESTRICTEDDATA"
+                href={`/funnels/facebook/see-every-sale/payment?prefilled_promo_code=SEEEVERYSALE300OFF&product_id=${service?.product_id}&price_id=${service?.price_id}`}
                 style={link}
               >
                 Or use this direct link to purchase with your coupon:{" "}

@@ -5,8 +5,9 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import type { PromoCode } from "@/types/index";
 import { Check, Loader2, X } from "lucide-react";
+import { useSearchParams } from "next/navigation";
 import type React from "react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 interface PromoCodeFormProps {
   onApply: (code: string) => void;
@@ -24,6 +25,19 @@ export const PromoCodeForm = ({
   success = false,
 }: PromoCodeFormProps) => {
   const [promoCode, setPromoCode] = useState("");
+
+  const searchParams = useSearchParams();
+
+  useEffect(() => {
+    const promoFromUrl = searchParams.get("prefilled_promo_code");
+    if (promoFromUrl) {
+      const code = promoFromUrl.toUpperCase();
+      setPromoCode(code);
+      onApply(code);
+    }
+    // only run on first mount
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   const handleApply = () => {
     if (promoCode.trim()) {

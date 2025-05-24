@@ -36,9 +36,8 @@ function SubmitButton() {
     <Button
       type="submit"
       disabled={pending}
-      size="lg"
       variant="default"
-      className={`bg-primary hover:bg-primary/90 w-full p-6 text-lg font-bold ${
+      className={`bg-primary hover:bg-primary/90 cursor-pointer w-full p-6 text-lg font-bold ${
         pending ? "cursor-not-allowed opacity-50" : ""
       }`}
     >
@@ -67,14 +66,8 @@ export default function CouponOptInForm({
           </h3>
           <p className="mb-4">
             Check your email for your $300 coupon code:{" "}
-            <strong>300OFFRESTRICTEDDATA</strong>
+            <strong>SEEEVERYSALE300OFF</strong>
           </p>
-          <Button
-            onClick={() => (window.location.href = "/landing-page/sales")}
-            className="bg-primary hover:bg-primary/90 p-4 font-bold"
-          >
-            Watch Our Free Training Now
-          </Button>
         </div>
       </div>
     );

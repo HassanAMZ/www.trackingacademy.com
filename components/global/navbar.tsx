@@ -295,9 +295,9 @@ export default function Navbar({ className }: { className?: string }) {
               key={path}
               href={path}
               className={clsx(
-                "w-full! justify-start!",
+                "w-full! justify-start! text-foreground",
                 navigationMenuTriggerStyle(),
-                isActive(path) && "bg-secondary text-accent-foreground",
+                isActive(path) && "bg-accent text-accent-foreground",
               )}
               onClick={handleLinkClick}
             >

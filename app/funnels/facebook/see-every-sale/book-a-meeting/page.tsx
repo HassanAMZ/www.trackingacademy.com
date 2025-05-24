@@ -1,46 +1,102 @@
-"use client";
-
+import { GTMCustomEvent } from "@/components/analytics/GTMEvents";
+import YoutubeEmbed from "@/components/global/youtube-embed";
+import { Card, CardContent } from "@/components/ui/card";
 import Container from "@/components/ui/container";
-import { useEffect } from "react";
+import { RequestCookie } from "next/dist/compiled/@edge-runtime/cookies";
+import { cookies } from "next/headers";
+import React from "react";
 
-export default function Page() {
-  useEffect(() => {
-    const existingScript = document.getElementById("hubspot-script");
-    if (!existingScript) {
-      const script = document.createElement("script");
-      script.src =
-        "https://static.hsappstatic.net/MeetingsEmbed/ex/MeetingsEmbedCode.js";
-      script.id = "hubspot-script";
-      script.async = true;
-      document.body.appendChild(script);
-    } // Re-initialize if needed
-    const container = document.querySelector(".meetings-iframe-container");
-    if (container && container.getAttribute("data-src")) {
-      // This triggers HubSpot's embed logic if already loaded
-      (window as any).hbspt?.meetings?.load?.();
-    }
-  }, []);
+export default async function Page() {
+  const cookieStore = await cookies();
+  const user_data: RequestCookie | undefined = cookieStore.get("user_data");
+
+  // Transform the data structure
+  const transformUserData = (data: any) => {
+    const [first_name = "", last_name = ""] = (data.name || "").split(" ");
+    return {
+      email: data.email || "",
+      phone: data.phone || "",
+      address: {
+        first_name,
+        last_name,
+      },
+    };
+  };
+
+  let transformedUserData;
+  try {
+    const rawData = user_data?.value ? JSON.parse(user_data.value) : undefined;
+    transformedUserData = rawData ? transformUserData(rawData) : undefined;
+  } catch (error) {
+    console.error("Failed to parse user data:", error);
+    transformedUserData = undefined;
+  }
 
   return (
-    <section className="grid min-h-screen place-content-center overflow-hidden py-12">
-      <Container className="flex w-full max-w-6xl flex-col items-center space-y-8 text-center">
-        <h1>
-          You've Locked in Your $300 Coupon —
-          <span className="text-primary">
-            {" "}
-            Now Book Your First Diagnositc Call
-          </span>
-        </h1>{" "}
-        <h4 className="text-muted-foreground max-w-3xl">
-          This 15-minute call is to confirm your eligibility, answer any
-          questions, and get your 3-Day “See Every Sale” Tracking System
-          started.
+    <React.Fragment>
+      {transformedUserData && (
+        <GTMCustomEvent
+          event_name="contact_form_submission"
+          user_data={transformedUserData}
+        />
+      )}
+      {/* HEADER SECTION */}
+      <Container className="max-w-6xl">
+        <section className="space-y-4 py-12 text-center">
+          <h1>You're One Step Away From Fixing Your Tracking Blindspot</h1>
+          <h4 className="text-muted-foreground pt-3">
+            We help businesses recover 30%+ of invisible conversions and slash
+            wasted ad spend—fast.
+            <br />
+            <span className="text-primary font-semibold">
+              Book your implementation call now to get started.
+            </span>
+          </h4>
+        </section>
+      </Container>{" "}
+      {/* BOOKING SECTION */}
+      <Card className="max-w-5xl mx-auto">
+        <CardContent>
+          <div className="flex w-full items-center justify-center  p-6">
+            <iframe
+              src="https://calendar.google.com/calendar/appointments/schedules/AcZssZ0wgUDGuk7YMLv1IcsYbgeQwVYnRt39plBBMKmO55fulvLIeQ2ZZqBOGm1IpXYK7zvyl7YBLnlq?gv=true"
+              className="min-h-[75vh] w-full"
+            ></iframe>
+          </div>
+        </CardContent>{" "}
+      </Card>
+      {/* NEXT STEPS SECTION */}
+      <Container className="flex max-w-5xl flex-col gap-6 space-y-3 py-12">
+        <h1 className="text-center">🚀 What Happens Next?</h1>{" "}
+        <h4>
+          <span className="text-primary">✅ Step 1: </span>
+          Book your implementation call using the calendar above.
         </h4>{" "}
-        <div
-          className="meetings-iframe-container w-full"
-          data-src="https://meetings.hubspot.com/shahzada-ali?embed=true"
-        ></div>
+        <h4>
+          <span className="text-primary">✅ Step 2: </span>
+          On the call, we'll walk you through exactly how we'll deploy your
+          upgraded tracking system—customized for your tech stack.
+        </h4>{" "}
+        <h4>
+          <span className="text-primary">✅ Step 3: </span>
+          You'll get a clear plan, timeline, and see real examples of how we
+          recover lost conversions and ad performance.
+        </h4>{" "}
+        <h4>
+          <span className="text-primary">✅ Step 4: </span>
+          Be at your computer—our team will screen share and answer any
+          technical questions live.
+        </h4>{" "}
+        <h4>
+          <span className="text-primary">✅ Step 5: </span>
+          Watch the quick video below to prepare for the call and see what's
+          possible when your tracking is fully fixed.
+        </h4>
+      </Container>{" "}
+      {/* VIDEO SECTION */}
+      <Container className="flex justify-center py-6">
+        <YoutubeEmbed embedId="9MGpL_AmEYM" className="max-w-5xl" />
       </Container>
-    </section>
+    </React.Fragment>
   );
 }

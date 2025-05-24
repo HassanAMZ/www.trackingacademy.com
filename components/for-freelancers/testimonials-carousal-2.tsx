@@ -25,7 +25,7 @@ const TestimonialsCarousel2: React.FC = () => {
       analytics,
       // Using random numbers between 0-40 instead of 0 as default
       accuracy: `${analytics.accuracy}% Accuracy`,
-      adBlockerRecovery: `${analytics.recoveredFromAdBlockersPercentage}% AdBlock Recovery`,
+      recoveredConversions: `${analytics.recoveredFromTrackingPreventionPercentage}% Recovered`,
     };
   });
 
@@ -91,7 +91,7 @@ const TestimonialsCarousel2: React.FC = () => {
             variant="outline"
             className="mx-1 h-max -rotate-3 transform rounded-lg  px-2 py-1 text-sm font-semibold"
           >
-            {currentTestimonial.adBlockerRecovery}
+            {currentTestimonial.recoveredConversions}
           </Button>
         </div>
       </div>

@@ -1,24 +1,32 @@
 "use client";
 
+import CaseStudyCarousel from "@/components/case-study/case-study-carousel";
 import TestimonialsCarousel2 from "@/components/for-freelancers/testimonials-carousal-2";
+import CouponOptInForm from "@/components/funnels/coupon-optin";
+import DetailedCTA from "@/components/funnels/detailed-cta";
+import ObjectionHandling from "@/components/funnels/objection-handling";
+import OfferDetails from "@/components/funnels/offer-detail-item";
+import ProblemAwareness from "@/components/funnels/problem-awareness";
+import { ProcessSteps } from "@/components/funnels/process-steps";
+import ScarcityUrgency from "@/components/funnels/scarcity-urgency";
+import SocialProof from "@/components/funnels/social-proof";
+import AdSpendCalculator from "@/components/global/ad-spend-calculator";
 import MarketingFeatures from "@/components/global/marketing-features";
 import TrackingTable from "@/components/global/tracking-table";
 import AlternativesSection from "@/components/home/alternative-section";
 import Hero from "@/components/home/hero";
 import WhyChooseSection from "@/components/home/why-choose-us";
-import CaseStudyCarousel from "@/components/landing-page/case-study-carousel";
-import DetailedCTA from "@/components/landing-page/detailed-cta";
-import ObjectionHandling from "@/components/landing-page/objection-handling";
-import OfferDetails from "@/components/landing-page/offer-detail-item";
-import ProblemAwareness from "@/components/landing-page/problem-awareness";
-import { ProcessSteps } from "@/components/landing-page/process-steps";
-import ScarcityUrgency from "@/components/landing-page/scarcity-urgency";
-import SocialProof from "@/components/landing-page/social-proof";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import Container from "@/components/ui/container";
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+} from "@/components/ui/dialog";
 import { caseStudies } from "@/data/case-studies";
-import { testimonials } from "@/data/testimonials";
+import { services } from "@/data/services";
 import {
   ArrowUpRight,
   BarChart2,
@@ -27,58 +35,65 @@ import {
   Code,
   Database,
   HeadphonesIcon,
+  Quote,
   Share2,
+  ShieldIcon,
   Target,
   Zap,
 } from "lucide-react";
 import Image from "next/image"; // Make sure this is imported at the top
+
+import { usePathname } from "next/navigation";
 import { useState } from "react";
-import AdSpendCalculator from "../../../../components/global/ad-spend-calculator";
 
 export default function HomePage() {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const pathname = usePathname();
+  const service = services.find((s) => s.name === "Basic Tracking Audit");
+  const redirectUrl = `${pathname.replace(/\/$/, "")}/payment?product_id=${service?.product_id}&price_id=${service?.price_id}`;
+
   return (
     <main>
       <Hero
-        eyebrow="#1 Highest Rated Ad Tracking Software For Shopify"
+        eyebrow="Still flying blind on Meta ads?"
         heading={
-          <h1>
-            <span className="text-primary">Never Miss a Sale Again </span>-
-            Track 95% of Your Conversions -{" "}
-            <span className="text-primary"> Guaranteed!</span>
+          <h1 className="text-center lg:text-left mx-auto lg:mx-0">
+            Fix Broken Facebook Tracking in 3 Days —{" "}
+            <span className="text-primary"> or Your Money Back </span>
           </h1>
         }
         subheading={
-          <h4 className="text-muted-foreground max-w-3xl">
-            <span className="text-primary font-semibold">“See Every Sale”</span>{" "}
-            Tracking Setup For Facebook's Data Sharing Restrictions. All
-            done-for-you, in just 3 days, with 95% Accurate Data Tracking,
-            without Violating Any Facebook's policies.
+          <h4 className="mx-auto lg:mx-0 text-muted-foreground max-w-3xl text-center lg:text-left">
+            Our
+            <span className="text-primary"> “See Every Sale” </span>
+            Setup gives eCommerce brands 95%+ accurate conversion data — so you
+            can stop wasting ad spend, scale with confidence, and finally trust
+            your numbers again.
           </h4>
         }
         carousel={<TestimonialsCarousel2 />}
         benefits={[
-          "100% done-for-you setup",
-          "95%+ accuracy ",
-          "One-time setup cost",
           "Completed within 3 days",
-          "Improved ROAS by 20%",
-          "Scaleable Solution ",
+          "100% done-for-you setup",
+          "Improved ROAS by 30%",
+          "One-time setup cost",
+          "Scaleable Solution",
+          "95%+ accuracy",
         ]}
         customCtaButton={
           <Button
-            size="lg"
-            className="hover:bg-primary/90 flex max-w-4xl flex-col py-20 text-center text-xl font-bold text-wrap whitespace-pre-wrap hover:cursor-pointer sm:py-16 md:py-12 md:text-left"
+            className="flex max-w-4xl flex-col items-center text-center font-bold lg:items-start lg:text-left mx-auto lg:mx-0 w-fit p-6 text-xl cursor-pointer"
+            onClick={() => setIsModalOpen(true)}
           >
             <div>
-              🎟️ Claim Your $300 Coupon for 3-Day "See Every Sale" Tracking
-              System
+              🎟️ Claim $300 OFF + $7,600 in Free Bonuses
               <span className="mt-2 block text-sm font-medium opacity-90">
                 Limited to the first 10 clients — act fast before it expires
               </span>
             </div>
           </Button>
         }
-        supportingComponent={<AdSpendCalculator />}
+        supportingComponent={<AdSpendCalculator cta={false} />}
       />
       <div className="w-full max-w-full overflow-hidden py-12">
         <CaseStudyCarousel caseStudies={caseStudies} />
@@ -434,6 +449,17 @@ export default function HomePage() {
         buttonText={`📅 Book Your Free Strategy Session Today`}
         buttonLink="see-every-sale/book-a-meeting"
       />
+      {/* Modal */}
+      <Dialog open={isModalOpen} onOpenChange={setIsModalOpen}>
+        <DialogContent className="sm:max-w-md">
+          <DialogHeader>
+            <DialogTitle className="text-primary text-center font-bold">
+              Claim Your $300 Coupon
+            </DialogTitle>
+          </DialogHeader>
+          <CouponOptInForm redirectUrl={redirectUrl} />
+        </DialogContent>
+      </Dialog>
     </main>
   );
 }

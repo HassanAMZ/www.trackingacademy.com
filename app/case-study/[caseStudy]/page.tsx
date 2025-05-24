@@ -1,5 +1,5 @@
 // app/case-study/[caseStudy]/page.tsx
-import CaseStudyContent from "@/components/landing-page/case-study-content";
+import CaseStudyContent from "@/components/case-study/case-study-content";
 import { caseStudies } from "@/data/case-studies";
 import { notFound } from "next/navigation";
 

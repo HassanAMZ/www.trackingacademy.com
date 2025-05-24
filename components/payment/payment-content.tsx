@@ -10,7 +10,9 @@ import type {
 import { stripePromise } from "@/utils/payment";
 import { AddressElement, Elements } from "@stripe/react-stripe-js";
 import type { StripeElementsOptions } from "@stripe/stripe-js";
+import Link from "next/link";
 import { useEffect, useState } from "react";
+import { Button } from "../ui/button";
 import Container from "../ui/container";
 import { ErrorState } from "./error-state";
 import { LoadingState } from "./loading-state";
@@ -160,6 +162,20 @@ const PaymentContent = ({
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
         {/* Product and Promo Section */}
         <div className="space-y-6">
+          <Card className="">
+            <CardHeader>
+              <h3>Not sure?</h3>
+            </CardHeader>
+            <CardContent>
+              <p>
+                Have questions or need to discuss your specific needs? Let's
+                talk first.
+              </p>
+              <Button asChild>
+                <Link href="./book-a-meeting">Book a Meeting</Link>
+              </Button>
+            </CardContent>
+          </Card>
           <Card>
             <CardHeader>
               <h3 className="text-lg font-medium">Have a promo code?</h3>
