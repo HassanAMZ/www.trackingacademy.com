@@ -1,14 +1,19 @@
-// src/app/api/stripe/webhook/route.js
 import { db } from "@/app/firebase";
-import PaymentSuccessEmail from "@/components/emails/payment-success";
+import {
+  InvoicePaymentSuccessEmailData,
+  PaymentFailedEmailData,
+  PaymentSuccessEmailData,
+  sendInvoicePaymentSuccessEmail,
+  sendPaymentFailedEmail,
+  sendPaymentSuccessEmail,
+  sendSubscriptionCreatedEmail,
+  SubscriptionCreatedEmailData,
+} from "@/lib/emails/email-services";
 import { stripe } from "@/lib/stripe";
 import { collection, doc, setDoc, Timestamp } from "firebase/firestore";
 import { NextResponse } from "next/server";
-import { Resend } from "resend";
 
-const resend = new Resend(process.env.RESEND_API_KEY);
-
-export async function POST(req) {
+export async function POST(req: Request) {
   const body = await req.text();
   const signature = req.headers.get("stripe-signature");
 
@@ -18,11 +23,14 @@ export async function POST(req) {
     // Verify webhook signature
     event = stripe.webhooks.constructEvent(
       body,
-      signature,
-      process.env.STRIPE_WEBHOOK_SECRET,
+      signature!,
+      process.env.STRIPE_WEBHOOK_SECRET!,
     );
   } catch (err) {
-    console.error("Webhook signature verification failed:", err.message);
+    console.error(
+      "Webhook signature verification failed:",
+      (err as Error).message,
+    );
     return NextResponse.json(
       { error: "Webhook signature verification failed" },
       { status: 400 },
@@ -75,21 +83,23 @@ export async function POST(req) {
   }
 }
 
-async function handlePaymentIntentSucceeded(paymentIntent) {
+async function handlePaymentIntentSucceeded(paymentIntent: any) {
   console.log("Processing successful payment:", paymentIntent.id);
 
   try {
     // Get customer details from the payment intent
-    let customerDetails = {};
+    let customerDetails: any = {};
 
     // Expand the customer if it exists
     if (paymentIntent.customer) {
       const customer = await stripe.customers.retrieve(paymentIntent.customer);
-      customerDetails = {
-        email: customer.email,
-        name: customer.name,
-        phone: customer.phone,
-      };
+      if (!customer.deleted) {
+        customerDetails = {
+          email: customer.email,
+          name: customer.name,
+          phone: customer.phone,
+        };
+      }
     }
 
     // If no customer, try to get from charges
@@ -128,7 +138,7 @@ async function handlePaymentIntentSucceeded(paymentIntent) {
 
     // Send confirmation email if we have customer email
     if (customerDetails.email) {
-      await sendPaymentSuccessEmail({
+      const emailData: PaymentSuccessEmailData = {
         email: customerDetails.email,
         name: customerDetails.name || "Customer",
         amount: paymentIntent.amount,
@@ -136,7 +146,9 @@ async function handlePaymentIntentSucceeded(paymentIntent) {
         paymentIntentId: paymentIntent.id,
         productName: paymentIntent.metadata?.productName || "Digital Product",
         receiptUrl: paymentIntent.charges?.data?.[0]?.receipt_url,
-      });
+      };
+
+      await sendPaymentSuccessEmail(emailData);
     }
 
     console.log("Payment processed successfully:", paymentIntent.id);
@@ -146,18 +158,20 @@ async function handlePaymentIntentSucceeded(paymentIntent) {
   }
 }
 
-async function handlePaymentIntentFailed(paymentIntent) {
+async function handlePaymentIntentFailed(paymentIntent: any) {
   console.log("Processing failed payment:", paymentIntent.id);
 
   try {
     // Get customer details
-    let customerDetails = {};
+    let customerDetails: any = {};
     if (paymentIntent.customer) {
       const customer = await stripe.customers.retrieve(paymentIntent.customer);
-      customerDetails = {
-        email: customer.email,
-        name: customer.name,
-      };
+      if (!customer.deleted) {
+        customerDetails = {
+          email: customer.email,
+          name: customer.name,
+        };
+      }
     }
 
     // Save failed payment to Firebase
@@ -178,16 +192,18 @@ async function handlePaymentIntentFailed(paymentIntent) {
       eventType: "payment_intent.payment_failed",
     });
 
-    // Optional: Send payment failed email
+    // Send payment failed email
     if (customerDetails.email) {
-      await sendPaymentFailedEmail({
+      const emailData: PaymentFailedEmailData = {
         email: customerDetails.email,
         name: customerDetails.name || "Customer",
         amount: paymentIntent.amount,
         currency: paymentIntent.currency,
         paymentIntentId: paymentIntent.id,
         error: paymentIntent.last_payment_error?.message,
-      });
+      };
+
+      await sendPaymentFailedEmail(emailData);
     }
 
     console.log("Failed payment logged:", paymentIntent.id);
@@ -197,7 +213,7 @@ async function handlePaymentIntentFailed(paymentIntent) {
   }
 }
 
-async function handleCheckoutSessionCompleted(session) {
+async function handleCheckoutSessionCompleted(session: any) {
   console.log("Processing completed checkout session:", session.id);
 
   try {
@@ -226,7 +242,7 @@ async function handleCheckoutSessionCompleted(session) {
   }
 }
 
-async function handleInvoicePaymentSucceeded(invoice) {
+async function handleInvoicePaymentSucceeded(invoice: any) {
   console.log("Processing successful invoice payment:", invoice.id);
 
   try {
@@ -246,6 +262,33 @@ async function handleInvoicePaymentSucceeded(invoice) {
       eventType: "invoice.payment_succeeded",
     });
 
+    // Send invoice payment success email
+    if (invoice.customer_email) {
+      // Get customer name
+      let customerName = "Customer";
+      if (invoice.customer) {
+        try {
+          const customer = await stripe.customers.retrieve(invoice.customer);
+          if (!customer.deleted) {
+            customerName = customer.name || "Customer";
+          }
+        } catch (error) {
+          console.warn("Could not retrieve customer name:", error);
+        }
+      }
+
+      const emailData: InvoicePaymentSuccessEmailData = {
+        email: invoice.customer_email,
+        name: customerName,
+        amount: invoice.amount_paid,
+        currency: invoice.currency,
+        invoiceId: invoice.id,
+        subscriptionId: invoice.subscription,
+      };
+
+      await sendInvoicePaymentSuccessEmail(emailData);
+    }
+
     console.log("Invoice payment processed:", invoice.id);
   } catch (error) {
     console.error("Error processing invoice payment:", error);
@@ -253,7 +296,7 @@ async function handleInvoicePaymentSucceeded(invoice) {
   }
 }
 
-async function handleSubscriptionCreated(subscription) {
+async function handleSubscriptionCreated(subscription: any) {
   console.log("Processing new subscription:", subscription.id);
 
   try {
@@ -270,7 +313,7 @@ async function handleSubscriptionCreated(subscription) {
       currentPeriodEnd: Timestamp.fromDate(
         new Date(subscription.current_period_end * 1000),
       ),
-      items: subscription.items.data.map((item) => ({
+      items: subscription.items.data.map((item: any) => ({
         priceId: item.price.id,
         productId: item.price.product,
         quantity: item.quantity,
@@ -280,6 +323,43 @@ async function handleSubscriptionCreated(subscription) {
       eventType: "customer.subscription.created",
     });
 
+    // Send subscription created email
+    if (subscription.customer) {
+      try {
+        const customer = await stripe.customers.retrieve(subscription.customer);
+
+        if (!customer.deleted && customer.email) {
+          // Get plan details
+          const firstItem = subscription.items.data[0];
+          let planName = "Subscription Plan";
+          let amount = 0;
+
+          if (firstItem) {
+            const price = await stripe.prices.retrieve(firstItem.price.id);
+            const product = await stripe.products.retrieve(
+              price.product as string,
+            );
+            planName = product.name;
+            amount = price.unit_amount || 0;
+          }
+
+          const emailData: SubscriptionCreatedEmailData = {
+            email: customer.email,
+            name: customer.name || "Customer",
+            subscriptionId: subscription.id,
+            planName,
+            amount,
+            currency: subscription.currency || "usd",
+            nextBillingDate: new Date(subscription.current_period_end * 1000),
+          };
+
+          await sendSubscriptionCreatedEmail(emailData);
+        }
+      } catch (error) {
+        console.warn("Could not send subscription created email:", error);
+      }
+    }
+
     console.log("Subscription created:", subscription.id);
   } catch (error) {
     console.error("Error processing subscription creation:", error);
@@ -287,7 +367,7 @@ async function handleSubscriptionCreated(subscription) {
   }
 }
 
-async function handleSubscriptionUpdated(subscription) {
+async function handleSubscriptionUpdated(subscription: any) {
   console.log("Processing subscription update:", subscription.id);
 
   try {
@@ -307,7 +387,7 @@ async function handleSubscriptionUpdated(subscription) {
         currentPeriodEnd: Timestamp.fromDate(
           new Date(subscription.current_period_end * 1000),
         ),
-        items: subscription.items.data.map((item) => ({
+        items: subscription.items.data.map((item: any) => ({
           priceId: item.price.id,
           productId: item.price.product,
           quantity: item.quantity,
@@ -325,7 +405,7 @@ async function handleSubscriptionUpdated(subscription) {
   }
 }
 
-async function handleSubscriptionDeleted(subscription) {
+async function handleSubscriptionDeleted(subscription: any) {
   console.log("Processing subscription deletion:", subscription.id);
 
   try {
@@ -346,80 +426,5 @@ async function handleSubscriptionDeleted(subscription) {
   } catch (error) {
     console.error("Error processing subscription deletion:", error);
     throw error;
-  }
-}
-
-async function sendPaymentSuccessEmail({
-  email,
-  name,
-  amount,
-  currency,
-  paymentIntentId,
-  productName,
-  receiptUrl,
-}) {
-  try {
-    if (!process.env.RESEND_API_KEY) {
-      console.warn("Resend API key not configured, skipping email");
-      return;
-    }
-
-    const emailData = {
-      name,
-      amount: (amount / 100).toFixed(2), // Convert from cents
-      currency: currency.toUpperCase(),
-      paymentIntentId,
-      productName,
-      receiptUrl,
-    };
-
-    await resend.emails.send({
-      from: "no-reply@trackingacademy.com",
-      to: email,
-      subject: `Payment Confirmation - ${productName}`,
-      react: PaymentSuccessEmail(emailData),
-    });
-
-    console.log("Payment success email sent to:", email);
-  } catch (error) {
-    console.error("Error sending payment success email:", error);
-  }
-}
-
-async function sendPaymentFailedEmail({
-  email,
-  name,
-  amount,
-  currency,
-  paymentIntentId,
-  error,
-}) {
-  try {
-    if (!process.env.RESEND_API_KEY) {
-      console.warn("Resend API key not configured, skipping email");
-      return;
-    }
-
-    await resend.emails.send({
-      from: "no-reply@trackingacademy.com",
-      to: email,
-      cc: ["reactjswebdev@gmail.com", "analytics@shahzadaalihassan.com"],
-      subject: "Payment Failed - Please Try Again",
-      html: `
-        <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
-          <h2>Payment Failed</h2>
-          <p>Hi ${name},</p>
-          <p>We were unable to process your payment of ${currency.toUpperCase()} ${(amount / 100).toFixed(2)}.</p>
-          <p><strong>Payment ID:</strong> ${paymentIntentId}</p>
-          ${error ? `<p><strong>Error:</strong> ${error}</p>` : ""}
-          <p>Please try again or contact our support team if you continue to experience issues.</p>
-          <p>Best regards,<br>Tracking Academy Team</p>
-        </div>
-      `,
-    });
-
-    console.log("Payment failed email sent to:", email);
-  } catch (error) {
-    console.error("Error sending payment failed email:", error);
   }
 }
