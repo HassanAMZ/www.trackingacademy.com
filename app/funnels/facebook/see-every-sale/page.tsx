@@ -33,7 +33,7 @@ export default function HomePage() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const pathname = usePathname();
   const service = services.find((s) => s.name === "See Every Sale");
-  const redirectUrl = `${pathname.replace(/\/$/, "")}/payment?product_id=${service?.product_id}&price_id=${service?.price_id}`;
+  const redirectUrl = `${pathname.replace(/\/$/, "")}/payment?product_id=${service?.product_id}&price_id=${service?.price_id}&prefilled_promo_code=SEEEVERYSALE300OFF`;
 
   return (
     <main>
@@ -249,9 +249,9 @@ export default function HomePage() {
         spotsLeft={10}
         daysRemaining={14}
         iconSize={12}
-        buttonLink="see-every-sale/book-a-meeting"
-        ctaButtonText="🚀 Start Scaling with a Free Strategy Call"
-        subtextForButtonCta="Claim $300 off for the first 10 clients — offer expires this month!"
+        buttonLink={redirectUrl}
+        ctaButtonText="🎟️ Get Your $300 Coupon Code"
+        subtextForButtonCta="Only for the first 10 clients — claim before it expires!"
       />{" "}
       <SocialProof
         sectionTitle="Ecommerce Brands Trust Our Tracking Solution"
@@ -263,126 +263,10 @@ export default function HomePage() {
         spotsLeft={10}
         daysRemaining={14}
         iconSize={12}
-        buttonLink="see-every-sale/book-a-meeting"
-        ctaButtonText="🎯 Get Your Free Ad Tracking Consultation"
-        subtextForButtonCta="Secure $300 off and 95% accuracy — only for the first 10 this month!"
+        buttonLink={redirectUrl}
+        ctaButtonText="🎟️ Claim Your $300 Coupon Code Now"
+        subtextForButtonCta="Only 10 spots available — get your coupon before it’s gone!"
       />
-      <DetailsCarousel
-        headerTitle="Total Value: $9,100 - Yours for Just $1,200"
-        headerDescription="Here's everything included in your 3-Day 'See Every Sale' Tracking System."
-        items={[
-          {
-            title: "3-Day Tracking Implementation",
-            description:
-              "Restore your full funnel visibility with a compliant tracking system.",
-            icon: <Zap />,
-            price: "$1,500",
-            benefits: [
-              "Comprehensive audit of your current setup",
-              "Custom tracking implementation",
-              "Full recovery of middle and bottom funnel events",
-              "Works for banned, blocked, or blacklisted niches",
-            ],
-            image: "/images/hero/tracking-audit.png",
-          },
-          {
-            title: "Looker Studio eCom Dashboard",
-            description:
-              "Visualize your sales data with a custom, easy-to-read dashboard.",
-            icon: <BarChart2 />,
-            price: "$2,000",
-            benefits: [
-              "Custom dashboard for your specific KPIs",
-              "Live performance metrics for ad campaigns",
-              "Audience behavior analysis and segmentation",
-              "Automated performance alerts for optimization",
-            ],
-            image: "/images/hero/unified-dashboard.png",
-          },
-          {
-            title: "95% Accurate GA4 Tracking Setup",
-            description:
-              "Ensure precise Google Analytics 4 tracking for reliable data.",
-            icon: <Target />,
-            price: "$1,200",
-            benefits: [
-              "Proper GA4 implementation and configuration",
-              "Custom event tracking tailored to your business",
-              "Cross-domain tracking if needed",
-              "Integration with your Meta ads for complete data",
-            ],
-            image: "/images/hero/measurement-planning.png",
-          },
-          {
-            title: "Google Ads Conversion Tracking",
-            description:
-              "Implement accurate Google Ads conversion tracking for maximum PPC performance.",
-            icon: <Target />,
-            price: "$1,200",
-            benefits: [
-              "95% accurate conversion tracking",
-              "Custom conversion setup tailored to your business",
-              "Proper attribution modeling",
-              "Enhanced campaign optimization",
-            ],
-            image: "/images/hero/measurement-planning.png",
-          },
-          {
-            title: "GDPR & CCPA Cookie Consent Setup",
-            description:
-              "Stay compliant with privacy regulations while maintaining effective tracking.",
-            icon: <CheckSquare />,
-            price: "$1,200",
-            benefits: [
-              "Fully compliant cookie consent system",
-              "Customized for your specific business needs",
-              "Balanced for both compliance and tracking effectiveness",
-              "Future-proofed against privacy regulation changes",
-            ],
-            image: "/images/hero/ecommerce-conversion-checklist.png",
-          },
-          {
-            title: "47-Point Ecom Conversion Checklist",
-            description: "Optimize your funnel with our proven checklist.",
-            icon: <CheckSquare />,
-            price: "$1,500",
-            benefits: [
-              "47 critical conversion checkpoints",
-              "Insights from top converting stores",
-              "Decrease customer acquisition costs",
-              "Increase average order value and conversion rates",
-            ],
-            image: "/images/hero/ecommerce-conversion-checklist.png",
-          },
-          {
-            title: "ROI & LTV Tracking Toolkit",
-            description:
-              "Access powerful tools to analyze and scale your campaigns.",
-            icon: <BarChart2 />,
-            price: "$500",
-            benefits: [
-              "ROAS calculators and forecasting tools",
-              "Customer lifetime value tracking",
-              "Budget allocation optimizers",
-              "Campaign performance analyzers",
-            ],
-            image: "/images/hero/tools-and-calculators.png",
-          },
-        ]}
-      />{" "}
-      <WhyChooseSection
-        heading="Why Choose Our Tracking Solution?"
-        subheading="We specialize in helping ecommerce brands restore their Meta ads tracking and scale with confidence."
-        eyebrow="What Sets Us Apart"
-        value={[
-          "100% client satisfaction with proven ROAS improvements",
-          "Policy-safe approach that doesn't violate Meta's guidelines",
-          "Works for banned, blocked, or blacklisted niches",
-          "Future-proofed against Apple & browser tracking restrictions",
-          "30% more conversion tracking than standard Meta setups",
-        ]}
-        image="/images/hero/unified-dashboard.png"
-      />{" "}
       <ObjectionHandling
         sectionTitle="Our 95% Accuracy Guarantee"
         guarantees={[
@@ -457,8 +341,8 @@ export default function HomePage() {
           "95% accuracy guaranteed or your money back",
         ]}
         footerText="Limited to first 10 customers. Offer expires at the end of the month!"
-        buttonText={`📅 Book Your Free Strategy Session Today`}
-        buttonLink="see-every-sale/book-a-meeting"
+        buttonText={`🎟️ Get My $300 Coupon Code`}
+        buttonLink={redirectUrl}
       />
       {/* Modal */}
       <Dialog open={isModalOpen} onOpenChange={setIsModalOpen}>

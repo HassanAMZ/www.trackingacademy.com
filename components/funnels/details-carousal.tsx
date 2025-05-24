@@ -75,6 +75,35 @@ const DetailsCarousel: React.FC<DetailsCarouselProps> = ({
   }, [activeIndex, isAnimating, autoAdvance, autoAdvanceDelay]);
 
   const activeItem = items[activeIndex];
+  function useBreakpoint() {
+    const [breakpoint, setBreakpoint] = useState("base");
+
+    useEffect(() => {
+      const updateBreakpoint = () => {
+        const width = window.innerWidth;
+        if (width >= 1024) setBreakpoint("lg");
+        else if (width >= 768) setBreakpoint("md");
+        else if (width >= 640) setBreakpoint("sm");
+        else setBreakpoint("base");
+      };
+
+      updateBreakpoint();
+      window.addEventListener("resize", updateBreakpoint);
+      return () => window.removeEventListener("resize", updateBreakpoint);
+    }, []);
+
+    return breakpoint;
+  }
+
+  const breakpoint = useBreakpoint();
+
+  let columnCount;
+  if (breakpoint === "sm" || breakpoint === "md" || breakpoint === "base") {
+    columnCount =
+      items.length > 5 ? Math.floor(items.length / 2) : items.length;
+  } else {
+    columnCount = items.length;
+  }
 
   return (
     <section className="py-16 overflow-hidden">
@@ -130,9 +159,9 @@ const DetailsCarousel: React.FC<DetailsCarouselProps> = ({
 
         {/* Item Selection Tabs */}
         <div
-          className="py-4 md:grid hidden items-center  gap-4"
+          className="py-4 md:grid hidden items-center gap-4"
           style={{
-            gridTemplateColumns: `repeat(${items.length}, 1fr)`,
+            gridTemplateColumns: `repeat(${columnCount}, 1fr)`,
           }}
         >
           {items.map((item, idx) => (
@@ -142,7 +171,7 @@ const DetailsCarousel: React.FC<DetailsCarouselProps> = ({
                 setDirection(idx < activeIndex ? "left" : "right");
                 setActiveIndex(idx);
               }}
-              className={`p-4 text-center h-full flex items-center flex-col rounded-lg transition-all ${
+              className={`p-4 text-center h-full cursor-pointer flex items-center flex-col rounded-lg transition-all ${
                 idx === activeIndex
                   ? "bg-primary/10 border-primary border shadow-md"
                   : "bg-card hover:bg-muted/50 border border-border/50"

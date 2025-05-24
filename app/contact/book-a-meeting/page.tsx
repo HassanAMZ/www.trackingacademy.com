@@ -5,7 +5,7 @@ import { RequestCookie } from "next/dist/compiled/@edge-runtime/cookies";
 import { cookies } from "next/headers";
 import React from "react";
 
-export default async function Page() {
+export default async function BookAMeetingPage() {
   const cookieStore = await cookies();
   const user_data: RequestCookie | undefined = cookieStore.get("user_data");
 
