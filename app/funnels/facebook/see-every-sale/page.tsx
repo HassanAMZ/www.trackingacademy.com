@@ -12,7 +12,7 @@ import SocialProof from "@/components/funnels/social-proof";
 import AdSpendCalculator from "@/components/global/ad-spend-calculator";
 import AlternativesSection from "@/components/home/alternative-section";
 import Hero from "@/components/home/hero";
-import WhyChooseSection from "@/components/home/why-choose-us";
+import TestimonialGrid from "@/components/testimonial/testimonial-grid";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import Container from "@/components/ui/container";
@@ -344,6 +344,9 @@ export default function HomePage() {
         buttonText={`🎟️ Get My $300 Coupon Code`}
         buttonLink={redirectUrl}
       />
+      <Container className="py-12">
+        <TestimonialGrid upwork={true} />
+      </Container>
       {/* Modal */}
       <Dialog open={isModalOpen} onOpenChange={setIsModalOpen}>
         <DialogContent className="sm:max-w-md">
