@@ -4,7 +4,8 @@ import { createCouponRequest } from "@/actions/coupon-request";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { useFormState, useFormStatus } from "react-dom";
+import { useActionState } from "react";
+import { useFormStatus } from "react-dom";
 
 // Initial state for form
 const initialState = {
@@ -52,7 +53,7 @@ type ContactFormProps = {
 export default function CouponOptInForm({
   redirectUrl = "/contact/book-a-meeting",
 }: ContactFormProps) {
-  const [state, formAction] = useFormState(
+  const [state, formAction] = useActionState(
     clientCreateCouponRequest(redirectUrl),
     initialState,
   );

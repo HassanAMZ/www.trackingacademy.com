@@ -4,15 +4,12 @@ import CaseStudyCarousel from "@/components/case-study/case-study-carousel";
 import TestimonialsCarousel2 from "@/components/for-freelancers/testimonials-carousal-2";
 import CouponOptInForm from "@/components/funnels/coupon-optin";
 import DetailedCTA from "@/components/funnels/detailed-cta";
+import DetailsCarousel from "@/components/funnels/details-carousal";
 import ObjectionHandling from "@/components/funnels/objection-handling";
-import OfferDetails from "@/components/funnels/offer-detail-item";
 import ProblemAwareness from "@/components/funnels/problem-awareness";
-import { ProcessSteps } from "@/components/funnels/process-steps";
 import ScarcityUrgency from "@/components/funnels/scarcity-urgency";
 import SocialProof from "@/components/funnels/social-proof";
 import AdSpendCalculator from "@/components/global/ad-spend-calculator";
-import MarketingFeatures from "@/components/global/marketing-features";
-import TrackingTable from "@/components/global/tracking-table";
 import AlternativesSection from "@/components/home/alternative-section";
 import Hero from "@/components/home/hero";
 import WhyChooseSection from "@/components/home/why-choose-us";
@@ -27,29 +24,15 @@ import {
 } from "@/components/ui/dialog";
 import { caseStudies } from "@/data/case-studies";
 import { services } from "@/data/services";
-import {
-  ArrowUpRight,
-  BarChart2,
-  BarChart3,
-  CheckSquare,
-  Code,
-  Database,
-  HeadphonesIcon,
-  Quote,
-  Share2,
-  ShieldIcon,
-  Target,
-  Zap,
-} from "lucide-react";
-import Image from "next/image"; // Make sure this is imported at the top
-
+import { PersonIcon } from "@radix-ui/react-icons";
+import { BarChart2, CheckSquare, Rocket, Target, Zap } from "lucide-react";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
 
 export default function HomePage() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const pathname = usePathname();
-  const service = services.find((s) => s.name === "Basic Tracking Audit");
+  const service = services.find((s) => s.name === "See Every Sale");
   const redirectUrl = `${pathname.replace(/\/$/, "")}/payment?product_id=${service?.product_id}&price_id=${service?.price_id}`;
 
   return (
@@ -58,15 +41,15 @@ export default function HomePage() {
         eyebrow="Still flying blind on Meta ads?"
         heading={
           <h1 className="text-center lg:text-left mx-auto lg:mx-0">
-            Fix Broken Facebook Tracking in 3 Days —{" "}
-            <span className="text-primary"> or Your Money Back </span>
+            Fix broken facebook ads tracking in 3 days —{" "}
+            <span className="text-primary"> or your money back </span>
           </h1>
         }
         subheading={
           <h4 className="mx-auto lg:mx-0 text-muted-foreground max-w-3xl text-center lg:text-left">
             Our
             <span className="text-primary"> “See Every Sale” </span>
-            Setup gives eCommerce brands 95%+ accurate conversion data — so you
+            setup gives eCommerce brands 95%+ accurate conversion data — so you
             can stop wasting ad spend, scale with confidence, and finally trust
             your numbers again.
           </h4>
@@ -93,13 +76,71 @@ export default function HomePage() {
             </div>
           </Button>
         }
-        supportingComponent={<AdSpendCalculator cta={false} />}
+        supportingComponent={<AdSpendCalculator cta={true} />}
       />
       <div className="w-full max-w-full overflow-hidden py-12">
+        <Container className="pb-12 space-y-6 text-center max-w-4xl flex flex-col items-center">
+          <h1>Trusted by 1,000+ eCommerce brands </h1>
+          <h4 className="max-w-3xl text-muted-foreground">
+            See exactly how we restored tracking for ecommerce brands and the
+            measurable impact on their ROAS, conversion rates, and scaling
+            success.
+          </h4>
+        </Container>
         <CaseStudyCarousel caseStudies={caseStudies} />
       </div>
-      <MarketingFeatures />
-      <ProblemAwareness
+      <DetailsCarousel
+        headerTitle="How it Works?"
+        headerDescription="A complete system designed to fix Facebook's data sharing restrictions and restore 95%+ accurate data for every key event — all done-for-you in just 3 days."
+        items={[
+          {
+            title: "Day 1: Onboarding",
+            description:
+              "Fix Your Facebook's Data Sharing Restrictions and Restore 95%+ Accurate Data for Facebook Ads. All done-for-you, in just 3 days, without violating Facebook's policies or getting flagged. Track every ecommerce event.",
+            icon: <PersonIcon />,
+            benefits: [
+              "Comprehensive store and funnel analysis",
+              "Ad account configuration review",
+              "Current tracking stack assessment",
+              "Identification of data gaps and issues",
+              "Custom strategy development session",
+              "Clear roadmap and timeline establishment",
+            ],
+            image: "/images/hero/measurement-planning.png",
+          },
+          {
+            title: "Day 2-3: Tracking Implementation",
+            description:
+              "We install a future-proofed, bulletproof tracking stack with Facebook CAPI, GA4, server-side integrations, and policy-safe triggers.",
+            icon: <Target />,
+            benefits: [
+              "Facebook Conversions API setup and optimization",
+              "Google Analytics 4 advanced configuration",
+              "Server-side tracking implementation",
+              "Cross-platform event synchronization",
+              "Policy-compliant tracking triggers",
+              "Real-time data validation and testing",
+            ],
+            image: "/placeholder.svg",
+          },
+          {
+            title: "Day 4+: Performance & Scaling",
+            description:
+              "We monitor, optimize, and scale your tracking for maximum performance while ensuring 95%+ accuracy across all platforms and campaigns.",
+            icon: <Rocket />,
+            benefits: [
+              "Continuous performance monitoring and alerts",
+              "Advanced attribution modeling setup",
+              "Campaign optimization recommendations",
+              "Automated reporting and dashboards",
+              "Ongoing support and maintenance",
+              "Monthly performance reviews and improvements",
+            ],
+            image: "/images/hero/customer-support.png",
+          },
+        ]}
+      />
+      {/* <ProblemAwareness
         headingText="The Hidden Costs of Missing Conversion Data"
         paragraphText="Without accurate funnel tracking, your Meta ads lack the data to optimize for conversions, resulting in wasted budget and poor ROAS."
         bluePillPoints={[
@@ -117,30 +158,13 @@ export default function HomePage() {
           "Stay Compliant With Meta's Policies",
           "Track 30% More Conversions Than Standard Setups",
         ]}
-      />{" "}
-      <ProcessSteps />{" "}
-      <div className="py-24">
-        <AdSpendCalculator />
-      </div>
-      <OfferDetails
-        headerTitle="3-Day 'See Every Sale' Tracking System"
+      /> */}
+      <DetailsCarousel
+        headerTitle="What You Get?"
         headerDescription="A complete system designed to fix Facebook's data sharing restrictions and restore 95%+ accurate data for every key event — all done-for-you in just 3 days."
-        offerItems={[
+        items={[
           {
-            title: "3-Day Tracking Implementation",
-            description:
-              "Restore full funnel visibility with a compliant, future-proof tracking system in just 3 days.",
-            icon: <Zap />,
-            benefits: [
-              "Comprehensive audit of your current setup",
-              "Custom tracking implementation for your specific needs",
-              "Full recovery of middle and bottom funnel events",
-              "Works for banned, blocked, or blacklisted niches",
-            ],
-            image: "/images/hero/tracking-audit.png",
-          },
-          {
-            title: "Looker Studio Ecommerce Dashboard",
+            title: "Looker Studio eCom Dashboard",
             description:
               "Visualize your sales data with a custom, easy-to-read dashboard tailored for your business.",
             icon: <BarChart2 />,
@@ -217,19 +241,6 @@ export default function HomePage() {
             ],
             image: "/images/hero/tools-and-calculators.png",
           },
-          {
-            title: "Premium Support",
-            description:
-              "Get expert help with implementation and ongoing assistance to ensure your tracking stays accurate.",
-            icon: <HeadphonesIcon />,
-            benefits: [
-              "Dedicated support for implementation",
-              "Training on using your new tracking setup",
-              "Troubleshooting assistance",
-              "Ongoing optimization recommendations",
-            ],
-            image: "/images/hero/customer-support.png",
-          },
         ]}
       />
       <ScarcityUrgency
@@ -256,10 +267,10 @@ export default function HomePage() {
         ctaButtonText="🎯 Get Your Free Ad Tracking Consultation"
         subtextForButtonCta="Secure $300 off and 95% accuracy — only for the first 10 this month!"
       />
-      <OfferDetails
+      <DetailsCarousel
         headerTitle="Total Value: $9,100 - Yours for Just $1,200"
         headerDescription="Here's everything included in your 3-Day 'See Every Sale' Tracking System."
-        offerItems={[
+        items={[
           {
             title: "3-Day Tracking Implementation",
             description:
@@ -275,7 +286,7 @@ export default function HomePage() {
             image: "/images/hero/tracking-audit.png",
           },
           {
-            title: "Looker Studio Ecommerce Dashboard",
+            title: "Looker Studio eCom Dashboard",
             description:
               "Visualize your sales data with a custom, easy-to-read dashboard.",
             icon: <BarChart2 />,

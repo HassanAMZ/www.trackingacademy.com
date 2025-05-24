@@ -20,7 +20,7 @@ const BlogContent: React.FC<BlogContentProps> = ({
   rawData,
   featuredPostId,
 }) => {
-  const [visiblePosts, setVisiblePosts] = useState(9);
+  const [visiblePosts, setVisiblePosts] = useState(12);
   const remainingPosts = data.slice(0, visiblePosts);
 
   const featuredPost = useMemo(
@@ -40,7 +40,7 @@ const BlogContent: React.FC<BlogContentProps> = ({
           <SingleBlogCard post={featuredPost} type={type} isMain={true} />
         </div>
       )}
-      <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      <div className=" gap-6 columns-1 sm:columns-2 lg:columns-3 space-y-4">
         {remainingPosts.map((post, index) => (
           <SingleBlogCard post={post} type={type} key={index} />
         ))}
@@ -107,7 +107,7 @@ const CategoryContainer: React.FC<CategoryContainerProps> = ({
               rawData={rawData}
               data={filteredData}
               type={type}
-              featuredPostId={1}
+              featuredPostId={125}
             />
           </TabsContent>
         </Tabs>

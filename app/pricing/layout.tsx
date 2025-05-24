@@ -1,25 +1,25 @@
-// app/privacy-policy/layout.tsx
+// app/pricing/layout.tsx
 import Navbar from "@/components/global/navbar";
 import type { Metadata } from "next";
 import { ReactNode } from "react";
 
 export const metadata: Metadata = {
-  title: "Privacy Policy | Conversion Confidence",
+  title: "Pricing | Conversion Confidence",
   description:
-    "Learn how Conversion Confidence collects, uses, and protects your data through our privacy policy. Compliant with GDPR, CCPA, and ePrivacy regulations.",
+    "Transparent pricing for Conversion Confidence's tracking audits and implementations. Choose a package that fits your growth stage, from startups to enterprise.",
   openGraph: {
-    title: "Privacy Policy | Conversion Confidence",
+    title: "Pricing | Conversion Confidence",
     description:
-      "Details on how we collect, store, and use personal and anonymized data across our server-side tracking tools.",
+      "Explore our tracking service plans—from basic audits to full server-side compliance setups. See what’s included and pick the right plan.",
     type: "website",
     images: ["/images/social-sharing.png"],
     locale: "en_US",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Privacy Policy | Conversion Confidence",
+    title: "Pricing | Conversion Confidence",
     description:
-      "Comprehensive details on our data handling practices. Fully GDPR and CCPA compliant.",
+      "Get complete visibility into our tracking solutions pricing. No surprises. Just high-impact solutions for your conversion tracking.",
     images: ["/images/social-sharing.png"],
   },
 };

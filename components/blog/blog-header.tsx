@@ -20,7 +20,7 @@ const BlogHeader: React.FC<PostMetadataProps> = ({ metadata }) => {
   return (
     <Card>
       <CardContent>
-        <article className="py-4 sm:py-8 lg:py-12">
+        <article>
           <Script
             id="blog-schema"
             type="application/ld+json"

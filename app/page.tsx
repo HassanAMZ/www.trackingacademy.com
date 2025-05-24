@@ -1,16 +1,19 @@
 import CaseStudyCarousel from "@/components/case-study/case-study-carousel";
+import TestimonialsCarousel2 from "@/components/for-freelancers/testimonials-carousal-2";
 import DetailedCTA from "@/components/funnels/detailed-cta";
-import Hero from "@/components/funnels/hero";
+import DetailsCarousel from "@/components/funnels/details-carousal";
 import ObjectionHandling from "@/components/funnels/objection-handling";
-import OfferDetails from "@/components/funnels/offer-detail-item";
 import ProblemAwareness from "@/components/funnels/problem-awareness";
 import ScarcityUrgency from "@/components/funnels/scarcity-urgency";
 import SocialProof from "@/components/funnels/social-proof";
+import AdSpendCalculator from "@/components/global/ad-spend-calculator";
 import Navbar from "@/components/global/navbar";
 import AlternativesSection from "@/components/home/alternative-section";
+import Hero from "@/components/home/hero";
 import WhyChooseSection from "@/components/home/why-choose-us";
 import TestimonialsCarousel from "@/components/testimonial/testimonial-carousal";
 import TestimonialGrid from "@/components/testimonial/testimonial-grid";
+import { Button } from "@/components/ui/button";
 import Container from "@/components/ui/container";
 import { caseStudies } from "@/data/case-studies";
 import {
@@ -20,43 +23,48 @@ import {
   Target,
   Zap,
 } from "lucide-react";
+import Link from "next/link";
 
 export default function HomePage() {
   return (
     <main>
       <Navbar />
       <Hero
-        // badgeText="WARNING: What Every Business Owner Must Know"
-        headingText="95% Accurate Tracking or Your Money Back – Scale Your Ads with Confidence!"
-        subheadingText="Discover how our server-side tracking system recovers 30%+ of your 'invisible' conversions, slashes wasted ad spend by 20%+, and gives you the accurate data you need to scale profitably - even with iOS 18 and strict privacy laws."
-        ctaButtonText="👉 Eliminate My Tracking Blindspot"
-        ctaButtonLink="/contact"
-        subtextForButtonCta="Recovers 30%+ of your 'invisible' conversions, slashes wasted ad spend by 20%+ and Scale your Ads"
-        supportingButtonText="View Client Results"
-        supportingButtonLink="#case-studies"
-        youtubeEmbedId="9MGpL_AmEYM"
-        supportingComponent={<CaseStudyCarousel caseStudies={caseStudies} />}
-      />{" "}
-      {/* <CaseStudy client={caseStudies[1]} /> */}{" "}
-      <ProblemAwareness
-        headingText="The Hidden Costs of Inefficient Analytics and Outdated Systems"
-        paragraphText="Manual processes and chaotic data overwhelm teams, draining time and money while delivering few actionable insights."
-        bluePillPoints={[
-          "Up to 30% of Conversions Go Untracked",
-          "Ad Costs Rising – But ROAS is Dropping",
-          "Chaotic Data Makes Scaling Impossible",
-          "Your Competitors Are Tracking",
-          "You're Spending More & Earning Less",
+        // eyebrow="Still flying blind on Meta ads?"
+        heading={
+          <h1 className="text-center lg:text-left mx-auto lg:mx-0">
+            Fix broken facebook ads tracking in 3 days —{" "}
+            <span className="text-primary"> or your money back </span>
+          </h1>
+        }
+        subheading={
+          <h4 className="mx-auto lg:mx-0 text-muted-foreground max-w-3xl text-center lg:text-left">
+            Our
+            <span className="text-primary"> “See Every Sale” </span>
+            setup gives eCommerce brands 95%+ accurate conversion data — so you
+            can stop wasting ad spend, scale with confidence, and finally trust
+            your numbers again.
+          </h4>
+        }
+        carousel={<TestimonialsCarousel2 />}
+        benefits={[
+          "Completed within 3 days",
+          "100% done-for-you setup",
+          "Improved ROAS by 30%",
+          "One-time setup cost",
+          "Scaleable Solution",
+          "95%+ accuracy",
         ]}
-        imageUrl="/images/hero/matrix.png"
-        redPillPoints={[
-          "Track 95%+ of Conversions Accurately",
-          "Increase ROAS Without Spending More",
-          "Get Data That Makes Scaling Easy",
-          "Stay Compliant & Profitable",
-          "Turn Every Dollar into More Revenue",
-        ]}
-      />{" "}
+        customCtaButton={
+          <Button
+            className="flex max-w-4xl flex-col items-center text-center font-bold lg:items-start lg:text-left mx-auto lg:mx-0 w-fit p-6 text-xl cursor-pointer"
+            asChild
+          >
+            <Link href={"/pricing"}>Fix Your Tracking</Link>
+          </Button>
+        }
+        supportingComponent={<AdSpendCalculator cta={true} />}
+      />
       {/* <DreamOutcome
         heading="Imagine Effortless Growth"
         subheading="Our System Ensures Precision, Saves Time, and Maximizes ROI"
@@ -84,10 +92,10 @@ export default function HomePage() {
           },
         ]}
       /> */}{" "}
-      <OfferDetails
+      <DetailsCarousel
         headerTitle="The Conversion Confidence Suite"
         headerDescription="A complete system designed to solve your tracking headaches, recover lost revenue, and supercharge your ROI."
-        offerItems={[
+        items={[
           {
             title: "Conversion Tracking Audit",
             description:
@@ -204,10 +212,10 @@ export default function HomePage() {
         buttonLink="/contact"
         iconSize={12}
       />
-      <OfferDetails
+      <DetailsCarousel
         headerTitle="Exclusive Bonuses for Early Action-Takers"
         headerDescription="Get over $1,200 in value with these exclusive bonuses."
-        offerItems={[
+        items={[
           {
             title: "E-commerce Conversion Checklist",
             description:

@@ -31,7 +31,7 @@ export default function CouponRequestEmail({
   couponCode,
   createdAt,
 }: CouponRequestEmailProps) {
-  const service = services.find((s) => s.name === "Basic Tracking Audit");
+  const service = services.find((s) => s.name === "See Every Sale");
 
   return (
     <Html>
@@ -86,14 +86,14 @@ export default function CouponRequestEmail({
               restore your tracking and maximize your ad performance.
             </Text>
 
-            <Text style={smallText}>
+            <Button style={ctaButton}>
               <Link
-                href={`/funnels/facebook/see-every-sale/payment?prefilled_promo_code=SEEEVERYSALE300OFF&product_id=${service?.product_id}&price_id=${service?.price_id}`}
+                href={`${baseUrl}/funnels/facebook/see-every-sale/payment?prefilled_promo_code=SEEEVERYSALE300OFF&product_id=${service?.product_id}&price_id=${service?.price_id}`}
                 style={link}
               >
                 Or use this direct link to purchase with your coupon:{" "}
               </Link>
-            </Text>
+            </Button>
           </Section>{" "}
           {/* What You'll Get */}
           <Section style={bonusSection}>
@@ -105,10 +105,10 @@ export default function CouponRequestEmail({
               OFF with your coupon)
             </Text>
             <Text style={bonusPoint}>
-              ✅ Looker Studio Ecommerce Dashboard Setup ($2,000 Value)
+              ✅ Looker Studio eCom Dashboard Setup ($2,000 Value)
             </Text>
             <Text style={bonusPoint}>
-              ✅ Google Analytics Ecommerce Tracking (95% Accuracy, $1,200
+              ✅ Google Analytics 4 Ecommerce Tracking (95% Accuracy, $1,200
               Value)
             </Text>
             <Text style={bonusPoint}>

@@ -1,3 +1,4 @@
+import dynamic from "next/dynamic";
 import { FC, memo } from "react";
 import Container from "../ui/container";
 
@@ -21,6 +22,7 @@ const YoutubeEmbed: FC<YoutubeEmbedProps> = ({ embedId, className, id }) => {
         <iframe
           className="absolute top-0 left-0 h-full w-full rounded-lg"
           src={`https://www.youtube.com/embed/${embedId}`}
+          loading="lazy"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
           allowFullScreen
           title="Embedded Youtube Video"
@@ -30,4 +32,5 @@ const YoutubeEmbed: FC<YoutubeEmbedProps> = ({ embedId, className, id }) => {
   );
 };
 
+// Dynamically import with SSR disabled (optional)
 export default memo(YoutubeEmbed);

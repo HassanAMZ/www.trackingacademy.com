@@ -26,7 +26,7 @@ export default function AdSpendCalculator({
 }: AdSpendCalculatorProps) {
   const [adSpend, setAdSpend] = useState(5000);
   const pathname = usePathname();
-  const service = services.find((s) => s.name === "Basic Tracking Audit");
+  const service = services.find((s) => s.name === "See Every Sale");
 
   const redirectUrl = `${pathname.replace(/\/$/, "")}/payment?product_id=${service?.product_id}&price_id=${service?.price_id}`;
 

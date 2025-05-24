@@ -90,7 +90,7 @@ export default function Page() {
           {/* CTA Button */}
           <Button
             size="lg"
-            className="hover:bg-primary/90 flex flex-col py-20 text-xl font-bold text-wrap whitespace-pre-wrap hover:cursor-pointer sm:py-16 md:py-12"
+            className="hover:bg-primary/90 flex flex-col p-4 text-xl font-bold text-wrap whitespace-pre-wrap hover:cursor-pointer "
             onClick={() => setIsModalOpen(true)}
           >
             <div>

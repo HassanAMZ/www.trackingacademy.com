@@ -61,9 +61,8 @@ const ScarcityUrgency: React.FC<ScarcityUrgencyProps> = ({
         <div className="flex max-w-xl items-center space-x-4">
           {ctaButtonText && (
             <Button
-              size="lg"
               asChild
-              className="bg-background text-primary hover:bg-background/90 flex flex-col py-20 text-xl font-bold text-wrap whitespace-pre-wrap sm:py-16 md:py-12"
+              className="flex max-w-4xl flex-col items-center text-center font-bold lg:items-start lg:text-left mx-auto lg:mx-0 w-fit p-6 text-xl cursor-pointer"
             >
               <Link href={buttonLink}>
                 <div>

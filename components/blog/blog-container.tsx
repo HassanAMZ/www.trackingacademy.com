@@ -16,7 +16,7 @@ export default async function BlogContainer({
   return (
     <div>
       <BlogHeader metadata={metadata} />
-      <div className="mt-8 grid grid-cols-1 gap-8 lg:grid-cols-[250px_1fr_250px]">
+      <div className="mt-8 grid grid-cols-1 gap-8 lg:grid-cols-[300px_1fr_250px]">
         <TableOfContents />
         <article>
           <BlogPost />

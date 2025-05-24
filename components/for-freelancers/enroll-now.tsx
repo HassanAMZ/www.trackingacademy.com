@@ -10,8 +10,8 @@ import {
 } from "@/components/ui/select";
 import { Textarea } from "@/components/ui/textarea";
 import { useRouter } from "next/navigation";
-import React, { ChangeEvent, useEffect, useState } from "react";
-import { useFormState, useFormStatus } from "react-dom";
+import React, { ChangeEvent, useActionState, useEffect, useState } from "react";
+import { useFormStatus } from "react-dom";
 import { cn } from "../lib/utils";
 import { Button } from "../ui/button";
 import { Card, CardContent } from "../ui/card";
@@ -101,7 +101,7 @@ export default function ContactForm({
   formHeader = true,
   className,
 }: ContactFormProps) {
-  const [state, formAction] = useFormState(createWaitlist, initialState);
+  const [state, formAction] = useActionState(createWaitlist, initialState);
   const [formSubmitted, setFormSubmitted] = useState(false);
   const [currentStep, setCurrentStep] = useState(1);
   const [maxStep, setMaxStep] = useState(1);

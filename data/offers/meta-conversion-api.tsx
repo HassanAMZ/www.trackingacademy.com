@@ -66,7 +66,7 @@ const MetaConversionConfig = {
     headerTitle: "The Complete Facebook Conversion Tracking Solution",
     headerDescription:
       "Enterprise-grade tracking setup handled 100% by our team.",
-    offerItems: [
+    items: [
       {
         title: "Precision Tracking Audit",
         description:

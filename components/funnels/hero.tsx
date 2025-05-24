@@ -64,8 +64,9 @@ const Hero: React.FC<HeroProps> = ({
         <div className="flex max-w-xl items-center space-x-4">
           {ctaButtonText && ctaButtonLink && (
             <Button
-              size="lg"
-              className="hover:bg-primary/90 flex flex-col py-20 text-wrap whitespace-pre-wrap hover:cursor-pointer "
+              asChild
+              size={"lg"}
+              className="flex max-w-4xl flex-col items-center text-center font-bold lg:items-start lg:text-left mx-auto lg:mx-0 w-fit p-6 text-xl cursor-pointer"
             >
               <Link href={ctaButtonLink}>
                 <div>

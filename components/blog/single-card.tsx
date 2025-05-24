@@ -49,7 +49,7 @@ const SingleBlogCard: React.FC<SingleBlogCardProps> = ({
           </CardHeader>
           <CardContent>
             <p
-              className={`text-muted-foreground line-clamp-3 ${isMain ? "mb-4" : "mb-2"}`}
+              className={`text-muted-foreground text-sm line-clamp-3 ${isMain ? "mb-4" : "mb-2"}`}
             >
               {post.description}
             </p>

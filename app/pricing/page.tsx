@@ -15,7 +15,7 @@ export default function PricingPage() {
         </h4>
       </div>
 
-      <PricingVertical services={services} />
+      <PricingVertical services={services.slice(0, 4)} />
 
       <FAQSection />
     </Container>

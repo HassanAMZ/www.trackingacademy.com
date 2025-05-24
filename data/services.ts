@@ -261,4 +261,82 @@ export const services: Service[] = [
         "Complete implementation of tracking solutions tailored to your specific business needs.",
     },
   },
+  {
+    name: "See Every Sale",
+    subtitle: "3-Day Complete Tracking Solution",
+    description:
+      "Complete Meta ads tracking restoration with custom dashboard and compliance setup - delivered in just 3 days",
+    price: "$1,200",
+    product_id: "prod_SI6QXbIdeTQbUY",
+    price_id: "price_1RNWDwAE3E6zT9eTzcpnOUZy",
+    popular: false,
+    color: "border-muted",
+    buttonVariant: "outline",
+    cta: "🎟️ Claim $300 OFF + Bonuses",
+    accuracy: "95%+",
+    features: {
+      "Google Ads Tracking": "CST & SST",
+      "META Ads Tracking": "CST & SST",
+      "TikTok Tracking": "CST & SST",
+      "Google Analytics": "GA4 Full Setup",
+      "Google Tag Manager": "CST Setup",
+      "Enhanced Ecommerce": true,
+      "LinkedIn Ads Tracking": false,
+      "X Ads Tracking": false,
+      "Floodlight Tags": false,
+      "Consent Solution": "GDPR & CCPA",
+      "Looker Studio Dashboard": "Custom Ecom Dashboard",
+      "Cross-domain Tracking": true,
+      "UTM Parameter Tracking": true,
+      "SST Anonymizer": false,
+      "SST Cookie Extender": false,
+      "SST Bot Detection": false,
+      "Multi-language Support": false,
+      "47-Point Conversion Checklist": true,
+      "ROI & LTV Tracking Toolkit": true,
+      "3-Day Implementation": true,
+      "Premium Support": true,
+      "Money Back Guarantee": true,
+    },
+    featureExplanations: {
+      "Google Ads Tracking":
+        "Track conversions from Google Ads campaigns with precision, ensuring accurate ROAS measurement and optimization opportunities.",
+      "META Ads Tracking":
+        "Accurately track Facebook and Instagram ad performance, even with iOS privacy changes and cookie restrictions. Restore ViewContent, AddToCart, and Purchase events.",
+      "TikTok Tracking":
+        "Capture accurate conversion data from TikTok campaigns, even with privacy restrictions.",
+      "Google Analytics":
+        "Complete GA4 implementation with 95% accurate tracking, custom events, and proper attribution setup.",
+      "Google Tag Manager":
+        "Implement a clean, organized tag management system for all your marketing and analytics tags.",
+      "Enhanced Ecommerce":
+        "Detailed tracking of product impressions, clicks, add-to-carts, checkouts, and purchases with full funnel visibility.",
+      "Consent Solution":
+        "Implement GDPR & CCPA compliant cookie consent system that maintains tracking effectiveness while staying compliant.",
+      "Looker Studio Dashboard":
+        "Custom ecommerce dashboard showing all your key metrics, campaign performance, and audience insights in one place.",
+      "Cross-domain Tracking":
+        "Track users across multiple domains or subdomains for complete customer journey visibility.",
+      "UTM Parameter Tracking":
+        "Accurate attribution of traffic sources, campaigns, and keywords for better campaign optimization.",
+      "47-Point Conversion Checklist":
+        "Proven checklist with 47 critical conversion optimization points to boost your funnel performance and ROAS.",
+      "ROI & LTV Tracking Toolkit":
+        "ROAS calculators, LTV tracking tools, budget optimizers, and campaign performance analyzers.",
+      "3-Day Implementation":
+        "Complete tracking restoration delivered within 3 business days with dedicated implementation support.",
+      "Premium Support":
+        "Dedicated support throughout implementation, training on your new setup, and ongoing optimization recommendations.",
+      "Money Back Guarantee":
+        "100% money-back guarantee if we don't deliver 95% accurate conversion tracking within 3 days.",
+      CST: "Client-Side Tracking captures user interactions directly in the browser. Only 60-70% accurate due to ad blockers, privacy settings, and browser restrictions.",
+      SST: "Server-Side Tracking processes data on secure servers, bypassing ad blockers and preserving user privacy while maintaining 95%+ accuracy. Perfect for Meta ads optimization.",
+      "GA4 Full Setup":
+        "Complete Google Analytics 4 implementation with custom events, proper attribution, and ecommerce tracking tailored to your business needs.",
+      "Custom Ecom Dashboard":
+        "Tailored Looker Studio dashboard specifically designed for ecommerce brands with key metrics, campaign performance, and actionable insights.",
+      "GDPR & CCPA":
+        "Fully compliant cookie consent solution for both European GDPR and California CCPA regulations while maintaining tracking effectiveness.",
+    },
+  },
 ];

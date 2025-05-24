@@ -1,8 +1,8 @@
 "use client";
 
 import { handleRequestABlogForm } from "@/actions/handle-request-a-blog";
-import React, { useEffect, useState } from "react";
-import { useFormState, useFormStatus } from "react-dom";
+import React, { useActionState, useEffect, useState } from "react";
+import { useFormStatus } from "react-dom";
 import { Button } from "../ui/button";
 import { Input } from "../ui/input";
 
@@ -25,7 +25,7 @@ function SubmitButton() {
 }
 
 const RequestABlogForm: React.FC<RequestABlogFormProps> = ({ searchTerm }) => {
-  const [state, formAction] = useFormState(
+  const [state, formAction] = useActionState(
     handleRequestABlogForm,
     initialState,
   );

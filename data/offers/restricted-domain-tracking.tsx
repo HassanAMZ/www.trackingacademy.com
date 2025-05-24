@@ -37,7 +37,7 @@ const RestrictedDomainTracking = {
     headerTitle: "$300 Off – 3-Day “See Your Sales Again” Tracking Setup",
     headerDescription:
       "Restore your Meta conversion tracking in just 3 days—even if your domain is restricted.",
-    offerItems: [
+    items: [
       {
         title: "3-Day “See Your Sales Again” Tracking Setup",
         description:
@@ -91,7 +91,7 @@ const RestrictedDomainTracking = {
     sectionDescription: "Included for free with your 3-day tracking setup:",
     bonuses: [
       {
-        title: "Looker Studio Ecommerce Report",
+        title: "Looker Studio eCom Report",
         description:
           "Visualize your funnel data in a clean, executive-ready dashboard.",
         value: "$500",

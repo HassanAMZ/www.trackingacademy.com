@@ -12,7 +12,8 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { useFormState, useFormStatus } from "react-dom";
+import { useActionState } from "react";
+import { useFormStatus } from "react-dom";
 
 // Initial state for form
 const initialState = {
@@ -57,7 +58,7 @@ type ContactFormProps = {
 export default function ContactForm({
   redirectUrl = "/contact/book-a-meeting",
 }: ContactFormProps) {
-  const [state, formAction] = useFormState(
+  const [state, formAction] = useActionState(
     clientCreateContact(redirectUrl),
     initialState,
   );

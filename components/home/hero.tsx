@@ -35,7 +35,7 @@ const Hero: FC<HeroProps> = ({
   secondaryCtaLink,
   supportingComponent,
   clientCountText = (
-    <div className="flex flex-col items-center md:items-start gap-2 ">
+    <div className="flex flex-col items-center lg:items-start gap-2 ">
       <div className="flex">
         {Array.from({ length: 5 }).map((_, i) => (
           <Star key={i} className="fill-amber-400 text-amber-400" />
