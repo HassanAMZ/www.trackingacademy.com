@@ -56,7 +56,7 @@ export default function Page() {
           </h4>{" "}
           <div className="grid w-full gap-8 px-3 py-6 ">
             {/* Right: Image */}
-            <YoutubeEmbed embedId="9MGpL_AmEYM" className="max-w-4xl" />{" "}
+            <YoutubeEmbed embedId="tdQufJ-qadE" className="max-w-4xl" />{" "}
             {/* <div className="flex items-center justify-center">
               <div className="bg-muted w-full overflow-hidden rounded-md">
                 <Image

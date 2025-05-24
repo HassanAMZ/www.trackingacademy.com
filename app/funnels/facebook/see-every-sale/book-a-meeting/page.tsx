@@ -95,7 +95,7 @@ export default async function Page() {
       </Container>{" "}
       {/* VIDEO SECTION */}
       <Container className="flex justify-center py-6">
-        <YoutubeEmbed embedId="9MGpL_AmEYM" className="max-w-5xl" />
+        <YoutubeEmbed embedId="tdQufJ-qadE" className="max-w-5xl" />
       </Container>
     </React.Fragment>
   );

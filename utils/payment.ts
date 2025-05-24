@@ -10,7 +10,7 @@ export const stripePromise = loadStripe(
 export const getSuccessUrl = () => {
   const currentPath = window.location.pathname;
   const pathSegments = currentPath.split("/").filter(Boolean);
-  return `${window.location.origin}/${pathSegments.join("/")}/success`;
+  return `${window.location.origin}/${pathSegments.join("/")}/book-a-meeting`;
 };
 
 // Currency formatter utility
