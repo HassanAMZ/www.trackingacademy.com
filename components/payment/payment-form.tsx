@@ -10,7 +10,7 @@ import {
   useStripe,
 } from "@stripe/react-stripe-js";
 import { Loader2, LockIcon } from "lucide-react";
-import { FormEvent, useState } from "react";
+import { FormEvent, useEffect, useState } from "react";
 
 interface PaymentFormProps {
   product: Product;
@@ -34,6 +34,26 @@ export const PaymentForm = ({
   const finalAmount = appliedPromo
     ? (product.unitAmount - appliedPromo.amountOff) / 100
     : product.unitAmount / 100;
+
+  // Check localStorage on component mount
+  useEffect(() => {
+    try {
+      const storedEmail = localStorage.getItem("email_address");
+      const storedPhone = localStorage.getItem("phone_number");
+
+      if (
+        storedEmail &&
+        storedEmail.trim() !== "" &&
+        storedPhone &&
+        storedPhone.trim() !== ""
+      ) {
+        setEmail(storedEmail);
+        setPhone(storedPhone);
+      }
+    } catch (error) {
+      console.error("Error reading from localStorage:", error);
+    }
+  }, []);
 
   // Function to save data to localStorage
   const saveToLocalStorage = (email: string, phone: string) => {
@@ -115,7 +135,7 @@ export const PaymentForm = ({
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             required
-            className="p-5"
+            className={"p-5"}
             disabled={isProcessing}
           />
         </div>
@@ -125,7 +145,7 @@ export const PaymentForm = ({
           <Input
             id="phone"
             type="tel"
-            className="p-5"
+            className={"p-5"}
             value={phone}
             onChange={(e) => setPhone(e.target.value)}
             required

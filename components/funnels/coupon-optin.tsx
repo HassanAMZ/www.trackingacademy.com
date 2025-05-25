@@ -29,6 +29,16 @@ const initialState = {
 const clientCreateCouponRequest =
   (redirectUrl: string) => async (_prevState: any, formData: FormData) => {
     try {
+      // Store form data in localStorage before submitting
+      const name = formData.get("name")?.toString() || "";
+      const email = formData.get("email")?.toString() || "";
+      const phone_number = formData.get("phone")?.toString() || "";
+
+      // Store in localStorage
+      localStorage.setItem("name", name);
+      localStorage.setItem("email_address", email);
+      localStorage.setItem("phone_number", phone_number);
+
       await createCouponRequest(formData, redirectUrl);
       return { error: null, success: true };
     } catch (error) {
