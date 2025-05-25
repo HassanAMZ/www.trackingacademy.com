@@ -60,7 +60,7 @@ function SubmitButton() {
 
 export default function CouponOptInForm({
   redirectUrl,
-  buttonText = "🎟️ Claim $300 OFF + $7,600 in Free Bonuses",
+  buttonText = "🎟️ Claim $300 OFF + $7,600 in Free Bonuses ",
   buttonElement,
 }: CouponOptInFormProps) {
   const pathname = usePathname();
