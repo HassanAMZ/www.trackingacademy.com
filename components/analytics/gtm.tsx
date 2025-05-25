@@ -6,7 +6,7 @@ export default function GoogleTagManager() {
 
   return (
     <>
-      {isProduction && (
+      {isProduction ? (
         <React.Fragment>
           <Script id="google-tag-manager" strategy="lazyOnload">
             {`(function(w, d, s, l, i) {
@@ -23,13 +23,17 @@ export default function GoogleTagManager() {
               })(window, document, 'script', 'dataLayer', '42poe=aWQ9R1RNLU1DS1A3Sks%3D&page=1');
             `}
           </Script>
+          <noscript
+            dangerouslySetInnerHTML={{
+              __html: `<iframe src="https://load.road.trackingacademy.com/ns.html?id=GTM-MCKP7JK" height="0" width="0" style="display:none;visibility:hidden"></iframe>`,
+            }}
+          />
         </React.Fragment>
-      )}{" "}
-      <noscript
-        dangerouslySetInnerHTML={{
-          __html: `<iframe src="https://load.road.trackingacademy.com/ns.html?id=GTM-MCKP7JK" height="0" width="0" style="display:none;visibility:hidden"></iframe>`,
-        }}
-      />
+      ) : (
+        <Script id="mock-datalayer" strategy="lazyOnload">
+          {`window.dataLayer = window.dataLayer || [];`}
+        </Script>
+      )}
     </>
   );
 }

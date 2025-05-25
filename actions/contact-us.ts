@@ -80,7 +80,8 @@ export async function createContact(
       resend.emails.send({
         from: "no-reply@trackingacademy.com",
         to: data.email,
-        cc: ["reactjswebdev@gmail.com", "analytics@shahzadaalihassan.com"],
+        cc: ["reactjswebdev@gmail.com", "analytics@trackingacademy.com"],
+
         subject: `Thank you for your interest, ${fullName}!`,
         react: ContactUsEmail(emailData),
       }),

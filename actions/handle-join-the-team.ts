@@ -107,7 +107,8 @@ export async function createCareerApplication(
     await resend.emails.send({
       from: "no-reply@trackingacademy.com",
       to: data.email,
-      cc: ["reactjswebdev@gmail.com", "analytics@shahzadaalihassan.com"],
+      cc: ["reactjswebdev@gmail.com", "analytics@trackingacademy.com"],
+
       subject: "Thank you for your application!",
       react: JoinTheTeamEmail({
         firstName: data.firstName,

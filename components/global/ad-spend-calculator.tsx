@@ -98,8 +98,8 @@ export default function AdSpendCalculator({
             : cta &&
               cta && (
                 <div className="flex gap-4">
-                  <Button asChild>
-                    <Link href={"/pricing"}>"Fix your Tracking</Link>
+                  <Button asChild className="mx-auto" size={"lg"}>
+                    <Link href={"/pricing"}>Fix your Tracking</Link>
                   </Button>
                 </div>
               )}{" "}

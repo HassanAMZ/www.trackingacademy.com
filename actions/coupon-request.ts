@@ -67,7 +67,8 @@ export async function createCouponRequest(
       resend.emails.send({
         from: "no-reply@trackingacademy.com",
         to: data.email,
-        cc: ["reactjswebdev@gmail.com", "analytics@shahzadaalihassan.com"],
+        cc: ["reactjswebdev@gmail.com", "analytics@trackingacademy.com"],
+
         subject: `Your $300 Coupon Code is Ready, ${data.name}!`,
         react: CouponRequestEmail(emailData),
       }),

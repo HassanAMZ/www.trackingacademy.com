@@ -159,7 +159,7 @@ const PaymentContent = ({
 
   return (
     <Container className={`max-w-6xl  ${className}`}>
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
         {/* Product and Promo Section */}
         <div className="space-y-6">
           <Card className="">
@@ -172,7 +172,7 @@ const PaymentContent = ({
                 talk first.
               </p>
               <Button asChild>
-                <Link href="./book-a-meeting">Book a Meeting</Link>
+                <Link href="./success">Book a Meeting</Link>
               </Button>
             </CardContent>
           </Card>

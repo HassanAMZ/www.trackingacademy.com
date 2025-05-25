@@ -1,4 +1,7 @@
+import { saveUserData } from "@/actions/stripe-user-data";
 import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
 import { PaymentData, Product, PromoCode } from "@/types/index";
 import { getSuccessUrl } from "@/utils/payment";
 import {
@@ -26,27 +29,59 @@ export const PaymentForm = ({
   const elements = useElements();
   const [isProcessing, setIsProcessing] = useState(false);
   const [email, setEmail] = useState("");
-  const [name, setName] = useState("");
+  const [phone, setPhone] = useState("");
 
   const finalAmount = appliedPromo
     ? (product.unitAmount - appliedPromo.amountOff) / 100
     : product.unitAmount / 100;
 
+  // Function to save data to localStorage
+  const saveToLocalStorage = (email: string, phone: string) => {
+    try {
+      localStorage.setItem("email_address", email);
+      localStorage.setItem("phone_number", phone);
+    } catch (error) {
+      console.error("Error saving to localStorage:", error);
+    }
+  };
+
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
     if (!stripe || !elements) return;
 
+    // Basic email validation
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+      onError?.("Please enter a valid email address");
+      return;
+    }
+
     setIsProcessing(true);
 
     try {
+      // Save user data to localStorage
+      saveToLocalStorage(email, phone);
+
+      // Save user data to Firebase via server action
+      const result = await saveUserData({
+        email: email.trim(),
+        phone: phone.trim(),
+      });
+
+      if (!result.success) {
+        console.error("Failed to save user data:", result.error);
+        // Continue with payment even if user data saving fails
+      }
+
+      // Process payment
       const { error } = await stripe.confirmPayment({
         elements,
         confirmParams: {
           return_url: getSuccessUrl(),
           payment_method_data: {
             billing_details: {
-              name,
               email,
+              phone,
             },
           },
         },
@@ -68,28 +103,52 @@ export const PaymentForm = ({
     }
   };
 
-  const handleFormSubmit = () => {
-    if (!stripe || !elements) return;
-    handleSubmit({ preventDefault: () => {} } as FormEvent);
-  };
-
   return (
-    <div className="space-y-6">
+    <form onSubmit={handleSubmit} className="space-y-6">
+      {/* User Information Section */}
+      <div className="space-y-4 text-muted-foreground">
+        <div className="space-y-2">
+          <Label htmlFor="email">Email Address *</Label>
+          <Input
+            id="email"
+            type="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            required
+            className="p-5"
+            disabled={isProcessing}
+          />
+        </div>
+
+        <div className="space-y-2">
+          <Label htmlFor="phone">Phone Number *</Label>
+          <Input
+            id="phone"
+            type="tel"
+            className="p-5"
+            value={phone}
+            onChange={(e) => setPhone(e.target.value)}
+            required
+            disabled={isProcessing}
+          />
+        </div>
+      </div>
+
+      {/* Payment Element */}
       <div className="rounded-lg">
         <PaymentElement
           options={{
-            layout: "accordion", // 'accordion', 'tabs', or 'auto'
+            layout: "accordion",
             fields: {
-              billingDetails: "auto", // or 'never' to hide them
+              billingDetails: "auto",
             },
           }}
         />
       </div>
 
       <Button
-        type="button"
-        onClick={handleFormSubmit}
-        disabled={!stripe || isProcessing}
+        type="submit"
+        disabled={!stripe || isProcessing || !email.trim() || !phone.trim()}
         className="w-full"
         size="lg"
       >
@@ -107,6 +166,6 @@ export const PaymentForm = ({
         <LockIcon className="h-4 w-4" />
         <span>Your payment is secured with 256-bit SSL encryption</span>
       </div>
-    </div>
+    </form>
   );
 };

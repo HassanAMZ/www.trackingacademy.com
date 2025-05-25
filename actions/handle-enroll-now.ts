@@ -77,7 +77,8 @@ export async function createWaitlist(prevState: any, formData: FormData) {
     await resend.emails.send({
       from: "no-reply@trackingacademy.com",
       to: data.email,
-      cc: ["reactjswebdev@gmail.com", "analytics@shahzadaalihassan.com"],
+      cc: ["reactjswebdev@gmail.com", "analytics@trackingacademy.com"],
+
       subject: "Thank you for contacting us!",
       react: WaitListEmail({
         firstName: data.firstName,

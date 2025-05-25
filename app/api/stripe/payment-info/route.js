@@ -14,30 +14,30 @@ export async function GET(request) {
       );
     }
 
-    console.log("Fetching payment intent:", paymentIntentId);
-
-    // Retrieve the payment intent from Stripe
+    // Retrieve the payment intent from Stripe with expanded data
     const paymentIntent = await stripe.paymentIntents.retrieve(
       paymentIntentId,
       {
-        expand: ["customer", "payment_method"],
+        expand: ["customer", "payment_method", "charges"],
       },
     );
-
-    console.log("Payment intent status:", paymentIntent.status);
 
     // Verify the payment was successful
     if (paymentIntent.status !== "succeeded") {
       return NextResponse.json(
-        { error: "Payment was not successful" },
+        {
+          error: "Payment was not successful",
+          status: paymentIntent.status,
+          id: paymentIntent.id,
+        },
         { status: 400 },
       );
     }
 
-    // Extract customer information
+    // Extract customer information from multiple sources
     let customerDetails = {};
 
-    // If there's a customer object, get details from there
+    // Try to get customer info from customer object
     if (paymentIntent.customer && typeof paymentIntent.customer === "object") {
       customerDetails = {
         email: paymentIntent.customer.email,
@@ -46,17 +46,46 @@ export async function GET(request) {
       };
     }
 
-    // If no customer object but we have charges, get from billing details
-    if (!customerDetails.email && paymentIntent.charges?.data?.length > 0) {
+    // Try to get customer info from charges billing details
+    if (paymentIntent.charges?.data?.length > 0) {
       const charge = paymentIntent.charges.data[0];
       if (charge.billing_details) {
         customerDetails = {
-          email: charge.billing_details.email,
-          name: charge.billing_details.name,
-          phone: charge.billing_details.phone,
+          email: customerDetails.email || charge.billing_details.email,
+          name: customerDetails.name || charge.billing_details.name,
+          phone: customerDetails.phone || charge.billing_details.phone,
           address: charge.billing_details.address,
         };
       }
+    }
+
+    // Try to get customer info from latest charge if not found yet
+    if (
+      paymentIntent.latest_charge &&
+      (!customerDetails.name || !customerDetails.email)
+    ) {
+      try {
+        const latestCharge = await stripe.charges.retrieve(
+          paymentIntent.latest_charge,
+        );
+
+        if (latestCharge.billing_details) {
+          customerDetails = {
+            email: customerDetails.email || latestCharge.billing_details.email,
+            name: customerDetails.name || latestCharge.billing_details.name,
+            phone: customerDetails.phone || latestCharge.billing_details.phone,
+            address:
+              customerDetails.address || latestCharge.billing_details.address,
+          };
+        }
+      } catch (chargeError) {
+        // Silently continue if charge retrieval fails
+      }
+    }
+
+    // Use receipt email as fallback
+    if (!customerDetails.email && paymentIntent.receipt_email) {
+      customerDetails.email = paymentIntent.receipt_email;
     }
 
     // Build the response object with all relevant payment information
@@ -69,7 +98,7 @@ export async function GET(request) {
       created: paymentIntent.created,
       description: paymentIntent.description,
       customer_details: customerDetails,
-      metadata: paymentIntent.metadata,
+      metadata: paymentIntent.metadata || {},
 
       // Payment method information
       payment_method: paymentIntent.payment_method
@@ -87,43 +116,30 @@ export async function GET(request) {
           }
         : null,
 
-      // Charges information
-      charges:
-        paymentIntent.charges?.data?.map((charge) => ({
-          id: charge.id,
-          amount: charge.amount,
-          currency: charge.currency,
-          paid: charge.paid,
-          receipt_url: charge.receipt_url,
-          billing_details: charge.billing_details,
-          payment_method_details: charge.payment_method_details,
-        })) || [],
+      // Shipping information
+      shipping: paymentIntent.shipping || null,
 
       // Additional useful information
       confirmation_method: paymentIntent.confirmation_method,
       payment_method_types: paymentIntent.payment_method_types,
       receipt_email: paymentIntent.receipt_email,
+      latest_charge: paymentIntent.latest_charge,
     };
-
-    console.log("Payment data retrieved successfully:", {
-      id: response.id,
-      amount: response.amount_received,
-      email: customerDetails.email,
-      name: customerDetails.name,
-    });
 
     return NextResponse.json(response);
   } catch (err) {
-    console.error("Error fetching payment information:", err);
+    console.error("Payment info API error:", err.message);
 
     // Return detailed error information
-    return NextResponse.json(
-      {
-        error: "Failed to fetch payment information",
-        details: err.message,
-        type: err.type || "unknown_error",
-      },
-      { status: 500 },
-    );
+    const errorResponse = {
+      error: "Failed to fetch payment information",
+      details: err.message,
+      type: err.type || "unknown_error",
+      timestamp: new Date().toISOString(),
+      stripe_error_code: err.code || null,
+      stripe_error_type: err.type || null,
+    };
+
+    return NextResponse.json(errorResponse, { status: 500 });
   }
 }

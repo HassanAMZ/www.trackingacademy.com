@@ -11,7 +11,7 @@ const initDataLayer = () => {
   });
 };
 
-interface GTMCustomEventProps {
+export interface GTMCustomEventProps {
   event_name: string;
   event_details?: { [key: string]: any };
   user_data?: { [key: string]: any };
