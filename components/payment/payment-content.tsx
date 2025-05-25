@@ -77,6 +77,28 @@ const PaymentContent = ({
         if (!paymentRes.ok) throw new Error("Failed to initialize payment");
         const { clientSecret } = await paymentRes.json();
         setClientSecret(clientSecret);
+        const currency = (productData.currency || "usd").toUpperCase();
+
+        if (typeof window !== "undefined" && (window as any).dataLayer) {
+          (window as any).dataLayer.push({ ecommerce: null });
+          (window as any).dataLayer.push({
+            event: "gtm_custom_event",
+            datalayer_event_event: "begin_checkout",
+            ecommerce: {
+              currency: currency,
+              value: (productData.unitAmount || 0) / 100, // convert from cents to dollars
+              items: [
+                {
+                  item_id: productData.id,
+                  item_name: productData.name,
+                  currency: currency,
+                  price: (productData.unitAmount || 0) / 100,
+                  quantity: 1,
+                },
+              ],
+            },
+          });
+        }
       } catch (err) {
         console.error("Payment initialization error:", err);
         onError?.("Failed to initialize payment. Please try again.");

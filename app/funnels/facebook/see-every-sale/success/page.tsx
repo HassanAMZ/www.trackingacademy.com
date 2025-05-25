@@ -290,6 +290,7 @@ export default function PaymentSuccess() {
 
           // Push directly to dataLayer with correct structure
           if (typeof window !== "undefined" && (window as any).dataLayer) {
+            (window as any).dataLayer.push({ ecommerce: null });
             (window as any).dataLayer.push(purchaseEventData);
           }
         }
