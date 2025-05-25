@@ -53,7 +53,7 @@ function SubmitButton() {
         pending ? "cursor-not-allowed opacity-50" : "cursor-pointer"
       }`}
     >
-      {pending ? "Processing..." : "Claim Your $300 Coupon Now"}
+      {pending ? "Submitting..." : "Claim Your $300 Coupon Now"}
     </Button>
   );
 }
