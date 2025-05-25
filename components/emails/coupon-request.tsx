@@ -89,7 +89,6 @@ export default function CouponRequestEmail({
             <Button style={ctaButton}>
               <Link
                 href={`${baseUrl}/funnels/facebook/see-every-sale/payment?prefilled_promo_code=SEEEVERYSALE300OFF&product_id=${service?.product_id}&price_id=${service?.price_id}`}
-                style={link}
               >
                 Or use this direct link to purchase with your coupon:{" "}
               </Link>
