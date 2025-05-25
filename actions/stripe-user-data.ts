@@ -14,7 +14,7 @@ export async function saveUserData(userData: UserData) {
     const userId = `stripe_user_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`;
 
     // Save to Firebase
-    const userRef = doc(db, "stripe_users", userId);
+    const userRef = doc(db, "stripe-users", userId);
     await setDoc(userRef, {
       email_address: userData.email,
       phone_number: userData.phone,

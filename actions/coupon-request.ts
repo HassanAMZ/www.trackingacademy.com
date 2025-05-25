@@ -28,7 +28,7 @@ export async function createCouponRequest(
     .replace(/[-T:.Z]/g, "")
     .substring(0, 14);
 
-  const couponRequestsCollection = collection(db, "couponRequests");
+  const couponRequestsCollection = collection(db, "coupon-requests");
 
   // Data validation
   const schema = z.object({

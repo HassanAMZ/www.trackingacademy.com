@@ -20,7 +20,7 @@ export async function POST(request) {
     }
 
     // Check if email was already sent for this payment
-    const emailLogRef = doc(db, "emailLogs", paymentIntentId);
+    const emailLogRef = doc(db, "email-logs", paymentIntentId);
     const emailLogDoc = await getDoc(emailLogRef);
 
     if (emailLogDoc.exists()) {
