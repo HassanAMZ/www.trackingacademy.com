@@ -40,6 +40,56 @@ import {
 } from "lucide-react";
 import React from "react";
 
+const ctaVariants = [
+  {
+    title: "🎁 Unlock $7,900 in Value — $300 Off Today Only",
+    subtitle: "Only 10 brands qualify. When they’re gone, they’re gone.",
+  },
+  {
+    title: "💰 Save $300 Instantly — Plus Get $7,600 in Revenue Tools Free",
+    subtitle:
+      "We’re giving this to just 10 eComm brands — before the timer hits zero.",
+  },
+  {
+    title: "🧠 Smart Brands Claim This Fast: $300 OFF + $7,600 Toolkit",
+    subtitle: "Proven to boost tracking accuracy & ROAS. Limited-time offer.",
+  },
+  {
+    title: "⏳ Last Call: $300 OFF + $7,600 Scaling Bonus Pack",
+    subtitle: "Only available for the first 10 brands that act. Don’t miss it.",
+  },
+  {
+    title: "🚨 $300 Discount + $7,600 in Free Resources — Ends Soon",
+    subtitle: "First come, first served. Setup your tracking the right way.",
+  },
+  {
+    title: "🔥 $300 Discount + $7,600 in Free Resources — Ends Soon",
+    subtitle: "First come, first served. Setup your tracking the right way.",
+  },
+  {
+    title: "✅ Fix Your Tracking — and Save $300 Instantly",
+    subtitle:
+      "We’ll include $7,600 in battle-tested bonuses, free. Only 10 spots.",
+  },
+  {
+    title: "🎟️ Secure $7,900 in Value — Setup + Bonuses for Just One Payment",
+    subtitle: "Only 10 eComm brands get access. Don’t wait.",
+  },
+  {
+    title: "🚀 Ready to Scale Smarter? Get $300 Off + $7,600 Free",
+    subtitle:
+      "Done-for-you tracking setup + growth tools. Just 10 brands allowed.",
+  },
+  {
+    title: "💼 $300 Off + $7,600 in Expert-Level Tools — Yours Today",
+    subtitle: "Only if you’re one of the first 10 to act.",
+  },
+  {
+    title: "🔒 Lock In $7,900 in Value — Before It Disappears",
+    subtitle:
+      "$300 discount + $7,600 in bonuses. High demand — extremely limited.",
+  },
+];
 export default function HomePage() {
   const ProcessFlow = () => {
     const steps = [
@@ -125,57 +175,7 @@ export default function HomePage() {
       </Container>
     );
   };
-  const ctaVariants = [
-    {
-      title: "🎁 Unlock $7,900 in Value — $300 Off Today Only",
-      subtitle: "Only 10 brands qualify. When they’re gone, they’re gone.",
-    },
-    {
-      title: "💰 Save $300 Instantly — Plus Get $7,600 in Revenue Tools Free",
-      subtitle:
-        "We’re giving this to just 10 eComm brands — before the timer hits zero.",
-    },
-    {
-      title: "🧠 Smart Brands Claim This Fast: $300 OFF + $7,600 Toolkit",
-      subtitle: "Proven to boost tracking accuracy & ROAS. Limited-time offer.",
-    },
-    {
-      title: "⏳ Last Call: $300 OFF + $7,600 Scaling Bonus Pack",
-      subtitle:
-        "Only available for the first 10 brands that act. Don’t miss it.",
-    },
-    {
-      title: "🚨 $300 Discount + $7,600 in Free Resources — Ends Soon",
-      subtitle: "First come, first served. Setup your tracking the right way.",
-    },
-    {
-      title: "🔥 $300 Discount + $7,600 in Free Resources — Ends Soon",
-      subtitle: "First come, first served. Setup your tracking the right way.",
-    },
-    {
-      title: "✅ Fix Your Tracking — and Save $300 Instantly",
-      subtitle:
-        "We’ll include $7,600 in battle-tested bonuses, free. Only 10 spots.",
-    },
-    {
-      title: "🎟️ Secure $7,900 in Value — Setup + Bonuses for Just One Payment",
-      subtitle: "Only 10 eComm brands get access. Don’t wait.",
-    },
-    {
-      title: "🚀 Ready to Scale Smarter? Get $300 Off + $7,600 Free",
-      subtitle:
-        "Done-for-you tracking setup + growth tools. Just 10 brands allowed.",
-    },
-    {
-      title: "💼 $300 Off + $7,600 in Expert-Level Tools — Yours Today",
-      subtitle: "Only if you’re one of the first 10 to act.",
-    },
-    {
-      title: "🔒 Lock In $7,900 in Value — Before It Disappears",
-      subtitle:
-        "$300 discount + $7,600 in bonuses. High demand — extremely limited.",
-    },
-  ];
+
   return (
     <main>
       <Hero

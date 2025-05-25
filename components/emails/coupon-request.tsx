@@ -81,17 +81,13 @@ export default function CouponRequestEmail({
             <Heading as="h2" style={subheading}>
               Ready to See Every Sale Again?
             </Heading>
-            <Text style={paragraph}>
-              Watch our free training to learn more about how we can help you
-              restore your tracking and maximize your ad performance.
-            </Text>
 
-            <Button style={ctaButton}>
-              <Link
-                href={`${baseUrl}/funnels/facebook/see-every-sale/payment?prefilled_promo_code=SEEEVERYSALE300OFF&product_id=${service?.product_id}&price_id=${service?.price_id}`}
-              >
-                Or use this direct link to purchase with your coupon:{" "}
-              </Link>
+            <Button
+              style={ctaButton}
+              href={`${baseUrl}/funnels/facebook/see-every-sale/payment?prefilled_promo_code=SEEEVERYSALE300OFF&product_id=${service?.product_id}&price_id=${service?.price_id}`}
+            >
+              Use this direct link to purchase with your coupon:
+              SEEEVERYSALE300OFF
             </Button>
           </Section>{" "}
           {/* What You'll Get */}
