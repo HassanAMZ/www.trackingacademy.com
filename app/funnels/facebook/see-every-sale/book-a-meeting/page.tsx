@@ -55,9 +55,9 @@ export default async function Page() {
         </section>
       </Container>{" "}
       {/* BOOKING SECTION */}
-      <Card className="max-w-5xl mx-auto">
+      <Card className="mx-auto max-w-5xl">
         <CardContent>
-          <div className="flex w-full items-center justify-center  p-6">
+          <div className="flex w-full items-center justify-center p-6">
             <iframe
               src="https://calendar.google.com/calendar/appointments/schedules/AcZssZ0wgUDGuk7YMLv1IcsYbgeQwVYnRt39plBBMKmO55fulvLIeQ2ZZqBOGm1IpXYK7zvyl7YBLnlq?gv=true"
               className="min-h-[75vh] w-full"

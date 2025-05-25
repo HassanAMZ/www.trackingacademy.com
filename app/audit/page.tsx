@@ -54,26 +54,26 @@ export default function AuditsPage() {
   return (
     <div className="space-y-8">
       <div className="mb-8">
-        <h1 className="text-4xl font-bold mb-2">Website Audits</h1>
+        <h1 className="mb-2 text-4xl font-bold">Website Audits</h1>
         <p className="text-muted-foreground">
           Comprehensive analysis of your website's tracking and analytics
           implementation
         </p>
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
         {audits.map((audit) => (
           <Card
             key={audit.id}
-            className="shadow-md hover:shadow-lg transition-shadow"
+            className="shadow-md transition-shadow hover:shadow-lg"
           >
             <CardHeader className="pb-2">
-              <div className="flex justify-between items-start">
+              <div className="flex items-start justify-between">
                 <div>
-                  <CardTitle className="text-xl truncate" title={audit.domain}>
+                  <CardTitle className="truncate text-xl" title={audit.domain}>
                     {audit.id}
                   </CardTitle>
-                  <CardDescription className="flex items-center mt-1">
-                    <CalendarDays className="h-4 w-4 mr-1" />
+                  <CardDescription className="mt-1 flex items-center">
+                    <CalendarDays className="mr-1 h-4 w-4" />
                     {audit.date}
                   </CardDescription>
                 </div>
@@ -87,10 +87,10 @@ export default function AuditsPage() {
             </CardHeader>
             <CardContent>
               <div className="mb-4">
-                <div className="flex justify-between items-center mb-2">
+                <div className="mb-2 flex items-center justify-between">
                   <span className="text-sm font-medium">Overall Score</span>
                   <span
-                    className={`font-bold text-lg ${getTextColor(audit.statusColor)}`}
+                    className={`text-lg font-bold ${getTextColor(audit.statusColor)}`}
                   >
                     {audit.score}/100
                   </span>
@@ -102,7 +102,7 @@ export default function AuditsPage() {
               </div>
 
               <div className="space-y-2">
-                <h4 className="text-sm font-medium mb-2">Category Scores</h4>
+                <h4 className="mb-2 text-sm font-medium">Category Scores</h4>
                 {audit.categories.map((category, index) => (
                   <div
                     key={index}
@@ -137,8 +137,8 @@ export default function AuditsPage() {
       </div>
 
       <div className="bg-primary/5 rounded-lg p-8 text-center shadow-md">
-        <h2 className="text-2xl font-bold mb-2">Need a website audit?</h2>
-        <p className="mb-6 max-w-2xl mx-auto">
+        <h2 className="mb-2 text-2xl font-bold">Need a website audit?</h2>
+        <p className="mx-auto mb-6 max-w-2xl">
           Our comprehensive audit will analyze your tracking setup, identify
           issues, and provide actionable recommendations to improve your data
           collection.

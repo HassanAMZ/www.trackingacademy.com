@@ -1,6 +1,6 @@
 {
   "name": "www.trackingacademy.com",
-  "version": "4.3.0",
+  "version": "4.4.0",
   "private": true,
   "scripts": {
     "dev": "next dev --turbopack",
@@ -128,8 +128,8 @@
   },
   "prettier": {
     "plugins": [
-      "prettier-plugin-tailwindcss",
-      "@ianvs/prettier-plugin-sort-imports"
+      "@ianvs/prettier-plugin-sort-imports",
+      "prettier-plugin-tailwindcss"
     ]
   }
 }

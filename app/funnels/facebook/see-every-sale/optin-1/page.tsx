@@ -54,7 +54,7 @@ export default function Page() {
             All done-for-you, in just 3 days, with 95% Accurate Data Tracking,
             without Violating Any Facebook's policies.
           </h4>{" "}
-          <div className="grid w-full gap-8 px-3 py-6 ">
+          <div className="grid w-full gap-8 px-3 py-6">
             {/* Right: Image */}
             <YoutubeEmbed embedId="tdQufJ-qadE" className="max-w-4xl" />{" "}
             {/* <div className="flex items-center justify-center">
@@ -78,7 +78,7 @@ export default function Page() {
                     </div>
                   </div> */}
                   <h4 className="text-foreground ml-3">
-                    <span className="font-semibold text-primary">
+                    <span className="text-primary font-semibold">
                       {point.title}
                     </span>{" "}
                     <span className="">{point.subtitle}</span>
@@ -90,7 +90,7 @@ export default function Page() {
           {/* CTA Button */}
           <Button
             size="lg"
-            className="hover:bg-primary/90 flex flex-col p-4 text-xl font-bold text-wrap whitespace-pre-wrap hover:cursor-pointer "
+            className="hover:bg-primary/90 flex flex-col p-4 text-xl font-bold text-wrap whitespace-pre-wrap hover:cursor-pointer"
             onClick={() => setIsModalOpen(true)}
           >
             <div>

@@ -10,7 +10,7 @@ const GuaranteeSection = () => {
       <Container>
         <Card className="border-primary/20 bg-primary/5">
           <CardContent className="pt-6">
-            <div className="flex flex-col items-center gap-4 text-center space-y-4">
+            <div className="flex flex-col items-center gap-4 space-y-4 text-center">
               <AlertCircle className="text-primary h-12 w-12" />
               <h2>Our "95%+ Accuracy or It's FREE" Guarantee</h2>
               <p className="max-w-xl">

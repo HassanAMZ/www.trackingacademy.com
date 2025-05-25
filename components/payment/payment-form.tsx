@@ -126,7 +126,7 @@ export const PaymentForm = ({
   return (
     <form onSubmit={handleSubmit} className="space-y-6">
       {/* User Information Section */}
-      <div className="space-y-4 text-muted-foreground">
+      <div className="text-muted-foreground space-y-4">
         <div className="space-y-2">
           <Label htmlFor="email">Email Address *</Label>
           <Input
@@ -182,7 +182,7 @@ export const PaymentForm = ({
         )}
       </Button>
 
-      <div className="flex items-center justify-center gap-2 text-muted-foreground text-sm">
+      <div className="text-muted-foreground flex items-center justify-center gap-2 text-sm">
         <LockIcon className="h-4 w-4" />
         <span>Your payment is secured with 256-bit SSL encryption</span>
       </div>

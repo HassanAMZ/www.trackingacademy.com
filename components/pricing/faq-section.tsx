@@ -15,7 +15,7 @@ import { frequentlyAskedQuestions } from "@/data/frequently-asked-questions";
 
 export default function FAQSection() {
   return (
-    <Card className="max-w-4xl mx-auto">
+    <Card className="mx-auto max-w-4xl">
       <CardHeader>
         <CardTitle>Frequently Asked Questions</CardTitle>
         <CardDescription>

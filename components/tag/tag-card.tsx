@@ -43,7 +43,7 @@ const TagCard: React.FC<TagCardProps> = ({ tag, blogs }) => {
     featuredBlog?.openGraph?.images?.[0] || "/placeholder-image.jpg";
 
   return (
-    <Card className="w-full overflow-hidden hover:shadow-md transition-shadow duration-300">
+    <Card className="w-full overflow-hidden transition-shadow duration-300 hover:shadow-md">
       <div className="relative h-48 w-full overflow-hidden">
         {featuredImage && (
           <div className="relative h-full w-full">
@@ -58,14 +58,14 @@ const TagCard: React.FC<TagCardProps> = ({ tag, blogs }) => {
           </div>
         )}{" "}
         <div className="absolute bottom-4 left-4">
-          <Badge className="px-3 py-1 text-sm font-medium bg-primary">
+          <Badge className="bg-primary px-3 py-1 text-sm font-medium">
             {blogCount} articles
           </Badge>
         </div>
       </div>{" "}
       <CardHeader>
         <div className="flex items-center gap-2">
-          <TagIcon className="h-5 w-5 text-primary" />
+          <TagIcon className="text-primary h-5 w-5" />
           <CardTitle className="font-bold">{displayTag(tag)}</CardTitle>
         </div>
         <CardDescription>
@@ -80,10 +80,10 @@ const TagCard: React.FC<TagCardProps> = ({ tag, blogs }) => {
                 href={`/blog/${blog.slug}`}
                 className="hover:text-primary transition-colors"
               >
-                <div className="text-sm font-medium line-clamp-1">
+                <div className="line-clamp-1 text-sm font-medium">
                   {blog.title}
                 </div>
-                <div className="flex items-center gap-2 text-xs text-muted-foreground mt-1">
+                <div className="text-muted-foreground mt-1 flex items-center gap-2 text-xs">
                   <Clock className="h-3 w-3" />
                   <span>
                     {formatDistanceToNow(new Date(blog.date), {
@@ -99,7 +99,7 @@ const TagCard: React.FC<TagCardProps> = ({ tag, blogs }) => {
       <CardFooter className="pt-4">
         <Link
           href={`/tags/${formatString(normalizeTag(tag))}`}
-          className="text-sm text-primary font-medium hover:underline"
+          className="text-primary text-sm font-medium hover:underline"
         >
           View all articles →
         </Link>

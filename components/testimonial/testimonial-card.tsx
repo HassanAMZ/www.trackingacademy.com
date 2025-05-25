@@ -47,17 +47,17 @@ export function TestimonialCard({
   if (upwork) {
     const upworkCardContent = (
       <Card
-        className={`overflow-hidden bg-foreground dark:bg-background text-primary-foreground dark:text-foreground p-2 ${className}`}
+        className={`bg-foreground dark:bg-background text-primary-foreground dark:text-foreground overflow-hidden p-2 ${className}`}
       >
         <CardContent className="p-0">
           <div className="p-6">
             {projectName && (
-              <h3 className="text-green-400 text-xl font-medium mb-3">
+              <h3 className="mb-3 text-xl font-medium text-green-400">
                 {projectName}
               </h3>
             )}
             <p className="mb-3">{quote}</p>
-            <div className="flex items-center gap-4 mb-4">
+            <div className="mb-4 flex items-center gap-4">
               <div className="flex">
                 {Array.from({ length: 5 }).map((_, i) => (
                   <Star
@@ -90,7 +90,7 @@ export function TestimonialCard({
   // Default variant (original design)
   const cardContent = (
     <Card
-      className={`bg-background/80 backdrop-blur-xs overflow-hidden flex flex-col h-full ${
+      className={`bg-background/80 flex h-full flex-col overflow-hidden backdrop-blur-xs ${
         linkEnabled
           ? "transition-all duration-300 group-hover:scale-[1.02] group-hover:shadow-lg"
           : ""
@@ -98,11 +98,11 @@ export function TestimonialCard({
     >
       {/* Gradient overlay that appears on hover */}
       {linkEnabled && (
-        <div className="absolute inset-0 bg-linear-to-t from-primary/20 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100 z-10"></div>
+        <div className="from-primary/20 absolute inset-0 z-10 bg-linear-to-t to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100"></div>
       )}
-      <CardContent className="p-0 flex flex-col h-full relative z-20 space-y-4">
+      <CardContent className="relative z-20 flex h-full flex-col space-y-4 p-0">
         {/* Header section with stars and project name */}
-        <div className="flex justify-between items-start p-4 pb-0">
+        <div className="flex items-start justify-between p-4 pb-0">
           <Quote className="text-primary mb-4 h-12 w-12" />
           <div className="flex flex-col items-end gap-2">
             <div className="flex space-x-1">
@@ -114,7 +114,7 @@ export function TestimonialCard({
               ))}
             </div>
             {projectName && (
-              <div className="bg-primary/10 px-3 py-1 rounded-full text-xs font-medium">
+              <div className="bg-primary/10 rounded-full px-3 py-1 text-xs font-medium">
                 {projectName}
               </div>
             )}
@@ -122,8 +122,8 @@ export function TestimonialCard({
         </div>
 
         {/* Quote content */}
-        <div className="grow flex items-center p-4 pt-2">
-          <h4 className="italic text-foreground/90">{quote}</h4>
+        <div className="flex grow items-center p-4 pt-2">
+          <h4 className="text-foreground/90 italic">{quote}</h4>
         </div>
 
         {/* Footer with author and metrics */}
@@ -131,7 +131,7 @@ export function TestimonialCard({
           {/* Author info */}
           <div className="flex items-center justify-between gap-2">
             <div className="flex items-center gap-2">
-              <Avatar className="h-10 w-10 shrink-0 ">
+              <Avatar className="h-10 w-10 shrink-0">
                 <AvatarImage src={image} alt={author} />
                 <AvatarFallback>{author[0]?.toUpperCase()}</AvatarFallback>
               </Avatar>
@@ -146,13 +146,13 @@ export function TestimonialCard({
 
           {/* Metrics */}
           {metrics && metrics.length > 0 && (
-            <div className="flex flex-wrap gap-2 mt-4">
+            <div className="mt-4 flex flex-wrap gap-2">
               {metrics.map((metric, index) => (
                 <Button
                   size="sm"
                   key={index}
                   variant="secondary"
-                  className={`text-xs font-semibold transform ${index % 2 === 0 ? "rotate-1" : "-rotate-1"}`}
+                  className={`transform text-xs font-semibold ${index % 2 === 0 ? "rotate-1" : "-rotate-1"}`}
                 >
                   {typeof metric.label === "string" &&
                   metric.label.startsWith("+")
@@ -170,8 +170,8 @@ export function TestimonialCard({
 
       {/* External link icon that appears on hover */}
       {linkEnabled && (
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 opacity-0 transition-opacity duration-300 group-hover:opacity-100 z-30">
-          <div className="bg-primary text-white rounded-full p-3 shadow-lg">
+        <div className="absolute top-1/2 left-1/2 z-30 -translate-x-1/2 -translate-y-1/2 transform opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+          <div className="bg-primary rounded-full p-3 text-white shadow-lg">
             <ExternalLink className="h-6 w-6" />
           </div>
         </div>

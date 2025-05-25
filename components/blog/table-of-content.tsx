@@ -31,12 +31,12 @@ export default function TableOfContents() {
     <Accordion
       type="single"
       collapsible
-      className="self-start lg:sticky lg:top-8 w-full max-h-[80vh]"
+      className="max-h-[80vh] w-full self-start lg:sticky lg:top-8"
     >
       <AccordionItem value="toc">
         <Card>
           <CardHeader className="p-4">
-            <AccordionTrigger className="flex items-center gap-2 text-base font-semibold text-muted-foreground">
+            <AccordionTrigger className="text-muted-foreground flex items-center gap-2 text-base font-semibold">
               <LinkIcon className="h-5 w-5" />
               Table of Contents
             </AccordionTrigger>
@@ -51,7 +51,7 @@ export default function TableOfContents() {
                   >
                     <CustomLink
                       href={`#${heading.id}`}
-                      className="line-clamp-1 block rounded-md px-2 py-1 hover:bg-accent hover:text-accent-foreground transition-colors"
+                      className="hover:bg-accent hover:text-accent-foreground line-clamp-1 block rounded-md px-2 py-1 transition-colors"
                     >
                       {heading.text}
                     </CustomLink>

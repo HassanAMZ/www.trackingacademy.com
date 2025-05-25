@@ -19,7 +19,7 @@ const ObjectionHandling: React.FC<ObjectionHandlingProps> = ({
   guarantees,
 }) => {
   return (
-    <section className="bg-secondary/20 grid place-content-center py-24 ">
+    <section className="bg-secondary/20 grid place-content-center py-24">
       <Container>
         {/* Section Title */}
         {sectionTitle && (

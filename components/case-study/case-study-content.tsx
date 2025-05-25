@@ -49,15 +49,15 @@ export default function CaseStudyComponent({
   };
 
   return (
-    <Container className="py-8 space-y-8">
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+    <Container className="space-y-8 py-8">
+      <div className="grid grid-cols-1 gap-8 lg:grid-cols-3">
         <div className="lg:col-span-2">
           <div className="flex flex-col gap-6">
             <div>
               <Badge variant="outline" className="mb-2">
                 {caseStudy.plan} Plan
               </Badge>
-              <h1 className="text-3xl font-bold tracking-tight mb-4">
+              <h1 className="mb-4 text-3xl font-bold tracking-tight">
                 {caseStudy.title}
               </h1>
               <div className="relative">
@@ -86,16 +86,16 @@ export default function CaseStudyComponent({
                 )}
               </div>
             </div>{" "}
-            <div className="relative aspect-video rounded-lg overflow-hidden border">
+            <div className="relative aspect-video overflow-hidden rounded-lg border">
               <Image
                 src={
                   caseStudy.imageUrl || "/placeholder.svg?height=400&width=600"
                 }
                 alt={`${caseStudy.name} desktop view`}
                 fill
-                className="object-cover scale-x-102"
+                className="scale-x-102 object-cover"
               />
-              <div className="absolute bottom-2 right-2 bg-background/80 text-xs px-2 py-1 rounded">
+              <div className="bg-background/80 absolute right-2 bottom-2 rounded px-2 py-1 text-xs">
                 Desktop View
               </div>
             </div>{" "}
@@ -127,18 +127,18 @@ export default function CaseStudyComponent({
               </Button>
             </div>{" "}
             <Tabs defaultValue="overview" className="w-full">
-              <TabsList className="grid grid-cols-3 mb-4">
+              <TabsList className="mb-4 grid grid-cols-3">
                 <TabsTrigger value="overview">Overview</TabsTrigger>
                 <TabsTrigger value="milestones">Milestones</TabsTrigger>
                 <TabsTrigger value="details">Details</TabsTrigger>
               </TabsList>{" "}
               <TabsContent value="overview" className="space-y-6">
                 <div>
-                  <h3 className="text-lg font-semibold mb-3">Challenges</h3>
+                  <h3 className="mb-3 text-lg font-semibold">Challenges</h3>
                   <ul className="space-y-2">
                     {caseStudy.challenges.map((challenge, index) => (
                       <li key={index} className="flex items-start gap-2">
-                        <span className="mt-1 bg-red-100 text-red-600 p-0.5 rounded-full flex items-center justify-center">
+                        <span className="mt-1 flex items-center justify-center rounded-full bg-red-100 p-0.5 text-red-600">
                           <ChevronDown className="h-3 w-3" />
                         </span>
                         <span>{challenge}</span>
@@ -147,11 +147,11 @@ export default function CaseStudyComponent({
                   </ul>
                 </div>{" "}
                 <div>
-                  <h3 className="text-lg font-semibold mb-3">Solutions</h3>
+                  <h3 className="mb-3 text-lg font-semibold">Solutions</h3>
                   <ul className="space-y-2">
                     {caseStudy.solutions.map((solution, index) => (
                       <li key={index} className="flex items-start gap-2">
-                        <span className="mt-1 bg-green-100 text-green-600 p-0.5 rounded-full flex items-center justify-center">
+                        <span className="mt-1 flex items-center justify-center rounded-full bg-green-100 p-0.5 text-green-600">
                           <Check className="h-3 w-3" />
                         </span>
                         <span>{solution}</span>
@@ -160,11 +160,11 @@ export default function CaseStudyComponent({
                   </ul>
                 </div>{" "}
                 <div>
-                  <h3 className="text-lg font-semibold mb-3">Results</h3>
+                  <h3 className="mb-3 text-lg font-semibold">Results</h3>
                   <ul className="space-y-2">
                     {caseStudy.results.map((result, index) => (
                       <li key={index} className="flex items-start gap-2">
-                        <span className="mt-1 bg-blue-100 text-blue-600 p-0.5 rounded-full flex items-center justify-center">
+                        <span className="mt-1 flex items-center justify-center rounded-full bg-blue-100 p-0.5 text-blue-600">
                           <Star className="h-3 w-3" />
                         </span>
                         <span>{result}</span>
@@ -174,10 +174,10 @@ export default function CaseStudyComponent({
                 </div>
               </TabsContent>{" "}
               <TabsContent value="milestones" className="space-y-6">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
                   {caseStudy.milestones.map((milestone, index) => (
                     <Card key={index}>
-                      <CardHeader className="pb-2 ">
+                      <CardHeader className="pb-2">
                         <CardTitle className="flex items-center gap-2">
                           <Badge variant={"outline"} className="px-3 py-2">
                             {index + 1}
@@ -186,11 +186,11 @@ export default function CaseStudyComponent({
                         </CardTitle>
                       </CardHeader>
                       <CardContent className="space-y-2">
-                        <p className="text-sm text-muted-foreground">
+                        <p className="text-muted-foreground text-sm">
                           {milestone.description}
                         </p>
                         <div>
-                          <p className="text-xs font-medium mb-1">
+                          <p className="mb-1 text-xs font-medium">
                             Expected Outcome:
                           </p>
                           <p className="text-sm">{milestone.expectedOutcome}</p>
@@ -201,14 +201,14 @@ export default function CaseStudyComponent({
                 </div>
               </TabsContent>{" "}
               <TabsContent value="details" className="space-y-6">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
                   <Card>
                     <CardHeader>
                       <CardTitle>Project Details</CardTitle>
                     </CardHeader>
                     <CardContent className="space-y-4">
                       <div className="flex justify-between">
-                        <span className="text-sm text-muted-foreground">
+                        <span className="text-muted-foreground text-sm">
                           Owner
                         </span>
                         <span className="text-sm font-medium">
@@ -217,7 +217,7 @@ export default function CaseStudyComponent({
                       </div>
                       <Separator />
                       <div className="flex justify-between">
-                        <span className="text-sm text-muted-foreground">
+                        <span className="text-muted-foreground text-sm">
                           Client
                         </span>
                         <span className="text-sm font-medium">
@@ -235,7 +235,7 @@ export default function CaseStudyComponent({
                       </div> */}
                       <Separator />
                       <div className="flex justify-between">
-                        <span className="text-sm text-muted-foreground">
+                        <span className="text-muted-foreground text-sm">
                           Duration
                         </span>
                         <span className="text-sm font-medium">
@@ -250,7 +250,7 @@ export default function CaseStudyComponent({
                     </CardHeader>
                     <CardContent>
                       <div className="mb-4">
-                        <h4 className="text-sm font-medium mb-2">
+                        <h4 className="mb-2 text-sm font-medium">
                           Technologies
                         </h4>
                         <div className="flex flex-wrap gap-2">
@@ -262,7 +262,7 @@ export default function CaseStudyComponent({
                         </div>
                       </div>{" "}
                       <div>
-                        <h4 className="text-sm font-medium mb-2">Platforms</h4>
+                        <h4 className="mb-2 text-sm font-medium">Platforms</h4>
                         <div className="flex flex-wrap gap-2">
                           {caseStudy.platforms.map((platform, index) => (
                             <Badge key={index} variant="outline">
@@ -285,8 +285,8 @@ export default function CaseStudyComponent({
                 <CardTitle className="text-lg">Client Testimonial</CardTitle>
               </CardHeader>
               <CardContent className="pt-6">
-                <div className="flex flex-col items-center text-center mb-4">
-                  <Avatar className="h-16 w-16 mb-2">
+                <div className="mb-4 flex flex-col items-center text-center">
+                  <Avatar className="mb-2 h-16 w-16">
                     <AvatarImage
                       src={caseStudy.testimonial.image || "/placeholder.svg"}
                       alt={caseStudy.testimonial.author}
@@ -302,12 +302,12 @@ export default function CaseStudyComponent({
                     <p className="font-medium">
                       {caseStudy.testimonial.author}
                     </p>
-                    <p className="text-sm text-muted-foreground">
+                    <p className="text-muted-foreground text-sm">
                       {caseStudy.testimonial.role}
                     </p>
                   </div>
                 </div>{" "}
-                <div className="flex justify-center mb-4">
+                <div className="mb-4 flex justify-center">
                   {[1, 2, 3, 4, 5].map((star) => (
                     <Star
                       key={star}
@@ -315,7 +315,7 @@ export default function CaseStudyComponent({
                     />
                   ))}
                 </div>{" "}
-                <blockquote className="italic text-center">
+                <blockquote className="text-center italic">
                   "{caseStudy.testimonial.quote}"
                 </blockquote>
               </CardContent>
@@ -387,28 +387,28 @@ export default function CaseStudyComponent({
               </CardHeader>
               <CardContent className="space-y-4">
                 <div className="flex items-center gap-2">
-                  <Calendar className="h-4 w-4 text-muted-foreground" />
+                  <Calendar className="text-muted-foreground h-4 w-4" />
                   <div className="flex gap-2">
                     <p className="text-sm font-medium">Start Date</p>
-                    <p className="text-sm text-muted-foreground">
+                    <p className="text-muted-foreground text-sm">
                       {formatDate(caseStudy.projectTimeline.startDate)}
                     </p>
                   </div>
                 </div>{" "}
                 <div className="flex items-center gap-2">
-                  <Calendar className="h-4 w-4 text-muted-foreground" />
+                  <Calendar className="text-muted-foreground h-4 w-4" />
                   <div className="flex gap-2">
                     <p className="text-sm font-medium">End Date</p>
-                    <p className="text-sm text-muted-foreground">
+                    <p className="text-muted-foreground text-sm">
                       {formatDate(caseStudy.projectTimeline.endDate)}
                     </p>
                   </div>
                 </div>{" "}
                 <div className="flex items-center gap-2">
-                  <Clock className="h-4 w-4 text-muted-foreground" />
+                  <Clock className="text-muted-foreground h-4 w-4" />
                   <div className="flex gap-2">
                     <p className="text-sm font-medium">Duration</p>
-                    <p className="text-sm text-muted-foreground">
+                    <p className="text-muted-foreground text-sm">
                       {caseStudy.projectTimeline.durationDays} days
                     </p>
                   </div>
@@ -423,10 +423,10 @@ export default function CaseStudyComponent({
                   </div>
                 </div> */}{" "}
                 <div className="flex items-center gap-2">
-                  <User className="h-4 w-4 text-muted-foreground" />
+                  <User className="text-muted-foreground h-4 w-4" />
                   <div className="flex gap-2">
                     <p className="text-sm font-medium">Project Owner</p>
-                    <p className="text-sm text-muted-foreground">
+                    <p className="text-muted-foreground text-sm">
                       {caseStudy.owner}
                     </p>
                   </div>
@@ -444,7 +444,7 @@ export default function CaseStudyComponent({
                       key={index}
                       className="grid grid-cols-[auto_1fr] items-start gap-2"
                     >
-                      <CheckCircle className="h-6 w-6 text-primary" />
+                      <CheckCircle className="text-primary h-6 w-6" />
                       <p className="text-sm">{result}</p>
                     </div>
                   ))}

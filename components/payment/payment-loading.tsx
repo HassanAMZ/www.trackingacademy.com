@@ -5,11 +5,11 @@ export function PaymentLoading() {
   return (
     <div className="container mx-auto py-12">
       <div className="text-center">
-        <h1 className="text-3xl font-bold mb-8">Loading...</h1>
-        <div className="max-w-md mx-auto space-y-4">
-          <Skeleton className="h-4 w-3/4 mx-auto" />
-          <Skeleton className="h-4 w-1/2 mx-auto" />
-          <Skeleton className="h-4 w-2/3 mx-auto" />
+        <h1 className="mb-8 text-3xl font-bold">Loading...</h1>
+        <div className="mx-auto max-w-md space-y-4">
+          <Skeleton className="mx-auto h-4 w-3/4" />
+          <Skeleton className="mx-auto h-4 w-1/2" />
+          <Skeleton className="mx-auto h-4 w-2/3" />
         </div>
       </div>
     </div>

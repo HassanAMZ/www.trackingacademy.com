@@ -40,7 +40,7 @@ const BlogContent: React.FC<BlogContentProps> = ({
           <SingleBlogCard post={featuredPost} type={type} isMain={true} />
         </div>
       )}
-      <div className=" gap-6 columns-1 sm:columns-2 lg:columns-3 space-y-4">
+      <div className="columns-1 gap-6 space-y-4 sm:columns-2 lg:columns-3">
         {remainingPosts.map((post, index) => (
           <SingleBlogCard post={post} type={type} key={index} />
         ))}

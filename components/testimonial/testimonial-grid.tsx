@@ -25,7 +25,7 @@ function TestimonialGrid({ upwork = false }: TestimonialGridProps) {
   return (
     <>
       {!upwork && <UpworkStats />}
-      <div className="columns-1 sm:columns-2 lg:columns-3 space-y-4">
+      <div className="columns-1 space-y-4 sm:columns-2 lg:columns-3">
         {randomizedCaseStudies.map((currentCaseStudy, index) => {
           const metrics = currentCaseStudy.analytics
             ? [

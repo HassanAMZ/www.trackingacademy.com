@@ -102,14 +102,14 @@ const DetailsCarousel: React.FC<DetailsCarouselProps> = ({
   }
 
   return (
-    <section className="py-16 overflow-hidden from-accent/20 to-background bg-linear-to-b">
+    <section className="from-accent/20 to-background overflow-hidden bg-linear-to-b py-16">
       <Container className="space-y-4">
         {/* Header Section */}
         {headerTitle && (
           <div className="text-center">
             <h1 className="whitespace-pre-wrap">{headerTitle}</h1>
             {headerDescription && (
-              <h4 className="text-muted-foreground max-w-4xl pt-8 mx-auto whitespace-pre-wrap">
+              <h4 className="text-muted-foreground mx-auto max-w-4xl pt-8 whitespace-pre-wrap">
                 {headerDescription}
               </h4>
             )}
@@ -117,7 +117,7 @@ const DetailsCarousel: React.FC<DetailsCarouselProps> = ({
         )}
 
         {/* Carousel Navigation */}
-        <div className="flex justify-between items-center">
+        <div className="flex items-center justify-between">
           <div className="flex gap-2">
             {items.map((_, idx) => (
               <button
@@ -126,12 +126,12 @@ const DetailsCarousel: React.FC<DetailsCarouselProps> = ({
                   setDirection(idx < activeIndex ? "left" : "right");
                   setActiveIndex(idx);
                 }}
-                className={`w-3 cursor-pointer h-3 transition-all ${idx === activeIndex ? "bg-primary w-8" : "bg-muted"}`}
+                className={`h-3 w-3 cursor-pointer transition-all ${idx === activeIndex ? "bg-primary w-8" : "bg-muted"}`}
                 aria-label={`Go to slide ${idx + 1}`}
               />
             ))}
           </div>
-          <div className="flex-1 flex justify-end gap-2">
+          <div className="flex flex-1 justify-end gap-2">
             <Button
               variant="outline"
               size="icon"
@@ -155,7 +155,7 @@ const DetailsCarousel: React.FC<DetailsCarouselProps> = ({
 
         {/* Item Selection Tabs */}
         <div
-          className="py-4 md:grid hidden items-center gap-4"
+          className="hidden items-center gap-4 py-4 md:grid"
           style={{
             gridTemplateColumns: `repeat(${columnCount}, 1fr)`,
           }}
@@ -167,10 +167,10 @@ const DetailsCarousel: React.FC<DetailsCarouselProps> = ({
                 setDirection(idx < activeIndex ? "left" : "right");
                 setActiveIndex(idx);
               }}
-              className={`p-4 text-center h-full cursor-pointer flex items-center flex-col rounded-lg transition-all ${
+              className={`flex h-full cursor-pointer flex-col items-center rounded-lg p-4 text-center transition-all ${
                 idx === activeIndex
                   ? "bg-primary/10 border-primary border shadow-md"
-                  : "bg-card hover:bg-muted/50 border border-border/50"
+                  : "bg-card hover:bg-muted/50 border-border/50 border"
               }`}
             >
               <span>{item.icon && item.icon}</span>
@@ -184,12 +184,12 @@ const DetailsCarousel: React.FC<DetailsCarouselProps> = ({
         </div>
 
         {/* Main Showcase */}
-        <div className="relative bg-gradient-to-br from-primary/5 to-background p-8 border border-border/50">
+        <div className="from-primary/5 to-background border-border/50 relative border bg-gradient-to-br p-8">
           {activeItem && (
-            <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 items-center">
+            <div className="grid grid-cols-1 items-center gap-8 lg:grid-cols-5">
               {/* Content Section - 3 columns */}
               <div
-                className={`lg:col-span-3 py-8 space-y-8 transition-all duration-500 ${
+                className={`space-y-8 py-8 transition-all duration-500 lg:col-span-3 ${
                   isAnimating
                     ? direction === "right"
                       ? "translate-x-10 opacity-0"
@@ -209,13 +209,13 @@ const DetailsCarousel: React.FC<DetailsCarouselProps> = ({
                 )}
 
                 {activeItem.benefits && activeItem.benefits.length > 0 && (
-                  <div className="space-y-4 mt-6">
+                  <div className="mt-6 space-y-4">
                     <h4>What you'll get:</h4>
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
                       {activeItem.benefits.slice(0, 4).map((benefit, idx) => (
                         <div key={idx} className="flex items-start">
-                          <div className="mr-3 mt-1 p-1 rounded-full bg-primary/20">
-                            <CheckCircle className="h-4 w-4 text-primary" />
+                          <div className="bg-primary/20 mt-1 mr-3 rounded-full p-1">
+                            <CheckCircle className="text-primary h-4 w-4" />
                           </div>
                           <span className="line-clamp-1">{benefit}</span>
                         </div>
@@ -226,7 +226,7 @@ const DetailsCarousel: React.FC<DetailsCarouselProps> = ({
 
                 {activeItem.price && (
                   <div className="mt-8">
-                    <div className="inline-block bg-primary text-primary-foreground rounded-lg px-6 py-2 text-lg font-semibold">
+                    <div className="bg-primary text-primary-foreground inline-block rounded-lg px-6 py-2 text-lg font-semibold">
                       Total Value: {activeItem.price}
                     </div>
                   </div>
@@ -237,7 +237,7 @@ const DetailsCarousel: React.FC<DetailsCarouselProps> = ({
                 ) : (
                   activeItem.ctaButton && (
                     <Button
-                      className="flex max-w-4xl flex-col items-center text-center font-bold lg:items-start lg:text-left mx-auto lg:mx-0 w-fit p-6 text-xl cursor-pointer"
+                      className="mx-auto flex w-fit max-w-4xl cursor-pointer flex-col items-center p-6 text-center text-xl font-bold lg:mx-0 lg:items-start lg:text-left"
                       asChild
                     >
                       <Link href={activeItem.ctaButton.link}>
@@ -255,7 +255,7 @@ const DetailsCarousel: React.FC<DetailsCarouselProps> = ({
 
               {/* Image Section - 2 columns */}
               <div
-                className={`lg:col-span-2 transition-all duration-500 ${
+                className={`transition-all duration-500 lg:col-span-2 ${
                   isAnimating
                     ? direction === "right"
                       ? "-translate-x-10 opacity-0"
@@ -264,8 +264,8 @@ const DetailsCarousel: React.FC<DetailsCarouselProps> = ({
                 }`}
               >
                 {activeItem.image && (
-                  <div className="relative h-80 w-full overflow-hidden shadow transform rotate-1 hover:rotate-0 transition-transform duration-300">
-                    <div className="absolute inset-0 bg-gradient-to-tr from-primary/20 to-transparent mix-blend-overlay z-10" />
+                  <div className="relative h-80 w-full rotate-1 transform overflow-hidden shadow transition-transform duration-300 hover:rotate-0">
+                    <div className="from-primary/20 absolute inset-0 z-10 bg-gradient-to-tr to-transparent mix-blend-overlay" />
                     <Image
                       src={activeItem.image || "/placeholder.svg"}
                       alt={activeItem.title || "Carousel item"}

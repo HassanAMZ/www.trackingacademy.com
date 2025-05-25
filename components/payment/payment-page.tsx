@@ -27,7 +27,7 @@ const PaymentPage = () => {
   if (!priceId || !productId) {
     return (
       <div className="container mx-auto py-12">
-        <Alert variant="destructive" className="max-w-md mx-auto">
+        <Alert variant="destructive" className="mx-auto max-w-md">
           <AlertCircle className="h-4 w-4" />
           <AlertTitle>Missing Payment Information</AlertTitle>
           <AlertDescription>
@@ -40,7 +40,7 @@ const PaymentPage = () => {
 
   return (
     <Container className="py-12">
-      <h1 className="text-3xl font-bold text-center mb-8">Secure Checkout</h1>
+      <h1 className="mb-8 text-center text-3xl font-bold">Secure Checkout</h1>
       <PaymentContent
         productId={productId}
         priceId={priceId}

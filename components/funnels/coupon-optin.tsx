@@ -90,9 +90,9 @@ export default function CouponOptInForm({
       {buttonElement ? (
         <div onClick={() => setIsOpen(true)}>{buttonElement}</div>
       ) : (
-        <div className="pt-24 pb-12 from-primary/5 to-background bg-linear-to-b">
+        <div className="from-primary/5 to-background bg-linear-to-b pt-24 pb-12">
           <Button
-            className="flex max-w-5xl flex-col items-center text-center font-bold mx-auto w-fit p-6 text-xl cursor-pointer"
+            className="mx-auto flex w-fit max-w-5xl cursor-pointer flex-col items-center p-6 text-center text-xl font-bold"
             onClick={() => setIsOpen(true)}
           >
             <div>

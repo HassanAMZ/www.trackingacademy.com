@@ -33,7 +33,7 @@ export default function PricingVertical({ services }: PricingVerticalProps) {
     <TooltipProvider>
       <Tooltip>
         <TooltipTrigger asChild>
-          <div className="flex items-center gap-1 cursor-help">
+          <div className="flex cursor-help items-center gap-1">
             {featureName}
             {/* <HelpCircle className="h-4 w-4 text-muted-foreground" /> */}
           </div>
@@ -67,7 +67,7 @@ export default function PricingVertical({ services }: PricingVerticalProps) {
       <TooltipProvider>
         <Tooltip>
           <TooltipTrigger asChild>
-            <div className="flex items-center gap-1 cursor-help">
+            <div className="flex cursor-help items-center gap-1">
               {value}
               {/* <HelpCircle className="h-3 w-3 text-muted-foreground" /> */}
             </div>
@@ -117,13 +117,13 @@ export default function PricingVertical({ services }: PricingVerticalProps) {
   return (
     <div className="space-y-8">
       {/* Pricing Cards */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
         {services.map((service, index) => (
-          <Card key={index} className={`flex flex-col h-full ${service.color}`}>
+          <Card key={index} className={`flex h-full flex-col ${service.color}`}>
             <CardHeader>
               <div className="space-y-1">
                 <CardTitle>{service.name}</CardTitle>
-                <p className="text-sm font-medium text-muted-foreground">
+                <p className="text-muted-foreground text-sm font-medium">
                   {service.subtitle}
                 </p>
               </div>
@@ -132,8 +132,8 @@ export default function PricingVertical({ services }: PricingVerticalProps) {
               </CardDescription>
             </CardHeader>
             <CardContent className="flex-grow">
-              <div className="text-3xl font-bold mb-2">{service.price}</div>
-              <p className="text-sm text-muted-foreground">one-time payment</p>
+              <div className="mb-2 text-3xl font-bold">{service.price}</div>
+              <p className="text-muted-foreground text-sm">one-time payment</p>
               <div className="mt-4 flex items-center">
                 <span className="text-sm font-medium">Tracking Accuracy:</span>
                 <Badge
@@ -183,11 +183,11 @@ export default function PricingVertical({ services }: PricingVerticalProps) {
               className={`grid gap-4`}
             >
               {/* Header Row */}
-              <div className="font-semibold text-left py-3">Feature</div>
+              <div className="py-3 text-left font-semibold">Feature</div>
               {services.map((service, index) => (
-                <div key={index} className="text-center py-3">
+                <div key={index} className="py-3 text-center">
                   <div className="font-semibold">{service.name}</div>
-                  <div className="text-sm text-muted-foreground">
+                  <div className="text-muted-foreground text-sm">
                     {service.price}
                   </div>
                 </div>
@@ -203,7 +203,7 @@ export default function PricingVertical({ services }: PricingVerticalProps) {
                     gridColumn: `span ${services.length + 1} / span ${services.length + 1}`, // +1 for the label column
                   }}
                 >
-                  <div className="font-medium px-4">
+                  <div className="px-4 font-medium">
                     <FeatureWithTooltip
                       featureName={featureName}
                       explanations={services[0].featureExplanations}
@@ -212,7 +212,7 @@ export default function PricingVertical({ services }: PricingVerticalProps) {
                   {services.map((service, serviceIndex) => (
                     <div
                       key={serviceIndex}
-                      className="flex justify-center items-center"
+                      className="flex items-center justify-center"
                     >
                       {typeof service.features[featureName] === "string" ? (
                         <ValueWithTooltip
@@ -220,9 +220,9 @@ export default function PricingVertical({ services }: PricingVerticalProps) {
                           explanations={service.featureExplanations}
                         />
                       ) : service.features[featureName] === true ? (
-                        <Check className="h-4 w-4 text-primary" />
+                        <Check className="text-primary h-4 w-4" />
                       ) : (
-                        <X className="h-4 w-4 text-muted-foreground" />
+                        <X className="text-muted-foreground h-4 w-4" />
                       )}
                     </div>
                   ))}
@@ -232,18 +232,18 @@ export default function PricingVertical({ services }: PricingVerticalProps) {
           </div>
 
           {/* Mobile/Tablet View - Stacked Cards */}
-          <div className="lg:hidden space-y-6">
+          <div className="space-y-6 lg:hidden">
             {services.map((service, planIndex) => (
-              <div key={planIndex} className="border rounded-lg p-4">
-                <div className="flex items-center justify-between mb-4">
+              <div key={planIndex} className="rounded-lg border p-4">
+                <div className="mb-4 flex items-center justify-between">
                   <div>
                     <h3 className="font-semibold">{service.name}</h3>
-                    <p className="text-sm text-muted-foreground">
+                    <p className="text-muted-foreground text-sm">
                       {service.subtitle}
                     </p>
                   </div>
                   <div className="text-right">
-                    <div className="font-bold text-lg">{service.price}</div>
+                    <div className="text-lg font-bold">{service.price}</div>
                     <Badge
                       variant={
                         service.accuracy.includes("95") ? "default" : "outline"
@@ -258,7 +258,7 @@ export default function PricingVertical({ services }: PricingVerticalProps) {
                   {featureNames.map((featureName, featureIndex) => (
                     <div
                       key={featureIndex}
-                      className="flex items-center justify-between py-2 border-b border-border/50 last:border-b-0"
+                      className="border-border/50 flex items-center justify-between border-b py-2 last:border-b-0"
                     >
                       <div className="flex-1">
                         <FeatureWithTooltip
@@ -273,9 +273,9 @@ export default function PricingVertical({ services }: PricingVerticalProps) {
                             explanations={service.featureExplanations}
                           />
                         ) : service.features[featureName] === true ? (
-                          <Check className="h-4 w-4 text-primary" />
+                          <Check className="text-primary h-4 w-4" />
                         ) : (
-                          <X className="h-4 w-4 text-muted-foreground" />
+                          <X className="text-muted-foreground h-4 w-4" />
                         )}
                       </div>
                     </div>
@@ -287,10 +287,10 @@ export default function PricingVertical({ services }: PricingVerticalProps) {
         </CardContent>
       </Card>
 
-      <div className="bg-muted/50 rounded-lg p-6 mt-8">
-        <div className="flex flex-col md:flex-row items-center gap-6">
+      <div className="bg-muted/50 mt-8 rounded-lg p-6">
+        <div className="flex flex-col items-center gap-6 md:flex-row">
           <div className="flex-1">
-            <h3 className="text-xl font-bold mb-2">
+            <h3 className="mb-2 text-xl font-bold">
               Limited to Only 5 Projects Per Month
             </h3>
             <p className="text-muted-foreground">

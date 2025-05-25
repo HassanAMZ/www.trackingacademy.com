@@ -66,7 +66,7 @@ const Hero: React.FC<HeroProps> = ({
             <Button
               asChild
               size={"lg"}
-              className="flex max-w-4xl flex-col items-center text-center font-bold lg:items-start lg:text-left mx-auto lg:mx-0 w-fit p-6 text-xl cursor-pointer"
+              className="mx-auto flex w-fit max-w-4xl cursor-pointer flex-col items-center p-6 text-center text-xl font-bold lg:mx-0 lg:items-start lg:text-left"
             >
               <Link href={ctaButtonLink}>
                 <div>
@@ -85,7 +85,7 @@ const Hero: React.FC<HeroProps> = ({
           )} */}
         </div>
       </Container>
-      <div className="w-full py-12  overflow-hidden">{supportingComponent}</div>
+      <div className="w-full overflow-hidden py-12">{supportingComponent}</div>
     </section>
   );
 };

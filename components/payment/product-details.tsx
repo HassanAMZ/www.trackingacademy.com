@@ -50,7 +50,7 @@ export const ProductDetails = ({
             <ul className="space-y-1.5">
               {product.features.map((feature, index) => (
                 <li key={index} className="flex items-start">
-                  <CheckCircle className="h-4 w-4 text-primary mr-2 mt-0.5 flex-shrink-0" />
+                  <CheckCircle className="text-primary mt-0.5 mr-2 h-4 w-4 flex-shrink-0" />
                   <span className="text-muted-foreground">{feature}</span>
                 </li>
               ))}
@@ -65,7 +65,7 @@ export const ProductDetails = ({
             <ul className="space-y-1.5">
               {Object.entries(product.metadata).map(([key, value]) => (
                 <li key={key} className="flex items-start">
-                  <Info className="h-4 w-4 text-primary mr-2 mt-0.5 flex-shrink-0" />
+                  <Info className="text-primary mt-0.5 mr-2 h-4 w-4 flex-shrink-0" />
                   <span className="text-muted-foreground">
                     <span className="font-medium">{key}:</span> {value}
                   </span>
@@ -77,7 +77,7 @@ export const ProductDetails = ({
 
         {/* Promo Code */}
         {appliedPromo && (
-          <div className="rounded-md bg-muted p-3">
+          <div className="bg-muted rounded-md p-3">
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-2">
                 <Badge variant="outline" className="text-primary">
@@ -96,7 +96,7 @@ export const ProductDetails = ({
       <CardFooter className="pt-4">
         <div className="flex w-full items-center justify-between">
           <span className="font-medium">Total</span>
-          <span className="font-bold text-lg">{finalAmount}</span>
+          <span className="text-lg font-bold">{finalAmount}</span>
         </div>
       </CardFooter>
     </Card>

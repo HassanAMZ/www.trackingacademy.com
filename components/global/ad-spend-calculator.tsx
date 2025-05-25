@@ -40,13 +40,13 @@ export default function AdSpendCalculator({
 
   return (
     <Container className="max-w-2xl text-center">
-      <Card className="backdrop-blur-sm text-center  items-center flex-col flex">
+      <Card className="flex flex-col items-center text-center backdrop-blur-sm">
         <CardHeader>
-          <Badge className="w-fit mx-auto">
+          <Badge className="mx-auto w-fit">
             Calculate your wasted ad spend
           </Badge>
           {cta && (
-            <p className="text-sm text-muted-foreground">
+            <p className="text-muted-foreground text-sm">
               Spoiler alert: it's more than you think.
             </p>
           )}
@@ -55,7 +55,7 @@ export default function AdSpendCalculator({
           <h2 className="text-center">
             Your Current Ad Spend?
             <br />
-            <span className="text-primary font-black py-2">
+            <span className="text-primary py-2 font-black">
               ${formatNumber(adSpend)}
             </span>
           </h2>
@@ -70,11 +70,11 @@ export default function AdSpendCalculator({
             />
           </div>{" "}
           <h4>Average Additional Revenue </h4>{" "}
-          <div className="grid grid-cols-2 gap-2 ">
+          <div className="grid grid-cols-2 gap-2">
             <Card>
               <CardContent className="px-4">
                 <p className="">ANNUALLY</p>
-                <h2 className="text-primary font-black line-clamp-1">
+                <h2 className="text-primary line-clamp-1 font-black">
                   ${formatNumber(annualRevenue)}
                 </h2>
               </CardContent>
@@ -82,13 +82,13 @@ export default function AdSpendCalculator({
             <Card>
               <CardContent className="px-4">
                 <p>MONTHLY</p>
-                <h2 className="text-primary font-black line-clamp-1">
+                <h2 className="text-primary line-clamp-1 font-black">
                   ${formatNumber(monthlyRevenue)}
                 </h2>
               </CardContent>
             </Card>
           </div>{" "}
-          <p className=" text-center text-sm">
+          <p className="text-center text-sm">
             Brands spending ${formatNumber(adSpend)} on ads recover on average $
             {formatNumber(monthlyRevenue)}/month by improved ROAS and reducing
             ad waste by 64%.

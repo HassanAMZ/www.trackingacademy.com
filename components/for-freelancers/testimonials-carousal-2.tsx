@@ -52,7 +52,7 @@ const TestimonialsCarousel2: React.FC = () => {
             <Star key={i} className="fill-amber-400 text-amber-400" />
           ))}
         </div>
-        <p className="font-semibold italic pt-6 line-clamp-1">
+        <p className="line-clamp-1 pt-6 font-semibold italic">
           "{currentTestimonial.testimonialText}"
         </p>
         <div className="flex items-center gap-1">
@@ -70,7 +70,7 @@ const TestimonialsCarousel2: React.FC = () => {
               </AvatarFallback>
             </Avatar>
           )}
-          <div className="flex flex-col items-left text-left">
+          <div className="items-left flex flex-col text-left">
             <p className="text-sm font-bold">
               {currentTestimonial.clientName},{" "}
             </p>
@@ -83,13 +83,13 @@ const TestimonialsCarousel2: React.FC = () => {
         <div className="absolute right-0 -bottom-5 mr-2 mb-2 flex space-x-8">
           <Button
             variant="outline"
-            className="mx-1  h-max rotate-3 transform rounded-lg px-2 py-1 text-sm font-semibold"
+            className="mx-1 h-max rotate-3 transform rounded-lg px-2 py-1 text-sm font-semibold"
           >
             {currentTestimonial.accuracy}
           </Button>
           <Button
             variant="outline"
-            className="mx-1 h-max -rotate-3 transform rounded-lg  px-2 py-1 text-sm font-semibold"
+            className="mx-1 h-max -rotate-3 transform rounded-lg px-2 py-1 text-sm font-semibold"
           >
             {currentTestimonial.recoveredConversions}
           </Button>

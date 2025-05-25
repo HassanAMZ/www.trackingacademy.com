@@ -97,7 +97,7 @@ const TagsContainer: React.FC<TagContainerProps> = ({ tags, blogsData }) => {
         <CardHeader className="pb-3">
           <CardTitle className="flex items-center justify-between">
             <div className="flex items-center gap-2">
-              <TagIcon className="h-5 w-5 text-primary" />
+              <TagIcon className="text-primary h-5 w-5" />
               <span>Find Tags</span>
             </div>{" "}
             <DropdownMenu>
@@ -131,25 +131,25 @@ const TagsContainer: React.FC<TagContainerProps> = ({ tags, blogsData }) => {
         </CardHeader>{" "}
         <CardContent>
           <div className="relative mb-6">
-            <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
-              <Search className="h-4 w-4 text-muted-foreground" />
+            <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
+              <Search className="text-muted-foreground h-4 w-4" />
             </div>
             <Input
               type="search"
               placeholder="Search tags..."
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              className="pl-10 w-full"
+              className="w-full pl-10"
             />
           </div>{" "}
           {filteredTags.length > 0 ? (
-            <p className="text-sm text-muted-foreground mb-4">
+            <p className="text-muted-foreground mb-4 text-sm">
               Found {filteredTags.length} tags{" "}
               {searchTerm && `matching "${searchTerm}"`}
               {selectedCategory !== "All" && ` in ${selectedCategory}`}
             </p>
           ) : (
-            <p className="text-sm text-muted-foreground mb-4">
+            <p className="text-muted-foreground mb-4 text-sm">
               No tags found matching your criteria. Try adjusting your search.
             </p>
           )}

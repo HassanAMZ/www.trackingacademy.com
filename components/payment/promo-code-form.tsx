@@ -57,9 +57,9 @@ export const PromoCodeForm = ({
       {appliedPromo && (
         <Alert
           variant="default"
-          className="bg-green-50 border-green-200 text-green-700"
+          className="border-green-200 bg-green-50 text-green-700"
         >
-          <div className="flex items-center justify-between w-full">
+          <div className="flex w-full items-center justify-between">
             <div className="flex items-center gap-2">
               <Check className="h-4 w-4 text-green-600" />
               <span className="font-medium">
@@ -102,7 +102,7 @@ export const PromoCodeForm = ({
       {/* Error Message */}
       {error && (
         <Alert variant="destructive">
-          <X className="h-4 w-4 text-destructive" />
+          <X className="text-destructive h-4 w-4" />
           <AlertDescription>{error}</AlertDescription>
         </Alert>
       )}
@@ -111,7 +111,7 @@ export const PromoCodeForm = ({
       {success && !error && !appliedPromo && (
         <Alert
           variant="default"
-          className="bg-green-50 border-green-200 text-green-700"
+          className="border-green-200 bg-green-50 text-green-700"
         >
           <Check className="h-4 w-4 text-green-600" />
           <AlertDescription>Promo code applied successfully!</AlertDescription>

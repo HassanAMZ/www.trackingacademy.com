@@ -48,7 +48,7 @@
     ".next/types/**/*.ts",
     "next.config.js",
     "app/_courses-markdown/react-fundamentals/modules/intro/lessons/markdown.mdx",
-    ".prettierrc.js"
+    "prettier.config.js"
   ],
   "exclude": ["node_modules"]
 }

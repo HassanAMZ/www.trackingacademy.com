@@ -42,7 +42,7 @@ export default function Page() {
           customCtaButton={
             <Button
               size="lg"
-              className="hover:bg-primary/90 flex max-w-4xl flex-col p-4 text-center text-xl font-bold text-wrap whitespace-pre-wrap hover:cursor-pointer  md:py-12 md:text-left"
+              className="hover:bg-primary/90 flex max-w-4xl flex-col p-4 text-center text-xl font-bold text-wrap whitespace-pre-wrap hover:cursor-pointer md:py-12 md:text-left"
               onClick={() => setIsModalOpen(true)}
             >
               <div>
@@ -67,7 +67,7 @@ export default function Page() {
           <TestimonialGrid />{" "}
           <Button
             size="lg"
-            className="hover:bg-primary/90 md:py mx-auto flex max-w-4xl flex-col p-4 text-center text-xl font-bold text-wrap whitespace-pre-wrap hover:cursor-pointer "
+            className="hover:bg-primary/90 md:py mx-auto flex max-w-4xl flex-col p-4 text-center text-xl font-bold text-wrap whitespace-pre-wrap hover:cursor-pointer"
             onClick={() => setIsModalOpen(true)}
           >
             <div>

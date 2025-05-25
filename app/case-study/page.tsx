@@ -25,9 +25,9 @@ export default function CaseStudiesPage() {
             href={`/case-study/${caseStudy.id}`}
             className="group block h-full"
           >
-            <Card className="bg-background/80 backdrop-blur-xs overflow-hidden flex flex-col h-full transition-all duration-300 group-hover:scale-[1.02] group-hover:shadow-lg relative">
+            <Card className="bg-background/80 relative flex h-full flex-col overflow-hidden backdrop-blur-xs transition-all duration-300 group-hover:scale-[1.02] group-hover:shadow-lg">
               {/* Gradient overlay that appears on hover - similar to TestimonialCard */}
-              <div className="absolute inset-0 bg-gradient-to-t from-primary/20 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100 z-10"></div>{" "}
+              <div className="from-primary/20 absolute inset-0 z-10 bg-gradient-to-t to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100"></div>{" "}
               <CardHeader className="relative z-20">
                 <div className="overflow-hidden rounded-lg border">
                   <Image
@@ -35,7 +35,7 @@ export default function CaseStudiesPage() {
                     height={1920}
                     src={caseStudy.imageUrl}
                     alt={caseStudy.name}
-                    className="object-cover transition-transform duration-300 group-hover:scale-105 scale-x-103"
+                    className="scale-x-103 object-cover transition-transform duration-300 group-hover:scale-105"
                   />
                 </div>
                 <CardTitle className="mt-4">{caseStudy.title}</CardTitle>
@@ -54,13 +54,13 @@ export default function CaseStudiesPage() {
                 <p className="text-muted-foreground mb-4 line-clamp-3">
                   {caseStudy.description}
                 </p>
-                <Button variant="outline" className="w-full  cursor-pointer ">
+                <Button variant="outline" className="w-full cursor-pointer">
                   View Case Study
                 </Button>
               </CardContent>{" "}
               {/* External link icon that appears on hover - similar to TestimonialCard */}
-              <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 opacity-0 transition-opacity duration-300 group-hover:opacity-100 z-30">
-                <div className="bg-primary text-white rounded-full p-3 shadow-lg">
+              <div className="absolute top-1/2 left-1/2 z-30 -translate-x-1/2 -translate-y-1/2 transform opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+                <div className="bg-primary rounded-full p-3 text-white shadow-lg">
                   <ExternalLink className="h-6 w-6" />
                 </div>
               </div>

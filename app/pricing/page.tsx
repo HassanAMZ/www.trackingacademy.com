@@ -6,8 +6,8 @@ import { services } from "@/data/services";
 
 export default function PricingPage() {
   return (
-    <Container className="py-12 space-y-16">
-      <div className="text-center space-y-4 max-w-3xl mx-auto">
+    <Container className="space-y-16 py-12">
+      <div className="mx-auto max-w-3xl space-y-4 text-center">
         <h1>Transparent Pricing Plans</h1>
         <h4 className="text-muted-foreground">
           Choose the perfect tracking solution to reclaim your lost conversions

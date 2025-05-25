@@ -79,7 +79,7 @@ export default function AuditReport({ report }: AuditReportProps) {
   return (
     <div className="w-full">
       <div className="mb-8">
-        <h1 className="text-3xl font-bold mb-2">Website Audit Report</h1>
+        <h1 className="mb-2 text-3xl font-bold">Website Audit Report</h1>
         <div className="flex items-center space-x-2">
           <span className="text-lg font-medium">{report.domain}</span>
         </div>
@@ -91,7 +91,7 @@ export default function AuditReport({ report }: AuditReportProps) {
         onValueChange={setActiveTab}
         className="w-full"
       >
-        <TabsList className="grid grid-cols-5 mb-8">
+        <TabsList className="mb-8 grid grid-cols-5">
           <TabsTrigger value="overview" className="flex items-center gap-2">
             <PieChart className="h-4 w-4" />
             <span>Overview</span>
@@ -115,14 +115,14 @@ export default function AuditReport({ report }: AuditReportProps) {
         </TabsList>
 
         <TabsContent value="overview" className="space-y-6">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
             <Card className="shadow-md">
               <CardHeader className="pb-2">
                 <CardTitle>Overall Score</CardTitle>
               </CardHeader>
               <CardContent>
                 <div className="flex flex-col items-center justify-center">
-                  <div className="relative w-48 h-48">
+                  <div className="relative h-48 w-48">
                     <div className="absolute inset-0 flex items-center justify-center">
                       <div className="text-center">
                         <span
@@ -130,11 +130,11 @@ export default function AuditReport({ report }: AuditReportProps) {
                         >
                           {report.overallScore.score}
                         </span>
-                        <span className="text-2xl text-muted-foreground">
+                        <span className="text-muted-foreground text-2xl">
                           /{report.overallScore.maxScore}
                         </span>
                         <p
-                          className={`text-lg mt-2 ${getTextColor(report.overallScore.color)}`}
+                          className={`mt-2 text-lg ${getTextColor(report.overallScore.color)}`}
                         >
                           {report.overallScore.status}
                         </p>
@@ -142,7 +142,7 @@ export default function AuditReport({ report }: AuditReportProps) {
                     </div>
                     <svg
                       viewBox="0 0 100 100"
-                      className="w-full h-full -rotate-90"
+                      className="h-full w-full -rotate-90"
                     >
                       <circle
                         cx="50"
@@ -182,7 +182,7 @@ export default function AuditReport({ report }: AuditReportProps) {
                 <div className="space-y-4">
                   {report.categoryScores.map((category, index) => (
                     <div key={index}>
-                      <div className="flex justify-between mb-1">
+                      <div className="mb-1 flex justify-between">
                         <span className="font-medium">{category.name}</span>
                         <span
                           className={`font-medium ${getTextColor(category.color)}`}
@@ -211,7 +211,7 @@ export default function AuditReport({ report }: AuditReportProps) {
             <CardContent>
               <div className="space-y-2">
                 <p className="font-medium">Be aware of EU privacy rules:</p>
-                <ol className="list-decimal pl-5 space-y-1">
+                <ol className="list-decimal space-y-1 pl-5">
                   <li>Obtain user consent before using cookies or trackers.</li>
                   <li>Activate trackers only per user preferences.</li>
                   <li>Use cloud servers within the EU.</li>
@@ -397,7 +397,7 @@ export default function AuditReport({ report }: AuditReportProps) {
                 {report.recommendedActions.map((action, index) => (
                   <div key={index}>
                     <div className="hover:no-underline">
-                      <div className="flex items-center justify-between w-full pr-4">
+                      <div className="flex w-full items-center justify-between pr-4">
                         <div className="flex items-center">
                           <div className="mr-4 text-lg font-medium">
                             {action.title}
@@ -412,10 +412,10 @@ export default function AuditReport({ report }: AuditReportProps) {
                         </div>
                         <div className="flex items-center">
                           <div className="text-center">
-                            <div className="text-sm text-muted-foreground">
+                            <div className="text-muted-foreground text-sm">
                               Score improvement
                             </div>
-                            <div className="text-2xl font-bold text-primary">
+                            <div className="text-primary text-2xl font-bold">
                               {action.scoreImprovement}
                             </div>
                           </div>
@@ -430,11 +430,11 @@ export default function AuditReport({ report }: AuditReportProps) {
         </TabsContent>
       </Tabs>
 
-      <div className="mt-12 bg-primary/5 rounded-lg p-8 text-center shadow-md">
-        <h2 className="text-2xl font-bold mb-2">
+      <div className="bg-primary/5 mt-12 rounded-lg p-8 text-center shadow-md">
+        <h2 className="mb-2 text-2xl font-bold">
           Would you like to improve your tracking?
         </h2>
-        <p className="mb-6 max-w-2xl mx-auto">
+        <p className="mx-auto mb-6 max-w-2xl">
           To make your setup even better, contact Tracking Academy and activate
           our powerful tools for server-side tracking.
         </p>

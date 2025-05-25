@@ -98,7 +98,7 @@ export default function HomePage() {
         title: "Onboarding Call",
         description:
           "During the onboarding call, we'll analyze your current setup, understand your goals, and create a custom measurement plan tailored to your business.",
-        icon: <Phone className="w-6 h-6" />,
+        icon: <Phone className="h-6 w-6" />,
         color: "bg-primary",
       },
       {
@@ -106,7 +106,7 @@ export default function HomePage() {
         title: "Tracking Setup",
         description:
           "Our team implements everything for you. No work required on your end - we handle the entire technical setup in just 3 days, so you get the 95% accurate results.",
-        icon: <Settings className="w-6 h-6" />,
+        icon: <Settings className="h-6 w-6" />,
         color: "bg-secondary",
       },
       {
@@ -114,15 +114,15 @@ export default function HomePage() {
         title: "Watch ROAS Increase",
         description:
           "Sit back and watch your Facebook ads perform better with bulletproof tracking and crystal-clear attribution data and increase ROAS.",
-        icon: <TrendingUp className="w-6 h-6" />,
+        icon: <TrendingUp className="h-6 w-6" />,
         color: "bg-primary",
       },
     ];
 
     return (
-      <Container className="p-12 min-h-screen from-primary/5 to-background bg-linear-to-b  grid place-content-center ">
+      <Container className="from-primary/5 to-background grid min-h-screen place-content-center bg-linear-to-b p-12">
         {/* Header */}
-        <div className="text-center mb-8 space-y-4 mmx-to">
+        <div className="mmx-to mb-8 space-y-4 text-center">
           <h1>How It Works </h1>
           <h4 className="text-muted-foreground">
             Super simple process - we do all the heavy lifting so you can focus
@@ -131,16 +131,16 @@ export default function HomePage() {
         </div>
         <YoutubeEmbed embedId="tdQufJ-qadE" className="max-w-4xl pb-12" />{" "}
         {/* Process Steps */}
-        <div className="flex flex-col lg:flex-row items-stretch justify-center gap-8 lg:gap-6">
+        <div className="flex flex-col items-stretch justify-center gap-8 lg:flex-row lg:gap-6">
           {steps.map((step, index) => (
             <React.Fragment key={step.number}>
               {/* Card */}
-              <div className="flex-1 mx-auto lg:mx-0">
-                <Card className="h-full border-0 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 relative overflow-hidden">
+              <div className="mx-auto flex-1 lg:mx-0">
+                <Card className="relative h-full overflow-hidden border-0 shadow-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
                   <CardHeader className="relative pb-4">
                     {/* Step Number */}
-                    <div className="flex items-center justify-between mb-4">
-                      <div className="text-muted-foreground/20 select-none text-7xl">
+                    <div className="mb-4 flex items-center justify-between">
+                      <div className="text-muted-foreground/20 text-7xl select-none">
                         {step.number}
                       </div>
                     </div>
@@ -158,8 +158,8 @@ export default function HomePage() {
               {index < steps.length - 1 && (
                 <>
                   {/* Desktop Arrow */}
-                  <div className="hidden lg:flex items-center justify-center px-4">
-                    <ArrowRight className="w-6 h-6 text-primary" />
+                  <div className="hidden items-center justify-center px-4 lg:flex">
+                    <ArrowRight className="text-primary h-6 w-6" />
                   </div>
                   {/* Mobile Arrow
                   <div className="lg:hidden flex items-center justify-center py-4">
@@ -181,13 +181,13 @@ export default function HomePage() {
       <Hero
         eyebrow="Still flying blind on Meta ads?"
         heading={
-          <h1 className="text-center lg:text-left mx-auto lg:mx-0">
+          <h1 className="mx-auto text-center lg:mx-0 lg:text-left">
             Fix broken facebook ads tracking in 3 days —{" "}
             <span className="text-primary"> or your money back </span>
           </h1>
         }
         subheading={
-          <h4 className="mx-auto lg:mx-0 text-muted-foreground max-w-3xl text-center lg:text-left">
+          <h4 className="text-muted-foreground mx-auto max-w-3xl text-center lg:mx-0 lg:text-left">
             Our
             <span className="text-primary"> “See Every Sale” </span>
             setup gives eCommerce brands 95%+ accurate conversion data — so you
@@ -207,7 +207,7 @@ export default function HomePage() {
         customCtaButton={
           <CouponOptInForm
             buttonElement={
-              <Button className="flex max-w-4xl flex-col items-center text-center font-bold lg:items-start lg:text-left mx-auto lg:mx-0 w-fit p-6 text-xl cursor-pointer">
+              <Button className="mx-auto flex w-fit max-w-4xl cursor-pointer flex-col items-center p-6 text-center text-xl font-bold lg:mx-0 lg:items-start lg:text-left">
                 <div>
                   {ctaVariants[5].title}
                   <span className="mt-2 block text-sm font-medium opacity-90">
@@ -220,10 +220,10 @@ export default function HomePage() {
         }
         supportingComponent={<AdSpendCalculator cta={false} />}
       />
-      <div className="w-full max-w-full overflow-hidden py-12 min-h-screen">
-        <Container className="pb-12 space-y-6 text-center max-w-4xl flex flex-col items-center">
+      <div className="min-h-screen w-full max-w-full overflow-hidden py-12">
+        <Container className="flex max-w-4xl flex-col items-center space-y-6 pb-12 text-center">
           <h1>Trusted by 1,000+ eCommerce Stores </h1>
-          <h4 className="max-w-3xl text-muted-foreground">
+          <h4 className="text-muted-foreground max-w-3xl">
             See exactly how we restored tracking for ecommerce brands and the
             measurable impact on their ROAS, conversion rates, and scaling
             success.
@@ -270,9 +270,9 @@ export default function HomePage() {
             customCtaButton: (
               <CouponOptInForm
                 buttonElement={
-                  <Button className="flex max-w-4xl flex-col items-start font-bold  text-left  w-fit p-6 text-xl text-wrap whitespace-pre-wrap cursor-pointer">
+                  <Button className="flex w-fit max-w-4xl cursor-pointer flex-col items-start p-6 text-left text-xl font-bold text-wrap whitespace-pre-wrap">
                     <span className="line-clamp-1">{ctaVariants[1].title}</span>
-                    <span className="mt-2 block text-sm font-medium opacity-90 line-clamp-1">
+                    <span className="mt-2 line-clamp-1 block text-sm font-medium opacity-90">
                       {ctaVariants[1].subtitle}
                     </span>
                   </Button>
@@ -296,9 +296,9 @@ export default function HomePage() {
             customCtaButton: (
               <CouponOptInForm
                 buttonElement={
-                  <Button className="flex max-w-4xl flex-col items-start font-bold  text-left  w-fit p-6 text-xl text-wrap whitespace-pre-wrap cursor-pointer">
+                  <Button className="flex w-fit max-w-4xl cursor-pointer flex-col items-start p-6 text-left text-xl font-bold text-wrap whitespace-pre-wrap">
                     <span className="line-clamp-1">{ctaVariants[0].title}</span>
-                    <span className="mt-2 block text-sm font-medium opacity-90 line-clamp-1">
+                    <span className="mt-2 line-clamp-1 block text-sm font-medium opacity-90">
                       {ctaVariants[0].subtitle}
                     </span>
                   </Button>
@@ -321,9 +321,9 @@ export default function HomePage() {
             customCtaButton: (
               <CouponOptInForm
                 buttonElement={
-                  <Button className="flex max-w-4xl flex-col items-start font-bold  text-left  w-fit p-6 text-xl text-wrap whitespace-pre-wrap cursor-pointer">
+                  <Button className="flex w-fit max-w-4xl cursor-pointer flex-col items-start p-6 text-left text-xl font-bold text-wrap whitespace-pre-wrap">
                     <span className="line-clamp-1">{ctaVariants[2].title}</span>
-                    <span className="mt-2 block text-sm font-medium opacity-90 line-clamp-1">
+                    <span className="mt-2 line-clamp-1 block text-sm font-medium opacity-90">
                       {ctaVariants[2].subtitle}
                     </span>
                   </Button>
@@ -346,9 +346,9 @@ export default function HomePage() {
             customCtaButton: (
               <CouponOptInForm
                 buttonElement={
-                  <Button className="flex max-w-4xl flex-col items-start font-bold  text-left  w-fit p-6 text-xl text-wrap whitespace-pre-wrap cursor-pointer">
+                  <Button className="flex w-fit max-w-4xl cursor-pointer flex-col items-start p-6 text-left text-xl font-bold text-wrap whitespace-pre-wrap">
                     <span className="line-clamp-1">{ctaVariants[3].title}</span>
-                    <span className="mt-2 block text-sm font-medium opacity-90 line-clamp-1">
+                    <span className="mt-2 line-clamp-1 block text-sm font-medium opacity-90">
                       {ctaVariants[3].subtitle}
                     </span>
                   </Button>
@@ -372,9 +372,9 @@ export default function HomePage() {
             customCtaButton: (
               <CouponOptInForm
                 buttonElement={
-                  <Button className="flex max-w-4xl flex-col items-start font-bold  text-left  w-fit p-6 text-xl text-wrap whitespace-pre-wrap cursor-pointer">
+                  <Button className="flex w-fit max-w-4xl cursor-pointer flex-col items-start p-6 text-left text-xl font-bold text-wrap whitespace-pre-wrap">
                     <span className="line-clamp-1">{ctaVariants[4].title}</span>
-                    <span className="mt-2 block text-sm font-medium opacity-90 line-clamp-1">
+                    <span className="mt-2 line-clamp-1 block text-sm font-medium opacity-90">
                       {ctaVariants[4].subtitle}
                     </span>
                   </Button>
@@ -393,7 +393,7 @@ export default function HomePage() {
         customButton={
           <CouponOptInForm
             buttonElement={
-              <Button className="flex max-w-5xl flex-col items-center text-center font-bold mx-auto w-fit p-6 text-xl cursor-pointer bg-primary-foreground hover:bg-primary-foreground/90 text-primary">
+              <Button className="bg-primary-foreground hover:bg-primary-foreground/90 text-primary mx-auto flex w-fit max-w-5xl cursor-pointer flex-col items-center p-6 text-center text-xl font-bold">
                 <div>
                   ✅ Fix Your Tracking — and Save $300 Instantly
                   <span className="mt-2 block text-sm font-medium opacity-90">
@@ -419,7 +419,7 @@ export default function HomePage() {
         customButton={
           <CouponOptInForm
             buttonElement={
-              <Button className="flex max-w-5xl flex-col items-center text-center font-bold mx-auto w-fit p-6 text-xl cursor-pointer bg-primary-foreground hover:bg-primary-foreground/90 text-primary">
+              <Button className="bg-primary-foreground hover:bg-primary-foreground/90 text-primary mx-auto flex w-fit max-w-5xl cursor-pointer flex-col items-center p-6 text-center text-xl font-bold">
                 <div>
                   🚀 Ready to Scale Smarter? Get $300 Off + $7,600 Free
                   <span className="mt-2 block text-sm font-medium opacity-90">
@@ -508,7 +508,7 @@ export default function HomePage() {
         customButton={
           <CouponOptInForm
             buttonElement={
-              <Button className="flex max-w-5xl flex-col text-wrap whitespace-pre-wrap  items-center text-center font-bold mx-auto w-fit p-6 text-xl cursor-pointer">
+              <Button className="mx-auto flex w-fit max-w-5xl cursor-pointer flex-col items-center p-6 text-center text-xl font-bold text-wrap whitespace-pre-wrap">
                 💼 $300 Off + $7,600 in Expert-Level Tools — Yours Today
                 <span className="mt-2 block text-sm font-medium opacity-90">
                   Only if you’re one of the first 10 to act.
@@ -518,8 +518,8 @@ export default function HomePage() {
           />
         }
       />
-      <Container className="py-24 from-primary/5 to-background bg-linear-to-b space-y-12">
-        <div className="mx-auto text-center max-w-4xl pb-6 space-y-6">
+      <Container className="from-primary/5 to-background space-y-12 bg-linear-to-b py-24">
+        <div className="mx-auto max-w-4xl space-y-6 pb-6 text-center">
           <h1>Join 300+ Happy Clients Who Fixed Their Tracking </h1>
           <h4 className="text-muted-foreground">
             See why leading ecommerce brands choose us to solve their Facebook
@@ -527,10 +527,10 @@ export default function HomePage() {
           </h4>
         </div>
         <TestimonialGrid upwork={true} />
-        <div className="pt-24 pb-12  from-primary/5 to-background bg-linear-to-b">
+        <div className="from-primary/5 to-background bg-linear-to-b pt-24 pb-12">
           <CouponOptInForm
             buttonElement={
-              <Button className="flex max-w-5xl flex-col items-center text-center font-bold mx-auto w-fit p-6 text-xl cursor-pointer">
+              <Button className="mx-auto flex w-fit max-w-5xl cursor-pointer flex-col items-center p-6 text-center text-xl font-bold">
                 <div>
                   🔒 Lock In $7,900 in Value — Before It Disappears
                   <span className="mt-2 block text-sm font-medium opacity-90">

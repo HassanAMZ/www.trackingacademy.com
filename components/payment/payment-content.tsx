@@ -222,8 +222,8 @@ const PaymentContent = ({
   };
 
   return (
-    <Container className={`max-w-6xl  ${className}`}>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+    <Container className={`max-w-6xl ${className}`}>
+      <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
         {/* Product and Promo Section */}
         <div className="space-y-6">
           <Card className="">
@@ -258,7 +258,7 @@ const PaymentContent = ({
         </div>
         {/* Payment Section */}
 
-        <Card className="w-full h-fit">
+        <Card className="h-fit w-full">
           <CardHeader>
             <h2 className="text-xl font-semibold">Payment Details</h2>
           </CardHeader>

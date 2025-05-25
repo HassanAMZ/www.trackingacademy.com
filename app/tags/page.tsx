@@ -21,11 +21,11 @@ export default async function TagsPage() {
   return (
     <Container className="py-12">
       <div className="mb-8 text-center">
-        <div className="flex items-center justify-center gap-2 mb-2">
-          <Tag className="h-8 w-8 text-primary" />
+        <div className="mb-2 flex items-center justify-center gap-2">
+          <Tag className="text-primary h-8 w-8" />
           <h1 className="text-4xl font-bold">Browse by Tags</h1>
         </div>
-        <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+        <p className="text-muted-foreground mx-auto max-w-2xl text-xl">
           Discover {blogs.length} articles organized across {tags.length} topics
         </p>
       </div>{" "}

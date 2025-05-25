@@ -44,19 +44,19 @@ function UpworkStats() {
         rel="noopener noreferrer"
         className="group block"
       >
-        <Card className="mb-6 w-full bg-background/80 backdrop-blur-xs overflow-hidden relative transition-all duration-300 group-hover:scale-[1.02] group-hover:shadow-lg">
+        <Card className="bg-background/80 relative mb-6 w-full overflow-hidden backdrop-blur-xs transition-all duration-300 group-hover:scale-[1.02] group-hover:shadow-lg">
           {/* Gradient overlay that appears on hover - similar to TestimonialCard */}
-          <div className="absolute inset-0 bg-linear-to-t from-primary/20 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100 z-10"></div>{" "}
+          <div className="from-primary/20 absolute inset-0 z-10 bg-linear-to-t to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100"></div>{" "}
           <CardHeader className="relative z-20">
             <CardTitle className="flex items-center gap-2">
-              <Star className="h-6 w-6 text-primary fill-primary" />
+              <Star className="text-primary fill-primary h-6 w-6" />
               <span>5.0</span>
               <span className="text-3xl">·</span>
               <span className="font-normal">193 reviews</span>
             </CardTitle>
           </CardHeader>{" "}
           <CardContent className="relative z-20">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
               {/* Star Breakdown */}
               <div className="space-y-2">
                 {RATINGS.map((rating) => (
@@ -85,11 +85,11 @@ function UpworkStats() {
                   {CATEGORIES.map((category) => (
                     <div
                       key={category.name}
-                      className="grid grid-cols-2 items-center gap-2 "
+                      className="grid grid-cols-2 items-center gap-2"
                     >
                       <span>{category.name}</span>
-                      <div className="flex flex-row gap-2 align-left items-center justify-center">
-                        <Star className="h-4 w-4 text-primary fill-primary" />
+                      <div className="align-left flex flex-row items-center justify-center gap-2">
+                        <Star className="text-primary fill-primary h-4 w-4" />
                         <span className="font-medium">{category.rating}</span>
                       </div>
                     </div>
@@ -99,8 +99,8 @@ function UpworkStats() {
             </div>
           </CardContent>{" "}
           {/* External link icon that appears on hover - similar to TestimonialCard */}
-          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 opacity-0 transition-opacity duration-300 group-hover:opacity-100 z-30">
-            <div className="bg-primary text-white rounded-full p-3 shadow-lg">
+          <div className="absolute top-1/2 left-1/2 z-30 -translate-x-1/2 -translate-y-1/2 transform opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+            <div className="bg-primary rounded-full p-3 text-white shadow-lg">
               <ExternalLink className="h-6 w-6" />
             </div>
           </div>

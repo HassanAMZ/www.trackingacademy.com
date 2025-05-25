@@ -187,7 +187,7 @@ export default function Navbar({ className }: { className?: string }) {
         height={100}
         width={100}
         src={"/logo-navbar.png"}
-        className="h-8 w-fit  sm:flex"
+        className="h-8 w-fit sm:flex"
       />
     </NavLink>
   );
@@ -295,7 +295,7 @@ export default function Navbar({ className }: { className?: string }) {
               key={path}
               href={path}
               className={clsx(
-                "w-full! justify-start! text-foreground",
+                "text-foreground w-full! justify-start!",
                 navigationMenuTriggerStyle(),
                 isActive(path) && "bg-accent text-accent-foreground",
               )}
