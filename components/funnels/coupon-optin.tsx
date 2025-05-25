@@ -38,6 +38,7 @@ const clientCreateCouponRequest =
       localStorage.setItem("name", name);
       localStorage.setItem("email_address", email);
       localStorage.setItem("phone_number", phone_number);
+      localStorage.setItem("coupon_form_submitted", "true");
 
       await createCouponRequest(formData, redirectUrl);
       return { error: null, success: true };

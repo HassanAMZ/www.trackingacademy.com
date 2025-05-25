@@ -97,6 +97,11 @@ const PaymentContent = ({
                 },
               ],
             },
+            user_data: {
+              name: localStorage.getItem("name"),
+              email: localStorage.getItem("email_address"),
+              phone: localStorage.getItem("phone_number"),
+            },
           });
         }
       } catch (err) {
@@ -109,6 +114,43 @@ const PaymentContent = ({
 
     initPayment();
   }, [productId, priceId, onError]);
+
+  useEffect(() => {
+    // Check if we have lead data from coupon form submission
+    const checkAndFireLeadEvent = () => {
+      if (typeof window === "undefined") return;
+
+      const coupon_form_submitted = localStorage.getItem(
+        "coupon_form_submitted",
+      );
+
+      // Only fire if we have the data (indicates user came from coupon form)
+      if (coupon_form_submitted) {
+        // Fire the generate_lead event
+        if ((window as any).dataLayer) {
+          (window as any).dataLayer.push({
+            event: "gtm_custom_event",
+            datalayer_event_name: "generate_lead",
+            user_data: {
+              name: localStorage.getItem("name"),
+              email: localStorage.getItem("email_address"),
+              phone: localStorage.getItem("phone_number"),
+            },
+          });
+        }
+
+        // Clear the localStorage data after firing the event
+        localStorage.removeItem("coupon_form_submitted");
+
+        console.log("Lead event fired and localStorage cleared");
+      }
+    };
+
+    // Small delay to ensure dataLayer is ready
+    const timer = setTimeout(checkAndFireLeadEvent, 100);
+
+    return () => clearTimeout(timer);
+  }, []); // Empty dependency array so it only runs once on mount
 
   // Handle promo code application
   const handleApplyPromoCode = async (code: string) => {
