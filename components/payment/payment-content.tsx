@@ -83,7 +83,7 @@ const PaymentContent = ({
           (window as any).dataLayer.push({ ecommerce: null });
           (window as any).dataLayer.push({
             event: "gtm_custom_event",
-            datalayer_event_event: "begin_checkout",
+            datalayer_event_name: "begin_checkout",
             ecommerce: {
               currency: currency,
               value: (productData.unitAmount || 0) / 100, // convert from cents to dollars
