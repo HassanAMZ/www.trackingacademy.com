@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import Container from "@/components/ui/container";
 import { CheckCircle, ChevronLeft, ChevronRight } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 import { ReactElement, useEffect, useState } from "react";
 import type React from "react";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "../ui/dialog";
@@ -16,37 +17,32 @@ interface CarouselItem {
   benefits?: string[];
   image?: string;
   price?: string;
+  ctaButton?: {
+    text: string;
+    link: string;
+    subtitle?: string;
+  };
+  customCtaButton?: React.ReactElement;
 }
 
 interface DetailsCarouselProps {
   headerTitle?: string;
   headerDescription?: string;
   items?: CarouselItem[];
-  ctaButton?: {
-    text: string;
-    onClick: () => void;
-    subtitle?: string;
-  };
   autoAdvance?: boolean;
   autoAdvanceDelay?: number;
-  showModal?: boolean;
-  modalContent?: React.ReactNode;
 }
 
 const DetailsCarousel: React.FC<DetailsCarouselProps> = ({
   headerTitle,
   headerDescription,
   items = [],
-  ctaButton,
   autoAdvance = true,
   autoAdvanceDelay = 8000,
-  showModal = false,
-  modalContent,
 }) => {
   const [activeIndex, setActiveIndex] = useState(0);
   const [direction, setDirection] = useState<"left" | "right">("right");
   const [isAnimating, setIsAnimating] = useState(false);
-  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const nextSlide = () => {
     if (isAnimating) return;
@@ -106,7 +102,7 @@ const DetailsCarousel: React.FC<DetailsCarouselProps> = ({
   }
 
   return (
-    <section className="py-16 overflow-hidden from-accent/5 to-background bg-linear-to-b">
+    <section className="py-16 overflow-hidden from-accent/20 to-background bg-linear-to-b">
       <Container className="space-y-4">
         {/* Header Section */}
         {headerTitle && (
@@ -130,7 +126,7 @@ const DetailsCarousel: React.FC<DetailsCarouselProps> = ({
                   setDirection(idx < activeIndex ? "left" : "right");
                   setActiveIndex(idx);
                 }}
-                className={`w-3 h-3 transition-all ${idx === activeIndex ? "bg-primary w-8" : "bg-muted"}`}
+                className={`w-3 cursor-pointer h-3 transition-all ${idx === activeIndex ? "bg-primary w-8" : "bg-muted"}`}
                 aria-label={`Go to slide ${idx + 1}`}
               />
             ))}
@@ -140,7 +136,7 @@ const DetailsCarousel: React.FC<DetailsCarouselProps> = ({
               variant="outline"
               size="icon"
               onClick={prevSlide}
-              className="h-10 w-10"
+              className="h-10 w-10 cursor-pointer"
               disabled={isAnimating}
             >
               <ChevronLeft className="h-5 w-5" />
@@ -149,7 +145,7 @@ const DetailsCarousel: React.FC<DetailsCarouselProps> = ({
               variant="outline"
               size="icon"
               onClick={nextSlide}
-              className="h-10 w-10"
+              className="h-10 w-10 cursor-pointer"
               disabled={isAnimating}
             >
               <ChevronRight className="h-5 w-5" />
@@ -236,26 +232,24 @@ const DetailsCarousel: React.FC<DetailsCarouselProps> = ({
                   </div>
                 )}
 
-                {ctaButton && (
-                  <Button
-                    className="flex max-w-4xl flex-col items-center text-center font-bold lg:items-start lg:text-left mx-auto lg:mx-0 w-fit p-6 text-xl cursor-pointer"
-                    onClick={() => {
-                      if (showModal) {
-                        setIsModalOpen(true);
-                      } else {
-                        ctaButton.onClick();
-                      }
-                    }}
-                  >
-                    <div>
-                      {ctaButton.text}
-                      {ctaButton.subtitle && (
-                        <span className="mt-2 block text-sm font-medium opacity-90">
-                          {ctaButton.subtitle}
-                        </span>
-                      )}
-                    </div>
-                  </Button>
+                {activeItem.customCtaButton ? (
+                  <div>{activeItem.customCtaButton}</div> // ✅ Renders custom button if provided
+                ) : (
+                  activeItem.ctaButton && (
+                    <Button
+                      className="flex max-w-4xl flex-col items-center text-center font-bold lg:items-start lg:text-left mx-auto lg:mx-0 w-fit p-6 text-xl cursor-pointer"
+                      asChild
+                    >
+                      <Link href={activeItem.ctaButton.link}>
+                        {activeItem.ctaButton.text}
+                        {activeItem.ctaButton.subtitle && (
+                          <span className="mt-2 block text-sm font-medium opacity-90">
+                            {activeItem.ctaButton.subtitle}
+                          </span>
+                        )}
+                      </Link>
+                    </Button>
+                  )
                 )}
               </div>
 
@@ -283,26 +277,8 @@ const DetailsCarousel: React.FC<DetailsCarouselProps> = ({
               </div>
             </div>
           )}
-
-          {/* Decorative elements */}
-          <div className="absolute top-0 right-0 w-32 h-32 bg-primary/5 -translate-y-1/2 translate-x-1/2" />
-          <div className="absolute bottom-0 left-0 w-24 h-24 bg-primary/5 translate-y-1/2 -translate-x-1/2" />
         </div>
       </Container>
-
-      {/* Modal */}
-      {showModal && (
-        <Dialog open={isModalOpen} onOpenChange={setIsModalOpen}>
-          <DialogContent className="sm:max-w-md">
-            <DialogHeader>
-              <DialogTitle className="text-primary text-center font-bold">
-                Modal Content
-              </DialogTitle>
-            </DialogHeader>
-            {modalContent}
-          </DialogContent>
-        </Dialog>
-      )}
     </section>
   );
 };

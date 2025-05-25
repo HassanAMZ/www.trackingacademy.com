@@ -63,7 +63,7 @@ export default function CaseStudyCarousel({
     >
       <div
         ref={carouselRef}
-        className="flex"
+        className="flex gap-2"
         style={{
           width: `${items.length * totalItemWidth}px`,
         }}

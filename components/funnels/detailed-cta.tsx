@@ -11,6 +11,7 @@ interface DetailedCTAProps {
   buttonText?: string;
   buttonLink?: string;
   footerText?: string;
+  customButton?: React.ReactElement; // 👈 NEW PROP
 }
 
 const DetailedCTA: React.FC<DetailedCTAProps> = ({
@@ -20,15 +21,19 @@ const DetailedCTA: React.FC<DetailedCTAProps> = ({
   buttonText,
   buttonLink,
   footerText,
+  customButton,
 }) => {
   return (
     <section className="from-primary/5 to-background bg-linear-to-b py-24">
       <Container className="text-center">
         {/* Heading */}
-        {heading && <h2 className="mb-4">{heading}</h2>} {/* Subheading */}
+        {heading && <h2 className="mb-4">{heading}</h2>}
+
+        {/* Subheading */}
         {subheading && (
           <h4 className="text-muted-foreground mb-8">{subheading}</h4>
-        )}{" "}
+        )}
+
         {/* List Items */}
         {listItems && listItems.length > 0 && (
           <div className="grid place-content-center">
@@ -41,9 +46,12 @@ const DetailedCTA: React.FC<DetailedCTAProps> = ({
               ))}
             </ul>
           </div>
-        )}{" "}
-        {/* Button */}
-        {buttonText && buttonLink && (
+        )}
+
+        {/* Button or Custom Button */}
+        {customButton ? (
+          <div>{customButton}</div> // 👈 Render custom button
+        ) : buttonText && buttonLink ? (
           <Button
             size="lg"
             asChild
@@ -54,7 +62,8 @@ const DetailedCTA: React.FC<DetailedCTAProps> = ({
               <ArrowRight className="ml-2 h-4 w-4" />
             </Link>
           </Button>
-        )}{" "}
+        ) : null}
+
         {/* Footer Text */}
         {footerText && (
           <p className="text-muted-foreground py-4">{footerText}</p>

@@ -11,9 +11,10 @@ interface ScarcityUrgencyProps {
   ctaButtonText?: string;
   subtextForButtonCta?: string;
   buttonLink?: string;
-  supportingButtonText?: string; // New prop for supporting button text
-  supportingButtonLink?: string; // New prop for supporting button link
+  supportingButtonText?: string;
+  supportingButtonLink?: string;
   iconSize?: number;
+  customButton?: React.ReactElement; // 👈 NEW PROP
 }
 
 const ScarcityUrgency: React.FC<ScarcityUrgencyProps> = ({
@@ -23,60 +24,46 @@ const ScarcityUrgency: React.FC<ScarcityUrgencyProps> = ({
   daysRemaining,
   ctaButtonText,
   subtextForButtonCta,
-  buttonLink = "/contact", // Default fallback link
+  buttonLink = "/contact",
   supportingButtonText,
   supportingButtonLink,
-  iconSize = 12, // Default icon size
+  iconSize = 12,
+  customButton,
 }) => {
   return (
     <Container className="flex items-center justify-center pb-12 min-h-[75vh]">
       <section className="bg-primary text-primary-foreground flex w-full flex-col items-center justify-center space-y-8 rounded-lg px-8 py-24 text-center">
-        {/* Title Section */}
-        {title && <h2 className="max-w-3xl">{title}</h2>}{" "}
-        {/* Description Section */}
-        {description && <h4 className="max-w-3xl">{description}</h4>}{" "}
-        {/* Spots and Days Remaining */}
-        {/* {(spotsLeft || daysRemaining) && (
-          <div className="flex justify-center gap-12">
-            {spotsLeft !== undefined && (
-              <div className="flex flex-col items-center">
-                <Users className={`mb-2 h-${iconSize} w-${iconSize}`} />
-                <Text variant="headingXl" className="mb-1">
-                  {spotsLeft}
-                </Text>
-                <Text>Spots Left</Text>
-              </div>
-            )}        {daysRemaining !== undefined && (
-              <div className="flex flex-col items-center">
-                <Clock className={`mb-2 h-${iconSize} w-${iconSize}`} />
-                <Text variant="headingXl" className="mb-1">
-                  {daysRemaining}
-                </Text>
-                <Text>Days Remaining</Text>
-              </div>
-            )}
-          </div>
-        )} */}{" "}
-        {/* Button Section */}
+        {/* Title */}
+        {title && <h2 className="max-w-3xl">{title}</h2>}
+
+        {/* Description */}
+        {description && <h4 className="max-w-3xl">{description}</h4>}
+
+        {/* CTA Buttons */}
         <div className="flex max-w-xl items-center space-x-4">
-          {ctaButtonText && (
-            <Button
-              asChild
-              variant={"outline"}
-              className="flex max-w-4xl text-primary flex-col items-center text-center font-bold lg:items-start lg:text-left mx-auto lg:mx-0 w-fit p-6 text-xl cursor-pointer"
-            >
-              <Link href={buttonLink}>
-                <div>
-                  {ctaButtonText}
-                  {subtextForButtonCta && (
-                    <span className="mt-2 block text-sm font-medium opacity-90">
-                      {subtextForButtonCta}
-                    </span>
-                  )}
-                </div>
-              </Link>
-            </Button>
+          {customButton ? (
+            <div>{customButton}</div> // 👈 Render custom button if passed
+          ) : (
+            ctaButtonText && (
+              <Button
+                asChild
+                variant="outline"
+                className="flex max-w-4xl text-primary flex-col items-center text-center font-bold lg:items-start lg:text-left mx-auto lg:mx-0 w-fit p-6 text-xl cursor-pointer"
+              >
+                <Link href={buttonLink}>
+                  <div>
+                    {ctaButtonText}
+                    {subtextForButtonCta && (
+                      <span className="mt-2 block text-sm font-medium opacity-90">
+                        {subtextForButtonCta}
+                      </span>
+                    )}
+                  </div>
+                </Link>
+              </Button>
+            )
           )}
+
           {supportingButtonText && supportingButtonLink && (
             <Button size="lg" asChild variant="ghost">
               <Link href={supportingButtonLink}>{supportingButtonText}</Link>

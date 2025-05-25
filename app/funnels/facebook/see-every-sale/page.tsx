@@ -10,6 +10,7 @@ import ProblemAwareness from "@/components/funnels/problem-awareness";
 import ScarcityUrgency from "@/components/funnels/scarcity-urgency";
 import SocialProof from "@/components/funnels/social-proof";
 import AdSpendCalculator from "@/components/global/ad-spend-calculator";
+import YoutubeEmbed from "@/components/global/youtube-embed";
 import AlternativesSection from "@/components/home/alternative-section";
 import Hero from "@/components/home/hero";
 import TestimonialGrid from "@/components/testimonial/testimonial-grid";
@@ -37,20 +38,14 @@ import {
   TrendingUp,
   Zap,
 } from "lucide-react";
-import { usePathname } from "next/navigation";
-import React, { useState } from "react";
+import React from "react";
 
 export default function HomePage() {
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const pathname = usePathname();
-  const service = services.find((s) => s.name === "See Every Sale");
-  const redirectUrl = `${pathname.replace(/\/$/, "")}/payment?product_id=${service?.product_id}&price_id=${service?.price_id}&prefilled_promo_code=SEEEVERYSALE300OFF`;
-
-  const SimpleProcessFlow = () => {
+  const ProcessFlow = () => {
     const steps = [
       {
         number: "1",
-        title: "Onboard Call",
+        title: "Onboarding Call",
         description:
           "During the onboarding call, we'll analyze your current setup, understand your goals, and create a custom measurement plan tailored to your business.",
         icon: <Phone className="w-6 h-6" />,
@@ -58,7 +53,7 @@ export default function HomePage() {
       },
       {
         number: "2",
-        title: "3 Days Tracking Setup",
+        title: "Tracking Setup",
         description:
           "Our team implements everything for you. No work required on your end - we handle the entire technical setup in just 3 days, so you get the 95% accurate results.",
         icon: <Settings className="w-6 h-6" />,
@@ -77,19 +72,20 @@ export default function HomePage() {
     return (
       <Container className="p-12 min-h-screen from-primary/5 to-background bg-linear-to-b  grid place-content-center ">
         {/* Header */}
-        <div className="text-center mb-16 space-y-4 mmx-to">
+        <div className="text-center mb-8 space-y-4 mmx-to">
           <h1>How It Works </h1>
           <h4 className="text-muted-foreground">
             Super simple process - we do all the heavy lifting so you can focus
             on growing your business
           </h4>
         </div>
+        <YoutubeEmbed embedId="tdQufJ-qadE" className="max-w-4xl pb-12" />{" "}
         {/* Process Steps */}
         <div className="flex flex-col lg:flex-row items-stretch justify-center gap-8 lg:gap-6">
           {steps.map((step, index) => (
             <React.Fragment key={step.number}>
               {/* Card */}
-              <div className="flex-1 max-w-sm mx-auto lg:mx-0">
+              <div className="flex-1 mx-auto lg:mx-0">
                 <Card className="h-full border-0 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 relative overflow-hidden">
                   <CardHeader className="relative pb-4">
                     {/* Step Number */}
@@ -97,7 +93,6 @@ export default function HomePage() {
                       <div className="text-muted-foreground/20 select-none text-7xl">
                         {step.number}
                       </div>
-                      <div className={`p-3 shadow`}>{step.icon}</div>
                     </div>
 
                     <CardTitle>{step.title}</CardTitle>
@@ -114,17 +109,14 @@ export default function HomePage() {
                 <>
                   {/* Desktop Arrow */}
                   <div className="hidden lg:flex items-center justify-center px-4">
-                    <div className="bg-primary p-3 shadow">
-                      <ArrowRight className="w-6 h-6 text-primary-foreground" />
-                    </div>
+                    <ArrowRight className="w-6 h-6 text-primary" />
                   </div>
-
-                  {/* Mobile Arrow */}
+                  {/* Mobile Arrow
                   <div className="lg:hidden flex items-center justify-center py-4">
                     <div className="bg-primary p-3 shadow rotate-90">
                       <ArrowRight className="w-6 h-6 text-primary-foreground" />
                     </div>
-                  </div>
+                  </div> */}
                 </>
               )}
             </React.Fragment>
@@ -133,7 +125,57 @@ export default function HomePage() {
       </Container>
     );
   };
-
+  const ctaVariants = [
+    {
+      title: "🎁 Unlock $7,900 in Value — $300 Off Today Only",
+      subtitle: "Only 10 brands qualify. When they’re gone, they’re gone.",
+    },
+    {
+      title: "💰 Save $300 Instantly — Plus Get $7,600 in Revenue Tools Free",
+      subtitle:
+        "We’re giving this to just 10 eComm brands — before the timer hits zero.",
+    },
+    {
+      title: "🧠 Smart Brands Claim This Fast: $300 OFF + $7,600 Toolkit",
+      subtitle: "Proven to boost tracking accuracy & ROAS. Limited-time offer.",
+    },
+    {
+      title: "⏳ Last Call: $300 OFF + $7,600 Scaling Bonus Pack",
+      subtitle:
+        "Only available for the first 10 brands that act. Don’t miss it.",
+    },
+    {
+      title: "🚨 $300 Discount + $7,600 in Free Resources — Ends Soon",
+      subtitle: "First come, first served. Setup your tracking the right way.",
+    },
+    {
+      title: "🔥 $300 Discount + $7,600 in Free Resources — Ends Soon",
+      subtitle: "First come, first served. Setup your tracking the right way.",
+    },
+    {
+      title: "✅ Fix Your Tracking — and Save $300 Instantly",
+      subtitle:
+        "We’ll include $7,600 in battle-tested bonuses, free. Only 10 spots.",
+    },
+    {
+      title: "🎟️ Secure $7,900 in Value — Setup + Bonuses for Just One Payment",
+      subtitle: "Only 10 eComm brands get access. Don’t wait.",
+    },
+    {
+      title: "🚀 Ready to Scale Smarter? Get $300 Off + $7,600 Free",
+      subtitle:
+        "Done-for-you tracking setup + growth tools. Just 10 brands allowed.",
+    },
+    {
+      title: "💼 $300 Off + $7,600 in Expert-Level Tools — Yours Today",
+      subtitle: "Only if you’re one of the first 10 to act.",
+    },
+    {
+      title: "🔒 Lock In $7,900 in Value — Before It Disappears",
+      subtitle:
+        "$300 discount + $7,600 in bonuses. High demand — extremely limited.",
+    },
+  ];
   return (
     <main>
       <Hero
@@ -163,19 +205,20 @@ export default function HomePage() {
           "95%+ accuracy",
         ]}
         customCtaButton={
-          <Button
-            className="flex max-w-4xl flex-col items-center text-center font-bold lg:items-start lg:text-left mx-auto lg:mx-0 w-fit p-6 text-xl cursor-pointer"
-            onClick={() => setIsModalOpen(true)}
-          >
-            <div>
-              🎟️ Claim $300 OFF + $7,600 in Free Bonuses
-              <span className="mt-2 block text-sm font-medium opacity-90">
-                Limited to the first 10 clients — act fast before it expires
-              </span>
-            </div>
-          </Button>
+          <CouponOptInForm
+            buttonElement={
+              <Button className="flex max-w-4xl flex-col items-center text-center font-bold lg:items-start lg:text-left mx-auto lg:mx-0 w-fit p-6 text-xl cursor-pointer">
+                <div>
+                  {ctaVariants[5].title}
+                  <span className="mt-2 block text-sm font-medium opacity-90">
+                    {ctaVariants[5].subtitle}
+                  </span>
+                </div>
+              </Button>
+            }
+          />
         }
-        supportingComponent={<AdSpendCalculator cta={true} />}
+        supportingComponent={<AdSpendCalculator cta={false} />}
       />
       <div className="w-full max-w-full overflow-hidden py-12 min-h-screen">
         <Container className="pb-12 space-y-6 text-center max-w-4xl flex flex-col items-center">
@@ -188,58 +231,7 @@ export default function HomePage() {
         </Container>
         <CaseStudyCarousel caseStudies={caseStudies} />
       </div>
-      <SimpleProcessFlow />
-      {/* <DetailsCarousel
-        headerTitle="How it Works?"
-        headerDescription="A complete system designed to fix Facebook's data sharing restrictions and restore 95%+ accurate data for every key event — all done-for-you in just 3 days."
-        items={[
-          {
-            title: "Day 1: Onboarding",
-            description:
-              "Fix Your Facebook's Data Sharing Restrictions and Restore 95%+ Accurate Data for Facebook Ads. All done-for-you, in just 3 days, without violating Facebook's policies or getting flagged. Track every ecommerce event.",
-            icon: <PersonIcon />,
-            benefits: [
-              "Comprehensive store and funnel analysis",
-              "Ad account configuration review",
-              "Current tracking stack assessment",
-              "Identification of data gaps and issues",
-              "Custom strategy development session",
-              "Clear roadmap and timeline establishment",
-            ],
-            image: "/images/hero/measurement-planning.png",
-          },
-          {
-            title: "Day 2-3: Tracking Implementation",
-            description:
-              "We install a future-proofed, bulletproof tracking stack with Facebook CAPI, GA4, server-side integrations, and policy-safe triggers.",
-            icon: <Target />,
-            benefits: [
-              "Facebook Conversions API setup and optimization",
-              "Google Analytics 4 advanced configuration",
-              "Server-side tracking implementation",
-              "Cross-platform event synchronization",
-              "Policy-compliant tracking triggers",
-              "Real-time data validation and testing",
-            ],
-            image: "/placeholder.svg",
-          },
-          {
-            title: "Day 4+: Performance & Scaling",
-            description:
-              "We monitor, optimize, and scale your tracking for maximum performance while ensuring 95%+ accuracy across all platforms and campaigns.",
-            icon: <Rocket />,
-            benefits: [
-              "Continuous performance monitoring and alerts",
-              "Advanced attribution modeling setup",
-              "Campaign optimization recommendations",
-              "Automated reporting and dashboards",
-              "Ongoing support and maintenance",
-              "Monthly performance reviews and improvements",
-            ],
-            image: "/images/hero/customer-support.png",
-          },
-        ]}
-      /> */}
+      <ProcessFlow />
       {/* <ProblemAwareness
         headingText="The Hidden Costs of Missing Conversion Data"
         paragraphText="Without accurate funnel tracking, your Meta ads lack the data to optimize for conversions, resulting in wasted budget and poor ROAS."
@@ -264,18 +256,31 @@ export default function HomePage() {
         headerDescription="A complete system designed to fix Facebook's data sharing restrictions and restore 95%+ accurate data for every key event — all done-for-you in just 3 days."
         items={[
           {
-            title: "Looker Studio eCom Dashboard",
+            title: "95% Accurate Ads Conversion Tracking",
             description:
-              "Visualize your sales data with a custom, easy-to-read dashboard tailored for your business.",
-            icon: <BarChart2 />,
+              "Unlock 95%+ accurate conversion tracking across Google & Facebook Ads with advanced adstacking techniques.",
+            icon: <Target />,
             benefits: [
-              "Custom dashboard for your specific KPIs",
-              "Live performance metrics for ad campaigns",
-              "Audience behavior analysis and segmentation",
-              "Automated performance alerts for optimization",
+              "95%+ accurate multi-platform conversion tracking",
+              "Custom tracking setup for both Meta and Google Ads",
+              "Adstacking strategies for holistic attribution",
+              "Enhanced campaign optimization with unified data",
             ],
-            image: "/images/hero/unified-dashboard.png",
+            image: "/images/hero/measurement-planning.png",
+            customCtaButton: (
+              <CouponOptInForm
+                buttonElement={
+                  <Button className="flex max-w-4xl flex-col items-start font-bold  text-left  w-fit p-6 text-xl text-wrap whitespace-pre-wrap cursor-pointer">
+                    <span className="line-clamp-1">{ctaVariants[1].title}</span>
+                    <span className="mt-2 block text-sm font-medium opacity-90 line-clamp-1">
+                      {ctaVariants[1].subtitle}
+                    </span>
+                  </Button>
+                }
+              />
+            ),
           },
+
           {
             title: "95% Accurate GA4 Tracking Setup",
             description:
@@ -287,20 +292,19 @@ export default function HomePage() {
               "Cross-domain tracking if needed",
               "Integration with your Meta ads for complete data",
             ],
-            image: "/images/hero/measurement-planning.png",
-          },
-          {
-            title: "Google Ads Conversion Tracking",
-            description:
-              "Implement accurate Google Ads conversion tracking to maximize your PPC performance.",
-            icon: <Target />,
-            benefits: [
-              "95% accurate conversion tracking",
-              "Custom conversion setup tailored to your business",
-              "Proper attribution modeling",
-              "Enhanced campaign optimization",
-            ],
-            image: "/images/hero/measurement-planning.png",
+            image: "/images/hero/unified-dashboard.png",
+            customCtaButton: (
+              <CouponOptInForm
+                buttonElement={
+                  <Button className="flex max-w-4xl flex-col items-start font-bold  text-left  w-fit p-6 text-xl text-wrap whitespace-pre-wrap cursor-pointer">
+                    <span className="line-clamp-1">{ctaVariants[0].title}</span>
+                    <span className="mt-2 block text-sm font-medium opacity-90 line-clamp-1">
+                      {ctaVariants[0].subtitle}
+                    </span>
+                  </Button>
+                }
+              />
+            ),
           },
           {
             title: "GDPR & CCPA Cookie Consent Setup",
@@ -313,23 +317,48 @@ export default function HomePage() {
               "Balanced for both compliance and tracking effectiveness",
               "Future-proofed against privacy regulation changes",
             ],
-            image: "/images/hero/ecommerce-conversion-checklist.png",
+            image: "/images/hero/gdpr-cmp.png",
+            customCtaButton: (
+              <CouponOptInForm
+                buttonElement={
+                  <Button className="flex max-w-4xl flex-col items-start font-bold  text-left  w-fit p-6 text-xl text-wrap whitespace-pre-wrap cursor-pointer">
+                    <span className="line-clamp-1">{ctaVariants[2].title}</span>
+                    <span className="mt-2 block text-sm font-medium opacity-90 line-clamp-1">
+                      {ctaVariants[2].subtitle}
+                    </span>
+                  </Button>
+                }
+              />
+            ),
           },
           {
-            title: "47-Point Ecom Conversion Checklist",
+            title: "Looker Studio eCommerce Dashboard",
             description:
-              "Optimize your funnel with our proven checklist to boost conversions and ROAS.",
-            icon: <CheckSquare />,
+              "Visualize your sales data with a custom, easy-to-read dashboard tailored for your business.",
+            icon: <BarChart2 />,
             benefits: [
-              "47 critical conversion checkpoints",
-              "Insights from top converting stores",
-              "Decrease customer acquisition costs",
-              "Increase average order value and conversion rates",
+              "Custom dashboard for your specific KPIs",
+              "Live performance metrics for ad campaigns",
+              "Audience behavior analysis and segmentation",
+              "Automated performance alerts for optimization",
             ],
-            image: "/images/hero/ecommerce-conversion-checklist.png",
+            image: "/images/hero/real-time-dashboard.png",
+            customCtaButton: (
+              <CouponOptInForm
+                buttonElement={
+                  <Button className="flex max-w-4xl flex-col items-start font-bold  text-left  w-fit p-6 text-xl text-wrap whitespace-pre-wrap cursor-pointer">
+                    <span className="line-clamp-1">{ctaVariants[3].title}</span>
+                    <span className="mt-2 block text-sm font-medium opacity-90 line-clamp-1">
+                      {ctaVariants[3].subtitle}
+                    </span>
+                  </Button>
+                }
+              />
+            ),
           },
+
           {
-            title: "ROI & LTV Tracking Toolkit",
+            title: "UTM Builder & UTM Validator Tracking Toolkit",
             description:
               "Access powerful tools to analyze and scale your ad campaigns with confidence.",
             icon: <BarChart2 />,
@@ -340,6 +369,18 @@ export default function HomePage() {
               "Campaign performance analyzers",
             ],
             image: "/images/hero/tools-and-calculators.png",
+            customCtaButton: (
+              <CouponOptInForm
+                buttonElement={
+                  <Button className="flex max-w-4xl flex-col items-start font-bold  text-left  w-fit p-6 text-xl text-wrap whitespace-pre-wrap cursor-pointer">
+                    <span className="line-clamp-1">{ctaVariants[4].title}</span>
+                    <span className="mt-2 block text-sm font-medium opacity-90 line-clamp-1">
+                      {ctaVariants[4].subtitle}
+                    </span>
+                  </Button>
+                }
+              />
+            ),
           },
         ]}
       />
@@ -349,9 +390,21 @@ export default function HomePage() {
         spotsLeft={10}
         daysRemaining={14}
         iconSize={12}
-        buttonLink={redirectUrl}
-        ctaButtonText="🎟️ Get Your $300 Coupon Code"
-        subtextForButtonCta="Only for the first 10 clients — claim before it expires!"
+        customButton={
+          <CouponOptInForm
+            buttonElement={
+              <Button className="flex max-w-5xl flex-col items-center text-center font-bold mx-auto w-fit p-6 text-xl cursor-pointer bg-primary-foreground hover:bg-primary-foreground/90 text-primary">
+                <div>
+                  ✅ Fix Your Tracking — and Save $300 Instantly
+                  <span className="mt-2 block text-sm font-medium opacity-90">
+                    We’ll include $7,600 in battle-tested bonuses, free. Only 10
+                    spots.
+                  </span>
+                </div>
+              </Button>
+            }
+          />
+        }
       />{" "}
       <SocialProof
         sectionTitle="Ecommerce Brands Trust Our Tracking Solution"
@@ -363,9 +416,21 @@ export default function HomePage() {
         spotsLeft={10}
         daysRemaining={14}
         iconSize={12}
-        buttonLink={redirectUrl}
-        ctaButtonText="🎟️ Claim Your $300 Coupon Code Now"
-        subtextForButtonCta="Only 10 spots available — get your coupon before it’s gone!"
+        customButton={
+          <CouponOptInForm
+            buttonElement={
+              <Button className="flex max-w-5xl flex-col items-center text-center font-bold mx-auto w-fit p-6 text-xl cursor-pointer bg-primary-foreground hover:bg-primary-foreground/90 text-primary">
+                <div>
+                  🚀 Ready to Scale Smarter? Get $300 Off + $7,600 Free
+                  <span className="mt-2 block text-sm font-medium opacity-90">
+                    Done-for-you tracking setup + growth tools. Just 10 brands
+                    allowed.
+                  </span>
+                </div>
+              </Button>
+            }
+          />
+        }
       />
       <ObjectionHandling
         guarantees={[
@@ -440,8 +505,18 @@ export default function HomePage() {
           "95% accuracy guaranteed or your money back",
         ]}
         footerText="Limited to first 10 customers. Offer expires at the end of the month!"
-        buttonText={`🎟️ Get My $300 Coupon Code`}
-        buttonLink={redirectUrl}
+        customButton={
+          <CouponOptInForm
+            buttonElement={
+              <Button className="flex max-w-5xl flex-col text-wrap whitespace-pre-wrap  items-center text-center font-bold mx-auto w-fit p-6 text-xl cursor-pointer">
+                💼 $300 Off + $7,600 in Expert-Level Tools — Yours Today
+                <span className="mt-2 block text-sm font-medium opacity-90">
+                  Only if you’re one of the first 10 to act.
+                </span>
+              </Button>
+            }
+          />
+        }
       />
       <Container className="py-24 from-primary/5 to-background bg-linear-to-b space-y-12">
         <div className="mx-auto text-center max-w-4xl pb-6 space-y-6">
@@ -453,30 +528,21 @@ export default function HomePage() {
         </div>
         <TestimonialGrid upwork={true} />
         <div className="pt-24 pb-12  from-primary/5 to-background bg-linear-to-b">
-          <Button
-            className="flex max-w-5xl flex-col items-center text-center font-bold mx-auto w-fit p-6 text-xl cursor-pointer"
-            onClick={() => setIsModalOpen(true)}
-          >
-            <div>
-              🎟️ Claim $300 OFF + $7,600 in Free Bonuses
-              <span className="mt-2 block text-sm font-medium opacity-90">
-                Limited to the first 10 clients — act fast before it expires
-              </span>
-            </div>
-          </Button>
+          <CouponOptInForm
+            buttonElement={
+              <Button className="flex max-w-5xl flex-col items-center text-center font-bold mx-auto w-fit p-6 text-xl cursor-pointer">
+                <div>
+                  🔒 Lock In $7,900 in Value — Before It Disappears
+                  <span className="mt-2 block text-sm font-medium opacity-90">
+                    $300 discount + $7,600 in bonuses. High demand — extremely
+                    limited.
+                  </span>
+                </div>
+              </Button>
+            }
+          />
         </div>
       </Container>
-      {/* Modal */}
-      <Dialog open={isModalOpen} onOpenChange={setIsModalOpen}>
-        <DialogContent className="sm:max-w-md">
-          <DialogHeader>
-            <DialogTitle className="text-primary text-center font-bold">
-              Claim Your $300 Coupon
-            </DialogTitle>
-          </DialogHeader>
-          <CouponOptInForm redirectUrl={redirectUrl} />
-        </DialogContent>
-      </Dialog>
     </main>
   );
 }

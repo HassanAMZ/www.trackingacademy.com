@@ -32,7 +32,7 @@ export const services: Service[] = [
     color: "border-muted",
     buttonVariant: "outline",
     cta: "Get Your Audit",
-    accuracy: "60-70%",
+    accuracy: "90%",
     features: {
       "Google Ads Tracking": "Audit",
       "META Ads Tracking": "Audit",

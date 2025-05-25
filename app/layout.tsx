@@ -11,7 +11,7 @@ import {
   Suspense,
   unstable_ViewTransition as ViewTransition,
 } from "react";
-import { AuthContextProvider } from "./context/AuthContext";
+import AuthWrapper from "./context/AuthContextWrapper";
 
 export const metadata: Metadata = {
   title: "TrackingAcademy - Top Rated Web Analytics Agency",
@@ -26,7 +26,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
     <ViewTransition>
       <html lang="en" className={GeistSans.className} suppressHydrationWarning>
         <body>
-          <AuthContextProvider>
+          <AuthWrapper>
             <ThemeProvider
               attribute="class"
               defaultTheme="light"
@@ -34,14 +34,14 @@ export default function RootLayout({ children }: { children: ReactNode }) {
               disableTransitionOnChange
             >
               {children}
-            </ThemeProvider>{" "}
+            </ThemeProvider>
             <Suspense>
               <GTMAnalytics />
               <VercelAnalytics />
               <CanonicalTag />
               <SpeedInsights />
             </Suspense>
-          </AuthContextProvider>
+          </AuthWrapper>
         </body>
       </html>
     </ViewTransition>
