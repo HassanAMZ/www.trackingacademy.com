@@ -58,6 +58,7 @@ interface RecommendedAction {
 
 export interface AuditReport {
   id: string;
+  date: string;
   domain: string;
   overallScore: OverallScore;
   categoryScores: CategoryScore[];
@@ -70,6 +71,7 @@ export interface AuditReport {
 const auditReports: AuditReport[] = [
   {
     id: "slumiya",
+    date: "May 26th, 2025",
     domain: "slumiya.com/",
     overallScore: {
       score: 56,
@@ -200,6 +202,7 @@ const auditReports: AuditReport[] = [
   },
   {
     id: "afroditacosmetics",
+    date: "May 15th, 2025",
     domain: "webshop.afroditacosmetics.com/slo/",
     overallScore: {
       score: 44,

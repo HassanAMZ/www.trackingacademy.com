@@ -16,8 +16,8 @@ import Link from "next/link";
 // Transform audit reports to display format with mock dates
 const audits = auditReports.map((report, index) => ({
   id: report.id,
+  date: report.date,
   domain: report.domain,
-  date: `May ${15 + index}, 2025`, // Mock dates - in real app, you'd have actual dates
   score: report.overallScore.score,
   status: report.overallScore.status,
   statusColor: report.overallScore.color,
