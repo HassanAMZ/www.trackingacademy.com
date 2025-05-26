@@ -69,7 +69,137 @@ export interface AuditReport {
 
 const auditReports: AuditReport[] = [
   {
-    id: "webshop-afrodita",
+    id: "slumiya",
+    domain: "slumiya.com/",
+    overallScore: {
+      score: 56,
+      maxScore: 100,
+      status: "Not good",
+      color: "destructive",
+    },
+    categoryScores: [
+      { name: "Analytics", score: 55, color: "destructive" },
+      { name: "Ads", score: 66, color: "warning" },
+      { name: "Cookie prolong", score: 27, color: "destructive" },
+      { name: "SEO", score: 86, color: "success" },
+    ],
+    trackers: [
+      {
+        name: "Google Analytics 4",
+        provider: "Google",
+        category: "Analytics",
+        dataSentTo: "US",
+        trackingMethod: "Client-side",
+        canImprove: true,
+      },
+      {
+        name: "TikTok",
+        provider: "TikTok",
+        category: "Advertisement",
+        dataSentTo: "CN",
+        trackingMethod: "Client-side",
+        canImprove: true,
+      },
+    ],
+    trackingCookies: [
+      {
+        name: "_ga",
+        provider: "Google",
+        category: "Analytics",
+        dataSentTo: "US",
+        lifetime: "7 days",
+      },
+      {
+        name: "_ga_{measurement_id}",
+        provider: "Google",
+        category: "Analytics",
+        dataSentTo: "US",
+        lifetime: "7 days",
+      },
+      {
+        name: "_ttp",
+        provider: "TikTok",
+        category: "Advertisement",
+        dataSentTo: "CN",
+        lifetime: "365 days",
+      },
+      {
+        name: "ttclid",
+        provider: "TikTok",
+        category: "Advertisement",
+        dataSentTo: "CN",
+        lifetime: "1 days",
+      },
+      {
+        name: "ttcsid",
+        provider: "TikTok",
+        category: "Advertisement",
+        dataSentTo: "CN",
+        lifetime: "365 days",
+      },
+    ],
+    trackingScripts: [
+      {
+        name: "G gtag.js",
+        provider: "Google",
+        category: "Analytics",
+        transferSize: "83 KB",
+        transferSizeColor: "success",
+        blockingTime: "76 ms",
+        blockingTimeColor: "success",
+      },
+      {
+        name: "events.js",
+        provider: "TikTok",
+        category: "Advertisement",
+        transferSize: "3 KB",
+        transferSizeColor: "success",
+        blockingTime: "166 ms",
+        blockingTimeColor: "success",
+      },
+      {
+        name: "main.js",
+        provider: "TikTok",
+        category: "Advertisement",
+        transferSize: "103 KB",
+        transferSizeColor: "success",
+        blockingTime: "60 ms",
+        blockingTimeColor: "success",
+      },
+      {
+        name: "identify.js",
+        provider: "TikTok",
+        category: "Advertisement",
+        transferSize: "40 KB",
+        transferSizeColor: "success",
+        blockingTime: "25 ms",
+        blockingTimeColor: "success",
+      },
+    ],
+    recommendedActions: [
+      {
+        id: "cookie-keeper",
+        title:
+          "Use Cookie Keeper to bypass ITP limits and extend cookie duration",
+        categories: ["Cookies"],
+        scoreImprovement: 19,
+      },
+      {
+        id: "ga4-server-side",
+        title: "Implement Google Analytics 4 server-side tracking",
+        categories: ["Analytics"],
+        scoreImprovement: 17,
+      },
+      {
+        id: "tiktok-server-side",
+        title: "Use server-side tracking for TikTok",
+        categories: ["Advertisement"],
+        scoreImprovement: 7,
+      },
+    ],
+  },
+  {
+    id: "afroditacosmetics",
     domain: "webshop.afroditacosmetics.com/slo/",
     overallScore: {
       score: 44,
