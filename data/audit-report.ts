@@ -68,6 +68,10 @@ export interface AuditReport {
   recommendedActions: RecommendedAction[];
 }
 
+export interface AuditReportProps {
+  report: AuditReport;
+}
+
 const auditReports: AuditReport[] = [
   {
     id: "slumiya",

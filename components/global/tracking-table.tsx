@@ -95,13 +95,13 @@ const TrackingTable: React.FC<TrackingTableProps> = ({ rows }) => {
       <div className="mb-6 grid grid-cols-3 gap-4">
         <div className="rounded-lg border p-4 shadow-sm">
           <div className="text-secondary-foreground mb-1 text-sm font-medium">
-            Before Average:
+            Average Acc Before:
           </div>
           <div className="text-2xl font-bold">{stats.avgBefore}%</div>
         </div>
         <div className="rounded-lg border p-4 shadow-sm">
           <div className="text-secondary-foreground mb-1 text-sm font-medium">
-            After Average:
+            Average Acc After:
           </div>
           <div className="text-destructive text-2xl font-bold">
             {stats.avgAfter}%
@@ -109,7 +109,7 @@ const TrackingTable: React.FC<TrackingTableProps> = ({ rows }) => {
         </div>
         <div className="rounded-lg border p-4 shadow-sm">
           <div className="text-secondary-foreground mb-1 text-sm font-medium">
-            Before vs After:
+            Improved Accuracy:
           </div>
           <div className="text-primary text-2xl font-bold">
             +{stats.improvement.toFixed(1)}%
@@ -120,7 +120,9 @@ const TrackingTable: React.FC<TrackingTableProps> = ({ rows }) => {
       {/* Data Table */}
       <div className="mb-6 overflow-hidden rounded-xl border shadow-sm">
         <div className="border-b px-6 py-4">
-          <h3 className="text-lg font-semibold">Weekly Performance Data</h3>
+          <h3 className="text-lg font-semibold">
+            Before vs After Tracking Setup
+          </h3>
         </div>
 
         <div className="overflow-x-auto">
