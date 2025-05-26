@@ -39,8 +39,8 @@ export default function AdSpendCalculator({
   };
 
   return (
-    <Container className="max-w-2xl text-center">
-      <Card className="flex flex-col items-center text-center backdrop-blur-sm">
+    <div className="py-4">
+      <Card className="mx-auto flex w-fit max-w-xl flex-col items-center text-center backdrop-blur-sm">
         <CardHeader>
           <Badge className="mx-auto w-fit">
             Calculate your wasted ad spend
@@ -70,7 +70,7 @@ export default function AdSpendCalculator({
             />
           </div>{" "}
           <h4>Average Additional Revenue </h4>{" "}
-          <div className="grid grid-cols-2 gap-2">
+          <div className="grid gap-2 md:grid-cols-2">
             <Card>
               <CardContent className="px-4">
                 <p className="">ANNUALLY</p>
@@ -105,6 +105,6 @@ export default function AdSpendCalculator({
               )}{" "}
         </CardContent>
       </Card>
-    </Container>
+    </div>
   );
 }

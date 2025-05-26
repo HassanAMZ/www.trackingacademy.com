@@ -20,7 +20,5 @@ module.exports = {
     "^@/utils/(.*)$",
     "^[./]", // relative imports
   ],
-  importOrderSeparation: true,
-  importOrderSortSpecifiers: true,
   tailwindFunctions: ["clsx", "cn"],
 };

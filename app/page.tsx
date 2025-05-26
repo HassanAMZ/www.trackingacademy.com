@@ -8,6 +8,7 @@ import ScarcityUrgency from "@/components/funnels/scarcity-urgency";
 import SocialProof from "@/components/funnels/social-proof";
 import AdSpendCalculator from "@/components/global/ad-spend-calculator";
 import Navbar from "@/components/global/navbar";
+import TrackingTable from "@/components/global/tracking-table";
 import AlternativesSection from "@/components/home/alternative-section";
 import Hero from "@/components/home/hero";
 import WhyChooseSection from "@/components/home/why-choose-us";
@@ -30,7 +31,7 @@ export default function HomePage() {
     <main>
       <Navbar />
       <Hero
-        // eyebrow="Still flying blind on Meta ads?"
+        eyebrow="Still flying blind on Sds?"
         heading={
           <h1 className="mx-auto text-center lg:mx-0 lg:text-left">
             Fix broken facebook ads tracking in 7 days —{" "}
@@ -48,50 +49,31 @@ export default function HomePage() {
         }
         carousel={<TestimonialsCarousel2 />}
         benefits={[
-          "Completed within 3 days",
-          "100% done-for-you setup",
-          "Improved ROAS by 30%",
+          "ROAS 30% Increase",
+          "100% Done For You",
+          "Completed in 3 days",
           "One-time setup cost",
-          "Scaleable Solution",
-          "95%+ accuracy",
+          "Slace Effortlessly",
+          "Get 95%+ Accuracy",
         ]}
         customCtaButton={
           <Button
             className="mx-auto flex w-fit max-w-4xl cursor-pointer flex-col items-center p-6 text-center text-xl font-bold lg:mx-0 lg:items-start lg:text-left"
             asChild
           >
-            <Link href={"/pricing"}>Fix Your Tracking</Link>
+            <Link href={"/pricing"}>
+              <div>
+                Ready to Scale Smarter?
+                <span className="mt-2 block text-sm font-medium opacity-90">
+                  Done-for-you tracking setup + growth tools. Just 5 Client
+                  Every Month.
+                </span>
+              </div>
+            </Link>
           </Button>
         }
-        supportingComponent={<AdSpendCalculator cta={true} />}
+        supportingComponent={<TrackingTable />}
       />
-      {/* <DreamOutcome
-        heading="Imagine Effortless Growth"
-        subheading="Our System Ensures Precision, Saves Time, and Maximizes ROI"
-        dreamOutcomeList={[
-          {
-            icon: "TrendingUp",
-            text: "Double Your ROI Effortlessly",
-            image: "/images/hero/003.png",
-            description:
-              "Maximize your marketing efficiency and ensure every dollar works harder for you.",
-          },
-          {
-            icon: "Lightbulb",
-            text: "Achieve Stress-Free Scaling",
-            image: "/images/hero/001.png",
-            description:
-              "Expand your business with ease and confidence, free from operational headaches.",
-          },
-          {
-            icon: "Target",
-            text: "Reclaim 20+ Hours Monthly",
-            image: "/images/hero/002.png",
-            description:
-              "Automate repetitive tasks and reclaim your time for high-impact activities.",
-          },
-        ]}
-      /> */}{" "}
       <DetailsCarousel
         headerTitle="The Conversion Confidence Suite"
         headerDescription="A complete system designed to solve your tracking headaches, recover lost revenue, and supercharge your ROI."

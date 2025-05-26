@@ -10,6 +10,7 @@ import ProblemAwareness from "@/components/funnels/problem-awareness";
 import ScarcityUrgency from "@/components/funnels/scarcity-urgency";
 import SocialProof from "@/components/funnels/social-proof";
 import AdSpendCalculator from "@/components/global/ad-spend-calculator";
+import TrackingTable from "@/components/global/tracking-table";
 import YoutubeEmbed from "@/components/global/youtube-embed";
 import AlternativesSection from "@/components/home/alternative-section";
 import Hero from "@/components/home/hero";
@@ -197,28 +198,28 @@ export default function HomePage() {
         }
         carousel={<TestimonialsCarousel2 />}
         benefits={[
-          "Completed within 3 days",
-          "100% done-for-you setup",
-          "Improved ROAS by 30%",
+          "ROAS 30% Increase",
+          "100% Done For You",
+          "Completed in 3 days",
           "One-time setup cost",
-          "Scaleable Solution",
-          "95%+ accuracy",
+          "Slace Effortlessly",
+          "Get 95%+ Accuracy",
         ]}
         customCtaButton={
           <CouponOptInForm
             buttonElement={
               <Button className="mx-auto flex w-fit max-w-4xl cursor-pointer flex-col items-center p-6 text-center text-xl font-bold lg:mx-0 lg:items-start lg:text-left">
                 <div>
-                  {ctaVariants[5].title}
+                  {ctaVariants[6].title}
                   <span className="mt-2 block text-sm font-medium opacity-90">
-                    {ctaVariants[5].subtitle}
+                    {ctaVariants[6].subtitle}
                   </span>
                 </div>
               </Button>
             }
           />
         }
-        supportingComponent={<AdSpendCalculator cta={false} />}
+        supportingComponent={<TrackingTable />}
       />
       <div className="min-h-screen w-full max-w-full overflow-hidden py-12">
         <Container className="flex max-w-4xl flex-col items-center space-y-6 pb-12 text-center">
@@ -232,25 +233,23 @@ export default function HomePage() {
         <CaseStudyCarousel caseStudies={caseStudies} />
       </div>
       <ProcessFlow />
-      {/* <ProblemAwareness
-        headingText="The Hidden Costs of Missing Conversion Data"
-        paragraphText="Without accurate funnel tracking, your Meta ads lack the data to optimize for conversions, resulting in wasted budget and poor ROAS."
-        bluePillPoints={[
-          "Can't See Add to Cart, & Purchase Events",
-          "Facebook Can't Optimize for Conversions",
-          "Wasting Ad Budget on Poorly Targeted Audiences",
-          "Unable to Scale Due to Missing Data",
-          "Competitors With Tracking Are Outperforming You",
-        ]}
-        imageUrl="/images/hero/matrix.png"
-        redPillPoints={[
-          "Restore 95%+ Accurate Conversion Tracking",
-          "Give Meta the Data it Needs to Optimize",
-          "Make Informed Scaling Decisions",
-          "Stay Compliant With Meta's Policies",
-          "Track 30% More Conversions Than Standard Setups",
-        ]}
-      /> */}
+      <AdSpendCalculator
+        cta={true}
+        customCtaButton={
+          <CouponOptInForm
+            buttonElement={
+              <Button className="mx-auto flex w-fit max-w-4xl cursor-pointer flex-col items-center p-6 text-center text-xl font-bold">
+                <div>
+                  {ctaVariants[5].title}
+                  <span className="mt-2 block text-sm font-medium opacity-90">
+                    {ctaVariants[5].subtitle}
+                  </span>
+                </div>
+              </Button>
+            }
+          />
+        }
+      />
       <DetailsCarousel
         headerTitle="What You Get?"
         headerDescription="A complete system designed to fix Facebook's data sharing restrictions and restore 95%+ accurate data for every key event — all done-for-you in just 3 days."
@@ -384,28 +383,25 @@ export default function HomePage() {
           },
         ]}
       />
-      <ScarcityUrgency
-        title="Limited Time Offer: $300 Off for First 10 Customers Only"
-        description="To ensure personalized attention and maximize results, this offer is limited to the first 10 businesses and expires at the end of the month."
-        spotsLeft={10}
-        daysRemaining={14}
-        iconSize={12}
-        customButton={
-          <CouponOptInForm
-            buttonElement={
-              <Button className="bg-primary-foreground hover:bg-primary-foreground/90 text-primary mx-auto flex w-fit max-w-5xl cursor-pointer flex-col items-center p-6 text-center text-xl font-bold">
-                <div>
-                  ✅ Fix Your Tracking — and Save $300 Instantly
-                  <span className="mt-2 block text-sm font-medium opacity-90">
-                    We’ll include $7,600 in battle-tested bonuses, free. Only 10
-                    spots.
-                  </span>
-                </div>
-              </Button>
-            }
-          />
-        }
-      />{" "}
+      <ProblemAwareness
+        headingText="The Hidden Costs of Missing Conversion Data"
+        paragraphText="Without accurate funnel tracking, your Meta ads lack the data to optimize for conversions, resulting in wasted budget and poor ROAS."
+        bluePillPoints={[
+          "Facebook Can't Optimize Effectively for Conversions",
+          "Wasting Ads Budget on Poorly Targeted Audiences",
+          "Can't See Add to Cart & Purchase Events in Analytics",
+          "Unable to Scale Due to Missing Crucial Data Reports",
+          "Competitors With Better Tracking Outperform You",
+        ]}
+        imageUrl="/images/hero/matrix.png"
+        redPillPoints={[
+          "Restore 95%+ Accurate Conversion Tracking to Ads",
+          "Give Meta the Data it Needs to Optimize Your Campaigns",
+          "Make Informed Scaling Decisions for Your Business",
+          "Stay Compliant With Meta's Policies and Regulations",
+          "Track 40% More Conversions Than Typical Setups",
+        ]}
+      />
       <SocialProof
         sectionTitle="Ecommerce Brands Trust Our Tracking Solution"
         sectionDescription="See how we've helped businesses just like yours restore tracking and scale their ad campaigns."
@@ -527,22 +523,29 @@ export default function HomePage() {
           </h4>
         </div>
         <TestimonialGrid upwork={true} />
-        <div className="from-primary/5 to-background bg-linear-to-b pt-24 pb-12">
+      </Container>
+      <ScarcityUrgency
+        title="Limited Time Offer: $300 Off for First 10 Customers Only"
+        description="To ensure personalized attention and maximize results, this offer is limited to the first 10 businesses and expires at the end of the month."
+        spotsLeft={10}
+        daysRemaining={14}
+        iconSize={12}
+        customButton={
           <CouponOptInForm
             buttonElement={
-              <Button className="mx-auto flex w-fit max-w-5xl cursor-pointer flex-col items-center p-6 text-center text-xl font-bold">
+              <Button className="bg-primary-foreground hover:bg-primary-foreground/90 text-primary mx-auto flex w-fit max-w-5xl cursor-pointer flex-col items-center p-6 text-center text-xl font-bold">
                 <div>
-                  🔒 Lock In $7,900 in Value — Before It Disappears
+                  ✅ Fix Your Tracking — and Save $300 Instantly
                   <span className="mt-2 block text-sm font-medium opacity-90">
-                    $300 discount + $7,600 in bonuses. High demand — extremely
-                    limited.
+                    We’ll include $7,600 in battle-tested bonuses, free. Only 10
+                    spots.
                   </span>
                 </div>
               </Button>
             }
           />
-        </div>
-      </Container>
+        }
+      />{" "}
     </main>
   );
 }
