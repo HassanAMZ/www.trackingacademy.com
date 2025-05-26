@@ -90,7 +90,7 @@ const TrackingTable: React.FC<TrackingTableProps> = ({ rows }) => {
   const stats = calculateStats(displayedData);
 
   return (
-    <div className="max-w-4xl">
+    <div>
       {/* Summary Cards */}
       <div className="mb-6 grid grid-cols-3 gap-4">
         <div className="rounded-lg border p-4 shadow-sm">
