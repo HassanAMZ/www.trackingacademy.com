@@ -69,7 +69,7 @@ export async function sendPaymentSuccessEmail(data: PaymentSuccessEmailData) {
     await resend.emails.send({
       from: "no-reply@trackingacademy.com",
       to: data.email,
-      cc: ["reactjswebdev@gmail.com", "analytics@trackingacademy.com"],
+      cc: ["reactjswebdev@gmail.com"],
 
       subject: `Payment Confirmation - ${data.productName}`,
       react: PaymentSuccessEmail(emailData),
@@ -100,7 +100,7 @@ export async function sendPaymentFailedEmail(data: PaymentFailedEmailData) {
     await resend.emails.send({
       from: "no-reply@trackingacademy.com",
       to: data.email,
-      cc: ["reactjswebdev@gmail.com", "analytics@trackingacademy.com"],
+      cc: ["reactjswebdev@gmail.com"],
 
       subject: "Payment Failed - Please Try Again",
       react: PaymentFailedEmail(emailData),
@@ -133,7 +133,7 @@ export async function sendInvoicePaymentSuccessEmail(
     await resend.emails.send({
       from: "no-reply@trackingacademy.com",
       to: data.email,
-      cc: ["reactjswebdev@gmail.com", "analytics@trackingacademy.com"],
+      cc: ["reactjswebdev@gmail.com"],
 
       subject: "Invoice Payment Confirmation",
       react: InvoicePaymentSuccessEmail(emailData),
@@ -167,7 +167,7 @@ export async function sendSubscriptionCreatedEmail(
     await resend.emails.send({
       from: "no-reply@trackingacademy.com",
       to: data.email,
-      cc: ["reactjswebdev@gmail.com", "analytics@trackingacademy.com"],
+      cc: ["reactjswebdev@gmail.com"],
 
       subject: `Welcome to ${data.planName} - Subscription Confirmed`,
       react: SubscriptionCreatedEmail(emailData),

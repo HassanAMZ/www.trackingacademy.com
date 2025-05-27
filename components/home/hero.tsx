@@ -11,13 +11,13 @@ interface HeroProps {
   heading: ReactNode;
   subheading?: ReactNode;
   eyebrow?: string;
-  carousel: ReactNode;
+  carousel?: ReactNode;
   benefits: string[];
   ctaText?: string;
   ctaLink?: string;
   secondaryCtaText?: string;
   secondaryCtaLink?: string;
-  supportingComponent: ReactNode;
+  supportingComponent?: ReactNode;
   clientCountText?: ReactNode;
   caseStudies?: CaseStudy[];
   customCtaButton?: ReactNode;
@@ -41,7 +41,7 @@ const Hero: FC<HeroProps> = ({
           <Star key={i} className="fill-amber-400 text-amber-400" />
         ))}
       </div>
-      <span>4.9 from 200 reviews || 1,000+ Websites Configured.</span>
+      <span>4.9 from 200+ reviews • 1,000+ Websites Audited Optimized</span>
     </div>
   ),
   caseStudies = CaseStudies,
@@ -57,9 +57,9 @@ const Hero: FC<HeroProps> = ({
         )}
         {heading}
         {subheading && subheading}
-        <div className="mx-auto max-w-2xl lg:mx-0">
-          {carousel && carousel}
-        </div>{" "}
+        {carousel && (
+          <div className="mx-auto max-w-2xl lg:mx-0">{carousel}</div>
+        )}
         <div className="mx-auto grid max-w-2xl grid-cols-2 justify-center gap-2 py-4 md:grid-cols-3 md:items-start lg:mx-0">
           {benefits.map((benefit, index) => (
             <div

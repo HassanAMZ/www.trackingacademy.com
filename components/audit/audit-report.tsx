@@ -10,6 +10,11 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+import {
+  ChartContainer,
+  ChartTooltip,
+  ChartTooltipContent,
+} from "@/components/ui/chart";
 import { Progress } from "@/components/ui/progress";
 import {
   Table,
@@ -19,20 +24,35 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
-import { AuditReportProps } from "@/data/audit-report";
+import type { AuditReportProps } from "@/data/audit-report";
 import {
   AlertTriangle,
+  BarChart3,
   CheckCircle,
   Code,
   Cookie,
   ExternalLink,
+  PieChart,
   Shield,
   TrendingUp,
   XCircle,
 } from "lucide-react";
+import {
+  Bar,
+  BarChart,
+  CartesianGrid,
+  Cell,
+  Pie,
+  PieChart as RechartsPieChart,
+  Scatter,
+  ScatterChart,
+  XAxis,
+  YAxis,
+  ZAxis,
+} from "recharts";
 import Container from "../ui/container";
 
-function getScoreColor(score: number, maxScore: number) {
+export function getScoreColor(score: number, maxScore: number) {
   const percentage = (score / maxScore) * 100;
   if (percentage >= 80) return "text-green-600";
   if (percentage >= 60) return "text-yellow-600";
@@ -42,6 +62,7 @@ function getScoreColor(score: number, maxScore: number) {
 function getCategoryBadgeVariant(category: string) {
   switch (category.toLowerCase()) {
     case "advertising":
+    case "advertisement":
       return "destructive";
     case "analytics":
       return "secondary";
@@ -58,11 +79,98 @@ export default function AuditReport({ report }: AuditReportProps) {
   const scorePercentage =
     (report.overallScore.score / report.overallScore.maxScore) * 100;
 
+  // Prepare chart data
+  const categoryChartData = report.categoryScores.map((category) => ({
+    name: category.name,
+    score: category.score,
+    fill:
+      category.score >= 80
+        ? "hsl(var(--chart-1))"
+        : category.score >= 60
+          ? "hsl(var(--chart-2))"
+          : "hsl(var(--chart-3))",
+  }));
+
+  const categoryChartConfig = {
+    score: {
+      label: "Score (%)",
+      color: "hsl(var(--chart-1))",
+    },
+  };
+
+  // Tracker distribution by category
+  const trackersByCategory = report.trackers.reduce(
+    (acc, tracker) => {
+      acc[tracker.category] = (acc[tracker.category] || 0) + 1;
+      return acc;
+    },
+    {} as Record<string, number>,
+  );
+
+  const trackerDistributionData = Object.entries(trackersByCategory).map(
+    ([category, count], index) => ({
+      category,
+      count,
+      fill: `hsl(var(--chart-${(index % 5) + 1}))`,
+    }),
+  );
+
+  const trackerDistributionConfig = {
+    count: {
+      label: "Number of Trackers",
+    },
+  };
+
+  // Cookie lifetime analysis
+  const cookieLifetimeData = report.trackingCookies.reduce(
+    (acc, cookie) => {
+      const lifetime = cookie.lifetime;
+      acc[lifetime] = (acc[lifetime] || 0) + 1;
+      return acc;
+    },
+    {} as Record<string, number>,
+  );
+
+  const cookieLifetimeChartData = Object.entries(cookieLifetimeData).map(
+    ([lifetime, count]) => ({
+      lifetime,
+      count,
+      fill: "hsl(var(--chart-4))",
+    }),
+  );
+
+  const cookieLifetimeConfig = {
+    count: {
+      label: "Number of Cookies",
+      color: "hsl(var(--chart-4))",
+    },
+  };
+
+  // Script performance data
+  const scriptPerformanceData = report.trackingScripts.map((script, index) => ({
+    name: script.name,
+    transferSize: Number.parseInt(script.transferSize.replace(/[^\d]/g, "")),
+    blockingTime: Number.parseInt(script.blockingTime.replace(/[^\d]/g, "")),
+    provider: script.provider,
+    fill: `hsl(var(--chart-${(index % 5) + 1}))`,
+  }));
+
+  const scriptPerformanceConfig = {
+    transferSize: {
+      label: "Transfer Size (KB)",
+      color: "hsl(var(--chart-1))",
+    },
+    blockingTime: {
+      label: "Blocking Time (ms)",
+      color: "hsl(var(--chart-2))",
+    },
+  };
+
   return (
     <Container className="space-y-8 p-6">
       {/* Header */}
       <div className="space-y-4 text-center">
-        <h1 className="text-3xl font-bold">Privacy Audit Report</h1>
+        <h1 className="text-3xl font-bold">Website Audit Report</h1>
         <div className="text-muted-foreground flex items-center justify-center gap-4">
           <span className="font-medium">{report.domain}</span>
           <span>•</span>
@@ -120,6 +228,189 @@ export default function AuditReport({ report }: AuditReportProps) {
           </div>
         </CardContent>
       </Card>
+
+      {/* Tracker Distribution Chart */}
+      <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
+        {/* Category Scores Chart */}
+        <Card>
+          <CardHeader>
+            <CardTitle className="flex items-center gap-2">
+              <BarChart3 className="h-5 w-5" />
+              Category Performance Analysis
+            </CardTitle>
+            <CardDescription>
+              Detailed breakdown of scores across different categories
+            </CardDescription>
+          </CardHeader>
+          <CardContent>
+            <ChartContainer config={categoryChartConfig}>
+              <BarChart accessibilityLayer data={categoryChartData}>
+                <CartesianGrid vertical={false} />
+                <XAxis
+                  dataKey="name"
+                  tickLine={false}
+                  tickMargin={10}
+                  axisLine={false}
+                />
+                <YAxis
+                  tickLine={false}
+                  axisLine={false}
+                  tickFormatter={(value) => `${value}%`}
+                />
+                <ChartTooltip
+                  cursor={false}
+                  content={<ChartTooltipContent hideLabel />}
+                />
+                <Bar dataKey="score" radius={8} />
+              </BarChart>
+            </ChartContainer>
+          </CardContent>
+        </Card>
+        <Card>
+          <CardHeader>
+            <CardTitle className="flex items-center gap-2">
+              <PieChart className="h-5 w-5" />
+              Tracker Distribution
+            </CardTitle>
+            <CardDescription>Breakdown of trackers by category</CardDescription>
+          </CardHeader>
+          <CardContent>
+            <ChartContainer config={trackerDistributionConfig}>
+              <RechartsPieChart>
+                <ChartTooltip
+                  cursor={false}
+                  content={<ChartTooltipContent hideLabel />}
+                />
+                <Pie
+                  data={trackerDistributionData}
+                  dataKey="count"
+                  nameKey="category"
+                  innerRadius={60}
+                  strokeWidth={5}
+                >
+                  {trackerDistributionData.map((entry, index) => (
+                    <Cell key={`cell-${index}`} fill={entry.fill} />
+                  ))}
+                </Pie>
+              </RechartsPieChart>
+            </ChartContainer>
+          </CardContent>
+        </Card>
+
+        {/* Script Performance Chart */}
+        <Card>
+          <CardHeader>
+            <CardTitle className="flex items-center gap-2">
+              <Code className="h-5 w-5" />
+              Script Performance Analysis
+            </CardTitle>
+            <CardDescription>
+              Transfer size vs blocking time for tracking scripts
+            </CardDescription>
+          </CardHeader>
+          <CardContent>
+            <ChartContainer config={scriptPerformanceConfig}>
+              <ScatterChart data={scriptPerformanceData}>
+                <CartesianGrid />
+                <XAxis
+                  type="number"
+                  dataKey="transferSize"
+                  name="Transfer Size"
+                  unit="KB"
+                  tickLine={false}
+                  axisLine={false}
+                />
+                <YAxis
+                  type="number"
+                  dataKey="blockingTime"
+                  name="Blocking Time"
+                  unit="ms"
+                  tickLine={false}
+                  axisLine={false}
+                />
+                <ZAxis type="number" range={[60, 400]} />
+                <ChartTooltip
+                  cursor={{ strokeDasharray: "3 3" }}
+                  content={({ active, payload }) => {
+                    if (active && payload && payload.length) {
+                      const data = payload[0].payload;
+                      return (
+                        <div className="bg-background rounded-lg border p-2 shadow-sm">
+                          <div className="grid grid-cols-2 gap-2">
+                            <div className="flex flex-col">
+                              <span className="text-muted-foreground text-[0.70rem] uppercase">
+                                Script
+                              </span>
+                              <span className="text-muted-foreground font-bold">
+                                {data.name}
+                              </span>
+                            </div>
+                            <div className="flex flex-col">
+                              <span className="text-muted-foreground text-[0.70rem] uppercase">
+                                Provider
+                              </span>
+                              <span className="font-bold">{data.provider}</span>
+                            </div>
+                            <div className="flex flex-col">
+                              <span className="text-muted-foreground text-[0.70rem] uppercase">
+                                Transfer Size
+                              </span>
+                              <span className="text-muted-foreground font-bold">
+                                {data.transferSize} KB
+                              </span>
+                            </div>
+                            <div className="flex flex-col">
+                              <span className="text-muted-foreground text-[0.70rem] uppercase">
+                                Blocking Time
+                              </span>
+                              <span className="font-bold">
+                                {data.blockingTime} ms
+                              </span>
+                            </div>
+                          </div>
+                        </div>
+                      );
+                    }
+                    return null;
+                  }}
+                />
+                <Scatter dataKey="blockingTime" />
+              </ScatterChart>
+            </ChartContainer>
+          </CardContent>
+        </Card>
+
+        <Card>
+          <CardHeader>
+            <CardTitle className="flex items-center gap-2">
+              <Cookie className="h-5 w-5" />
+              Cookie Lifetime Distribution
+            </CardTitle>
+            <CardDescription>
+              Analysis of cookie retention periods
+            </CardDescription>
+          </CardHeader>
+          <CardContent>
+            <ChartContainer config={cookieLifetimeConfig}>
+              <BarChart accessibilityLayer data={cookieLifetimeChartData}>
+                <CartesianGrid vertical={false} />
+                <XAxis
+                  dataKey="lifetime"
+                  tickLine={false}
+                  tickMargin={10}
+                  axisLine={false}
+                />
+                <YAxis tickLine={false} axisLine={false} />
+                <ChartTooltip
+                  cursor={false}
+                  content={<ChartTooltipContent hideLabel />}
+                />
+                <Bar dataKey="count" radius={8} />
+              </BarChart>
+            </ChartContainer>
+          </CardContent>
+        </Card>
+      </div>
 
       {/* Trackers */}
       <Card>

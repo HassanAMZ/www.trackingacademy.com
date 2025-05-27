@@ -46,7 +46,7 @@ const TestimonialsCarousel2: React.FC = () => {
       target="_blank"
       rel="noopener noreferrer"
     >
-      <div className="md:py:2 relative space-y-4 rounded-lg border px-6 pt-2 pb-4 transition-shadow hover:shadow-md md:mx-0">
+      <div className="md:py:2 text-muted-foreground border-background hover:border-primary relative space-y-4 rounded-lg border-2 px-6 pt-2 pb-4 shadow transition-shadow hover:shadow-md md:mx-0">
         <div className="absolute -top-3 right-0 flex space-x-1">
           {[...Array(5)].map((_, i) => (
             <Star key={i} className="fill-amber-400 text-amber-400" />

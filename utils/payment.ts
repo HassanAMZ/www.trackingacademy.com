@@ -12,6 +12,12 @@ export const getSuccessUrl = () => {
   const pathSegments = currentPath.split("/").filter(Boolean);
   return `${window.location.origin}/${pathSegments.join("/")}/success`;
 };
+// Utility function to determine success URL based on current path
+export const getDirectoryURL = (path: string) => {
+  const currentPath = window.location.pathname;
+  const pathSegments = currentPath.split("/").filter(Boolean);
+  return `${window.location.origin}/${pathSegments.join("/")}/${path}`;
+};
 
 // Currency formatter utility
 export const formatCurrency = (amount: number, currency: string) => {

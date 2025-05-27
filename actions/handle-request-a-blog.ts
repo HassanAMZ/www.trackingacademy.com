@@ -41,7 +41,7 @@ export async function handleRequestABlogForm(
     await resend.emails.send({
       from: "no-reply@trackingacademy.com",
       to: data.email,
-      cc: ["reactjswebdev@gmail.com", "analytics@trackingacademy.com"],
+      cc: ["reactjswebdev@gmail.com"],
 
       subject: "Thank you for your blog request!",
       react: RequestABlogEmail({

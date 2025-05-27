@@ -1,17 +1,14 @@
 "use server";
 
 import { db } from "@/app/firebase";
-import CouponRequestEmail from "@/components/emails/coupon-request";
+import AuditRequestEmail from "@/components/emails/request-free-audit";
 import { collection, doc, setDoc, Timestamp } from "firebase/firestore";
 import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
 import { Resend } from "resend";
 import { z } from "zod";
 
-export async function createCouponRequest(
-  formData: FormData,
-  redirectUrl: string = "/contact/book-a-meeting",
-): Promise<void> {
+export async function submitAuditRequest(formData: FormData): Promise<void> {
   const overallStart = performance.now();
 
   // Ensure Resend API Key exists
@@ -28,25 +25,29 @@ export async function createCouponRequest(
     .replace(/[-T:.Z]/g, "")
     .substring(0, 14);
 
-  const couponRequestsCollection = collection(db, "coupon-requests");
+  const auditRequestsCollection = collection(db, "audit-requests");
 
   // Data validation
   const schema = z.object({
     name: z.string().min(1, "Name is required"),
     email: z.string().email("Invalid email address"),
     phone: z.string().min(1, "Phone number is required"),
+    websiteUrl: z.string().url().optional(),
     createdAt: z.instanceof(Timestamp),
-    couponCode: z.string(),
   });
 
   let data;
+
+  const cookieStore = await cookies();
+  const websiteUrl = cookieStore.get("website_url")?.value;
+
   try {
     data = schema.parse({
       name: formData.get("name"),
       email: formData.get("email"),
       phone: formData.get("phone"),
+      websiteUrl: websiteUrl,
       createdAt: Timestamp.now(),
-      couponCode: "SEEEVERYSALE300OFF",
     });
   } catch (validationError) {
     console.error("Validation failed", validationError);
@@ -54,25 +55,31 @@ export async function createCouponRequest(
   }
 
   try {
-    const docRef = doc(couponRequestsCollection, timestampId); // Prepare email data
+    const docRef = doc(auditRequestsCollection, timestampId);
+
+    // Prepare email data
     const emailData = {
       name: data.name,
       email: data.email,
       phone: data.phone,
-      couponCode: data.couponCode,
+      websiteUrl: data.websiteUrl,
       createdAt: data.createdAt,
-    }; // Execute Firebase write and email sending in parallel
+    };
+
+    // Execute Firebase write and email sending in parallel
     await Promise.all([
       setDoc(docRef, data),
+      // Send email to user
       resend.emails.send({
         from: "no-reply@trackingacademy.com",
         to: data.email,
         cc: ["reactjswebdev@gmail.com"],
-
-        subject: `Your $300 Coupon Code is Ready, ${data.name}!`,
-        react: CouponRequestEmail(emailData),
+        subject: `Your Free Website Tracking Audit Report is in Progress, ${data.name}!`,
+        react: AuditRequestEmail(emailData),
       }),
-    ]); // Set cookie for user data
+    ]);
+
+    // Set cookies for user data
     try {
       const cookieStore = await cookies();
       cookieStore.set("name", data.name, {
@@ -104,7 +111,7 @@ export async function createCouponRequest(
       console.warn("Failed to set cookie", cookieError);
     }
   } catch (e) {
-    console.error("Failed to create coupon request or send email", e);
+    console.error("Failed to create audit request or send email", e);
     throw new Error("Failed to process your request. Please try again.");
   }
 
@@ -112,6 +119,5 @@ export async function createCouponRequest(
     `Total execution time: ${(performance.now() - overallStart).toFixed(2)}ms`,
   );
 
-  // Use redirect instead of returning data
-  redirect(redirectUrl);
+  redirect("/lead-magnets/free-website-audit/success");
 }
