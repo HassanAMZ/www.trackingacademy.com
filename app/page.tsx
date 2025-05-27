@@ -31,7 +31,7 @@ export default function HomePage() {
     <main>
       <Navbar />
       <Hero
-        eyebrow="Still flying blind on Sds?"
+        eyebrow="Still flying blind on Ads?"
         heading={
           <h1 className="mx-auto text-center lg:mx-0 lg:text-left">
             Fix broken facebook ads tracking in 7 days —{" "}
