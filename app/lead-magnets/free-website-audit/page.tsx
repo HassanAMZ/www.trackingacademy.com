@@ -89,7 +89,7 @@ export default function HomePage() {
       <Container className="mx-auto grid min-h-screen max-w-4xl place-content-center space-y-6 py-12">
         <div className="mx-auto space-y-4 text-center">
           <h1 className="mx-auto max-w-3xl">
-            Free Web Tracking Audit —
+            Free Website Tracking Audit —
             <span className="text-primary"> No More Data Doubts</span>
           </h1>
           <h4 className="text-muted-foreground mx-auto max-w-3xl">
