@@ -12,8 +12,9 @@ import {
   navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import { services } from "@/data/services";
 import clsx from "clsx";
-import { Briefcase, FileText, Menu, Wrench } from "lucide-react";
+import { Briefcase, FileText, Menu, Settings, Wrench } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -28,6 +29,19 @@ interface NavItem {
 }
 
 const NAV_ITEMS: Record<string, NavItem[]> = {
+  services: [
+    {
+      title: "All Services",
+      href: "/services",
+      description:
+        "Explore our complete range of tracking and analytics services",
+    },
+    ...services.slice(0, 4).map((service) => ({
+      title: service.name,
+      href: `/services/${service.id}`,
+      description: service.subtitle + " - " + service.description,
+    })),
+  ],
   tools: [
     {
       title: "All Tools",
@@ -213,7 +227,7 @@ export default function Navbar({ className }: { className?: string }) {
           </a>
         </NavigationMenuLink>
       </li>
-      {items.map((item) => (
+      {items.slice(1).map((item) => (
         <ListItem key={item.title} title={item.title} href={item.href}>
           {item.description}
         </ListItem>
@@ -255,7 +269,15 @@ export default function Navbar({ className }: { className?: string }) {
               )}
             </NavigationMenuContent>
           </NavigationMenuItem>
-
+          <NavigationMenuItem>
+            <NavigationMenuTrigger>Services</NavigationMenuTrigger>
+            <NavigationMenuContent>
+              {renderNavigationMenuItems(
+                NAV_ITEMS.services,
+                <Settings className="h-6 w-6" />,
+              )}
+            </NavigationMenuContent>
+          </NavigationMenuItem>
           <NavigationMenuItem>
             <NavLink href="/pricing" className={navigationMenuTriggerStyle()}>
               Pricing
@@ -290,26 +312,30 @@ export default function Navbar({ className }: { className?: string }) {
       </div>{" "}
       <SheetContent side="right" className="flex flex-col justify-between">
         <nav className="flex w-full flex-col space-y-4 py-4">
-          {["/", "/tools", "/case-study", "/blog", "/pricing"].map((path) => (
-            <Link
-              key={path}
-              href={path}
-              className={clsx(
-                "text-foreground w-full! justify-start!",
-                navigationMenuTriggerStyle(),
-                isActive(path) && "bg-accent text-accent-foreground",
-              )}
-              onClick={handleLinkClick}
-            >
-              {path === "/"
-                ? "TrackingAcademy"
-                : path === "/case-study"
-                  ? "Case Studies"
-                  : path === "/pricing"
-                    ? "Pricing"
-                    : path.slice(1).charAt(0).toUpperCase() + path.slice(2)}
-            </Link>
-          ))}
+          {["/", "/services", "/tools", "/case-study", "/blog", "/pricing"].map(
+            (path) => (
+              <Link
+                key={path}
+                href={path}
+                className={clsx(
+                  "text-foreground w-full! justify-start!",
+                  navigationMenuTriggerStyle(),
+                  isActive(path) && "bg-accent text-accent-foreground",
+                )}
+                onClick={handleLinkClick}
+              >
+                {path === "/"
+                  ? "TrackingAcademy"
+                  : path === "/services"
+                    ? "Services"
+                    : path === "/case-study"
+                      ? "Case Studies"
+                      : path === "/pricing"
+                        ? "Pricing"
+                        : path.slice(1).charAt(0).toUpperCase() + path.slice(2)}
+              </Link>
+            ),
+          )}
           {renderCallToAction()}
         </nav>
         <ThemeToggle />

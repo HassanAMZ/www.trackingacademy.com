@@ -31,7 +31,7 @@ const ScarcityUrgency: React.FC<ScarcityUrgencyProps> = ({
   customButton,
 }) => {
   return (
-    <Container className="flex min-h-[75vh] items-center justify-center pb-12">
+    <Container className="flex min-h-[50vh] items-center justify-center pb-12">
       <section className="bg-primary text-primary-foreground flex w-full flex-col items-center justify-center space-y-8 rounded-lg px-8 py-24 text-center">
         {/* Title */}
         {title && <h2 className="max-w-3xl">{title}</h2>}

@@ -1,5 +1,6 @@
 export interface Service {
   name: string;
+  id: string;
   subtitle: string;
   description: string;
   price: string;
@@ -21,6 +22,7 @@ export interface Service {
 export const services: Service[] = [
   {
     name: "Basic Tracking Audit",
+    id: "basic-tracking-audit",
     subtitle: "Client-Side Tracking",
     description:
       "Identify gaps in your current tracking setup and get a roadmap for improvements",
@@ -72,8 +74,9 @@ export const services: Service[] = [
     },
   },
   {
-    name: "Professional Setup",
     subtitle: "Client-Side Implementation",
+    name: "Professional Setup",
+    id: "professional-setup",
     description:
       "Complete implementation of client-side tracking for improved conversion accuracy",
     price: "$1,500",
@@ -125,6 +128,7 @@ export const services: Service[] = [
   },
   {
     name: "Advanced Tracking",
+    id: "advanced-tracking",
     subtitle: "Server-Side + Client-Side",
     description:
       "Comprehensive tracking with both client and server-side implementation for maximum accuracy",
@@ -190,6 +194,7 @@ export const services: Service[] = [
   },
   {
     name: "Enterprise Solution",
+    id: "enterprise-solution",
     subtitle: "Full Compliance & Tracking",
     description:
       "Advanced tracking with complete digital compliance for enterprise-level needs",
@@ -199,7 +204,7 @@ export const services: Service[] = [
     popular: false,
     color: "border-muted",
     buttonVariant: "outline",
-    cta: "Schedule Consultation",
+    cta: "Get Started",
     accuracy: "95%+",
     features: {
       "Google Ads Tracking": "Full Setup",
@@ -263,6 +268,7 @@ export const services: Service[] = [
   },
   {
     name: "See Every Sale",
+    id: "see-every-sale",
     subtitle: "3-Day Complete Tracking Solution",
     description:
       "Complete Meta ads tracking restoration with custom dashboard and compliance setup - delivered in just 3 days",
@@ -330,7 +336,7 @@ export const services: Service[] = [
       "Money Back Guarantee":
         "100% money-back guarantee if we don't deliver 95% accurate conversion tracking within 3 days.",
       CST: "Client-Side Tracking captures user interactions directly in the browser. Only 60-70% accurate due to ad blockers, privacy settings, and browser restrictions.",
-      SST: "Server-Side Tracking processes data on secure servers, bypassing ad blockers and preserving user privacy while maintaining 95%+ accuracy. Perfect for Meta ads optimization.",
+      SST: "Server-Side Tracking processes data on secure serversWebsite. ing ad blockers and preserving user privacy while maintaining 95%+ accuracy. Perfect for Meta ads optimization.",
       "GA4 Full Setup":
         "Complete Google Analytics 4 implementation with custom events, proper attribution, and ecommerce tracking tailored to your business needs.",
       "Custom Ecom Dashboard":
