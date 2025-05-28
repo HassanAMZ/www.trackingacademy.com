@@ -36,7 +36,7 @@ const NAV_ITEMS: Record<string, NavItem[]> = {
       description:
         "Explore our complete range of tracking and analytics services",
     },
-    ...services.slice(0, 4).map((service) => ({
+    ...services.slice(1, 4).map((service) => ({
       title: service.name,
       href: `/services/${service.id}`,
       description: service.subtitle + " - " + service.description,
