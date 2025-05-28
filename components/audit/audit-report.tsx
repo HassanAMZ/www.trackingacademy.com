@@ -85,16 +85,16 @@ export default function AuditReport({ report }: AuditReportProps) {
     score: category.score,
     fill:
       category.score >= 80
-        ? "hsl(var(--chart-1))"
+        ? "var(--chart-1)"
         : category.score >= 60
-          ? "hsl(var(--chart-2))"
-          : "hsl(var(--chart-3))",
+          ? "var(--chart-2)"
+          : "var(--chart-3)",
   }));
 
   const categoryChartConfig = {
     score: {
       label: "Score (%)",
-      color: "hsl(var(--chart-1))",
+      color: "var(--chart-1)",
     },
   };
 
@@ -111,7 +111,7 @@ export default function AuditReport({ report }: AuditReportProps) {
     ([category, count], index) => ({
       category,
       count,
-      fill: `hsl(var(--chart-${(index % 5) + 1}))`,
+      fill: `var(--chart-${(index % 5) + 1})`,
     }),
   );
 
@@ -135,14 +135,14 @@ export default function AuditReport({ report }: AuditReportProps) {
     ([lifetime, count]) => ({
       lifetime,
       count,
-      fill: "hsl(var(--chart-4))",
+      fill: "var(--chart-4)",
     }),
   );
 
   const cookieLifetimeConfig = {
     count: {
       label: "Number of Cookies",
-      color: "hsl(var(--chart-4))",
+      color: "var(--chart-4)",
     },
   };
 
@@ -152,17 +152,17 @@ export default function AuditReport({ report }: AuditReportProps) {
     transferSize: Number.parseInt(script.transferSize.replace(/[^\d]/g, "")),
     blockingTime: Number.parseInt(script.blockingTime.replace(/[^\d]/g, "")),
     provider: script.provider,
-    fill: `hsl(var(--chart-${(index % 5) + 1}))`,
+    fill: `var(--chart-${(index % 5) + 1})`,
   }));
 
   const scriptPerformanceConfig = {
     transferSize: {
       label: "Transfer Size (KB)",
-      color: "hsl(var(--chart-1))",
+      color: "var(--chart-1)",
     },
     blockingTime: {
       label: "Blocking Time (ms)",
-      color: "hsl(var(--chart-2))",
+      color: "var(--chart-2)",
     },
   };
 
@@ -230,7 +230,7 @@ export default function AuditReport({ report }: AuditReportProps) {
       </Card>
 
       {/* Tracker Distribution Chart */}
-      <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
+      <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
         {/* Category Scores Chart */}
         <Card>
           <CardHeader>
