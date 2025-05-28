@@ -76,7 +76,7 @@ const auditReports: AuditReport[] = [
   {
     id: "justclickandshop",
     date: "May 28th, 2025",
-    domain: "justclickandshop.com/",
+    domain: "justclickandshop.com",
     overallScore: {
       score: 72,
       maxScore: 100,
@@ -162,7 +162,7 @@ const auditReports: AuditReport[] = [
   {
     id: "roisense",
     date: "May 28th, 2025",
-    domain: "demo.roisense.com/",
+    domain: "demo.roisense.com",
     overallScore: {
       score: 25,
       maxScore: 100,
@@ -489,7 +489,7 @@ const auditReports: AuditReport[] = [
   {
     id: "afroditacosmetics",
     date: "May 15th, 2025",
-    domain: "webshop.afroditacosmetics.com/slo/",
+    domain: "webshop.afroditacosmetics.com",
     overallScore: {
       score: 44,
       maxScore: 100,
