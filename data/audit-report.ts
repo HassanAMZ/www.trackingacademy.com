@@ -74,6 +74,92 @@ export interface AuditReportProps {
 
 const auditReports: AuditReport[] = [
   {
+    id: "justclickandshop",
+    date: "May 28th, 2025",
+    domain: "justclickandshop.com/",
+    overallScore: {
+      score: 72,
+      maxScore: 100,
+      status: "Can be improved",
+      color: "warning",
+    },
+    categoryScores: [
+      {
+        name: "Analytics",
+        score: 90,
+        color: "success",
+      },
+      {
+        name: "Ads",
+        score: 62,
+        color: "warning",
+      },
+      {
+        name: "Cookie lifetime",
+        score: 36,
+        color: "destructive",
+      },
+      {
+        name: "Page speed",
+        score: 96,
+        color: "success",
+      },
+    ],
+    trackers: [
+      {
+        name: "Meta",
+        provider: "Meta",
+        category: "Advertisment",
+        dataSentTo: "US",
+        trackingMethod: "Client-side",
+        canImprove: true,
+        improvementLink: "#0196a9c3-bc94-74c0-9dfb-0a54a50331fa",
+      },
+    ],
+    trackingCookies: [
+      {
+        name: "_fbp",
+        provider: "Meta",
+        category: "Advertisment",
+        dataSentTo: "US",
+        lifetime: "7 days",
+      },
+      {
+        name: "_fbc",
+        provider: "Meta",
+        category: "Advertisment",
+        dataSentTo: "US",
+        lifetime: "1 days",
+      },
+    ],
+    trackingScripts: [
+      {
+        name: "fbevents.js",
+        provider: "Meta",
+        category: "Advertisment",
+        transferSize: "47 KB",
+        transferSizeColor: "success",
+        blockingTime: "58 ms",
+        blockingTimeColor: "success",
+      },
+    ],
+    recommendedActions: [
+      {
+        id: "cookie-keeper",
+        title:
+          "Use Cookie Keeper to bypass ITP limits and extend cookie duration",
+        categories: ["Cookies"],
+        scoreImprovement: 19,
+      },
+      {
+        id: "0196a9c3-bc94-74c0-9dfb-0a54a50331fa",
+        title: "Switch to web & server-side tracking for Meta",
+        categories: ["Advertisment"],
+        scoreImprovement: 8,
+      },
+    ],
+  },
+  {
     id: "roisense",
     date: "May 28th, 2025",
     domain: "demo.roisense.com/",
