@@ -12,7 +12,6 @@ import {
 } from "@/components/ui/card";
 import { Progress } from "@/components/ui/progress";
 import { Separator } from "@/components/ui/separator";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { CaseStudy } from "@/data/case-studies";
 import {
   Calendar,
@@ -52,7 +51,8 @@ export default function CaseStudyComponent({
     <Container className="space-y-8 py-8">
       <div className="grid grid-cols-1 gap-8 lg:grid-cols-3">
         <div className="lg:col-span-2">
-          <div className="flex flex-col gap-6">
+          <div className="flex flex-col gap-8">
+            {/* Header Section */}
             <div>
               <Badge variant="outline" className="mb-2">
                 {caseStudy.plan} Plan
@@ -85,7 +85,9 @@ export default function CaseStudyComponent({
                   </Button>
                 )}
               </div>
-            </div>{" "}
+            </div>
+
+            {/* Project Image */}
             <div className="relative aspect-video overflow-hidden rounded-lg border">
               <Image
                 src={
@@ -98,7 +100,9 @@ export default function CaseStudyComponent({
               <div className="bg-background/80 absolute right-2 bottom-2 rounded px-2 py-1 text-xs">
                 Desktop View
               </div>
-            </div>{" "}
+            </div>
+
+            {/* Action Buttons */}
             <div className="flex items-center gap-2">
               <Button asChild variant="outline" size="sm">
                 <Link
@@ -125,159 +129,155 @@ export default function CaseStudyComponent({
                 <Clock className="h-3 w-3" />{" "}
                 {caseStudy.projectTimeline.durationDays} days
               </Button>
-            </div>{" "}
-            <Tabs defaultValue="overview" className="w-full">
-              <TabsList className="mb-4 grid grid-cols-3">
-                <TabsTrigger value="overview">Overview</TabsTrigger>
-                <TabsTrigger value="milestones">Milestones</TabsTrigger>
-                <TabsTrigger value="details">Details</TabsTrigger>
-              </TabsList>{" "}
-              <TabsContent value="overview" className="space-y-6">
-                <div>
-                  <h3 className="mb-3 text-lg font-semibold">Challenges</h3>
-                  <ul className="space-y-2">
-                    {caseStudy.challenges.map((challenge, index) => (
-                      <li key={index} className="flex items-start gap-2">
-                        <span className="mt-1 flex items-center justify-center rounded-full bg-red-100 p-0.5 text-red-600">
-                          <ChevronDown className="h-3 w-3" />
-                        </span>
-                        <span>{challenge}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>{" "}
-                <div>
-                  <h3 className="mb-3 text-lg font-semibold">Solutions</h3>
-                  <ul className="space-y-2">
-                    {caseStudy.solutions.map((solution, index) => (
-                      <li key={index} className="flex items-start gap-2">
-                        <span className="mt-1 flex items-center justify-center rounded-full bg-green-100 p-0.5 text-green-600">
-                          <Check className="h-3 w-3" />
-                        </span>
-                        <span>{solution}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>{" "}
-                <div>
-                  <h3 className="mb-3 text-lg font-semibold">Results</h3>
-                  <ul className="space-y-2">
-                    {caseStudy.results.map((result, index) => (
-                      <li key={index} className="flex items-start gap-2">
-                        <span className="mt-1 flex items-center justify-center rounded-full bg-blue-100 p-0.5 text-blue-600">
-                          <Star className="h-3 w-3" />
-                        </span>
-                        <span>{result}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </TabsContent>{" "}
-              <TabsContent value="milestones" className="space-y-6">
-                <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
-                  {caseStudy.milestones.map((milestone, index) => (
-                    <Card key={index}>
-                      <CardHeader className="pb-2">
-                        <CardTitle className="flex items-center gap-2">
-                          <Badge variant={"outline"} className="px-3 py-2">
-                            {index + 1}
-                          </Badge>{" "}
-                          {milestone.name}
-                        </CardTitle>
-                      </CardHeader>
-                      <CardContent className="space-y-2">
-                        <p className="text-muted-foreground text-sm">
-                          {milestone.description}
-                        </p>
-                        <div>
-                          <p className="mb-1 text-xs font-medium">
-                            Expected Outcome:
-                          </p>
-                          <p className="text-sm">{milestone.expectedOutcome}</p>
-                        </div>
-                      </CardContent>
-                    </Card>
-                  ))}
-                </div>
-              </TabsContent>{" "}
-              <TabsContent value="details" className="space-y-6">
-                <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
-                  <Card>
-                    <CardHeader>
-                      <CardTitle>Project Details</CardTitle>
+            </div>
+
+            {/* Challenges Section */}
+            <div className="space-y-4">
+              <h2 className="text-2xl font-bold">Challenges</h2>
+              <ul className="space-y-3">
+                {caseStudy.challenges.map((challenge, index) => (
+                  <li key={index} className="flex items-start gap-3">
+                    <span className="mt-1 flex items-center justify-center rounded-full bg-red-100 p-1 text-red-600">
+                      <ChevronDown className="h-4 w-4" />
+                    </span>
+                    <span className="text-muted-foreground">{challenge}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Solutions Section */}
+            <div className="space-y-4">
+              <h2 className="text-2xl font-bold">Solutions</h2>
+              <ul className="space-y-3">
+                {caseStudy.solutions.map((solution, index) => (
+                  <li key={index} className="flex items-start gap-3">
+                    <span className="mt-1 flex items-center justify-center rounded-full bg-green-100 p-1 text-green-600">
+                      <Check className="h-4 w-4" />
+                    </span>
+                    <span className="text-muted-foreground">{solution}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Results Section */}
+            <div className="space-y-4">
+              <h2 className="text-2xl font-bold">Results</h2>
+              <ul className="space-y-3">
+                {caseStudy.results.map((result, index) => (
+                  <li key={index} className="flex items-start gap-3">
+                    <span className="mt-1 flex items-center justify-center rounded-full bg-blue-100 p-1 text-blue-600">
+                      <Star className="h-4 w-4" />
+                    </span>
+                    <span className="text-muted-foreground">{result}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Milestones Section */}
+            <div className="space-y-6">
+              <h2 className="text-2xl font-bold">Project Milestones</h2>
+              <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
+                {caseStudy.milestones.map((milestone, index) => (
+                  <Card key={index}>
+                    <CardHeader className="pb-3">
+                      <CardTitle className="flex items-center gap-2">
+                        <Badge variant={"outline"} className="px-3 py-1">
+                          {index + 1}
+                        </Badge>
+                        {milestone.name}
+                      </CardTitle>
                     </CardHeader>
-                    <CardContent className="space-y-4">
-                      <div className="flex justify-between">
-                        <span className="text-muted-foreground text-sm">
-                          Owner
-                        </span>
-                        <span className="text-sm font-medium">
-                          {caseStudy.owner}
-                        </span>
-                      </div>
-                      <Separator />
-                      <div className="flex justify-between">
-                        <span className="text-muted-foreground text-sm">
-                          Client
-                        </span>
-                        <span className="text-sm font-medium">
-                          {caseStudy.client}
-                        </span>
-                      </div>
-                      {/* <Separator />
-                      <div className="flex justify-between">
-                        <span className="text-sm text-muted-foreground">
-                          Budget
-                        </span>
-                        <span className="text-sm font-medium">
-                          ${caseStudy.budget.toLocaleString()}
-                        </span>
-                      </div> */}
-                      <Separator />
-                      <div className="flex justify-between">
-                        <span className="text-muted-foreground text-sm">
-                          Duration
-                        </span>
-                        <span className="text-sm font-medium">
-                          {caseStudy.projectTimeline.durationDays} days
-                        </span>
-                      </div>
-                    </CardContent>
-                  </Card>{" "}
-                  <Card>
-                    <CardHeader>
-                      <CardTitle>Technologies & Platforms</CardTitle>
-                    </CardHeader>
-                    <CardContent>
-                      <div className="mb-4">
-                        <h4 className="mb-2 text-sm font-medium">
-                          Technologies
-                        </h4>
-                        <div className="flex flex-wrap gap-2">
-                          {caseStudy.technologies.map((tech, index) => (
-                            <Badge key={index} variant="secondary">
-                              {tech}
-                            </Badge>
-                          ))}
-                        </div>
-                      </div>{" "}
+                    <CardContent className="space-y-3">
+                      <p className="text-muted-foreground text-sm">
+                        {milestone.description}
+                      </p>
                       <div>
-                        <h4 className="mb-2 text-sm font-medium">Platforms</h4>
-                        <div className="flex flex-wrap gap-2">
-                          {caseStudy.platforms.map((platform, index) => (
-                            <Badge key={index} variant="outline">
-                              {platform}
-                            </Badge>
-                          ))}
-                        </div>
+                        <p className="mb-1 text-xs font-medium">
+                          Expected Outcome:
+                        </p>
+                        <p className="text-sm">{milestone.expectedOutcome}</p>
                       </div>
                     </CardContent>
                   </Card>
-                </div>
-              </TabsContent>
-            </Tabs>
+                ))}
+              </div>
+            </div>
+
+            {/* Project Details Section */}
+            <div className="space-y-6">
+              <h2 className="text-2xl font-bold">Project Details</h2>
+              <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
+                <Card>
+                  <CardHeader>
+                    <CardTitle>Project Information</CardTitle>
+                  </CardHeader>
+                  <CardContent className="space-y-4">
+                    <div className="flex justify-between">
+                      <span className="text-muted-foreground text-sm">
+                        Owner
+                      </span>
+                      <span className="text-sm font-medium">
+                        {caseStudy.owner}
+                      </span>
+                    </div>
+                    <Separator />
+                    <div className="flex justify-between">
+                      <span className="text-muted-foreground text-sm">
+                        Client
+                      </span>
+                      <span className="text-sm font-medium">
+                        {caseStudy.client}
+                      </span>
+                    </div>
+                    <Separator />
+                    <div className="flex justify-between">
+                      <span className="text-muted-foreground text-sm">
+                        Duration
+                      </span>
+                      <span className="text-sm font-medium">
+                        {caseStudy.projectTimeline.durationDays} days
+                      </span>
+                    </div>
+                  </CardContent>
+                </Card>
+
+                <Card>
+                  <CardHeader>
+                    <CardTitle>Technologies & Platforms</CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <div className="mb-4">
+                      <h4 className="mb-2 text-sm font-medium">Technologies</h4>
+                      <div className="flex flex-wrap gap-2">
+                        {caseStudy.technologies.map((tech, index) => (
+                          <Badge key={index} variant="secondary">
+                            {tech}
+                          </Badge>
+                        ))}
+                      </div>
+                    </div>
+
+                    <div>
+                      <h4 className="mb-2 text-sm font-medium">Platforms</h4>
+                      <div className="flex flex-wrap gap-2">
+                        {caseStudy.platforms.map((platform, index) => (
+                          <Badge key={index} variant="outline">
+                            {platform}
+                          </Badge>
+                        ))}
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+              </div>
+            </div>
           </div>
-        </div>{" "}
+        </div>
+
+        {/* Sidebar */}
         <div className="lg:col-span-1">
           <div className="sticky top-4 space-y-6">
             <Card className="overflow-hidden">
@@ -306,7 +306,8 @@ export default function CaseStudyComponent({
                       {caseStudy.testimonial.role}
                     </p>
                   </div>
-                </div>{" "}
+                </div>
+
                 <div className="mb-4 flex justify-center">
                   {[1, 2, 3, 4, 5].map((star) => (
                     <Star
@@ -314,12 +315,14 @@ export default function CaseStudyComponent({
                       className="h-5 w-5 fill-yellow-400 text-yellow-400"
                     />
                   ))}
-                </div>{" "}
+                </div>
+
                 <blockquote className="text-center italic">
                   "{caseStudy.testimonial.quote}"
                 </blockquote>
               </CardContent>
-            </Card>{" "}
+            </Card>
+
             <Card>
               <CardHeader>
                 <CardTitle>Analytics Overview</CardTitle>
@@ -341,7 +344,8 @@ export default function CaseStudyComponent({
                     value={caseStudy.analytics.accuracy}
                     className="h-2"
                   />
-                </div>{" "}
+                </div>
+
                 <div className="space-y-2">
                   <div className="flex justify-between">
                     <span className="text-sm font-medium">
@@ -357,7 +361,8 @@ export default function CaseStudyComponent({
                     }
                     className="h-2"
                   />
-                </div>{" "}
+                </div>
+
                 <div className="space-y-2">
                   <div className="flex justify-between">
                     <span className="text-sm font-medium">
@@ -381,6 +386,7 @@ export default function CaseStudyComponent({
                 </div>
               </CardContent>
             </Card>
+
             <Card>
               <CardHeader>
                 <CardTitle>Project Timeline</CardTitle>
@@ -394,7 +400,8 @@ export default function CaseStudyComponent({
                       {formatDate(caseStudy.projectTimeline.startDate)}
                     </p>
                   </div>
-                </div>{" "}
+                </div>
+
                 <div className="flex items-center gap-2">
                   <Calendar className="text-muted-foreground h-4 w-4" />
                   <div className="flex gap-2">
@@ -403,7 +410,8 @@ export default function CaseStudyComponent({
                       {formatDate(caseStudy.projectTimeline.endDate)}
                     </p>
                   </div>
-                </div>{" "}
+                </div>
+
                 <div className="flex items-center gap-2">
                   <Clock className="text-muted-foreground h-4 w-4" />
                   <div className="flex gap-2">
@@ -412,16 +420,8 @@ export default function CaseStudyComponent({
                       {caseStudy.projectTimeline.durationDays} days
                     </p>
                   </div>
-                </div>{" "}
-                {/* <div className="flex items-center gap-2">
-                  <DollarSign className="h-4 w-4 text-muted-foreground" />
-                    <div className="flex gap-2">
-                    <p className="text-sm font-medium">Budget</p>
-                    <p className="text-sm text-muted-foreground">
-                      ${caseStudy.budget.toLocaleString()}
-                    </p>
-                  </div>
-                </div> */}{" "}
+                </div>
+
                 <div className="flex items-center gap-2">
                   <User className="text-muted-foreground h-4 w-4" />
                   <div className="flex gap-2">
@@ -432,7 +432,8 @@ export default function CaseStudyComponent({
                   </div>
                 </div>
               </CardContent>
-            </Card>{" "}
+            </Card>
+
             <Card>
               <CardHeader>
                 <CardTitle>Key Results</CardTitle>
