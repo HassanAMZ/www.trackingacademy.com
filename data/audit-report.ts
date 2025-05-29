@@ -73,6 +73,195 @@ export interface AuditReportProps {
 }
 
 const auditReports: AuditReport[] = [
+  {
+  "id": "sundaygolf",
+  "date": "May 29th, 2025",
+  "domain": "sundaygolf.com",
+  "overallScore": {
+    "score": 40,
+    "maxScore": 100,
+    "status": "Not good",
+    "color": "destructive"
+  },
+  "categoryScores": [
+    { "name": "Analytics", "score": 55, "color": "destructive" },
+    { "name": "Ads", "score": 37, "color": "destructive" },
+    { "name": "Cookie lifetime", "score": 3, "color": "destructive" },
+    { "name": "Page speed", "score": 57, "color": "destructive" }
+  ],
+  "trackers": [
+    {
+      "name": "Meta",
+      "provider": "Meta",
+      "category": "Advertisment",
+      "dataSentTo": "US",
+      "trackingMethod": "Client-side",
+      "canImprove": true,
+      "improvementLink": "/services"
+    },
+    {
+      "name": "Google Analytics 4",
+      "provider": "Google",
+      "category": "Analytics",
+      "dataSentTo": "US",
+      "trackingMethod": "Client-side",
+      "canImprove": true,
+      "improvementLink": "/services"
+    },
+    {
+      "name": "Klaviyo",
+      "provider": "Klaviyo",
+      "category": "Advertisment",
+      "dataSentTo": "US",
+      "trackingMethod": "Client-side",
+      "canImprove": true,
+      "improvementLink": "/services"
+    },
+    {
+      "name": "Pinterest",
+      "provider": "Pinterest",
+      "category": "Advertisment",
+      "dataSentTo": "US",
+      "trackingMethod": "Client & Server-side",
+      "canImprove": false
+    },
+    {
+      "name": "Reddit",
+      "provider": "Reddit",
+      "category": "Advertisment",
+      "dataSentTo": "US",
+      "trackingMethod": "Client-side",
+      "canImprove": true,
+      "improvementLink": "/services"
+    },
+    {
+      "name": "Microsoft Clarity",
+      "provider": "Microsoft",
+      "category": "Advertisment",
+      "dataSentTo": "US",
+      "trackingMethod": "Client-side",
+      "canImprove": false,
+      "isTransparent": true,
+      "transparentMessage": "Server-side tracking not supported"
+    }
+  ],
+  "trackingCookies": [
+    { "name": "_fbp",           "provider": "Meta",      "category": "Advertisment", "dataSentTo": "US", "lifetime": "7 days" },
+    { "name": "_fbc",           "provider": "Meta",      "category": "Advertisment", "dataSentTo": "US", "lifetime": "1 days" },
+    { "name": "_ga",            "provider": "Google",    "category": "Analytics",    "dataSentTo": "US", "lifetime": "7 days" },
+    { "name": "_ga_{measurement_id}", "provider": "Google",    "category": "Analytics",    "dataSentTo": "US", "lifetime": "7 days" },
+    { "name": "__kla_id",       "provider": "Klaviyo",   "category": "Advertisment", "dataSentTo": "US", "lifetime": "400 days" },
+    { "name": "_epik",          "provider": "Pinterest", "category": "Advertisment", "dataSentTo": "US", "lifetime": "365 days" },
+    { "name": "_rdt_cid",       "provider": "Reddit",    "category": "Advertisment", "dataSentTo": "US", "lifetime": "30 days" },
+    { "name": "_clck",          "provider": "Microsoft", "category": "Advertisment", "dataSentTo": "US", "lifetime": "365 days" }
+  ],
+  "trackingScripts": [
+    {
+      "name": "fbevents.js",
+      "provider": "Meta",
+      "category": "Advertisment",
+      "transferSize": "47 KB",
+      "transferSizeColor": "success",
+      "blockingTime": "58 ms",
+      "blockingTimeColor": "success"
+    },
+    {
+      "name": "G gtag.js",
+      "provider": "Google",
+      "category": "Analytics",
+      "transferSize": "83 KB",
+      "transferSizeColor": "success",
+      "blockingTime": "76 ms",
+      "blockingTimeColor": "success"
+    },
+    {
+      "name": "onsite.js",
+      "provider": "Klaviyo",
+      "category": "Advertisment",
+      "transferSize": "33 KB",
+      "transferSizeColor": "success",
+      "blockingTime": "59 ms",
+      "blockingTimeColor": "success"
+    },
+    {
+      "name": "klaviyo.js",
+      "provider": "Klaviyo",
+      "category": "Advertisment",
+      "transferSize": "3 KB",
+      "transferSizeColor": "success",
+      "blockingTime": "221 ms",
+      "blockingTimeColor": "destructive"
+    },
+    {
+      "name": "core.js",
+      "provider": "Pinterest",
+      "category": "Advertisment",
+      "transferSize": "2 KB",
+      "transferSizeColor": "success",
+      "blockingTime": "73 ms",
+      "blockingTimeColor": "success"
+    },
+    {
+      "name": "main.js",
+      "provider": "Pinterest",
+      "category": "Advertisment",
+      "transferSize": "24 KB",
+      "transferSizeColor": "success",
+      "blockingTime": "23 ms",
+      "blockingTimeColor": "success"
+    },
+    {
+      "name": "pixel.js",
+      "provider": "Reddit",
+      "category": "Advertisment",
+      "transferSize": "13 KB",
+      "transferSizeColor": "success",
+      "blockingTime": "141 ms",
+      "blockingTimeColor": "success"
+    },
+    {
+      "name": "clarity.js",
+      "provider": "Microsoft",
+      "category": "Advertisment",
+      "transferSize": "30 KB",
+      "transferSizeColor": "success",
+      "blockingTime": "99 ms",
+      "blockingTimeColor": "success"
+    }
+  ],
+  "recommendedActions": [
+    {
+      "id": "cookie-keeper",
+      "title": "Use Cookie Keeper to bypass ITP limits and extend cookie duration",
+      "categories": ["Cookies"],
+      "scoreImprovement": 19
+    },
+    {
+      "id": "ga4-server-side",
+      "title": "Implement Google Analytics 4 server-side tracking",
+      "categories": ["Analytics"],
+      "scoreImprovement": 17
+    },
+    {
+      "id": "reddit-server-side",
+      "title": "Configure Reddit server-side tracking",
+      "categories": ["Advertisment"],
+      "scoreImprovement": 9
+    },
+    {
+      "id": "meta-server-side",
+      "title": "Switch to web & server-side tracking for Meta",
+      "categories": ["Advertisment"],
+      "scoreImprovement": 8
+    },
+    {
+      "id": "klaviyo-server-side",
+      "title": "Set up server-side tracking for Klaviyo",
+      "categories": ["Advertisment"],
+      "scoreImprovement": 5
+    }
+  ]
+},
 
   {
     id: "egeszsegesbor.carniumbotanical",
