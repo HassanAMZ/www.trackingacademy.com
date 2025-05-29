@@ -74,6 +74,50 @@ export interface AuditReportProps {
 
 const auditReports: AuditReport[] = [
   {
+    id: "tbomedia",
+    date: "May 29th, 2025",
+    domain: "tbomedia.no/lander",
+    overallScore: {
+      score: 90,
+      maxScore: 100,
+      status: "That's great!",
+      color: "success",
+    },
+    categoryScores: [
+      {
+        name: "Analytics",
+        score: 90,
+        color: "success",
+      },
+      {
+        name: "Ads",
+        score: 80,
+        color: "warning",
+      },
+      {
+        name: "Cookie lifetime",
+        score: 100,
+        color: "success",
+      },
+      {
+        name: "Page speed",
+        score: 100,
+        color: "success",
+      },
+    ],
+    trackers: [],
+    trackingCookies: [],
+    trackingScripts: [],
+    recommendedActions: [
+      {
+        id: "ensure-google-consent-mode-compatibility",
+        title: "Ensure Google Consent Mode compatibility",
+        categories: ["Compliance"],
+        scoreImprovement: 10,
+      },
+    ],
+  },
+  {
     id: "egeszsegesbor.carniumbotanical",
     date: "May 29th, 2025",
     domain: "egeszsegesbor.carniumbotanicals.hu",
