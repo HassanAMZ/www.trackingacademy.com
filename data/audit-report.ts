@@ -76,7 +76,7 @@ const auditReports: AuditReport[] = [
   {
     id: "egeszsegesbor.carniumbotanical",
     date: "May 29th, 2025",
-    domain: "egeszsegesbor.carniumbotanicals.hu/herbiotic-nives",
+    domain: "egeszsegesbor.carniumbotanicals.hu",
     overallScore: {
       score: 49,
       maxScore: 100,
@@ -261,7 +261,7 @@ const auditReports: AuditReport[] = [
   {
     id: "eko-skrnicl",
     date: "May 29th, 2025",
-    domain: "www.eko-skrnicl.si/collections/all/za-zenske?sort_by=best-selling",
+    domain: "www.eko-skrnicl.si",
     overallScore: {
       score: 33,
       maxScore: 100,
