@@ -17,11 +17,6 @@ import {
 import { Service } from "@/data/services";
 import { ArrowRight, Check, CheckCircle, HelpCircle, X } from "lucide-react";
 import Link from "next/link";
-import ScarcityUrgency from "../funnels/scarcity-urgency";
-
-interface PricingVerticalProps {
-  services: Service[];
-}
 
 interface FeatureWithTooltipProps {
   featureName: string;

@@ -25,7 +25,7 @@ export const services: Service[] = [
     id: "enterprise-solution",
     subtitle: "Full Compliance & Tracking",
     description:
-      "Advanced tracking with complete digital compliance for enterprise-level needs. ",
+      "Advanced tracking with complete digital compliance for enterprise-level needs in 24 hours. ",
     price: "$7,500",
     product_id: "prod_SMaBYVuzJgZfTK",
     price_id: "price_1RRr1OAE3E6zT9eTlvyhObEb",
@@ -132,7 +132,7 @@ export const services: Service[] = [
     id: "advanced-tracking",
     subtitle: "Server-Side + Client-Side",
     description:
-      "Comprehensive tracking with both client and server-side implementation for maximum accuracy",
+      "Comprehensive tracking with both client and server-side implementation for maximum accuracy.",
     price: "$2,500",
     product_id: "prod_SMYQIgiiJQQ2Al",
     price_id: "price_1RRpK8AE3E6zT9eTRxMW2Dpq",
@@ -199,7 +199,7 @@ export const services: Service[] = [
     name: "Professional Setup",
     id: "professional-setup",
     description:
-      "Complete implementation of client-side tracking for improved conversion accuracy",
+      "Complete implementation of client-side tracking for improved conversion accuracy.",
     price: "$1,500",
     product_id: "prod_SMYDcMw9E4461R",
     price_id: "price_1RRp6lAE3E6zT9eTts6wOZWE",
@@ -254,7 +254,7 @@ export const services: Service[] = [
     id: "basic-tracking-audit",
     subtitle: "Client-Side Tracking",
     description:
-      "Identify gaps in your current tracking setup and get a roadmap for improvements",
+      "Identify gaps in your current tracking setup and get a roadmap for improvements.",
     price: "$500",
 
     product_id: "prod_SMXsQEj0376cLO",
@@ -310,7 +310,7 @@ export const services: Service[] = [
     id: "see-every-sale",
     subtitle: "3-Day Complete Tracking Solution",
     description:
-      "Complete Meta ads tracking restoration with custom dashboard and compliance setup - delivered in just 3 days",
+      "Complete Meta ads tracking restoration with custom dashboard and compliance setup - delivered in just 3 days.",
     price: "$1,200",
     product_id: "prod_SI6QXbIdeTQbUY",
     price_id: "price_1RNWDwAE3E6zT9eTzcpnOUZy",
