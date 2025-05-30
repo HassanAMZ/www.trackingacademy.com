@@ -278,11 +278,6 @@ export default function Navbar({ className }: { className?: string }) {
               )}
             </NavigationMenuContent>
           </NavigationMenuItem>
-          <NavigationMenuItem>
-            <NavLink href="/pricing" className={navigationMenuTriggerStyle()}>
-              Pricing
-            </NavLink>
-          </NavigationMenuItem>
         </NavigationMenuList>
       </NavigationMenu>
       <div className="flex gap-2">
@@ -312,30 +307,26 @@ export default function Navbar({ className }: { className?: string }) {
       </div>{" "}
       <SheetContent side="right" className="flex flex-col justify-between">
         <nav className="flex w-full flex-col space-y-4 py-4">
-          {["/", "/services", "/tools", "/case-study", "/blog", "/pricing"].map(
-            (path) => (
-              <Link
-                key={path}
-                href={path}
-                className={clsx(
-                  "text-foreground w-full! justify-start!",
-                  navigationMenuTriggerStyle(),
-                  isActive(path) && "bg-accent text-accent-foreground",
-                )}
-                onClick={handleLinkClick}
-              >
-                {path === "/"
-                  ? "TrackingAcademy"
-                  : path === "/services"
-                    ? "Services"
-                    : path === "/case-study"
-                      ? "Case Studies"
-                      : path === "/pricing"
-                        ? "Pricing"
-                        : path.slice(1).charAt(0).toUpperCase() + path.slice(2)}
-              </Link>
-            ),
-          )}
+          {["/", "/services", "/tools", "/case-study", "/blog"].map((path) => (
+            <Link
+              key={path}
+              href={path}
+              className={clsx(
+                "text-foreground w-full! justify-start!",
+                navigationMenuTriggerStyle(),
+                isActive(path) && "bg-accent text-accent-foreground",
+              )}
+              onClick={handleLinkClick}
+            >
+              {path === "/"
+                ? "TrackingAcademy"
+                : path === "/services"
+                  ? "Services"
+                  : path === "/case-study"
+                    ? "Case Studies"
+                    : path.slice(1).charAt(0).toUpperCase() + path.slice(2)}
+            </Link>
+          ))}
           {renderCallToAction()}
         </nav>
         <ThemeToggle />

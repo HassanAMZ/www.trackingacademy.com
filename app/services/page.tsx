@@ -4,6 +4,7 @@ import {
   FeatureComparison,
   ServiceCard,
 } from "@/components/pricing/pricing-vertical";
+import ServiceHero from "@/components/service/service-hero";
 import Container from "@/components/ui/container";
 import { services } from "@/data/services";
 
@@ -34,6 +35,12 @@ export default function PricingPage() {
       <FeatureComparison services={services.slice(0, 4)} />
 
       <FAQSection />
+      {/* Services Grid */}
+      <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
+        {services.slice(0, 4).map((service) => (
+          <ServiceHero key={service.name} service={service} />
+        ))}
+      </div>
     </Container>
   );
 }
