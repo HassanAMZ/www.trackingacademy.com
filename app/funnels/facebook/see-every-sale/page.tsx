@@ -180,10 +180,10 @@ export default function HomePage() {
   return (
     <main>
       <Hero
-        eyebrow="Still flying blind on Meta ads?"
+        eyebrow="3 Days Web Tracking Transformation"
         heading={
           <h1 className="mx-auto text-center lg:mx-0 lg:text-left">
-            Fix broken facebook ads tracking in 3 days —{" "}
+            Fix Broken Website Conversion Tracking in 3 days —{" "}
             <span className="text-primary"> or your money back </span>
           </h1>
         }
@@ -199,7 +199,7 @@ export default function HomePage() {
         carousel={<TestimonialsCarousel2 />}
         benefits={[
           "ROAS 30% Increase",
-          "100% Done For You",
+          "GDPR & CCPA Compliant",
           "Completed in 3 days",
           "One-time setup cost",
           "Slace Effortlessly",
