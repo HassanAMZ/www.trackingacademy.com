@@ -1,3 +1,4 @@
+import Footer from "@/components/global/footer";
 import Navbar from "@/components/global/navbar";
 import GiscusComments from "@/components/mdx/GiscusComents";
 import React, { ReactNode } from "react";
@@ -16,6 +17,7 @@ export default function Layout({ children }: { children: ReactNode }) {
       <Navbar />
       <main className="text-base">{children}</main>
       <GiscusComments />
+      <Footer />
     </React.Fragment>
   );
 }

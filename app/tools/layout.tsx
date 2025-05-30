@@ -1,5 +1,6 @@
 import { promises as fs } from "fs";
 import path from "path";
+import Footer from "@/components/global/footer";
 import Navbar from "@/components/global/navbar";
 import ToolBreadcrumbs from "@/components/tools/layout-breadcrumbs";
 import { Collapsible, CollapsibleTrigger } from "@/components/ui/collapsible";
@@ -62,6 +63,7 @@ export default async function Layout({ children }: { children: ReactNode }) {
         <SidebarInset className="w-full">
           <Container className="grid gap-2">{children}</Container>
         </SidebarInset>
+        <Footer />
       </div>
     </SidebarProvider>
   );

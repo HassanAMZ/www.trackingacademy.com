@@ -7,6 +7,7 @@ import ProblemAwareness from "@/components/funnels/problem-awareness";
 import ScarcityUrgency from "@/components/funnels/scarcity-urgency";
 import SocialProof from "@/components/funnels/social-proof";
 import AdSpendCalculator from "@/components/global/ad-spend-calculator";
+import Footer from "@/components/global/footer";
 import Navbar from "@/components/global/navbar";
 import TrackingTable from "@/components/global/tracking-table";
 import AlternativesSection from "@/components/home/alternative-section";
@@ -61,7 +62,7 @@ export default function HomePage() {
             className="mx-auto flex w-fit max-w-4xl cursor-pointer flex-col items-center p-6 text-center text-xl font-bold lg:mx-0 lg:items-start lg:text-left"
             asChild
           >
-            <Link href={"/pricing"}>
+            <Link href={"/services"}>
               <div>
                 Ready to Scale Smarter?
                 <span className="mt-2 block text-sm font-medium opacity-90">
@@ -338,6 +339,7 @@ export default function HomePage() {
         buttonLink="/contact"
         footerText="Limited to 5 spots per month. Don't wait!"
       />
+      <Footer />
     </main>
   );
 }

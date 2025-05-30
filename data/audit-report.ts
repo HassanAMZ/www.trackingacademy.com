@@ -1012,7 +1012,7 @@ const auditReports: AuditReport[] = [
         dataSentTo: "US",
         trackingMethod: "Client-side",
         canImprove: true,
-        improvementLink: "/pricing",
+        improvementLink: "/services",
       },
     ],
     trackingCookies: [
@@ -1098,7 +1098,7 @@ const auditReports: AuditReport[] = [
         dataSentTo: "US",
         trackingMethod: "Client-side",
         canImprove: true,
-        improvementLink: "/pricing",
+        improvementLink: "/services",
       },
       {
         name: "Google Analytics 4",
@@ -1115,7 +1115,7 @@ const auditReports: AuditReport[] = [
         dataSentTo: "US",
         trackingMethod: "Client-side",
         canImprove: true,
-        improvementLink: "/pricing",
+        improvementLink: "/services",
       },
       {
         name: "TikTok",
@@ -1124,7 +1124,7 @@ const auditReports: AuditReport[] = [
         dataSentTo: "CN",
         trackingMethod: "Server-side",
         canImprove: true,
-        improvementLink: "/pricing",
+        improvementLink: "/services",
       },
     ],
     trackingCookies: [
@@ -1425,7 +1425,7 @@ const auditReports: AuditReport[] = [
         dataSentTo: "US",
         trackingMethod: "Client-side",
         canImprove: true,
-        improvementLink: "/pricing",
+        improvementLink: "/services",
       },
       {
         name: "Google Analytics 4",
@@ -1434,7 +1434,7 @@ const auditReports: AuditReport[] = [
         dataSentTo: "US",
         trackingMethod: "Client-side",
         canImprove: true,
-        improvementLink: "/pricing",
+        improvementLink: "/services",
       },
       {
         name: "TikTok",
@@ -1443,7 +1443,7 @@ const auditReports: AuditReport[] = [
         dataSentTo: "CN",
         trackingMethod: "Client-side",
         canImprove: true,
-        improvementLink: "/pricing",
+        improvementLink: "/services",
       },
       {
         name: "Klaviyo",
@@ -1452,7 +1452,7 @@ const auditReports: AuditReport[] = [
         dataSentTo: "US",
         trackingMethod: "Client-side",
         canImprove: true,
-        improvementLink: "/pricing",
+        improvementLink: "/services",
       },
       {
         name: "Universal Analytics",
@@ -1461,7 +1461,7 @@ const auditReports: AuditReport[] = [
         dataSentTo: "US",
         trackingMethod: "Client-side",
         canImprove: true,
-        improvementLink: "/pricing",
+        improvementLink: "/services",
       },
       {
         name: "Hotjar",

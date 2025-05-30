@@ -1,3 +1,4 @@
+import Footer from "@/components/global/footer";
 import Navbar from "@/components/global/navbar";
 import { Button } from "@/components/ui/button";
 import Container from "@/components/ui/container";
@@ -23,6 +24,7 @@ export default async function Page() {
           ))}
         </div>
       </Container>
+      <Footer />
     </div>
   );
 }

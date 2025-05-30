@@ -1,3 +1,4 @@
+import Footer from "@/components/global/footer";
 import Navbar from "@/components/global/navbar";
 import { Button } from "@/components/ui/button";
 import Container from "@/components/ui/container";
@@ -8,7 +9,7 @@ export default async function Page() {
   const operations = await getOffersData("app/funnels");
   return (
     <div>
-      <Navbar />{" "}
+      <Navbar />
       <h3 className="container-primary py-6 text-center text-3xl font-bold">
         Funnels
       </h3>
@@ -21,6 +22,7 @@ export default async function Page() {
           ))}
         </div>
       </Container>
+      <Footer />
     </div>
   );
 }

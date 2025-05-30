@@ -1,3 +1,4 @@
+import Footer from "@/components/global/footer";
 import Navbar from "@/components/global/navbar";
 import type { Metadata } from "next";
 import { ReactNode } from "react";
@@ -28,6 +29,7 @@ export default function CaseStudyLayout({ children }: { children: ReactNode }) {
     <>
       <Navbar />
       {children}
+      <Footer />
     </>
   );
 }

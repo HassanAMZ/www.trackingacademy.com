@@ -1,3 +1,4 @@
+import Footer from "@/components/global/footer";
 import Navbar from "@/components/global/navbar";
 import Container from "@/components/ui/container";
 import type { Metadata } from "next";
@@ -18,6 +19,7 @@ export default function AuditLayout({
     <>
       <Navbar />
       <Container className="py-8">{children}</Container>
+      <Footer />
     </>
   );
 }

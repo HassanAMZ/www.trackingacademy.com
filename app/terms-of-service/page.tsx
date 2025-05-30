@@ -1,3 +1,4 @@
+import Footer from "@/components/global/footer";
 import Navbar from "@/components/global/navbar";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
@@ -36,20 +37,8 @@ export default function TermsOfService() {
             </p>
           </section>
         </main>{" "}
-        <footer className="border-t">
-          <div className="container mx-auto flex justify-between px-4 py-4">
-            <p>&copy; 2025 Conversion Confidence. All rights reserved.</p>
-            <div className="flex gap-4">
-              <Link href="/privacy-policy">
-                <Button variant="link">Privacy Policy</Button>
-              </Link>
-              <Link href="/terms-of-service">
-                <Button variant="link">Terms of Service</Button>
-              </Link>
-            </div>
-          </div>
-        </footer>
       </div>
+      <Footer />
     </>
   );
 }

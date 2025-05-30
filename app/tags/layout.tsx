@@ -1,3 +1,4 @@
+import Footer from "@/components/global/footer";
 import Navbar from "@/components/global/navbar";
 import Container from "@/components/ui/container";
 import { Metadata } from "next";
@@ -17,6 +18,7 @@ export default function Layout({ children }: { children: ReactNode }) {
     <React.Fragment>
       <Navbar />
       <Container>{children}</Container>
+      <Footer />
     </React.Fragment>
   );
 }

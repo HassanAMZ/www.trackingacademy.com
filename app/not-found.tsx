@@ -1,3 +1,4 @@
+import Footer from "@/components/global/footer";
 import Navbar from "@/components/global/navbar";
 import { Button } from "@/components/ui/button";
 import Container from "@/components/ui/container";
@@ -8,7 +9,7 @@ export default function NotFound() {
   return (
     <React.Fragment>
       <Navbar />
-      <Container className="flex h-screen max-w-4xl flex-col items-center justify-center space-y-6 text-center">
+      <Container className="flex h-[75vh] max-w-4xl flex-col items-center justify-center space-y-6 text-center">
         <h1>404 - Tracking Error</h1>
         <p>
           Oops! Looks like the tracking pixel went AWOL. The page you're looking
@@ -27,6 +28,8 @@ export default function NotFound() {
           </Button>
         </div>
       </Container>
+
+      <Footer />
     </React.Fragment>
   );
 }

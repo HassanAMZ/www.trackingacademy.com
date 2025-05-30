@@ -189,7 +189,7 @@ export default function Navbar({ className }: { className?: string }) {
         height={100}
         width={100}
         src={"/logo-navbar.png"}
-        className="h-8 w-fit sm:flex"
+        className="h-8 w-fit rounded-full sm:flex"
       />
     </NavLink>
   );
@@ -338,7 +338,7 @@ export default function Navbar({ className }: { className?: string }) {
   return (
     <header className="w-full pt-4 pb-2 lg:text-sm">
       <Container className={clsx(" ", className)}>
-        <div className="border">
+        <div className="rounded-l-full shadow-sm">
           <MobileNavigationMenu />
           <DesktopNavigationMenu />
         </div>
