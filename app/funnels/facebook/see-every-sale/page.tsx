@@ -183,7 +183,7 @@ export default function HomePage() {
         eyebrow="3 Days Web Tracking Transformation"
         heading={
           <h1 className="mx-auto text-center lg:mx-0 lg:text-left">
-            Fix Broken Website Conversion Tracking in 3 days —{" "}
+            Fix Broken Website Tracking in 3 days —{" "}
             <span className="text-primary"> or your money back </span>
           </h1>
         }
@@ -192,8 +192,7 @@ export default function HomePage() {
             Our
             <span className="text-primary"> “See Every Sale” </span>
             setup gives eCommerce brands 95%+ accurate conversion data — so you
-            can stop wasting ad spend, scale with confidence, and finally trust
-            your numbers again.
+            can stop wasting ad spend, scale with confidence, and Stay Complient with GDPR & CCPA.
           </h4>
         }
         carousel={<TestimonialsCarousel2 />}
