@@ -242,11 +242,11 @@ export default function Navbar({ className }: { className?: string }) {
           <HomeNavigationButton />
 
           <NavigationMenuItem>
-            <NavigationMenuTrigger>Case Studies</NavigationMenuTrigger>
+            <NavigationMenuTrigger>Blogs</NavigationMenuTrigger>
             <NavigationMenuContent>
               {renderNavigationMenuItems(
-                NAV_ITEMS.caseStudies,
-                <Briefcase className="h-6 w-6" />,
+                NAV_ITEMS.blogs,
+                <FileText className="h-6 w-6" />,
               )}
             </NavigationMenuContent>
           </NavigationMenuItem>
@@ -260,21 +260,24 @@ export default function Navbar({ className }: { className?: string }) {
             </NavigationMenuContent>
           </NavigationMenuItem>
 
-          <NavigationMenuItem>
-            <NavigationMenuTrigger>Blogs</NavigationMenuTrigger>
-            <NavigationMenuContent>
-              {renderNavigationMenuItems(
-                NAV_ITEMS.blogs,
-                <FileText className="h-6 w-6" />,
-              )}
-            </NavigationMenuContent>
-          </NavigationMenuItem>
+        
           <NavigationMenuItem>
             <NavigationMenuTrigger>Services</NavigationMenuTrigger>
             <NavigationMenuContent>
               {renderNavigationMenuItems(
                 NAV_ITEMS.services,
                 <Settings className="h-6 w-6" />,
+              )}
+            </NavigationMenuContent>
+          </NavigationMenuItem>
+
+
+            <NavigationMenuItem>
+            <NavigationMenuTrigger>Case Studies</NavigationMenuTrigger>
+            <NavigationMenuContent>
+              {renderNavigationMenuItems(
+                NAV_ITEMS.caseStudies,
+                <Briefcase className="h-6 w-6" />,
               )}
             </NavigationMenuContent>
           </NavigationMenuItem>
