@@ -80,7 +80,8 @@ const auditReports: AuditReport[] = [
   {
     id: "purplehouseclinic",
     date: "May 30th, 2025",
-    domain: "www.purplehouseclinic.co.uk/",
+    domain: "www.purplehouseclinic.co.uk",
+    embedId: { loom: "29dcd7ad09f745ea9ec870d100645116" },
     overallScore: {
       score: 65,
       maxScore: 100,
