@@ -250,8 +250,8 @@ export const services: Service[] = [
     },
   },
   {
-    name: "Basic Tracking Audit",
-    id: "basic-tracking-audit",
+    name: "Website Tracking Audit",
+    id: "website-tracking-audit",
     subtitle: "Client-Side Tracking",
     description:
       "Identify gaps in your current tracking setup and get a roadmap for improvements.",

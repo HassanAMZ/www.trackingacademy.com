@@ -1,4 +1,6 @@
+import ServiceHero from "@/components/service/service-hero";
 import auditReports from "@/data/audit-report";
+import { services } from "@/data/services";
 
 export async function generateMetadata({
   params,
@@ -19,10 +21,10 @@ export async function generateMetadata({
   }
 
   return {
-    title: `Website Audit Report - ${auditReport.domain} | Tracking Academy`,
+    title: `${auditReport.domain} - Website Audit Report | Tracking Academy`,
     description: `Comprehensive website audit report for ${auditReport.domain}. Overall score: ${auditReport.overallScore.score}/${auditReport.overallScore.maxScore}. Get insights on trackers, cookies, scripts, and recommended improvements.`,
     openGraph: {
-      title: `Website Audit Report - ${auditReport.domain} | Tracking Academy`,
+      title: `${auditReport.domain} - Website Audit Report | Tracking Academy`,
       description: `Comprehensive website audit report for ${auditReport.domain}. Overall score: ${auditReport.overallScore.score}/${auditReport.overallScore.maxScore}.`,
       images: ["/images/social-sharing.png"],
       type: "website",
@@ -30,7 +32,7 @@ export async function generateMetadata({
     },
     twitter: {
       card: "summary_large_image",
-      title: `Website Audit Report - ${auditReport.domain} | Tracking Academy`,
+      title: `${auditReport.domain} - Website Audit Report | Tracking Academy`,
       description: `Comprehensive website audit report for ${auditReport.domain}. Overall score: ${auditReport.overallScore.score}/${auditReport.overallScore.maxScore}.`,
       images: ["/images/social-sharing.png"],
     },

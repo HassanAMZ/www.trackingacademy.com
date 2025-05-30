@@ -1,3 +1,5 @@
+import { ServiceCard } from "@/components/pricing/pricing-vertical";
+import ServiceHero from "@/components/service/service-hero";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import {
@@ -10,6 +12,7 @@ import {
 } from "@/components/ui/card";
 import { Progress } from "@/components/ui/progress";
 import auditReports from "@/data/audit-report";
+import { services } from "@/data/services";
 import { ArrowRight, CalendarDays, ExternalLink } from "lucide-react";
 import Link from "next/link";
 
@@ -136,17 +139,7 @@ export default function AuditsPage() {
         ))}
       </div>
 
-      <div className="bg-primary/5 rounded-lg p-8 text-center shadow-md">
-        <h2 className="mb-2 text-2xl font-bold">Need a website audit?</h2>
-        <p className="mx-auto mb-6 max-w-2xl">
-          Our comprehensive audit will analyze your tracking setup, identify
-          issues, and provide actionable recommendations to improve your data
-          collection.
-        </p>
-        <Button size="lg" className="bg-primary hover:bg-primary/90" asChild>
-          <Link href="/contact">Request an Audit</Link>
-        </Button>
-      </div>
+      <ServiceHero service={services[3]} />
     </div>
   );
 }

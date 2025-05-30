@@ -1,5 +1,7 @@
 import AuditReport from "@/components/audit/audit-report";
+import ServiceHero from "@/components/service/service-hero";
 import auditReports from "@/data/audit-report";
+import { services } from "@/data/services";
 import { notFound } from "next/navigation";
 
 export default async function Page({
@@ -20,8 +22,9 @@ export default async function Page({
   }
 
   return (
-    <div>
+    <div className="space-y-6">
       <AuditReport report={auditReport} />
+      <ServiceHero service={services[3]} />
     </div>
   );
 }
