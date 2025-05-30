@@ -12,6 +12,7 @@ import {
   navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import auditReports from "@/data/audit-report";
 import { services } from "@/data/services";
 import clsx from "clsx";
 import { Briefcase, FileText, Menu, Settings, Wrench } from "lucide-react";
@@ -40,6 +41,18 @@ const NAV_ITEMS: Record<string, NavItem[]> = {
       title: service.name,
       href: `/services/${service.id}`,
       description: service.subtitle + " - " + service.description,
+    })),
+  ],
+  audits: [
+    {
+      title: "All Audits",
+      href: "/audit",
+      description: "Checkout the audit reports done in the past for Clients",
+    },
+    ...auditReports.slice(0, 4).map((audit) => ({
+      title: audit.domain,
+      href: `/audit/${audit.id}`,
+      description: audit.recommendedActions[0].title,
     })),
   ],
   tools: [
@@ -260,7 +273,6 @@ export default function Navbar({ className }: { className?: string }) {
             </NavigationMenuContent>
           </NavigationMenuItem>
 
-        
           <NavigationMenuItem>
             <NavigationMenuTrigger>Services</NavigationMenuTrigger>
             <NavigationMenuContent>
@@ -270,9 +282,17 @@ export default function Navbar({ className }: { className?: string }) {
               )}
             </NavigationMenuContent>
           </NavigationMenuItem>
+          <NavigationMenuItem>
+            <NavigationMenuTrigger>Audits</NavigationMenuTrigger>
+            <NavigationMenuContent>
+              {renderNavigationMenuItems(
+                NAV_ITEMS.audits,
+                <Settings className="h-6 w-6" />,
+              )}
+            </NavigationMenuContent>
+          </NavigationMenuItem>
 
-
-            <NavigationMenuItem>
+          <NavigationMenuItem>
             <NavigationMenuTrigger>Case Studies</NavigationMenuTrigger>
             <NavigationMenuContent>
               {renderNavigationMenuItems(
@@ -327,7 +347,9 @@ export default function Navbar({ className }: { className?: string }) {
                   ? "Services"
                   : path === "/case-study"
                     ? "Case Studies"
-                    : path.slice(1).charAt(0).toUpperCase() + path.slice(2)}
+                    : path === "/audit"
+                      ? "Audits"
+                      : path.slice(1).charAt(0).toUpperCase() + path.slice(2)}
             </Link>
           ))}
           {renderCallToAction()}

@@ -36,7 +36,7 @@ export default function PricingPage() {
 
       <FAQSection />
       {/* Services Grid */}
-      <div className="grid gap-8 grid-cols-1">
+      <div className="grid grid-cols-1 gap-8">
         {services.slice(0, 4).map((service) => (
           <ServiceHero key={service.name} service={service} />
         ))}
