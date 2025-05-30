@@ -179,7 +179,7 @@ const ServiceCard = ({ service }: ServiceCardProps) => {
               <div key={feature} className="flex items-start gap-2 text-sm">
                 <CheckCircle className="text-primary h-4 w-4 flex-shrink-0" />
                 <span>
-                  {feature}
+                  {feature}{" "}
                   {value && typeof value !== "boolean" ? (
                     <span className="text-muted-foreground">({value})</span>
                   ) : (
