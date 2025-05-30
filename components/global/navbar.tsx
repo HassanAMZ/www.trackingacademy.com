@@ -13,6 +13,7 @@ import {
 } from "@/components/ui/navigation-menu";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import auditReports from "@/data/audit-report";
+import { caseStudies } from "@/data/case-studies";
 import { services } from "@/data/services";
 import clsx from "clsx";
 import { Briefcase, FileText, Menu, Settings, Wrench } from "lucide-react";
@@ -49,8 +50,8 @@ const NAV_ITEMS: Record<string, NavItem[]> = {
       href: "/audit",
       description: "Checkout the audit reports done in the past for Clients",
     },
-    ...auditReports.slice(0, 4).map((audit) => ({
-      title: audit.domain,
+    ...auditReports.slice(0, 7).map((audit) => ({
+      title: audit.id,
       href: `/audit/${audit.id}`,
       description: audit.recommendedActions[0].title,
     })),
@@ -123,40 +124,14 @@ const NAV_ITEMS: Record<string, NavItem[]> = {
   caseStudies: [
     {
       title: "All Case Studies",
-      href: "/case-study",
-      description: "Discover our success stories with real-world clients.",
+      href: "/audit",
+      description: "Checkout the Case Studies done in the past for Clients",
     },
-    {
-      title: "Vision4kids",
-      href: "/case-study/vision4kids",
-      description:
-        "Recovered 100% of Facebook Conversions with Server-Side Tracking",
-    },
-    {
-      title: "Horton Golf Park",
-      href: "/case-study/hortongolfpark",
-      description: "Unified Appointment & Lead Tracking with GA4 & GTM",
-    },
-    {
-      title: "CutThePod",
-      href: "/case-study/cutthepod",
-      description: "End-to-End UTM & Funnel Tracking for CutThePod",
-    },
-    {
-      title: "EveryEvent.uk",
-      href: "/case-study/everyevent",
-      description: "Keyword-Level Conversion & Session Duration Tracking",
-    },
-    {
-      title: "LogMyCare",
-      href: "/case-study/logmycare",
-      description: "Enhanced GTM Setup & UTM Attribution",
-    },
-    {
-      title: "Everskin",
-      href: "/case-study/everskin",
-      description: "Server-Side GTM & Meta CAPI-G Implementation",
-    },
+    ...caseStudies.slice(0, 7).map((study) => ({
+      title: study.name,
+      href: `/case-study/${study.id}`,
+      description: study.description,
+    })),
   ],
 };
 
@@ -274,15 +249,6 @@ export default function Navbar({ className }: { className?: string }) {
           </NavigationMenuItem>
 
           <NavigationMenuItem>
-            <NavigationMenuTrigger>Services</NavigationMenuTrigger>
-            <NavigationMenuContent>
-              {renderNavigationMenuItems(
-                NAV_ITEMS.services,
-                <Settings className="h-6 w-6" />,
-              )}
-            </NavigationMenuContent>
-          </NavigationMenuItem>
-          <NavigationMenuItem>
             <NavigationMenuTrigger>Audits</NavigationMenuTrigger>
             <NavigationMenuContent>
               {renderNavigationMenuItems(
@@ -298,6 +264,16 @@ export default function Navbar({ className }: { className?: string }) {
               {renderNavigationMenuItems(
                 NAV_ITEMS.caseStudies,
                 <Briefcase className="h-6 w-6" />,
+              )}
+            </NavigationMenuContent>
+          </NavigationMenuItem>
+
+          <NavigationMenuItem>
+            <NavigationMenuTrigger>Services</NavigationMenuTrigger>
+            <NavigationMenuContent>
+              {renderNavigationMenuItems(
+                NAV_ITEMS.services,
+                <Settings className="h-6 w-6" />,
               )}
             </NavigationMenuContent>
           </NavigationMenuItem>

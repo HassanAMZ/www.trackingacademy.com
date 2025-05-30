@@ -50,6 +50,8 @@ import {
   YAxis,
   ZAxis,
 } from "recharts";
+import LoomEmbed from "../global/loom-embed";
+import YoutubeEmbed from "../global/youtube-embed";
 import Container from "../ui/container";
 
 export function getScoreColor(score: number, maxScore: number) {
@@ -167,7 +169,7 @@ export default function AuditReport({ report }: AuditReportProps) {
   };
 
   return (
-    <Container className="space-y-8 p-6">
+    <div className="space-y-8">
       {/* Header */}
       <div className="space-y-4 text-center">
         <h1 className="text-3xl font-bold">Website Audit Report</h1>
@@ -210,8 +212,13 @@ export default function AuditReport({ report }: AuditReportProps) {
             </Badge>
           </div>
           <Progress value={scorePercentage} className="h-3" />
+          {report?.embedId?.loom ? (
+            <LoomEmbed embedId={report.embedId.loom} />
+          ) : report?.embedId?.youtube ? (
+            <YoutubeEmbed embedId={report.embedId.youtube} />
+          ) : null}
 
-          <div className="grid grid-cols-1 gap-4 pt-6 md:grid-cols-2 lg:grid-cols-4">
+          <div className="grid grid-cols-1 gap-4 pt-6 sm:grid-cols-2 lg:grid-cols-4">
             {report.categoryScores.map((category, index) => (
               <div key={index} className="rounded-lg border p-8 text-center">
                 <div
@@ -594,6 +601,6 @@ export default function AuditReport({ report }: AuditReportProps) {
           ))}
         </CardContent>
       </Card>
-    </Container>
+    </div>
   );
 }

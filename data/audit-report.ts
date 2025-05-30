@@ -58,6 +58,10 @@ interface RecommendedAction {
 
 export interface AuditReport {
   id: string;
+  embedId?: {
+    loom?: string;
+    youtube?: string;
+  };
   date: string;
   domain: string;
   overallScore: OverallScore;
@@ -73,6 +77,116 @@ export interface AuditReportProps {
 }
 
 const auditReports: AuditReport[] = [
+  {
+    id: "germanimmigrationlaw",
+    date: "May 30th, 2025",
+    domain: "www.germanimmigrationlaw.com",
+
+    overallScore: {
+      score: 63,
+      maxScore: 100,
+      status: "Can be improved",
+      color: "#37B0F6",
+    },
+    categoryScores: [
+      {
+        name: "Analytics",
+        score: 35,
+        color: "#FF6D34",
+      },
+      {
+        name: "Ads",
+        score: 80,
+        color: "#37B0F6",
+      },
+      {
+        name: "Cookie lifetime",
+        score: 88,
+        color: "#37B0F6",
+      },
+      {
+        name: "Page speed",
+        score: 67,
+        color: "#37B0F6",
+      },
+    ],
+    trackers: [
+      {
+        name: "Google Analytics 4",
+        provider: "Google",
+        category: "Analytics",
+        dataSentTo: "US",
+        trackingMethod: "Client-side",
+        canImprove: true,
+        improvementLink: "/services",
+      },
+      {
+        name: "Universal Analytics",
+        provider: "Google",
+        category: "Advertisment",
+        dataSentTo: "US",
+        trackingMethod: "Client-side",
+        canImprove: true,
+        improvementLink: "/services",
+      },
+    ],
+    trackingCookies: [
+      {
+        name: "_ga",
+        provider: "Google",
+        category: "Analytics",
+        dataSentTo: "US",
+        lifetime: "7 days",
+      },
+      {
+        name: "_ga_{measurement_id}",
+        provider: "Google",
+        category: "Analytics",
+        dataSentTo: "US",
+        lifetime: "7 days",
+      },
+    ],
+    trackingScripts: [
+      {
+        name: "G gtag.js",
+        provider: "Google",
+        category: "Analytics",
+        transferSize: "83 KB",
+        transferSizeColor: "success",
+        blockingTime: "76 ms",
+        blockingTimeColor: "success",
+      },
+      {
+        name: "analytics.js",
+        provider: "Google",
+        category: "Advertisment",
+        transferSize: "21 KB",
+        transferSizeColor: "success",
+        blockingTime: "27 ms",
+        blockingTimeColor: "success",
+      },
+    ],
+    recommendedActions: [
+      {
+        id: "0196a9c3-bc6d-7e4a-827e-81871d307354",
+        title: "Implement Google Analytics 4 server-side tracking",
+        categories: ["Analytics"],
+        scoreImprovement: 17,
+      },
+      {
+        id: "0196a9c3-bcca-749d-aee6-fcd14f21a041",
+        title: "Remove Universal Analytics script",
+        categories: ["Advertisment"],
+        scoreImprovement: 10,
+      },
+      {
+        id: "ensure-google-consent-mode",
+        title: "Ensure Google Consent Mode compatibility",
+        categories: ["Compliance"],
+        scoreImprovement: 10,
+      },
+    ],
+  },
   {
     id: "fastbuds",
     date: "May 30th, 2025",
