@@ -33,7 +33,7 @@ export const services: Service[] = [
     color: "border-muted",
     buttonVariant: "outline",
     cta: "Get Started",
-    accuracy: "95%+",
+    accuracy: "100%",
     features: {
       "Google Ads Tracking": "Full Setup",
       "META Ads Tracking": "Full Setup",
