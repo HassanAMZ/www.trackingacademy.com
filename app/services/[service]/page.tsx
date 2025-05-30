@@ -42,7 +42,7 @@ export default async function ServicePage({
     <Container className="space-y-16 py-12">
       <ServiceHero service={service} />
 
-      <FeatureComparison services={services.slice(1, 4)} />
+      <FeatureComparison services={services.slice(0, 3)} />
       <FAQSection />
     </Container>
   );
