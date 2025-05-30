@@ -25,7 +25,7 @@ export const services: Service[] = [
     id: "enterprise-solution",
     subtitle: "Full Compliance & Tracking",
     description:
-      "Advanced tracking with complete digital compliance for enterprise-level needs",
+      "Advanced tracking with complete digital compliance for enterprise-level needs. ",
     price: "$7,500",
     product_id: "prod_SMaBYVuzJgZfTK",
     price_id: "price_1RRr1OAE3E6zT9eTlvyhObEb",
@@ -52,6 +52,17 @@ export const services: Service[] = [
       "SST Cookie Extender": true,
       "SST Bot Detection": true,
       "Multi-language Support": true,
+      "Delivery Time": "1 day",
+      "Advanced Data Modeling": true,
+      "API Integrations": true,
+      "Custom Dashboards": true,
+      "User Management": true,
+      "Single Sign-On (SSO)": true,
+      "Enhanced Data Privacy Tools": true,
+      "Real-time Reporting": true,
+      "A/B Testing Integration": true,
+      "Heatmaps and Session Replays": true,
+      "Predictive Analytics": true,
     },
     featureExplanations: {
       "Google Ads Tracking":
@@ -88,6 +99,28 @@ export const services: Service[] = [
         "Filters out bot traffic server-side for cleaner analytics data and reduced data collection costs.",
       "Multi-language Support":
         "Localized consent banners and privacy policies for global compliance and better user experience.",
+      "Delivery Time":
+        "Priority delivery within 1 day to get your tracking up and running quickly.",
+      "Advanced Data Modeling":
+        "Create custom data models to track complex user interactions and business logic.",
+      "API Integrations":
+        "Integrate with your existing systems via our comprehensive API.",
+      "Custom Dashboards":
+        "Design dashboards tailored to your specific metrics and reporting needs.",
+      "User Management":
+        "Manage user access with role-based controls for security and efficiency.",
+      "Single Sign-On (SSO)":
+        "Securely access the platform using your enterprise's identity provider.",
+      "Enhanced Data Privacy Tools":
+        "Advanced tools for data anonymization and compliance management.",
+      "Real-time Reporting":
+        "Get instant insights with real-time data processing and reporting.",
+      "A/B Testing Integration":
+        "Easily set up and analyze A/B tests within your tracking setup.",
+      "Heatmaps and Session Replays":
+        "Visualize user behavior with heatmaps and session recordings.",
+      "Predictive Analytics":
+        "Leverage machine learning to predict marketing performance and optimize campaigns.",
       CST: "Client-Side Tracking captures user interactions directly in the browser. Only 60-70% accurate due to ad blockers, privacy settings, and browser restrictions.",
       SST: "Server-Side Tracking processes data on secure servers, bypassing ad blockers and preserving user privacy while maintaining 95%+ accuracy. See our case studies at /case-study.",
       Setup:
@@ -119,6 +152,7 @@ export const services: Service[] = [
       "X Ads Tracking": "CST & SST",
       "Floodlight Tags": "CST & SST",
       "Consent Solution": "Standard",
+      "Delivery Time": "7 day",
       "Looker Studio Dashboard": true,
       "Cross-domain Tracking": true,
       "UTM Parameter Tracking": true,
@@ -173,6 +207,7 @@ export const services: Service[] = [
     color: "border-muted",
     buttonVariant: "outline",
     cta: "Get Started Today",
+
     accuracy: "60-70%",
     features: {
       "Google Ads Tracking": "CST Setup",
@@ -180,6 +215,7 @@ export const services: Service[] = [
       "TikTok Tracking": "CST Setup",
       "Google Analytics": "CST Setup",
       "Google Tag Manager": "CST Setup",
+      "Delivery Time": "7 day",
       "Enhanced Ecommerce": true,
       "LinkedIn Ads Tracking": false,
       "X Ads Tracking": false,
@@ -236,6 +272,8 @@ export const services: Service[] = [
       "Google Tag Manager": "Audit",
       "Enhanced Ecommerce": false,
       "LinkedIn Ads Tracking": "Audit",
+      "Delivery Time": "3 day",
+
       "X Ads Tracking": "Audit",
       "Floodlight Tags": false,
       "Consent Solution": false,
@@ -288,6 +326,8 @@ export const services: Service[] = [
       "Google Analytics": "GA4 Full Setup",
       "Google Tag Manager": "CST Setup",
       "Enhanced Ecommerce": true,
+      "Delivery Time": "3 days",
+
       "LinkedIn Ads Tracking": false,
       "X Ads Tracking": false,
       "Floodlight Tags": false,
