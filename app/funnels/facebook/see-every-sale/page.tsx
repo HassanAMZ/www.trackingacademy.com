@@ -183,7 +183,7 @@ export default function HomePage() {
         eyebrow="3 Days Web Tracking Transformation"
         heading={
           <h1 className="mx-auto text-center lg:mx-0 lg:text-left">
-            Fix Broken Website Tracking in 3 days —{" "}
+            Fix Broken Website Tracking with 95% Accuracy —{" "}
             <span className="text-primary"> or your money back </span>
           </h1>
         }
