@@ -192,7 +192,8 @@ export default function HomePage() {
             Our
             <span className="text-primary"> “See Every Sale” </span>
             setup gives eCommerce brands 95%+ accurate conversion data — so you
-            can stop wasting ad spend, scale with confidence, and Stay Complient with GDPR & CCPA.
+            can stop wasting ad spend, scale with confidence, and Stay Complient
+            with GDPR & CCPA.
           </h4>
         }
         carousel={<TestimonialsCarousel2 />}
@@ -232,6 +233,25 @@ export default function HomePage() {
         <CaseStudyCarousel caseStudies={caseStudies} />
       </div>
       <ProcessFlow />
+      <ProblemAwareness
+        headingText="The Hidden Costs of Missing Conversion Data"
+        paragraphText="Without accurate funnel tracking, your Meta ads lack the data to optimize for conversions, resulting in wasted budget and poor ROAS."
+        bluePillPoints={[
+          "Facebook Can't Optimize Effectively for Conversions",
+          "Wasting Ads Budget on Poorly Targeted Audiences",
+          "Can't See Add to Cart & Purchase Events in Analytics",
+          "Unable to Scale Due to Missing Crucial Data Reports",
+          "Competitors With Better Tracking Outperform You",
+        ]}
+        imageUrl="/images/hero/matrix.png"
+        redPillPoints={[
+          "Restore 95%+ Accurate Conversion Tracking to Ads",
+          "Give Meta the Data it Needs to Optimize Your Campaigns",
+          "Make Informed Scaling Decisions for Your Business",
+          "Stay Compliant With Meta's Policies and Regulations",
+          "Track 40% More Conversions Than Typical Setups",
+        ]}
+      />
       <AdSpendCalculator
         cta={true}
         customCtaButton={
@@ -380,25 +400,6 @@ export default function HomePage() {
               />
             ),
           },
-        ]}
-      />
-      <ProblemAwareness
-        headingText="The Hidden Costs of Missing Conversion Data"
-        paragraphText="Without accurate funnel tracking, your Meta ads lack the data to optimize for conversions, resulting in wasted budget and poor ROAS."
-        bluePillPoints={[
-          "Facebook Can't Optimize Effectively for Conversions",
-          "Wasting Ads Budget on Poorly Targeted Audiences",
-          "Can't See Add to Cart & Purchase Events in Analytics",
-          "Unable to Scale Due to Missing Crucial Data Reports",
-          "Competitors With Better Tracking Outperform You",
-        ]}
-        imageUrl="/images/hero/matrix.png"
-        redPillPoints={[
-          "Restore 95%+ Accurate Conversion Tracking to Ads",
-          "Give Meta the Data it Needs to Optimize Your Campaigns",
-          "Make Informed Scaling Decisions for Your Business",
-          "Stay Compliant With Meta's Policies and Regulations",
-          "Track 40% More Conversions Than Typical Setups",
         ]}
       />
       <SocialProof
