@@ -32,11 +32,11 @@ const getProgressColor = (color: string) => {
     case "destructive":
       return "bg-destructive";
     case "warning":
-      return "bg-warning";
+      return "bg-destructive";
     case "success":
-      return "bg-success";
+      return "bg-destructive";
     default:
-      return "bg-primary";
+      return "bg-destructive";
   }
 };
 
@@ -45,11 +45,11 @@ const getTextColor = (color: string) => {
     case "destructive":
       return "text-destructive";
     case "warning":
-      return "text-warning";
+      return "text-destructive";
     case "success":
-      return "text-success";
-    default:
       return "text-primary";
+    default:
+      return "text-destructive";
   }
 };
 

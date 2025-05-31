@@ -78,6 +78,94 @@ export interface AuditReportProps {
 
 const auditReports: AuditReport[] = [
   {
+    id: "neverendingleads",
+    date: "May 31st, 2025",
+    domain: "neverendingleads.com",
+    overallScore: {
+      score: 40,
+      maxScore: 100,
+      status: "Not good",
+      color: "destructive",
+    },
+    categoryScores: [
+      { name: "Analytics", score: 65, color: "warning" },
+      { name: "Ads", score: 37, color: "destructive" },
+      { name: "Cookie lifetime", score: 85, color: "success" },
+      { name: "Page speed", score: 96, color: "success" },
+    ],
+    trackers: [
+      {
+        name: "Meta",
+        provider: "Meta",
+        category: "Advertisement",
+        dataSentTo: "US",
+        trackingMethod: "Client-side",
+        canImprove: true,
+        improvementLink: "/services",
+      },
+    ],
+    trackingCookies: [
+      {
+        name: "_fbp",
+        provider: "Meta",
+        category: "Advertisement",
+        dataSentTo: "US",
+        lifetime: "7 days",
+      },
+      {
+        name: "_fbc",
+        provider: "Meta",
+        category: "Advertisement",
+        dataSentTo: "US",
+        lifetime: "1 days",
+      },
+    ],
+    trackingScripts: [
+      {
+        name: "fbevents.js",
+        provider: "Meta",
+        category: "Advertisement",
+        transferSize: "47 KB",
+        transferSizeColor: "success",
+        blockingTime: "58 ms",
+        blockingTimeColor: "success",
+      },
+    ],
+    recommendedActions: [
+      {
+        id: "ensure-google-consent-mode",
+        title: "Ensure Google Consent Mode compatibility",
+        categories: ["Compliance"],
+        scoreImprovement: 10,
+      },
+      {
+        id: "0196a9c3-bc94-74c0-9dfb-0a54a50331fa",
+        title: "Switch to web & server-side tracking for Meta",
+        categories: ["Advertisement"],
+        scoreImprovement: 8,
+      },
+      {
+        id: "ga4-server-side",
+        title: "Implement GA4 server-side tracking",
+        categories: ["Analytics"],
+        scoreImprovement: 17,
+      },
+      {
+        id: "ads-server-side",
+        title:
+          "Implement Google Ads conversion tracking using server-side tracking",
+        categories: ["Ads"],
+        scoreImprovement: 10,
+      },
+      {
+        id: "cookie-consent",
+        title: "Implement a cookie consent solution",
+        categories: ["Compliance"],
+        scoreImprovement: 15,
+      },
+    ],
+  },
+  {
     id: "purplehouseclinic",
     date: "May 30th, 2025",
     domain: "www.purplehouseclinic.co.uk",
