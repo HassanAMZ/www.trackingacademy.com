@@ -1,14 +1,15 @@
+"use client";
+
 import { cn } from "@/lib/utils";
 import Link from "next/link";
 import React from "react";
-import { Button } from "../ui/button";
 
 type CustomLinkProps = {
   href: string;
   className?: string;
   id?: string;
-  trackingLabel?: string; // Custom label for analytics if different from children
-  [key: string]: any; // for rest props
+  trackingLabel?: string;
+  [key: string]: any;
 };
 
 const CustomLink: React.FC<CustomLinkProps> = ({
@@ -58,7 +59,8 @@ const CustomLink: React.FC<CustomLinkProps> = ({
     // Use type assertion for window.dataLayer to match your existing GTM setup
     if (typeof window !== "undefined" && (window as any).dataLayer) {
       (window as any).dataLayer.push({
-        event: "link_click",
+        event: "gtm_custom_event",
+        datalayer_event_name: "link_click",
         link_text: linkText,
         link_id: id || "",
         link_classes: className || "",
