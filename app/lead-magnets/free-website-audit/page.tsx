@@ -237,8 +237,8 @@ export default function HomePage() {
         }
         supportingComponent={
           <Image
-            height="1920"
-            width="1080"
+            height="1536"
+            width="1024"
             src="/images/hero/audit-creative.png"
             alt="audit Craetive"
             className="bg-primary rounded border shadow"
