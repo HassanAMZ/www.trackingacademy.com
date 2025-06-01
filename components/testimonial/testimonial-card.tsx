@@ -157,15 +157,6 @@ export function TestimonialCard({
 
         {children}
       </CardContent>
-
-      {/* External link icon that appears on hover */}
-      {linkEnabled && (
-        <div className="absolute top-1/2 left-1/2 z-30 -translate-x-1/2 -translate-y-1/2 transform opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-          <div className="bg-primary rounded-full p-3 text-white shadow-lg">
-            <ExternalLink className="h-6 w-6" />
-          </div>
-        </div>
-      )}
     </Card>
   );
 

@@ -36,54 +36,26 @@ import { useRouter } from "next/navigation";
 import React, { useState } from "react";
 import { z } from "zod";
 
-// Zod schema for URL validation
-const websiteUrlSchema = z
-  .string()
-  .url("Please enter a valid URL (e.g., https://example.com)");
-
-export default function HomePage() {
-  const [url, setUrl] = useState("");
-  const [error, setError] = useState("");
-  const [isSubmitting, setIsSubmitting] = useState(false);
+export default function Page() {
   const [hasSubmitted, setHasSubmitted] = useState(false);
   const [triggerEvent, setTriggerEvent] = useState(false);
-  const router = useRouter();
+  const [submittedUrl, setSubmittedUrl] = useState("");
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setError("");
-    setIsSubmitting(true);
-
-    try {
-      const validatedUrl = websiteUrlSchema.parse(url);
-
-      if (!hasSubmitted) {
-        setTriggerEvent(true);
-        setHasSubmitted(true);
-      }
-
-      document.cookie = `website_url=${encodeURIComponent(validatedUrl)}; path=/; max-age=${365 * 24 * 60 * 60}`;
-      localStorage.setItem("website_url", validatedUrl);
-      localStorage.setItem("submission_timestamp", new Date().toISOString());
-      console.log("Website URL submitted:", validatedUrl);
-
-      setTimeout(() => {
-        router.push(getDirectoryURL("processing"));
-      }, 200);
-    } catch (validationError) {
-      if (validationError instanceof z.ZodError) {
-        setError(validationError.errors[0].message);
-      } else {
-        setError("Please enter a valid website URL");
-      }
-      setIsSubmitting(false);
+  const handleFormSubmitStart = () => {
+    if (!hasSubmitted) {
+      setTriggerEvent(true);
+      setHasSubmitted(true);
     }
+  };
+
+  const handleFormSubmit = (url: string) => {
+    setSubmittedUrl(url);
   };
 
   const event_details = {
     event_category: "Audit",
     event_action: "URL_Submitted",
-    website_url: url,
+    website_url: submittedUrl,
     user_journey_step: "step_1_url_submission",
   };
 
@@ -128,7 +100,6 @@ export default function HomePage() {
             free
           </h4>
         </div>
-        {/* <YoutubeEmbed embedId="tdQufJ-qadE" className="pb-12" /> */}
         <div className="flex flex-col items-stretch justify-center gap-8 lg:flex-row lg:gap-6">
           {steps.map((step, index) => (
             <React.Fragment key={step.number}>
@@ -159,6 +130,112 @@ export default function HomePage() {
     );
   };
 
+  // Zod schema for URL validation
+  const websiteUrlSchema = z
+    .string()
+    .url("Please enter a valid URL (e.g., https://example.com)");
+
+  interface URLSubmissionFormProps {
+    buttonText?: string;
+    loadingText?: string;
+    placeholder?: string;
+    className?: string;
+    inputClassName?: string;
+    buttonClassName?: string;
+    onSubmit?: (url: string) => void;
+    onSubmitStart?: () => void;
+    showIcon?: boolean;
+  }
+
+  const URLSubmissionForm = ({
+    buttonText = "🔎 Get My Free Tracking Audit",
+    loadingText = "Analyzing...",
+    placeholder = "Enter your website URL here",
+    className = "",
+    inputClassName = "border-primary w-full border p-6",
+    buttonClassName = "w-full text-left",
+    onSubmit,
+    onSubmitStart,
+    showIcon = true,
+  }: URLSubmissionFormProps) => {
+    const [url, setUrl] = useState("");
+    const [error, setError] = useState("");
+    const [isSubmitting, setIsSubmitting] = useState(false);
+    const router = useRouter();
+
+    const handleSubmit = async (e: React.FormEvent) => {
+      e.preventDefault();
+      setError("");
+      setIsSubmitting(true);
+
+      try {
+        const validatedUrl = websiteUrlSchema.parse(url);
+
+        // Call the onSubmitStart callback if provided
+        if (onSubmitStart) {
+          onSubmitStart();
+        }
+
+        // Store URL in cookie and localStorage
+        document.cookie = `website_url=${encodeURIComponent(validatedUrl)}; path=/; max-age=${365 * 24 * 60 * 60}`;
+        localStorage.setItem("website_url", validatedUrl);
+        localStorage.setItem("submission_timestamp", new Date().toISOString());
+        console.log("Website URL submitted:", validatedUrl);
+
+        // Call the onSubmit callback if provided
+        if (onSubmit) {
+          onSubmit(validatedUrl);
+        }
+
+        // Navigate to processing page
+        setTimeout(() => {
+          router.push(getDirectoryURL("processing"));
+        }, 200);
+      } catch (validationError) {
+        if (validationError instanceof z.ZodError) {
+          setError(validationError.errors[0].message);
+        } else {
+          setError("Please enter a valid website URL");
+        }
+        setIsSubmitting(false);
+      }
+    };
+
+    return (
+      <form
+        onSubmit={handleSubmit}
+        className={`mx-auto flex w-full max-w-2xl flex-col gap-4 lg:mx-0 ${className}`}
+      >
+        <div className="flex flex-col items-start justify-center gap-2">
+          <Input
+            type="url"
+            value={url}
+            onChange={(e) => setUrl(e.target.value)}
+            placeholder={placeholder}
+            required
+            className={inputClassName}
+            disabled={isSubmitting}
+          />
+          {error && <p className="text-destructive">{error}</p>}
+          <Button
+            size={"lg"}
+            type="submit"
+            disabled={isSubmitting}
+            className={buttonClassName}
+          >
+            {isSubmitting ? (
+              <>
+                <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                {loadingText}
+              </>
+            ) : (
+              buttonText
+            )}
+          </Button>
+        </div>
+      </form>
+    );
+  };
   return (
     <main>
       {/* GTM Event Component */}
@@ -177,13 +254,13 @@ export default function HomePage() {
       <Hero
         eyebrow="Free Website Tracking Audit"
         heading={
-          <h1 className="mx-auto text-center lg:mx-0 lg:text-left">
+          <h1 className="mx-auto max-w-4xl text-center">
             Get Your Free Tracking Audit Report —{" "}
             <span className="text-primary">Spot Every Data Leak</span>
           </h1>
         }
         subheading={
-          <h4 className="text-muted-foreground mx-auto max-w-3xl text-center lg:mx-0 lg:text-left">
+          <h4 className="text-muted-foreground mx-auto max-w-3xl text-center">
             Our
             <span className="text-primary"> "Total Transparency" </span>
             audit reveals exactly what's broken in your tracking setup and how
@@ -200,50 +277,20 @@ export default function HomePage() {
           "No Obligation",
         ]}
         customCtaButton={
-          <div className="">
-            <form
-              onSubmit={handleSubmit}
-              className="mx-auto flex w-full max-w-xl flex-col gap-4 lg:mx-0"
-            >
-              <div className="flex flex-col items-start justify-center gap-2">
-                <Input
-                  type="url"
-                  value={url}
-                  onChange={(e) => setUrl(e.target.value)}
-                  placeholder="Enter your website URL here"
-                  required
-                  className="border-primary w-full border p-6"
-                  disabled={isSubmitting}
-                />
-                {error && <p className="text-destructive">{error}</p>}
-                <Button
-                  size={"lg"}
-                  type="submit"
-                  disabled={isSubmitting}
-                  className="w-full text-left"
-                >
-                  {isSubmitting ? (
-                    <>
-                      <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                      Analyzing...
-                    </>
-                  ) : (
-                    "🔎 Get My Free Tracking Audit"
-                  )}
-                </Button>
-              </div>
-            </form>
-          </div>
-        }
-        supportingComponent={
-          <Image
-            height="1536"
-            width="1024"
-            src="/images/hero/audit-creative.png"
-            alt="audit Craetive"
-            className="bg-primary rounded border shadow"
+          <URLSubmissionForm
+            onSubmitStart={handleFormSubmitStart}
+            onSubmit={handleFormSubmit}
           />
         }
+        // supportingComponent={
+        //   <Image
+        //     height="1536"
+        //     width="1024"
+        //     src="/images/hero/audit-creative.png"
+        //     alt="audit Craetive"
+        //     className="bg-primary rounded border shadow"
+        //   />
+        // }
       />
 
       <div className="min-h-screen w-full max-w-full overflow-hidden py-12">
@@ -295,26 +342,15 @@ export default function HomePage() {
             ],
             image: "/images/hero/measurement-planning.png",
             customCtaButton: (
-              <form onSubmit={handleSubmit} className="w-full max-w-xl">
-                <div className="flex flex-col gap-3">
-                  <Input
-                    type="url"
-                    value={url}
-                    onChange={(e) => setUrl(e.target.value)}
-                    placeholder="Your website URL"
-                    required
-                    className="border-primary border"
-                    disabled={isSubmitting}
-                  />
-                  <Button
-                    type="submit"
-                    disabled={isSubmitting}
-                    className="w-full"
-                  >
-                    {isSubmitting ? "Analyzing..." : "Get Free Report"}
-                  </Button>
-                </div>
-              </form>
+              <URLSubmissionForm
+                placeholder="Your website URL"
+                buttonText="Get Free Report"
+                inputClassName="border-primary border p-6"
+                buttonClassName="w-full"
+                className="mx-auto w-full max-w-xl lg:mx-0"
+                onSubmitStart={handleFormSubmitStart}
+                onSubmit={handleFormSubmit}
+              />
             ),
           },
           {
@@ -330,26 +366,15 @@ export default function HomePage() {
             ],
             image: "/images/hero/gdpr-cmp.png",
             customCtaButton: (
-              <form onSubmit={handleSubmit} className="w-full max-w-xl">
-                <div className="flex flex-col gap-3">
-                  <Input
-                    type="url"
-                    value={url}
-                    onChange={(e) => setUrl(e.target.value)}
-                    placeholder="Your website URL"
-                    required
-                    className="border-primary border"
-                    disabled={isSubmitting}
-                  />
-                  <Button
-                    type="submit"
-                    disabled={isSubmitting}
-                    className="w-full"
-                  >
-                    {isSubmitting ? "Analyzing..." : "Get Free Report"}
-                  </Button>
-                </div>
-              </form>
+              <URLSubmissionForm
+                placeholder="Your website URL"
+                buttonText="Get Free Report"
+                inputClassName="border-primary border"
+                buttonClassName="w-full"
+                className="w-full max-w-xl"
+                onSubmitStart={handleFormSubmitStart}
+                onSubmit={handleFormSubmit}
+              />
             ),
           },
           {
@@ -365,26 +390,15 @@ export default function HomePage() {
             ],
             image: "/images/hero/unified-dashboard.png",
             customCtaButton: (
-              <form onSubmit={handleSubmit} className="w-full max-w-xl">
-                <div className="flex flex-col gap-3">
-                  <Input
-                    type="url"
-                    value={url}
-                    onChange={(e) => setUrl(e.target.value)}
-                    placeholder="Your website URL"
-                    required
-                    className="border-primary border"
-                    disabled={isSubmitting}
-                  />
-                  <Button
-                    type="submit"
-                    disabled={isSubmitting}
-                    className="w-full"
-                  >
-                    {isSubmitting ? "Analyzing..." : "Get Free Report"}
-                  </Button>
-                </div>
-              </form>
+              <URLSubmissionForm
+                placeholder="Your website URL"
+                buttonText="Get Free Report"
+                inputClassName="border-primary border"
+                buttonClassName="w-full"
+                className="w-full max-w-xl"
+                onSubmitStart={handleFormSubmitStart}
+                onSubmit={handleFormSubmit}
+              />
             ),
           },
           {
@@ -400,26 +414,15 @@ export default function HomePage() {
             ],
             image: "/images/hero/real-time-dashboard.png",
             customCtaButton: (
-              <form onSubmit={handleSubmit} className="w-full max-w-xl">
-                <div className="flex flex-col gap-3">
-                  <Input
-                    type="url"
-                    value={url}
-                    onChange={(e) => setUrl(e.target.value)}
-                    placeholder="Your website URL"
-                    required
-                    className="border-primary border"
-                    disabled={isSubmitting}
-                  />
-                  <Button
-                    type="submit"
-                    disabled={isSubmitting}
-                    className="w-full"
-                  >
-                    {isSubmitting ? "Analyzing..." : "Get Free Report"}
-                  </Button>
-                </div>
-              </form>
+              <URLSubmissionForm
+                placeholder="Your website URL"
+                buttonText="Get Free Report"
+                inputClassName="border-primary border"
+                buttonClassName="w-full"
+                className="w-full max-w-xl"
+                onSubmitStart={handleFormSubmitStart}
+                onSubmit={handleFormSubmit}
+              />
             ),
           },
         ]}
@@ -439,34 +442,16 @@ export default function HomePage() {
         daysRemaining={0}
         iconSize={12}
         customButton={
-          <form onSubmit={handleSubmit} className="mx-auto max-w-md">
-            <div className="flex flex-col gap-3">
-              <Input
-                type="url"
-                value={url}
-                onChange={(e) => setUrl(e.target.value)}
-                placeholder="Enter your website URL"
-                required
-                className="border-primary text-primary bg-primary-foreground border p-4"
-                disabled={isSubmitting}
-              />
-              {error && <p className="text-destructive">{error}</p>}
-              <Button
-                type="submit"
-                disabled={isSubmitting}
-                className="text-primary bg-primary-foreground p-4"
-              >
-                {isSubmitting ? (
-                  <>
-                    <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                    Analyzing Your Site...
-                  </>
-                ) : (
-                  "🔎 Get My Free Tracking Audit Now"
-                )}
-              </Button>
-            </div>
-          </form>
+          <URLSubmissionForm
+            placeholder="Enter your website URL"
+            buttonText="🔎 Get My Free Tracking Audit Now"
+            loadingText="Analyzing Your Site..."
+            inputClassName="border-primary text-primary bg-primary-foreground border p-4"
+            buttonClassName="text-primary bg-primary-foreground p-4"
+            className="mx-auto max-w-md"
+            onSubmitStart={handleFormSubmitStart}
+            onSubmit={handleFormSubmit}
+          />
         }
       />
 
@@ -545,30 +530,16 @@ export default function HomePage() {
         ]}
         footerText="100% free with no obligation to purchase anything!"
         customButton={
-          <form onSubmit={handleSubmit} className="mx-auto max-w-md">
-            <div className="flex flex-col gap-4">
-              <Input
-                type="url"
-                value={url}
-                onChange={(e) => setUrl(e.target.value)}
-                placeholder="Enter your website URL"
-                required
-                className="border-primary border p-4"
-                disabled={isSubmitting}
-              />
-              {error && <p className="text-destructive">{error}</p>}
-              <Button type="submit" disabled={isSubmitting} className="p-4">
-                {isSubmitting ? (
-                  <>
-                    <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                    Creating Your Report...
-                  </>
-                ) : (
-                  "🔎 Get My Free Audit Report"
-                )}
-              </Button>
-            </div>
-          </form>
+          <URLSubmissionForm
+            placeholder="Enter your website URL"
+            buttonText="🔎 Get My Free Audit Report"
+            loadingText="Creating Your Report..."
+            inputClassName="border-primary border p-4"
+            buttonClassName="p-4"
+            className="mx-auto max-w-md"
+            onSubmitStart={handleFormSubmitStart}
+            onSubmit={handleFormSubmit}
+          />
         }
       />
 
@@ -590,34 +561,16 @@ export default function HomePage() {
         daysRemaining={0}
         iconSize={12}
         customButton={
-          <form onSubmit={handleSubmit} className="mx-auto max-w-md">
-            <div className="flex flex-col gap-3">
-              <Input
-                type="url"
-                value={url}
-                onChange={(e) => setUrl(e.target.value)}
-                placeholder="Enter your website URL"
-                required
-                className="border-primary text-primary bg-primary-foreground border p-4"
-                disabled={isSubmitting}
-              />
-              {error && <p className="text-destructive">{error}</p>}
-              <Button
-                type="submit"
-                disabled={isSubmitting}
-                className="text-primary bg-primary-foreground p-4"
-              >
-                {isSubmitting ? (
-                  <>
-                    <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                    Analyzing...
-                  </>
-                ) : (
-                  "🔎 Start My Free Audit"
-                )}
-              </Button>
-            </div>
-          </form>
+          <URLSubmissionForm
+            placeholder="Enter your website URL"
+            buttonText="🔎 Start My Free Audit"
+            loadingText="Analyzing..."
+            inputClassName="border-primary text-primary bg-primary-foreground border p-4"
+            buttonClassName="text-primary bg-primary-foreground p-4"
+            className="mx-auto max-w-md"
+            onSubmitStart={handleFormSubmitStart}
+            onSubmit={handleFormSubmit}
+          />
         }
       />
     </main>

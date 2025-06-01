@@ -87,7 +87,7 @@ export default function CaseStudyCarousel({
             {/* Gradient overlay that intensifies on hover */}
             <div className="group-hover:from-primary absolute inset-0 opacity-70 transition-opacity duration-300 group-hover:bg-linear-to-t group-hover:to-transparent group-hover:opacity-90"></div>{" "}
             {/* Case study details that scale up on hover */}
-            <div className="text-accent-foreground absolute inset-x-0 bottom-0 z-10 hidden transform p-4 text-left transition-transform duration-300 group-hover:block group-hover:scale-110">
+            <div className="text-background absolute inset-x-0 bottom-0 z-10 hidden transform p-4 text-left transition-transform duration-300 group-hover:block group-hover:scale-110">
               <h4 className="mb-1 line-clamp-3 hover:underline">
                 {caseStudy.title}
               </h4>
