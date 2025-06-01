@@ -41,6 +41,9 @@ export default function Page() {
   const [triggerEvent, setTriggerEvent] = useState(false);
   const [submittedUrl, setSubmittedUrl] = useState("");
 
+  // Lifted state for synced URL input across all forms
+  const [globalUrl, setGlobalUrl] = useState("");
+
   const handleFormSubmitStart = () => {
     if (!hasSubmitted) {
       setTriggerEvent(true);
@@ -145,6 +148,9 @@ export default function Page() {
     onSubmit?: (url: string) => void;
     onSubmitStart?: () => void;
     showIcon?: boolean;
+    // New props for synced state
+    value?: string;
+    onChange?: (value: string) => void;
   }
 
   const URLSubmissionForm = ({
@@ -157,11 +163,20 @@ export default function Page() {
     onSubmit,
     onSubmitStart,
     showIcon = true,
+    value = "",
+    onChange,
   }: URLSubmissionFormProps) => {
-    const [url, setUrl] = useState("");
     const [error, setError] = useState("");
     const [isSubmitting, setIsSubmitting] = useState(false);
     const router = useRouter();
+
+    // Use prop value if provided, otherwise fall back to local state
+    const inputValue = value || "";
+    const handleInputChange = (newValue: string) => {
+      if (onChange) {
+        onChange(newValue);
+      }
+    };
 
     const handleSubmit = async (e: React.FormEvent) => {
       e.preventDefault();
@@ -169,7 +184,7 @@ export default function Page() {
       setIsSubmitting(true);
 
       try {
-        const validatedUrl = websiteUrlSchema.parse(url);
+        const validatedUrl = websiteUrlSchema.parse(inputValue);
 
         // Call the onSubmitStart callback if provided
         if (onSubmitStart) {
@@ -209,8 +224,8 @@ export default function Page() {
         <div className="flex flex-col items-start justify-center gap-2">
           <Input
             type="url"
-            value={url}
-            onChange={(e) => setUrl(e.target.value)}
+            value={inputValue}
+            onChange={(e) => handleInputChange(e.target.value)}
             placeholder={placeholder}
             required
             className={inputClassName}
@@ -236,6 +251,7 @@ export default function Page() {
       </form>
     );
   };
+
   return (
     <main>
       {/* GTM Event Component */}
@@ -278,19 +294,12 @@ export default function Page() {
         ]}
         customCtaButton={
           <URLSubmissionForm
+            value={globalUrl}
+            onChange={setGlobalUrl}
             onSubmitStart={handleFormSubmitStart}
             onSubmit={handleFormSubmit}
           />
         }
-        // supportingComponent={
-        //   <Image
-        //     height="1536"
-        //     width="1024"
-        //     src="/images/hero/audit-creative.png"
-        //     alt="audit Craetive"
-        //     className="bg-primary rounded border shadow"
-        //   />
-        // }
       />
 
       <div className="min-h-screen w-full max-w-full overflow-hidden py-12">
@@ -348,6 +357,8 @@ export default function Page() {
                 inputClassName="border-primary border p-6"
                 buttonClassName="w-full"
                 className="mx-auto w-full max-w-xl lg:mx-0"
+                value={globalUrl}
+                onChange={setGlobalUrl}
                 onSubmitStart={handleFormSubmitStart}
                 onSubmit={handleFormSubmit}
               />
@@ -372,6 +383,8 @@ export default function Page() {
                 inputClassName="border-primary border"
                 buttonClassName="w-full"
                 className="w-full max-w-xl"
+                value={globalUrl}
+                onChange={setGlobalUrl}
                 onSubmitStart={handleFormSubmitStart}
                 onSubmit={handleFormSubmit}
               />
@@ -396,6 +409,8 @@ export default function Page() {
                 inputClassName="border-primary border"
                 buttonClassName="w-full"
                 className="w-full max-w-xl"
+                value={globalUrl}
+                onChange={setGlobalUrl}
                 onSubmitStart={handleFormSubmitStart}
                 onSubmit={handleFormSubmit}
               />
@@ -419,7 +434,9 @@ export default function Page() {
                 buttonText="Get Free Report"
                 inputClassName="border-primary border"
                 buttonClassName="w-full"
-                className="w-full max-w-xl"
+                className="w-full max-w-xl lg:!mx-auto"
+                value={globalUrl}
+                onChange={setGlobalUrl}
                 onSubmitStart={handleFormSubmitStart}
                 onSubmit={handleFormSubmit}
               />
@@ -446,9 +463,11 @@ export default function Page() {
             placeholder="Enter your website URL"
             buttonText="🔎 Get My Free Tracking Audit Now"
             loadingText="Analyzing Your Site..."
-            inputClassName="border-primary text-primary bg-primary-foreground border p-4"
-            buttonClassName="text-primary bg-primary-foreground p-4"
-            className="mx-auto max-w-md"
+            inputClassName="border-primary text-primary bg-primary-foreground border p-4 w-full"
+            buttonClassName="text-primary bg-primary-foreground p-4 w-full"
+            className="mx-auto max-w-xl"
+            value={globalUrl}
+            onChange={setGlobalUrl}
             onSubmitStart={handleFormSubmitStart}
             onSubmit={handleFormSubmit}
           />
@@ -534,9 +553,11 @@ export default function Page() {
             placeholder="Enter your website URL"
             buttonText="🔎 Get My Free Audit Report"
             loadingText="Creating Your Report..."
-            inputClassName="border-primary border p-4"
-            buttonClassName="p-4"
-            className="mx-auto max-w-md"
+            inputClassName="border-primary border p-4 w-full"
+            buttonClassName="p-4 w-full"
+            className="mx-auto"
+            value={globalUrl}
+            onChange={setGlobalUrl}
             onSubmitStart={handleFormSubmitStart}
             onSubmit={handleFormSubmit}
           />
@@ -565,9 +586,11 @@ export default function Page() {
             placeholder="Enter your website URL"
             buttonText="🔎 Start My Free Audit"
             loadingText="Analyzing..."
-            inputClassName="border-primary text-primary bg-primary-foreground border p-4"
-            buttonClassName="text-primary bg-primary-foreground p-4"
-            className="mx-auto max-w-md"
+            inputClassName="border-primary text-primary bg-primary-foreground border p-4 w-full"
+            buttonClassName="text-primary bg-primary-foreground p-4 w-full"
+            className="mx-auto max-w-lg"
+            value={globalUrl}
+            onChange={setGlobalUrl}
             onSubmitStart={handleFormSubmitStart}
             onSubmit={handleFormSubmit}
           />

@@ -25,7 +25,7 @@ const DetailedCTA: React.FC<DetailedCTAProps> = ({
 }) => {
   return (
     <section className="from-primary/5 to-background bg-linear-to-b py-24">
-      <Container className="text-center">
+      <Container className="grid place-content-center text-center">
         {/* Heading */}
         {heading && <h2 className="mb-4">{heading}</h2>}
 
@@ -50,7 +50,7 @@ const DetailedCTA: React.FC<DetailedCTAProps> = ({
 
         {/* Button or Custom Button */}
         {customButton ? (
-          <div>{customButton}</div> // 👈 Render custom button
+          <React.Fragment>{customButton}</React.Fragment> //
         ) : buttonText && buttonLink ? (
           <Button
             size="lg"
