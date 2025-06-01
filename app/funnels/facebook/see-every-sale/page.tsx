@@ -130,7 +130,7 @@ export default function HomePage() {
             on growing your business
           </h4>
         </div>
-        <YoutubeEmbed embedId="tdQufJ-qadE" className="max-w-4xl pb-12" />{" "}
+        <YoutubeEmbed embedId="tdQufJ-qadE" className="pb-12" />{" "}
         {/* Process Steps */}
         <div className="flex flex-col items-stretch justify-center gap-8 lg:flex-row lg:gap-6">
           {steps.map((step, index) => (
