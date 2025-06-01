@@ -78,6 +78,147 @@ export interface AuditReportProps {
 
 const auditReports: AuditReport[] = [
   {
+  "id": "bougieconcept",
+  "date": "June 1, 2025",
+  "domain": "bougieconcept.ch",
+  "overallScore": {
+    "score": 24,
+    "maxScore": 100,
+    "status": "Not good",
+    "color": "destructive"
+  },
+  "categoryScores": [
+    {
+      "name": "Analytics",
+      "score": 45,
+      "color": "destructive"
+    },
+    {
+      "name": "Ads",
+      "score": 27,
+      "color": "destructive"
+    },
+    {
+      "name": "Cookie lifetime",
+      "score": 24,
+      "color": "destructive"
+    },
+    {
+      "name": "Page speed",
+      "score": 88,
+      "color": "success"
+    }
+  ],
+  "trackers": [
+    {
+      "name": "Meta",
+      "provider": "Meta",
+      "category": "Advertisement",
+      "dataSentTo": "US",
+      "trackingMethod": "Client-side",
+      "canImprove": true,
+      "improvementLink": "/services"
+    },
+    {
+      "name": "Google Analytics 4",
+      "provider": "Google",
+      "category": "Analytics",
+      "dataSentTo": "US",
+      "trackingMethod": "Client-side",
+      "canImprove": true,
+      "improvementLink": "/services"
+    }
+  ],
+  "trackingCookies": [
+    {
+      "name": "_fbp",
+      "provider": "Meta",
+      "category": "Advertisement",
+      "dataSentTo": "US",
+      "lifetime": "7 days"
+    },
+    {
+      "name": "_fbc",
+      "provider": "Meta",
+      "category": "Advertisement",
+      "dataSentTo": "US",
+      "lifetime": "1 days"
+    },
+    {
+      "name": "_ga",
+      "provider": "Google",
+      "category": "Analytics",
+      "dataSentTo": "US",
+      "lifetime": "7 days"
+    },
+    {
+      "name": "_ga_{measurement_id}",
+      "provider": "Google",
+      "category": "Analytics",
+      "dataSentTo": "US",
+      "lifetime": "7 days"
+    }
+  ],
+  "trackingScripts": [
+    {
+      "name": "fbevents.js",
+      "provider": "Meta",
+      "category": "Advertisement",
+      "transferSize": "47 KB",
+      "transferSizeColor": "success",
+      "blockingTime": "58 ms",
+      "blockingTimeColor": "success"
+    },
+    {
+      "name": "gtag.js",
+      "provider": "Google",
+      "category": "Analytics",
+      "transferSize": "83 KB",
+      "transferSizeColor": "success",
+      "blockingTime": "76 ms",
+      "blockingTimeColor": "success"
+    }
+  ],
+  "recommendedActions": [
+    {
+      "id": "cookie-keeper",
+      "title": "Use Cookie Keeper to bypass ITP limits and extend cookie duration",
+      "categories": ["Cookies"],
+      "scoreImprovement": 19
+    },
+    {
+      "id": "0196a9c3-bc6d-7e4a-827e-81871d307354",
+      "title": "Implement Google Analytics 4 server-side tracking",
+      "categories": ["Analytics"],
+      "scoreImprovement": 17
+    },
+    {
+      "id": "0196a9c3-bc94-74c0-9dfb-0a54a50331fa",
+      "title": "Switch to web & server-side tracking for Meta",
+      "categories": ["Advertisement"],
+      "scoreImprovement": 8
+    },
+    {
+      "id": "ensure-proper-consent-configuration",
+      "title": "Ensure proper consent configuration",
+      "categories": ["Compliance"],
+      "scoreImprovement": 7
+    },
+    {
+      "id": "implement-google-ads-server-side",
+      "title": "Implement Google Ads conversion tracking using server-side tracking",
+      "categories": ["Ads"],
+      "scoreImprovement": 10
+    },
+    {
+      "id": "implement-cookie-consent-solution",
+      "title": "Implement a cookie consent solution",
+      "categories": ["Compliance"],
+      "scoreImprovement": 15
+    }
+  ]
+},
+  {
     id: "neverendingleads",
     date: "May 31st, 2025",
     domain: "neverendingleads.com",
