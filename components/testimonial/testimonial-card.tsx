@@ -56,7 +56,7 @@ export function TestimonialCard({
                 {projectName}
               </h3>
             )}
-            <p className="mb-3">{quote}</p>
+            <p className="mb-3 line-clamp-3">{quote}</p>
             <div className="mb-4 flex items-center gap-4">
               <div className="flex">
                 {Array.from({ length: 5 }).map((_, i) => (
@@ -89,17 +89,7 @@ export function TestimonialCard({
 
   // Default variant (original design)
   const cardContent = (
-    <Card
-      className={`bg-background/80 flex h-full flex-col overflow-hidden backdrop-blur-xs ${
-        linkEnabled
-          ? "transition-all duration-300 group-hover:scale-[1.02] group-hover:shadow-lg"
-          : ""
-      } relative ${className}`}
-    >
-      {/* Gradient overlay that appears on hover */}
-      {linkEnabled && (
-        <div className="from-primary/20 absolute inset-0 z-10 bg-linear-to-t to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100"></div>
-      )}
+    <Card className={`overflow-hidden p-2 ${className}`}>
       <CardContent className="relative z-20 flex h-full flex-col space-y-4 p-0">
         {/* Header section with stars and project name */}
         <div className="flex items-start justify-between p-4 pb-0">
@@ -123,7 +113,7 @@ export function TestimonialCard({
 
         {/* Quote content */}
         <div className="flex grow items-center p-4 pt-2">
-          <h4 className="text-foreground/90 italic">{quote}</h4>
+          <h4 className="text-foreground/90 line-clamp-3 italic">{quote}</h4>
         </div>
 
         {/* Footer with author and metrics */}
