@@ -81,6 +81,7 @@ const auditReports: AuditReport[] = [
     id: "bougieconcept",
     date: "June 1, 2025",
     domain: "bougieconcept.ch",
+    embedId: { loom: "a1e449067793497181538a59e6acc43f" },
     overallScore: {
       score: 24,
       maxScore: 100,
