@@ -295,7 +295,7 @@ export default function HomePage() {
             ],
             image: "/images/hero/measurement-planning.png",
             customCtaButton: (
-              <form onSubmit={handleSubmit} className="w-full">
+              <form onSubmit={handleSubmit} className="w-full max-w-xl">
                 <div className="flex flex-col gap-3">
                   <Input
                     type="url"
@@ -330,7 +330,7 @@ export default function HomePage() {
             ],
             image: "/images/hero/gdpr-cmp.png",
             customCtaButton: (
-              <form onSubmit={handleSubmit} className="w-full">
+              <form onSubmit={handleSubmit} className="w-full max-w-xl">
                 <div className="flex flex-col gap-3">
                   <Input
                     type="url"
@@ -365,7 +365,7 @@ export default function HomePage() {
             ],
             image: "/images/hero/unified-dashboard.png",
             customCtaButton: (
-              <form onSubmit={handleSubmit} className="w-full">
+              <form onSubmit={handleSubmit} className="w-full max-w-xl">
                 <div className="flex flex-col gap-3">
                   <Input
                     type="url"
@@ -400,7 +400,7 @@ export default function HomePage() {
             ],
             image: "/images/hero/real-time-dashboard.png",
             customCtaButton: (
-              <form onSubmit={handleSubmit} className="w-full">
+              <form onSubmit={handleSubmit} className="w-full max-w-xl">
                 <div className="flex flex-col gap-3">
                   <Input
                     type="url"

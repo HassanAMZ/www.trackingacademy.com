@@ -72,7 +72,7 @@
   }
 }
 /* Neo Brutalism: Bold Red Corner Theme Start */
-/* 
+
 :root {
   --background: #ffffff;
   --foreground: #000000;
@@ -226,9 +226,9 @@
   --shadow-lg: var(--shadow-lg);
   --shadow-xl: var(--shadow-xl);
   --shadow-2xl: var(--shadow-2xl);
-} */
+}
 /* Neo Brutalism: Bold Red Corner Theme End */
-
+/* 
 :root {
   --background: #f8fafc;
   --foreground: #1e293b;
@@ -384,7 +384,7 @@
   --shadow-lg: var(--shadow-lg);
   --shadow-xl: var(--shadow-xl);
   --shadow-2xl: var(--shadow-2xl);
-}
+} */
 
 @layer utilities {
   * {
