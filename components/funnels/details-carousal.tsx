@@ -107,7 +107,9 @@ const DetailsCarousel: React.FC<DetailsCarouselProps> = ({
         {/* Header Section */}
         {headerTitle && (
           <div className="text-center">
-            <h1 className="whitespace-pre-wrap">{headerTitle}</h1>
+            <h1 className="mx-auto max-w-5xl whitespace-pre-wrap">
+              {headerTitle}
+            </h1>
             {headerDescription && (
               <h4 className="text-muted-foreground mx-auto max-w-4xl pt-8 whitespace-pre-wrap">
                 {headerDescription}

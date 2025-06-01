@@ -1,5 +1,4 @@
 import { cn } from "@/lib/utils";
-import clsx from "clsx";
 import Link from "next/link";
 import React from "react";
 import { Button } from "../ui/button";
@@ -7,12 +6,17 @@ import { Button } from "../ui/button";
 type CustomLinkProps = {
   href: string;
   className?: string;
+  id?: string;
+  trackingLabel?: string; // Custom label for analytics if different from children
   [key: string]: any; // for rest props
 };
 
 const CustomLink: React.FC<CustomLinkProps> = ({
   href,
   className,
+  id,
+  trackingLabel,
+  onClick,
   ...rest
 }) => {
   const isInternalLink = href.startsWith("/");
@@ -21,13 +25,64 @@ const CustomLink: React.FC<CustomLinkProps> = ({
     href,
   )}`;
 
+  // Function to extract text from children
+  const getLinkText = (children: React.ReactNode): string => {
+    if (typeof children === "string") {
+      return children;
+    }
+    if (typeof children === "number") {
+      return children.toString();
+    }
+    if (React.isValidElement(children)) {
+      // Safe type assertion since we checked isValidElement
+      const element = children as React.ReactElement<any>;
+      return getLinkText(element.props.children);
+    }
+    if (Array.isArray(children)) {
+      return children.map((child) => getLinkText(child)).join(" ");
+    }
+    return "";
+  };
+
+  // Enhanced click handler with analytics
+  const handleClick = (event: React.MouseEvent<HTMLAnchorElement>) => {
+    // Call original onClick if provided
+    if (onClick) {
+      onClick(event);
+    }
+
+    // Track the click in dataLayer
+    const linkText = trackingLabel || getLinkText(rest.children);
+    const finalUrl = isInternalLink || isAnchorLink ? href : isExternal;
+
+    // Use type assertion for window.dataLayer to match your existing GTM setup
+    if (typeof window !== "undefined" && (window as any).dataLayer) {
+      (window as any).dataLayer.push({
+        event: "link_click",
+        link_text: linkText,
+        link_id: id || "",
+        link_classes: className || "",
+        link_url: finalUrl,
+        link_type: isInternalLink
+          ? "internal"
+          : isAnchorLink
+            ? "anchor"
+            : "external",
+      });
+    }
+  };
+
   if (isInternalLink) {
     return (
-      <Button asChild className={cn("p-0!", className)} variant={"link"}>
-        <Link href={href} {...rest}>
-          {rest.children}
-        </Link>
-      </Button>
+      <Link
+        href={href}
+        id={id}
+        onClick={handleClick}
+        {...rest}
+        className={cn("", className)}
+      >
+        {rest.children}
+      </Link>
     );
   }
 
@@ -35,25 +90,26 @@ const CustomLink: React.FC<CustomLinkProps> = ({
     return (
       <Link
         href={href}
-        className={clsx(
-          "text-card-primary dark:text-primary p-0! whitespace-pre-wrap underline-offset-4 hover:underline",
-          className,
-        )}
+        id={id}
+        onClick={handleClick}
+        className={cn(className)}
         {...rest}
-      />
+      >
+        {rest.children}
+      </Link>
     );
   }
 
   return (
-    <Button asChild variant={"link"}>
-      <a
-        target="_blank"
-        rel="noopener noreferrer"
-        className={clsx("p-0!", className)}
-        href={isExternal}
-        {...rest}
-      />
-    </Button>
+    <a
+      target="_blank"
+      rel="noopener noreferrer"
+      className={cn("", className)}
+      href={isExternal}
+      id={id}
+      onClick={handleClick}
+      {...rest}
+    />
   );
 };
 

@@ -60,7 +60,7 @@ const Hero: FC<HeroProps> = ({
         {carousel && (
           <div className="mx-auto max-w-2xl lg:mx-0">{carousel}</div>
         )}
-        <div className="mx-auto grid max-w-2xl grid-cols-2 justify-center gap-2 py-4 md:grid-cols-3 md:items-start lg:mx-0">
+        <div className="mx-auto grid grid-cols-2 justify-center gap-2 py-4 md:grid-cols-3 md:items-start lg:mx-0">
           {benefits.map((benefit, index) => (
             <div
               key={index}

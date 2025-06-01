@@ -11,8 +11,9 @@ import {
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { services } from "@/data/services";
+import { Loader2 } from "lucide-react";
 import { usePathname } from "next/navigation";
-import { useActionState, useState } from "react";
+import { useActionState, useEffect, useState } from "react";
 import { useFormStatus } from "react-dom";
 
 type CouponOptInFormProps = {
@@ -33,13 +34,13 @@ const clientCreateCouponRequest =
       const name = formData.get("name")?.toString() || "";
       const email = formData.get("email")?.toString() || "";
       const phone_number = formData.get("phone")?.toString() || "";
-      const website = formData.get("website")?.toString() || "";
+      const website_url = formData.get("website_url")?.toString() || "";
 
       // Store in localStorage
       localStorage.setItem("name", name);
       localStorage.setItem("email_address", email);
       localStorage.setItem("phone_number", phone_number);
-      localStorage.setItem("website", website);
+      localStorage.setItem("website_url", website_url);
       localStorage.setItem("coupon_form_submitted", "true");
 
       await createCouponRequest(formData, redirectUrl);
@@ -66,7 +67,14 @@ function SubmitButton() {
         pending ? "cursor-not-allowed opacity-50" : "cursor-pointer"
       }`}
     >
-      {pending ? "Submitting..." : "Claim Your $300 Coupon Now"}
+      {pending ? (
+        <>
+          <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+          Submitting Request...
+        </>
+      ) : (
+        "Claim Your $300 Coupon Now"
+      )}
     </Button>
   );
 }
@@ -85,12 +93,28 @@ export default function CouponOptInForm({
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
-  const [website, setWebsite] = useState("");
+  const [websiteUrl, setWebsiteURL] = useState("");
 
   const [state, formAction] = useActionState(
     clientCreateCouponRequest(redirectUrl ? redirectUrl : redirectPaymentUrl),
     initialState,
   );
+
+  useEffect(() => {
+    if (isOpen && typeof window !== "undefined") {
+      // Check localStorage for existing values and pre-populate
+      const storedName = localStorage.getItem("name") || "";
+      const storedEmail = localStorage.getItem("email_address") || "";
+      const storedPhone = localStorage.getItem("phone_number") || "";
+      const storedWebsite = localStorage.getItem("website_url") || "";
+
+      // Only set if the current state is empty (to avoid overwriting user input)
+      if (!name && storedName) setName(storedName);
+      if (!email && storedEmail) setEmail(storedEmail);
+      if (!phone && storedPhone) setPhone(storedPhone);
+      if (!websiteUrl && storedWebsite) setWebsiteURL(storedWebsite);
+    }
+  }, [isOpen]); // Run when modal opens
 
   return (
     <>
@@ -212,10 +236,10 @@ export default function CouponOptInForm({
                     <Input
                       required
                       type="url"
-                      id="website"
-                      name="website"
-                      value={website}
-                      onChange={(e) => setWebsite(e.target.value)}
+                      id="website_url"
+                      name="website_url"
+                      value={websiteUrl}
+                      onChange={(e) => setWebsiteURL(e.target.value)}
                       placeholder="Enter your website URL"
                       className="h-12 p-2.5"
                     />

@@ -114,17 +114,21 @@ export default function HomePage() {
         number: "3",
         title: "Watch ROAS Increase",
         description:
-          "Sit back and watch your Facebook ads perform better with bulletproof tracking and crystal-clear attribution data and increase ROAS.",
+          "Sit back and watch your Ads perform better with bulletproof tracking and crystal-clear attribution data and increase ROAS.",
         icon: <TrendingUp className="h-6 w-6" />,
         color: "bg-primary",
       },
     ];
 
     return (
-      <Container className="from-primary/5 to-background grid min-h-screen place-content-center bg-linear-to-b p-12">
+      <Container className="from-primary/5 to-background grid min-h-screen place-content-center gap-6 bg-linear-to-b py-32">
         {/* Header */}
-        <div className="mmx-to mb-8 space-y-4 text-center">
-          <h1>How It Works </h1>
+        <div className="mmx-to mb-8 space-y-8 text-center">
+          <h1>
+            How
+            <span className="text-primary"> "See Every Sale" </span>
+            Tracking Setup Work?
+          </h1>
           <h4 className="text-muted-foreground">
             Super simple process - we do all the heavy lifting so you can focus
             on growing your business
@@ -232,12 +236,11 @@ export default function HomePage() {
         </Container>
         <CaseStudyCarousel caseStudies={caseStudies} />
       </div>
-      <ProcessFlow />
       <ProblemAwareness
         headingText="The Hidden Costs of Missing Conversion Data"
         paragraphText="Without accurate funnel tracking, your Meta ads lack the data to optimize for conversions, resulting in wasted budget and poor ROAS."
         bluePillPoints={[
-          "Facebook Can't Optimize Effectively for Conversions",
+          "Ads Can't Optimize Effectively for Conversions",
           "Wasting Ads Budget on Poorly Targeted Audiences",
           "Can't See Add to Cart & Purchase Events in Analytics",
           "Unable to Scale Due to Missing Crucial Data Reports",
@@ -251,27 +254,29 @@ export default function HomePage() {
           "Stay Compliant With Meta's Policies and Regulations",
           "Track 40% More Conversions Than Typical Setups",
         ]}
-      />
-      <AdSpendCalculator
-        cta={true}
-        customCtaButton={
-          <CouponOptInForm
-            buttonElement={
-              <Button className="mx-auto flex w-fit max-w-4xl cursor-pointer flex-col items-center p-6 text-center text-xl font-bold">
-                <div>
-                  {ctaVariants[5].title}
-                  <span className="mt-2 block text-sm font-medium opacity-90">
-                    {ctaVariants[5].subtitle}
-                  </span>
-                </div>
-              </Button>
-            }
-          />
-        }
-      />
+      />{" "}
+      <div className="from-primary/5 to-background bg-linear-to-b py-16">
+        <AdSpendCalculator
+          cta={true}
+          customCtaButton={
+            <CouponOptInForm
+              buttonElement={
+                <Button className="mx-auto flex w-fit max-w-4xl cursor-pointer flex-col items-center p-6 text-center text-xl font-bold">
+                  <div>
+                    {ctaVariants[5].title}
+                    <span className="mt-2 block text-sm font-medium opacity-90">
+                      {ctaVariants[5].subtitle}
+                    </span>
+                  </div>
+                </Button>
+              }
+            />
+          }
+        />
+      </div>
       <DetailsCarousel
-        headerTitle="What You Get?"
-        headerDescription="A complete system designed to fix Facebook's data sharing restrictions and restore 95%+ accurate data for every key event — all done-for-you in just 3 days."
+        headerTitle="How See Every Sale Help You Fix Everything that's Wrong with your Tracking Setup?"
+        headerDescription="A complete system designed to fix Broken Tracking and restore 95%+ accurate data for every key event — all done-for-you in just 3 days."
         items={[
           {
             title: "95% Accurate Ads Conversion Tracking",
@@ -402,6 +407,7 @@ export default function HomePage() {
           },
         ]}
       />
+      <ProcessFlow />
       <SocialProof
         sectionTitle="Ecommerce Brands Trust Our Tracking Solution"
         sectionDescription="See how we've helped businesses just like yours restore tracking and scale their ad campaigns."
@@ -518,8 +524,8 @@ export default function HomePage() {
         <div className="mx-auto max-w-4xl space-y-6 pb-6 text-center">
           <h1>Join 300+ Happy Clients Who Fixed Their Tracking </h1>
           <h4 className="text-muted-foreground">
-            See why leading ecommerce brands choose us to solve their Facebook
-            tracking nightmares and unlock consistent, scalable growth.
+            See why leading ecommerce brands choose us to solve their Tracking
+            nightmares and unlock consistent, scalable growth.
           </h4>
         </div>
         <TestimonialGrid upwork={true} />

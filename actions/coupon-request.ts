@@ -35,7 +35,7 @@ export async function createCouponRequest(
     name: z.string().min(1, "Name is required"),
     email: z.string().email("Invalid email address"),
     phone: z.string().min(1, "Phone number is required"),
-    website: z.string().min(1, "website URL is required"),
+    website_url: z.string().min(1, "website URL is required"),
     createdAt: z.instanceof(Timestamp),
     couponCode: z.string(),
   });
@@ -46,7 +46,7 @@ export async function createCouponRequest(
       name: formData.get("name"),
       email: formData.get("email"),
       phone: formData.get("phone"),
-      website: formData.get("website"),
+      website_url: formData.get("website_url"),
       createdAt: Timestamp.now(),
       couponCode: "SEEEVERYSALE300OFF",
     });
@@ -60,7 +60,7 @@ export async function createCouponRequest(
     const emailData = {
       name: data.name,
       email: data.email,
-      website: data.website,
+      website_url: data.website_url,
       phone: data.phone,
       couponCode: data.couponCode,
       createdAt: data.createdAt,

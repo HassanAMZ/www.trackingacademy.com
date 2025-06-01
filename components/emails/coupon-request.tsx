@@ -17,7 +17,7 @@ import { Timestamp } from "firebase/firestore";
 type CouponRequestEmailProps = {
   name: string;
   email: string;
-  website: string;
+  website_url: string;
   phone: string;
   couponCode: string;
   createdAt: Timestamp;
@@ -29,7 +29,7 @@ export default function CouponRequestEmail({
   name,
   email,
   phone,
-  website,
+  website_url,
   couponCode,
   createdAt,
 }: CouponRequestEmailProps) {
@@ -65,8 +65,8 @@ export default function CouponRequestEmail({
             <Text style={greeting}>Hi {name},</Text>
             <Text style={paragraph}>
               Thanks for your interest in our 3-Day "See Every Sale" Tracking
-              System for {website}. Here's your exclusive $300 coupon code to
-              use during checkout:
+              System for {website_url}. Here's your exclusive $300 coupon code
+              to use during checkout:
             </Text>{" "}
             {/* Coupon Code Box */}
             <Section style={couponBox}>

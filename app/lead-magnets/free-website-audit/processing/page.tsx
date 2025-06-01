@@ -55,6 +55,11 @@ export default function ProcessingPage() {
     useState(false);
   const [triggerFormSubmitEvent, setTriggerFormSubmitEvent] = useState(false);
 
+  // Form field states
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState("");
+
   useEffect(() => {
     const timer = setTimeout(() => {
       if (currentStep < processingSteps.length - 1) {
@@ -71,6 +76,21 @@ export default function ProcessingPage() {
     return () => clearTimeout(timer);
   }, [currentStep]);
 
+  // Check localStorage when form becomes visible
+  useEffect(() => {
+    if (showForm && typeof window !== "undefined") {
+      // Check localStorage for existing values and pre-populate
+      const storedName = localStorage.getItem("name") || "";
+      const storedEmail = localStorage.getItem("email_address") || "";
+      const storedPhone = localStorage.getItem("phone_number") || "";
+
+      // Set the form fields with stored values
+      setName(storedName);
+      setEmail(storedEmail);
+      setPhone(storedPhone);
+    }
+  }, [showForm]);
+
   const handleSubmit = async (formData: FormData) => {
     if (hasSubmittedForm) return; // Prevent duplicate submissions
 
@@ -78,13 +98,13 @@ export default function ProcessingPage() {
     setHasSubmittedForm(true);
 
     // Save form values to localStorage
-    const name = formData.get("name") as string;
-    const email = formData.get("email") as string;
-    const phone = formData.get("phone") as string;
+    const nameValue = formData.get("name") as string;
+    const emailValue = formData.get("email") as string;
+    const phoneValue = formData.get("phone") as string;
 
-    localStorage.setItem("name", name);
-    localStorage.setItem("email_address", email);
-    localStorage.setItem("phone_number", phone);
+    localStorage.setItem("name", nameValue);
+    localStorage.setItem("email_address", emailValue);
+    localStorage.setItem("phone_number", phoneValue);
 
     // Trigger form submission event
     setTriggerFormSubmitEvent(true);
@@ -229,6 +249,8 @@ export default function ProcessingPage() {
                 name="name"
                 type="text"
                 required
+                value={name}
+                onChange={(e) => setName(e.target.value)}
                 className="border-primary border p-4"
               />
             </div>
@@ -240,6 +262,8 @@ export default function ProcessingPage() {
                 name="email"
                 type="email"
                 required
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
                 className="border-primary border p-4"
               />
             </div>
@@ -251,6 +275,8 @@ export default function ProcessingPage() {
                 name="phone"
                 type="tel"
                 required
+                value={phone}
+                onChange={(e) => setPhone(e.target.value)}
                 className="border-primary border p-4"
               />
             </div>
@@ -258,6 +284,7 @@ export default function ProcessingPage() {
 
           <Button
             type="submit"
+            size="lg"
             className="w-full"
             disabled={isSubmitting || hasSubmittedForm}
           >
