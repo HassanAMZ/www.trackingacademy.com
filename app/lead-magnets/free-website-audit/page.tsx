@@ -203,7 +203,7 @@ export default function HomePage() {
           <div className="">
             <form
               onSubmit={handleSubmit}
-              className="flex w-full max-w-xl flex-col gap-4"
+              className="mx-auto flex w-full max-w-xl flex-col gap-4 lg:mx-0"
             >
               <div className="flex flex-col items-start justify-center gap-2">
                 <Input
@@ -236,34 +236,12 @@ export default function HomePage() {
           </div>
         }
         supportingComponent={
-          <AdSpendCalculator
-            cta={true}
-            customCtaButton={
-              <form onSubmit={handleSubmit} className="mx-auto max-w-md">
-                <div className="flex flex-col gap-3">
-                  <Input
-                    type="url"
-                    value={url}
-                    onChange={(e) => setUrl(e.target.value)}
-                    placeholder="Enter your website URL"
-                    required
-                    className="border-primary border p-6"
-                    disabled={isSubmitting}
-                  />
-                  {error && <p className="text-destructive">{error}</p>}
-                  <Button size="lg" type="submit" disabled={isSubmitting}>
-                    {isSubmitting ? (
-                      <>
-                        <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                        Analyzing...
-                      </>
-                    ) : (
-                      "Get Free Audit Report"
-                    )}
-                  </Button>
-                </div>
-              </form>
-            }
+          <Image
+            height="1920"
+            width="1080"
+            src="/images/hero/audit-creative.png"
+            alt="audit Craetive"
+            className="bg-primary rounded border shadow"
           />
         }
       />
