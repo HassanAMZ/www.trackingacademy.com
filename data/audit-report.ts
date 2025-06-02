@@ -243,6 +243,7 @@ const auditReports: AuditReport[] = [
     id: "warriorreplicas",
     date: "June 2nd, 2025",
     domain: "warriorreplicas.com",
+    embedId: { loom: "2af4a743783a40f8be6d75c5044d3280" },
     overallScore: {
       score: 24,
       maxScore: 100,
