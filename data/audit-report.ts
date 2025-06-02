@@ -91,7 +91,7 @@ const auditReports: AuditReport[] = [
       {
         name: "Analytics",
         score: 55,
-        color: "warning",
+        color: "destructive",
       },
       {
         name: "Ads",
@@ -106,7 +106,7 @@ const auditReports: AuditReport[] = [
       {
         name: "Page speed",
         score: 67,
-        color: "warning",
+        color: "destructive",
       },
     ],
     trackers: [
