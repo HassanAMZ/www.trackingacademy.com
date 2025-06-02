@@ -18,7 +18,7 @@ export default function AuditLayout({
   return (
     <>
       <Navbar />
-      <Container className="py-8">{children}</Container>
+      {children}
       <Footer />
     </>
   );

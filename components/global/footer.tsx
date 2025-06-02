@@ -1,7 +1,14 @@
 "use client";
 
 import Container from "@/components/ui/container";
-import { Facebook, Linkedin, Mail, Twitter, Youtube } from "lucide-react";
+import {
+  Facebook,
+  Linkedin,
+  Mail,
+  Phone,
+  Twitter,
+  Youtube,
+} from "lucide-react";
 import Link from "next/link";
 import { ThemeToggle } from "./theme-switch";
 
@@ -67,7 +74,7 @@ export default function Footer() {
               </li>
               <li>
                 <Link href="tel:00923364904686" className="hover:underline">
-                  00923364904686
+                  +923364904686
                 </Link>
               </li>
               <li>
@@ -120,6 +127,13 @@ export default function Footer() {
               >
                 <Facebook className="hover:text-primary h-5 w-5" />
               </Link>
+              <Link
+                href="tel:00923364904686"
+                target="_blank"
+                aria-label="Phone"
+              >
+                <Phone className="hover:text-primary h-5 w-5" />
+              </Link>
             </div>
             <ThemeToggle />
           </div>
@@ -127,7 +141,8 @@ export default function Footer() {
 
         {/* Bottom */}
         <div className="text-muted-foreground mt-10 border-t pt-6 text-center text-xs">
-          © {new Date().getFullYear()} TrackingAcademy. All rights reserved.
+          © 2020 - {new Date().getFullYear()} TrackingAcademy. All rights
+          reserved.
         </div>
       </Container>
     </footer>

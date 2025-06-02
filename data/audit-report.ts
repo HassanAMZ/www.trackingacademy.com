@@ -5,7 +5,7 @@ interface OverallScore {
   color: string;
 }
 
-interface CategoryScore {
+export interface CategoryScore {
   name: string;
   score: number;
   color: string;

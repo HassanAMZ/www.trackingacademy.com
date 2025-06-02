@@ -1,3 +1,4 @@
+import AuditReportCarousel from "@/components/audit/audit-carousal";
 import { ServiceCard } from "@/components/pricing/pricing-vertical";
 import ServiceHero from "@/components/service/service-hero";
 import { Badge } from "@/components/ui/badge";
@@ -10,6 +11,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+import Container from "@/components/ui/container";
 import { Progress } from "@/components/ui/progress";
 import auditReports from "@/data/audit-report";
 import { services } from "@/data/services";
@@ -55,7 +57,7 @@ const getTextColor = (color: string) => {
 
 export default function AuditsPage() {
   return (
-    <div className="space-y-8">
+    <Container className="space-y-8 py-8">
       <div className="mb-8">
         <h1 className="mb-2 text-4xl font-bold">Website Audits</h1>
         <p className="text-muted-foreground">
@@ -139,7 +141,19 @@ export default function AuditsPage() {
         ))}
       </div>
 
+      <div className="w-full max-w-full py-12">
+        <Container className="flex max-w-4xl flex-col items-center space-y-6 pb-12 text-center">
+          <h1>Trusted by 1,000+ for Their Audits</h1>
+          <h4 className="text-muted-foreground max-w-3xl">
+            See exactly how we identified tracking issues for brands and the
+            measurable impact on their ROAS, conversion rates, and scaling
+            success.
+          </h4>
+        </Container>
+        <AuditReportCarousel auditReports={auditReports} />
+      </div>
+
       <ServiceHero service={services[3]} />
-    </div>
+    </Container>
   );
 }

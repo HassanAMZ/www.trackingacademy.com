@@ -1,14 +1,28 @@
-import { AuditReport } from "@/data/audit-report";
+"use client";
+
+import { Badge } from "@/components/ui/badge";
+import { Card, CardContent, CardHeader } from "@/components/ui/card";
+import { Progress } from "@/components/ui/progress";
+import {
+  AuditReport,
+  CategoryScore as CategoryScoreProps,
+} from "@/data/audit-report";
 import {
   Activity,
+  AlertTriangle,
   BarChart3,
+  CheckCircle2,
+  Clock,
   Database,
   ExternalLink,
   Eye,
   Shield,
+  TrendingUp,
+  XCircle,
   Zap,
 } from "lucide-react";
-import React, { useEffect, useRef, useState } from "react";
+import Link from "next/link";
+import { useEffect, useRef, useState } from "react";
 
 interface AuditReportCarouselProps {
   auditReports: AuditReport[];
@@ -18,69 +32,152 @@ interface AuditReportCarouselProps {
   className?: string;
 }
 
-// Utility functions from your example
-function getScoreColor(score: number, maxScore: number = 100) {
+// Semantic color utilities
+function getScoreColor(score: number, maxScore = 100) {
   const percentage = (score / maxScore) * 100;
-  if (percentage >= 80) return "text-green-600";
-  if (percentage >= 60) return "text-yellow-600";
-  return "text-red-600";
+  if (percentage >= 80) return "text-primary";
+  if (percentage >= 60) return "text-secondary-foreground";
+  return "text-destructive";
 }
-// Score donut component matching your example
-function ScoreDonut({
+
+function getScoreBackground(score: number, maxScore = 100) {
+  const percentage = (score / maxScore) * 100;
+  if (percentage >= 80) return "bg-primary/5 border-primary/20";
+  if (percentage >= 60) return "bg-secondary/50 border-secondary";
+  return "bg-destructive/5 border-destructive/20";
+}
+
+function getCategoryIcon(category: string) {
+  switch (category.toLowerCase()) {
+    case "analytics":
+      return <BarChart3 className="h-4 w-4" />;
+    case "ads":
+    case "advertising":
+      return <Eye className="h-4 w-4" />;
+    case "page speed":
+      return <Zap className="h-4 w-4" />;
+    case "cookie lifetime":
+      return <Clock className="h-4 w-4" />;
+    default:
+      return <Database className="h-4 w-4" />;
+  }
+}
+
+function getStatusIcon(score: number) {
+  if (score >= 80) return <CheckCircle2 className="text-primary h-4 w-4" />;
+  if (score >= 60)
+    return <AlertTriangle className="text-secondary-foreground h-4 w-4" />;
+  return <XCircle className="text-destructive h-4 w-4" />;
+}
+
+// Simple Score Circle Component
+function ScoreCircle({
   score,
   maxScore,
-  label,
+  size = 100,
 }: {
   score: number;
   maxScore: number;
-  label: string;
+  size?: number;
 }) {
   const percentage = (score / maxScore) * 100;
-  const circumference = 2 * Math.PI * 16;
+  const radius = (size - 8) / 2;
+  const circumference = radius * 2 * Math.PI;
   const strokeDasharray = `${(percentage / 100) * circumference} ${circumference}`;
-  const color = getScoreColor(score, maxScore);
 
   return (
-    <div className="flex flex-col items-center space-y-1">
-      <div className="relative">
-        <svg className="h-10 w-10 -rotate-90 transform">
-          <circle
-            cx="20"
-            cy="20"
-            r="16"
-            stroke="currentColor"
-            strokeWidth="3"
-            fill="none"
-            className="text-muted/20"
-          />
-          <circle
-            cx="20"
-            cy="20"
-            r="16"
-            stroke="currentColor"
-            strokeWidth="3"
-            fill="none"
-            strokeDasharray={strokeDasharray}
-            strokeLinecap="round"
-            className={`transition-all duration-300 ${color}`}
-          />
-        </svg>
-        <div className="absolute inset-0 flex items-center justify-center">
-          <span className="text-xs font-medium">{score}</span>
+    <div className="relative" style={{ width: size, height: size }}>
+      <svg className="-rotate-90 transform" width={size} height={size}>
+        <circle
+          cx={size / 2}
+          cy={size / 2}
+          r={radius}
+          stroke="currentColor"
+          strokeWidth="6"
+          fill="none"
+          className="text-muted/30"
+        />
+        <circle
+          cx={size / 2}
+          cy={size / 2}
+          r={radius}
+          stroke="currentColor"
+          strokeWidth="6"
+          fill="none"
+          strokeDasharray={strokeDasharray}
+          strokeLinecap="round"
+          className={`transition-all duration-700 ${getScoreColor(score)}`}
+        />
+      </svg>
+      <div className="absolute inset-0 flex flex-col items-center justify-center">
+        <span className="text-foreground text-2xl font-bold">{score}</span>
+        <span className="text-muted-foreground text-xs">/{maxScore}</span>
+      </div>
+    </div>
+  );
+}
+
+// Category Score Component
+function CategoryScore({ category }: { category: CategoryScoreProps }) {
+  return (
+    <div className="bg-muted/30 hover:bg-muted/50 flex items-center justify-between rounded-lg p-3 transition-colors">
+      <div className="flex items-center gap-2">
+        <div className="bg-background rounded-md border p-1.5">
+          {getCategoryIcon(category.name)}
         </div>
+        <span className="text-sm font-medium">{category.name}</span>
       </div>
-      <div className="text-center">
-        <div className="text-muted-foreground text-xs">{label}</div>
+      <div className="flex items-center gap-2">
+        <Progress value={category.score} className="h-2 w-16" />
+        <span
+          className={`w-8 text-sm font-semibold ${getScoreColor(category.score)}`}
+        >
+          {category.score}
+        </span>
       </div>
+    </div>
+  );
+}
+
+// Metric Card Component
+function MetricCard({
+  label,
+  value,
+  icon: Icon,
+  variant = "default",
+}: {
+  label: string;
+  value: number;
+  icon: any;
+  variant?: "default" | "warning" | "danger";
+}) {
+  const getVariantStyles = () => {
+    switch (variant) {
+      case "warning":
+        return "text-secondary-foreground bg-secondary/50";
+      case "danger":
+        return "text-destructive bg-destructive/5";
+      default:
+        return "text-muted-foreground bg-muted/20";
+    }
+  };
+
+  return (
+    <div className="bg-background rounded-lg border p-3 text-center">
+      <div className={`mb-2 inline-flex rounded-lg p-2 ${getVariantStyles()}`}>
+        <Icon className="h-4 w-4" />
+      </div>
+      <div className="text-foreground text-lg font-bold">{value}</div>
+      <div className="text-muted-foreground text-xs">{label}</div>
     </div>
   );
 }
 
 export default function AuditReportCarousel({
   auditReports,
-  speed = 0.8,
-  itemWidth = 360,
-  itemHeight = 480,
+  speed = 0.7,
+  itemWidth = 380,
+  itemHeight = 520,
   className = "",
 }: AuditReportCarouselProps) {
   const [isPaused, setIsPaused] = useState(false);
@@ -88,7 +185,6 @@ export default function AuditReportCarousel({
   const animationRef = useRef<number | null>(null);
   const positionRef = useRef<number>(0);
 
-  // Create infinite loop by triplicating items
   const items = [...auditReports, ...auditReports, ...auditReports];
   const margin = 20;
   const totalItemWidth = itemWidth + margin;
@@ -123,7 +219,8 @@ export default function AuditReportCarousel({
   }, [isPaused, auditReports.length, speed, totalItemWidth]);
 
   return (
-    <div className={`overflow-hidden ${className}`}>
+    <div className={` ${className}`}>
+      {/* Carousel */}
       <div
         className="relative"
         onMouseEnter={() => setIsPaused(true)}
@@ -138,128 +235,118 @@ export default function AuditReportCarousel({
           }}
         >
           {items.map((report, index) => (
-            <div
-              key={`${report.id}-${index}`}
-              className="group bg-card relative cursor-pointer overflow-hidden rounded-lg border shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-md"
-              style={{ width: `${itemWidth}px`, height: `${itemHeight}px` }}
-            >
-              {/* Header */}
-              <div className="border-b p-4 pb-3">
-                <div className="mb-3 flex items-center justify-between">
-                  <div className="flex items-center space-x-2">
-                    <Shield className="text-muted-foreground h-4 w-4" />
-                    <span className="text-muted-foreground text-xs">
-                      {new Date(report.date).toLocaleDateString()}
-                    </span>
-                  </div>
-                  <div className="opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-                    <div className="bg-primary text-primary-foreground rounded-full p-1.5 shadow-sm">
-                      <ExternalLink className="h-3 w-3" />
+            <Link key={`${report.id}-${index}`} href={`/audit/${report.id}`}>
+              <Card
+                className={`group cursor-pointer transition-all duration-300 hover:-translate-y-1 hover:shadow-lg ${getScoreBackground(report.overallScore.score)}`}
+                style={{ width: `${itemWidth}px`, height: `${itemHeight}px` }}
+              >
+                <CardHeader className="pb-4">
+                  {/* Status Badge */}
+                  <div className="mb-2 flex items-center justify-between">
+                    <Badge
+                      variant={
+                        report.overallScore.score >= 80
+                          ? "default"
+                          : report.overallScore.score >= 60
+                            ? "secondary"
+                            : "destructive"
+                      }
+                      className="flex items-center gap-1"
+                    >
+                      {getStatusIcon(report.overallScore.score)}
+                      {report.overallScore.status}
+                    </Badge>
+                    <div className="opacity-0 transition-opacity group-hover:opacity-100">
+                      <ExternalLink className="text-muted-foreground h-4 w-4" />
                     </div>
                   </div>
-                </div>
 
-                <h3 className="text-foreground mb-2 truncate font-medium">
-                  {report.domain}
-                </h3>
-
-                {/* Overall Score */}
-                <div className="flex items-center justify-between">
-                  <div className="flex items-center space-x-2">
-                    <span className="text-2xl font-semibold">
-                      {report.overallScore.score}
-                    </span>
-                    <span className="text-muted-foreground text-sm">
-                      /{report.overallScore.maxScore}
-                    </span>
+                  {/* Domain and Date */}
+                  <div className="text-center">
+                    <h3 className="text-foreground mb-1 truncate text-lg font-semibold">
+                      {report.domain}
+                    </h3>
+                    <p className="text-muted-foreground text-sm">
+                      {new Date(report.date).toLocaleDateString("en-US", {
+                        month: "short",
+                        day: "numeric",
+                        year: "numeric",
+                      })}
+                    </p>
                   </div>
-                  <div
-                    className={`inline-flex items-center rounded-full px-2 py-1 text-xs font-medium ${
-                      report.overallScore.status === "Excellent" ||
-                      report.overallScore.status === "Good"
-                        ? "bg-green-100 text-green-800 dark:bg-green-900/20 dark:text-green-400"
-                        : report.overallScore.status === "Fair"
-                          ? "bg-yellow-100 text-yellow-800 dark:bg-yellow-900/20 dark:text-yellow-400"
-                          : "bg-red-100 text-red-800 dark:bg-red-900/20 dark:text-red-400"
-                    }`}
-                  >
-                    {report.overallScore.status}
-                  </div>
-                </div>
-              </div>
+                </CardHeader>
 
-              {/* Category Scores */}
-              <div className="p-4 pb-3">
-                <h4 className="text-foreground mb-3 text-sm font-medium">
-                  Category Breakdown
-                </h4>
-                <div className="grid grid-cols-2 gap-3">
-                  {report.categoryScores.map((category, idx) => (
-                    <ScoreDonut
-                      key={idx}
-                      score={category.score}
-                      maxScore={100}
-                      label={category.name}
+                <CardContent className="space-y-4">
+                  {/* Score Circle */}
+                  <div className="flex justify-center">
+                    <ScoreCircle
+                      score={report.overallScore.score}
+                      maxScore={report.overallScore.maxScore}
+                      size={100}
                     />
-                  ))}
-                </div>
-              </div>
+                  </div>
 
-              {/* Metrics */}
-              <div className="p-4 pt-0">
-                <h4 className="text-foreground mb-3 text-sm font-medium">
-                  Issues Detected
-                </h4>
-                <div className="space-y-2">
-                  <div className="flex items-center justify-between text-sm">
-                    <div className="flex items-center space-x-2">
-                      <Eye className="text-muted-foreground h-3 w-3" />
-                      <span className="text-muted-foreground">Trackers</span>
-                    </div>
-                    <span className="text-foreground font-medium">
-                      {report.trackers.length}
-                    </span>
+                  {/* Category Scores */}
+                  <div className="space-y-2">
+                    {report.categoryScores.map((category, idx) => (
+                      <CategoryScore key={idx} category={category} />
+                    ))}
                   </div>
-                  <div className="flex items-center justify-between text-sm">
-                    <div className="flex items-center space-x-2">
-                      <Database className="text-muted-foreground h-3 w-3" />
-                      <span className="text-muted-foreground">Cookies</span>
-                    </div>
-                    <span className="text-foreground font-medium">
-                      {report.trackingCookies.length}
-                    </span>
-                  </div>
-                  <div className="flex items-center justify-between text-sm">
-                    <div className="flex items-center space-x-2">
-                      <BarChart3 className="text-muted-foreground h-3 w-3" />
-                      <span className="text-muted-foreground">Scripts</span>
-                    </div>
-                    <span className="text-foreground font-medium">
-                      {report.trackingScripts.length}
-                    </span>
-                  </div>
-                  <div className="flex items-center justify-between text-sm">
-                    <div className="flex items-center space-x-2">
-                      <Zap className="text-muted-foreground h-3 w-3" />
-                      <span className="text-muted-foreground">Actions</span>
-                    </div>
-                    <span className="text-accent-foreground font-medium">
-                      {report.recommendedActions.length}
-                    </span>
-                  </div>
-                </div>
-              </div>
 
-              {/* CTA */}
-              <div className="absolute right-0 bottom-0 left-0 p-4">
-                <div className="bg-primary text-primary-foreground translate-y-2 transform rounded-md py-2 text-center text-sm opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100">
-                  View Full Report
-                </div>
-              </div>
-
-              {/* Subtle Hover Overlay */}
-              <div className="bg-accent/5 pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100"></div>
-            </div>
+                  {/* Metrics Grid */}
+                  {/* <div className="grid grid-cols-2 gap-2 pt-2">
+                  <MetricCard
+                    label="Trackers"
+                    value={report.trackers.length}
+                    icon={TrendingUp}
+                    variant={
+                      report.trackers.length > 20
+                        ? "danger"
+                        : report.trackers.length > 10
+                          ? "warning"
+                          : "default"
+                    }
+                  />
+                  <MetricCard
+                    label="Cookies"
+                    value={report.trackingCookies.length}
+                    icon={Database}
+                    variant={
+                      report.trackingCookies.length > 50
+                        ? "danger"
+                        : report.trackingCookies.length > 25
+                          ? "warning"
+                          : "default"
+                    }
+                  />
+                  <MetricCard
+                    label="Scripts"
+                    value={report.trackingScripts.length}
+                    icon={Activity}
+                    variant={
+                      report.trackingScripts.length > 20
+                        ? "danger"
+                        : report.trackingScripts.length > 10
+                          ? "warning"
+                          : "default"
+                    }
+                  />
+                  <MetricCard
+                    label="Actions"
+                    value={report.recommendedActions.length}
+                    icon={AlertTriangle}
+                    variant={
+                      report.recommendedActions.length > 10
+                        ? "danger"
+                        : report.recommendedActions.length > 5
+                          ? "warning"
+                          : "default"
+                    }
+                  />
+                </div> */}
+                </CardContent>
+              </Card>
+            </Link>
           ))}
         </div>
       </div>

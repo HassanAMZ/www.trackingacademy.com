@@ -285,7 +285,7 @@ export default function Page() {
             much ad spend you're wasting due to missing data.
           </h4>
         }
-        carousel={<TestimonialsCarousel2 />}
+        // carousel={<TestimonialsCarousel2 />}
         benefits={[
           "100% Free Audit",
           "Detailed Report",
@@ -304,9 +304,9 @@ export default function Page() {
         }
       />
 
-      <div className="min-h-screen w-full max-w-full overflow-hidden py-12">
+      <div className="w-full py-12">
         <Container className="flex max-w-4xl flex-col items-center space-y-6 pb-12 text-center">
-          <h1>Trusted by 1,000+ for Their Tracking</h1>
+          <h1>Trusted by 1,000+ for Their Audits</h1>
           <h4 className="text-muted-foreground max-w-3xl">
             See exactly how we identified tracking issues for brands and the
             measurable impact on their ROAS, conversion rates, and scaling
@@ -436,7 +436,7 @@ export default function Page() {
                 buttonText="Get Free Report"
                 inputClassName="border-primary border"
                 buttonClassName="w-full"
-                className="w-full max-w-xl lg:!mx-auto"
+                className="w-full max-w-xl"
                 value={globalUrl}
                 onChange={setGlobalUrl}
                 onSubmitStart={handleFormSubmitStart}
