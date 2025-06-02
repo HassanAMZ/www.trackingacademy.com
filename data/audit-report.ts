@@ -79,29 +79,30 @@ export interface AuditReportProps {
 const auditReports: AuditReport[] = [
   {
     id: "assistansbutiken",
-    date: "June 1nd, 2025",
+    date: "June 2nd, 2025",
     domain: "assistansbutiken.se",
+    embedId: { loom: "79824ba3527e40cab69d3409cb90a3c1" },
     overallScore: {
       score: 53,
       maxScore: 100,
       status: "Needs improvement",
-      color: "warning",
+      color: "destructive",
     },
     categoryScores: [
       {
         name: "Analytics",
         score: 65,
-        color: "warning",
+        color: "destructive",
       },
       {
         name: "Ads",
         score: 68,
-        color: "warning",
+        color: "destructive",
       },
       {
         name: "Cookie lifetime",
         score: 61,
-        color: "warning",
+        color: "destructive",
       },
       {
         name: "Page speed",
@@ -568,7 +569,7 @@ const auditReports: AuditReport[] = [
       color: "destructive",
     },
     categoryScores: [
-      { name: "Analytics", score: 65, color: "warning" },
+      { name: "Analytics", score: 65, color: "destructive" },
       { name: "Ads", score: 37, color: "destructive" },
       { name: "Cookie lifetime", score: 85, color: "success" },
       { name: "Page speed", score: 96, color: "success" },
@@ -905,13 +906,13 @@ const auditReports: AuditReport[] = [
       score: 70,
       maxScore: 100,
       status: "Can be improved",
-      color: "warning",
+      color: "destructive",
     },
     categoryScores: [
       {
         name: "Analytics",
         score: 65,
-        color: "warning",
+        color: "destructive",
       },
       {
         name: "Ads",
@@ -921,12 +922,12 @@ const auditReports: AuditReport[] = [
       {
         name: "Cookie lifetime",
         score: 62,
-        color: "warning",
+        color: "destructive",
       },
       {
         name: "Page speed",
         score: 66,
-        color: "warning",
+        color: "destructive",
       },
     ],
     trackers: [
@@ -1482,10 +1483,10 @@ const auditReports: AuditReport[] = [
       color: "destructive",
     },
     categoryScores: [
-      { name: "Analytics", score: 45, color: "warning" },
-      { name: "Ads", score: 27, color: "warning" },
+      { name: "Analytics", score: 45, color: "destructive" },
+      { name: "Ads", score: 27, color: "destructive" },
       { name: "Cookie lifetime", score: 5, color: "destructive" },
-      { name: "Page speed", score: 57, color: "warning" },
+      { name: "Page speed", score: 57, color: "destructive" },
     ],
     trackers: [
       {
@@ -1690,7 +1691,7 @@ const auditReports: AuditReport[] = [
       score: 72,
       maxScore: 100,
       status: "Can be improved",
-      color: "warning",
+      color: "destructive",
     },
     categoryScores: [
       {
@@ -1701,7 +1702,7 @@ const auditReports: AuditReport[] = [
       {
         name: "Ads",
         score: 62,
-        color: "warning",
+        color: "destructive",
       },
       {
         name: "Cookie lifetime",
@@ -1976,7 +1977,7 @@ const auditReports: AuditReport[] = [
     },
     categoryScores: [
       { name: "Analytics", score: 55, color: "destructive" },
-      { name: "Ads", score: 66, color: "warning" },
+      { name: "Ads", score: 66, color: "destructive" },
       { name: "Cookie prolong", score: 27, color: "destructive" },
       { name: "SEO", score: 86, color: "success" },
     ],
