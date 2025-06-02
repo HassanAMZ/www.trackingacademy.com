@@ -62,7 +62,7 @@ export interface AuditReport {
     loom?: string;
     youtube?: string;
   };
-  date: string;
+  date: string; //May 12, 2025
   domain: string;
   overallScore: OverallScore;
   categoryScores: CategoryScore[];
@@ -79,7 +79,7 @@ export interface AuditReportProps {
 const auditReports: AuditReport[] = [
   {
     id: "amuletha",
-    date: "June 2nd, 2025",
+    date: "June 2, 2025",
     embedId: { loom: "2c1ae43b598b4af3ab36b5549219a7a3" },
     domain: "amuletha.com",
     overallScore: {
@@ -323,7 +323,7 @@ const auditReports: AuditReport[] = [
   },
   {
     id: "assistansbutiken",
-    date: "June 2nd, 2025",
+    date: "June 2, 2025",
     domain: "assistansbutiken.se",
     embedId: { loom: "79824ba3527e40cab69d3409cb90a3c1" },
     overallScore: {
@@ -485,7 +485,7 @@ const auditReports: AuditReport[] = [
   },
   {
     id: "warriorreplicas",
-    date: "June 2nd, 2025",
+    date: "June 2, 2025",
     domain: "warriorreplicas.com",
     embedId: { loom: "2af4a743783a40f8be6d75c5044d3280" },
     overallScore: {
@@ -804,7 +804,7 @@ const auditReports: AuditReport[] = [
   },
   {
     id: "neverendingleads",
-    date: "May 31st, 2025",
+    date: "May 31, 2025",
     domain: "neverendingleads.com",
     embedId: { loom: "aa4bffd6fc6e47c4af3edd7a3cb93dd1" },
     overallScore: {
@@ -893,7 +893,7 @@ const auditReports: AuditReport[] = [
   },
   {
     id: "purplehouseclinic",
-    date: "May 30th, 2025",
+    date: "May 30, 2025",
     domain: "www.purplehouseclinic.co.uk",
     embedId: { loom: "29dcd7ad09f745ea9ec870d100645116" },
     overallScore: {
@@ -1035,7 +1035,7 @@ const auditReports: AuditReport[] = [
   },
   {
     id: "germanimmigrationlaw",
-    date: "May 30th, 2025",
+    date: "May 30, 2025",
     domain: "www.germanimmigrationlaw.com",
 
     overallScore: {
@@ -1145,7 +1145,7 @@ const auditReports: AuditReport[] = [
   },
   {
     id: "fastbuds",
-    date: "May 30th, 2025",
+    date: "May 30, 2025",
     domain: "fastbuds.com/us",
     overallScore: {
       score: 70,
@@ -1295,7 +1295,7 @@ const auditReports: AuditReport[] = [
   },
   {
     id: "sundaygolf",
-    date: "May 29th, 2025",
+    date: "May 29, 2025",
     domain: "sundaygolf.com",
     overallScore: {
       score: 40,
@@ -1534,7 +1534,7 @@ const auditReports: AuditReport[] = [
 
   {
     id: "egeszsegesbor.carniumbotanical",
-    date: "May 29th, 2025",
+    date: "May 29, 2025",
     domain: "egeszsegesbor.carniumbotanicals.hu",
     overallScore: {
       score: 49,
@@ -1719,7 +1719,7 @@ const auditReports: AuditReport[] = [
   },
   {
     id: "eko-skrnicl",
-    date: "May 29th, 2025",
+    date: "May 29, 2025",
     domain: "www.eko-skrnicl.si",
     overallScore: {
       score: 33,
@@ -1930,7 +1930,7 @@ const auditReports: AuditReport[] = [
   },
   {
     id: "justclickandshop",
-    date: "May 28th, 2025",
+    date: "May 28, 2025",
     domain: "justclickandshop.com",
     overallScore: {
       score: 72,
@@ -2016,7 +2016,7 @@ const auditReports: AuditReport[] = [
   },
   {
     id: "roisense",
-    date: "May 28th, 2025",
+    date: "May 28, 2025",
     domain: "demo.roisense.com",
     overallScore: {
       score: 25,
@@ -2212,7 +2212,7 @@ const auditReports: AuditReport[] = [
   },
   {
     id: "slumiya",
-    date: "May 26th, 2025",
+    date: "May 26, 2025",
     domain: "slumiya.com",
     overallScore: {
       score: 56,
@@ -2343,7 +2343,7 @@ const auditReports: AuditReport[] = [
   },
   {
     id: "afroditacosmetics",
-    date: "May 15th, 2025",
+    date: "May 15, 2025",
     domain: "webshop.afroditacosmetics.com",
     overallScore: {
       score: 44,

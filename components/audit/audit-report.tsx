@@ -30,13 +30,18 @@ import {
   AlertTriangle,
   BarChart3,
   CheckCircle,
+  Clock,
   Code,
   Cookie,
+  Database,
   ExternalLink,
+  Eye,
+  EyeOff,
   PieChart,
   Shield,
   TrendingUp,
   XCircle,
+  Zap,
 } from "lucide-react";
 import {
   Bar,
@@ -45,6 +50,7 @@ import {
   Cell,
   Pie,
   PieChart as RechartsPieChart,
+  ResponsiveContainer,
   Scatter,
   ScatterChart,
   XAxis,
@@ -75,6 +81,22 @@ function getCategoryBadgeVariant(category: string) {
       return "outline";
     default:
       return "secondary";
+  }
+}
+
+function getCategoryIcon(category: string) {
+  switch (category.toLowerCase()) {
+    case "advertising":
+    case "advertisement":
+      return <Eye className="h-3 w-3" />;
+    case "analytics":
+      return <BarChart3 className="h-3 w-3" />;
+    case "functional":
+      return <Zap className="h-3 w-3" />;
+    case "social media":
+      return <Activity className="h-3 w-3" />;
+    default:
+      return <Database className="h-3 w-3" />;
   }
 }
 
@@ -380,10 +402,9 @@ export default function AuditReport({ report }: AuditReportProps) {
         </CardContent>
       </Card>
 
-      {/* Tracker Distribution Chart */}
+      {/* Charts Section */}
       <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-        {/* Category Scores Chart */}
-
+        {/* Tracker Distribution Chart */}
         <Card className="hidden lg:block">
           <CardHeader>
             <CardTitle className="flex items-center gap-2">
@@ -392,26 +413,31 @@ export default function AuditReport({ report }: AuditReportProps) {
             </CardTitle>
             <CardDescription>Breakdown of trackers by category</CardDescription>
           </CardHeader>
-          <CardContent>
-            <ChartContainer config={trackerDistributionConfig}>
-              <RechartsPieChart>
-                <ChartTooltip
-                  cursor={false}
-                  content={<ChartTooltipContent hideLabel />}
-                />
-                <Pie
-                  data={trackerDistributionData}
-                  dataKey="count"
-                  nameKey="category"
-                  innerRadius={60}
-                  strokeWidth={5}
-                >
-                  {trackerDistributionData.map((entry, index) => (
-                    <Cell key={`cell-${index}`} fill={entry.fill} />
-                  ))}
-                </Pie>
-              </RechartsPieChart>
-            </ChartContainer>
+          <CardContent className="p-4">
+            <div className="h-[300px] w-full">
+              <ResponsiveContainer width="100%" height="100%">
+                <RechartsPieChart>
+                  <ChartTooltip
+                    cursor={false}
+                    content={<ChartTooltipContent hideLabel />}
+                  />
+                  <Pie
+                    data={trackerDistributionData}
+                    dataKey="count"
+                    nameKey="category"
+                    cx="50%"
+                    cy="50%"
+                    innerRadius={60}
+                    outerRadius={100}
+                    strokeWidth={2}
+                  >
+                    {trackerDistributionData.map((entry, index) => (
+                      <Cell key={`cell-${index}`} fill={entry.fill} />
+                    ))}
+                  </Pie>
+                </RechartsPieChart>
+              </ResponsiveContainer>
+            </div>
           </CardContent>
         </Card>
 
@@ -420,84 +446,92 @@ export default function AuditReport({ report }: AuditReportProps) {
           <CardHeader>
             <CardTitle className="flex items-center gap-2">
               <Code className="h-5 w-5" />
-              Script Performance Analysis
+              Script Performance
             </CardTitle>
             <CardDescription>
               Transfer size vs blocking time for tracking scripts
             </CardDescription>
           </CardHeader>
-          <CardContent>
-            <ChartContainer config={scriptPerformanceConfig}>
-              <ScatterChart data={scriptPerformanceData}>
-                <CartesianGrid />
-                <XAxis
-                  type="number"
-                  dataKey="transferSize"
-                  name="Transfer Size"
-                  unit="KB"
-                  tickLine={false}
-                  axisLine={false}
-                />
-                <YAxis
-                  type="number"
-                  dataKey="blockingTime"
-                  name="Blocking Time"
-                  unit="ms"
-                  tickLine={false}
-                  axisLine={false}
-                />
-                <ZAxis type="number" range={[60, 400]} />
-                <ChartTooltip
-                  cursor={{ strokeDasharray: "3 3" }}
-                  content={({ active, payload }) => {
-                    if (active && payload && payload.length) {
-                      const data = payload[0].payload;
-                      return (
-                        <div className="bg-background rounded-lg border p-2 shadow-sm">
-                          <div className="grid grid-cols-2 gap-2">
-                            <div className="flex flex-col">
-                              <span className="text-muted-foreground text-[0.70rem] uppercase">
-                                Script
-                              </span>
-                              <span className="text-muted-foreground font-bold">
-                                {data.name}
-                              </span>
-                            </div>
-                            <div className="flex flex-col">
-                              <span className="text-muted-foreground text-[0.70rem] uppercase">
-                                Provider
-                              </span>
-                              <span className="font-bold">{data.provider}</span>
-                            </div>
-                            <div className="flex flex-col">
-                              <span className="text-muted-foreground text-[0.70rem] uppercase">
-                                Transfer Size
-                              </span>
-                              <span className="text-muted-foreground font-bold">
-                                {data.transferSize} KB
-                              </span>
-                            </div>
-                            <div className="flex flex-col">
-                              <span className="text-muted-foreground text-[0.70rem] uppercase">
-                                Blocking Time
-                              </span>
-                              <span className="font-bold">
-                                {data.blockingTime} ms
-                              </span>
+          <CardContent className="p-4">
+            <div className="h-[300px] w-full">
+              <ResponsiveContainer width="100%" height="100%">
+                <ScatterChart
+                  data={scriptPerformanceData}
+                  margin={{ top: 20, right: 20, bottom: 20, left: 20 }}
+                >
+                  <CartesianGrid strokeDasharray="3 3" />
+                  <XAxis
+                    type="number"
+                    dataKey="transferSize"
+                    name="Transfer Size"
+                    unit="KB"
+                    tickLine={false}
+                    axisLine={false}
+                  />
+                  <YAxis
+                    type="number"
+                    dataKey="blockingTime"
+                    name="Blocking Time"
+                    unit="ms"
+                    tickLine={false}
+                    axisLine={false}
+                  />
+                  <ZAxis type="number" range={[60, 400]} />
+                  <ChartTooltip
+                    cursor={{ strokeDasharray: "3 3" }}
+                    content={({ active, payload }) => {
+                      if (active && payload && payload.length) {
+                        const data = payload[0].payload;
+                        return (
+                          <div className="bg-background rounded-lg border p-2 shadow-sm">
+                            <div className="grid grid-cols-2 gap-2">
+                              <div className="flex flex-col">
+                                <span className="text-muted-foreground text-[0.70rem] uppercase">
+                                  Script
+                                </span>
+                                <span className="text-muted-foreground font-bold">
+                                  {data.name}
+                                </span>
+                              </div>
+                              <div className="flex flex-col">
+                                <span className="text-muted-foreground text-[0.70rem] uppercase">
+                                  Provider
+                                </span>
+                                <span className="font-bold">
+                                  {data.provider}
+                                </span>
+                              </div>
+                              <div className="flex flex-col">
+                                <span className="text-muted-foreground text-[0.70rem] uppercase">
+                                  Transfer Size
+                                </span>
+                                <span className="text-muted-foreground font-bold">
+                                  {data.transferSize} KB
+                                </span>
+                              </div>
+                              <div className="flex flex-col">
+                                <span className="text-muted-foreground text-[0.70rem] uppercase">
+                                  Blocking Time
+                                </span>
+                                <span className="font-bold">
+                                  {data.blockingTime} ms
+                                </span>
+                              </div>
                             </div>
                           </div>
-                        </div>
-                      );
-                    }
-                    return null;
-                  }}
-                />
-                <Scatter dataKey="blockingTime" />
-              </ScatterChart>
-            </ChartContainer>
+                        );
+                      }
+                      return null;
+                    }}
+                  />
+                  <Scatter dataKey="blockingTime" />
+                </ScatterChart>
+              </ResponsiveContainer>
+            </div>
           </CardContent>
         </Card>
 
+        {/* Cookie Lifetime Chart */}
         <Card>
           <CardHeader>
             <CardTitle className="flex items-center gap-2">
@@ -508,29 +542,34 @@ export default function AuditReport({ report }: AuditReportProps) {
               Analysis of cookie retention periods
             </CardDescription>
           </CardHeader>
-          <CardContent>
-            <ChartContainer config={cookieLifetimeConfig}>
-              <BarChart accessibilityLayer data={cookieLifetimeChartData}>
-                <CartesianGrid vertical={false} />
-                <XAxis
-                  dataKey="lifetime"
-                  tickLine={false}
-                  tickMargin={10}
-                  axisLine={false}
-                />
-                <YAxis tickLine={false} axisLine={false} />
-                <ChartTooltip
-                  cursor={false}
-                  content={<ChartTooltipContent hideLabel />}
-                />
-                <Bar dataKey="count" radius={8} />
-              </BarChart>
-            </ChartContainer>
+          <CardContent className="p-4">
+            <div className="h-[300px] w-full">
+              <ResponsiveContainer width="100%" height="100%">
+                <BarChart
+                  data={cookieLifetimeChartData}
+                  margin={{ top: 20, right: 20, bottom: 20, left: 20 }}
+                >
+                  <CartesianGrid vertical={false} strokeDasharray="3 3" />
+                  <XAxis
+                    dataKey="lifetime"
+                    tickLine={false}
+                    tickMargin={10}
+                    axisLine={false}
+                  />
+                  <YAxis tickLine={false} axisLine={false} />
+                  <ChartTooltip
+                    cursor={false}
+                    content={<ChartTooltipContent hideLabel />}
+                  />
+                  <Bar dataKey="count" radius={8} fill="var(--chart-4)" />
+                </BarChart>
+              </ResponsiveContainer>
+            </div>
           </CardContent>
         </Card>
       </div>
 
-      {/* Trackers */}
+      {/* Enhanced Trackers Table */}
       <Card>
         <CardHeader>
           <CardTitle className="flex items-center gap-2">
@@ -542,57 +581,100 @@ export default function AuditReport({ report }: AuditReportProps) {
           </CardDescription>
         </CardHeader>
         <CardContent>
-          <Table>
-            <TableHeader>
-              <TableRow>
-                <TableHead>Name</TableHead>
-                <TableHead>Provider</TableHead>
-                <TableHead>Category</TableHead>
-                <TableHead>Data Sent To</TableHead>
-                <TableHead>Method</TableHead>
-                <TableHead>Status</TableHead>
-              </TableRow>
-            </TableHeader>
-            <TableBody>
-              {report.trackers.map((tracker, index) => (
-                <TableRow key={index}>
-                  <TableCell className="font-medium">{tracker.name}</TableCell>
-                  <TableCell>{tracker.provider}</TableCell>
-                  <TableCell>
-                    <Badge variant={getCategoryBadgeVariant(tracker.category)}>
-                      {tracker.category}
-                    </Badge>
-                  </TableCell>
-                  <TableCell>{tracker.dataSentTo}</TableCell>
-                  <TableCell>{tracker.trackingMethod}</TableCell>
-                  <TableCell>
-                    <div className="flex items-center gap-2">
-                      {tracker.isTransparent ? (
-                        <CheckCircle className="h-4 w-4 text-green-600" />
-                      ) : (
-                        <XCircle className="h-4 w-4 text-red-600" />
-                      )}
-                      {tracker.canImprove && tracker.improvementLink && (
-                        <Button variant="ghost" size="sm" asChild>
-                          <a
-                            href={tracker.improvementLink}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                          >
-                            <ExternalLink className="h-3 w-3" />
-                          </a>
-                        </Button>
-                      )}
-                    </div>
-                  </TableCell>
+          <div className="rounded-lg border">
+            <Table>
+              <TableHeader>
+                <TableRow className="bg-muted/50">
+                  <TableHead className="font-semibold">Name</TableHead>
+                  <TableHead className="font-semibold">Provider</TableHead>
+                  <TableHead className="font-semibold">Category</TableHead>
+                  <TableHead className="font-semibold">Data Sent To</TableHead>
+                  <TableHead className="font-semibold">Method</TableHead>
+                  <TableHead className="font-semibold">Status</TableHead>
                 </TableRow>
-              ))}
-            </TableBody>
-          </Table>
+              </TableHeader>
+              <TableBody>
+                {report.trackers.map((tracker, index) => (
+                  <TableRow
+                    key={index}
+                    className="hover:bg-muted/30 border-muted/30 border-b transition-colors"
+                  >
+                    <TableCell className="py-4 font-medium">
+                      <div className="flex items-center gap-2">
+                        <div className="h-2 w-2 rounded-full bg-blue-500" />
+                        {tracker.name}
+                      </div>
+                    </TableCell>
+                    <TableCell className="py-4">
+                      <div className="flex items-center gap-2">
+                        <div className="flex h-6 w-6 items-center justify-center rounded-full bg-gradient-to-br from-blue-400 to-purple-600 text-xs font-bold text-white">
+                          {tracker.provider.charAt(0).toUpperCase()}
+                        </div>
+                        {tracker.provider}
+                      </div>
+                    </TableCell>
+                    <TableCell className="py-4">
+                      <Badge
+                        variant={getCategoryBadgeVariant(tracker.category)}
+                        className="flex w-fit items-center gap-1"
+                      >
+                        {getCategoryIcon(tracker.category)}
+                        {tracker.category}
+                      </Badge>
+                    </TableCell>
+                    <TableCell className="py-4">
+                      <div className="flex items-center gap-2">
+                        <Database className="text-muted-foreground h-3 w-3" />
+                        {tracker.dataSentTo}
+                      </div>
+                    </TableCell>
+                    <TableCell className="py-4">
+                      <Badge variant="outline" className="text-xs">
+                        {tracker.trackingMethod}
+                      </Badge>
+                    </TableCell>
+                    <TableCell className="py-4">
+                      <div className="flex items-center gap-2">
+                        {tracker.isTransparent ? (
+                          <div className="flex items-center gap-1 text-green-600">
+                            <CheckCircle className="h-4 w-4" />
+                            <span className="text-xs font-medium">
+                              Transparent
+                            </span>
+                          </div>
+                        ) : (
+                          <div className="flex items-center gap-1 text-red-600">
+                            <XCircle className="h-4 w-4" />
+                            <span className="text-xs font-medium">Hidden</span>
+                          </div>
+                        )}
+                        {tracker.canImprove && tracker.improvementLink && (
+                          <Button
+                            variant="ghost"
+                            size="sm"
+                            asChild
+                            className="h-6 w-6 p-0"
+                          >
+                            <a
+                              href={tracker.improvementLink}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                            >
+                              <ExternalLink className="h-3 w-3" />
+                            </a>
+                          </Button>
+                        )}
+                      </div>
+                    </TableCell>
+                  </TableRow>
+                ))}
+              </TableBody>
+            </Table>
+          </div>
         </CardContent>
       </Card>
 
-      {/* Tracking Cookies */}
+      {/* Enhanced Tracking Cookies Table */}
       <Card>
         <CardHeader>
           <CardTitle className="flex items-center gap-2">
@@ -602,36 +684,69 @@ export default function AuditReport({ report }: AuditReportProps) {
           <CardDescription>Cookies used for tracking purposes</CardDescription>
         </CardHeader>
         <CardContent>
-          <Table>
-            <TableHeader>
-              <TableRow>
-                <TableHead>Name</TableHead>
-                <TableHead>Provider</TableHead>
-                <TableHead>Category</TableHead>
-                <TableHead>Data Sent To</TableHead>
-                <TableHead>Lifetime</TableHead>
-              </TableRow>
-            </TableHeader>
-            <TableBody>
-              {report.trackingCookies.map((cookie, index) => (
-                <TableRow key={index}>
-                  <TableCell className="font-medium">{cookie.name}</TableCell>
-                  <TableCell>{cookie.provider}</TableCell>
-                  <TableCell>
-                    <Badge variant={getCategoryBadgeVariant(cookie.category)}>
-                      {cookie.category}
-                    </Badge>
-                  </TableCell>
-                  <TableCell>{cookie.dataSentTo}</TableCell>
-                  <TableCell>{cookie.lifetime}</TableCell>
+          <div className="rounded-lg border">
+            <Table>
+              <TableHeader>
+                <TableRow className="bg-muted/50">
+                  <TableHead className="font-semibold">Name</TableHead>
+                  <TableHead className="font-semibold">Provider</TableHead>
+                  <TableHead className="font-semibold">Category</TableHead>
+                  <TableHead className="font-semibold">Data Sent To</TableHead>
+                  <TableHead className="font-semibold">Lifetime</TableHead>
                 </TableRow>
-              ))}
-            </TableBody>
-          </Table>
+              </TableHeader>
+              <TableBody>
+                {report.trackingCookies.map((cookie, index) => (
+                  <TableRow
+                    key={index}
+                    className="hover:bg-muted/30 border-muted/30 border-b transition-colors"
+                  >
+                    <TableCell className="py-4 font-medium">
+                      <div className="flex items-center gap-2">
+                        <Cookie className="h-3 w-3 text-amber-500" />
+                        {cookie.name}
+                      </div>
+                    </TableCell>
+                    <TableCell className="py-4">
+                      <div className="flex items-center gap-2">
+                        <div className="flex h-6 w-6 items-center justify-center rounded-full bg-gradient-to-br from-amber-400 to-orange-600 text-xs font-bold text-white">
+                          {cookie.provider.charAt(0).toUpperCase()}
+                        </div>
+                        {cookie.provider}
+                      </div>
+                    </TableCell>
+                    <TableCell className="py-4">
+                      <Badge
+                        variant={getCategoryBadgeVariant(cookie.category)}
+                        className="flex w-fit items-center gap-1"
+                      >
+                        {getCategoryIcon(cookie.category)}
+                        {cookie.category}
+                      </Badge>
+                    </TableCell>
+                    <TableCell className="py-4">
+                      <div className="flex items-center gap-2">
+                        <Database className="text-muted-foreground h-3 w-3" />
+                        {cookie.dataSentTo}
+                      </div>
+                    </TableCell>
+                    <TableCell className="py-4">
+                      <div className="flex items-center gap-1">
+                        <Clock className="h-3 w-3 text-blue-500" />
+                        <Badge variant="secondary" className="text-xs">
+                          {cookie.lifetime}
+                        </Badge>
+                      </div>
+                    </TableCell>
+                  </TableRow>
+                ))}
+              </TableBody>
+            </Table>
+          </div>
         </CardContent>
       </Card>
 
-      {/* Tracking Scripts */}
+      {/* Enhanced Tracking Scripts Table */}
       <Card>
         <CardHeader>
           <CardTitle className="flex items-center gap-2">
@@ -643,40 +758,84 @@ export default function AuditReport({ report }: AuditReportProps) {
           </CardDescription>
         </CardHeader>
         <CardContent>
-          <Table>
-            <TableHeader>
-              <TableRow>
-                <TableHead>Name</TableHead>
-                <TableHead>Provider</TableHead>
-                <TableHead>Category</TableHead>
-                <TableHead>Transfer Size</TableHead>
-                <TableHead>Blocking Time</TableHead>
-              </TableRow>
-            </TableHeader>
-            <TableBody>
-              {report.trackingScripts.map((script, index) => (
-                <TableRow key={index}>
-                  <TableCell className="font-medium">{script.name}</TableCell>
-                  <TableCell>{script.provider}</TableCell>
-                  <TableCell>
-                    <Badge variant={getCategoryBadgeVariant(script.category)}>
-                      {script.category}
-                    </Badge>
-                  </TableCell>
-                  <TableCell>
-                    <span style={{ color: script.transferSizeColor }}>
-                      {script.transferSize}
-                    </span>
-                  </TableCell>
-                  <TableCell>
-                    <span style={{ color: script.blockingTimeColor }}>
-                      {script.blockingTime}
-                    </span>
-                  </TableCell>
+          <div className="rounded-lg border">
+            <Table>
+              <TableHeader>
+                <TableRow className="bg-muted/50">
+                  <TableHead className="font-semibold">Name</TableHead>
+                  <TableHead className="font-semibold">Provider</TableHead>
+                  <TableHead className="font-semibold">Category</TableHead>
+                  <TableHead className="font-semibold">Transfer Size</TableHead>
+                  <TableHead className="font-semibold">Blocking Time</TableHead>
                 </TableRow>
-              ))}
-            </TableBody>
-          </Table>
+              </TableHeader>
+              <TableBody>
+                {report.trackingScripts.map((script, index) => (
+                  <TableRow
+                    key={index}
+                    className="hover:bg-muted/30 border-muted/30 border-b transition-colors"
+                  >
+                    <TableCell className="py-4 font-medium">
+                      <div className="flex items-center gap-2">
+                        <div className="h-2 w-2 rounded-full bg-green-500" />
+                        {script.name}
+                      </div>
+                    </TableCell>
+                    <TableCell className="py-4">
+                      <div className="flex items-center gap-2">
+                        <div className="flex h-6 w-6 items-center justify-center rounded-full bg-gradient-to-br from-green-400 to-blue-600 text-xs font-bold text-white">
+                          {script.provider.charAt(0).toUpperCase()}
+                        </div>
+                        {script.provider}
+                      </div>
+                    </TableCell>
+                    <TableCell className="py-4">
+                      <Badge
+                        variant={getCategoryBadgeVariant(script.category)}
+                        className="flex w-fit items-center gap-1"
+                      >
+                        {getCategoryIcon(script.category)}
+                        {script.category}
+                      </Badge>
+                    </TableCell>
+                    <TableCell className="py-4">
+                      <div className="flex items-center gap-2">
+                        <div
+                          className="h-3 w-3 rounded-full"
+                          style={{
+                            backgroundColor:
+                              script.transferSizeColor || "#6b7280",
+                          }}
+                        />
+                        <span
+                          style={{ color: script.transferSizeColor }}
+                          className="font-medium"
+                        >
+                          {script.transferSize}
+                        </span>
+                      </div>
+                    </TableCell>
+                    <TableCell className="py-4">
+                      <div className="flex items-center gap-2">
+                        <Clock
+                          className="h-3 w-3"
+                          style={{
+                            color: script.blockingTimeColor || "#6b7280",
+                          }}
+                        />
+                        <span
+                          style={{ color: script.blockingTimeColor }}
+                          className="font-medium"
+                        >
+                          {script.blockingTime}
+                        </span>
+                      </div>
+                    </TableCell>
+                  </TableRow>
+                ))}
+              </TableBody>
+            </Table>
+          </div>
         </CardContent>
       </Card>
 

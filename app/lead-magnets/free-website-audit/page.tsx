@@ -1,6 +1,7 @@
 "use client";
 
 import { GTMCustomEvent } from "@/components/analytics/GTMEvents";
+import AuditReportCarousel from "@/components/audit/audit-carousal";
 import CaseStudyCarousel from "@/components/case-study/case-study-carousel";
 import TestimonialsCarousel2 from "@/components/for-freelancers/testimonials-carousal-2";
 import DetailedCTA from "@/components/funnels/detailed-cta";
@@ -19,6 +20,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import Container from "@/components/ui/container";
 import { Input } from "@/components/ui/input";
+import auditReports from "@/data/audit-report";
 import { caseStudies } from "@/data/case-studies";
 import { getDirectoryURL } from "@/utils/payment";
 import {
@@ -304,14 +306,14 @@ export default function Page() {
 
       <div className="min-h-screen w-full max-w-full overflow-hidden py-12">
         <Container className="flex max-w-4xl flex-col items-center space-y-6 pb-12 text-center">
-          <h1>Trusted by 1,000+ eCommerce Stores</h1>
+          <h1>Trusted by 1,000+ for Their Tracking</h1>
           <h4 className="text-muted-foreground max-w-3xl">
-            See exactly how we identified tracking issues for ecommerce brands
-            and the measurable impact on their ROAS, conversion rates, and
-            scaling success.
+            See exactly how we identified tracking issues for brands and the
+            measurable impact on their ROAS, conversion rates, and scaling
+            success.
           </h4>
         </Container>
-        <CaseStudyCarousel caseStudies={caseStudies} />
+        <AuditReportCarousel auditReports={auditReports} />
       </div>
 
       <ProblemAwareness

@@ -24,7 +24,7 @@ export default async function Page({
   return (
     <div className="space-y-6">
       <AuditReport report={auditReport} />
-      <ServiceHero service={services[1]} />
+      {/* <ServiceHero service={services[1]} /> */}
     </div>
   );
 }
