@@ -26,6 +26,7 @@ import {
 } from "@/components/ui/table";
 import type { AuditReportProps } from "@/data/audit-report";
 import {
+  Activity,
   AlertTriangle,
   BarChart3,
   CheckCircle,
@@ -167,113 +168,223 @@ export default function AuditReport({ report }: AuditReportProps) {
       color: "var(--chart-2)",
     },
   };
+  // Find individual category scores for the summary donuts
+  const analyticsScore =
+    report.categoryScores.find((cat) =>
+      cat.name.toLowerCase().includes("analytics"),
+    )?.score || 0;
+  const adsScore =
+    report.categoryScores.find((cat) => cat.name.toLowerCase().includes("ads"))
+      ?.score || 0;
+  const pageSpeedScore =
+    report.categoryScores.find((cat) =>
+      cat.name.toLowerCase().includes("page speed"),
+    )?.score || 0;
+  const cookieScore =
+    report.categoryScores.find((cat) =>
+      cat.name.toLowerCase().includes("cookie lifetime"),
+    )?.score || 0;
+
+  // Donut chart component for the summary
+  function ScoreDonut({
+    score,
+    maxScore,
+    label,
+    color,
+  }: {
+    score: number;
+    maxScore: number;
+    label: string;
+    color: string;
+  }) {
+    const percentage = (score / maxScore) * 100;
+    const circumference = 2 * Math.PI * 45;
+    const strokeDasharray = `${(percentage / 100) * circumference} ${circumference}`;
+    console.log(score, maxScore, percentage);
+    return (
+      <div className="flex flex-col items-center space-y-2">
+        <div className="relative">
+          <svg className="h-24 w-24 -rotate-90 transform">
+            <circle
+              cx="48"
+              cy="48"
+              r="45"
+              stroke="currentColor"
+              strokeWidth="6"
+              fill="none"
+              className="text-gray-200"
+            />
+            <circle
+              cx="48"
+              cy="48"
+              r="45"
+              stroke={color}
+              strokeWidth="6"
+              fill="none"
+              strokeDasharray={strokeDasharray}
+              strokeLinecap="round"
+              className="transition-all duration-300"
+            />
+          </svg>
+          <div className="absolute inset-0 flex items-center justify-center">
+            <span className="text-2xl font-bold">{score}</span>
+          </div>
+        </div>
+        <div className="text-center">
+          <div className="text-sm font-medium">{label}</div>
+          <div className="text-muted-foreground text-xs">out of {maxScore}</div>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="space-y-8">
-      {/* Header */}
-      <div className="space-y-4 text-center">
-        <h1 className="text-3xl font-bold">Website Audit Report</h1>
-        <div className="text-muted-foreground flex items-center justify-center gap-4">
-          <span className="font-medium">{report.domain}</span>
-          <span>•</span>
-          <span>{report.date}</span>
-        </div>
-      </div>
-
-      {/* Overall Score */}
+      {/* Executive Summary */}
       <Card>
         <CardHeader className="text-center">
           <CardTitle className="flex items-center justify-center gap-2">
             <Shield className="h-6 w-6" />
-            Overall Score
+            Executive Summary
           </CardTitle>
+          <CardDescription>
+            Your website's overall health score and key metrics
+          </CardDescription>
         </CardHeader>
-        <CardContent className="space-y-6">
-          <div className="text-center">
-            <div
-              className={`text-6xl font-bold ${getScoreColor(report.overallScore.score, report.overallScore.maxScore)}`}
-            >
-              {report.overallScore.score}
-            </div>
-            <div className="text-muted-foreground text-2xl">
-              out of {report.overallScore.maxScore}
-            </div>
-            <Badge
-              variant={
-                report.overallScore.status === "Good"
-                  ? "default"
-                  : report.overallScore.status === "Fair"
-                    ? "secondary"
-                    : "destructive"
-              }
-              className="mt-2"
-            >
-              {report.overallScore.status}
-            </Badge>
-          </div>
-          <Progress value={scorePercentage} className="h-3" />
-          {report?.embedId?.loom ? (
-            <LoomEmbed embedId={report.embedId.loom} />
-          ) : report?.embedId?.youtube ? (
-            <YoutubeEmbed embedId={report.embedId.youtube} />
-          ) : null}
-
-          <div className="grid grid-cols-1 gap-4 pt-6 sm:grid-cols-2 lg:grid-cols-4">
-            {report.categoryScores.map((category, index) => (
-              <div key={index} className="rounded-lg border p-8 text-center">
-                <div
-                  className={`text-2xl font-bold`}
-                  style={{ color: category.color }}
-                >
-                  {category.score}%
-                </div>
-                <div className="text-muted-foreground mt-1 text-sm">
-                  {category.name}
+        <CardContent>
+          <div className="flex flex-col items-center justify-center gap-8 lg:flex-row">
+            {/* Overall Score Circle */}
+            <div className="flex flex-col items-center space-y-4">
+              <div className="relative">
+                <svg className="h-32 w-32 -rotate-90 transform">
+                  <circle
+                    cx="64"
+                    cy="64"
+                    r="58"
+                    stroke="currentColor"
+                    strokeWidth="8"
+                    fill="none"
+                    className="text-gray-200"
+                  />
+                  <circle
+                    cx="64"
+                    cy="64"
+                    r="58"
+                    stroke={
+                      scorePercentage >= 80
+                        ? "#22c55e"
+                        : scorePercentage >= 60
+                          ? "#eab308"
+                          : "#ef4444"
+                    }
+                    strokeWidth="8"
+                    fill="none"
+                    strokeDasharray={`${(scorePercentage / 100) * 364} 364`}
+                    strokeLinecap="round"
+                    className="transition-all duration-500"
+                  />
+                </svg>
+                <div className="absolute inset-0 flex flex-col items-center justify-center">
+                  <span className="text-4xl font-bold">
+                    {report.overallScore.score}
+                  </span>
+                  <span className="text-muted-foreground text-sm">
+                    out of {report.overallScore.maxScore}
+                  </span>
                 </div>
               </div>
-            ))}
+              <div className="text-center">
+                <div className="text-lg font-semibold">Overall Score</div>
+                <Badge
+                  variant={
+                    report.overallScore.status === "Good"
+                      ? "default"
+                      : report.overallScore.status === "Fair"
+                        ? "secondary"
+                        : "destructive"
+                  }
+                  className="mt-1"
+                >
+                  {report.overallScore.status}
+                </Badge>
+              </div>
+            </div>
+
+            {/* Category Scores */}
+            <div className="flex flex-wrap justify-center gap-6">
+              <ScoreDonut
+                score={analyticsScore}
+                maxScore={100}
+                label="Analytics"
+                color="#22c55e"
+              />
+              <ScoreDonut
+                score={adsScore}
+                maxScore={100}
+                label="Ads"
+                color="#ef4444"
+              />
+              <ScoreDonut
+                score={cookieScore}
+                maxScore={100}
+                label="Cookie Lifetime"
+                color="#3b82f6"
+              />
+              <ScoreDonut
+                score={pageSpeedScore}
+                maxScore={100}
+                label="Page Speed"
+                color="#3b82f6"
+              />
+            </div>
           </div>
+
+          {/* Key Metrics */}
+          <div className="mt-8 grid grid-cols-1 gap-4 border-t pt-6 sm:grid-cols-3">
+            <div className="rounded-lg bg-gray-50 p-4 text-center">
+              <div className="text-2xl font-bold text-orange-600">
+                {report.trackers.length}
+              </div>
+              <div className="text-muted-foreground text-sm">
+                Tracking Technologies Found
+              </div>
+            </div>
+            <div className="rounded-lg bg-gray-50 p-4 text-center">
+              <div className="text-2xl font-bold text-blue-600">
+                {report.trackingCookies.length}
+              </div>
+              <div className="text-muted-foreground text-sm">
+                Tracking Cookies Detected
+              </div>
+            </div>
+            <div className="rounded-lg bg-gray-50 p-4 text-center">
+              <div className="text-2xl font-bold text-purple-600">
+                {report.recommendedActions.length}
+              </div>
+              <div className="text-muted-foreground text-sm">
+                Improvement Opportunities
+              </div>
+            </div>
+          </div>
+
+          {/* Video Embed */}
+          {report?.embedId?.loom ? (
+            <div className="mt-6">
+              <LoomEmbed embedId={report.embedId.loom} className="!p-0" />
+            </div>
+          ) : report?.embedId?.youtube ? (
+            <div className="mt-6">
+              <YoutubeEmbed embedId={report.embedId.youtube} className="!p-0" />
+            </div>
+          ) : null}
         </CardContent>
       </Card>
 
       {/* Tracker Distribution Chart */}
-      <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
+      <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
         {/* Category Scores Chart */}
-        <Card>
-          <CardHeader>
-            <CardTitle className="flex items-center gap-2">
-              <BarChart3 className="h-5 w-5" />
-              Category Performance Analysis
-            </CardTitle>
-            <CardDescription>
-              Detailed breakdown of scores across different categories
-            </CardDescription>
-          </CardHeader>
-          <CardContent>
-            <ChartContainer config={categoryChartConfig}>
-              <BarChart accessibilityLayer data={categoryChartData}>
-                <CartesianGrid vertical={false} />
-                <XAxis
-                  dataKey="name"
-                  tickLine={false}
-                  tickMargin={10}
-                  axisLine={false}
-                />
-                <YAxis
-                  tickLine={false}
-                  axisLine={false}
-                  tickFormatter={(value) => `${value}%`}
-                />
-                <ChartTooltip
-                  cursor={false}
-                  content={<ChartTooltipContent hideLabel />}
-                />
-                <Bar dataKey="score" radius={8} />
-              </BarChart>
-            </ChartContainer>
-          </CardContent>
-        </Card>
-        <Card>
+
+        <Card className="hidden lg:block">
           <CardHeader>
             <CardTitle className="flex items-center gap-2">
               <PieChart className="h-5 w-5" />
