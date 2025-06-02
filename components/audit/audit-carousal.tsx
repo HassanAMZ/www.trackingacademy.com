@@ -235,9 +235,13 @@ export default function Auditarousel({
           }}
         >
           {items.map((report, index) => (
-            <Link key={`${report.id}-${index}`} href={`/audit/${report.id}`}>
+            <Link
+              key={`${report.id}-${index}`}
+              href={`/audit/${report.id}`}
+              target="_blank"
+            >
               <Card
-                className={`group cursor-pointer transition-all duration-300 hover:-translate-y-1 hover:shadow-lg ${getScoreBackground(report.overallScore.score)}`}
+                className={`group cursor-pointer transition-all duration-300 hover:scale-97 hover:shadow-lg ${getScoreBackground(report.overallScore.score)}`}
                 style={{ width: `${itemWidth}px`, height: `${itemHeight}px` }}
               >
                 <CardHeader className="pb-4">
