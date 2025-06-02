@@ -1,7 +1,7 @@
 "use client";
 
 import { GTMCustomEvent } from "@/components/analytics/GTMEvents";
-import AuditReportCarousel from "@/components/audit/audit-carousal";
+import Auditarousel from "@/components/audit/audit-carousal";
 import CaseStudyCarousel from "@/components/case-study/case-study-carousel";
 import TestimonialsCarousel2 from "@/components/for-freelancers/testimonials-carousal-2";
 import DetailedCTA from "@/components/funnels/detailed-cta";
@@ -272,7 +272,7 @@ export default function Page() {
       <Hero
         eyebrow="Free Website Tracking Audit"
         heading={
-          <h1 className="mx-auto max-w-4xl text-center">
+          <h1 className="mx-auto max-w-3xl text-center">
             Get Your Free Tracking Audit Report —{" "}
             <span className="text-primary">Spot Every Data Leak</span>
           </h1>
@@ -285,18 +285,26 @@ export default function Page() {
             much ad spend you're wasting due to missing data.
           </h4>
         }
-        // carousel={<TestimonialsCarousel2 />}
+        carousel={
+          <div className="bg-muted w-full overflow-hidden rounded-lg md:max-w-xl">
+            <Image
+              src="/images/hero/free-audit-report.png"
+              alt="audit image"
+              width={1920}
+              height={1080}
+              className="rounded-lg"
+            />
+          </div>
+        }
         benefits={[
           "100% Free Audit",
           "Detailed Report",
           "GDPR & CCPA Analysis",
-          "Ready in Minutes",
-          "Expert Recommendations",
-          "No Obligation",
         ]}
         customCtaButton={
           <URLSubmissionForm
             value={globalUrl}
+            className="w-full md:max-w-xl"
             onChange={setGlobalUrl}
             onSubmitStart={handleFormSubmitStart}
             onSubmit={handleFormSubmit}
@@ -313,7 +321,7 @@ export default function Page() {
             success.
           </h4>
         </Container>
-        <AuditReportCarousel auditReports={auditReports} />
+        <Auditarousel auditReports={auditReports} />
       </div>
 
       <ProblemAwareness

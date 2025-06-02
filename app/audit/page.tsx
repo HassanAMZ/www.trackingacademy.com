@@ -1,4 +1,4 @@
-import AuditReportCarousel from "@/components/audit/audit-carousal";
+import Auditarousel from "@/components/audit/audit-carousal";
 import { ServiceCard } from "@/components/pricing/pricing-vertical";
 import ServiceHero from "@/components/service/service-hero";
 import { Badge } from "@/components/ui/badge";
@@ -150,7 +150,7 @@ export default function AuditsPage() {
             success.
           </h4>
         </Container>
-        <AuditReportCarousel auditReports={auditReports} />
+        <Auditarousel auditReports={auditReports} />
       </div>
 
       <ServiceHero service={services[3]} />

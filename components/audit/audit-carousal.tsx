@@ -24,7 +24,7 @@ import {
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 
-interface AuditReportCarouselProps {
+interface AuditarouselProps {
   auditReports: AuditReport[];
   speed?: number;
   itemWidth?: number;
@@ -173,13 +173,13 @@ function MetricCard({
   );
 }
 
-export default function AuditReportCarousel({
+export default function Auditarousel({
   auditReports,
   speed = 0.7,
   itemWidth = 380,
   itemHeight = 520,
   className = "",
-}: AuditReportCarouselProps) {
+}: AuditarouselProps) {
   const [isPaused, setIsPaused] = useState(false);
   const carouselRef = useRef<HTMLDivElement>(null);
   const animationRef = useRef<number | null>(null);
@@ -219,7 +219,7 @@ export default function AuditReportCarousel({
   }, [isPaused, auditReports.length, speed, totalItemWidth]);
 
   return (
-    <div className={` ${className}`}>
+    <div className={`overflow-hidden ${className}`}>
       {/* Carousel */}
       <div
         className="relative"

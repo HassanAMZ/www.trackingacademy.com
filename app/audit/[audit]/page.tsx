@@ -1,4 +1,4 @@
-import AuditReportCarousel from "@/components/audit/audit-carousal";
+import Auditarousel from "@/components/audit/audit-carousal";
 import AuditReport from "@/components/audit/audit-report";
 import ServiceHero from "@/components/service/service-hero";
 import Container from "@/components/ui/container";
@@ -38,7 +38,7 @@ export default async function Page({
             success.
           </h4>
         </Container>
-        <AuditReportCarousel auditReports={auditReports} />
+        <Auditarousel auditReports={auditReports} />
       </div>
 
       <Container className="py-12">

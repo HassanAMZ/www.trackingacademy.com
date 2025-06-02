@@ -69,8 +69,8 @@ const Hero: FC<HeroProps> = ({
     : "grid grid-cols-3 justify-center gap-2 py-4 md:grid-cols-3 md:items-start max-w-4xl";
 
   const benefitItemClasses = supportingComponent
-    ? "flex items-center justify-center gap-2 lg:justify-start"
-    : "flex items-center justify-center gap-2";
+    ? "flex items-center justify-center gap-2 lg:justify-start flex-col sm:flex-row"
+    : "flex items-center justify-center gap-2 flex-col sm:flex-row";
 
   const ctaClasses = supportingComponent
     ? "flex gap-4"
@@ -123,7 +123,7 @@ const Hero: FC<HeroProps> = ({
             )}
 
         <div className={benefitsClasses}>
-          {benefits.splice(0, 3).map((benefit, index) => (
+          {benefits.map((benefit, index) => (
             <div key={index} className={benefitItemClasses}>
               <CheckCircle className="text-primary h-5 w-5" />
               <p>{benefit}</p>
