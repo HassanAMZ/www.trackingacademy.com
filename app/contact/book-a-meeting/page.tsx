@@ -1,4 +1,5 @@
 import { GTMCustomEvent } from "@/components/analytics/GTMEvents";
+import GoogleCalender from "@/components/contact/google-calender";
 import YoutubeEmbed from "@/components/global/youtube-embed";
 import Container from "@/components/ui/container";
 import { RequestCookie } from "next/dist/compiled/@edge-runtime/cookies";
@@ -53,15 +54,7 @@ export default async function BookAMeetingPage() {
           </h4>
         </section>
       </Container>{" "}
-      {/* BOOKING SECTION */}
-      <Container className="max-w-5xl">
-        <div className="flex w-full items-center justify-center rounded-lg p-6 shadow-lg">
-          <iframe
-            src="https://calendar.google.com/calendar/appointments/schedules/AcZssZ0wgUDGuk7YMLv1IcsYbgeQwVYnRt39plBBMKmO55fulvLIeQ2ZZqBOGm1IpXYK7zvyl7YBLnlq?gv=true"
-            className="min-h-[75vh] w-full rounded-lg border"
-          ></iframe>
-        </div>
-      </Container>{" "}
+      <GoogleCalender />
       {/* NEXT STEPS SECTION */}
       <Container className="flex max-w-5xl flex-col gap-6 space-y-3 py-12">
         <h1 className="text-center">🚀 What Happens Next?</h1>{" "}

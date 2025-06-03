@@ -1,4 +1,5 @@
 import Auditarousel from "@/components/audit/audit-carousal";
+import GoogleCalender from "@/components/contact/google-calender";
 import { ServiceCard } from "@/components/pricing/pricing-vertical";
 import ServiceHero from "@/components/service/service-hero";
 import { Badge } from "@/components/ui/badge";
@@ -162,7 +163,7 @@ export default function AuditsPage() {
             tracking issues and Help you make more money from your exisitng ads.
           </h4>
         </Container>
-        <BookAMeetingPage />
+        <GoogleCalender />
       </div>
     </Container>
   );

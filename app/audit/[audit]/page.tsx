@@ -1,6 +1,7 @@
 import BookAMeetingPage from "@/app/contact/book-a-meeting/page";
 import Auditarousel from "@/components/audit/audit-carousal";
 import AuditReport from "@/components/audit/audit-report";
+import GoogleCalender from "@/components/contact/google-calender";
 import ServiceHero from "@/components/service/service-hero";
 import Container from "@/components/ui/container";
 import auditReports from "@/data/audit-report";
@@ -50,7 +51,7 @@ export default async function Page({
             tracking issues and Help you make more money from your exisitng ads.
           </h4>
         </Container>
-        <BookAMeetingPage />
+        <GoogleCalender />
       </div>
     </>
   );

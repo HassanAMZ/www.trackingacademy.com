@@ -1,15 +1,25 @@
 "use client";
 
+import BookAMeetingPage from "@/app/contact/book-a-meeting/page";
+import GoogleCalender from "@/components/contact/google-calender";
 import CustomLink from "@/components/mdx/CustomLink";
 import { Button } from "@/components/ui/button";
 import Container from "@/components/ui/container";
 import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
+import {
   ArrowRight,
+  Calendar,
   CheckCircle,
   Clock,
   Target,
   TrendingUp,
-  Zap,
+  Users,
 } from "lucide-react";
 
 export default function SimplifiedSuccessPage() {
@@ -18,125 +28,127 @@ export default function SimplifiedSuccessPage() {
       <div className="max-w-3xl space-y-8 text-center">
         {/* Success Header */}
         <div className="space-y-6">
-          <div className="mx-auto flex h-20 w-20 items-center justify-center rounded-full bg-green-500/20">
-            <CheckCircle className="h-10 w-10 text-green-600" />
+          <div className="bg-primary/20 mx-auto flex h-20 w-20 items-center justify-center rounded-full">
+            <CheckCircle className="text-primary h-10 w-10" />
           </div>
 
           <div className="space-y-4">
             <h1 className="text-4xl font-bold">
               Audit Request Submitted Successfully!
             </h1>
-            <p className="text-muted-foreground text-xl">
-              Our expert team is now analyzing your website's tracking setup.
-            </p>
+            <h5 className="text-muted-foreground">
+              Your audit has been added to our queue and our expert team will
+              begin analyzing your website's tracking setup.
+            </h5>
           </div>
         </div>
 
-        {/* Audit Status */}
-        <div className="rounded-lg border p-6">
-          <div className="mb-3 flex items-center justify-center gap-2">
-            <Clock className="h-5 w-5" />
-            <h3 className="font-semibold">What's Happening Now</h3>
-          </div>
-          <p className="text-sm">
-            Our tracking specialists are conducting a comprehensive analysis of
-            your Ga4, Google ADs, Meta Pixel, Conversions API, and overall
-            tracking health. You'll receive your personalized audit report
-            within <strong>24 hours</strong> via email.
-          </p>
-        </div>
-
-        {/* Special Offer Section */}
-        <div className="space-y-6 rounded-xl border-2 border-red-200 bg-gradient-to-br from-red-50 to-orange-50 p-8">
+        {/* Schedule Call Section */}
+        <div className="border-accent bg-accent/10 space-y-6 rounded-xl border-2 p-8">
           <div className="space-y-4">
             <div className="flex items-center justify-center gap-2">
-              <Zap className="h-6 w-6 text-red-600" />
-              <h2 className="text-2xl font-bold text-red-800">
-                🔥 Limited Time Offer - While You Wait!
+              <Calendar className="text-primary h-6 w-6" />
+              <h2 className="text-foreground text-2xl font-bold">
+                Schedule Your Results Review Call
               </h2>
+              <Calendar className="text-primary h-6 w-6" />
             </div>
 
-            <p className="text-lg text-gray-700">
-              Since you're already thinking about fixing your tracking, we have
-              a
-              <span className="font-bold text-red-600">
-                {" "}
-                special $300 OFF coupon{" "}
-              </span>
-              for our "See Every Sale" tracking setup service.
-            </p>
+            <h5 className="text-muted-foreground">
+              Once your audit is complete, let's schedule a
+              <span className="text-primary"> 30-minute call </span>
+              to go over the findings and answer any questions you might have.
+            </h5>
 
-            <div className="rounded-lg bg-white/80 p-4">
-              <h4 className="mb-2 font-semibold text-gray-800">
-                If your audit reveals tracking issues, you can:
+            <div className="bg-card/80 rounded-lg p-4">
+              <h4 className="text-foreground py-4 text-left font-semibold">
+                During our call, we'll cover:
               </h4>
-              <ul className="space-y-5 text-left text-sm text-gray-700">
+              <ul className="text-muted-foreground space-y-3 text-left text-sm">
                 <li className="flex items-center gap-2">
-                  <div className="h-2 w-2 rounded-full bg-red-500"></div>
-                  Get 95%+ accurate conversion tracking in just 3 days
+                  <div className="bg-primary h-2 w-2 rounded-full"></div>
+                  Detailed breakdown of your current tracking issues
                 </li>
                 <li className="flex items-center gap-2">
-                  <div className="h-2 w-2 rounded-full bg-red-500"></div>
-                  Save $300 with this exclusive coupon (normally $1,500)
+                  <div className="bg-primary h-2 w-2 rounded-full"></div>
+                  How these issues are affecting your ad performance and ROI
                 </li>
                 <li className="flex items-center gap-2">
-                  <div className="h-2 w-2 rounded-full bg-red-500"></div>
-                  Get $7,600 worth of bonus tools and dashboards
+                  <div className="bg-primary h-2 w-2 rounded-full"></div>
+                  Actionable solutions to fix your tracking problems
+                </li>
+                <li className="flex items-center gap-2">
+                  <div className="bg-primary h-2 w-2 rounded-full"></div>
+                  Answer any questions about your specific setup
                 </li>
               </ul>
             </div>
           </div>
 
-          {/* Countdown Timer */}
-          <div className="space-y-3">
-            <p className="font-semibold text-red-700">
-              ⚡ Only 10 coupons available - First come, first served!
+          {/* CTA Button with Modal */}
+          <div className="space-y-4">
+            <Dialog>
+              <DialogTrigger asChild>
+                <Button size="lg" className="w-full px-8 py-6 text-lg">
+                  📅 Schedule My Results Review Call
+                  <ArrowRight className="ml-2 h-5 w-5" />
+                </Button>
+              </DialogTrigger>
+              <DialogContent className="max-h-[90vh] max-w-4xl overflow-y-auto">
+                <DialogHeader>
+                  <DialogTitle>Schedule Your Results Review Call</DialogTitle>
+                </DialogHeader>
+                <GoogleCalender />
+              </DialogContent>
+            </Dialog>
+
+            <p className="text-muted-foreground text-sm">
+              Free 30-minute consultation - No obligation, just expert insights
+              into your tracking setup
             </p>
           </div>
+          {/* Expected Impact Preview */}
+          <div className="grid gap-6 md:grid-cols-3">
+            <div className="bg-card rounded-lg border p-4 text-center">
+              <div className="bg-primary/10 mx-auto mb-2 flex h-12 w-12 items-center justify-center rounded-lg">
+                <TrendingUp className="text-primary h-6 w-6" />
+              </div>
+              <div className="text-foreground text-2xl font-bold">20-40%</div>
+              <div className="text-muted-foreground text-sm">
+                Better Attribution
+              </div>
+            </div>
+            <div className="bg-card rounded-lg border p-4 text-center">
+              <div className="bg-secondary/10 mx-auto mb-2 flex h-12 w-12 items-center justify-center rounded-lg">
+                <Target className="text-secondary-foreground h-6 w-6" />
+              </div>
+              <div className="text-foreground text-2xl font-bold">15-30%</div>
+              <div className="text-muted-foreground text-sm">Higher ROAS</div>
+            </div>
+            <div className="bg-card rounded-lg border p-4 text-center">
+              <div className="bg-accent/10 mx-auto mb-2 flex h-12 w-12 items-center justify-center rounded-lg">
+                <Users className="text-accent-foreground h-6 w-6" />
+              </div>
+              <div className="text-foreground text-2xl font-bold">Expert</div>
+              <div className="text-muted-foreground text-sm">Guidance</div>
+            </div>
+          </div>
+        </div>
 
-          {/* CTA Button */}
-          <Button
-            asChild
-            size="lg"
-            className="bg-red-600 px-8 py-6 text-lg text-white hover:bg-red-700"
-          >
-            <CustomLink href="/funnels/facebook/see-every-sale">
-              🎁 Claim My $300 OFF Coupon Now
-              <ArrowRight className="ml-2 h-5 w-5" />
-            </CustomLink>
-          </Button>
-
-          <p className="text-sm text-gray-600">
-            No obligation - secure your coupon now, use it only if you need
-            tracking fixes!
+        {/* Audit Status */}
+        <div className="bg-card rounded-lg border p-6">
+          <div className="mb-3 flex items-center justify-center gap-2">
+            <Clock className="text-muted-foreground h-5 w-5" />
+            <h3 className="font-semibold">What's Happening Now</h3>
+          </div>
+          <p className="text-muted-foreground text-sm">
+            Our tracking specialists are conducting a comprehensive analysis of
+            your GA4, Google Ads, Meta Pixel, Conversions API, and overall
+            tracking health. You'll receive your personalized audit report
+            within <strong className="text-foreground">24 hours</strong> via
+            email.
           </p>
         </div>
-
-        {/* Expected Impact Preview */}
-        <div className="grid gap-6 md:grid-cols-3">
-          <div className="rounded-lg border p-4 text-center">
-            <div className="mx-auto mb-2 flex h-12 w-12 items-center justify-center rounded-lg bg-blue-500/10">
-              <TrendingUp className="h-6 w-6 text-blue-600" />
-            </div>
-            <div className="text-2xl font-bold text-blue-800">20-40%</div>
-            <div className="text-sm text-blue-700">Better Attribution</div>
-          </div>
-          <div className="rounded-lg border p-4 text-center">
-            <div className="mx-auto mb-2 flex h-12 w-12 items-center justify-center rounded-lg bg-green-500/10">
-              <Target className="h-6 w-6 text-green-600" />
-            </div>
-            <div className="text-2xl font-bold text-green-800">15-30%</div>
-            <div className="text-sm text-green-700">Higher ROAS</div>
-          </div>
-          <div className="rounded-lg border p-4 text-center">
-            <div className="mx-auto mb-2 flex h-12 w-12 items-center justify-center rounded-lg bg-purple-500/10">
-              <CheckCircle className="h-6 w-6 text-purple-600" />
-            </div>
-            <div className="text-2xl font-bold text-purple-800">95%+</div>
-            <div className="text-sm text-purple-700">Data Accuracy</div>
-          </div>
-        </div>
-
         {/* Footer Navigation */}
         <div className="flex justify-center gap-4 pt-8 text-sm">
           <CustomLink

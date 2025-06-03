@@ -266,10 +266,10 @@
     @apply scroll-m-20 text-lg font-semibold tracking-tight sm:text-xl;
   }
   h5 {
-    @apply scroll-m-20 text-base font-semibold tracking-tight sm:text-lg;
+    @apply scroll-m-20 text-base font-medium tracking-tight sm:text-lg;
   }
   h6 {
-    @apply scroll-m-20 text-sm font-semibold tracking-wide uppercase;
+    @apply scroll-m-20 text-sm font-normal tracking-wide uppercase;
   }
   p {
     @apply leading-7;
