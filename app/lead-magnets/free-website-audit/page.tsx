@@ -23,6 +23,7 @@ import { Input } from "@/components/ui/input";
 import auditReports from "@/data/audit-report";
 import { caseStudies } from "@/data/case-studies";
 import { getDirectoryURL } from "@/utils/payment";
+import clsx from "clsx";
 import {
   ArrowRight,
   BarChart2,
@@ -42,9 +43,6 @@ export default function Page() {
   const [hasSubmitted, setHasSubmitted] = useState(false);
   const [triggerEvent, setTriggerEvent] = useState(false);
   const [submittedUrl, setSubmittedUrl] = useState("");
-
-  // Lifted state for synced URL input across all forms
-  const [globalUrl, setGlobalUrl] = useState("");
 
   const handleFormSubmitStart = () => {
     if (!hasSubmitted) {
@@ -225,7 +223,7 @@ export default function Page() {
             onChange={(e) => setUrl(e.target.value)}
             placeholder={placeholder}
             required
-            className={inputClassName}
+            className={clsx("p-6", inputClassName)}
             disabled={isSubmitting}
           />
           {error && <p className="text-destructive">{error}</p>}
@@ -233,7 +231,7 @@ export default function Page() {
             size={"lg"}
             type="submit"
             disabled={isSubmitting}
-            className={buttonClassName}
+            className={clsx("p-4", buttonClassName)}
           >
             {isSubmitting ? (
               <>
@@ -545,9 +543,9 @@ export default function Page() {
             placeholder="Enter your website URL"
             buttonText="🔎 Get My Free Audit Report"
             loadingText="Creating Your Report..."
-            inputClassName="border-primary border p-4 w-full"
+            inputClassName="border-primary border w-full"
             buttonClassName="p-4 w-full"
-            className="mx-auto"
+            className="!mx-auto"
             onSubmitStart={handleFormSubmitStart}
             onSubmit={handleFormSubmit}
           />
