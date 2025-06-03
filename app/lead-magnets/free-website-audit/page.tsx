@@ -154,7 +154,6 @@ export default function Page() {
     value?: string;
     onChange?: (value: string) => void;
   }
-
   const URLSubmissionForm = ({
     buttonText = "🔎 Get My Free Tracking Audit",
     loadingText = "Analyzing...",
@@ -164,21 +163,20 @@ export default function Page() {
     buttonClassName = "w-full text-left",
     onSubmit,
     onSubmitStart,
-    showIcon = true,
-    value = "",
-    onChange,
-  }: URLSubmissionFormProps) => {
+  }: {
+    buttonText?: string;
+    loadingText?: string;
+    placeholder?: string;
+    className?: string;
+    inputClassName?: string;
+    buttonClassName?: string;
+    onSubmit?: (url: string) => void;
+    onSubmitStart?: () => void;
+  }) => {
+    const [url, setUrl] = useState("");
     const [error, setError] = useState("");
     const [isSubmitting, setIsSubmitting] = useState(false);
     const router = useRouter();
-
-    // Use prop value if provided, otherwise fall back to local state
-    const inputValue = value || "";
-    const handleInputChange = (newValue: string) => {
-      if (onChange) {
-        onChange(newValue);
-      }
-    };
 
     const handleSubmit = async (e: React.FormEvent) => {
       e.preventDefault();
@@ -186,9 +184,8 @@ export default function Page() {
       setIsSubmitting(true);
 
       try {
-        const validatedUrl = websiteUrlSchema.parse(inputValue);
+        const validatedUrl = websiteUrlSchema.parse(url);
 
-        // Call the onSubmitStart callback if provided
         if (onSubmitStart) {
           onSubmitStart();
         }
@@ -197,9 +194,7 @@ export default function Page() {
         document.cookie = `website_url=${encodeURIComponent(validatedUrl)}; path=/; max-age=${365 * 24 * 60 * 60}`;
         localStorage.setItem("website_url", validatedUrl);
         localStorage.setItem("submission_timestamp", new Date().toISOString());
-        console.log("Website URL submitted:", validatedUrl);
 
-        // Call the onSubmit callback if provided
         if (onSubmit) {
           onSubmit(validatedUrl);
         }
@@ -226,8 +221,8 @@ export default function Page() {
         <div className="flex flex-col items-start justify-center gap-2">
           <Input
             type="url"
-            value={inputValue}
-            onChange={(e) => handleInputChange(e.target.value)}
+            value={url}
+            onChange={(e) => setUrl(e.target.value)}
             placeholder={placeholder}
             required
             className={inputClassName}
@@ -253,7 +248,6 @@ export default function Page() {
       </form>
     );
   };
-
   return (
     <main>
       {/* GTM Event Component */}
@@ -303,9 +297,7 @@ export default function Page() {
         ]}
         customCtaButton={
           <URLSubmissionForm
-            value={globalUrl}
             className="w-full md:max-w-xl"
-            onChange={setGlobalUrl}
             onSubmitStart={handleFormSubmitStart}
             onSubmit={handleFormSubmit}
           />
@@ -367,8 +359,6 @@ export default function Page() {
                 inputClassName="border-primary border p-6"
                 buttonClassName="w-full"
                 className="mx-auto w-full max-w-xl lg:mx-0"
-                value={globalUrl}
-                onChange={setGlobalUrl}
                 onSubmitStart={handleFormSubmitStart}
                 onSubmit={handleFormSubmit}
               />
@@ -393,8 +383,6 @@ export default function Page() {
                 inputClassName="border-primary border"
                 buttonClassName="w-full"
                 className="w-full max-w-xl"
-                value={globalUrl}
-                onChange={setGlobalUrl}
                 onSubmitStart={handleFormSubmitStart}
                 onSubmit={handleFormSubmit}
               />
@@ -419,8 +407,6 @@ export default function Page() {
                 inputClassName="border-primary border"
                 buttonClassName="w-full"
                 className="w-full max-w-xl"
-                value={globalUrl}
-                onChange={setGlobalUrl}
                 onSubmitStart={handleFormSubmitStart}
                 onSubmit={handleFormSubmit}
               />
@@ -445,8 +431,6 @@ export default function Page() {
                 inputClassName="border-primary border"
                 buttonClassName="w-full"
                 className="w-full max-w-xl"
-                value={globalUrl}
-                onChange={setGlobalUrl}
                 onSubmitStart={handleFormSubmitStart}
                 onSubmit={handleFormSubmit}
               />
@@ -476,8 +460,6 @@ export default function Page() {
             inputClassName="border-primary text-primary bg-primary-foreground border p-4 w-full"
             buttonClassName="text-primary bg-primary-foreground p-4 w-full"
             className="mx-auto max-w-xl"
-            value={globalUrl}
-            onChange={setGlobalUrl}
             onSubmitStart={handleFormSubmitStart}
             onSubmit={handleFormSubmit}
           />
@@ -566,8 +548,6 @@ export default function Page() {
             inputClassName="border-primary border p-4 w-full"
             buttonClassName="p-4 w-full"
             className="mx-auto"
-            value={globalUrl}
-            onChange={setGlobalUrl}
             onSubmitStart={handleFormSubmitStart}
             onSubmit={handleFormSubmit}
           />
@@ -599,8 +579,6 @@ export default function Page() {
             inputClassName="border-primary text-primary bg-primary-foreground border p-4 w-full"
             buttonClassName="text-primary bg-primary-foreground p-4 w-full"
             className="mx-auto max-w-lg"
-            value={globalUrl}
-            onChange={setGlobalUrl}
             onSubmitStart={handleFormSubmitStart}
             onSubmit={handleFormSubmit}
           />
