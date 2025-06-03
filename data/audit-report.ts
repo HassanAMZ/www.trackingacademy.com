@@ -79,8 +79,9 @@ export interface AuditReportProps {
 const auditReports: AuditReport[] = [
   {
     id: "nuphysical",
-    date: "June 1, 2025",
+    date: "June 3, 2025",
     domain: "nuphysical.com",
+    embedId: { loom: "fd67ccad316249c39d57276f45547e16" },
     overallScore: {
       score: 22,
       maxScore: 100,
