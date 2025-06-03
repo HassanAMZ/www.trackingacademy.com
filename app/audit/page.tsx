@@ -17,6 +17,7 @@ import auditReports from "@/data/audit-report";
 import { services } from "@/data/services";
 import { ArrowRight, CalendarDays, ExternalLink } from "lucide-react";
 import Link from "next/link";
+import BookAMeetingPage from "../contact/book-a-meeting/page";
 
 // Transform audit reports to display format with mock dates
 const audits = auditReports.map((report, index) => ({
@@ -153,7 +154,16 @@ export default function AuditsPage() {
         <Auditarousel auditReports={auditReports} />
       </div>
 
-      <ServiceHero service={services[3]} />
+      <div className="w-full max-w-full py-12">
+        <Container className="flex max-w-4xl flex-col items-center space-y-6 pb-12 text-center">
+          <h1>Fix Your Tracking Issues</h1>
+          <h4 className="text-muted-foreground max-w-3xl">
+            Book a quick 30min call with us to see how we can help you fix your
+            tracking issues and Help you make more money from your exisitng ads.
+          </h4>
+        </Container>
+        <BookAMeetingPage />
+      </div>
     </Container>
   );
 }

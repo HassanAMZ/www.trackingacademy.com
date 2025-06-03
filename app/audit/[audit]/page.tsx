@@ -1,3 +1,4 @@
+import BookAMeetingPage from "@/app/contact/book-a-meeting/page";
 import Auditarousel from "@/components/audit/audit-carousal";
 import AuditReport from "@/components/audit/audit-report";
 import ServiceHero from "@/components/service/service-hero";
@@ -41,9 +42,16 @@ export default async function Page({
         <Auditarousel auditReports={auditReports} />
       </div>
 
-      <Container className="py-12">
-        <ServiceHero service={services[3]} />
-      </Container>
+      <div className="w-full max-w-full py-12">
+        <Container className="flex max-w-4xl flex-col items-center space-y-6 pb-12 text-center">
+          <h1>Fix Your Tracking Issues</h1>
+          <h4 className="text-muted-foreground max-w-3xl">
+            Book a quick 30min call with us to see how we can help you fix your
+            tracking issues and Help you make more money from your exisitng ads.
+          </h4>
+        </Container>
+        <BookAMeetingPage />
+      </div>
     </>
   );
 }
