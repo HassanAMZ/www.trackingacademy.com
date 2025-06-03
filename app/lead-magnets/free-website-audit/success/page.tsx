@@ -26,39 +26,23 @@ export default function SimplifiedSuccessPage() {
   return (
     <Container className="flex min-h-screen items-center justify-center py-12">
       <div className="max-w-3xl space-y-8 text-center">
-        {/* Success Header */}
-        <div className="space-y-6">
-          <div className="bg-primary/20 mx-auto flex h-20 w-20 items-center justify-center rounded-full">
-            <CheckCircle className="text-primary h-10 w-10" />
-          </div>
-
-          <div className="space-y-4">
-            <h1 className="text-4xl font-bold">
-              Audit Request Submitted Successfully!
-            </h1>
-            <h5 className="text-muted-foreground">
-              Your audit has been added to our queue and our expert team will
-              begin analyzing your website's tracking setup.
-            </h5>
-          </div>
-        </div>
-
         {/* Schedule Call Section */}
         <div className="border-accent bg-accent/10 space-y-6 rounded-xl border-2 p-8">
           <div className="space-y-4">
             <div className="flex items-center justify-center gap-2">
               <Calendar className="text-primary h-6 w-6" />
-              <h2 className="text-foreground text-2xl font-bold">
-                Schedule Your Results Review Call
-              </h2>
+              <h3 className="text-foreground py-4">
+                Schedule Your Audit Review Call
+              </h3>
               <Calendar className="text-primary h-6 w-6" />
             </div>
 
-            <h5 className="text-muted-foreground">
-              Once your audit is complete, let's schedule a
+            <p className="text-muted-foreground font-semibold">
+              Your audit has been added to our queue and our expert team will
+              begin analyzing your website's tracking setup. Let's schedule a
               <span className="text-primary"> 30-minute call </span>
               to go over the findings and answer any questions you might have.
-            </h5>
+            </p>
 
             <div className="bg-card/80 rounded-lg p-4">
               <h4 className="text-foreground py-4 text-left font-semibold">
