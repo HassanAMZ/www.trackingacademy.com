@@ -92,11 +92,8 @@ export default function ProcessingPage() {
   }, [showForm]);
 
   const handleSubmit = async (formData: FormData) => {
-    if (hasSubmittedForm) return; // Prevent duplicate submissions
-
     setIsSubmitting(true);
     setHasSubmittedForm(true);
-
     // Save form values to localStorage
     const nameValue = formData.get("name") as string;
     const emailValue = formData.get("email") as string;
@@ -105,7 +102,11 @@ export default function ProcessingPage() {
     localStorage.setItem("name", nameValue);
     localStorage.setItem("email_address", emailValue);
     localStorage.setItem("phone_number", phoneValue);
-
+    // 🔥 Inject website_url from localStorage
+    const websiteUrl = localStorage.getItem("website_url");
+    if (websiteUrl) {
+      formData.set("website_url", websiteUrl);
+    }
     // Trigger form submission event
     setTriggerFormSubmitEvent(true);
 

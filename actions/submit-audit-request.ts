@@ -32,7 +32,7 @@ export async function submitAuditRequest(formData: FormData): Promise<void> {
     name: z.string().min(1, "Name is required"),
     email: z.string().email("Invalid email address"),
     phone: z.string().min(1, "Phone number is required"),
-    websiteUrl: z.string().url().optional(),
+    websiteUrl: z.string().min(1, "website URL is required").optional(),
     createdAt: z.instanceof(Timestamp),
   });
 
@@ -46,7 +46,7 @@ export async function submitAuditRequest(formData: FormData): Promise<void> {
       name: formData.get("name"),
       email: formData.get("email"),
       phone: formData.get("phone"),
-      websiteUrl: websiteUrl,
+      websiteUrl: websiteUrl ?? "https://example.com",
       createdAt: Timestamp.now(),
     });
   } catch (validationError) {
@@ -119,5 +119,5 @@ export async function submitAuditRequest(formData: FormData): Promise<void> {
     `Total execution time: ${(performance.now() - overallStart).toFixed(2)}ms`,
   );
 
-  redirect("/lead-magnets/free-website-audit/success");
+  redirect("/lead-magnets/success");
 }

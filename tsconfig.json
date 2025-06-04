@@ -49,7 +49,7 @@
     "next.config.js",
     "app/_courses-markdown/react-fundamentals/modules/intro/lessons/markdown.mdx",
     "prettier.config.js",
-    "app/lead-magnets/free-website-audit/processing"
+    "app/lead-magnets/processing"
   ],
   "exclude": ["node_modules"]
 }

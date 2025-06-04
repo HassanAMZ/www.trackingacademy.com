@@ -138,20 +138,6 @@ export default function Page() {
     .string()
     .url("Please enter a valid URL (e.g., https://example.com)");
 
-  interface URLSubmissionFormProps {
-    buttonText?: string;
-    loadingText?: string;
-    placeholder?: string;
-    className?: string;
-    inputClassName?: string;
-    buttonClassName?: string;
-    onSubmit?: (url: string) => void;
-    onSubmitStart?: () => void;
-    showIcon?: boolean;
-    // New props for synced state
-    value?: string;
-    onChange?: (value: string) => void;
-  }
   const URLSubmissionForm = ({
     buttonText = "🔎 Get My Free Tracking Audit",
     loadingText = "Analyzing...",
@@ -199,7 +185,7 @@ export default function Page() {
 
         // Navigate to processing page
         setTimeout(() => {
-          router.push(getDirectoryURL("processing"));
+          router.push("processing");
         }, 200);
       } catch (validationError) {
         if (validationError instanceof z.ZodError) {
