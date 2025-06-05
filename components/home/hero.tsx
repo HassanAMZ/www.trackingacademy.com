@@ -61,8 +61,8 @@ const Hero: FC<HeroProps> = ({
     : "mx-auto w-fit";
 
   const carouselClasses = supportingComponent
-    ? "mx-auto max-w-2xl lg:mx-0"
-    : "mx-auto max-w-3xl";
+    ? "mx-auto w-full max-w-2xl lg:mx-0"
+    : "mx-auto w-full max-w-3xl";
 
   const benefitsClasses = supportingComponent
     ? "mx-auto grid grid-cols-3 justify-center gap-2 py-4 md:grid-cols-3 md:items-start lg:mx-0 max-w-2xl"

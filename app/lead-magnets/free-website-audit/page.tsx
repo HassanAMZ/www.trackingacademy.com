@@ -263,11 +263,7 @@ export default function Page() {
             much ad spend you're wasting due to missing data.
           </h4>
         }
-        carousel={
-          <div className="bg-muted w-full overflow-hidden rounded-lg md:max-w-xl">
-            <YoutubeEmbed embedId="tdQufJ-qadE" className="max-w-4xl" />
-          </div>
-        }
+        carousel={<YoutubeEmbed embedId="tdQufJ-qadE" className="max-w-3xl" />}
         benefits={[
           "100% Free Audit",
           "Detailed Report",
