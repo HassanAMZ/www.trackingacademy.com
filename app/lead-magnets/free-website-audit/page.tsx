@@ -265,13 +265,7 @@ export default function Page() {
         }
         carousel={
           <div className="bg-muted w-full overflow-hidden rounded-lg md:max-w-xl">
-            <Image
-              src="/images/hero/free-audit-report.png"
-              alt="audit image"
-              width={1920}
-              height={1080}
-              className="rounded-lg"
-            />
+            <YoutubeEmbed embedId="tdQufJ-qadE" className="max-w-4xl" />
           </div>
         }
         benefits={[

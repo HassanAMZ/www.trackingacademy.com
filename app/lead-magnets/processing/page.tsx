@@ -186,24 +186,6 @@ export default function ProcessingPage() {
 
   return (
     <Container className="grid min-h-screen max-w-4xl place-content-center">
-      {/* GTM Event Components */}
-      {triggerScanCompleteEvent && (
-        <GTMCustomEvent
-          event_name="scan_completed"
-          event_details={{
-            scan_duration_seconds:
-              processingSteps.reduce((acc, step) => acc + step.duration, 0) /
-              1000,
-            user_journey_step: "step_3_scan_complete",
-          }}
-          user_data={{
-            email: localStorage.getItem("email_address"),
-            phone: localStorage.getItem("phone_number"),
-            timestamp: new Date().toISOString(),
-          }}
-        />
-      )}
-
       {triggerFormSubmitEvent && (
         <GTMCustomEvent
           event_name="generate_lead"
