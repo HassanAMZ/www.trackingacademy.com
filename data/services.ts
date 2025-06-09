@@ -304,7 +304,6 @@ export const services: Service[] = [
         "Comprehensive review of your current tracking setup to identify gaps and opportunities for improvement. View sample audit reports at /audit.",
     },
   },
-
   {
     name: "See Every Sale",
     id: "see-every-sale",
