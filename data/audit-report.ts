@@ -81,6 +81,7 @@ const auditReports: AuditReport[] = [
     id: "ayurvedasofia",
     date: "June 11, 2025",
     domain: "ayurvedasofia.bg",
+    embedId:{loom:"a1120786ea404fa0818169619bb33d9e"},
     overallScore: {
       score: 35,
       maxScore: 100,
