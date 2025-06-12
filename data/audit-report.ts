@@ -78,6 +78,227 @@ export interface AuditReportProps {
 
 const auditReports: AuditReport[] = [
   {
+    id: "start-northridgeaddiction",
+    date: "June 12, 2025",
+    domain: "start.northridgeaddiction.com",
+    overallScore: {
+      score: 50,
+      maxScore: 100,
+      status: "Needs improvement",
+      color: "warning",
+    },
+    categoryScores: [
+      {
+        name: "Analytics",
+        score: 75,
+        color: "warning",
+      },
+      {
+        name: "Ads",
+        score: 57,
+        color: "warning",
+      },
+      {
+        name: "Cookie lifetime",
+        score: 85,
+        color: "success",
+      },
+      {
+        name: "Page speed",
+        score: 96,
+        color: "success",
+      },
+    ],
+    trackers: [
+      {
+        name: "Meta",
+        provider: "Meta",
+        category: "Advertisement",
+        dataSentTo: "US",
+        trackingMethod: "Client-side",
+        canImprove: true,
+        improvementLink: "/services",
+      },
+    ],
+    trackingCookies: [
+      {
+        name: "_fbp",
+        provider: "Meta",
+        category: "Advertisement",
+        dataSentTo: "US",
+        lifetime: "7 days",
+      },
+      {
+        name: "_fbc",
+        provider: "Meta",
+        category: "Advertisement",
+        dataSentTo: "US",
+        lifetime: "1 days",
+      },
+    ],
+    trackingScripts: [
+      {
+        name: "fbevents.js",
+        provider: "Meta",
+        category: "Advertisement",
+        transferSize: "47 KB",
+        transferSizeColor: "success",
+        blockingTime: "58 ms",
+        blockingTimeColor: "success",
+      },
+    ],
+    recommendedActions: [
+      {
+        id: "0196a9c3-bc94-74c0-9dfb-0a54a50331fa",
+        title: "Switch to web & server-side tracking for Meta",
+        categories: ["Advertisement"],
+        scoreImprovement: 8,
+      },
+      {
+        id: "ga4-server-side",
+        title: "Implement GA4 server-side tracking",
+        categories: ["Analytics"],
+        scoreImprovement: 17,
+      },
+      {
+        id: "google-ads-server-side",
+        title:
+          "Implement Google Ads conversion tracking using server-side tracking",
+        categories: ["Advertisement"],
+        scoreImprovement: 10,
+      },
+      {
+        id: "cookie-consent",
+        title: "Implement a cookie consent solution",
+        categories: ["Compliance"],
+        scoreImprovement: 15,
+      },
+    ],
+  },
+  {
+    id: "northridgeaddiction",
+    date: "June 12, 2025",
+    domain: "www.northridgeaddiction.com",
+    overallScore: {
+      score: 60,
+      maxScore: 100,
+      status: "Needs improvement",
+      color: "warning",
+    },
+    categoryScores: [
+      {
+        name: "Analytics",
+        score: 65,
+        color: "warning",
+      },
+      {
+        name: "Ads",
+        score: 86,
+        color: "success",
+      },
+      {
+        name: "Cookie lifetime",
+        score: 76,
+        color: "warning",
+      },
+      {
+        name: "Page speed",
+        score: 84,
+        color: "success",
+      },
+    ],
+    trackers: [
+      {
+        name: "Google Analytics 4",
+        provider: "Google",
+        category: "Analytics",
+        dataSentTo: "US",
+        trackingMethod: "Client-side",
+        canImprove: true,
+        improvementLink: "/services",
+      },
+      {
+        name: "Google Ads",
+        provider: "Google",
+        category: "Advertisement",
+        dataSentTo: "US",
+        trackingMethod: "Client-side",
+        canImprove: true,
+        improvementLink: "/services",
+      },
+    ],
+    trackingCookies: [
+      {
+        name: "_ga",
+        provider: "Google",
+        category: "Analytics",
+        dataSentTo: "US",
+        lifetime: "7 days",
+      },
+      {
+        name: "_ga_{measurement_id}",
+        provider: "Google",
+        category: "Analytics",
+        dataSentTo: "US",
+        lifetime: "7 days",
+      },
+      {
+        name: "_gcl_aw",
+        provider: "Google",
+        category: "Advertisement",
+        dataSentTo: "US",
+        lifetime: "7 days",
+      },
+      {
+        name: "_gcl_gb",
+        provider: "Google",
+        category: "Advertisement",
+        dataSentTo: "US",
+        lifetime: "7 days",
+      },
+    ],
+    trackingScripts: [
+      {
+        name: "G gtag.js",
+        provider: "Google",
+        category: "Analytics",
+        transferSize: "83 KB",
+        transferSizeColor: "success",
+        blockingTime: "76 ms",
+        blockingTimeColor: "success",
+      },
+      {
+        name: "AW gtag.js",
+        provider: "Google",
+        category: "Advertisement",
+        transferSize: "86 KB",
+        transferSizeColor: "success",
+        blockingTime: "88 ms",
+        blockingTimeColor: "success",
+      },
+    ],
+    recommendedActions: [
+      {
+        id: "0196a9c3-bc6d-7e4a-827e-81871d307354",
+        title: "Implement Google Analytics 4 server-side tracking",
+        categories: ["Analytics"],
+        scoreImprovement: 17,
+      },
+      {
+        id: "0196a9c3-bc7b-7e48-865f-e0540e7b2d71",
+        title: "Move to Google Ads server-side tracking",
+        categories: ["Advertisement"],
+        scoreImprovement: 7,
+      },
+      {
+        id: "cookie-consent",
+        title: "Implement a cookie consent solution",
+        categories: ["Compliance"],
+        scoreImprovement: 15,
+      },
+    ],
+  },
+  {
     id: "lejuste",
     date: "June 11, 2025",
     domain: "lejuste.cl",
