@@ -80,6 +80,8 @@ const auditReports: AuditReport[] = [
   {
     id: "start-northridgeaddiction",
     date: "June 12, 2025",
+    embedId: { loom: "492bf439cd754f3da750f8b6aee22ede" },
+
     domain: "start.northridgeaddiction.com",
     overallScore: {
       score: 50,
@@ -177,6 +179,7 @@ const auditReports: AuditReport[] = [
   },
   {
     id: "northridgeaddiction",
+    embedId: { loom: "492bf439cd754f3da750f8b6aee22ede" },
     date: "June 12, 2025",
     domain: "www.northridgeaddiction.com",
     overallScore: {
