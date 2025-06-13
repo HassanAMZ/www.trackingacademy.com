@@ -11,6 +11,7 @@ import ProblemAwareness from "@/components/funnels/problem-awareness";
 import ScarcityUrgency from "@/components/funnels/scarcity-urgency";
 import SocialProof from "@/components/funnels/social-proof";
 import AdSpendCalculator from "@/components/global/ad-spend-calculator";
+import LoomEmbed from "@/components/global/loom-embed";
 import TrackingTable from "@/components/global/tracking-table";
 import YoutubeEmbed from "@/components/global/youtube-embed";
 import AlternativesSection from "@/components/home/alternative-section";
@@ -263,7 +264,12 @@ export default function Page() {
             much ad spend you're wasting due to missing data.
           </h4>
         }
-        carousel={<YoutubeEmbed embedId="tdQufJ-qadE" className="max-w-3xl" />}
+        carousel={
+          <LoomEmbed
+            embedId="b6ce4c0b37e64fe4bf62bafc95ffe739"
+            className="max-w-3xl"
+          />
+        }
         benefits={[
           "100% Free Audit",
           "Detailed Report",

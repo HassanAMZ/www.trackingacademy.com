@@ -5,9 +5,15 @@ interface LoomEmbedProps {
   embedId: string;
   className?: string;
   id?: string;
+  backgroundImage?: string;
 }
 
-const LoomEmbed: FC<LoomEmbedProps> = ({ embedId, className, id }) => {
+const LoomEmbed: FC<LoomEmbedProps> = ({
+  embedId,
+  className,
+  id,
+  backgroundImage,
+}) => {
   if (!embedId || embedId === "null" || embedId === "undefined") {
     return null;
   }
@@ -16,7 +22,15 @@ const LoomEmbed: FC<LoomEmbedProps> = ({ embedId, className, id }) => {
     <Container className={className} id={id}>
       <div
         className="relative overflow-hidden rounded-lg"
-        style={{ paddingTop: "56.25%" }}
+        style={{
+          paddingTop: "56.25%",
+          ...(backgroundImage && {
+            backgroundImage: `url(${backgroundImage})`,
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+            backgroundRepeat: "no-repeat",
+          }),
+        }}
       >
         <iframe
           src={`https://www.loom.com/embed/${embedId}`}

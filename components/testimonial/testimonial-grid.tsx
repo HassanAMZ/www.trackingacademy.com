@@ -7,10 +7,12 @@ import UpworkStats from "./upwork-stats";
 
 interface TestimonialGridProps {
   upwork?: boolean;
+  showUpworkStats?: boolean;
 }
 
 export default function TestimonialGrid({
   upwork = false,
+  showUpworkStats = true,
 }: TestimonialGridProps) {
   const [isPaused] = useState(false); // Remove pause functionality
   const topRowRef = useRef<HTMLDivElement>(null);
@@ -128,7 +130,7 @@ export default function TestimonialGrid({
 
   return (
     <>
-      {!upwork && <UpworkStats />}
+      {!upwork && showUpworkStats && <UpworkStats />}
       <div className="relative overflow-hidden py-8">
         {/* Left and Right blur overlays */}
         <div className="from-background pointer-events-none absolute top-0 left-0 z-10 h-full w-6 bg-gradient-to-r to-transparent"></div>
