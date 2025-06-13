@@ -243,7 +243,7 @@ export default function Page() {
 
           {/* Main Headline */}
           <div className="max-w-6xl space-y-4">
-            <h1 className="animate-fade-in">
+            <h1 className="animate-fade-in max-w-5xl">
               Your <span className="text-primary">Facebook Ads</span> are Losing
               Thousands Due to{" "}
               <span className="text-destructive">
