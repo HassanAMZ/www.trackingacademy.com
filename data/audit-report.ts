@@ -78,6 +78,129 @@ export interface AuditReportProps {
 
 const auditReports: AuditReport[] = [
   {
+    id: "redlightsystems",
+    date: "June 14, 2025",
+    domain: "www.redlightsystems.com",
+    overallScore: {
+      score: 68,
+      maxScore: 100,
+      status: "Needs improvement",
+      color: "warning",
+    },
+    categoryScores: [
+      {
+        name: "Analytics",
+        score: 55,
+        color: "warning",
+      },
+      {
+        name: "Ads",
+        score: 72,
+        color: "warning",
+      },
+      {
+        name: "Cookie lifetime",
+        score: 73,
+        color: "warning",
+      },
+      {
+        name: "Page speed",
+        score: 88,
+        color: "success",
+      },
+    ],
+    trackers: [
+      {
+        name: "Meta",
+        provider: "Meta",
+        category: "Advertisement",
+        dataSentTo: "US",
+        trackingMethod: "Client-side",
+        canImprove: true,
+        improvementLink: "/services",
+      },
+      {
+        name: "Google Analytics 4",
+        provider: "Google",
+        category: "Analytics",
+        dataSentTo: "US",
+        trackingMethod: "Client-side",
+        canImprove: true,
+        improvementLink: "/services",
+      },
+    ],
+    trackingCookies: [
+      {
+        name: "_fbp",
+        provider: "Meta",
+        category: "Advertisement",
+        dataSentTo: "US",
+        lifetime: "7 days",
+      },
+      {
+        name: "_fbc",
+        provider: "Meta",
+        category: "Advertisement",
+        dataSentTo: "US",
+        lifetime: "1 days",
+      },
+      {
+        name: "_ga",
+        provider: "Google",
+        category: "Analytics",
+        dataSentTo: "US",
+        lifetime: "7 days",
+      },
+      {
+        name: "_ga_{measurement_id}",
+        provider: "Google",
+        category: "Analytics",
+        dataSentTo: "US",
+        lifetime: "7 days",
+      },
+    ],
+    trackingScripts: [
+      {
+        name: "fbevents.js",
+        provider: "Meta",
+        category: "Advertisement",
+        transferSize: "47 KB",
+        transferSizeColor: "success",
+        blockingTime: "58 ms",
+        blockingTimeColor: "success",
+      },
+      {
+        name: "G gtag.js",
+        provider: "Google",
+        category: "Analytics",
+        transferSize: "83 KB",
+        transferSizeColor: "success",
+        blockingTime: "76 ms",
+        blockingTimeColor: "success",
+      },
+    ],
+    recommendedActions: [
+      {
+        id: "0196a9c3-bc6d-7e4a-827e-81871d307354",
+        title: "Implement Google Analytics 4 server-side tracking",
+        categories: ["Analytics"],
+        scoreImprovement: 17,
+      },
+      {
+        id: "0196a9c3-bc94-74c0-9dfb-0a54a50331fa",
+        title: "Switch to web & server-side tracking for Meta",
+        categories: ["Advertisement"],
+        scoreImprovement: 8,
+      },
+      {
+        id: "gdpr-compliance-action",
+        title: "Add and configure consent for GDPR compliance",
+        categories: ["Compliance"],
+        scoreImprovement: 7,
+      },
+    ],
+  },
+  {
     id: "meetyourmiracle",
     date: "May 12, 2025",
     domain: "www.meetyourmiracle.co.uk",
