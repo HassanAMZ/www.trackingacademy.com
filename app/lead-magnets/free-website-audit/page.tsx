@@ -208,7 +208,7 @@ export default function Page() {
       >
         <div className="flex flex-col items-start justify-center gap-2">
           <Input
-            type="url"
+            type="text"
             value={url}
             onChange={(e) => setUrl(e.target.value)}
             placeholder={placeholder}

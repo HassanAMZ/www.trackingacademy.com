@@ -202,7 +202,7 @@ const URLSubmissionForm = ({
           className={`flex flex-col gap-4 ${className}`}
         >
           <Input
-            type="url"
+            type="text"
             value={url}
             onChange={(e) => setUrl(e.target.value)}
             placeholder={placeholder}
