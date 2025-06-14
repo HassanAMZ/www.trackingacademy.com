@@ -137,7 +137,10 @@ export default function Page() {
   // Zod schema for URL validation
   const websiteUrlSchema = z
     .string()
-    .url("Please enter a valid URL (e.g., https://example.com)");
+    .min(3, "Please enter a valid URL https://example.com")
+    .refine((url) => {
+      return url.length >= 3;
+    }, "Please enter a valid URL https://example.com");
 
   const URLSubmissionForm = ({
     buttonText = "🔎 Get My Free Tracking Audit",
