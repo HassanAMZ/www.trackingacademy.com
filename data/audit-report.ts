@@ -80,6 +80,7 @@ const auditReports: AuditReport[] = [
   {
     id: "redlightsystems",
     date: "June 14, 2025",
+    embedId: { loom: "80d00d4a29694519baeb033fb5f50c20" },
     domain: "www.redlightsystems.com",
     overallScore: {
       score: 68,
