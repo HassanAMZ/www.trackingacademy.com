@@ -109,16 +109,14 @@ const restrictedCategories = [
   { name: "Religious Content", severity: "Medium", affected: "78%" },
 ];
 
-// Zod schema for URL validation
-
-// Replace the Zod schema with a simple string check
-const websiteUrlSchema = z
-  .string()
-  .min(3, "Please enter a valid URL https://example.com")
-  .refine((url) => {
-    return url.length >= 3;
-  }, "Please enter a valid URL https://example.com");
-
+const websiteUrlSchema = {
+  parse: (url: string) => {
+    if (!url || url.trim().length < 3) {
+      throw new Error("Please enter a valid URL https://example.com");
+    }
+    return url.trim();
+  },
+};
 const URLSubmissionForm = ({
   buttonText = "🔎 Get My Free Tracking Audit",
   loadingText = "Analyzing...",

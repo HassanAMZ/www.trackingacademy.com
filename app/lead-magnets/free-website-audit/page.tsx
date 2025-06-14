@@ -134,14 +134,14 @@ export default function Page() {
     );
   };
 
-  // Zod schema for URL validation
-  const websiteUrlSchema = z
-    .string()
-    .min(3, "Please enter a valid URL https://example.com")
-    .refine((url) => {
-      return url.length >= 3;
-    }, "Please enter a valid URL https://example.com");
-
+  const websiteUrlSchema = {
+    parse: (url: string) => {
+      if (!url || url.trim().length < 3) {
+        throw new Error("Please enter a valid URL https://example.com");
+      }
+      return url.trim();
+    },
+  };
   const URLSubmissionForm = ({
     buttonText = "🔎 Get My Free Tracking Audit",
     loadingText = "Analyzing...",
