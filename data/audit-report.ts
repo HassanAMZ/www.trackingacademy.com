@@ -81,6 +81,7 @@ const auditReports: AuditReport[] = [
     id: "shop-planetzdravja",
     date: "June 14, 2025",
     domain: "shop.planetzdravja.com",
+    embedId: { loom: "ff78b87d29f64292974dc8be29e8be0e" },
     overallScore: {
       score: 30,
       maxScore: 100,
