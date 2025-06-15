@@ -1,7 +1,9 @@
 "use client";
 
+import TestimonialsCarousel2 from "@/components/for-freelancers/testimonials-carousal-2";
 import LoomEmbed from "@/components/global/loom-embed";
 import YoutubeEmbed from "@/components/global/youtube-embed";
+import Hero from "@/components/home/hero";
 import TestimonialGrid from "@/components/testimonial/testimonial-grid";
 import { Alert, AlertDescription } from "@/components/ui/alert";
 import { Badge } from "@/components/ui/badge";
@@ -45,6 +47,7 @@ import {
   Zap,
 } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { z } from "zod";
@@ -89,13 +92,6 @@ const solutionBenefits = [
     description:
       "Complete tracking restoration in just 72 hours with our proven system and dedicated support.",
   },
-];
-
-const urgencyStats = [
-  { number: "89%", label: "Of businesses affected" },
-  { number: "$18K", label: "Average monthly revenue loss" },
-  { number: "65%", label: "Drop in ad effectiveness" },
-  { number: "3 days", label: "Average time to fix" },
 ];
 
 const restrictedCategories = [
@@ -235,70 +231,80 @@ const URLSubmissionForm = ({
 export default function Page() {
   return (
     <>
-      {/* Hero Section */}
-      <section className="from-background to-muted/30 min-h-screen bg-gradient-to-b">
-        <Container className="flex min-h-screen flex-col items-center justify-center space-y-8 py-12 text-center">
-          {/* Alert Badge */}
-          <Badge variant="destructive" className="animate-pulse">
+      <Hero
+        eyebrow={
+          <>
             <AlertTriangle className="mr-2 h-4 w-4" />
-            Meta's 2025 Data Sharing Restrictions Are Crushing Ad Performance
-          </Badge>
-
-          {/* Main Headline */}
-          <div className="max-w-6xl space-y-4">
-            <h1 className="animate-fade-in max-w-5xl">
-              Your <span className="text-primary">Facebook Ads</span> are Losing
-              Thousands Due to{" "}
-              <span className="text-destructive">
-                Data Sharing Restrictions
-              </span>
-            </h1>
-
-            <h4 className="text-muted-foreground animate-fade-in mx-auto max-w-4xl delay-200">
-              <span className="text-primary">Compliant Solution:</span> We
-              restore your Facebook ad tracking in 3 days, recover your ROAS,
-              and maintain full regulatory compliance - without violating any
-              Meta policies.
-            </h4>
-          </div>
-
-          <LoomEmbed
-            backgroundImage="/images/hero/data-sharing-restrcition-03.png"
-            embedId="3768f5d29d724dc2837085355d614c57"
-            className="max-w-3xl"
-          />
-
-          {/* Urgency Stats */}
-          <div className="grid w-full max-w-4xl grid-cols-2 gap-6 md:grid-cols-4">
-            {urgencyStats.map((stat, index) => (
-              <div
-                key={index}
-                className="transform text-center transition-all duration-300 hover:scale-110"
-              >
-                <div className="text-primary mb-2 text-2xl font-bold md:text-3xl">
-                  {stat.number}
-                </div>
-                <div className="text-muted-foreground text-sm">
-                  {stat.label}
-                </div>
-              </div>
-            ))}
-          </div>
-
-          {/* URL Submission Form */}
-          <div className="w-full max-w-2xl">
-            <URLSubmissionForm
-              buttonText="🔍 Analyze My Website's Tracking Issues"
-              placeholder="https://yourwebsite.com"
-              className="text-center"
-            />
-            <p className="text-muted-foreground mt-4 text-sm">
-              No credit card required • 24-hour audit delivery • Fully compliant
-              analysis
+            <p>
+              Running Meta Ads in health, financial, other Restricted Niche?
             </p>
+          </>
+        }
+        heading={
+          <h1 className="animate-fade-in max-w-5xl">
+            We{" "}
+            <span className="text-primary underline decoration-2 underline-offset-4">
+              Fix Broken Meta Ad Tracking{" "}
+            </span>
+            so you can Track Your Conversions,{" "}
+            <span className="text-primary">Effortlessly!</span>
+          </h1>
+        }
+        subheading={
+          <div className="animate-fade-in mx-auto max-w-6xl space-y-8 delay-200">
+            <h4 className="text-foreground text-center leading-relaxed font-medium">
+              If your{" "}
+              <span className="bg-destructive/10 text-destructive border-destructive/20 rounded-full border px-3 py-1.5 font-bold">
+                Meta Pixel stopped tracking conversions
+              </span>{" "}
+              and you've exhausted every solution...
+            </h4>
+
+            <div className="flex flex-wrap items-center justify-center gap-6">
+              <div className="text-destructive flex items-center gap-2">
+                <span className="text-xl">❌</span>
+                <span className="font-semibold">Conversion API</span>
+              </div>
+              <div className="text-destructive flex items-center gap-2">
+                <span className="text-xl">❌</span>
+                <span className="font-semibold">Domain Changes</span>
+              </div>
+              <div className="text-destructive flex items-center gap-2">
+                <span className="text-xl">❌</span>
+                <span className="font-semibold">New Pixels</span>
+              </div>
+            </div>
+
+            <div className="border-primary/20 bg-primary/5 space-y-4 rounded-xl border-2 px-0 py-8 text-center md:p-8">
+              <div className="mb-2 inline-flex items-center gap-3">
+                <span className="text-primary text-2xl font-bold">
+                  Here's what finally works
+                </span>
+              </div>
+              <p className="text-muted-foreground mb-6 text-lg">
+                Watch the breakthrough solution below
+              </p>
+              <LoomEmbed
+                backgroundImage="/images/hero/data-sharing-restrcition-03.png"
+                embedId="3768f5d29d724dc2837085355d614c57"
+                className="mx-auto max-w-3xl"
+              />
+            </div>
           </div>
-        </Container>
-      </section>
+        }
+        benefits={[
+          "Tracking Audit Review",
+          "Track all conversions",
+          "GDPR & CCPA Compliant",
+        ]}
+        customCtaButton={
+          <URLSubmissionForm
+            buttonText="🔍 Analyze My Website's Tracking Issues"
+            placeholder="https://yourwebsite.com"
+            className="text-center"
+          />
+        }
+      />
 
       {/* Restriction Categories Section */}
       <section className="bg-muted/20 py-16">
@@ -392,165 +398,152 @@ export default function Page() {
           </div>
 
           {/* Visual representation */}
-          <div className="bg-background border-destructive/20 mt-12 transform rounded-lg border p-12 transition-all duration-500 hover:shadow-xl">
+          <div className="bg-background border-destructive/20 mt-12 transform space-y-8 rounded-lg border p-12 transition-all duration-500 hover:shadow-xl">
             <h3 className="pb-6 text-center text-2xl font-bold">
               What You're Seeing Right Now
             </h3>
-            <Tabs defaultValue="errors" className="w-full">
-              <TabsList className="grid w-full grid-cols-3">
-                <TabsTrigger value="errors">Error Messages</TabsTrigger>
-                <TabsTrigger value="metrics">Broken Metrics</TabsTrigger>
-                <TabsTrigger value="impact">Business Impact</TabsTrigger>
-              </TabsList>
 
-              <TabsContent value="errors" className="mt-6">
-                <div className="grid items-center gap-8 md:grid-cols-2">
-                  <div className="space-y-4">
-                    <Alert className="border-destructive">
-                      <AlertTriangle className="h-4 w-4" />
-                      <AlertDescription>
-                        <strong>Data sharing restrictions applied</strong>
-                        <br />
-                        Standard events blocked: Purchase, Lead, AddToCart
-                      </AlertDescription>
-                    </Alert>
-                    <Alert className="border-destructive">
-                      <XCircle className="h-4 w-4" />
-                      <AlertDescription>
-                        <strong>
-                          Custom events can't be used with ads features
-                        </strong>
-                        <br />
-                        Hundreds of thousands of events blocked
-                      </AlertDescription>
-                    </Alert>
-                    <Alert className="border-destructive">
-                      <Lock className="h-4 w-4" />
-                      <AlertDescription>
-                        <strong>Business automatically categorized</strong>
-                        <br />
-                        Automatic restrictions applied to sensitive data
-                      </AlertDescription>
-                    </Alert>
+            <div className="grid items-center gap-8 md:grid-cols-2">
+              <div className="space-y-4">
+                <Alert className="border-destructive">
+                  <AlertTriangle className="h-4 w-4" />
+                  <AlertDescription>
+                    <strong>Data sharing restrictions applied</strong>
+                    <br />
+                    Standard events blocked: Purchase, Lead, AddToCart
+                  </AlertDescription>
+                </Alert>
+                <Alert className="border-destructive">
+                  <XCircle className="h-4 w-4" />
+                  <AlertDescription>
+                    <strong>
+                      Custom events can't be used with ads features
+                    </strong>
+                    <br />
+                    Hundreds of thousands of events blocked
+                  </AlertDescription>
+                </Alert>
+                <Alert className="border-destructive">
+                  <Lock className="h-4 w-4" />
+                  <AlertDescription>
+                    <strong>Business automatically categorized</strong>
+                    <br />
+                    Automatic restrictions applied to sensitive data
+                  </AlertDescription>
+                </Alert>
+              </div>
+              <div className="text-center">
+                <div className="bg-muted w-full overflow-hidden rounded-md">
+                  <Image
+                    src="/images/hero/data-sharing-restrcition-03.png"
+                    alt="Data sharing restrictions illustration"
+                    width={1920}
+                    height={1080}
+                    className="transform rounded-lg transition-transform duration-300 hover:scale-105"
+                  />
+                </div>
+              </div>
+            </div>
+
+            <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+              <Card className="border-destructive/30">
+                <CardContent className="p-4 text-center">
+                  <TrendingDown className="text-destructive mx-auto mb-2 h-8 w-8" />
+                  <div className="text-destructive text-2xl font-bold">
+                    -73%
+                  </div>
+                  <div className="text-muted-foreground text-sm">
+                    Conversion Tracking
+                  </div>
+                </CardContent>
+              </Card>
+              <Card className="border-destructive/30">
+                <CardContent className="p-4 text-center">
+                  <Gauge className="text-destructive mx-auto mb-2 h-8 w-8" />
+                  <div className="text-destructive text-2xl font-bold">
+                    -58%
+                  </div>
+                  <div className="text-muted-foreground text-sm">
+                    ROAS Performance
+                  </div>
+                </CardContent>
+              </Card>
+              <Card className="border-destructive/30">
+                <CardContent className="p-4 text-center">
+                  <Users className="text-destructive mx-auto mb-2 h-8 w-8" />
+                  <div className="text-destructive text-2xl font-bold">
+                    -84%
+                  </div>
+                  <div className="text-muted-foreground text-sm">
+                    Audience Building
+                  </div>
+                </CardContent>
+              </Card>
+              <Card className="border-destructive/30">
+                <CardContent className="p-4 text-center">
+                  <Eye className="text-destructive mx-auto mb-2 h-8 w-8" />
+                  <div className="text-destructive text-2xl font-bold">
+                    -91%
+                  </div>
+                  <div className="text-muted-foreground text-sm">
+                    Attribution Accuracy
+                  </div>
+                </CardContent>
+              </Card>
+            </div>
+
+            <div className="space-y-6">
+              <div className="grid gap-4 md:grid-cols-2">
+                <Alert className="border-destructive">
+                  <DollarSign className="h-4 w-4" />
+                  <AlertDescription>
+                    <strong>Revenue Loss: $500-$2,000+ daily</strong>
+                    <br />
+                    Wasted ad spend due to poor optimization
+                  </AlertDescription>
+                </Alert>
+                <Alert className="border-destructive">
+                  <Database className="h-4 w-4" />
+                  <AlertDescription>
+                    <strong>Data Loss: 60-90% of conversions</strong>
+                    <br />
+                    Critical business insights completely missing
+                  </AlertDescription>
+                </Alert>
+              </div>
+              <Separator />
+              <div className="text-center">
+                <h4 className="mb-2 text-lg font-semibold">
+                  Time to Recovery Impact
+                </h4>
+                <div className="grid gap-4 md:grid-cols-3">
+                  <div className="text-center">
+                    <div className="text-destructive text-2xl font-bold">
+                      Week 1
+                    </div>
+                    <div className="text-muted-foreground text-sm">
+                      -$3,500 lost
+                    </div>
                   </div>
                   <div className="text-center">
-                    <div className="bg-muted w-full overflow-hidden rounded-md">
-                      <Image
-                        src="/images/hero/data-sharing-restrcition-03.png"
-                        alt="Data sharing restrictions illustration"
-                        width={1920}
-                        height={1080}
-                        className="transform rounded-lg transition-transform duration-300 hover:scale-105"
-                      />
+                    <div className="text-destructive text-2xl font-bold">
+                      Month 1
+                    </div>
+                    <div className="text-muted-foreground text-sm">
+                      -$15,000+ lost
+                    </div>
+                  </div>
+                  <div className="text-center">
+                    <div className="text-destructive text-2xl font-bold">
+                      Quarter 1
+                    </div>
+                    <div className="text-muted-foreground text-sm">
+                      -$45,000+ lost
                     </div>
                   </div>
                 </div>
-              </TabsContent>
-
-              <TabsContent value="metrics" className="mt-6">
-                <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
-                  <Card className="border-destructive/30">
-                    <CardContent className="p-4 text-center">
-                      <TrendingDown className="text-destructive mx-auto mb-2 h-8 w-8" />
-                      <div className="text-destructive text-2xl font-bold">
-                        -73%
-                      </div>
-                      <div className="text-muted-foreground text-sm">
-                        Conversion Tracking
-                      </div>
-                    </CardContent>
-                  </Card>
-                  <Card className="border-destructive/30">
-                    <CardContent className="p-4 text-center">
-                      <Gauge className="text-destructive mx-auto mb-2 h-8 w-8" />
-                      <div className="text-destructive text-2xl font-bold">
-                        -58%
-                      </div>
-                      <div className="text-muted-foreground text-sm">
-                        ROAS Performance
-                      </div>
-                    </CardContent>
-                  </Card>
-                  <Card className="border-destructive/30">
-                    <CardContent className="p-4 text-center">
-                      <Users className="text-destructive mx-auto mb-2 h-8 w-8" />
-                      <div className="text-destructive text-2xl font-bold">
-                        -84%
-                      </div>
-                      <div className="text-muted-foreground text-sm">
-                        Audience Building
-                      </div>
-                    </CardContent>
-                  </Card>
-                  <Card className="border-destructive/30">
-                    <CardContent className="p-4 text-center">
-                      <Eye className="text-destructive mx-auto mb-2 h-8 w-8" />
-                      <div className="text-destructive text-2xl font-bold">
-                        -91%
-                      </div>
-                      <div className="text-muted-foreground text-sm">
-                        Attribution Accuracy
-                      </div>
-                    </CardContent>
-                  </Card>
-                </div>
-              </TabsContent>
-
-              <TabsContent value="impact" className="mt-6">
-                <div className="space-y-6">
-                  <div className="grid gap-4 md:grid-cols-2">
-                    <Alert className="border-destructive">
-                      <DollarSign className="h-4 w-4" />
-                      <AlertDescription>
-                        <strong>Revenue Loss: $500-$2,000+ daily</strong>
-                        <br />
-                        Wasted ad spend due to poor optimization
-                      </AlertDescription>
-                    </Alert>
-                    <Alert className="border-destructive">
-                      <Database className="h-4 w-4" />
-                      <AlertDescription>
-                        <strong>Data Loss: 60-90% of conversions</strong>
-                        <br />
-                        Critical business insights completely missing
-                      </AlertDescription>
-                    </Alert>
-                  </div>
-                  <Separator />
-                  <div className="text-center">
-                    <h4 className="mb-2 text-lg font-semibold">
-                      Time to Recovery Impact
-                    </h4>
-                    <div className="grid gap-4 md:grid-cols-3">
-                      <div className="text-center">
-                        <div className="text-destructive text-2xl font-bold">
-                          Week 1
-                        </div>
-                        <div className="text-muted-foreground text-sm">
-                          -$3,500 lost
-                        </div>
-                      </div>
-                      <div className="text-center">
-                        <div className="text-destructive text-2xl font-bold">
-                          Month 1
-                        </div>
-                        <div className="text-muted-foreground text-sm">
-                          -$15,000+ lost
-                        </div>
-                      </div>
-                      <div className="text-center">
-                        <div className="text-destructive text-2xl font-bold">
-                          Quarter 1
-                        </div>
-                        <div className="text-muted-foreground text-sm">
-                          -$45,000+ lost
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </TabsContent>
-            </Tabs>
+              </div>
+            </div>
           </div>
         </Container>
       </section>
@@ -558,7 +551,7 @@ export default function Page() {
       {/* Testimonials */}
       <div className="grid w-full place-content-center">
         <h1 className="pt-12 pb-6 text-center text-3xl font-bold">
-          500+ Businesses Recovered Their Facebook Tracking
+          300+ Businesses Recovered Their Facebook Tracking
         </h1>
         <h4 className="text-muted-foreground mx-auto max-w-3xl text-center">
           From e-commerce stores to service businesses, we've restored compliant

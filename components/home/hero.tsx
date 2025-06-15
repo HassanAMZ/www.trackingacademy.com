@@ -5,12 +5,16 @@ import { caseStudies as CaseStudies, CaseStudy } from "@/data/case-studies";
 import { CheckCircle, Star } from "lucide-react";
 import Link from "next/link";
 import { FC, ReactNode } from "react";
+import {
+  AvatarGroup,
+  AvatarGroupTooltip,
+} from "../animate-ui/avatar-group-mask";
 import { Badge } from "../ui/badge";
 
 interface HeroProps {
   heading: ReactNode;
   subheading?: ReactNode;
-  eyebrow?: string;
+  eyebrow?: ReactNode;
   carousel?: ReactNode;
   benefits: string[];
   ctaText?: string;
@@ -41,7 +45,9 @@ const Hero: FC<HeroProps> = ({
           <Star key={i} className="fill-amber-400 text-amber-400" />
         ))}
       </div>
-      <span>4.9 from 200+ reviews • 1,000+ Websites Audited Optimized</span>
+      <h4 className="text-muted-foreground text-sm">
+        4.9 from 200+ reviews <br /> 1,000+ Websites Audited Optimized
+      </h4>
     </div>
   ),
   caseStudies = CaseStudies,
@@ -54,7 +60,7 @@ const Hero: FC<HeroProps> = ({
 
   const contentClasses = supportingComponent
     ? "flex flex-col space-y-5 lg:col-span-2"
-    : "flex flex-col space-y-5 items-center max-w-4xl";
+    : "flex flex-col space-y-5 items-center max-w-5xl";
 
   const badgeClasses = supportingComponent
     ? "mx-auto w-fit lg:mx-0"
@@ -89,7 +95,9 @@ const Hero: FC<HeroProps> = ({
           <Star key={i} className="fill-amber-400 text-amber-400" />
         ))}
       </div>
-      <span>4.9 from 200+ reviews • 1,000+ Websites Audited Optimized</span>
+      <h4 className="text-muted-foreground text-sm">
+        4.9 from 200+ reviews <br /> 1,000+ Websites Audited Optimized
+      </h4>
     </div>
   );
 
@@ -133,29 +141,36 @@ const Hero: FC<HeroProps> = ({
 
         <div className={clientSectionClasses}>
           <div className="flex items-center">
-            {[8, 9, 10, 12, 19, 14].map((i, index) => {
-              const study = caseStudies[i];
-              return (
-                <Link
-                  href={`/case-study/${study.id}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  key={study.id}
-                  className={`relative z-[${10 - index}]`}
-                  style={{ marginLeft: index === 0 ? 0 : "-25px" }} // overlap
-                >
-                  <Avatar className="border-primary-foreground h-16 w-16 border-2">
-                    <AvatarImage
-                      src={study.testimonial.image}
-                      alt={`@${study.testimonial.author}`}
-                    />
-                    <AvatarFallback>
-                      {study.testimonial.author[0]}
-                    </AvatarFallback>
-                  </Avatar>
-                </Link>
-              );
-            })}
+            <div className="rounded-full bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 p-0.5">
+              <div className="rounded-full bg-gradient-to-r from-indigo-100 via-purple-100 to-pink-100 p-1.5 dark:from-indigo-950 dark:via-purple-950 dark:to-pink-950">
+                <AvatarGroup>
+                  {[8, 9, 17, 10, 12, 19, 14].map((i, index) => {
+                    const study = caseStudies[i];
+                    return (
+                      <Link
+                        href={`/case-study/${study.id}`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        key={study.id}
+                      >
+                        <Avatar>
+                          <AvatarImage
+                            src={study.testimonial.image}
+                            alt={`@${study.testimonial.author}`}
+                          />
+                          <AvatarFallback>
+                            {study.testimonial.author[0]}
+                          </AvatarFallback>
+                          <AvatarGroupTooltip>
+                            <p> {study.testimonial.author}</p>
+                          </AvatarGroupTooltip>
+                        </Avatar>
+                      </Link>
+                    );
+                  })}
+                </AvatarGroup>
+              </div>
+            </div>
           </div>
 
           {supportingComponent ? clientCountText : clientCountClasses}
