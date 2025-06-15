@@ -6,6 +6,7 @@ interface LoomEmbedProps {
   className?: string;
   id?: string;
   backgroundImage?: string;
+  hideControls?: boolean;
 }
 
 const LoomEmbed: FC<LoomEmbedProps> = ({
@@ -13,10 +14,28 @@ const LoomEmbed: FC<LoomEmbedProps> = ({
   className,
   id,
   backgroundImage,
+  hideControls = true,
 }) => {
   if (!embedId || embedId === "null" || embedId === "undefined") {
     return null;
   }
+
+  const buildEmbedUrl = (id: string, hideControls: boolean) => {
+    const baseUrl = `https://www.loom.com/embed/${id}`;
+
+    if (!hideControls) {
+      return baseUrl;
+    }
+
+    const params = new URLSearchParams({
+      hide_owner: "true",
+      hide_top_bar: "true",
+      hide_title: "true",
+      hide_video_source: "true",
+    });
+
+    return `${baseUrl}?${params.toString()}`;
+  };
 
   return (
     <Container className={className} id={id}>
@@ -33,7 +52,7 @@ const LoomEmbed: FC<LoomEmbedProps> = ({
         }}
       >
         <iframe
-          src={`https://www.loom.com/embed/${embedId}`}
+          src={buildEmbedUrl(embedId, hideControls)}
           className="absolute top-0 left-0 h-full w-full rounded-lg"
           allowFullScreen
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
