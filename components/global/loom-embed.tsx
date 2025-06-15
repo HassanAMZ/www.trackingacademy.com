@@ -28,9 +28,12 @@ const LoomEmbed: FC<LoomEmbedProps> = ({
     }
 
     const params = new URLSearchParams({
-      hide_owner: "true",
+      hide_owner: "false",
       hide_top_bar: "true",
+      hideEmbedTopBar: "true",
+      hide_speed: "false",
       hide_title: "true",
+      hide_share: "true",
       hide_video_source: "true",
     });
 
