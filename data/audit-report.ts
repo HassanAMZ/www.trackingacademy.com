@@ -79,6 +79,7 @@ export interface AuditReportProps {
 const auditReports: AuditReport[] = [
   {
     id: "cappellin",
+    embedId: { loom: "fb4f76da12064ceb93d32c2326305319" },
     date: "June 14, 2025",
     domain: "www.cappellin.it",
     overallScore: {
