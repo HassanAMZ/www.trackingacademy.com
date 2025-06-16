@@ -80,6 +80,7 @@ const auditReports: AuditReport[] = [
   {
     id: "terapio",
     date: "June 16, 2025",
+    emebedId: { loom: "358a5937441443d1bdfdedb854dc22ca" },
     domain: "www.terapio.cz",
     overallScore: {
       score: 43,
@@ -243,6 +244,7 @@ const auditReports: AuditReport[] = [
     id: "ksebe",
     date: "June 16, 2025",
     domain: "www.ksebe.sk",
+    emebedId: { loom: "358a5937441443d1bdfdedb854dc22ca" },
     overallScore: {
       score: 61,
       maxScore: 100,
