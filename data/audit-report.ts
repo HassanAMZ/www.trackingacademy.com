@@ -80,6 +80,7 @@ const auditReports: AuditReport[] = [
   {
     id: "serenity-hawaii",
     date: "June 16, 2025",
+    embedId: { loom: "9e3c6c0a0efc44dbb930e7fd426941ef" },
     domain: "www.serenity-hawaii.com",
     overallScore: {
       score: 50,
