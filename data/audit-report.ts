@@ -80,7 +80,8 @@ const auditReports: AuditReport[] = [
   {
     id: "pharmacy295",
     date: "June 16, 2025",
-    domain: "www.pharmacy295.gr/",
+    embedId: { loom: "06c90ad822374ab9964d99bf68cffa16" },
+    domain: "www.pharmacy295.gr",
     overallScore: {
       score: 31,
       maxScore: 100,
