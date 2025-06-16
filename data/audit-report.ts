@@ -78,6 +78,104 @@ export interface AuditReportProps {
 
 const auditReports: AuditReport[] = [
   {
+    id: "serenity-hawaii",
+    date: "June 16, 2025",
+    domain: "www.serenity-hawaii.com",
+    overallScore: {
+      score: 50,
+      maxScore: 100,
+      status: "Needs improvement",
+      color: "warning",
+    },
+    categoryScores: [
+      {
+        name: "Analytics",
+        score: 75,
+        color: "warning",
+      },
+      {
+        name: "Ads",
+        score: 57,
+        color: "warning",
+      },
+      {
+        name: "Cookie lifetime",
+        score: 85,
+        color: "success",
+      },
+      {
+        name: "Page speed",
+        score: 96,
+        color: "success",
+      },
+    ],
+    trackers: [
+      {
+        name: "Meta",
+        provider: "Meta",
+        category: "Advertisement",
+        dataSentTo: "US",
+        trackingMethod: "Client-side",
+        canImprove: true,
+        improvementLink: "/services",
+      },
+    ],
+    trackingCookies: [
+      {
+        name: "_fbp",
+        provider: "Meta",
+        category: "Advertisement",
+        dataSentTo: "US",
+        lifetime: "7 days",
+      },
+      {
+        name: "_fbc",
+        provider: "Meta",
+        category: "Advertisement",
+        dataSentTo: "US",
+        lifetime: "1 days",
+      },
+    ],
+    trackingScripts: [
+      {
+        name: "fbevents.js",
+        provider: "Meta",
+        category: "Advertisement",
+        transferSize: "47 KB",
+        transferSizeColor: "success",
+        blockingTime: "58 ms",
+        blockingTimeColor: "success",
+      },
+    ],
+    recommendedActions: [
+      {
+        id: "0196a9c3-bc94-74c0-9dfb-0a54a50331fa",
+        title: "Switch to web & server-side tracking for Meta",
+        categories: ["Advertisement"],
+        scoreImprovement: 8,
+      },
+      {
+        id: "ga4-server-side",
+        title: "Implement GA4 server-side tracking",
+        categories: ["Analytics"],
+        scoreImprovement: 17,
+      },
+      {
+        id: "google-ads-server-side",
+        title:
+          "Implement Google Ads conversion tracking using server-side tracking",
+        categories: ["Ads"],
+        scoreImprovement: 10,
+      },
+      {
+        id: "cookie-consent",
+        title: "Implement a cookie consent solution",
+        categories: ["Compliance"],
+        scoreImprovement: 15,
+      },
+    ],
+  },
+  {
     id: "cappellin",
     embedId: { loom: "fb4f76da12064ceb93d32c2326305319" },
     date: "June 14, 2025",
