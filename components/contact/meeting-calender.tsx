@@ -3,10 +3,9 @@
 import React, { useEffect, useRef } from "react";
 import Container from "../ui/container";
 
-const MeetingCalender = ({ type = "hubspot" }) => {
+const MeetingCalender = ({ type = "google" }) => {
   const hubspotContainerRef = useRef(null);
 
-  // Get prefill data from localStorage
   const getPrefillDataFromStorage = () => {
     try {
       return {
@@ -23,17 +22,14 @@ const MeetingCalender = ({ type = "hubspot" }) => {
 
   useEffect(() => {
     if (type === "hubspot") {
-      // Load HubSpot script dynamically
       const script = document.createElement("script");
       script.type = "text/javascript";
       script.src =
         "https://static.hsappstatic.net/MeetingsEmbed/ex/MeetingsEmbedCode.js";
       script.async = true;
 
-      // Append script to head
       document.head.appendChild(script);
 
-      // Cleanup function to remove script when component unmounts or type changes
       return () => {
         if (document.head.contains(script)) {
           document.head.removeChild(script);
@@ -44,13 +40,10 @@ const MeetingCalender = ({ type = "hubspot" }) => {
 
   const renderCalendar = () => {
     if (type === "hubspot") {
-      // Get prefill data from localStorage
       const prefillData = getPrefillDataFromStorage();
 
-      // Build query string from localStorage data
       const queryParams = new URLSearchParams();
 
-      // Map localStorage data to HubSpot field names
       if (prefillData.firstName)
         queryParams.set("firstname", prefillData.firstName);
       if (prefillData.lastName)
@@ -70,7 +63,6 @@ const MeetingCalender = ({ type = "hubspot" }) => {
       );
     }
 
-    // Default to Google Calendar
     return (
       <iframe
         src="https://calendar.google.com/calendar/appointments/schedules/AcZssZ0wgUDGuk7YMLv1IcsYbgeQwVYnRt39plBBMKmO55fulvLIeQ2ZZqBOGm1IpXYK7zvyl7YBLnlq?gv=true"
