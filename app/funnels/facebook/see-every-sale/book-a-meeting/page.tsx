@@ -36,7 +36,7 @@ export default async function Page() {
     <React.Fragment>
       {transformedUserData && (
         <GTMCustomEvent
-          event_name="contact_form_submission"
+          event_name="generate_lead"
           user_data={transformedUserData}
         />
       )}

@@ -1,23 +1,18 @@
-import CaseStudyCarousel from "@/components/case-study/case-study-carousel";
+"use client";
+
 import TestimonialsCarousel2 from "@/components/for-freelancers/testimonials-carousal-2";
 import DetailedCTA from "@/components/funnels/detailed-cta";
 import DetailsCarousel from "@/components/funnels/details-carousal";
 import ObjectionHandling from "@/components/funnels/objection-handling";
-import ProblemAwareness from "@/components/funnels/problem-awareness";
 import ScarcityUrgency from "@/components/funnels/scarcity-urgency";
 import SocialProof from "@/components/funnels/social-proof";
-import AdSpendCalculator from "@/components/global/ad-spend-calculator";
 import Footer from "@/components/global/footer";
 import Navbar from "@/components/global/navbar";
 import TrackingTable from "@/components/global/tracking-table";
 import AlternativesSection from "@/components/home/alternative-section";
 import Hero from "@/components/home/hero";
 import WhyChooseSection from "@/components/home/why-choose-us";
-import TestimonialsCarousel from "@/components/testimonial/testimonial-carousal";
-import TestimonialGrid from "@/components/testimonial/testimonial-grid";
 import { Button } from "@/components/ui/button";
-import Container from "@/components/ui/container";
-import { caseStudies } from "@/data/case-studies";
 import {
   BarChart2,
   CheckSquare,

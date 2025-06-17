@@ -80,7 +80,7 @@ const Hero: FC<HeroProps> = ({
 
   const ctaClasses = supportingComponent
     ? "flex gap-4"
-    : "flex gap-4 justify-center";
+    : "flex gap-4 justify-center md:justify-start";
 
   const clientSectionClasses = supportingComponent
     ? "flex flex-col items-center gap-4 pt-2 lg:flex-row"

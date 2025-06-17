@@ -1,5 +1,5 @@
 import { GTMCustomEvent } from "@/components/analytics/GTMEvents";
-import GoogleCalender from "@/components/contact/google-calender";
+import MeetingCalender from "@/components/contact/meeting-calender";
 import YoutubeEmbed from "@/components/global/youtube-embed";
 import Container from "@/components/ui/container";
 import { RequestCookie } from "next/dist/compiled/@edge-runtime/cookies";
@@ -36,7 +36,7 @@ export default async function BookAMeetingPage() {
     <React.Fragment>
       {transformedUserData && (
         <GTMCustomEvent
-          event_name="contact_form_submission"
+          event_name="generate_lead"
           user_data={transformedUserData}
         />
       )}
@@ -54,7 +54,7 @@ export default async function BookAMeetingPage() {
           </h4>
         </section>
       </Container>{" "}
-      <GoogleCalender />
+      <MeetingCalender />
       {/* NEXT STEPS SECTION */}
       <Container className="flex max-w-5xl flex-col gap-6 space-y-3 py-12">
         <h1 className="text-center">🚀 What Happens Next?</h1>{" "}

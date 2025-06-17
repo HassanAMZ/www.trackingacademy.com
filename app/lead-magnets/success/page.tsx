@@ -1,7 +1,7 @@
 "use client";
 
 import BookAMeetingPage from "@/app/contact/book-a-meeting/page";
-import GoogleCalender from "@/components/contact/google-calender";
+import MeetingCalender from "@/components/contact/meeting-calender";
 import CustomLink from "@/components/mdx/CustomLink";
 import { Button } from "@/components/ui/button";
 import Container from "@/components/ui/container";
@@ -82,7 +82,7 @@ export default function SimplifiedSuccessPage() {
                 <DialogHeader>
                   <DialogTitle>Schedule Your Results Review Call</DialogTitle>
                 </DialogHeader>
-                <GoogleCalender />
+                <MeetingCalender />
               </DialogContent>
             </Dialog>
 
