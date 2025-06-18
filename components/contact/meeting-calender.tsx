@@ -1,84 +1,59 @@
 "use client";
 
-import React, { useEffect, useRef } from "react";
+import React from "react";
+import { InlineWidget, useCalendlyEventListener } from "react-calendly";
 import Container from "../ui/container";
 
-const MeetingCalender = ({ type = "google" }) => {
-  const hubspotContainerRef = useRef(null);
-
-  const getPrefillDataFromStorage = () => {
-    try {
-      return {
-        firstName: localStorage.getItem("first_name") || "",
-        lastName: localStorage.getItem("last_name") || "",
-        email: localStorage.getItem("email_address") || "",
-        phone: localStorage.getItem("phone_number") || "",
-      };
-    } catch (error) {
-      console.warn("Could not access localStorage:", error);
-      return {};
-    }
-  };
-
-  useEffect(() => {
-    if (type === "hubspot") {
-      const script = document.createElement("script");
-      script.type = "text/javascript";
-      script.src =
-        "https://static.hsappstatic.net/MeetingsEmbed/ex/MeetingsEmbedCode.js";
-      script.async = true;
-
-      document.head.appendChild(script);
-
-      return () => {
-        if (document.head.contains(script)) {
-          document.head.removeChild(script);
-        }
-      };
-    }
-  }, [type]);
-
-  const renderCalendar = () => {
-    if (type === "hubspot") {
-      const prefillData = getPrefillDataFromStorage();
-
-      const queryParams = new URLSearchParams();
-
-      if (prefillData.firstName)
-        queryParams.set("firstname", prefillData.firstName);
-      if (prefillData.lastName)
-        queryParams.set("lastname", prefillData.lastName);
-      if (prefillData.email) queryParams.set("email", prefillData.email);
-      if (prefillData.phone) queryParams.set("phone", prefillData.phone);
-
-      const queryString = queryParams.toString();
-      const hubspotUrl = `https://meetings.hubspot.com/shahzada-ali?embed=true${queryString ? "&" + queryString : ""}`;
-
-      return (
-        <div
-          ref={hubspotContainerRef}
-          className="meetings-iframe-container min-h-[75vh] w-full rounded-lg"
-          data-src={hubspotUrl}
-        />
-      );
-    }
-
-    return (
-      <iframe
-        src="https://calendar.google.com/calendar/appointments/schedules/AcZssZ0wgUDGuk7YMLv1IcsYbgeQwVYnRt39plBBMKmO55fulvLIeQ2ZZqBOGm1IpXYK7zvyl7YBLnlq?gv=true"
-        className="min-h-[75vh] w-full rounded-lg"
-        title="Google Calendar"
-      />
-    );
-  };
+const MeetingCalendar = () => {
+  useCalendlyEventListener({
+    onProfilePageViewed: () =>
+      sendGTMEvent({
+        event: "gtm_custom_event",
+        datalayer_event_name: "calendly_profile_viewed",
+        value: "profile_page_viewed",
+      }),
+    onDateAndTimeSelected: () =>
+      sendGTMEvent({
+        event: "gtm_custom_event",
+        datalayer_event_name: "calendly_date_selected",
+        value: "date_and_time_selected",
+      }),
+    onEventTypeViewed: () =>
+      sendGTMEvent({
+        event: "gtm_custom_event",
+        datalayer_event_name: "calendly_event_type_viewed",
+        value: "event_type_viewed",
+      }),
+    onEventScheduled: (e) =>
+      sendGTMEvent({
+        event: "gtm_custom_event",
+        datalayer_event_name: "Schedule",
+        value: "event_scheduled",
+        event_data: e.data.payload,
+      }),
+    onPageHeightResize: (e) =>
+      sendGTMEvent({
+        event: "gtm_custom_event",
+        datalayer_event_name: "calendly_page_resize",
+        value: "page_height_resize",
+        height: e.data.payload.height,
+      }),
+  });
 
   return (
     <Container>
-      <div className="flex w-full items-center justify-center rounded-lg">
-        {renderCalendar()}
-      </div>
+      <InlineWidget
+        className="calendly-inline-widget min-h-screen w-full"
+        url="https://calendly.com/shahzadaalihassan/1-on-1-meeting-with-shahzada?hide_gdpr_banner=1"
+      />
     </Container>
   );
 };
 
-export default MeetingCalender;
+export default MeetingCalendar;
+
+function sendGTMEvent(eventData: Record<string, any>) {
+  if (typeof window !== "undefined" && (window as any).dataLayer) {
+    (window as any).dataLayer.push(eventData);
+  }
+}

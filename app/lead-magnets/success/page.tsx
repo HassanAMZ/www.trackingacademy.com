@@ -35,30 +35,6 @@ export default function SimplifiedSuccessPage() {
               to go over the findings and answer any questions you might have.
             </p>
 
-            <div className="bg-card/80 rounded-lg p-4">
-              <h4 className="text-foreground py-4 text-left font-semibold">
-                During our call, we'll cover:
-              </h4>
-              <ul className="text-muted-foreground space-y-3 text-left text-sm">
-                <li className="flex items-center gap-2">
-                  <div className="bg-primary h-2 w-2 rounded-full"></div>
-                  Detailed breakdown of your current tracking issues
-                </li>
-                <li className="flex items-center gap-2">
-                  <div className="bg-primary h-2 w-2 rounded-full"></div>
-                  How these issues are affecting your ad performance and ROI
-                </li>
-                <li className="flex items-center gap-2">
-                  <div className="bg-primary h-2 w-2 rounded-full"></div>
-                  Actionable solutions to fix your tracking problems
-                </li>
-                <li className="flex items-center gap-2">
-                  <div className="bg-primary h-2 w-2 rounded-full"></div>
-                  Answer any questions about your specific setup
-                </li>
-              </ul>
-            </div>
-
             <p className="text-muted-foreground text-sm">
               Free 30-minute consultation - No obligation, just expert insights
               into your tracking setup
