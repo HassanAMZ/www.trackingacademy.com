@@ -27,7 +27,7 @@ const MeetingCalendar = () => {
     onEventScheduled: (e) =>
       sendGTMEvent({
         event: "gtm_custom_event",
-        datalayer_event_name: "Schedule",
+        datalayer_event_name: "calendly_meeting_scheduled",
         value: "event_scheduled",
         event_data: e.data.payload,
       }),
