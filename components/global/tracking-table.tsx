@@ -1,40 +1,35 @@
-import React from "react";
-import {
-  Bar,
-  BarChart,
-  CartesianGrid,
-  ResponsiveContainer,
-  XAxis,
-  YAxis,
-} from "recharts";
-import Container from "../ui/container";
+"use client";
 
-interface TrackingData {
-  date: string;
-  before: number;
-  after: number;
-}
+import { caseStudies, type CaseStudy } from "@/data/case-studies";
+import Image from "next/image";
+import Link from "next/link";
+import type React from "react";
+import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar";
 
-interface TrackingTableProps {
+interface ClientTrackingTableProps {
   rows?: number;
 }
 
-// Predefined tracking data
-const trackingData: TrackingData[] = [
-  // { date: "2024-12-01", before: 62, after: 96 },
-  { date: "2024-12-08", before: 64, after: 97 },
-  { date: "2024-12-15", before: 55, after: 95 },
-  { date: "2024-12-22", before: 63, after: 98 },
-  { date: "2024-12-29", before: 42, after: 99 },
-  { date: "2025-01-05", before: 66, after: 96 },
-  { date: "2025-01-12", before: 47, after: 97 },
-  { date: "2025-01-19", before: 71, after: 95 },
-  { date: "2025-01-26", before: 64, after: 98 },
-  { date: "2025-02-03", before: 45, after: 99 },
-];
+const transformCaseStudyData = (caseStudy: CaseStudy) => {
+  const afterAccuracy = caseStudy.analytics.accuracy;
+  const recoveredTotal =
+    caseStudy.analytics.recoveredFromAdBlockersPercentage +
+    caseStudy.analytics.recoveredFromTrackingPreventionPercentage;
+  const beforeAccuracy = Math.max(30, afterAccuracy - recoveredTotal);
+  return {
+    id: caseStudy.id,
+    clientName: caseStudy.client,
+    websiteUrl: caseStudy.url,
+    avatar: caseStudy.testimonial.image,
+    plan: caseStudy.plan,
+    before: Math.round(beforeAccuracy),
+    after: afterAccuracy,
+    period: caseStudy.analytics.period,
+  };
+};
 
 // Simple calculation function
-const calculateStats = (data: TrackingData[]) => {
+const calculateStats = (data: ReturnType<typeof transformCaseStudyData>[]) => {
   const avgBefore =
     data.reduce((sum, item) => sum + item.before, 0) / data.length;
   const avgAfter =
@@ -50,31 +45,43 @@ const calculateStats = (data: TrackingData[]) => {
   };
 };
 
-// Enhanced table row component
-const TableRow: React.FC<{
-  data: TrackingData;
+const ClientTableRow: React.FC<{
+  data: ReturnType<typeof transformCaseStudyData>;
   isLast?: boolean;
   isVisible?: boolean;
 }> = ({ data, isLast, isVisible = true }) => {
-  const formatDate = (dateString: string) => {
-    return new Date(dateString).toLocaleDateString("en-US", {
-      month: "short",
-      day: "numeric",
-      year: "numeric",
-    });
-  };
-
   const improvement = data.after - data.before;
 
   return (
     <tr
       className={`border-secondary-foreground/10 hover:bg-background/10 border-b transition-colors duration-150 ${!isVisible ? "hidden lg:table-row" : ""} ${isLast ? "border-b-0" : ""} `}
     >
-      <td className="px-4 py-3 text-sm font-medium">{formatDate(data.date)}</td>
+      <Link href={`/case-study/${data.id}`}>
+        <td className="px-4 py-3">
+          <div className="flex items-center gap-3">
+            <Avatar className="mb-2 h-10 w-10">
+              <AvatarImage
+                src={data.avatar || "/placeholder.svg"}
+                alt={data.clientName}
+              />
+              <AvatarFallback>
+                {data.avatar
+                  .split(" ")
+                  .map((n) => n[0])
+                  .join("")}
+              </AvatarFallback>
+            </Avatar>
+            <div>
+              <div className="text-sm font-medium">{data.clientName}</div>
+            </div>
+          </div>
+        </td>
+      </Link>
+
       <td className="text-secondary-foreground/80 px-4 py-3 text-sm">
         {data.before}%
       </td>
-      <td className="text-destructive px-4 py-3 text-sm font-semibold">
+      <td className="px-4 py-3 text-sm font-semibold text-green-600">
         <div className="flex items-center gap-2">{data.after}%</div>
       </td>
       <td className="text-primary px-4 py-3 text-sm font-semibold">
@@ -85,8 +92,9 @@ const TableRow: React.FC<{
 };
 
 // Main component
-const TrackingTable: React.FC<TrackingTableProps> = ({ rows }) => {
-  const displayedData = rows ? trackingData.slice(0, rows) : trackingData;
+const ClientTrackingTable: React.FC<ClientTrackingTableProps> = ({ rows }) => {
+  const transformedData = caseStudies.slice(0, 6).map(transformCaseStudyData);
+  const displayedData = rows ? transformedData.slice(0, rows) : transformedData;
   const stats = calculateStats(displayedData);
 
   return (
@@ -95,21 +103,21 @@ const TrackingTable: React.FC<TrackingTableProps> = ({ rows }) => {
       <div className="mb-6 grid grid-cols-3 gap-4">
         <div className="rounded-lg border p-4 shadow-sm">
           <div className="text-secondary-foreground mb-1 text-sm font-medium">
-            Average Acc Before:
+            Average Accuracy Before:
           </div>
           <div className="text-2xl font-bold">{stats.avgBefore}%</div>
         </div>
         <div className="rounded-lg border p-4 shadow-sm">
           <div className="text-secondary-foreground mb-1 text-sm font-medium">
-            Average Acc After:
+            Average Accuracy After:
           </div>
-          <div className="text-destructive text-2xl font-bold">
+          <div className="text-2xl font-bold text-green-600">
             {stats.avgAfter}%
           </div>
         </div>
         <div className="rounded-lg border p-4 shadow-sm">
           <div className="text-secondary-foreground mb-1 text-sm font-medium">
-            Improved Accuracy:
+            Average Improvement:
           </div>
           <div className="text-primary text-2xl font-bold">
             +{stats.improvement.toFixed(1)}%
@@ -121,8 +129,11 @@ const TrackingTable: React.FC<TrackingTableProps> = ({ rows }) => {
       <div className="mb-6 overflow-hidden rounded-xl border shadow-sm">
         <div className="border-b px-6 py-4">
           <h3 className="text-lg font-semibold">
-            Before vs After Tracking Setup
+            Client Tracking Accuracy Results
           </h3>
+          <p className="text-muted-foreground mt-1 text-sm">
+            Before vs after implementing server-side tracking solutions
+          </p>
         </div>
 
         <div className="overflow-x-auto">
@@ -130,8 +141,9 @@ const TrackingTable: React.FC<TrackingTableProps> = ({ rows }) => {
             <thead className="">
               <tr>
                 <th className="px-4 py-3 text-left text-sm font-semibold">
-                  Date
+                  Client
                 </th>
+
                 <th className="px-4 py-3 text-left text-sm font-semibold">
                   Before
                 </th>
@@ -145,8 +157,8 @@ const TrackingTable: React.FC<TrackingTableProps> = ({ rows }) => {
             </thead>
             <tbody>
               {displayedData.map((data, index) => (
-                <TableRow
-                  key={data.date}
+                <ClientTableRow
+                  key={data.id}
                   data={data}
                   isLast={index === displayedData.length - 1}
                   isVisible={index >= displayedData.length - 1 || index < 3}
@@ -159,12 +171,11 @@ const TrackingTable: React.FC<TrackingTableProps> = ({ rows }) => {
         {/* Summary Row */}
         <div className="border-t px-4 py-4">
           <div className="flex items-center justify-between">
-            <span className="text-sm font-semibold">Overall Average</span>
             <div className="flex gap-8 text-sm">
               <span className="font-medium">
                 Before: <span className="font-bold">{stats.avgBefore}%</span>
               </span>
-              <span className="text-destructive font-medium">
+              <span className="font-medium text-green-600">
                 After: <span className="font-bold">{stats.avgAfter}%</span>
               </span>
               <span className="text-primary font-medium">
@@ -177,10 +188,8 @@ const TrackingTable: React.FC<TrackingTableProps> = ({ rows }) => {
           </div>
         </div>
       </div>
-
-      {/* Chart */}
     </div>
   );
 };
 
-export default TrackingTable;
+export default ClientTrackingTable;
