@@ -56,8 +56,8 @@ const ClientTableRow: React.FC<{
     <tr
       className={`border-secondary-foreground/10 hover:bg-background/10 border-b transition-colors duration-150 ${!isVisible ? "hidden lg:table-row" : ""} ${isLast ? "border-b-0" : ""} `}
     >
-      <Link href={`/case-study/${data.id}`}>
-        <td className="px-4 py-3">
+      <td className="px-4 py-3">
+        <Link href={`/case-study/${data.id}`}>
           <div className="flex items-center gap-3">
             <Avatar className="mb-2 h-10 w-10">
               <AvatarImage
@@ -75,8 +75,8 @@ const ClientTableRow: React.FC<{
               <div className="text-sm font-medium">{data.clientName}</div>
             </div>
           </div>
-        </td>
-      </Link>
+        </Link>
+      </td>
 
       <td className="text-secondary-foreground/80 px-4 py-3 text-sm">
         {data.before}%
@@ -99,32 +99,6 @@ const ClientTrackingTable: React.FC<ClientTrackingTableProps> = ({ rows }) => {
 
   return (
     <div>
-      {/* Summary Cards */}
-      <div className="mb-6 grid grid-cols-3 gap-4">
-        <div className="rounded-lg border p-4 shadow-sm">
-          <div className="text-secondary-foreground mb-1 text-sm font-medium">
-            Average Accuracy Before:
-          </div>
-          <div className="text-2xl font-bold">{stats.avgBefore}%</div>
-        </div>
-        <div className="rounded-lg border p-4 shadow-sm">
-          <div className="text-secondary-foreground mb-1 text-sm font-medium">
-            Average Accuracy After:
-          </div>
-          <div className="text-2xl font-bold text-green-600">
-            {stats.avgAfter}%
-          </div>
-        </div>
-        <div className="rounded-lg border p-4 shadow-sm">
-          <div className="text-secondary-foreground mb-1 text-sm font-medium">
-            Average Improvement:
-          </div>
-          <div className="text-primary text-2xl font-bold">
-            +{stats.improvement.toFixed(1)}%
-          </div>
-        </div>
-      </div>
-
       {/* Data Table */}
       <div className="mb-6 overflow-hidden rounded-xl border shadow-sm">
         <div className="border-b px-6 py-4">
@@ -132,7 +106,7 @@ const ClientTrackingTable: React.FC<ClientTrackingTableProps> = ({ rows }) => {
             Client Tracking Accuracy Results
           </h3>
           <p className="text-muted-foreground mt-1 text-sm">
-            Before vs after implementing server-side tracking solutions
+            Before vs after implementing our tracking solutions
           </p>
         </div>
 
@@ -185,6 +159,32 @@ const ClientTrackingTable: React.FC<ClientTrackingTableProps> = ({ rows }) => {
                 </span>
               </span>
             </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Summary Cards */}
+      <div className="mb-6 grid grid-cols-3 gap-4">
+        <div className="rounded-lg border p-4 shadow-sm">
+          <div className="text-secondary-foreground mb-1 text-sm font-medium">
+            Average Accuracy Before:
+          </div>
+          <div className="text-2xl font-bold">{stats.avgBefore}%</div>
+        </div>
+        <div className="rounded-lg border p-4 shadow-sm">
+          <div className="text-secondary-foreground mb-1 text-sm font-medium">
+            Average Accuracy After:
+          </div>
+          <div className="text-2xl font-bold text-green-600">
+            {stats.avgAfter}%
+          </div>
+        </div>
+        <div className="rounded-lg border p-4 shadow-sm">
+          <div className="text-secondary-foreground mb-1 text-sm font-medium">
+            Average Improvement:
+          </div>
+          <div className="text-primary text-2xl font-bold">
+            +{stats.improvement.toFixed(1)}%
           </div>
         </div>
       </div>

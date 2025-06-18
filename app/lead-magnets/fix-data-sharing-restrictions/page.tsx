@@ -2,6 +2,7 @@
 
 import TestimonialsCarousel2 from "@/components/for-freelancers/testimonials-carousal-2";
 import LoomEmbed from "@/components/global/loom-embed";
+import TrackingTable from "@/components/global/tracking-table";
 import YoutubeEmbed from "@/components/global/youtube-embed";
 import Hero from "@/components/home/hero";
 import TestimonialGrid from "@/components/testimonial/testimonial-grid";
@@ -22,6 +23,7 @@ import { Input } from "@/components/ui/input";
 import { Progress } from "@/components/ui/progress";
 import { Separator } from "@/components/ui/separator";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { cn } from "@/lib/utils";
 import { getDirectoryURL } from "@/utils/payment";
 import clsx from "clsx";
 import {
@@ -118,6 +120,7 @@ const URLSubmissionForm = ({
   loadingText = "Analyzing...",
   placeholder = "Enter your website URL here",
   className = "",
+  wrapperButtonClassName = "",
   inputClassName = "border-primary w-full border p-6",
   buttonClassName = "w-full text-left",
   onSubmit,
@@ -128,6 +131,7 @@ const URLSubmissionForm = ({
   placeholder?: string;
   className?: string;
   inputClassName?: string;
+  wrapperButtonClassName?: string;
   buttonClassName?: string;
   onSubmit?: (url: string) => void;
   onSubmitStart?: () => void;
@@ -177,7 +181,10 @@ const URLSubmissionForm = ({
       <DialogTrigger asChild>
         <Button
           size="lg"
-          className="mx-auto flex flex-col p-6 text-xl font-semibold transition-transform duration-200 hover:scale-105"
+          className={cn(
+            "mx-auto flex flex-col p-6 text-xl font-semibold transition-transform duration-200",
+            wrapperButtonClassName,
+          )}
         >
           {buttonText}
           <br />
@@ -241,54 +248,67 @@ export default function Page() {
           </>
         }
         heading={
-          <h1 className="animate-fade-in max-w-5xl">
-            We{" "}
-            <span className="text-primary underline decoration-2 underline-offset-4">
-              Fix Broken Meta Ad Tracking{" "}
-            </span>
-            so you can Track Your Conversions,{" "}
-            <span className="text-primary">Effortlessly!</span>
+          <h1 className="animate-fade-in max-w-5xl text-center lg:text-left">
+            Fix{" "}
+            <span className="bg-destructive/10 text-destructive border-destructive/20 rounded-full border px-3 py-1.5">
+              Data Sharing Restriction
+            </span>{" "}
+            and Track Your Conversions,{" "}
+            <span className="text-primary">Again!</span>
           </h1>
         }
         subheading={
-          <div className="animate-fade-in mx-auto max-w-6xl space-y-8 delay-200">
-            <h4 className="text-foreground text-center leading-relaxed font-medium">
-              If your{" "}
-              <span className="bg-destructive/10 text-destructive border-destructive/20 rounded-full border px-3 py-1.5 font-bold">
-                Meta Pixel stopped tracking conversions
-              </span>{" "}
-              and you've exhausted every solution...
+          <div className="max-w-3xl space-y-4">
+            <h4 className="text-muted-foreground mx-auto max-w-4xl text-center lg:mx-0 lg:text-left">
+              If your Meta Pixel stopped tracking conversions and you've tried
+              every solution;{" "}
+              <div className="flex flex-wrap justify-center gap-2 py-2 lg:justify-start">
+                <Badge
+                  variant="destructive"
+                  className="flex items-center gap-1"
+                >
+                  <XCircle className="h-5 w-5" />
+                  Conversion API Failed
+                </Badge>
+                <Badge
+                  variant="destructive"
+                  className="flex items-center gap-1"
+                >
+                  <XCircle className="h-5 w-5" />
+                  Domain Changes Failed
+                </Badge>
+                <Badge
+                  variant="destructive"
+                  className="flex items-center gap-1"
+                >
+                  <XCircle className="h-5 w-5" />
+                  New Pixels Failed
+                </Badge>
+                <Badge
+                  variant="destructive"
+                  className="flex items-center gap-1"
+                >
+                  <XCircle className="h-5 w-5" />
+                  New Accounts Failed
+                </Badge>
+              </div>
+              and nothing seems to work?
             </h4>
-
-            <div className="flex flex-wrap items-center justify-center gap-6">
-              <div className="text-destructive flex items-center gap-2">
-                <span className="text-xl">❌</span>
-                <span className="font-semibold">Conversion API</span>
+            <div className="mx-auto max-w-4xl lg:mx-0">
+              <div className="space-y-3 text-center lg:text-left">
+                <h4>
+                  We built the "See Every Sale System" to solve this exact
+                  problem.{" "}
+                  <span className="text-muted-foreground">
+                    Recover your tracking in 72 hours. Stay compliant. Get back
+                    to profitable scaling.
+                  </span>
+                </h4>
+                <div className="inline-flex items-center gap-2 rounded-full bg-green-50 px-4 py-2 text-sm font-medium text-green-700 dark:bg-green-950/20 dark:text-green-300">
+                  <div className="h-2 w-2 animate-pulse rounded-full bg-green-500"></div>
+                  Currently helping 200+ restricted niche advertisers
+                </div>
               </div>
-              <div className="text-destructive flex items-center gap-2">
-                <span className="text-xl">❌</span>
-                <span className="font-semibold">Domain Changes</span>
-              </div>
-              <div className="text-destructive flex items-center gap-2">
-                <span className="text-xl">❌</span>
-                <span className="font-semibold">New Pixels</span>
-              </div>
-            </div>
-
-            <div className="border-primary/20 bg-primary/5 space-y-4 rounded-xl border-2 px-0 py-8 text-center md:p-8">
-              <div className="mb-2 inline-flex items-center gap-3">
-                <span className="text-primary text-2xl font-bold">
-                  Here's what finally works
-                </span>
-              </div>
-              <p className="text-muted-foreground mb-6 text-lg">
-                Watch the breakthrough solution below
-              </p>
-              <LoomEmbed
-                backgroundImage="/images/hero/data-sharing-restrcition-03.png"
-                embedId="3768f5d29d724dc2837085355d614c57"
-                className="mx-auto max-w-3xl"
-              />
             </div>
           </div>
         }
@@ -302,21 +322,38 @@ export default function Page() {
             buttonText="🔍 Analyze My Website's Tracking Issues"
             placeholder="https://yourwebsite.com"
             className="text-center"
+            wrapperButtonClassName="lg:text-left lg:items-start lg:w-fit lg:mx-0"
           />
         }
+        supportingComponent={<TrackingTable />}
       />
+      <div className="from-primary/5 to-background bg-linear-to-b py-6">
+        <Container className="max-w-6xl space-y-4">
+          <div className="mb-12 space-y-4 text-center">
+            <h2 className="">Watch the Video to see how we can help you!</h2>
+            <h4 className="text-muted-foreground mx-auto max-w-3xl">
+              Understand exactly what's happening to your tracking data and see
+              how we've helped 300+ restricted niche advertisers get back to
+              full visibility.
+            </h4>
+          </div>
 
+          <LoomEmbed
+            backgroundImage="/images/hero/data-sharing-restrcition-03.png"
+            embedId="3768f5d29d724dc2837085355d614c57"
+            className="mx-auto max-w-3xl"
+          />
+        </Container>
+      </div>
       {/* Restriction Categories Section */}
-      <section className="bg-muted/20 py-16">
+      <section className="from-primary/5 to-background bg-linear-to-b py-16">
         <Container className="max-w-6xl">
-          <div className="mb-12 text-center">
-            <h2 className="mb-4 text-3xl font-bold md:text-4xl">
-              Is Your Business Category Affected?
-            </h2>
-            <p className="text-muted-foreground mx-auto max-w-3xl text-xl">
+          <div className="mb-12 space-y-4 text-center">
+            <h2 className="">Is Your Business Category Affected?</h2>
+            <h4 className="text-muted-foreground mx-auto max-w-3xl">
               Meta's restrictions target specific business categories. Check if
               your industry is experiencing tracking limitations.
-            </p>
+            </h4>
           </div>
 
           <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
@@ -364,7 +401,7 @@ export default function Page() {
       </section>
 
       {/* Problem Section */}
-      <section className="bg-muted/50 py-16">
+      <section className="from-primary/5 to-background bg-linear-to-b py-16">
         <Container className="max-w-6xl">
           <div className="mb-12 text-center">
             <h2 className="mb-4 text-3xl font-bold md:text-4xl">
@@ -564,7 +601,7 @@ export default function Page() {
       </div>
 
       {/* Solution Section */}
-      <section className="py-16">
+      <section className="from-primary/5 to-background bg-linear-to-b py-16">
         <Container className="max-w-6xl">
           <div className="mb-12 text-center">
             <Badge className="mb-4 animate-bounce">Our Proven Solution</Badge>

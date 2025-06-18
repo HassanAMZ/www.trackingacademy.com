@@ -1363,7 +1363,7 @@ export const caseStudies: CaseStudy[] = [
       quote: "It was great to work with him, thank you for your fast work.",
       author: "David Laroche",
       role: "Business Owner",
-      image: "/images/david.jpg",
+      image: "/images/clients/placeholder.jpg",
     },
     platforms: [
       "WordPress",
@@ -1628,7 +1628,7 @@ export const caseStudies: CaseStudy[] = [
         "We have worked with Hassan multiple times and we cannot speak highly enough about him. Thank you for completing this project for us. Do not hesitate to hire Hassan, if he says he can do it, he will.",
       author: "Ryan Bagley",
       role: "Digital Markerting Agency Owner",
-      image: "/images/ryan-bagley.jpg",
+      image: "/images/clients/placeholder.jpg",
     },
     platforms: [
       "Google Tag Manager (Web)",
