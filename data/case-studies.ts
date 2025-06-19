@@ -147,6 +147,84 @@ export const caseStudies: CaseStudy[] = [
     ],
   },
   {
+    id: "peachandcream",
+    name: "Peach and Cream Shopify Tracking",
+    url: "https://peachandcream.com",
+    plan: "Standard",
+    title: "Policy-Proof Meta Pixel Setup for Shopify Brand",
+    description:
+      "Peach and Cream was blocked from Meta ads due to 'sensitive' product categories. We unlocked compliant pixel tracking through server-side methods, enabling aggressive scaling of their top-selling products—without risking another ban.",
+    imageUrl: "/images/for-businesses/client-peachandcream-desktop-home.png",
+    mobileUrl: "/images/for-businesses/client-peachandcream-mobile-home.png",
+    siteUrl: "https://peachandcream.com",
+    analytics: {
+      period: "30 days",
+      recoveredFromAdBlockersPercentage: 2.79,
+      recoveredFromTrackingPreventionPercentage: 31.92,
+      accuracy: 97,
+    },
+    testimonial: {
+      quote:
+        "Super helpful, quick, and comprehensive. Shahzada solved our problem efficiently, complementing a nicely done work in an effective way.",
+      author: "Mathieu Frechette",
+      role: "CEO & Owner",
+      image: "/images/clients/peachandcream.png",
+    },
+    platforms: [
+      "Shopify",
+      "Google Analytics 4",
+      "Google Tag Manager",
+      "Facebook Pixel",
+      "Facebook Conversion API",
+      "Stape",
+    ],
+    milestones: [
+      {
+        name: "Secure Access & Audit",
+        description: "Audited Meta policy violation triggers + platform access",
+        expectedOutcome: "Zero-risk implementation blueprint created",
+      },
+      {
+        name: "Server-Side Pixel Deployment",
+        description: "Filtered non-compliant products from tracking layer",
+        expectedOutcome: "Server-side tracking fully operational & policy-safe",
+      },
+      {
+        name: "Event Verification & Launch",
+        description: "Validated every key event for Meta and GA4",
+        expectedOutcome: "Ready to scale ads with full conversion attribution",
+      },
+    ],
+    projectTimeline: {
+      startDate: "Apr 27, 2025",
+      endDate: "Apr 28, 2025",
+      durationDays: 2,
+    },
+    owner: "Shahzada Ali Hassan",
+    client: "Mathieu Frechette",
+    budget: 1200,
+    technologies: [
+      "Server-Side Tracking",
+      "Advertising Pixel",
+      "E-commerce Platform",
+    ],
+    challenges: [
+      "Meta flagged ads due to intimacy product overlap",
+      "Required split tracking without a split store",
+      "Compliance + attribution were mutually exclusive",
+    ],
+    solutions: [
+      "Filtered wellness vs intimacy products in backend logic",
+      "Isolated tracking only to allowed product segments",
+      "Full compliance while restoring attribution accuracy",
+    ],
+    results: [
+      "Avoided further bans while scaling profitable ad campaigns",
+      "Enabled compliant retargeting of high-ROAS product lines",
+      "Future-proof tracking enabled for new product launches",
+    ],
+  },
+  {
     id: "saneofrance",
     name: "Saneo France Meta Pixel Tracking Recovery",
     url: "https://saneofrance.fr",
@@ -246,6 +324,109 @@ export const caseStudies: CaseStudy[] = [
       "Stable tracking for over 6 weeks without restrictions",
     ],
   },
+  {
+    id: "emiratesadvisory",
+    name: "Emirates Advisory Comprehensive Tracking Implementation",
+    url: "https://emiratesadvisory.com",
+    plan: "Standard",
+    title:
+      "Enhanced Tracking System for Emirates Advisory with Client and Server-Side Integration",
+    description:
+      "Emirates Advisory, a consultancy service website, required a robust tracking system to monitor form submissions and user interactions across their main domain and subdomain. Over an 8-day engagement, we implemented client-side and server-side tracking using Google Tag Manager, Stape.io, and Meta Conversion API, integrated a GDPR/CCPA-compliant Consent Management Platform, and built a real-time Looker Studio dashboard, achieving 95%+ tracking accuracy and recovering 14.45% of events from tracking prevention and 3.27% from ad blockers.",
+    imageUrl: "/images/for-businesses/client-emiratesadvisory-desktop-home.png",
+    mobileUrl: "/images/for-businesses/client-emiratesadvisory-mobile-home.png",
+    siteUrl: "https://emiratesadvisory.com",
+    analytics: {
+      period: "30 days",
+      recoveredFromAdBlockersPercentage: 3.27,
+      recoveredFromTrackingPreventionPercentage: 14.45,
+      accuracy: 95,
+    },
+    testimonial: {
+      quote: "",
+      author: "Haris Ahmed",
+      role: "Marketing Manager, Emirates Advisory",
+      image: "/images/clients/emiratesadvisory.png",
+    },
+    platforms: [
+      "Google Tag Manager",
+      "Google Analytics 4",
+      "Google Ads",
+      "Meta Pixel",
+      "Meta Conversion API",
+      "Yandex Metrica",
+      "Stape.io",
+      "CookieYes",
+      "Looker Studio",
+    ],
+    milestones: [
+      {
+        name: "Access Provisioning & Onboarding",
+        description:
+          "Secured access to CookieYes, WordPress subdomain, and other required platforms, and conducted onboarding to align on tracking requirements.",
+        expectedOutcome:
+          "Full system access and clear project scope established.",
+      },
+      {
+        name: "Client-Side Tracking Setup",
+        description:
+          "Installed Google Tag Manager Web Container on main domain and subdomain, configured GA4, Google Ads, Meta Pixel, and Yandex Metrica, and implemented CookieYes CMP with Google Consent Mode V2.",
+        expectedOutcome:
+          "Client-side tracking operational with GDPR/CCPA compliance.",
+      },
+      {
+        name: "Server-Side Tracking Implementation",
+        description:
+          "Set up GTM Server Container on Stape.io, configured server-side tracking for GA4, Google Ads, and Meta Conversion API, and ensured event deduplication.",
+        expectedOutcome:
+          "90-95% conversion accuracy with server-side tracking.",
+      },
+      {
+        name: "Event Tracking & Dashboard Setup",
+        description:
+          "Configured tracking for form submissions, phone/email clicks, social media links, CTAs, and 404 page interactions, and built a real-time Looker Studio dashboard.",
+        expectedOutcome:
+          "Full tracking system functional with real-time analytics available.",
+      },
+    ],
+    projectTimeline: {
+      startDate: "Apr 2, 2025",
+      endDate: "Apr 10, 2025",
+      durationDays: 8,
+    },
+    owner: "Shahzada Ali Hassan",
+    client: "Haris Ahmed",
+    budget: 1200,
+    technologies: [
+      "Client-Side Tracking",
+      "Server-Side Tracking",
+      "Meta Conversion API",
+      "Google Tag Manager",
+      "Google Consent Mode V2",
+      "Consent Management Platform",
+      "Looker Studio",
+      "Yandex Metrica",
+    ],
+    challenges: [
+      "Ensuring GDPR/CCPA compliance with consent management",
+      "Tracking across main domain and subdomain with consistent GTM integration",
+      "Unverified Google Ads conversion tags due to lack of initial form submissions",
+      "High tracking prevention impact (24.02%) requiring server-side solutions",
+    ],
+    solutions: [
+      "Implemented CookieYes CMP with Google Consent Mode V2 for compliance",
+      "Configured GTM on both main domain and subdomain for consistent tracking",
+      "Tested form submissions to activate Google Ads conversion tags",
+      "Set up server-side tracking with Stape.io to recover 14.45% of events from tracking prevention",
+    ],
+    results: [
+      "Achieved 95%+ tracking accuracy for form submissions and user interactions",
+      "Recovered 3.27% of events from ad blockers and 14.45% from tracking prevention",
+      "Delivered GDPR/CCPA-compliant tracking with real-time Looker Studio dashboard",
+      "Enabled tracking on 404 page for enhanced user interaction monitoring",
+    ],
+  },
+
   {
     id: "vision4kids",
     name: "Vision4kids Facebook SST & GA4 Recovery",
@@ -2186,84 +2367,7 @@ export const caseStudies: CaseStudy[] = [
       "ROI-driven decisions now possible from a single source of truth",
     ],
   },
-  {
-    id: "peachandcream",
-    name: "Peach and Cream Shopify Tracking",
-    url: "https://peachandcream.com",
-    plan: "Standard",
-    title: "Policy-Proof Meta Pixel Setup for Shopify Brand",
-    description:
-      "Peach and Cream was blocked from Meta ads due to 'sensitive' product categories. We unlocked compliant pixel tracking through server-side methods, enabling aggressive scaling of their top-selling products—without risking another ban.",
-    imageUrl: "/images/for-businesses/client-peachandcream-desktop-home.png",
-    mobileUrl: "/images/for-businesses/client-peachandcream-mobile-home.png",
-    siteUrl: "https://peachandcream.com",
-    analytics: {
-      period: "30 days",
-      recoveredFromAdBlockersPercentage: 2.79,
-      recoveredFromTrackingPreventionPercentage: 31.92,
-      accuracy: 97,
-    },
-    testimonial: {
-      quote:
-        "Super helpful, quick, and comprehensive. Shahzada solved our problem efficiently, complementing a nicely done work in an effective way.",
-      author: "Mathieu Frechette",
-      role: "CEO & Owner",
-      image: "/",
-    },
-    platforms: [
-      "Shopify",
-      "Google Analytics 4",
-      "Google Tag Manager",
-      "Facebook Pixel",
-      "Facebook Conversion API",
-      "Stape",
-    ],
-    milestones: [
-      {
-        name: "Secure Access & Audit",
-        description: "Audited Meta policy violation triggers + platform access",
-        expectedOutcome: "Zero-risk implementation blueprint created",
-      },
-      {
-        name: "Server-Side Pixel Deployment",
-        description: "Filtered non-compliant products from tracking layer",
-        expectedOutcome: "Server-side tracking fully operational & policy-safe",
-      },
-      {
-        name: "Event Verification & Launch",
-        description: "Validated every key event for Meta and GA4",
-        expectedOutcome: "Ready to scale ads with full conversion attribution",
-      },
-    ],
-    projectTimeline: {
-      startDate: "Apr 27, 2025",
-      endDate: "Apr 28, 2025",
-      durationDays: 2,
-    },
-    owner: "Shahzada Ali Hassan",
-    client: "Mathieu Frechette",
-    budget: 1200,
-    technologies: [
-      "Server-Side Tracking",
-      "Advertising Pixel",
-      "E-commerce Platform",
-    ],
-    challenges: [
-      "Meta flagged ads due to intimacy product overlap",
-      "Required split tracking without a split store",
-      "Compliance + attribution were mutually exclusive",
-    ],
-    solutions: [
-      "Filtered wellness vs intimacy products in backend logic",
-      "Isolated tracking only to allowed product segments",
-      "Full compliance while restoring attribution accuracy",
-    ],
-    results: [
-      "Avoided further bans while scaling profitable ad campaigns",
-      "Enabled compliant retargeting of high-ROAS product lines",
-      "Future-proof tracking enabled for new product launches",
-    ],
-  },
+
   {
     id: "askdrnandi",
     name: "ClickFunnels GA4 Tracking",

@@ -97,7 +97,7 @@ const ClientTableRow: React.FC<{
 
 // Main component
 const ClientTrackingTable: React.FC<ClientTrackingTableProps> = ({ rows }) => {
-  const transformedData = caseStudies.slice(0, 6).map(transformCaseStudyData);
+  const transformedData = caseStudies.slice(0, 8).map(transformCaseStudyData);
   const displayedData = rows ? transformedData.slice(0, rows) : transformedData;
   const stats = calculateStats(displayedData);
 
@@ -168,7 +168,7 @@ const ClientTrackingTable: React.FC<ClientTrackingTableProps> = ({ rows }) => {
       </div>
 
       {/* Summary Cards */}
-      <div className="mb-6 grid grid-cols-3 gap-4">
+      {/* <div className="mb-6 grid grid-cols-3 gap-4">
         <div className="rounded-lg border p-4 shadow-sm">
           <div className="text-secondary-foreground mb-1 text-sm font-medium">
             Average Accuracy Before:
@@ -191,7 +191,7 @@ const ClientTrackingTable: React.FC<ClientTrackingTableProps> = ({ rows }) => {
             +{stats.improvement.toFixed(1)}%
           </div>
         </div>
-      </div>
+      </div> */}
     </div>
   );
 };
