@@ -80,6 +80,7 @@ const auditReports: AuditReport[] = [
   {
     id: "terraoptic",
     date: "June 19, 2025",
+    embedId: { loom: "a7afe956fb43425fa60e471afa1b501f" },
     domain: "terraoptic.ro",
     overallScore: {
       score: 34,
