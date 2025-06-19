@@ -313,7 +313,7 @@ export default function Page() {
           <LoomEmbed
             backgroundImage="/images/hero/data-sharing-restrcition-03.png"
             embedId="3768f5d29d724dc2837085355d614c57"
-            className="mx-auto max-w-3xl"
+            className="mx-auto max-w-4xl"
           />
         </Container>
       </div>
