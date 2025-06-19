@@ -78,6 +78,130 @@ export interface AuditReportProps {
 
 const auditReports: AuditReport[] = [
   {
+    id: "steuer-oprisa",
+    date: "June 19, 2025",
+    domain: "steuer.oprisa.de",
+    overallScore: {
+      score: 50,
+      maxScore: 100,
+      status: "Needs improvement",
+      color: "warning",
+    },
+    categoryScores: [
+      {
+        name: "Analytics",
+        score: 55,
+        color: "warning",
+      },
+      {
+        name: "Ads",
+        score: 37,
+        color: "destructive",
+      },
+      {
+        name: "Cookie lifetime",
+        score: 73,
+        color: "warning",
+      },
+      {
+        name: "Page speed",
+        score: 88,
+        color: "success",
+      },
+    ],
+    trackers: [
+      {
+        name: "Meta",
+        provider: "Meta",
+        category: "Advertisement",
+        dataSentTo: "US",
+        trackingMethod: "Client-side",
+        canImprove: true,
+        improvementLink: "/services",
+      },
+      {
+        name: "Google Analytics 4",
+        provider: "Google",
+        category: "Analytics",
+        dataSentTo: "US",
+        trackingMethod: "Client-side",
+        canImprove: true,
+        improvementLink: "/services",
+      },
+    ],
+    trackingCookies: [
+      {
+        name: "_fbp",
+        provider: "Meta",
+        category: "Advertisement",
+        dataSentTo: "US",
+        lifetime: "7 days",
+      },
+      {
+        name: "_fbc",
+        provider: "Meta",
+        category: "Advertisement",
+        dataSentTo: "US",
+        lifetime: "1 days",
+      },
+      {
+        name: "_ga",
+        provider: "Google",
+        category: "Analytics",
+        dataSentTo: "US",
+        lifetime: "7 days",
+      },
+      {
+        name: "_ga_{measurement_id}",
+        provider: "Google",
+        category: "Analytics",
+        dataSentTo: "US",
+        lifetime: "7 days",
+      },
+    ],
+    trackingScripts: [
+      {
+        name: "fbevents.js",
+        provider: "Meta",
+        category: "Advertisement",
+        transferSize: "47 KB",
+        transferSizeColor: "success",
+        blockingTime: "58 ms",
+        blockingTimeColor: "success",
+      },
+      {
+        name: "gtag.js",
+        provider: "Google",
+        category: "Analytics",
+        transferSize: "83 KB",
+        transferSizeColor: "success",
+        blockingTime: "76 ms",
+        blockingTimeColor: "success",
+      },
+    ],
+    recommendedActions: [
+      {
+        id: "0196a9c3-bc94-74c0-9dfb-0a54a50331fa",
+        title: "Switch to web & server-side tracking for Meta",
+        categories: ["Advertisement"],
+        scoreImprovement: 8,
+      },
+      {
+        id: "implement-google-ads-server-side-tracking",
+        title:
+          "Implement Google Ads conversion tracking using server-side tracking",
+        categories: ["Ads"],
+        scoreImprovement: 10,
+      },
+      {
+        id: "implement-cookie-consent",
+        title: "Implement a cookie consent solution",
+        categories: ["Compliance"],
+        scoreImprovement: 15,
+      },
+    ],
+  },
+  {
     id: "booking-dentist",
     date: "June 19, 2025",
     embedId: { loom: "d14bf9832bff45a1ad12561c6377b483" },
