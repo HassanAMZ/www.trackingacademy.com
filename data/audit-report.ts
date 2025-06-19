@@ -80,6 +80,7 @@ const auditReports: AuditReport[] = [
   {
     id: "booking-dentist",
     date: "June 19, 2025",
+    embedId: { loom: "d14bf9832bff45a1ad12561c6377b483" },
     domain: "www.booking.dentist",
     overallScore: {
       score: 43,
