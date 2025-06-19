@@ -63,8 +63,8 @@ export default function Page() {
           </h1>{" "}
           {/* <TestimonialsCarousel /> */}
         </Container>
+        <TestimonialGrid />{" "}
         <Container className="space-y-12 py-12">
-          <TestimonialGrid />{" "}
           <Button
             size="lg"
             className="hover:bg-primary/90 md:py mx-auto flex max-w-4xl flex-col p-4 text-center text-xl font-bold text-wrap whitespace-pre-wrap hover:cursor-pointer"

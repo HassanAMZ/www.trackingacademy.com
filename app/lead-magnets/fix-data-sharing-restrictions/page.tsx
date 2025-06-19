@@ -1,5 +1,6 @@
 "use client";
 
+import MeetingCalender from "@/components/contact/meeting-calender";
 import TestimonialsCarousel2 from "@/components/for-freelancers/testimonials-carousal-2";
 import LoomEmbed from "@/components/global/loom-embed";
 import TrackingTable from "@/components/global/tracking-table";
@@ -30,6 +31,7 @@ import {
   AlertTriangle,
   ArrowRight,
   BarChart3,
+  Calendar,
   CheckCircle,
   Clock,
   Database,
@@ -107,131 +109,36 @@ const restrictedCategories = [
   { name: "Religious Content", severity: "Medium", affected: "78%" },
 ];
 
-const websiteUrlSchema = {
-  parse: (url: string) => {
-    if (!url || url.trim().length < 3) {
-      throw new Error("Please enter a valid URL https://example.com");
-    }
-    return url.trim();
-  },
-};
-const URLSubmissionForm = ({
-  buttonText = "🔎 Get My Free Tracking Audit",
-  loadingText = "Analyzing...",
-  placeholder = "Enter your website URL here",
+const MeetingBookingButton = ({
+  buttonText = "Fix Data Sharing Restriction",
   className = "",
   wrapperButtonClassName = "",
-  inputClassName = "border-primary w-full border p-6",
   buttonClassName = "w-full text-left",
-  onSubmit,
-  onSubmitStart,
 }: {
   buttonText?: string;
-  loadingText?: string;
-  placeholder?: string;
   className?: string;
-  inputClassName?: string;
   wrapperButtonClassName?: string;
   buttonClassName?: string;
-  onSubmit?: (url: string) => void;
-  onSubmitStart?: () => void;
 }) => {
-  const [url, setUrl] = useState("");
-  const [error, setError] = useState("");
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const router = useRouter();
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setError("");
-    setIsSubmitting(true);
-
-    try {
-      const validatedUrl = websiteUrlSchema.parse(url);
-
-      if (onSubmitStart) {
-        onSubmitStart();
-      }
-
-      // Store URL in cookie and localStorage
-      document.cookie = `website_url=${encodeURIComponent(validatedUrl)}; path=/; max-age=${365 * 24 * 60 * 60}`;
-      localStorage.setItem("website_url", validatedUrl);
-      localStorage.setItem("submission_timestamp", new Date().toISOString());
-
-      if (onSubmit) {
-        onSubmit(validatedUrl);
-      }
-
-      // Navigate to processing page
-      setTimeout(() => {
-        router.push("processing");
-      }, 200);
-    } catch (validationError) {
-      if (validationError instanceof z.ZodError) {
-        setError(validationError.errors[0].message);
-      } else {
-        setError("Please enter a valid website URL");
-      }
-      setIsSubmitting(false);
-    }
-  };
-
   return (
-    <Dialog>
-      <DialogTrigger asChild>
-        <Button
-          size="lg"
-          className={cn(
-            "mx-auto flex flex-col p-6 text-xl font-semibold transition-transform duration-200",
-            wrapperButtonClassName,
-          )}
-        >
+    <Button
+      asChild
+      size="lg"
+      className={cn(
+        "mx-auto flex flex-col p-6 text-xl font-semibold transition-transform duration-200",
+        wrapperButtonClassName,
+      )}
+    >
+      <Link href="book-a-meeting">
+        <>
           {buttonText}
           <br />
-          <span className="text-base font-normal">
-            Let's do a Quick Audit of your website before we move Forward
+          <span className="text-sm">
+            Start tracking conversions in Meta Ads & Events Manager again
           </span>
-        </Button>
-      </DialogTrigger>
-      <DialogContent className="sm:max-w-[600px]">
-        <DialogHeader>
-          <DialogTitle>Let's do a quick Initial Audit</DialogTitle>
-          <DialogDescription>
-            Enter your website URL to receive your free tracking audit.
-          </DialogDescription>
-        </DialogHeader>
-        <form
-          onSubmit={handleSubmit}
-          className={`flex flex-col gap-4 ${className}`}
-        >
-          <Input
-            type="text"
-            value={url}
-            onChange={(e) => setUrl(e.target.value)}
-            placeholder={placeholder}
-            required
-            className={clsx("p-6", inputClassName)}
-            disabled={isSubmitting}
-          />
-          {error && <p className="text-destructive text-sm">{error}</p>}
-          <Button
-            type="submit"
-            size="lg"
-            disabled={isSubmitting}
-            className={clsx("p-4", buttonClassName)}
-          >
-            {isSubmitting ? (
-              <>
-                <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                {loadingText}
-              </>
-            ) : (
-              buttonText
-            )}
-          </Button>
-        </form>
-      </DialogContent>
-    </Dialog>
+        </>
+      </Link>
+    </Button>
   );
 };
 
@@ -306,7 +213,7 @@ export default function Page() {
                 </h4>
                 <div className="inline-flex items-center gap-2 rounded-full bg-green-50 px-4 py-2 text-sm font-medium text-green-700 dark:bg-green-950/20 dark:text-green-300">
                   <div className="h-2 w-2 animate-pulse rounded-full bg-green-500"></div>
-                  Currently helping 200+ restricted niche advertisers
+                  Helped 300+ restricted niche advertisers
                 </div>
               </div>
             </div>
@@ -318,35 +225,27 @@ export default function Page() {
           "GDPR & CCPA Compliant",
         ]}
         customCtaButton={
-          <URLSubmissionForm
-            buttonText="🔍 Analyze My Website's Tracking Issues"
-            placeholder="https://yourwebsite.com"
+          <MeetingBookingButton
             className="text-center"
             wrapperButtonClassName="lg:text-left lg:items-start lg:w-fit lg:mx-0"
           />
         }
         supportingComponent={<TrackingTable />}
       />
-      <div className="from-primary/5 to-background bg-linear-to-b py-6">
-        <Container className="max-w-6xl space-y-4">
-          <div className="mb-12 space-y-4 text-center">
-            <h2 className="">Watch the Video to see how we can help you!</h2>
-            <h4 className="text-muted-foreground mx-auto max-w-3xl">
-              Understand exactly what's happening to your tracking data and see
-              how we've helped 300+ restricted niche advertisers get back to
-              full visibility.
-            </h4>
-          </div>
 
-          <LoomEmbed
-            backgroundImage="/images/hero/data-sharing-restrcition-03.png"
-            embedId="3768f5d29d724dc2837085355d614c57"
-            className="mx-auto max-w-3xl"
-          />
-        </Container>
+      <div className="grid w-full place-content-center">
+        <h1 className="py-6 text-center text-3xl font-bold">
+          Join 300+ Businesses Who've Recovered Their Facebook Tracking
+        </h1>
+        <h4 className="text-muted-foreground mx-auto max-w-3xl text-center">
+          Don't let data sharing restrictions kill your ad performance. Our
+          clients see results within 72 hours.
+        </h4>
+        <TestimonialGrid showUpworkStats={false} upwork={true} />
       </div>
+
       {/* Restriction Categories Section */}
-      <section className="from-primary/5 to-background bg-linear-to-b py-16">
+      <section className="from-primary/5 to-background bg-linear-to-b py-24">
         <Container className="max-w-6xl">
           <div className="mb-12 space-y-4 text-center">
             <h2 className="">Is Your Business Category Affected?</h2>
@@ -399,6 +298,25 @@ export default function Page() {
           </div>
         </Container>
       </section>
+
+      <div className="from-primary/5 to-background bg-linear-to-b py-24">
+        <Container className="max-w-6xl space-y-4">
+          <div className="mb-12 space-y-4 text-center">
+            <h2 className="">Watch the Video to see how we can help you!</h2>
+            <h4 className="text-muted-foreground mx-auto max-w-3xl">
+              Understand exactly what's happening to your tracking data and see
+              how we've helped 300+ restricted niche advertisers get back to
+              full visibility.
+            </h4>
+          </div>
+
+          <LoomEmbed
+            backgroundImage="/images/hero/data-sharing-restrcition-03.png"
+            embedId="3768f5d29d724dc2837085355d614c57"
+            className="mx-auto max-w-3xl"
+          />
+        </Container>
+      </div>
 
       {/* Problem Section */}
       <section className="from-primary/5 to-background bg-linear-to-b py-16">
@@ -595,9 +513,7 @@ export default function Page() {
           tracking for every client. See how we recovered their ROAS while
           maintaining full compliance.
         </h4>
-        <Container className="pb-12">
-          <TestimonialGrid showUpworkStats={false} />
-        </Container>
+        <TestimonialGrid showUpworkStats={false} />
       </div>
 
       {/* Solution Section */}
@@ -747,11 +663,7 @@ export default function Page() {
             <h3 className="mb-6 text-2xl font-bold">
               Ready to Fix Your Tracking?
             </h3>
-            <URLSubmissionForm
-              buttonText="🚀 Start My Pixel Recovery Now"
-              placeholder="Enter your website URL to begin"
-              className="justify-center"
-            />
+            <MeetingBookingButton className="justify-center" />
           </div>
         </Container>
       </section>
@@ -759,15 +671,13 @@ export default function Page() {
       {/* More Testimonials */}
       <div className="grid w-full place-content-center">
         <h1 className="pt-12 pb-6 text-center text-3xl font-bold">
-          Join 500+ Businesses Who've Recovered Their Facebook Tracking
+          Join 300+ Businesses Who've Recovered Their Facebook Tracking
         </h1>
         <h4 className="text-muted-foreground mx-auto max-w-3xl text-center">
           Don't let data sharing restrictions kill your ad performance. Our
           clients see results within 72 hours.
         </h4>
-        <Container className="pb-12">
-          <TestimonialGrid showUpworkStats={false} upwork={true} />
-        </Container>
+        <TestimonialGrid showUpworkStats={false} upwork={true} />
       </div>
 
       {/* Urgency Section */}
@@ -812,12 +722,11 @@ export default function Page() {
           </div>
 
           <div className="space-y-6">
-            <URLSubmissionForm
-              buttonText="🚨 Fix My Tracking Before It's Too Late"
-              placeholder="Enter your website URL"
+            <MeetingBookingButton
               className="justify-center"
               buttonClassName="bg-white text-destructive hover:bg-white/90 font-bold"
             />
+
             <p className="text-sm opacity-75">
               ⚡ 24-hour audit • 72-hour implementation • 30-day guarantee
             </p>
@@ -899,7 +808,7 @@ export default function Page() {
                 <p className="text-muted-foreground">
                   We offer a 30-day money-back guarantee. If we can't
                   significantly improve your tracking within 30 days, you get a
-                  full refund. We've successfully helped 500+ businesses, with a
+                  full refund. We've successfully helped 300+ businesses, with a
                   98.7% success rate.
                 </p>
               </CardContent>
@@ -952,10 +861,7 @@ export default function Page() {
               <span>30-day guarantee</span>
             </div>
           </div>
-
-          <URLSubmissionForm
-            buttonText="🎯 Get My Free Tracking Audit Now"
-            placeholder="https://yourwebsite.com"
+          <MeetingBookingButton
             className="justify-center"
             buttonClassName="bg-white text-primary hover:bg-white/90 font-bold text-lg px-8 py-4"
           />
@@ -967,7 +873,7 @@ export default function Page() {
             </div>
             <div className="flex items-center space-x-1">
               <Users className="h-4 w-4" />
-              <span>500+ businesses helped</span>
+              <span>300+ businesses helped</span>
             </div>
             <div className="flex items-center space-x-1">
               <Shield className="h-4 w-4" />

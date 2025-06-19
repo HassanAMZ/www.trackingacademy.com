@@ -528,8 +528,8 @@ export default function HomePage() {
             nightmares and unlock consistent, scalable growth.
           </h4>
         </div>
-        <TestimonialGrid upwork={true} />
       </Container>
+      <TestimonialGrid upwork={true} />
       <ScarcityUrgency
         title="Limited Time Offer: $300 Off for First 10 Customers Only"
         description="To ensure personalized attention and maximize results, this offer is limited to the first 10 businesses and expires at the end of the month."

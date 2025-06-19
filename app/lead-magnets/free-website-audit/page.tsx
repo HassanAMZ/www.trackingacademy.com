@@ -537,7 +537,7 @@ export default function Page() {
         }
       />
 
-      <Container className="from-primary/5 to-background space-y-12 bg-linear-to-b py-24">
+      <div className="from-primary/5 to-background space-y-12 bg-linear-to-b py-24">
         <div className="mx-auto max-w-4xl space-y-6 pb-6 text-center">
           <h1>Join 1,000+ Businesses Who Got Their Free Audit</h1>
           <h4 className="text-muted-foreground">
@@ -546,7 +546,7 @@ export default function Page() {
           </h4>
         </div>
         <TestimonialGrid upwork={true} />
-      </Container>
+      </div>
 
       <ScarcityUrgency
         title="Get Your Free Tracking Audit Report"

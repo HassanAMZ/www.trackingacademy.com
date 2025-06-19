@@ -106,9 +106,8 @@ export default function Page() {
           </h1>{" "}
           {/* <TestimonialsCarousel /> */}
         </Container>
-        <Container className="py-12">
-          <TestimonialGrid upwork={true} />
-        </Container>
+
+        <TestimonialGrid upwork={true} />
       </section>{" "}
       {/* Modal */}
       <Dialog open={isModalOpen} onOpenChange={setIsModalOpen}>

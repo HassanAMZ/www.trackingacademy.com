@@ -25,8 +25,8 @@ const SocialProof: React.FC<SocialProofProps> = ({
             {sectionDescription}
           </h4>
         )}{" "}
-        <TestimonialGrid upwork={upwork} />
       </Container>
+      <TestimonialGrid upwork={upwork} />
     </section>
   );
 };

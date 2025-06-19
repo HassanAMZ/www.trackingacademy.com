@@ -39,9 +39,7 @@ export default function Layout({ children }: { children: ReactNode }) {
   return (
     <main className="space-y-5">
       {children}
-      <Container>
-        <TestimonialGrid />
-      </Container>
+      <TestimonialGrid />
     </main>
   );
 }
