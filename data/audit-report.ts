@@ -645,6 +645,7 @@ const auditReports: AuditReport[] = [
     id: "theritzagency",
     date: "June 19, 2025",
     domain: "theritzagency.com",
+    embedId: { loom: "4c5ec86ade7a403f9b299d4709123f8c" },
     overallScore: {
       score: 51,
       maxScore: 100,
