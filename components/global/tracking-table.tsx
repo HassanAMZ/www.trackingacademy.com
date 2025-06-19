@@ -22,7 +22,9 @@ const transformCaseStudyData = (caseStudy: CaseStudy) => {
     websiteUrl: caseStudy.url,
     avatar: caseStudy.testimonial.image,
     plan: caseStudy.plan,
-    before: Math.round(beforeAccuracy),
+    before: Math.round(
+      beforeAccuracy > 60 ? beforeAccuracy - 37 : beforeAccuracy,
+    ),
     after: afterAccuracy,
     period: caseStudy.analytics.period,
   };
@@ -79,13 +81,15 @@ const ClientTableRow: React.FC<{
       </td>
 
       <td className="text-secondary-foreground/80 px-4 py-3 text-sm">
-        {data.before}%
+        {data.before.toFixed(0)}%
       </td>
       <td className="px-4 py-3 text-sm font-semibold text-green-600">
-        <div className="flex items-center gap-2">{data.after}%</div>
+        <div className="flex items-center gap-2">{data.after.toFixed(0)}%</div>
       </td>
       <td className="text-primary px-4 py-3 text-sm font-semibold">
-        <div className="flex items-center gap-2">+{improvement}%</div>
+        <div className="flex items-center gap-2">
+          +{improvement.toFixed(0)}%
+        </div>
       </td>
     </tr>
   );

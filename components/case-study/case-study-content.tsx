@@ -318,7 +318,7 @@ export default function CaseStudyComponent({
                 </div>
 
                 <blockquote className="text-center italic">
-                  "{caseStudy.testimonial.quote}"
+                  {caseStudy.testimonial.quote}
                 </blockquote>
               </CardContent>
             </Card>

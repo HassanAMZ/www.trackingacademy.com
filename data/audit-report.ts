@@ -80,7 +80,7 @@ const auditReports: AuditReport[] = [
   {
     id: "festede",
     date: "June 18, 2025",
-    domain: "www.festede.hu/",
+    domain: "www.festede.hu",
     overallScore: {
       score: 36,
       maxScore: 100,

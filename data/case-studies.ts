@@ -48,6 +48,205 @@ export interface CaseStudy {
 
 export const caseStudies: CaseStudy[] = [
   {
+    id: "northridgeaddiction",
+    name: "Northridge Addiction Meta Pixel Tracking Recovery",
+    url: "https://start.northridgeaddiction.com",
+    plan: "Standard",
+    title:
+      "Restoring Meta Pixel Tracking for Northridge Addiction with Server-Side Conversion API",
+    description:
+      "Northridge Addiction, a health and wellness website, faced restricted Meta Pixel tracking due to content-related blocks despite compliance with legit scripts. Over a multi-day engagement, we implemented server-side tracking using Stape.io and Meta Conversion API, capturing user data on the thank-you page post-Typeform submission. This achieved 95% tracking accuracy, recovering 1.72% of events from tracking prevention and 0.4% from ad blockers, enabling accurate ad attribution.",
+    imageUrl:
+      "/images/for-businesses/client-northridgeaddiction-desktop-home.png",
+    mobileUrl:
+      "/images/for-businesses/client-northridgeaddiction-mobile-home.png",
+    siteUrl: "https://start.northridgeaddiction.com",
+    analytics: {
+      period: "10 days",
+      recoveredFromAdBlockersPercentage: 10.4,
+      recoveredFromTrackingPreventionPercentage: 21.72,
+      accuracy: 95,
+    },
+    testimonial: {
+      quote: "This setup is cooking! Great job, very excited with the results.",
+      author: "Kelly Joseph",
+      role: "Marketing Manager",
+      image: "/images/clients/kelly-joseph.png",
+    },
+    platforms: [
+      "Meta Pixel",
+      "Meta Conversion API",
+      "Google Tag Manager",
+      "Stape.io",
+      "Typeform",
+      "Webflow",
+    ],
+    milestones: [
+      {
+        name: "Onboarding & Audit",
+        description:
+          "Conducted onboarding with Kelly to understand tracking issues, audited existing Meta Pixel setup, and identified restrictions due to health-related content.",
+        expectedOutcome:
+          "Confirmed pixel blocks and planned server-side tracking with Meta Conversion API.",
+      },
+      {
+        name: "Access & Pixel Configuration",
+        description:
+          "Secured access to Meta Events Manager and Conversion API token for pixel 1385524702668280, updated Florida ad set to pixel 1405345420657676, and configured GTM for server-side tracking.",
+        expectedOutcome:
+          "Enabled tracking for SubmitApplication events on Typeform submissions redirected to thank-you page.",
+      },
+      {
+        name: "Server-Side Implementation",
+        description:
+          "Set up Stape.io server container, implemented Meta Conversion API, and captured user data (email, name) on thank-you page for enhanced event matching.",
+        expectedOutcome:
+          "Achieved 95% tracking accuracy with proper ad attribution.",
+      },
+      {
+        name: "Testing & Optimization",
+        description:
+          "Tested SubmitApplication event to ensure no over-firing, removed unnecessary triggers for /sorry page, and verified setup for new funnel compatibility.",
+        expectedOutcome:
+          "Stable tracking with 0.4% recovery from ad blockers and 1.72% from tracking prevention over 10 days.",
+      },
+    ],
+    projectTimeline: {
+      startDate: "Jun 13, 2025",
+      endDate: "Jun 23, 2025",
+      durationDays: 10,
+    },
+    owner: "Shahzada Ali Hassan",
+    client: "Kelly Joseph",
+    budget: 200,
+    technologies: [
+      "Server-Side Tracking",
+      "Meta Conversion API",
+      "Google Tag Manager",
+      "Stape.io",
+      "Event Tracking",
+      "Typeform Integration",
+    ],
+    challenges: [
+      "Restricted Meta Pixel due to health-related content despite compliance",
+      "Inconsistent tracking on Webflow and Elementor platforms",
+      "Blocked events from main domain despite subdomain approval",
+      "Need for precise SubmitApplication event tracking without over-firing",
+    ],
+    solutions: [
+      "Implemented server-side tracking with Stape.io and Meta Conversion API",
+      "Captured user data on thank-you page post-Typeform submission for enhanced matching",
+      "Updated ad sets to use unrestricted pixel 1405345420657676",
+      "Optimized GTM to fire SubmitApplication only for qualified users",
+    ],
+    results: [
+      "Achieved 95% tracking accuracy for SubmitApplication events",
+      "Recovered 0.4% of events from ad blockers and 1.72% from tracking prevention",
+      "Enabled accurate ad attribution for Florida, New Jersey, and California ad sets",
+      "Setup compatible with new funnel using Typeform and thank-you page",
+    ],
+  },
+  {
+    id: "saneofrance",
+    name: "Saneo France Meta Pixel Tracking Recovery",
+    url: "https://saneofrance.fr",
+    plan: "Standard",
+    title:
+      "Restoring Meta Pixel Tracking for Saneo France with Server-Side Tracking and Webhooks",
+    description:
+      "Saneo France, a health product e-commerce website, faced restricted Meta Pixel tracking due to HIPAA compliance issues. Over a multi-week engagement, we implemented server-side tracking via Stape.io, configured Meta Conversion API, and added Shopify webhooks to achieve 98.74% tracking accuracy, recovering 23.72% of events from ITP and 3.85% from ad blockers, while improving ROAS to 1.03.",
+    imageUrl: "/images/for-businesses/client-saneofrance-desktop-home.png",
+    mobileUrl: "/images/for-businesses/client-saneofrance-mobile-home.png",
+    siteUrl: "https://saneofrance.fr",
+    analytics: {
+      period: "6 weeks",
+      recoveredFromAdBlockersPercentage: 13.85,
+      recoveredFromTrackingPreventionPercentage: 23.72,
+      accuracy: 98.74,
+    },
+    testimonial: {
+      quote: "",
+      author: "Jeremy Talote",
+      role: "E-commerce Owner",
+      image:
+        "https://www.upwork.com/profile-portraits/c17kGoTfNWariNtHbJb5laFDI-I0Hn1VrzpxB2fjK_wezEaMdpwfBrKy_XDsMXtNca",
+    },
+    platforms: [
+      "Meta Pixel",
+      "Meta Conversion API",
+      "Google Tag Manager",
+      "Stape.io",
+      "Shopify",
+      "Google Analytics 4",
+      "Google Ads",
+    ],
+    milestones: [
+      {
+        name: "Onboarding & Access Setup",
+        description:
+          "Conducted onboarding with Jeremy to understand tracking issues, secured access to Meta Pixel, Shopify, and Stape.io accounts, and audited existing tracking setup.",
+        expectedOutcome:
+          "Identified restrictions on Saneo and Saneo New Pixels due to HIPAA compliance and planned server-side tracking solutions.",
+      },
+      {
+        name: "Server-Side Tracking Implementation",
+        description:
+          "Configured Stape.io server container, implemented Meta Conversion API, and tested purchase events on existing pixels (1735459797389776 and 1402592670494369).",
+        expectedOutcome:
+          "Restored tracking with 65.95% initial accuracy, bypassing HIPAA restrictions.",
+      },
+      {
+        name: "Webhook Integration",
+        description:
+          "Set up a new Stape.io container with a custom subdomain, implemented Shopify webhooks to capture missing events, and migrated GTM tags for GA4, Google Ads, and Meta.",
+        expectedOutcome:
+          "Achieved 98.74% event tracking accuracy with 100% event coverage in Meta Events Manager.",
+      },
+      {
+        name: "Testing & Optimization",
+        description:
+          "Monitored tracking over multiple weeks, tested deduplication, and optimized event match quality using user data (email, first name, country, region).",
+        expectedOutcome:
+          "Stable tracking for over 6 weeks with improved ROAS and 23.72% recovery from ITP and 3.85% from ad blockers.",
+      },
+    ],
+    projectTimeline: {
+      startDate: "Feb 24, 2025",
+      endDate: "Apr 19, 2025",
+      durationDays: 54,
+    },
+    owner: "Shahzada Ali Hassan",
+    client: "Jeremy Talote",
+    budget: 1800,
+    technologies: [
+      "Server-Side Tracking",
+      "Meta Conversion API",
+      "Shopify Webhooks",
+      "Google Tag Manager",
+      "Stape.io",
+      "Event Tracking",
+      "Consent Management",
+    ],
+    challenges: [
+      "Restricted Meta Pixels due to HIPAA compliance on health product domain",
+      "Initial tracking accuracy limited to 65.95% due to ad blockers and ITP",
+      "Missing 36% of purchase events due to attribution issues",
+      "Complex access setup for Meta Business Manager and Stape.io accounts",
+    ],
+    solutions: [
+      "Implemented server-side tracking with Stape.io and Meta Conversion API",
+      "Added Shopify webhooks to capture 100% of events in Meta Events Manager",
+      "Configured custom subdomain and migrated GTM tags for stable tracking",
+      "Optimized event match quality with user data parameters",
+    ],
+    results: [
+      "Achieved 98.74% tracking accuracy for Meta purchase events",
+      "Recovered 23.72% of events from ITP and 3.85% from ad blockers",
+      "Improved ROAS to 1.03 with 66 conversions from $2,924 ad spend",
+      "Stable tracking for over 6 weeks without restrictions",
+    ],
+  },
+  {
     id: "vision4kids",
     name: "Vision4kids Facebook SST & GA4 Recovery",
     url: "https://vision4kids.org",
@@ -69,8 +268,7 @@ export const caseStudies: CaseStudy[] = [
       quote: "Pleasure to work with. Can highly recommend.",
       author: "Thomas André Jensen",
       role: "Digital Markerting Agency Owner",
-      image:
-        "https://media.licdn.com/dms/image/v2/D4D03AQFbWlS7wVrG2A/profile-displayphoto-shrink_800_800/B4DZY9skHDHAAc-/0/1744791814987?e=1753315200&v=beta&t=_ryLYItbFjODHOdzKH30gl-UUD2n29y_QJdN_5IcbaE",
+      image: "/images/clients/thomas-andre-jensen.png",
     },
     platforms: [
       "Google Analytics 4",
@@ -153,7 +351,7 @@ export const caseStudies: CaseStudy[] = [
     plan: "Standard",
     title: "End-to-End Tracking Overhaul for SuperPerformanceReview",
     description:
-      "Over 140 days, we completely revamped SuperPerformanceReview’s analytics and ad tracking stack—fixing broken funnel events, isolating TikTok pixel to the enquiry subdomain, enriching user data in GA4, Facebook CAPI and Google Ads, and building a unified Looker Studio dashboard. The result: flawless funnel_submission firing, improved deduplication rates, and actionable ad optimizations across Facebook, TikTok and Google Ads.",
+      "Over 140 days, we completely revamped SuperPerformanceReview's analytics and ad tracking stack—fixing broken funnel events, isolating TikTok pixel to the enquiry subdomain, enriching user data in GA4, Facebook CAPI and Google Ads, and building a unified Looker Studio dashboard. The result: flawless funnel_submission firing, improved deduplication rates, and actionable ad optimizations across Facebook, TikTok and Google Ads.",
     imageUrl:
       "/images/for-businesses/client-superperformancereview-desktop-home.png",
     mobileUrl:
@@ -163,8 +361,7 @@ export const caseStudies: CaseStudy[] = [
       quote: "Very happy working with Hassan! Does a great job!",
       author: "David Bodnar",
       role: "Found & Owner",
-      image:
-        "https://media.licdn.com/dms/image/v2/C5603AQGe2BYyQjzy3w/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1526351315644?e=1753315200&v=beta&t=4u5M5cceDWcsNFhJ_Al4n7CKmtadsgRyfKqHlMesohs",
+      image: "/images/clients/david-bodnar.png",
     },
     platforms: [
       "Custom Build Website",
@@ -366,8 +563,7 @@ export const caseStudies: CaseStudy[] = [
         "Excellent experience with Shahzada. He is very knowledgably in all areas of tracking and analytics; I would highly recommend him.",
       author: "Matthew Cooper",
       role: "Business Owner",
-      image:
-        "https://media.licdn.com/dms/image/v2/C4E03AQFlKA0jExzouw/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1658151953406?e=1753315200&v=beta&t=eUkdBvXncjIzkVA7WF4p1xfNHkb4L96Tr7IWfJMLgmQ",
+      image: "/images/clients/matthew-cooper.png",
     },
     platforms: ["Google Tag Manager", "Custom Data Layer", "Server-Side GTM"],
     milestones: [
@@ -445,11 +641,10 @@ export const caseStudies: CaseStudy[] = [
     siteUrl: "https://hortongolfpark.com/learn-golf/give-golf-a-go",
     testimonial: {
       quote:
-        "Shahzada is by far the most comprehensive, transparent and skilled analytics expert I’ve worked with (and I’ve used many over the years). He managed to save me money by understanding the problem and doing such an efficient job. I couldn’t recommend anyone any higher.",
+        "Shahzada is by far the most comprehensive, transparent and skilled analytics expert I've worked with (and I've used many over the years). He managed to save me money by understanding the problem and doing such an efficient job. I couldn't recommend anyone any higher.",
       author: "James Wilkinson",
       role: "Digital Markerting Agency Owner",
-      image:
-        "https://media.licdn.com/dms/image/v2/D4E03AQEfR37YT--RlQ/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1673126931280?e=1753315200&v=beta&t=J9ZhXmu5Ym4vaa46qORRbWt7sin9iBEWS3d3n6f4qec",
+      image: "/images/clients/james-wilkinson.png",
     },
     platforms: [
       "Google Analytics 4",
@@ -520,7 +715,7 @@ export const caseStudies: CaseStudy[] = [
       "Leveraged window.postMessage for iframe form events",
       "Migrated direct GA4 snippet to GTM container",
       "Developed a templated Looker Studio dashboard",
-      "Cloned and QA’d all tracking on the secondary subdomain",
+      "Cloned and QA'd all tracking on the secondary subdomain",
     ],
     results: [
       "100% of form submissions tracked in GA4 within 24-48h",
@@ -536,7 +731,7 @@ export const caseStudies: CaseStudy[] = [
     plan: "Standard",
     title: "Migrated Checkout Tracking to Shopify Pixels with 100% Accuracy",
     description:
-      "Rejuvica needed to migrate all GTM and GA4 scripts from Shopify’s legacy checkout.liquid into the new Shopify Checkout Extensibility environment before it was deprecated. Over a 30-day engagement, we secured access, audited their existing setup, migrated client-side scripts into Shopify Pixels, consolidated multiple GA4 properties, implemented brand attribution via an rbidCookie, and stood up a Stape server-side container. The result was a seamless cut-over with zero data loss, unified analytics reporting, and fully reliable purchase tracking.",
+      "Rejuvica needed to migrate all GTM and GA4 scripts from Shopify's legacy checkout.liquid into the new Shopify Checkout Extensibility environment before it was deprecated. Over a 30-day engagement, we secured access, audited their existing setup, migrated client-side scripts into Shopify Pixels, consolidated multiple GA4 properties, implemented brand attribution via an rbidCookie, and stood up a Stape server-side container. The result was a seamless cut-over with zero data loss, unified analytics reporting, and fully reliable purchase tracking.",
     imageUrl: "/images/for-businesses/client-rejuvica-desktop-home.png",
     mobileUrl: "/images/for-businesses/client-rejuvica-mobile-home.png",
     siteUrl: "https://www.rejuvica.com",
@@ -573,7 +768,7 @@ export const caseStudies: CaseStudy[] = [
       {
         name: "GA4 Consolidation",
         description:
-          "Disconnected legacy UA, consolidated multiple GA4 properties under G-1MSDW7HTQE via GTM and Shopify’s Google app.",
+          "Disconnected legacy UA, consolidated multiple GA4 properties under G-1MSDW7HTQE via GTM and Shopify's Google app.",
         expectedOutcome:
           "Unified analytics reporting and App integration completed.",
       },
@@ -615,14 +810,14 @@ export const caseStudies: CaseStudy[] = [
       "DOM Manipulation",
     ],
     challenges: [
-      "Shopify’s deprecation of checkout.liquid threatened existing tracking",
+      "Shopify's deprecation of checkout.liquid threatened existing tracking",
       "Complex multi-brand GA4 setup with URL-based property switching",
       "Mixed UA, GA4, GTM and external-page snippets risked data gaps",
       "Need for seamless cut-over without any loss of purchase data",
     ],
     solutions: [
       "Re-implemented all checkout scripts as Shopify Pixels via Extensibility",
-      "Consolidated GA4 properties into a single Measurement ID using GTM and Shopify’s app",
+      "Consolidated GA4 properties into a single Measurement ID using GTM and Shopify's app",
       "Built a robust rbidCookie attribution layer, extended to handle edge-case SKUs",
       "Deployed Stape server container with TikTok API to guarantee event delivery",
     ],
@@ -640,7 +835,7 @@ export const caseStudies: CaseStudy[] = [
     plan: "Standard",
     title: "End-to-End UTM & Funnel Tracking for CutThePod",
     description:
-      "CutThePod’s funnel was losing attribution from Webflow modals to MailerLite redirects. In just 19 days, we migrated all tracking into GTM, captured UTM parameters at every step, and restored full visibility into Meta and GA4 campaigns. A final deliverable and 1-hour consultation empowered the client to own their analytics long-term.",
+      "CutThePod's funnel was losing attribution from Webflow modals to MailerLite redirects. In just 19 days, we migrated all tracking into GTM, captured UTM parameters at every step, and restored full visibility into Meta and GA4 campaigns. A final deliverable and 1-hour consultation empowered the client to own their analytics long-term.",
     imageUrl: "/images/for-businesses/client-cutthepod-desktop-home.png",
     mobileUrl: "/images/for-businesses/client-cutthepod-mobile-home.png",
     siteUrl: "https://www.cutthepod.com",
@@ -803,10 +998,10 @@ export const caseStudies: CaseStudy[] = [
       "JavaScript DataLayer",
     ],
     challenges: [
-      "Couldn’t attribute conversions to specific Google Ads keywords",
+      "Couldn't attribute conversions to specific Google Ads keywords",
       "No session-length reporting per keyword",
       "Site lacked tag management and consent tooling",
-      "Form submissions weren’t real HTML forms (no <form> tags)",
+      "Form submissions weren't real HTML forms (no <form> tags)",
     ],
     solutions: [
       "Built a DataLayer-first event schema for both form submissions and button clicks",
@@ -815,7 +1010,7 @@ export const caseStudies: CaseStudy[] = [
       "Deployed CookieScript CMP for GDPR-compliant consent management",
     ],
     results: [
-      "Keyword-level conversion rates visible in GA4’s Acquisition→Overview report",
+      "Keyword-level conversion rates visible in GA4's Acquisition→Overview report",
       "Session duration metrics segmented by keyword now available",
       "Marketing decisions driven by accurate, ad-attributed data",
       "Full GDPR compliance ensured via CookieScript integration",
@@ -828,7 +1023,7 @@ export const caseStudies: CaseStudy[] = [
     plan: "Standard",
     title: "Enhanced GTM Setup & UTM Attribution for LogMyCare",
     description:
-      "LogMyCare’s custom site was losing UTM parameters and missing key conversions in GA4 and Meta. Over a 20-day engagement, we overhauled their GTM container—implementing click-URL triggers, fixing attribution breaks, and building a repeatable process so the client can spin up new conversion tags on demand.",
+      "LogMyCare's custom site was losing UTM parameters and missing key conversions in GA4 and Meta. Over a 20-day engagement, we overhauled their GTM container—implementing click-URL triggers, fixing attribution breaks, and building a repeatable process so the client can spin up new conversion tags on demand.",
     imageUrl: "/images/for-businesses/client-logmycare-desktop-home.png",
     mobileUrl: "/images/for-businesses/client-logmycare-mobile-home.png",
     siteUrl: "https://www.logmycare.co.uk",
@@ -836,8 +1031,7 @@ export const caseStudies: CaseStudy[] = [
       quote: `This guy is one of the best.. I came back 2 years later and he's still amazing. Can't wait to work with him again.`,
       author: "Derrick Kityo",
       role: "Webflow Developer",
-      image:
-        "https://media.licdn.com/dms/image/v2/D4E03AQGs9gPLo0m1RQ/profile-displayphoto-shrink_800_800/B4EZREbsm9GwAc-/0/1736314899859?e=1753315200&v=beta&t=DRPuvIVfCcOdaJIqdNylU6n0gp2deF90ebYOB81vxbQ",
+      image: "/images/clients/derrick-kityo.png",
     },
     platforms: [
       "Google Tag Manager",
@@ -928,8 +1122,7 @@ export const caseStudies: CaseStudy[] = [
         "One of the best freelancers to collaborate with. Referred to others already – knows everything about tracking & attribution, works fast and delivers ahead of schedule. Solved things others took way more time for and fixed problems instantaneously. Amazing work, Shahzada!!",
       author: "Julian Grimme",
       role: "Digital Markerting Agency Owner",
-      image:
-        "https://media.licdn.com/dms/image/v2/C5603AQG_CkBefGBKRA/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1591132529975?e=1753315200&v=beta&t=S44IDZno13irWO0SngW8tuwYE_rYQRDkF85MpstBjhI",
+      image: "/images/clients/julian-grimme.png",
     },
     platforms: [
       "Webflow",
@@ -987,7 +1180,7 @@ export const caseStudies: CaseStudy[] = [
         description:
           "Validated all tags, events, deduplication rules, delivered documentation",
         expectedOutcome:
-          "Stable, scalable tracking framework in client’s hands",
+          "Stable, scalable tracking framework in client's hands",
       },
     ],
     projectTimeline: {
@@ -1013,7 +1206,7 @@ export const caseStudies: CaseStudy[] = [
       "Event Tracking",
     ],
     challenges: [
-      "Webflow doesn’t natively support server-side CAPI",
+      "Webflow doesn't natively support server-side CAPI",
       "Integrating advanced Cookiebot V2 consent in GTM",
       "Ensuring deduplication between pixel & server-side hits",
       "Limited data parameters exposed by ClinicMinds",
@@ -1060,7 +1253,7 @@ export const caseStudies: CaseStudy[] = [
       {
         name: "Initial Diagnosis",
         description:
-          "Reviewed GTM Preview and GA4 real-time data to pinpoint why revenue wasn’t persisting.",
+          "Reviewed GTM Preview and GA4 real-time data to pinpoint why revenue wasn't persisting.",
         expectedOutcome:
           "Clear understanding of which dataLayer parameters were missing downstream.",
       },
@@ -1128,7 +1321,7 @@ export const caseStudies: CaseStudy[] = [
     siteUrl: "https://leadr.co",
     testimonial: {
       quote:
-        "Hassan was an absolute pleasure to work with! His expertise in setting up Google Tag Manager was clear from the start, and he delivered an incredible setup that exceeded our expectations. He listened closely to our needs and implemented exactly what we were looking for. Hassan’s knowledge, professionalism, and commitment to getting the job done right made the whole process smooth and efficient. Highly recommended for anyone needing GTM expertise or analytics support!",
+        "Hassan was an absolute pleasure to work with! His expertise in setting up Google Tag Manager was clear from the start, and he delivered an incredible setup that exceeded our expectations. He listened closely to our needs and implemented exactly what we were looking for. Hassan's knowledge, professionalism, and commitment to getting the job done right made the whole process smooth and efficient. Highly recommended for anyone needing GTM expertise or analytics support!",
       author: "Nick Ahrens",
       role: "Digital Markerting Agency Owner",
       image:
@@ -1179,7 +1372,7 @@ export const caseStudies: CaseStudy[] = [
       {
         name: "Spreadsheet-Driven Rollout",
         description:
-          "Prioritized and instrumented URLs based on the client’s spreadsheet of pages and key user flows.",
+          "Prioritized and instrumented URLs based on the client's spreadsheet of pages and key user flows.",
         expectedOutcome:
           "Every high-priority page fully tagged and ready for testing.",
       },

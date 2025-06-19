@@ -144,7 +144,7 @@ const Hero: FC<HeroProps> = ({
             <div className="rounded-full bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 p-0.5">
               <div className="rounded-full bg-gradient-to-r from-indigo-100 via-purple-100 to-pink-100 p-1.5 dark:from-indigo-950 dark:via-purple-950 dark:to-pink-950">
                 <AvatarGroup>
-                  {[8, 9, 17, 10, 12, 19, 14].map((i, index) => {
+                  {[0, 1, 2, 3, 4, 5, 6].map((i, index) => {
                     const study = caseStudies[i];
                     return (
                       <Link
