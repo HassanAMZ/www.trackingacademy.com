@@ -1,6 +1,7 @@
 "use client";
 
 import { cn } from "@/lib/utils";
+import { sendGTMEvent } from "@next/third-parties/google";
 import Link from "next/link";
 import React from "react";
 
@@ -56,22 +57,19 @@ const CustomLink: React.FC<CustomLinkProps> = ({
     const linkText = trackingLabel || getLinkText(rest.children);
     const finalUrl = isInternalLink || isAnchorLink ? href : isExternal;
 
-    // Use type assertion for window.dataLayer to match your existing GTM setup
-    if (typeof window !== "undefined" && (window as any).dataLayer) {
-      (window as any).dataLayer.push({
-        event: "gtm_custom_event",
-        datalayer_event_name: "link_click",
-        link_text: linkText,
-        link_id: id || "",
-        link_classes: className || "",
-        link_url: finalUrl,
-        link_type: isInternalLink
-          ? "internal"
-          : isAnchorLink
-            ? "anchor"
-            : "external",
-      });
-    }
+    sendGTMEvent({
+      event: "gtm_custom_event",
+      datalayer_event_name: "link_click",
+      link_text: linkText,
+      link_id: id || "",
+      link_classes: className || "",
+      link_url: finalUrl,
+      link_type: isInternalLink
+        ? "internal"
+        : isAnchorLink
+          ? "anchor"
+          : "external",
+    });
   };
 
   if (isInternalLink) {

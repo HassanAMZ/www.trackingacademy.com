@@ -1,22 +1,8 @@
-import { GTMCustomEvent } from "@/components/analytics/GTMEvents";
 import MeetingCalender from "@/components/contact/meeting-calender";
 import LoomEmbed from "@/components/global/loom-embed";
 import YoutubeEmbed from "@/components/global/youtube-embed";
 import TestimonialGrid from "@/components/testimonial/testimonial-grid";
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from "@/components/ui/accordion";
 import { Badge } from "@/components/ui/badge";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
 import Container from "@/components/ui/container";
 import { ArrowRight, Phone, Settings, TrendingUp } from "lucide-react";
 import React, { useState } from "react";

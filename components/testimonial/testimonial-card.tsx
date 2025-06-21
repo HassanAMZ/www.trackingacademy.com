@@ -2,10 +2,9 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { ProjectTimelineProps } from "@/data/case-studies";
-import { ExternalLink, Quote, Star } from "lucide-react";
+import { Quote, Star } from "lucide-react";
 import Link from "next/link";
 import type { ReactNode } from "react";
-import { Badge } from "../ui/badge";
 
 export interface Metric {
   label: string;
@@ -57,7 +56,7 @@ export function TestimonialCard({
               </h3>
             )}
             <p className="mb-3 line-clamp-3">{quote}</p>
-            <div className="mb-4 flex items-center gap-4">
+            <div className="mb-4 flex flex-col items-start justify-center gap-4">
               <div className="flex">
                 {Array.from({ length: 5 }).map((_, i) => (
                   <Star
@@ -66,9 +65,26 @@ export function TestimonialCard({
                   />
                 ))}
               </div>
-              <span className="text-xl font-bold">5.0</span>
-              <span className="text-gray-400">|</span>
-              <span className="text-gray-400">{author}</span>
+              {/* Author info */}
+              <div className="flex items-center justify-between gap-2">
+                <div className="flex items-center gap-2">
+                  <Avatar className="h-10 w-10 shrink-0">
+                    <AvatarImage src={image} alt={author} />
+                    <AvatarFallback>{author[0]?.toUpperCase()}</AvatarFallback>
+                  </Avatar>
+                  <div className="flex flex-col">
+                    <p className="leading-tight font-semibold">
+                      {author}
+                      <br />
+                      {role && (
+                        <span className="text-muted text-xs font-normal">
+                          {role}
+                        </span>
+                      )}
+                    </p>
+                  </div>
+                </div>
+              </div>
             </div>
             {children}
           </div>

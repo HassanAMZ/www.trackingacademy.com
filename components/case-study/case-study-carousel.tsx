@@ -57,7 +57,7 @@ export default function CaseStudyCarousel({
 
   return (
     <div
-      className={`bg-background ${className}`}
+      className={`bg-background overflow-hidden ${className}`}
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
     >

@@ -1,11 +1,11 @@
 "use client";
 
 import { submitAuditRequest } from "@/actions/submit-audit-request";
-import { GTMCustomEvent } from "@/components/analytics/GTMEvents";
 import { Button } from "@/components/ui/button";
 import Container from "@/components/ui/container";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import { sendGTMEvent } from "@next/third-parties/google";
 import {
   BarChart3,
   CheckCircle,
@@ -107,8 +107,22 @@ export default function ProcessingPage() {
     if (websiteUrl) {
       formData.set("website_url", websiteUrl);
     }
-    // Trigger form submission event
     setTriggerFormSubmitEvent(true);
+    sendGTMEvent({
+      event: "gtm_custom_event",
+      datalayer_event_name: "generate_lead",
+      event_details: {
+        event_category: "Lead",
+        event_action: "Form_Submitted",
+        form_type: "audit_contact_details",
+        user_journey_step: "step_4_contact_details_submitted",
+      },
+      user_data: {
+        timestamp: new Date().toISOString(),
+        email: localStorage.getItem("email_address"),
+        phone: localStorage.getItem("phone_number"),
+      },
+    });
 
     try {
       await submitAuditRequest(formData);
@@ -186,23 +200,6 @@ export default function ProcessingPage() {
 
   return (
     <Container className="grid min-h-screen max-w-4xl place-content-center">
-      {triggerFormSubmitEvent && (
-        <GTMCustomEvent
-          event_name="generate_lead"
-          event_details={{
-            event_category: "Lead",
-            event_action: "Form_Submitted",
-            form_type: "audit_contact_details",
-            user_journey_step: "step_4_contact_details_submitted",
-          }}
-          user_data={{
-            timestamp: new Date().toISOString(),
-            email: localStorage.getItem("email_address"),
-            phone: localStorage.getItem("phone_number"),
-          }}
-        />
-      )}
-
       <div className="w-full space-y-8">
         <div className="space-y-4 text-center">
           <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-green-500/20">

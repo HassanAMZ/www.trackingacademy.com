@@ -1,7 +1,7 @@
-import { GTMCustomEvent } from "@/components/analytics/GTMEvents";
 import MeetingCalender from "@/components/contact/meeting-calender";
 import YoutubeEmbed from "@/components/global/youtube-embed";
 import Container from "@/components/ui/container";
+import { sendGTMEvent } from "@next/third-parties/google";
 import { RequestCookie } from "next/dist/compiled/@edge-runtime/cookies";
 import { cookies } from "next/headers";
 import React from "react";
@@ -27,6 +27,11 @@ export default async function BookAMeetingPage() {
   try {
     const rawData = user_data?.value ? JSON.parse(user_data.value) : undefined;
     transformedUserData = rawData ? transformUserData(rawData) : undefined;
+    sendGTMEvent({
+      event: "gtm_custom_event",
+      datalayer_event_name: "generate_lead",
+      user_data: { transformedUserData },
+    });
   } catch (error) {
     console.error("Failed to parse user data:", error);
     transformedUserData = undefined;
@@ -34,12 +39,6 @@ export default async function BookAMeetingPage() {
 
   return (
     <React.Fragment>
-      {transformedUserData && (
-        <GTMCustomEvent
-          event_name="generate_lead"
-          user_data={transformedUserData}
-        />
-      )}
       {/* HEADER SECTION */}
       <Container className="max-w-6xl">
         <section className="space-y-4 py-12 text-center">

@@ -3,6 +3,10 @@ interface Analytics {
   recoveredFromAdBlockersPercentage: number;
   recoveredFromTrackingPreventionPercentage: number;
   accuracy: number;
+  images?: {
+    before: string[];
+    after: string[];
+  };
 }
 
 interface Testimonial {
@@ -25,6 +29,10 @@ export interface ProjectTimelineProps {
 export interface CaseStudy {
   id: string;
   name: string;
+  embedId?: {
+    loom?: string;
+    youtube?: string;
+  };
   url: string;
   plan: string;
   title: string;
@@ -51,11 +59,12 @@ export const caseStudies: CaseStudy[] = [
     id: "northridgeaddiction",
     name: "Northridge Addiction Meta Pixel Tracking Recovery",
     url: "https://start.northridgeaddiction.com",
-    plan: "Standard",
+    embedId: { loom: "62b9ecb8be104082ae5e2f191f5d8b21" },
+    plan: "Business",
     title:
       "Restoring Meta Pixel Tracking for Northridge Addiction with Server-Side Conversion API",
     description:
-      "Northridge Addiction, a health and wellness website, faced restricted Meta Pixel tracking due to content-related blocks despite compliance with legit scripts. Over a multi-day engagement, we implemented server-side tracking using Stape.io and Meta Conversion API, capturing user data on the thank-you page post-Typeform submission. This achieved 95% tracking accuracy, recovering 1.72% of events from tracking prevention and 0.4% from ad blockers, enabling accurate ad attribution.",
+      "Northridge Addiction, a health and wellness website, faced restricted Meta Pixel tracking due to content-related blocks despite compliance with legit scripts. Over a multi-day engagement, we implemented server-side tracking using Stape.io and Meta Conversion API, capturing user data on the thank-you page post-Typeform submission. This achieved 95% tracking accuracy, recovering 21.72% of events from tracking prevention and 10.4% from ad blockers, enabling accurate ad attribution.",
     imageUrl:
       "/images/for-businesses/client-northridgeaddiction-desktop-home.png",
     mobileUrl:
@@ -65,6 +74,16 @@ export const caseStudies: CaseStudy[] = [
       period: "10 days",
       recoveredFromAdBlockersPercentage: 10.4,
       recoveredFromTrackingPreventionPercentage: 21.72,
+      images: {
+        before: [
+          "/images/case-studies/northridgeaddiction_before_1.png",
+          "/images/case-studies/northridgeaddiction_before_2.png",
+        ],
+        after: [
+          "/images/case-studies/northridgeaddiction_after_1.png",
+          "/images/case-studies/northridgeaddiction_after_2.png",
+        ],
+      },
       accuracy: 95,
     },
     testimonial: {
@@ -108,7 +127,7 @@ export const caseStudies: CaseStudy[] = [
         description:
           "Tested SubmitApplication event to ensure no over-firing, removed unnecessary triggers for /sorry page, and verified setup for new funnel compatibility.",
         expectedOutcome:
-          "Stable tracking with 0.4% recovery from ad blockers and 1.72% from tracking prevention over 10 days.",
+          "Stable tracking with 10.4% recovery from ad blockers and 21.72% from tracking prevention over 10 days.",
       },
     ],
     projectTimeline: {
@@ -141,7 +160,7 @@ export const caseStudies: CaseStudy[] = [
     ],
     results: [
       "Achieved 95% tracking accuracy for SubmitApplication events",
-      "Recovered 0.4% of events from ad blockers and 1.72% from tracking prevention",
+      "Recovered 10.4% of events from ad blockers and 21.72% from tracking prevention",
       "Enabled accurate ad attribution for Florida, New Jersey, and California ad sets",
       "Setup compatible with new funnel using Typeform and thank-you page",
     ],

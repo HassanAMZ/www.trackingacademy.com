@@ -1,10 +1,16 @@
-import { GTMCustomEvent } from "@/components/analytics/GTMEvents";
+"use client";
+
 import { Button } from "@/components/ui/button";
 import Container from "@/components/ui/container";
+import { sendGTMEvent } from "@next/third-parties/google";
 import Link from "next/link";
 import React from "react";
 
 const WaitlistJoined: React.FC = () => {
+  sendGTMEvent({
+    event: "gtm_custom_event",
+    datalayer_event_name: "waitlist_form_submission",
+  });
   return (
     <Container className="py-12 text-center">
       <h1>Thank You for Joining the Waitlist!</h1>
@@ -15,7 +21,6 @@ const WaitlistJoined: React.FC = () => {
       <Button asChild className="mt-6">
         <Link href="/">Go to Homepage</Link>
       </Button>
-      <GTMCustomEvent event_name={"waitlist_form_submission"} />
     </Container>
   );
 };

@@ -1,4 +1,4 @@
-import clsx from "clsx";
+import { cn } from "@/lib/utils";
 import React, { forwardRef } from "react";
 
 interface ContainerProps extends React.HTMLAttributes<HTMLDivElement> {
@@ -10,7 +10,7 @@ const Container = forwardRef<HTMLDivElement, ContainerProps>(
     return (
       <div
         ref={ref}
-        className={clsx("container mx-auto px-3", className)}
+        className={cn("container mx-auto px-3", className)}
         {...props}
       >
         {children}

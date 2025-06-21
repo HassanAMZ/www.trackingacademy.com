@@ -3,7 +3,7 @@ import { ReactNode } from "react";
 
 export const metadata: Metadata = {
   title:
-    "Fix Meta Pixel Data Sharing Restrictions for Health & Wellness | Restore Your Tracking",
+    "Fix Meta Pixel Data Sharing Restrictions for Health, Financial, & other Restricted Niche | Restore Your Tracking",
   description:
     "Health & wellness businesses losing ad performance due to Meta Pixel data sharing restrictions? Get expert help to restore your tracking, maintain HIPAA compliance, and recover your ROAS within 3 days.",
   keywords: [

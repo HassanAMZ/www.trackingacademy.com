@@ -1,19 +1,13 @@
 "use client";
 
-import { GTMCustomEvent } from "@/components/analytics/GTMEvents";
 import Auditarousel from "@/components/audit/audit-carousal";
-import CaseStudyCarousel from "@/components/case-study/case-study-carousel";
-import TestimonialsCarousel2 from "@/components/for-freelancers/testimonials-carousal-2";
 import DetailedCTA from "@/components/funnels/detailed-cta";
 import DetailsCarousel from "@/components/funnels/details-carousal";
 import ObjectionHandling from "@/components/funnels/objection-handling";
 import ProblemAwareness from "@/components/funnels/problem-awareness";
 import ScarcityUrgency from "@/components/funnels/scarcity-urgency";
 import SocialProof from "@/components/funnels/social-proof";
-import AdSpendCalculator from "@/components/global/ad-spend-calculator";
 import LoomEmbed from "@/components/global/loom-embed";
-import TrackingTable from "@/components/global/tracking-table";
-import YoutubeEmbed from "@/components/global/youtube-embed";
 import AlternativesSection from "@/components/home/alternative-section";
 import Hero from "@/components/home/hero";
 import TestimonialGrid from "@/components/testimonial/testimonial-grid";
@@ -22,8 +16,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import Container from "@/components/ui/container";
 import { Input } from "@/components/ui/input";
 import auditReports from "@/data/audit-report";
-import { caseStudies } from "@/data/case-studies";
-import { getDirectoryURL } from "@/utils/payment";
+import { sendGTMEvent } from "@next/third-parties/google";
 import clsx from "clsx";
 import {
   ArrowRight,
@@ -35,7 +28,6 @@ import {
   Target,
   TrendingUp,
 } from "lucide-react";
-import Image from "next/image";
 import { useRouter } from "next/navigation";
 import React, { useState } from "react";
 import { z } from "zod";
@@ -49,6 +41,18 @@ export default function Page() {
     if (!hasSubmitted) {
       setTriggerEvent(true);
       setHasSubmitted(true);
+
+      triggerEvent &&
+        sendGTMEvent({
+          event: "gtm_custom_event",
+          datalayer_event_name: "audit_request_started",
+          user_data: {
+            timestamp: new Date().toISOString(),
+            email: localStorage.getItem("email_address"),
+            phone: localStorage.getItem("phone_number"),
+          },
+          event_details,
+        });
     }
   };
 
@@ -236,20 +240,10 @@ export default function Page() {
       </form>
     );
   };
+
   return (
     <main>
       {/* GTM Event Component */}
-      {triggerEvent && (
-        <GTMCustomEvent
-          event_name="audit_request_started"
-          {...event_details}
-          user_data={{
-            timestamp: new Date().toISOString(),
-            email: localStorage.getItem("email_address"),
-            phone: localStorage.getItem("phone_number"),
-          }}
-        />
-      )}
 
       <Hero
         eyebrow="Free Website Tracking Audit"

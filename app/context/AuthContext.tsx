@@ -1,6 +1,7 @@
 // AuthContext.tsx
 "use client";
 
+import { sendGTMEvent } from "@next/third-parties/google";
 import {
   createUserWithEmailAndPassword,
   FacebookAuthProvider,
@@ -20,31 +21,6 @@ import {
   useState,
 } from "react";
 import { auth } from "../firebase";
-
-declare global {
-  interface Window {
-    dataLayer: GTMEvent[];
-  }
-}
-interface GTMEvent {
-  event: string;
-  datalayer_event_name: string;
-  event_id?: number;
-  [key: string]: any;
-}
-interface UserData {
-  id?: string;
-  phone?: string;
-  email?: string;
-  address: {
-    city?: string;
-    state?: string;
-    country?: string;
-    postal_code?: string;
-    first_name?: string;
-    last_name?: string;
-  };
-}
 
 interface AuthContextType {
   user: User | null;
@@ -72,7 +48,7 @@ export const AuthContextProvider = ({ children }: AuthContextProviderProps) => {
     method: string,
   ) => {
     window.dataLayer = window.dataLayer || [];
-    const userData: UserData = {
+    const userData = {
       id: user?.uid,
       phone: user?.providerData[0]?.phoneNumber ?? undefined,
       email: user?.email ?? undefined,
@@ -89,7 +65,7 @@ export const AuthContextProvider = ({ children }: AuthContextProviderProps) => {
           : undefined,
       },
     };
-    window.dataLayer.push({
+    sendGTMEvent({
       event: "gtm_custom_event",
       datalayer_event_name: eventName,
       authentication_status: status,

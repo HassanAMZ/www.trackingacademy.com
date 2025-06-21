@@ -1,10 +1,8 @@
 "use client";
 
-import MeetingCalender from "@/components/contact/meeting-calender";
-import TestimonialsCarousel2 from "@/components/for-freelancers/testimonials-carousal-2";
+import CaseStudyCarousel from "@/components/case-study/case-study-carousel";
+import FeaturedCaseStudy from "@/components/case-study/case-study-featured";
 import LoomEmbed from "@/components/global/loom-embed";
-import TrackingTable from "@/components/global/tracking-table";
-import YoutubeEmbed from "@/components/global/youtube-embed";
 import Hero from "@/components/home/hero";
 import TestimonialGrid from "@/components/testimonial/testimonial-grid";
 import { Alert, AlertDescription } from "@/components/ui/alert";
@@ -12,33 +10,19 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import Container from "@/components/ui/container";
-import {
-  Dialog,
-  DialogContent,
-  DialogDescription,
-  DialogHeader,
-  DialogTitle,
-  DialogTrigger,
-} from "@/components/ui/dialog";
-import { Input } from "@/components/ui/input";
 import { Progress } from "@/components/ui/progress";
 import { Separator } from "@/components/ui/separator";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { caseStudies } from "@/data/case-studies";
 import { cn } from "@/lib/utils";
-import { getDirectoryURL } from "@/utils/payment";
-import clsx from "clsx";
 import {
   AlertTriangle,
-  ArrowRight,
   BarChart3,
-  Calendar,
   CheckCircle,
   Clock,
   Database,
   DollarSign,
   Eye,
   Gauge,
-  Loader2,
   Lock,
   RefreshCw,
   Shield,
@@ -52,9 +36,6 @@ import {
 } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
-import { useEffect, useState } from "react";
-import { z } from "zod";
 
 const restrictionIssues = [
   {
@@ -110,7 +91,7 @@ const restrictedCategories = [
 ];
 
 const MeetingBookingButton = ({
-  buttonText = "Fix Data Sharing Restriction",
+  buttonText = "Schedule Your Call Below To Fix your Meta Ads Tracking",
   className = "",
   wrapperButtonClassName = "",
   buttonClassName = "w-full text-left",
@@ -125,7 +106,7 @@ const MeetingBookingButton = ({
       asChild
       size="lg"
       className={cn(
-        "mx-auto flex flex-col p-6 text-xl font-semibold transition-transform duration-200",
+        "mx-auto flex flex-col p-6 text-2xl font-semibold transition-transform duration-200",
         wrapperButtonClassName,
       )}
     >
@@ -133,7 +114,7 @@ const MeetingBookingButton = ({
         <>
           {buttonText}
           <br />
-          <span className="text-sm">
+          <span className="text-base">
             Start tracking conversions in Meta Ads & Events Manager again
           </span>
         </>
@@ -148,28 +129,27 @@ export default function Page() {
       <Hero
         eyebrow={
           <>
-            <AlertTriangle className="mr-2 h-4 w-4" />
+            <AlertTriangle className="text-destructive mr-2 h-4 w-4" />
             <p>
               Running Meta Ads in health, financial, other Restricted Niche?
             </p>
           </>
         }
         heading={
-          <h1 className="animate-fade-in max-w-5xl text-center lg:text-left">
+          <h1 className="animate-fade-in max-w-5xl text-center">
             Fix{" "}
-            <span className="bg-destructive/10 text-destructive border-destructive/20 rounded-full border px-3 py-1.5">
+            <span className="bg-destructive/10 text-destructive border-destructive/20 rounded-lg border px-2 py-1 leading-normal tracking-normal">
               Data Sharing Restriction
             </span>{" "}
-            and Track Your Conversions,{" "}
-            <span className="text-primary">Again!</span>
+            and Track Your Meta Ads Conversions
           </h1>
         }
         subheading={
           <div className="max-w-3xl space-y-4">
-            <h4 className="text-muted-foreground mx-auto max-w-4xl text-center lg:mx-0 lg:text-left">
+            <h4 className="mx-auto max-w-4xl text-center">
               If your Meta Pixel stopped tracking conversions and you've tried
-              every solution;{" "}
-              <div className="flex flex-wrap justify-center gap-2 py-2 lg:justify-start">
+              every solution;
+              <div className="flex flex-wrap justify-center gap-2 py-2">
                 <Badge
                   variant="destructive"
                   className="flex items-center gap-1"
@@ -199,50 +179,51 @@ export default function Page() {
                   New Accounts Failed
                 </Badge>
               </div>
-              and nothing seems to work?
+              and nothing seems to work?{" "}
+              <span className="underline">Watch the Video</span>
             </h4>
-            <div className="mx-auto max-w-4xl lg:mx-0">
-              <div className="space-y-3 text-center lg:text-left">
-                <h4>
-                  We built the "See Every Sale System" to solve this exact
-                  problem.{" "}
-                  <span className="text-muted-foreground">
-                    Recover your tracking in 72 hours. Stay compliant. Get back
-                    to profitable scaling.
-                  </span>
-                </h4>
-                <div className="inline-flex items-center gap-2 rounded-full bg-green-50 px-4 py-2 text-sm font-medium text-green-700 dark:bg-green-950/20 dark:text-green-300">
-                  <div className="h-2 w-2 animate-pulse rounded-full bg-green-500"></div>
-                  Helped 300+ restricted niche advertisers
-                </div>
-              </div>
+            <LoomEmbed
+              backgroundImage="/images/hero/data-sharing-restrcition-03.png"
+              embedId="3768f5d29d724dc2837085355d614c57"
+              className="mx-auto max-w-3xl"
+            />
+            <div className="inline-flex items-center gap-2 rounded-full bg-green-50 px-4 py-2 text-sm font-medium text-green-700 dark:bg-green-950/20 dark:text-green-300">
+              <div className="h-2 w-2 animate-pulse rounded-full bg-green-500"></div>
+              Helped 300+ restricted niche advertisers
             </div>
           </div>
         }
         benefits={[
-          "Tracking Audit Review",
+          "Fix Data Sharing Restrictions",
           "Track all conversions",
           "GDPR & CCPA Compliant",
         ]}
         customCtaButton={
           <MeetingBookingButton
             className="text-center"
-            wrapperButtonClassName="lg:text-left lg:items-start lg:w-fit lg:mx-0"
+            wrapperButtonClassName=""
           />
         }
-        supportingComponent={<TrackingTable />}
       />
 
-      <div className="grid w-full place-content-center">
-        <h1 className="py-6 text-center text-3xl font-bold">
-          Join 300+ Businesses Who've Recovered Their Facebook Tracking
+      <FeaturedCaseStudy caseStudy={caseStudies[0]} />
+      <Container>
+        <MeetingBookingButton
+          className="text-center"
+          wrapperButtonClassName=""
+        />
+      </Container>
+      {/* <Container className="space-y-6 py-12">
+        <h1 className="text-center text-3xl font-bold">
+          300+ Businesses Recovered Their Facebook Tracking
         </h1>
         <h4 className="text-muted-foreground mx-auto max-w-3xl text-center">
-          Don't let data sharing restrictions kill your ad performance. Our
-          clients see results within 72 hours.
+          From e-commerce stores to service businesses, we've restored compliant
+          tracking for every client. See how we recovered their Meta Ads
+          Tracking
         </h4>
-        <TestimonialGrid showUpworkStats={false} upwork={true} />
-      </div>
+      </Container>
+      <CaseStudyCarousel caseStudies={caseStudies} /> */}
 
       {/* Restriction Categories Section */}
       <section className="from-primary/5 to-background bg-linear-to-b py-24">
@@ -298,25 +279,6 @@ export default function Page() {
           </div>
         </Container>
       </section>
-
-      <div className="from-primary/5 to-background bg-linear-to-b py-24">
-        <Container className="max-w-6xl space-y-4">
-          <div className="mb-12 space-y-4 text-center">
-            <h2 className="">Watch the Video to see how we can help you!</h2>
-            <h4 className="text-muted-foreground mx-auto max-w-3xl">
-              Understand exactly what's happening to your tracking data and see
-              how we've helped 300+ restricted niche advertisers get back to
-              full visibility.
-            </h4>
-          </div>
-
-          <LoomEmbed
-            backgroundImage="/images/hero/data-sharing-restrcition-03.png"
-            embedId="3768f5d29d724dc2837085355d614c57"
-            className="mx-auto max-w-4xl"
-          />
-        </Container>
-      </div>
 
       {/* Problem Section */}
       <section className="from-primary/5 to-background bg-linear-to-b py-16">
@@ -502,7 +464,12 @@ export default function Page() {
           </div>
         </Container>
       </section>
-
+      <Container className="max-w-6xl">
+        <MeetingBookingButton
+          className="text-center"
+          wrapperButtonClassName=""
+        />
+      </Container>
       {/* Testimonials */}
       <div className="grid w-full place-content-center">
         <h1 className="pt-12 pb-6 text-center text-3xl font-bold">

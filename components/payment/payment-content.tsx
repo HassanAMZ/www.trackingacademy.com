@@ -8,6 +8,7 @@ import type {
   PromoCode,
 } from "@/types/index";
 import { stripePromise } from "@/utils/payment";
+import { sendGTMEvent } from "@next/third-parties/google";
 import { AddressElement, Elements } from "@stripe/react-stripe-js";
 import type { StripeElementsOptions } from "@stripe/stripe-js";
 import Link from "next/link";
@@ -79,31 +80,29 @@ const PaymentContent = ({
         setClientSecret(clientSecret);
         const currency = (productData.currency || "usd").toUpperCase();
 
-        if (typeof window !== "undefined" && (window as any).dataLayer) {
-          (window as any).dataLayer.push({ ecommerce: null });
-          (window as any).dataLayer.push({
-            event: "gtm_custom_event",
-            datalayer_event_name: "begin_checkout",
-            ecommerce: {
-              currency: currency,
-              value: (productData.unitAmount || 0) / 100, // convert from cents to dollars
-              items: [
-                {
-                  item_id: productData.id,
-                  item_name: productData.name,
-                  currency: currency,
-                  price: (productData.unitAmount || 0) / 100,
-                  quantity: 1,
-                },
-              ],
-            },
-            user_data: {
-              name: localStorage.getItem("name"),
-              email: localStorage.getItem("email_address"),
-              phone: localStorage.getItem("phone_number"),
-            },
-          });
-        }
+        sendGTMEvent({ ecommerce: null });
+        sendGTMEvent({
+          event: "gtm_custom_event",
+          datalayer_event_name: "begin_checkout",
+          ecommerce: {
+            currency: currency,
+            value: (productData.unitAmount || 0) / 100, // convert from cents to dollars
+            items: [
+              {
+                item_id: productData.id,
+                item_name: productData.name,
+                currency: currency,
+                price: (productData.unitAmount || 0) / 100,
+                quantity: 1,
+              },
+            ],
+          },
+          user_data: {
+            name: localStorage.getItem("name"),
+            email: localStorage.getItem("email_address"),
+            phone: localStorage.getItem("phone_number"),
+          },
+        });
       } catch (err) {
         console.error("Payment initialization error:", err);
         onError?.("Failed to initialize payment. Please try again.");
@@ -127,17 +126,15 @@ const PaymentContent = ({
       // Only fire if we have the data (indicates user came from coupon form)
       if (coupon_form_submitted) {
         // Fire the generate_lead event
-        if ((window as any).dataLayer) {
-          (window as any).dataLayer.push({
-            event: "gtm_custom_event",
-            datalayer_event_name: "generate_lead",
-            user_data: {
-              name: localStorage.getItem("name"),
-              email: localStorage.getItem("email_address"),
-              phone: localStorage.getItem("phone_number"),
-            },
-          });
-        }
+        sendGTMEvent({
+          event: "gtm_custom_event",
+          datalayer_event_name: "generate_lead",
+          user_data: {
+            name: localStorage.getItem("name"),
+            email: localStorage.getItem("email_address"),
+            phone: localStorage.getItem("phone_number"),
+          },
+        });
 
         // Clear the localStorage data after firing the event
         localStorage.removeItem("coupon_form_submitted");

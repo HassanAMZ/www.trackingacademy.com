@@ -1,9 +1,12 @@
 "use client";
 
 import { caseStudies, type CaseStudy } from "@/data/case-studies";
-import Image from "next/image";
 import Link from "next/link";
 import type React from "react";
+import {
+  AvatarGroup,
+  AvatarGroupTooltip,
+} from "../animate-ui/avatar-group-mask";
 import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar";
 
 interface ClientTrackingTableProps {
@@ -61,18 +64,25 @@ const ClientTableRow: React.FC<{
       <td className="px-4 py-3">
         <Link href={`/case-study/${data.id}`}>
           <div className="flex items-center gap-3">
-            <Avatar className="mb-2 h-10 w-10">
-              <AvatarImage
-                src={data.avatar || "/placeholder.svg"}
-                alt={data.clientName}
-              />
-              <AvatarFallback>
-                {data.avatar
-                  .split(" ")
-                  .map((n) => n[0])
-                  .join("")}
-              </AvatarFallback>
-            </Avatar>
+            <AvatarGroup>
+              {[
+                <Avatar className="mb-2 h-10 w-10" key={data.id}>
+                  <AvatarImage
+                    src={data.avatar || "/placeholder.svg"}
+                    alt={data.clientName}
+                  />
+                  <AvatarFallback>
+                    {data.avatar
+                      .split(" ")
+                      .map((n) => n[0])
+                      .join("")}
+                  </AvatarFallback>
+                  <AvatarGroupTooltip>
+                    <p> {data.id}</p>
+                  </AvatarGroupTooltip>
+                </Avatar>,
+              ]}
+            </AvatarGroup>
             <div>
               <div className="text-sm font-medium">{data.clientName}</div>
             </div>
@@ -106,10 +116,10 @@ const ClientTrackingTable: React.FC<ClientTrackingTableProps> = ({ rows }) => {
       {/* Data Table */}
       <div className="mb-6 overflow-hidden rounded-xl border shadow-sm">
         <div className="border-b px-6 py-4">
-          <h3 className="text-lg font-semibold">
-            Client Tracking Accuracy Results
+          <h3 className="text-center text-lg font-semibold">
+            Explore the Case Studies
           </h3>
-          <p className="text-muted-foreground mt-1 text-sm">
+          <p className="text-muted-foreground mt-1 text-center text-sm">
             Before vs after implementing our tracking solutions
           </p>
         </div>

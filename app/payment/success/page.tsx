@@ -1,12 +1,9 @@
 "use client";
 
-import {
-  GTMCustomEvent,
-  GTMCustomEventProps,
-} from "@/components/analytics/GTMEvents";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Skeleton } from "@/components/ui/skeleton";
+import { sendGTMEvent } from "@next/third-parties/google";
 import {
   Calendar,
   CalendarDays,
@@ -192,9 +189,6 @@ export default function PaymentSuccess() {
   const [paymentData, setPaymentData] = useState<PaymentData | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
-  const [currentEvent, setCurrentEvent] = useState<GTMCustomEventProps | null>(
-    null,
-  );
 
   // Track processed transactions to prevent duplicates
   const processedTransactions = useRef<Set<string>>(new Set());
@@ -202,13 +196,12 @@ export default function PaymentSuccess() {
   useEffect(() => {
     const fetchPaymentData = async (): Promise<void> => {
       try {
-        // Track page view
-        setCurrentEvent({
-          event_name: "payment_success_page_view",
-          event_details: {
-            page_title: "Payment Success",
-            page_location: window.location.href,
-          },
+        // Track page view using sendGTMEvent
+        sendGTMEvent({
+          event: "gtm_custom_event",
+          datalayer_event_name: "payment_success_page_view",
+          page_title: "Payment Success",
+          page_location: window.location.href,
         });
 
         // Get URL parameters
@@ -236,14 +229,15 @@ export default function PaymentSuccess() {
         const data: PaymentData = await response.json();
 
         setPaymentData(data);
+
         // Send success email (only once per payment)
         try {
           // Get fallback data from localStorage
           const fallbackData = {
             email_address: localStorage.getItem("email_address"),
             name:
-              paymentData?.customer_details?.name ||
-              paymentData?.shipping?.name ||
+              data?.customer_details?.name ||
+              data?.shipping?.name ||
               "Customer",
             phone_number: localStorage.getItem("phone_number"),
           };
@@ -270,28 +264,26 @@ export default function PaymentSuccess() {
           console.error("Error sending success email:", emailError);
           // Don't break the page if email fails
         }
-        // Track successful data fetch
-        setCurrentEvent({
-          event_name: "payment_data_fetch_success",
-          event_details: {
-            payment_intent: paymentIntent,
-            amount: data.amount_received,
-            currency: data.currency,
-            status: data.status,
-          },
+
+        // Track successful data fetch using sendGTMEvent
+        sendGTMEvent({
+          event: "gtm_custom_event",
+          datalayer_event_name: "payment_data_fetch_success",
+          payment_intent: paymentIntent,
+          amount: data.amount_received,
+          currency: data.currency,
+          status: data.status,
         });
 
         // Track purchase event only once per transaction
         if (!processedTransactions.current.has(data.id)) {
           processedTransactions.current.add(data.id);
 
-          // Track purchase completion with correct dataLayer structure
+          // Create purchase event data
           const purchaseEventData = createPurchaseEventData(data);
 
-          // Push directly to dataLayer with correct structure
-          if (typeof window !== "undefined" && (window as any).dataLayer) {
-            (window as any).dataLayer.push(purchaseEventData);
-          }
+          // Send purchase event using sendGTMEvent
+          sendGTMEvent(purchaseEventData);
         }
       } catch (err) {
         console.error("Error fetching payment data:", err);
@@ -299,16 +291,15 @@ export default function PaymentSuccess() {
           err instanceof Error ? err.message : "Unknown error occurred";
         setError(errorMessage);
 
-        // Track error event
-        setCurrentEvent({
-          event_name: "payment_verification_error",
-          event_details: {
-            error_message: errorMessage,
-            error_type: "fetch_payment_data",
-            payment_intent: new URLSearchParams(window.location.search).get(
-              "payment_intent",
-            ),
-          },
+        // Track error event using sendGTMEvent
+        sendGTMEvent({
+          event: "gtm_custom_event",
+          datalayer_event_name: "payment_verification_error",
+          error_message: errorMessage,
+          error_type: "fetch_payment_data",
+          payment_intent: new URLSearchParams(window.location.search).get(
+            "payment_intent",
+          ),
         });
       } finally {
         setLoading(false);
@@ -319,13 +310,12 @@ export default function PaymentSuccess() {
   }, []);
 
   const handleRetry = () => {
-    // Track retry attempt
-    setCurrentEvent({
-      event_name: "payment_retry_clicked",
-      event_details: {
-        error_message: error,
-        page_location: window.location.href,
-      },
+    // Track retry attempt using sendGTMEvent
+    sendGTMEvent({
+      event: "gtm_custom_event",
+      datalayer_event_name: "payment_retry_clicked",
+      error_message: error,
+      page_location: window.location.href,
     });
 
     window.location.reload();
@@ -334,7 +324,6 @@ export default function PaymentSuccess() {
   if (loading) {
     return (
       <>
-        {currentEvent && <GTMCustomEvent {...currentEvent} />}
         <div className="flex min-h-screen items-center justify-center">
           <div className="text-center">
             <Skeleton className="mx-auto mb-4 h-12 w-12 rounded-full" />
@@ -350,7 +339,6 @@ export default function PaymentSuccess() {
   if (error) {
     return (
       <>
-        {currentEvent && <GTMCustomEvent {...currentEvent} />}
         <div className="flex min-h-screen items-center justify-center">
           <Card className="mx-4 w-full max-w-md">
             <CardContent className="pt-6">
@@ -420,7 +408,6 @@ export default function PaymentSuccess() {
 
   return (
     <>
-      {currentEvent && <GTMCustomEvent {...currentEvent} />}
       <div className="min-h-screen px-4 py-12 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-3xl">
           {/* Success Header */}

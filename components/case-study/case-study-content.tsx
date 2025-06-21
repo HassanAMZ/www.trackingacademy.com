@@ -20,7 +20,6 @@ import {
   ChevronDown,
   ChevronUp,
   Clock,
-  DollarSign,
   ExternalLink,
   Star,
   User,
@@ -28,6 +27,8 @@ import {
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
+import LoomEmbed from "../global/loom-embed";
+import YoutubeEmbed from "../global/youtube-embed";
 import { TestimonialCard } from "../testimonial/testimonial-card";
 import Container from "../ui/container";
 
@@ -89,14 +90,22 @@ export default function CaseStudyComponent({
 
             {/* Project Image */}
             <div className="relative aspect-video overflow-hidden rounded-lg border">
-              <Image
-                src={
-                  caseStudy.imageUrl || "/placeholder.svg?height=400&width=600"
-                }
-                alt={`${caseStudy.name} desktop view`}
-                fill
-                className="scale-x-102 object-cover"
-              />
+              {caseStudy.embedId?.loom ? (
+                <LoomEmbed embedId={caseStudy.embedId.loom} />
+              ) : caseStudy.embedId?.youtube ? (
+                <YoutubeEmbed embedId={caseStudy.embedId.youtube} />
+              ) : (
+                <Image
+                  src={
+                    caseStudy.imageUrl ||
+                    "/placeholder.svg?height=400&width=600"
+                  }
+                  alt={`${caseStudy.name} desktop view`}
+                  fill
+                  className="scale-x-102 object-cover"
+                />
+              )}
+
               <div className="bg-background/80 absolute right-2 bottom-2 rounded px-2 py-1 text-xs">
                 Desktop View
               </div>
