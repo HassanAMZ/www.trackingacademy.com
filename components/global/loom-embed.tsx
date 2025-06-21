@@ -1,3 +1,4 @@
+import { sendGTMEvent } from "@next/third-parties/google";
 import { FC, memo } from "react";
 import Container from "../ui/container";
 
@@ -40,6 +41,10 @@ const LoomEmbed: FC<LoomEmbedProps> = ({
     return `${baseUrl}?${params.toString()}`;
   };
 
+  sendGTMEvent({
+    event: "gtm_custom_event",
+    datalayer_event_name: "loom_video_loaded",
+  });
   return (
     <Container className={className} id={id}>
       <div

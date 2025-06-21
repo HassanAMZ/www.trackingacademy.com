@@ -1,3 +1,4 @@
+import { sendGTMEvent } from "@next/third-parties/google";
 import dynamic from "next/dynamic";
 import { FC, memo } from "react";
 import Container from "../ui/container";
@@ -12,6 +13,10 @@ const YoutubeEmbed: FC<YoutubeEmbedProps> = ({ embedId, className, id }) => {
   if (!embedId || embedId === "null" || embedId === "undefined") {
     return null;
   }
+  sendGTMEvent({
+    event: "gtm_custom_event",
+    datalayer_event_name: "youtube_video_loaded",
+  });
 
   return (
     <Container className={className} id={id}>
