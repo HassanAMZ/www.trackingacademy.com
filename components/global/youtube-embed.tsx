@@ -1,3 +1,5 @@
+"use client";
+
 import { sendGTMEvent } from "@next/third-parties/google";
 import dynamic from "next/dynamic";
 import { FC, memo } from "react";

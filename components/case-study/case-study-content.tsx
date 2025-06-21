@@ -26,7 +26,7 @@ import {
 } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import LoomEmbed from "../global/loom-embed";
 import YoutubeEmbed from "../global/youtube-embed";
 import { TestimonialCard } from "../testimonial/testimonial-card";
@@ -38,6 +38,43 @@ export default function CaseStudyComponent({
   caseStudy: CaseStudy;
 }) {
   const [showFullDescription, setShowFullDescription] = useState(false);
+  // Auto-scroll state for before/after images
+  const [currentBeforeIndex, setCurrentBeforeIndex] = useState(0);
+  const [currentAfterIndex, setCurrentAfterIndex] = useState(0);
+
+  // Auto-scroll effect for before images
+  useEffect(() => {
+    if (
+      caseStudy.analytics.images?.before &&
+      caseStudy.analytics.images.before.length > 1
+    ) {
+      const interval = setInterval(() => {
+        setCurrentBeforeIndex(
+          (prev) =>
+            (prev + 1) % (caseStudy.analytics.images?.before?.length ?? 1),
+        );
+      }, 7000);
+
+      return () => clearInterval(interval);
+    }
+  }, [caseStudy.analytics.images?.before]);
+
+  // Auto-scroll effect for after images
+  useEffect(() => {
+    if (
+      caseStudy.analytics.images?.after &&
+      caseStudy.analytics.images.after.length > 1
+    ) {
+      const interval = setInterval(() => {
+        setCurrentAfterIndex(
+          (prev) =>
+            (prev + 1) % (caseStudy.analytics.images?.after?.length ?? 1),
+        );
+      }, 7000);
+
+      return () => clearInterval(interval);
+    }
+  }, [caseStudy.analytics.images?.after]);
 
   const formatDate = (dateString: string) => {
     const date = new Date(dateString);
@@ -91,9 +128,12 @@ export default function CaseStudyComponent({
             {/* Project Image */}
             <div className="relative aspect-video overflow-hidden rounded-lg border">
               {caseStudy.embedId?.loom ? (
-                <LoomEmbed embedId={caseStudy.embedId.loom} />
+                <LoomEmbed embedId={caseStudy.embedId.loom} className="p-0" />
               ) : caseStudy.embedId?.youtube ? (
-                <YoutubeEmbed embedId={caseStudy.embedId.youtube} />
+                <YoutubeEmbed
+                  embedId={caseStudy.embedId.youtube}
+                  className="p-0"
+                />
               ) : (
                 <Image
                   src={
@@ -139,7 +179,115 @@ export default function CaseStudyComponent({
                 {caseStudy.projectTimeline.durationDays} days
               </Button>
             </div>
-
+            {/* Analytics Comparison - Auto-Scrolling Carousel */}
+            {caseStudy.analytics.images && (
+              <div className="space-y-4">
+                <h2 className="text-2xl font-bold">
+                  Before vs After Results for {caseStudy.id}
+                </h2>
+                <div className="grid gap-4 md:grid-cols-2">
+                  {/* Before - Auto-Scrolling Carousel */}
+                  <Card className="group bg-destructive/10 overflow-hidden border-b transition-all hover:shadow-lg">
+                    <div className="py-2 text-center">
+                      <Badge
+                        variant="destructive"
+                        className="text-xs font-medium"
+                      >
+                        Before
+                      </Badge>
+                    </div>
+                    <CardContent>
+                      <div className="relative">
+                        <div className="relative aspect-video overflow-hidden rounded-lg border shadow">
+                          <Image
+                            src={
+                              caseStudy.analytics.images.before[
+                                currentBeforeIndex
+                              ] || "/placeholder.svg"
+                            }
+                            alt={`Before ${currentBeforeIndex + 1}`}
+                            fill
+                            className="object-cover transition-opacity duration-500"
+                          />
+                        </div>
+                        {/* Image Counter */}
+                        {caseStudy.analytics.images.before.length > 1 && (
+                          <div className="absolute top-2 right-2 rounded-full bg-black/70 px-2 py-1 text-xs text-white">
+                            {currentBeforeIndex + 1} /{" "}
+                            {caseStudy.analytics.images.before.length}
+                          </div>
+                        )}
+                        {/* Dot Indicators */}
+                        {caseStudy.analytics.images.before.length > 1 && (
+                          <div className="mt-3 flex justify-center gap-1">
+                            {caseStudy.analytics.images.before.map(
+                              (_, index) => (
+                                <button
+                                  key={index}
+                                  onClick={() => setCurrentBeforeIndex(index)}
+                                  className={`h-2 w-2 rounded-full transition-colors ${
+                                    index === currentBeforeIndex
+                                      ? "bg-destructive"
+                                      : "bg-muted-foreground/30"
+                                  }`}
+                                />
+                              ),
+                            )}
+                          </div>
+                        )}
+                      </div>
+                    </CardContent>
+                  </Card>
+                  {/* After - Auto-Scrolling Carousel */}
+                  <Card className="group bg-primary/10 overflow-hidden border-b transition-all hover:shadow-lg">
+                    <div className="py-2 text-center">
+                      <Badge className="text-xs font-medium">After</Badge>
+                    </div>
+                    <CardContent>
+                      <div className="relative">
+                        <div className="relative aspect-video overflow-hidden rounded-lg border shadow">
+                          <Image
+                            src={
+                              caseStudy.analytics.images.after[
+                                currentAfterIndex
+                              ] || "/placeholder.svg"
+                            }
+                            alt={`After ${currentAfterIndex + 1}`}
+                            fill
+                            className="object-cover transition-opacity duration-500"
+                          />
+                        </div>
+                        {/* Image Counter */}
+                        {caseStudy.analytics.images.after.length > 1 && (
+                          <div className="absolute top-2 right-2 rounded-full bg-black/70 px-2 py-1 text-xs text-white">
+                            {currentAfterIndex + 1} /{" "}
+                            {caseStudy.analytics.images.after.length}
+                          </div>
+                        )}
+                        {/* Dot Indicators */}
+                        {caseStudy.analytics.images.after.length > 1 && (
+                          <div className="mt-3 flex justify-center gap-1">
+                            {caseStudy.analytics.images.after.map(
+                              (_, index) => (
+                                <button
+                                  key={index}
+                                  onClick={() => setCurrentAfterIndex(index)}
+                                  className={`h-2 w-2 rounded-full transition-colors ${
+                                    index === currentAfterIndex
+                                      ? "bg-primary"
+                                      : "bg-muted-foreground/30"
+                                  }`}
+                                />
+                              ),
+                            )}
+                          </div>
+                        )}
+                      </div>
+                    </CardContent>
+                  </Card>
+                </div>
+              </div>
+            )}
             {/* Challenges Section */}
             <div className="space-y-4">
               <h2 className="text-2xl font-bold">Challenges</h2>
@@ -466,6 +614,8 @@ export default function CaseStudyComponent({
       </div>
       <TestimonialCard
         upwork={true}
+        image={caseStudy.testimonial.image}
+        role={caseStudy.testimonial.role}
         quote={caseStudy.testimonial.quote}
         projectName={caseStudy.title}
         author={caseStudy.testimonial.author}

@@ -132,7 +132,7 @@ export const caseStudies: CaseStudy[] = [
     ],
     projectTimeline: {
       startDate: "Jun 13, 2025",
-      endDate: "Jun 23, 2025",
+      endDate: "Jun 16, 2025",
       durationDays: 10,
     },
     owner: "Shahzada Ali Hassan",

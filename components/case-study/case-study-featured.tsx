@@ -151,7 +151,7 @@ export default function FeaturedCaseStudy({
             <Card>
               <div className="grid w-full items-center gap-0 lg:grid-cols-5 lg:justify-center">
                 {/* Media Section - Takes more space */}
-                <div className="relative lg:col-span-3">
+                <div className="relative p-6 lg:col-span-3">
                   <div className="bg-muted relative aspect-video overflow-hidden">
                     {caseStudy.embedId?.loom ? (
                       <>
@@ -166,7 +166,10 @@ export default function FeaturedCaseStudy({
                       </>
                     ) : caseStudy.embedId?.youtube ? (
                       <>
-                        <YoutubeEmbed embedId={caseStudy.embedId.youtube} />
+                        <YoutubeEmbed
+                          embedId={caseStudy.embedId.youtube}
+                          className="p-0"
+                        />
                         <div className="bg-destructive text-destructive-foreground absolute top-4 left-4 flex items-center gap-2 rounded-full px-3 py-1.5 text-sm font-medium shadow-lg backdrop-blur-sm">
                           <Play className="h-3 w-3" />
                           Case Video
@@ -190,14 +193,10 @@ export default function FeaturedCaseStudy({
                         </div>
                       </>
                     )}
-                    {/* Floating Elements */}
                     <div className="absolute top-4 right-4 flex gap-2">
-                      <Badge className="bg-secondary/90 text-secondary-foreground px-3 py-1.5 font-semibold shadow-lg backdrop-blur-sm">
+                      <div className="bg-background/90 text-foreground flex items-center gap-1.5 rounded-full px-3 py-1.5 text-xs font-medium shadow-lg backdrop-blur-sm">
                         {caseStudy.plan}
-                      </Badge>
-                    </div>
-                    {/* Quick Stats Overlay */}
-                    <div className="absolute right-4 bottom-4 flex gap-2">
+                      </div>
                       <div className="bg-background/90 text-foreground flex items-center gap-1.5 rounded-full px-3 py-1.5 text-xs font-medium shadow-lg backdrop-blur-sm">
                         <Calendar className="h-3 w-3" />
                         {caseStudy.projectTimeline.durationDays}d
