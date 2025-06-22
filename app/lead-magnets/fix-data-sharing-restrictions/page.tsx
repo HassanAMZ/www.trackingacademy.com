@@ -114,7 +114,7 @@ const MeetingBookingButton = ({
         <>
           {buttonText}
           <br />
-          <span className="text-base">
+          <span className="text-muted/90 text-base underline">
             Start tracking conversions in Meta Ads & Events Manager again
           </span>
         </>
@@ -210,7 +210,14 @@ export default function Page() {
       <Container>
         <MeetingBookingButton
           className="text-center"
-          wrapperButtonClassName=""
+          wrapperButtonClassName=" text-center"
+        />
+      </Container>
+      <FeaturedCaseStudy caseStudy={caseStudies[2]} />
+      <Container>
+        <MeetingBookingButton
+          className="text-center"
+          wrapperButtonClassName=" text-center"
         />
       </Container>
       {/* <Container className="space-y-6 py-12">

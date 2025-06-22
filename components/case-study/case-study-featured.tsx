@@ -103,7 +103,7 @@ export default function FeaturedCaseStudy({
       <Container className="relative">
         {/* Main Visual Card */}
         <Card className="bg-card/80 group hover:shadow-3xl overflow-hidden border-0 shadow-2xl backdrop-blur-sm transition-all duration-500">
-          <CardHeader>
+          <CardHeader className="px-1 py-6 md:px-6">
             {/* Compact Header */}
             <div className="mb-8 text-center">
               <h2 className="text-foreground mx-auto max-w-5xl py-4 text-center">
@@ -147,11 +147,11 @@ export default function FeaturedCaseStudy({
               </Container>
             </div>
           </CardHeader>
-          <CardContent>
+          <CardContent className="px-2 py-6 md:px-6">
             <Card>
-              <div className="grid w-full items-center gap-0 lg:grid-cols-5 lg:justify-center">
+              <div className="grid w-full items-center gap-6 px-4 py-6 md:px-6 lg:grid-cols-5 lg:justify-center">
                 {/* Media Section - Takes more space */}
-                <div className="relative p-6 lg:col-span-3">
+                <div className="relative lg:col-span-3">
                   <div className="bg-muted relative aspect-video overflow-hidden">
                     {caseStudy.embedId?.loom ? (
                       <>
@@ -209,7 +209,7 @@ export default function FeaturedCaseStudy({
                   </div>
                 </div>
                 {/* Compact Content Section */}
-                <div className="flex flex-col justify-between p-6 lg:col-span-2">
+                <div className="flex flex-col justify-between lg:col-span-2">
                   {/* Key Results - Visual List */}
                   <div className="mb-6">
                     <div className="mb-3 flex items-center justify-between">
@@ -293,7 +293,7 @@ export default function FeaturedCaseStudy({
                       Before
                     </Badge>
                   </div>
-                  <CardContent>
+                  <CardContent className="px-3 py-6 md:p-6">
                     <div className="relative">
                       <div className="relative aspect-video overflow-hidden rounded-lg border shadow">
                         <Image

@@ -170,7 +170,8 @@ export const caseStudies: CaseStudy[] = [
     name: "Peach and Cream Shopify Tracking",
     url: "https://peachandcream.com",
     plan: "Standard",
-    title: "Policy-Proof Meta Pixel Setup for Shopify Brand",
+    title:
+      "Data Sharing Restriction Fixed for Peach & Cream Shopify Ecommerce Store",
     description:
       "Peach and Cream was blocked from Meta ads due to 'sensitive' product categories. We unlocked compliant pixel tracking through server-side methods, enabling aggressive scaling of their top-selling products—without risking another ban.",
     imageUrl: "/images/for-businesses/client-peachandcream-desktop-home.png",
