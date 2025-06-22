@@ -76,12 +76,12 @@ export const caseStudies: CaseStudy[] = [
       recoveredFromTrackingPreventionPercentage: 21.72,
       images: {
         before: [
-          "/images/case-studies/northridgeaddiction_before_1.png",
-          "/images/case-studies/northridgeaddiction_before_2.png",
+          "/images/case-study/northridgeaddiction_before_1.png",
+          "/images/case-study/northridgeaddiction_before_2.png",
         ],
         after: [
-          "/images/case-studies/northridgeaddiction_after_1.png",
-          "/images/case-studies/northridgeaddiction_after_2.png",
+          "/images/case-study/northridgeaddiction_after_1.png",
+          "/images/case-study/northridgeaddiction_after_2.png",
         ],
       },
       accuracy: 95,
@@ -248,6 +248,7 @@ export const caseStudies: CaseStudy[] = [
     id: "saneofrance",
     name: "Saneo France Meta Pixel Tracking Recovery",
     url: "https://saneofrance.fr",
+    embedId: { loom: "822299923dcb4bd3bf8e7b5537002bd0" },
     plan: "Standard",
     title:
       "Restoring Meta Pixel Tracking for Saneo France with Server-Side Tracking and Webhooks",
@@ -260,10 +261,21 @@ export const caseStudies: CaseStudy[] = [
       period: "6 weeks",
       recoveredFromAdBlockersPercentage: 13.85,
       recoveredFromTrackingPreventionPercentage: 23.72,
+      images: {
+        before: [
+          "/images/case-study/saneofrance_before_1.png",
+          "/images/case-study/saneofrance_before_2.png",
+        ],
+        after: [
+          "/images/case-study/saneofrance_after_1.png",
+          "/images/case-study/saneofrance_after_2.png",
+        ],
+      },
       accuracy: 98.74,
     },
     testimonial: {
-      quote: "",
+      quote:
+        "I can't say enough good things about Shahzada. Some of the nuances of our project were over my head, but he understood them completely and executed everything smoothly and quickly. Would 10000% recommend working with Shahzada.",
       author: "Jeremy Talote",
       role: "E-commerce Owner",
       image:
@@ -363,7 +375,7 @@ export const caseStudies: CaseStudy[] = [
       accuracy: 95,
     },
     testimonial: {
-      quote: "",
+      quote: "Would 10000% recommend working with Shahzada.",
       author: "Haris Ahmed",
       role: "Marketing Manager, Emirates Advisory",
       image: "/images/clients/emiratesadvisory.png",

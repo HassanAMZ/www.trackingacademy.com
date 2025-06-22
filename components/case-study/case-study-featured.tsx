@@ -99,14 +99,17 @@ export default function FeaturedCaseStudy({
   };
 
   return (
-    <section className="from-background via-muted/10 to-primary/5 relative w-full overflow-hidden bg-gradient-to-br py-12 md:py-20">
+    <section className="from-background via-muted/10 to-primary/5 relative w-full overflow-hidden bg-gradient-to-br py-12">
       <Container className="relative">
         {/* Main Visual Card */}
         <Card className="bg-card/80 group hover:shadow-3xl overflow-hidden border-0 shadow-2xl backdrop-blur-sm transition-all duration-500">
           <CardHeader className="px-1 py-6 md:px-6">
             {/* Compact Header */}
-            <div className="mb-8 text-center">
-              <h2 className="text-foreground mx-auto max-w-5xl py-4 text-center">
+            <div className="pt-6 pb-4 text-center">
+              <Badge className="mx-auto w-fit">
+                Featured Case Study {caseStudy.id}
+              </Badge>
+              <h2 className="text-foreground mx-auto max-w-5xl py-6 text-center">
                 Case Study: {caseStudy.title}
               </h2>
               {/* Expandable Description */}
