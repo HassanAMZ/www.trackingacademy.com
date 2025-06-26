@@ -9,8 +9,7 @@ export const metadata: Metadata = {
   description: "Explore our content organized by tags",
   openGraph: {
     title: "Browse Tags | Blog",
-    description:
-      "Find content by topic and explore our entire collection organized by tags",
+    description: "Find content by topic and explore our entire collection organized by tags",
     images: ["/images/tags-banner.jpg"], // Add your own OG image here
   },
 };

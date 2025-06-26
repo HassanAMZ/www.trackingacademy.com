@@ -38,14 +38,11 @@ export default function CouponRequestEmail({
   return (
     <Html>
       <Head>
-        <title>
-          {name} - Your $300 Coupon Code for the 3-Day "See Every Sale" Tracking
-          System
-        </title>
+        <title>{name} - Your $300 Coupon Code for the 3-Day "See Every Sale" Tracking System</title>
       </Head>
       <Preview>
-        {name} - Your $300 Coupon Code: {couponCode} - Fix Your Facebook's Data
-        Sharing Restrictions Now!
+        {name} - Your $300 Coupon Code: {couponCode} - Fix Your Facebook's Data Sharing Restrictions
+        Now!
       </Preview>
       <Body style={main}>
         <Container style={container}>
@@ -64,19 +61,17 @@ export default function CouponRequestEmail({
             <Heading style={heading}>Your $300 Coupon Is Ready!</Heading>{" "}
             <Text style={greeting}>Hi {name},</Text>
             <Text style={paragraph}>
-              Thanks for your interest in our 3-Day "See Every Sale" Tracking
-              System for {website_url}. Here's your exclusive $300 coupon code
-              to use during checkout:
+              Thanks for your interest in our 3-Day "See Every Sale" Tracking System for{" "}
+              {website_url}. Here's your exclusive $300 coupon code to use during checkout:
             </Text>{" "}
             {/* Coupon Code Box */}
             <Section style={couponBox}>
               <Text style={couponText}>{couponCode}</Text>
             </Section>{" "}
             <Text style={paragraph}>
-              This coupon gives you $300 OFF the complete 3-Day "See Every Sale"
-              Tracking System — helping you fix Facebook's data sharing
-              restrictions and restore 95%+ accurate data for every ecommerce
-              event.
+              This coupon gives you $300 OFF the complete 3-Day "See Every Sale" Tracking System —
+              helping you fix Facebook's data sharing restrictions and restore 95%+ accurate data
+              for every ecommerce event.
             </Text>
           </Section>{" "}
           {/* CTA Section */}
@@ -89,8 +84,7 @@ export default function CouponRequestEmail({
               style={ctaButton}
               href={`${baseUrl}/funnels/facebook/see-every-sale/payment?prefilled_promo_code=SEEEVERYSALE300OFF&product_id=${service?.product_id}&price_id=${service?.price_id}`}
             >
-              Use this direct link to purchase with your coupon:
-              SEEEVERYSALE300OFF
+              Use this direct link to purchase with your coupon: SEEEVERYSALE300OFF
             </Button>
           </Section>{" "}
           {/* What You'll Get */}
@@ -99,31 +93,23 @@ export default function CouponRequestEmail({
               What You'll Get With Your Purchase:
             </Heading>
             <Text style={bonusPoint}>
-              ✅ Complete "See Every Sale" Tracking System ($1,500 value - $300
-              OFF with your coupon)
+              ✅ Complete "See Every Sale" Tracking System ($1,500 value - $300 OFF with your
+              coupon)
             </Text>
+            <Text style={bonusPoint}>✅ Looker Studio eCom Dashboard Setup ($2,000 Value)</Text>
             <Text style={bonusPoint}>
-              ✅ Looker Studio eCom Dashboard Setup ($2,000 Value)
-            </Text>
-            <Text style={bonusPoint}>
-              ✅ Google Analytics 4 Ecommerce Tracking (95% Accuracy, $1,200
-              Value)
+              ✅ Google Analytics 4 Ecommerce Tracking (95% Accuracy, $1,200 Value)
             </Text>
             <Text style={bonusPoint}>
               ✅ Google Ads Conversion Tracking (95% Accuracy, $1,200 Value)
             </Text>
-            <Text style={bonusPoint}>
-              ✅ GDPR & CCPA Cookie Consent Setup ($1,200 Value)
-            </Text>
-            <Text style={bonusPoint}>
-              ✅ 47-Point Ecom Conversion Checklist ($1,500 Value)
-            </Text>
+            <Text style={bonusPoint}>✅ GDPR & CCPA Cookie Consent Setup ($1,200 Value)</Text>
+            <Text style={bonusPoint}>✅ 47-Point Ecom Conversion Checklist ($1,500 Value)</Text>
             <Text style={bonusPoint}>
               ✅ ROI & LTV Tracking Toolkit for Ecom Brands ($500 Value)
             </Text>
             <Text style={urgentText}>
-              Limited offer for the first 10 clients only — act fast before it
-              expires!
+              Limited offer for the first 10 clients only — act fast before it expires!
             </Text>
           </Section>{" "}
           {/* Footer */}

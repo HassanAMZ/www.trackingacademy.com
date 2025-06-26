@@ -8,19 +8,13 @@ export async function GET(request) {
     const paymentIntentId = searchParams.get("payment_intent");
 
     if (!paymentIntentId) {
-      return NextResponse.json(
-        { error: "Missing payment_intent parameter" },
-        { status: 400 },
-      );
+      return NextResponse.json({ error: "Missing payment_intent parameter" }, { status: 400 });
     }
 
     // Retrieve the payment intent from Stripe with expanded data
-    const paymentIntent = await stripe.paymentIntents.retrieve(
-      paymentIntentId,
-      {
-        expand: ["customer", "payment_method", "charges"],
-      },
-    );
+    const paymentIntent = await stripe.paymentIntents.retrieve(paymentIntentId, {
+      expand: ["customer", "payment_method", "charges"],
+    });
 
     // Verify the payment was successful
     if (paymentIntent.status !== "succeeded") {
@@ -60,22 +54,16 @@ export async function GET(request) {
     }
 
     // Try to get customer info from latest charge if not found yet
-    if (
-      paymentIntent.latest_charge &&
-      (!customerDetails.name || !customerDetails.email)
-    ) {
+    if (paymentIntent.latest_charge && (!customerDetails.name || !customerDetails.email)) {
       try {
-        const latestCharge = await stripe.charges.retrieve(
-          paymentIntent.latest_charge,
-        );
+        const latestCharge = await stripe.charges.retrieve(paymentIntent.latest_charge);
 
         if (latestCharge.billing_details) {
           customerDetails = {
             email: customerDetails.email || latestCharge.billing_details.email,
             name: customerDetails.name || latestCharge.billing_details.name,
             phone: customerDetails.phone || latestCharge.billing_details.phone,
-            address:
-              customerDetails.address || latestCharge.billing_details.address,
+            address: customerDetails.address || latestCharge.billing_details.address,
           };
         }
       } catch (chargeError) {

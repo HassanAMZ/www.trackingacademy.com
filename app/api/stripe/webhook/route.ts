@@ -21,20 +21,10 @@ export async function POST(req: Request) {
 
   try {
     // Verify webhook signature
-    event = stripe.webhooks.constructEvent(
-      body,
-      signature!,
-      process.env.STRIPE_WEBHOOK_SECRET!,
-    );
+    event = stripe.webhooks.constructEvent(body, signature!, process.env.STRIPE_WEBHOOK_SECRET!);
   } catch (err) {
-    console.error(
-      "Webhook signature verification failed:",
-      (err as Error).message,
-    );
-    return NextResponse.json(
-      { error: "Webhook signature verification failed" },
-      { status: 400 },
-    );
+    console.error("Webhook signature verification failed:", (err as Error).message);
+    return NextResponse.json({ error: "Webhook signature verification failed" }, { status: 400 });
   }
 
   console.log("Webhook event received:", event.type);
@@ -76,10 +66,7 @@ export async function POST(req: Request) {
     return NextResponse.json({ received: true });
   } catch (error) {
     console.error("Webhook handler error:", error);
-    return NextResponse.json(
-      { error: "Webhook handler failed" },
-      { status: 500 },
-    );
+    return NextResponse.json({ error: "Webhook handler failed" }, { status: 500 });
   }
 }
 
@@ -307,12 +294,8 @@ async function handleSubscriptionCreated(subscription: any) {
       subscriptionId: subscription.id,
       customerId: subscription.customer,
       status: subscription.status,
-      currentPeriodStart: Timestamp.fromDate(
-        new Date(subscription.current_period_start * 1000),
-      ),
-      currentPeriodEnd: Timestamp.fromDate(
-        new Date(subscription.current_period_end * 1000),
-      ),
+      currentPeriodStart: Timestamp.fromDate(new Date(subscription.current_period_start * 1000)),
+      currentPeriodEnd: Timestamp.fromDate(new Date(subscription.current_period_end * 1000)),
       items: subscription.items.data.map((item: any) => ({
         priceId: item.price.id,
         productId: item.price.product,
@@ -336,9 +319,7 @@ async function handleSubscriptionCreated(subscription: any) {
 
           if (firstItem) {
             const price = await stripe.prices.retrieve(firstItem.price.id);
-            const product = await stripe.products.retrieve(
-              price.product as string,
-            );
+            const product = await stripe.products.retrieve(price.product as string);
             planName = product.name;
             amount = price.unit_amount || 0;
           }
@@ -381,12 +362,8 @@ async function handleSubscriptionUpdated(subscription: any) {
         subscriptionId: subscription.id,
         customerId: subscription.customer,
         status: subscription.status,
-        currentPeriodStart: Timestamp.fromDate(
-          new Date(subscription.current_period_start * 1000),
-        ),
-        currentPeriodEnd: Timestamp.fromDate(
-          new Date(subscription.current_period_end * 1000),
-        ),
+        currentPeriodStart: Timestamp.fromDate(new Date(subscription.current_period_start * 1000)),
+        currentPeriodEnd: Timestamp.fromDate(new Date(subscription.current_period_end * 1000)),
         items: subscription.items.data.map((item: any) => ({
           priceId: item.price.id,
           productId: item.price.product,

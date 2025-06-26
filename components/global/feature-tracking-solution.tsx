@@ -19,8 +19,8 @@ export default function TrackingSolution() {
             The World Class Tracking & Attribution Solution
           </h1>
           <p className="text-muted-foreground mx-auto max-w-3xl text-xl">
-            Restore confidence in your FB ad attribution reporting with accurate
-            & actionable attribution.
+            Restore confidence in your FB ad attribution reporting with accurate & actionable
+            attribution.
           </p>
         </div>{" "}
         {/* Main Content */}
@@ -51,9 +51,7 @@ export default function TrackingSolution() {
                 <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
                   <Card className="bg-primary/10 h-40 w-40">
                     <CardContent className="flex h-full flex-col items-center justify-center">
-                      <span className="text-primary text-3xl font-bold">
-                        95%
-                      </span>
+                      <span className="text-primary text-3xl font-bold">95%</span>
                       <span className="text-primary text-sm">accurate</span>
                     </CardContent>
                   </Card>
@@ -134,15 +132,7 @@ function FeatureCard({
   );
 }
 
-function MetricCard({
-  title,
-  value,
-  revenue,
-}: {
-  title: string;
-  value: string;
-  revenue: string;
-}) {
+function MetricCard({ title, value, revenue }: { title: string; value: string; revenue: string }) {
   return (
     <Card className="">
       <CardContent className="p-4">

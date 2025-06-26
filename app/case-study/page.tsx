@@ -14,9 +14,8 @@ export default function CaseStudiesPage() {
     <Container className="py-12">
       <h1 className="mb-8 text-center">Our Case Studies</h1>
       <p className="text-muted-foreground mx-auto mb-12 max-w-2xl text-center">
-        Discover how we has empowered businesses with cutting-edge analytics and
-        tracking solutions to drive data-driven decisions and boost campaign
-        performance.
+        Discover how we has empowered businesses with cutting-edge analytics and tracking solutions
+        to drive data-driven decisions and boost campaign performance.
       </p>
       <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
         {caseStudies.map((caseStudy) => (
@@ -41,19 +40,14 @@ export default function CaseStudiesPage() {
                 <CardTitle className="mt-4">{caseStudy.title}</CardTitle>
                 <div className="mt-2 flex w-fit flex-wrap gap-2">
                   {caseStudy.platforms.slice(0, 2).map((platform, index) => (
-                    <li
-                      key={index}
-                      className="flex flex-wrap items-center text-wrap"
-                    >
+                    <li key={index} className="flex flex-wrap items-center text-wrap">
                       <Badge variant={"secondary"}>{platform}</Badge>
                     </li>
                   ))}
                 </div>
               </CardHeader>
               <CardContent className="relative z-20">
-                <p className="text-muted-foreground mb-4 line-clamp-3">
-                  {caseStudy.description}
-                </p>
+                <p className="text-muted-foreground mb-4 line-clamp-3">{caseStudy.description}</p>
                 <Button variant="outline" className="w-full cursor-pointer">
                   View Case Study
                 </Button>

@@ -88,12 +88,8 @@ export default function CaseStudyCarousel({
             <div className="group-hover:from-primary absolute inset-0 opacity-70 transition-opacity duration-300 group-hover:bg-linear-to-t group-hover:to-transparent group-hover:opacity-90"></div>{" "}
             {/* Case study details that scale up on hover */}
             <div className="text-background absolute inset-x-0 bottom-0 z-10 hidden transform p-4 text-left transition-transform duration-300 group-hover:block group-hover:scale-110">
-              <h4 className="mb-1 line-clamp-3 hover:underline">
-                {caseStudy.title}
-              </h4>
-              <p className="line-clamp-2 transition-colors duration-300">
-                {caseStudy.description}
-              </p>
+              <h4 className="mb-1 line-clamp-3 hover:underline">{caseStudy.title}</h4>
+              <p className="line-clamp-2 transition-colors duration-300">{caseStudy.description}</p>
             </div>{" "}
             {/* Outline icon that appears on hover */}
             <div className="absolute top-1/2 left-1/2 z-30 -translate-x-1/2 -translate-y-1/2 transform opacity-0 transition-opacity duration-300 group-hover:opacity-100">

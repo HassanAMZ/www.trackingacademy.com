@@ -10,14 +10,13 @@ export function HeroSection() {
           Data Tracking and Visualization Agency
         </Badge>
         <h1>
-          We build measurement systems enabling companies to act faster & make a
-          bigger impact!{" "}
+          We build measurement systems enabling companies to act faster & make a bigger impact!{" "}
         </h1>
         <p className="text-muted-foreground max-w-4xl text-xl">
-          Finally, a single source of truth for your leading revenue metrics,
-          without burdening your internal team. Get always updated: data
-          integration, cleaning, and custom visualization plus a dedicated Slack
-          channel for your team to ask questions and monthly strategy sessions.
+          Finally, a single source of truth for your leading revenue metrics, without burdening your
+          internal team. Get always updated: data integration, cleaning, and custom visualization
+          plus a dedicated Slack channel for your team to ask questions and monthly strategy
+          sessions.
         </p>
         <div className="flex flex-wrap justify-center gap-4">
           <Button size="lg">First-party data</Button>

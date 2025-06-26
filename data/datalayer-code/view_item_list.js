@@ -14,11 +14,7 @@ window.dataLayer = window.dataLayer || [];
 function logEventToConsole(dataLayerEvent) {
   const customStyle01 =
     "color: #FFFF00; background-color: #000000; font-size: 10px; font-weight: bold; padding: 2px 0;";
-  console.log(
-    "%cDataLayer Event: view_item_list ",
-    customStyle01,
-    dataLayerEvent,
-  );
+  console.log("%cDataLayer Event: view_item_list ", customStyle01, dataLayerEvent);
 }
 
 analytics.subscribe("collection_viewed", (event) => {
@@ -35,10 +31,7 @@ analytics.subscribe("collection_viewed", (event) => {
   };
   const page_data = {
     hostname: getEventData(event, "context.document.location.hostname"),
-    location_query_string: getEventData(
-      event,
-      "context.document.location.href",
-    ),
+    location_query_string: getEventData(event, "context.document.location.href"),
     path: getEventData(event, "context.document.location.pathname"),
     referrer: getEventData(event, "context.document.referrer"),
     page_title: getEventData(event, "context.document.title"),
@@ -57,18 +50,14 @@ analytics.subscribe("collection_viewed", (event) => {
   };
 
   const ecommerce_data = {
-    currency: getEventData(
-      event,
-      "data.collection.productVariants[0].price.currencyCode",
-    ),
+    currency: getEventData(event, "data.collection.productVariants[0].price.currencyCode"),
     value: event.data.collection.productVariants
       .reduce((total, variant) => total + variant.price.amount, 0)
       .toString(),
     item_list_name: getEventData(event, "data.collection.title"),
     items: event.data.collection.productVariants.map((variant, index) => ({
       item_list_id:
-        getEventData(event, "data.collection.id") ||
-        getEventData(event, "data.collection.title"),
+        getEventData(event, "data.collection.id") || getEventData(event, "data.collection.title"),
       item_list_name: getEventData(event, "data.collection.title"),
       item_id: getEventData(variant, "product.id"),
       item_name: getEventData(variant, "product.title"),
@@ -93,10 +82,7 @@ analytics.subscribe("collection_viewed", (event) => {
     ecommerce: ecommerce_data,
   };
 
-  const newUrl = new URL(
-    dataLayerEvent.page_data.location_query_string,
-    window.location.origin,
-  );
+  const newUrl = new URL(dataLayerEvent.page_data.location_query_string, window.location.origin);
   const newTitle = dataLayerEvent.page_data.page_title;
 
   if (newUrl && newTitle) {

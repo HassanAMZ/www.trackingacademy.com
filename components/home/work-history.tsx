@@ -14,10 +14,7 @@ export default function WorkHistory() {
   return (
     <Container className="grid grid-cols-3 items-center justify-center gap-2 lg:grid-cols-6">
       {clientImages.map((image, index) => (
-        <div
-          key={index}
-          className="bg-secondary overflow-hidden rounded-lg object-contain filter"
-        >
+        <div key={index} className="bg-secondary overflow-hidden rounded-lg object-contain filter">
           <Image
             src={image}
             alt={`Client ${index}`}

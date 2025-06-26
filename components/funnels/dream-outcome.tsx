@@ -1,11 +1,7 @@
 "use client";
 
 import { Card, CardContent } from "@/components/ui/card";
-import {
-  Collapsible,
-  CollapsibleContent,
-  CollapsibleTrigger,
-} from "@/components/ui/collapsible";
+import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
 import {
   ChevronDown,
   ChevronRight,
@@ -30,11 +26,7 @@ interface DreamOutcomeProps {
   }>;
 }
 
-const DreamOutcome: React.FC<DreamOutcomeProps> = ({
-  heading,
-  subheading,
-  dreamOutcomeList,
-}) => {
+const DreamOutcome: React.FC<DreamOutcomeProps> = ({ heading, subheading, dreamOutcomeList }) => {
   const [openIndex, setOpenIndex] = useState(0);
 
   const iconMap: { [key: string]: React.ComponentType } = {
@@ -50,9 +42,7 @@ const DreamOutcome: React.FC<DreamOutcomeProps> = ({
       <div className="space-y-12 px-4">
         <div>
           {heading && <h2 className="mb-4 text-4xl font-bold">{heading}</h2>}
-          {subheading && (
-            <p className="text-muted-foreground text-xl">{subheading}</p>
-          )}
+          {subheading && <p className="text-muted-foreground text-xl">{subheading}</p>}
         </div>{" "}
         {dreamOutcomeList && dreamOutcomeList.length > 0 && (
           <div className="mt-16 space-y-8">
@@ -65,15 +55,10 @@ const DreamOutcome: React.FC<DreamOutcomeProps> = ({
                   return (
                     <Card key={index}>
                       <CardContent className="p-6">
-                        <Collapsible
-                          open={isOpen}
-                          onOpenChange={() => setOpenIndex(index)}
-                        >
+                        <Collapsible open={isOpen} onOpenChange={() => setOpenIndex(index)}>
                           <CollapsibleTrigger className="flex w-full items-center space-x-4">
                             <IconComponent />
-                            <h4 className="grow text-left text-xl font-semibold">
-                              {outcome.text}
-                            </h4>
+                            <h4 className="grow text-left text-xl font-semibold">{outcome.text}</h4>
                             {isOpen ? (
                               <ChevronDown className="h-4 w-4" />
                             ) : (
@@ -81,9 +66,7 @@ const DreamOutcome: React.FC<DreamOutcomeProps> = ({
                             )}
                           </CollapsibleTrigger>
                           <CollapsibleContent className="mt-4">
-                            <p className="text-muted-foreground">
-                              {outcome.description}
-                            </p>
+                            <p className="text-muted-foreground">{outcome.description}</p>
                           </CollapsibleContent>
                         </Collapsible>
                       </CardContent>
@@ -93,10 +76,7 @@ const DreamOutcome: React.FC<DreamOutcomeProps> = ({
               </div>{" "}
               {/* Right side: Image */}{" "}
               <Image
-                src={
-                  dreamOutcomeList[openIndex]?.image ||
-                  "/images/social-sharing.png"
-                }
+                src={dreamOutcomeList[openIndex]?.image || "/images/social-sharing.png"}
                 alt={dreamOutcomeList[openIndex]?.text || "Dream outcome"}
                 width={1080}
                 height={1080}

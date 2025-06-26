@@ -16,9 +16,9 @@ export default function ThankYouPage() {
         </h1>{" "}
         {/* Supporting Text */}
         <p className="text-muted-foreground max-w-2xl text-lg">
-          You've successfully claimed your $300 coupon. One of our team members
-          will reach out soon to get your tracking system started. You can also
-          schedule your setup call directly below if you haven't already!
+          You've successfully claimed your $300 coupon. One of our team members will reach out soon
+          to get your tracking system started. You can also schedule your setup call directly below
+          if you haven't already!
         </p>{" "}
         {/* CTA Button to Meeting Page */}
         <Link href="./book-a-meeting">

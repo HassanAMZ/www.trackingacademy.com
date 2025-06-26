@@ -30,9 +30,7 @@ const DetailedCTA: React.FC<DetailedCTAProps> = ({
         {heading && <h2 className="mb-4">{heading}</h2>}
 
         {/* Subheading */}
-        {subheading && (
-          <h4 className="text-muted-foreground mb-8">{subheading}</h4>
-        )}
+        {subheading && <h4 className="text-muted-foreground mb-8">{subheading}</h4>}
 
         {/* List Items */}
         {listItems && listItems.length > 0 && (
@@ -52,11 +50,7 @@ const DetailedCTA: React.FC<DetailedCTAProps> = ({
         {customButton ? (
           <React.Fragment>{customButton}</React.Fragment> //
         ) : buttonText && buttonLink ? (
-          <Button
-            size="lg"
-            asChild
-            className="hover:bg-primary/90 p-8 text-lg whitespace-pre-wrap"
-          >
+          <Button size="lg" asChild className="hover:bg-primary/90 p-8 text-lg whitespace-pre-wrap">
             <Link href={buttonLink}>
               {buttonText}
               <ArrowRight className="ml-2 h-4 w-4" />
@@ -65,9 +59,7 @@ const DetailedCTA: React.FC<DetailedCTAProps> = ({
         ) : null}
 
         {/* Footer Text */}
-        {footerText && (
-          <p className="text-muted-foreground py-4">{footerText}</p>
-        )}
+        {footerText && <p className="text-muted-foreground py-4">{footerText}</p>}
       </Container>
     </section>
   );

@@ -6,11 +6,7 @@ import "@/styles/global.css";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { GeistSans } from "geist/font/sans";
 import type { Metadata } from "next";
-import {
-  ReactNode,
-  Suspense,
-  unstable_ViewTransition as ViewTransition,
-} from "react";
+import { ReactNode, Suspense, unstable_ViewTransition as ViewTransition } from "react";
 import AuthWrapper from "./context/AuthContextWrapper";
 
 export const metadata: Metadata = {

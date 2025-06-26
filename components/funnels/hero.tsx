@@ -40,26 +40,16 @@ const Hero: React.FC<HeroProps> = ({
         )}
         {headingText && (
           <div className="max-w-6xl">
-            {typeof headingText === "string" ? (
-              <h1>{headingText}</h1>
-            ) : (
-              headingText
-            )}
+            {typeof headingText === "string" ? <h1>{headingText}</h1> : headingText}
           </div>
         )}
         {subheadingText && (
           <div className="text-muted-foreground max-w-4xl">
-            {typeof subheadingText === "string" ? (
-              <h4>{subheadingText}</h4>
-            ) : (
-              subheadingText
-            )}
+            {typeof subheadingText === "string" ? <h4>{subheadingText}</h4> : subheadingText}
           </div>
         )}{" "}
         <div className="w-full">
-          {youtubeEmbedId && (
-            <YoutubeEmbed className="max-w-4xl" embedId={youtubeEmbedId} />
-          )}
+          {youtubeEmbedId && <YoutubeEmbed className="max-w-4xl" embedId={youtubeEmbedId} />}
         </div>{" "}
         <div className="flex max-w-xl items-center space-x-4">
           {ctaButtonText && ctaButtonLink && (
@@ -71,9 +61,7 @@ const Hero: React.FC<HeroProps> = ({
               <Link href={ctaButtonLink}>
                 <div>
                   <h3>{ctaButtonText}</h3>
-                  {subtextForButtonCta && (
-                    <p className="opacity-80">{subtextForButtonCta}</p>
-                  )}
+                  {subtextForButtonCta && <p className="opacity-80">{subtextForButtonCta}</p>}
                 </div>
               </Link>
             </Button>

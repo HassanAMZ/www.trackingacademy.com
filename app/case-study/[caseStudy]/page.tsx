@@ -3,11 +3,7 @@ import CaseStudyContent from "@/components/case-study/case-study-content";
 import { caseStudies } from "@/data/case-studies";
 import { notFound } from "next/navigation";
 
-export default async function Page({
-  params,
-}: {
-  params: Promise<{ caseStudy: string }>;
-}) {
+export default async function Page({ params }: { params: Promise<{ caseStudy: string }> }) {
   const { caseStudy: caseStudyId } = await params;
 
   // Find the case study by ID

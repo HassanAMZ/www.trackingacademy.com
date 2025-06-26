@@ -35,11 +35,7 @@ export default function TestimonialGrid({
   const bottomRowTestimonials = [...caseStudies].reverse(); // 5,4,3,2,1...
 
   // Create infinite loops by triplicating items for continuous flow
-  const topRowItems = [
-    ...topRowTestimonials,
-    ...topRowTestimonials,
-    ...topRowTestimonials,
-  ];
+  const topRowItems = [...topRowTestimonials, ...topRowTestimonials, ...topRowTestimonials];
   const bottomRowItems = [
     ...bottomRowTestimonials,
     ...bottomRowTestimonials,
@@ -144,9 +140,7 @@ export default function TestimonialGrid({
               width: `${topRowItems.length * totalItemWidth}px`,
             }}
           >
-            {topRowItems.map((caseStudy, index) =>
-              renderTestimonialCard(caseStudy, index),
-            )}
+            {topRowItems.map((caseStudy, index) => renderTestimonialCard(caseStudy, index))}
           </div>
         </div>
 
@@ -159,9 +153,7 @@ export default function TestimonialGrid({
               width: `${bottomRowItems.length * totalItemWidth}px`,
             }}
           >
-            {bottomRowItems.map((caseStudy, index) =>
-              renderTestimonialCard(caseStudy, index),
-            )}
+            {bottomRowItems.map((caseStudy, index) => renderTestimonialCard(caseStudy, index))}
           </div>
         </div>
       </div>

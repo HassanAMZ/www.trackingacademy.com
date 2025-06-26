@@ -1,14 +1,7 @@
 "use client";
 
 import Container from "@/components/ui/container";
-import {
-  Facebook,
-  Linkedin,
-  Mail,
-  Phone,
-  Twitter,
-  Youtube,
-} from "lucide-react";
+import { Facebook, Linkedin, Mail, Phone, Youtube } from "lucide-react";
 import Link from "next/link";
 import { ThemeToggle } from "./theme-switch";
 
@@ -20,11 +13,7 @@ export default function Footer() {
           {/* Brand */}
           <div>
             <Link href="/">
-              <img
-                src="/logo.png"
-                alt="TrackingAcademy Logo"
-                className="mb-4 h-8"
-              />
+              <img src="/logo.png" alt="TrackingAcademy Logo" className="mb-4 h-8" />
             </Link>
             <p className="text-muted-foreground text-sm">
               Reclaim the 30% of sales you're missing with better tracking.
@@ -78,18 +67,12 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <Link
-                  href="mailto:analytics@trackingacademy.com"
-                  aria-label="Email"
-                >
+                <Link href="mailto:analytics@trackingacademy.com" aria-label="Email">
                   analytics@trackingacademy.com
                 </Link>
               </li>
               <li>
-                <Link
-                  href="/contact/book-a-meeting"
-                  className="hover:underline"
-                >
+                <Link href="/contact/book-a-meeting" className="hover:underline">
                   Book A Meeting
                 </Link>
               </li>
@@ -100,10 +83,7 @@ export default function Footer() {
           <div>
             <h4 className="mb-3 text-sm font-semibold">Stay Connected</h4>
             <div className="mb-4 flex items-center space-x-4">
-              <Link
-                href="mailto:analytics@trackingacademy.com"
-                aria-label="Email"
-              >
+              <Link href="mailto:analytics@trackingacademy.com" aria-label="Email">
                 <Mail className="hover:text-primary h-5 w-5" />
               </Link>
               <Link
@@ -127,11 +107,7 @@ export default function Footer() {
               >
                 <Facebook className="hover:text-primary h-5 w-5" />
               </Link>
-              <Link
-                href="tel:00923364904686"
-                target="_blank"
-                aria-label="Phone"
-              >
+              <Link href="tel:00923364904686" target="_blank" aria-label="Phone">
                 <Phone className="hover:text-primary h-5 w-5" />
               </Link>
             </div>
@@ -141,8 +117,7 @@ export default function Footer() {
 
         {/* Bottom */}
         <div className="text-muted-foreground mt-10 border-t pt-6 text-center text-xs">
-          © 2020 - {new Date().getFullYear()} TrackingAcademy. All rights
-          reserved.
+          © 2020 - {new Date().getFullYear()} TrackingAcademy. All rights reserved.
         </div>
       </Container>
     </footer>

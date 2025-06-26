@@ -34,26 +34,19 @@ const BlogHeader: React.FC<PostMetadataProps> = ({ metadata }) => {
                 <h1>{metadata.title}</h1>{" "}
                 <div className="flex items-center space-x-4">
                   <Avatar className="h-12 w-12">
-                    <AvatarImage
-                      src="/images/avatars/hassan.png"
-                      alt="ShahzadaAliHassan"
-                    />
+                    <AvatarImage src="/images/avatars/hassan.png" alt="ShahzadaAliHassan" />
                     <AvatarFallback>SAH</AvatarFallback>
                   </Avatar>{" "}
                   <div className="space-y-1">
                     <div className="flex items-center space-x-2">
                       <span className="font-medium">ShahzadaAliHassan</span>
                       <span className="text-muted-foreground">·</span>
-                      <time className="text-muted-foreground">
-                        {formatDate(metadata.date)}
-                      </time>
+                      <time className="text-muted-foreground">{formatDate(metadata.date)}</time>
                     </div>{" "}
                     <div className="text-muted-foreground flex items-center text-sm">
                       {metadata.updatedDate && (
                         <div>
-                          <span>
-                            Last updated: {formatDate(metadata.updatedDate)}
-                          </span>
+                          <span>Last updated: {formatDate(metadata.updatedDate)}</span>
                           <span className="mx-2">·</span>
                         </div>
                       )}
@@ -63,10 +56,7 @@ const BlogHeader: React.FC<PostMetadataProps> = ({ metadata }) => {
                 </div>{" "}
                 <div className="flex flex-wrap gap-2">
                   {metadata.tags.map((tag, index) => (
-                    <Link
-                      href={`/tags/${tag.toLowerCase().replace(/\s+/g, "-")}`}
-                      key={index}
-                    >
+                    <Link href={`/tags/${tag.toLowerCase().replace(/\s+/g, "-")}`} key={index}>
                       <Badge variant="secondary" className="px-3 py-1">
                         {tag}
                       </Badge>

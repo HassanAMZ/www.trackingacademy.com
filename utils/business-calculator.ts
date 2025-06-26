@@ -82,12 +82,10 @@ export function calculateBusinessMetrics(
     marketing: params.clientMarketing + params.agencyMarketing,
     operations: params.clientOperations + params.agencyOperations,
     cac:
-      (params.clientCac * params.clientContracts +
-        params.agencyCac * params.agencyContracts) /
+      (params.clientCac * params.clientContracts + params.agencyCac * params.agencyContracts) /
       (params.clientContracts + params.agencyContracts),
     ltgp:
-      (params.clientLtgp * params.clientContracts +
-        params.agencyLtgp * params.agencyContracts) /
+      (params.clientLtgp * params.clientContracts + params.agencyLtgp * params.agencyContracts) /
       (params.clientContracts + params.agencyContracts),
     ltvCac: 0, // Initialize with 0, will be calculated in the loop
     employees: params.initialEmployees,
@@ -97,16 +95,12 @@ export function calculateBusinessMetrics(
     executiveTeam: 0,
     ceo: 0,
     netProfit:
-      params.clientIncome +
-      params.agencyIncome -
-      (params.clientExpenses + params.agencyExpenses),
+      params.clientIncome + params.agencyIncome - (params.clientExpenses + params.agencyExpenses),
   };
 
   for (let month = 0; month <= monthsToProject; month++) {
     // Calculate leadership structure
-    currentMetrics.teamLeads = Math.floor(
-      currentMetrics.employees / params.employeesPerTeamLead,
-    );
+    currentMetrics.teamLeads = Math.floor(currentMetrics.employees / params.employeesPerTeamLead);
     currentMetrics.secondLevelLeaders = Math.floor(
       currentMetrics.teamLeads / params.teamLeadsPerSecondLevel,
     );
@@ -116,9 +110,7 @@ export function calculateBusinessMetrics(
     currentMetrics.executiveTeam = Math.floor(
       currentMetrics.thirdLevelLeaders / params.thirdLevelPerExecutive,
     );
-    currentMetrics.ceo = Math.floor(
-      currentMetrics.executiveTeam / params.executivesPerCEO,
-    ); // Calculate LTV:CAC
+    currentMetrics.ceo = Math.floor(currentMetrics.executiveTeam / params.executivesPerCEO); // Calculate LTV:CAC
     currentMetrics.ltvCac = currentMetrics.ltgp / currentMetrics.cac;
     metrics.push({ ...currentMetrics }); // Apply growth for next month
     const growthFactor = 1 + growthRate;
@@ -128,9 +120,7 @@ export function calculateBusinessMetrics(
     currentMetrics.expenses *= growthFactor;
     currentMetrics.marketing *= growthFactor;
     currentMetrics.operations *= growthFactor;
-    currentMetrics.employees = Math.ceil(
-      currentMetrics.employees * growthFactor,
-    );
+    currentMetrics.employees = Math.ceil(currentMetrics.employees * growthFactor);
     currentMetrics.netProfit = currentMetrics.income - currentMetrics.expenses;
   }
 

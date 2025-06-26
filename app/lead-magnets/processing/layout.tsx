@@ -2,8 +2,7 @@ import type { Metadata } from "next";
 import { ReactNode } from "react";
 
 export const metadata: Metadata = {
-  title:
-    "Analyzing Your Website - Tracking Audit in Progress | Total Transparency",
+  title: "Analyzing Your Website - Tracking Audit in Progress | Total Transparency",
   description:
     "Your website tracking audit is being processed. Our AI system is analyzing Meta Pixel implementation, GDPR compliance, and conversion tracking setup for comprehensive optimization recommendations.",
   openGraph: {

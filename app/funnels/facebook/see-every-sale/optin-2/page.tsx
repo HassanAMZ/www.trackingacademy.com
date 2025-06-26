@@ -4,16 +4,10 @@ import TestimonialsCarousel2 from "@/components/for-freelancers/testimonials-car
 import CouponOptInForm from "@/components/funnels/coupon-optin";
 import TrackingTable from "@/components/global/tracking-table";
 import Hero from "@/components/home/hero";
-import TestimonialsCarousel from "@/components/testimonial/testimonial-carousal";
 import TestimonialGrid from "@/components/testimonial/testimonial-grid";
 import { Button } from "@/components/ui/button";
 import Container from "@/components/ui/container";
-import {
-  Dialog,
-  DialogContent,
-  DialogHeader,
-  DialogTitle,
-} from "@/components/ui/dialog";
+import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { useState } from "react";
 
 export default function Page() {
@@ -25,9 +19,8 @@ export default function Page() {
         <Hero
           heading={
             <h1>
-              <span className="text-primary">Never Miss a Sale Again </span>-
-              Track 95% of Your Conversions -{" "}
-              <span className="text-primary"> Guaranteed!</span>
+              <span className="text-primary">Never Miss a Sale Again </span>- Track 95% of Your
+              Conversions - <span className="text-primary"> Guaranteed!</span>
             </h1>
           }
           carousel={<TestimonialsCarousel2 />}
@@ -46,8 +39,7 @@ export default function Page() {
               onClick={() => setIsModalOpen(true)}
             >
               <div>
-                🎟️ Claim Your $300 Coupon for 3-Day "See Every Sale" Tracking
-                System
+                🎟️ Claim Your $300 Coupon for 3-Day "See Every Sale" Tracking System
                 <span className="mt-2 block text-sm font-medium opacity-90">
                   Limited to the first 10 clients — act fast before it expires
                 </span>
@@ -58,9 +50,7 @@ export default function Page() {
           clientCountText="1032+ websites configured with 95% accuracy"
         />
         <Container>
-          <h1 className="pt-12 pb-6 text-center">
-            300+ Satisfied Customers Can't Be Wrong
-          </h1>{" "}
+          <h1 className="pt-12 pb-6 text-center">300+ Satisfied Customers Can't Be Wrong</h1>{" "}
           {/* <TestimonialsCarousel /> */}
         </Container>
         <TestimonialGrid />{" "}
@@ -71,8 +61,7 @@ export default function Page() {
             onClick={() => setIsModalOpen(true)}
           >
             <div>
-              🎟️ Claim Your $300 Coupon for 3-Day "See Every Sale" Tracking
-              System
+              🎟️ Claim Your $300 Coupon for 3-Day "See Every Sale" Tracking System
               <span className="mt-2 block text-sm font-medium opacity-90">
                 Limited to the first 10 clients — act fast before it expires
               </span>

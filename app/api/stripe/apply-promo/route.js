@@ -30,10 +30,7 @@ export async function POST(req) {
     });
 
     if (promotionCodes.data.length === 0) {
-      return NextResponse.json(
-        { error: "Invalid or expired promotion code" },
-        { status: 400 },
-      );
+      return NextResponse.json({ error: "Invalid or expired promotion code" }, { status: 400 });
     }
 
     const validPromo = promotionCodes.data[0];
@@ -43,8 +40,7 @@ export async function POST(req) {
 
     // Check if the coupon is restricted to specific products
     if (coupon.applies_to && coupon.applies_to.products) {
-      const productId =
-        typeof price.product === "string" ? price.product : price.product.id;
+      const productId = typeof price.product === "string" ? price.product : price.product.id;
 
       if (!coupon.applies_to.products.includes(productId)) {
         return NextResponse.json(
@@ -63,10 +59,7 @@ export async function POST(req) {
     }
 
     // Check if coupon has usage limits
-    if (
-      coupon.max_redemptions &&
-      coupon.times_redeemed >= coupon.max_redemptions
-    ) {
+    if (coupon.max_redemptions && coupon.times_redeemed >= coupon.max_redemptions) {
       return NextResponse.json(
         { error: "This promotion code has reached its usage limit" },
         { status: 400 },
@@ -95,10 +88,8 @@ export async function POST(req) {
         priceId,
         collect_billing_details: "auto",
 
-        productId:
-          typeof price.product === "string" ? price.product : price.product.id,
-        productName:
-          typeof price.product === "string" ? "Product" : price.product.name,
+        productId: typeof price.product === "string" ? price.product : price.product.id,
+        productName: typeof price.product === "string" ? "Product" : price.product.name,
         appliedPromoCode: promotionCode,
         promoCodeId: validPromo.id,
         promoCouponId: coupon.id,
@@ -125,10 +116,7 @@ export async function POST(req) {
 
     // Handle specific Stripe errors
     if (err.type === "StripeCardError") {
-      return NextResponse.json(
-        { error: "Card error: " + err.message },
-        { status: 400 },
-      );
+      return NextResponse.json({ error: "Card error: " + err.message }, { status: 400 });
     }
 
     return NextResponse.json(

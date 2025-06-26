@@ -35,8 +35,7 @@ export default function PaymentFailedEmail({
         <title>Payment Failed - Please Try Again</title>
       </Head>
       <Preview>
-        Payment failed for {currency} {amount}. Please try again or contact
-        support.
+        Payment failed for {currency} {amount}. Please try again or contact support.
       </Preview>
       <Body style={main}>
         <Container style={container}>
@@ -56,8 +55,8 @@ export default function PaymentFailedEmail({
             <Heading style={heading}>Payment Failed</Heading>
             <Text style={greeting}>Hi {name},</Text>
             <Text style={paragraph}>
-              We were unable to process your payment. Please try again or
-              contact our support team if you continue to experience issues.
+              We were unable to process your payment. Please try again or contact our support team
+              if you continue to experience issues.
             </Text>
           </Section>
 
@@ -85,8 +84,7 @@ export default function PaymentFailedEmail({
               Try Again
             </Heading>
             <Text style={paragraph}>
-              You can retry your payment or contact our support team for
-              assistance.
+              You can retry your payment or contact our support team for assistance.
             </Text>
             <Button href={`${baseUrl}/funnels/payment`} style={ctaButton}>
               Retry Payment

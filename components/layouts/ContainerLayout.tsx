@@ -6,11 +6,7 @@ interface ContainerLayoutProps {
   id?: string; // Optional id prop
 }
 
-const ContainerLayout: FC<ContainerLayoutProps> = ({
-  children,
-  className,
-  id,
-}) => {
+const ContainerLayout: FC<ContainerLayoutProps> = ({ children, className, id }) => {
   return (
     <div id={id} className={`container-primary ${className || ""}`}>
       {children}

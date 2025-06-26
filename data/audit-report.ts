@@ -447,8 +447,7 @@ const auditReports: AuditReport[] = [
       },
       {
         id: "implement-google-ads-server-side-tracking",
-        title:
-          "Implement Google Ads conversion tracking using server-side tracking",
+        title: "Implement Google Ads conversion tracking using server-side tracking",
         categories: ["Ads"],
         scoreImprovement: 10,
       },
@@ -629,8 +628,7 @@ const auditReports: AuditReport[] = [
       },
       {
         id: "implement-google-ads-ss-tracking",
-        title:
-          "Implement Google Ads conversion tracking using server-side tracking",
+        title: "Implement Google Ads conversion tracking using server-side tracking",
         categories: ["Ads"],
         scoreImprovement: 10,
       },
@@ -986,8 +984,7 @@ const auditReports: AuditReport[] = [
     recommendedActions: [
       {
         id: "1",
-        title:
-          "Use Cookie Keeper to bypass ITP limits and extend cookie duration",
+        title: "Use Cookie Keeper to bypass ITP limits and extend cookie duration",
         categories: ["Cookies"],
         scoreImprovement: 19,
       },
@@ -1212,8 +1209,7 @@ const auditReports: AuditReport[] = [
       },
       {
         id: "implement-google-ads-server-side",
-        title:
-          "Implement Google Ads conversion tracking using server-side tracking",
+        title: "Implement Google Ads conversion tracking using server-side tracking",
         categories: ["Ads"],
         scoreImprovement: 10,
       },
@@ -1375,8 +1371,7 @@ const auditReports: AuditReport[] = [
       },
       {
         id: "recommended-action-google-ads-ss",
-        title:
-          "Implement Google Ads conversion tracking using server-side tracking",
+        title: "Implement Google Ads conversion tracking using server-side tracking",
         categories: ["Ads"],
         scoreImprovement: 10,
       },
@@ -1824,8 +1819,7 @@ const auditReports: AuditReport[] = [
       },
       {
         id: "google-ads-server-side",
-        title:
-          "Implement Google Ads conversion tracking using server-side tracking",
+        title: "Implement Google Ads conversion tracking using server-side tracking",
         categories: ["Ads"],
         scoreImprovement: 10,
       },
@@ -2888,8 +2882,7 @@ const auditReports: AuditReport[] = [
       },
       {
         id: "google-ads-server-side",
-        title:
-          "Implement Google Ads conversion tracking using server-side tracking",
+        title: "Implement Google Ads conversion tracking using server-side tracking",
         categories: ["Advertisement"],
         scoreImprovement: 10,
       },
@@ -3196,8 +3189,7 @@ const auditReports: AuditReport[] = [
     recommendedActions: [
       {
         id: "use-cookie-keeper-bypass-itp",
-        title:
-          "Use Cookie Keeper to bypass ITP limits and extend cookie duration",
+        title: "Use Cookie Keeper to bypass ITP limits and extend cookie duration",
         categories: ["Cookies"],
         scoreImprovement: 19,
       },
@@ -3397,8 +3389,7 @@ const auditReports: AuditReport[] = [
       },
       {
         id: "google-ads-server-side",
-        title:
-          "Implement Google Ads conversion tracking with server-side tracking",
+        title: "Implement Google Ads conversion tracking with server-side tracking",
         categories: ["Ads"],
         scoreImprovement: 10,
       },
@@ -3549,8 +3540,7 @@ const auditReports: AuditReport[] = [
     recommendedActions: [
       {
         id: "cookie-keeper",
-        title:
-          "Use Cookie Keeper to bypass ITP limits and extend cookie duration",
+        title: "Use Cookie Keeper to bypass ITP limits and extend cookie duration",
         categories: ["Cookies"],
         scoreImprovement: 19,
       },
@@ -3723,8 +3713,7 @@ const auditReports: AuditReport[] = [
     recommendedActions: [
       {
         id: "action-1",
-        title:
-          "Use Cookie Keeper to bypass ITP limits and extend cookie duration",
+        title: "Use Cookie Keeper to bypass ITP limits and extend cookie duration",
         categories: ["Cookies"],
         scoreImprovement: 19,
       },
@@ -3865,8 +3854,7 @@ const auditReports: AuditReport[] = [
       },
       {
         id: "action-google-ads-server-side-001",
-        title:
-          "Implement Google Ads conversion tracking using server-side tracking",
+        title: "Implement Google Ads conversion tracking using server-side tracking",
         categories: ["Ads"],
         scoreImprovement: 10,
       },
@@ -3995,8 +3983,7 @@ const auditReports: AuditReport[] = [
       },
       {
         id: "action-implement-google-ads-server-side-tracking",
-        title:
-          "Implement Google Ads conversion tracking using server-side tracking",
+        title: "Implement Google Ads conversion tracking using server-side tracking",
         categories: ["Advertisement"],
         scoreImprovement: 10,
       },
@@ -4182,8 +4169,7 @@ const auditReports: AuditReport[] = [
     recommendedActions: [
       {
         id: "action-cookie-keeper",
-        title:
-          "Use Cookie Keeper to bypass ITP limits and extend cookie duration",
+        title: "Use Cookie Keeper to bypass ITP limits and extend cookie duration",
         categories: ["Cookies"],
         scoreImprovement: 19,
       },
@@ -4207,8 +4193,7 @@ const auditReports: AuditReport[] = [
       },
       {
         id: "action-google-ads",
-        title:
-          "Implement Google Ads conversion tracking using server-side tracking",
+        title: "Implement Google Ads conversion tracking using server-side tracking",
         categories: ["Ads"],
         scoreImprovement: 10,
       },
@@ -4982,8 +4967,7 @@ const auditReports: AuditReport[] = [
       },
       {
         id: "activecampaign-ss",
-        title:
-          "Upgrade ActiveCampaign tracking with server-side implementation",
+        title: "Upgrade ActiveCampaign tracking with server-side implementation",
         categories: ["Advertisement"],
         scoreImprovement: 7,
       },
@@ -5189,8 +5173,7 @@ const auditReports: AuditReport[] = [
     recommendedActions: [
       {
         id: "action-cookie-keeper",
-        title:
-          "Use Cookie Keeper to bypass ITP limits and extend cookie duration",
+        title: "Use Cookie Keeper to bypass ITP limits and extend cookie duration",
         categories: ["Cookies"],
         scoreImprovement: 19,
       },
@@ -5220,8 +5203,7 @@ const auditReports: AuditReport[] = [
       },
       {
         id: "action-google-ads-ss",
-        title:
-          "Implement Google Ads conversion tracking using server-side tracking",
+        title: "Implement Google Ads conversion tracking using server-side tracking",
         categories: ["Ads"],
         scoreImprovement: 10,
       },
@@ -5533,8 +5515,7 @@ const auditReports: AuditReport[] = [
     recommendedActions: [
       {
         id: "use-cookie-keeper",
-        title:
-          "Use Cookie Keeper to bypass ITP limits and extend cookie duration",
+        title: "Use Cookie Keeper to bypass ITP limits and extend cookie duration",
         categories: ["Cookies"],
         scoreImprovement: 19,
       },
@@ -5676,8 +5657,7 @@ const auditReports: AuditReport[] = [
     recommendedActions: [
       {
         id: "cookie-keeper",
-        title:
-          "Use Cookie Keeper to bypass ITP limits and extend cookie duration",
+        title: "Use Cookie Keeper to bypass ITP limits and extend cookie duration",
         categories: ["Cookies"],
         scoreImprovement: 19,
       },
@@ -5701,8 +5681,7 @@ const auditReports: AuditReport[] = [
       },
       {
         id: "implement-google-ads-server-side",
-        title:
-          "Implement Google Ads conversion tracking using server-side tracking",
+        title: "Implement Google Ads conversion tracking using server-side tracking",
         categories: ["Ads"],
         scoreImprovement: 10,
       },
@@ -5790,8 +5769,7 @@ const auditReports: AuditReport[] = [
       },
       {
         id: "ads-server-side",
-        title:
-          "Implement Google Ads conversion tracking using server-side tracking",
+        title: "Implement Google Ads conversion tracking using server-side tracking",
         categories: ["Ads"],
         scoreImprovement: 10,
       },
@@ -6412,8 +6390,7 @@ const auditReports: AuditReport[] = [
     recommendedActions: [
       {
         id: "cookie-keeper",
-        title:
-          "Use Cookie Keeper to bypass ITP limits and extend cookie duration",
+        title: "Use Cookie Keeper to bypass ITP limits and extend cookie duration",
         categories: ["Cookies"],
         scoreImprovement: 19,
       },
@@ -6803,8 +6780,7 @@ const auditReports: AuditReport[] = [
     recommendedActions: [
       {
         id: "cookie-keeper",
-        title:
-          "Use Cookie Keeper to bypass ITP limits and extend cookie duration",
+        title: "Use Cookie Keeper to bypass ITP limits and extend cookie duration",
         categories: ["Cookies"],
         scoreImprovement: 19,
       },
@@ -6913,8 +6889,7 @@ const auditReports: AuditReport[] = [
     recommendedActions: [
       {
         id: "cookie-keeper",
-        title:
-          "Use Cookie Keeper to bypass ITP limits and extend cookie duration",
+        title: "Use Cookie Keeper to bypass ITP limits and extend cookie duration",
         categories: ["Cookies"],
         scoreImprovement: 19,
       },
@@ -7091,8 +7066,7 @@ const auditReports: AuditReport[] = [
       },
       {
         id: "cookie-keeper",
-        title:
-          "Use Cookie Keeper to bypass ITP limits and extend cookie duration",
+        title: "Use Cookie Keeper to bypass ITP limits and extend cookie duration",
         categories: ["Cookies"],
         scoreImprovement: 19,
       },
@@ -7234,8 +7208,7 @@ const auditReports: AuditReport[] = [
     recommendedActions: [
       {
         id: "cookie-keeper",
-        title:
-          "Use Cookie Keeper to bypass ITP limits and extend cookie duration",
+        title: "Use Cookie Keeper to bypass ITP limits and extend cookie duration",
         categories: ["Cookies"],
         scoreImprovement: 19,
       },

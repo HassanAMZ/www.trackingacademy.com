@@ -47,22 +47,14 @@ export function UserProfile() {
   }
 
   return (
-    <form
-      id="user-profile"
-      onSubmit={handleUpdateProfile}
-      className="space-y-4"
-    >
+    <form id="user-profile" onSubmit={handleUpdateProfile} className="space-y-4">
       <Input
         type="text"
         placeholder="Display Name"
         value={displayName}
         onChange={(e) => setDisplayName(e.target.value)}
       />
-      <Textarea
-        placeholder="Bio"
-        value={bio}
-        onChange={(e) => setBio(e.target.value)}
-      />
+      <Textarea placeholder="Bio" value={bio} onChange={(e) => setBio(e.target.value)} />
       <Button type="submit">Update Profile</Button>
     </form>
   );

@@ -1,21 +1,9 @@
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
-import {
-  Tooltip,
-  TooltipContent,
-  TooltipProvider,
-  TooltipTrigger,
-} from "@/components/ui/tooltip";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
 import { Service } from "@/data/services";
-import { ArrowRight, Check, CheckCircle, HelpCircle, X } from "lucide-react";
+import { ArrowRight, Check, CheckCircle, X } from "lucide-react";
 import Link from "next/link";
 
 interface FeatureWithTooltipProps {
@@ -46,10 +34,7 @@ interface FeatureComparisonMobileProps {
   featureNames: string[];
 }
 
-const FeatureWithTooltip = ({
-  featureName,
-  services,
-}: FeatureWithTooltipProps) => {
+const FeatureWithTooltip = ({ featureName, services }: FeatureWithTooltipProps) => {
   // Get explanations from the first service (assuming they're consistent across services)
   const explanations = services[0]?.featureExplanations || {};
 
@@ -109,10 +94,7 @@ const ValueWithTooltip = ({ value, services }: ValueWithTooltipProps) => {
               ) : term === "SST" ? (
                 <>
                   {explanations[term]}{" "}
-                  <Link
-                    href="/case-study"
-                    className="text-primary hover:underline"
-                  >
+                  <Link href="/case-study" className="text-primary hover:underline">
                     View our case studies
                   </Link>
                   .
@@ -131,8 +113,7 @@ const ValueWithTooltip = ({ value, services }: ValueWithTooltipProps) => {
 const ServiceCard = ({ service }: ServiceCardProps) => {
   const service_id = service.id;
   const keyFeatures = Object.entries(service.features).filter(
-    ([_, value]) =>
-      value === true || (typeof value === "string" && value !== "false"),
+    ([_, value]) => value === true || (typeof value === "string" && value !== "false"),
   );
 
   return (
@@ -158,9 +139,7 @@ const ServiceCard = ({ service }: ServiceCardProps) => {
 
         <div className="flex items-center gap-4 pt-4">
           <div className="text-3xl font-bold">{service.price}</div>
-          <Badge
-            variant={service.accuracy.includes("95") ? "default" : "outline"}
-          >
+          <Badge variant={service.accuracy.includes("95") ? "default" : "outline"}>
             {service.accuracy} Accuracy
           </Badge>
         </div>
@@ -187,11 +166,7 @@ const ServiceCard = ({ service }: ServiceCardProps) => {
         </div>
 
         <div className="space-y-3 border-t pt-4">
-          <Button
-            className="w-full"
-            variant={service.buttonVariant as any}
-            asChild
-          >
+          <Button className="w-full" variant={service.buttonVariant as any} asChild>
             <Link
               href={`/payment/?product_id=${service.product_id}&price_id=${service.price_id}`}
               className="flex items-center gap-2"
@@ -202,10 +177,7 @@ const ServiceCard = ({ service }: ServiceCardProps) => {
           </Button>
 
           <Button variant="ghost" className="w-full" asChild>
-            <Link
-              href={`/services/${service_id}`}
-              className="flex items-center gap-2"
-            >
+            <Link href={`/services/${service_id}`} className="flex items-center gap-2">
               Learn More
             </Link>
           </Button>
@@ -215,10 +187,7 @@ const ServiceCard = ({ service }: ServiceCardProps) => {
   );
 };
 
-const FeatureComparisonDesktop = ({
-  services,
-  featureNames,
-}: FeatureComparisonDesktopProps) => {
+const FeatureComparisonDesktop = ({ services, featureNames }: FeatureComparisonDesktopProps) => {
   return (
     <div className="hidden lg:block">
       <div
@@ -247,16 +216,10 @@ const FeatureComparisonDesktop = ({
             }}
           >
             <div className="px-4 font-medium">
-              <FeatureWithTooltip
-                featureName={featureName}
-                services={services}
-              />
+              <FeatureWithTooltip featureName={featureName} services={services} />
             </div>
             {services.map((service, serviceIndex) => (
-              <div
-                key={serviceIndex}
-                className="flex items-center justify-center"
-              >
+              <div key={serviceIndex} className="flex items-center justify-center">
                 {typeof service.features[featureName] === "string" ? (
                   <ValueWithTooltip
                     value={service.features[featureName] as string}
@@ -276,10 +239,7 @@ const FeatureComparisonDesktop = ({
   );
 };
 
-const FeatureComparisonMobile = ({
-  services,
-  featureNames,
-}: FeatureComparisonMobileProps) => {
+const FeatureComparisonMobile = ({ services, featureNames }: FeatureComparisonMobileProps) => {
   return (
     <div className="space-y-6 lg:hidden">
       {services.map((service, planIndex) => (
@@ -287,17 +247,11 @@ const FeatureComparisonMobile = ({
           <div className="mb-4 flex items-center justify-between">
             <div>
               <h3 className="font-semibold">{service.name}</h3>
-              <p className="text-muted-foreground text-sm">
-                {service.subtitle}
-              </p>
+              <p className="text-muted-foreground text-sm">{service.subtitle}</p>
             </div>
             <div className="text-right">
               <div className="text-lg font-bold">{service.price}</div>
-              <Badge
-                variant={
-                  service.accuracy.includes("95") ? "default" : "outline"
-                }
-              >
+              <Badge variant={service.accuracy.includes("95") ? "default" : "outline"}>
                 {service.accuracy}
               </Badge>
             </div>
@@ -310,10 +264,7 @@ const FeatureComparisonMobile = ({
                 className="border-border/50 flex items-center justify-between border-b py-2 last:border-b-0"
               >
                 <div className="flex-1">
-                  <FeatureWithTooltip
-                    featureName={featureName}
-                    services={services}
-                  />
+                  <FeatureWithTooltip featureName={featureName} services={services} />
                 </div>
                 <div className="flex items-center">
                   {typeof service.features[featureName] === "string" ? (
@@ -346,22 +297,14 @@ const FeatureComparison = ({ services }: FeatureComparisonProps) => {
     <Card className="mt-12">
       <CardHeader>
         <CardTitle>Feature Comparison</CardTitle>
-        <CardDescription>
-          Compare features across our different tracking solutions
-        </CardDescription>
+        <CardDescription>Compare features across our different tracking solutions</CardDescription>
       </CardHeader>
       <CardContent>
-        <FeatureComparisonDesktop
-          services={services}
-          featureNames={featureNames}
-        />
-        <FeatureComparisonMobile
-          services={services}
-          featureNames={featureNames}
-        />
+        <FeatureComparisonDesktop services={services} featureNames={featureNames} />
+        <FeatureComparisonMobile services={services} featureNames={featureNames} />
       </CardContent>
     </Card>
   );
 };
 
-export { ServiceCard, FeatureComparison };
+export { FeatureComparison, ServiceCard };

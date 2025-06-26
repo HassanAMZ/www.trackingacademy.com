@@ -68,9 +68,8 @@ export default function WaitListEmail({
             Dear {firstName} {lastName},
           </Text>
           <Text>
-            Thank you for your interest in our courses. You are now on our
-            waitlist, and we will notify you as soon as registration opens. Here
-            are the details we have on file:
+            Thank you for your interest in our courses. You are now on our waitlist, and we will
+            notify you as soon as registration opens. Here are the details we have on file:
           </Text>{" "}
           <Section>
             <Heading as="h2">Personal Information</Heading>
@@ -105,8 +104,7 @@ export default function WaitListEmail({
               <strong>Learning Goals:</strong> {learningGoals}
             </Text>
             <Text>
-              <strong>Preferred Learning Style:</strong>{" "}
-              {preferredLearningStyle}
+              <strong>Preferred Learning Style:</strong> {preferredLearningStyle}
             </Text>
             <Text>
               <strong>Budget:</strong> {budget}
@@ -115,8 +113,7 @@ export default function WaitListEmail({
               <strong>Availability:</strong> {availability} hours per week
             </Text>
             <Text>
-              <strong>Course Duration Preference:</strong>{" "}
-              {courseDurationPreference}
+              <strong>Course Duration Preference:</strong> {courseDurationPreference}
             </Text>
             <Text>
               <strong>Experience Level:</strong> {experienceLevel}
@@ -125,8 +122,7 @@ export default function WaitListEmail({
               <strong>Language Preference:</strong> {languagePreference}
             </Text>
             <Text>
-              <strong>Course Format Preference:</strong>{" "}
-              {courseFormatPreference}
+              <strong>Course Format Preference:</strong> {courseFormatPreference}
             </Text>
             {additionalComments && (
               <Text>
@@ -148,8 +144,8 @@ export default function WaitListEmail({
             <Text>{createdAt.toDate().toLocaleString()}</Text>
           </Section>{" "}
           <Text className="text-sm">
-            Stay tuned for updates, and feel free to contact us if you have any
-            questions in the meantime.
+            Stay tuned for updates, and feel free to contact us if you have any questions in the
+            meantime.
           </Text>
           <Text className="text-sm">
             Best Regards,

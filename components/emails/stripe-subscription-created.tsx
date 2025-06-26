@@ -55,8 +55,8 @@ export default function SubscriptionCreatedEmail({
             <Heading style={heading}>Welcome to {planName}!</Heading>
             <Text style={greeting}>Hi {name},</Text>
             <Text style={paragraph}>
-              Your subscription has been successfully created and is now active.
-              Welcome to the Tracking Academy family!
+              Your subscription has been successfully created and is now active. Welcome to the
+              Tracking Academy family!
             </Text>
           </Section>
 
@@ -75,8 +75,7 @@ export default function SubscriptionCreatedEmail({
               <strong>Subscription ID:</strong> {subscriptionId}
             </Text>
             <Text style={detailItem}>
-              <strong>Next Billing Date:</strong>{" "}
-              {nextBillingDate.toLocaleDateString()}
+              <strong>Next Billing Date:</strong> {nextBillingDate.toLocaleDateString()}
             </Text>
           </Section>
 
@@ -86,8 +85,7 @@ export default function SubscriptionCreatedEmail({
               Get Started
             </Heading>
             <Text style={paragraph}>
-              Access your dashboard to start using all the features included in
-              your plan.
+              Access your dashboard to start using all the features included in your plan.
             </Text>
             <Button href={`${baseUrl}/dashboard`} style={ctaButton}>
               Access Dashboard

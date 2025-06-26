@@ -1,10 +1,5 @@
 import { Badge } from "@/components/ui/badge";
-import {
-  Card,
-  CardContent,
-  CardFooter,
-  CardHeader,
-} from "@/components/ui/card";
+import { Card, CardContent, CardFooter, CardHeader } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
 import type { Product, PromoCode } from "@/types/index";
 import { formatCurrency } from "@/utils/payment";
@@ -15,19 +10,13 @@ interface ProductDetailsProps {
   appliedPromo: PromoCode | null;
 }
 
-export const ProductDetails = ({
-  product,
-  appliedPromo,
-}: ProductDetailsProps) => {
+export const ProductDetails = ({ product, appliedPromo }: ProductDetailsProps) => {
   const originalAmount = formatCurrency(product.unitAmount, product.currency);
   const discountAmount = appliedPromo
     ? formatCurrency(appliedPromo.amountOff, product.currency)
     : null;
   const finalAmount = appliedPromo
-    ? formatCurrency(
-        product.unitAmount - appliedPromo.amountOff,
-        product.currency,
-      )
+    ? formatCurrency(product.unitAmount - appliedPromo.amountOff, product.currency)
     : originalAmount;
 
   return (
@@ -35,9 +24,7 @@ export const ProductDetails = ({
       <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
         <div>
           <h2 className="font-semibold">{product.name}</h2>
-          {product.description && (
-            <p className="text-muted-foreground">{product.description}</p>
-          )}
+          {product.description && <p className="text-muted-foreground">{product.description}</p>}
         </div>
         <span className="font-semibold">{originalAmount}</span>
       </CardHeader>

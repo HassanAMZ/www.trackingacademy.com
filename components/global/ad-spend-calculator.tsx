@@ -1,32 +1,18 @@
 "use client";
 
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import {
-  Dialog,
-  DialogContent,
-  DialogHeader,
-  DialogTitle,
-} from "@/components/ui/dialog";
+import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { Slider } from "@/components/ui/slider";
-import { services } from "@/data/services";
-import { DollarSign, Users } from "lucide-react";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
 import { ReactNode, useState } from "react";
-import CouponOptInForm from "../funnels/coupon-optin";
 import { Badge } from "../ui/badge";
 import { Button } from "../ui/button";
-import Container from "../ui/container";
 
 interface AdSpendCalculatorProps {
   cta?: boolean;
   customCtaButton?: ReactNode;
 }
 
-export default function AdSpendCalculator({
-  cta = true,
-  customCtaButton,
-}: AdSpendCalculatorProps) {
+export default function AdSpendCalculator({ cta = true, customCtaButton }: AdSpendCalculatorProps) {
   const [adSpend, setAdSpend] = useState(5000);
 
   // Calculate additional revenue based on the formula
@@ -42,9 +28,7 @@ export default function AdSpendCalculator({
     <div className="py-4">
       <Card className="mx-auto flex w-fit max-w-xl flex-col items-center text-center backdrop-blur-sm">
         <CardHeader>
-          <Badge className="mx-auto w-fit">
-            Calculate your wasted ad spend
-          </Badge>
+          <Badge className="mx-auto w-fit">Calculate your wasted ad spend</Badge>
           {cta && (
             <p className="text-muted-foreground text-sm">
               Spoiler alert: it's more than you think.
@@ -55,9 +39,7 @@ export default function AdSpendCalculator({
           <h2 className="text-center">
             Your Current Ad Spend?
             <br />
-            <span className="text-primary py-2 font-black">
-              ${formatNumber(adSpend)}
-            </span>
+            <span className="text-primary py-2 font-black">${formatNumber(adSpend)}</span>
           </h2>
           <div>
             <Slider
@@ -90,8 +72,7 @@ export default function AdSpendCalculator({
           </div>{" "}
           <p className="text-center text-sm">
             Brands spending ${formatNumber(adSpend)} on ads recover on average $
-            {formatNumber(monthlyRevenue)}/month by improved ROAS and reducing
-            ad waste by 64%.
+            {formatNumber(monthlyRevenue)}/month by improved ROAS and reducing ad waste by 64%.
           </p>{" "}
           {customCtaButton
             ? customCtaButton

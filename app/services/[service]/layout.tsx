@@ -1,16 +1,10 @@
 import { services } from "@/data/services";
 
-export async function generateMetadata({
-  params,
-}: {
-  params: Promise<{ service: string }>;
-}) {
+export async function generateMetadata({ params }: { params: Promise<{ service: string }> }) {
   const { service: serviceId } = await params;
 
   const serviceData =
-    services.find(
-      (service) => service.id.toLowerCase() === serviceId.toLowerCase(),
-    ) || null;
+    services.find((service) => service.id.toLowerCase() === serviceId.toLowerCase()) || null;
 
   if (!serviceData) {
     return {
@@ -38,10 +32,6 @@ export async function generateMetadata({
   };
 }
 
-export default function serviceLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function serviceLayout({ children }: { children: React.ReactNode }) {
   return <>{children}</>;
 }

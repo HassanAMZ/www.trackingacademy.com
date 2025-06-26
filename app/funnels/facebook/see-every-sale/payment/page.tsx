@@ -1,7 +1,6 @@
 import { PaymentLoading } from "@/components/payment/payment-loading";
 import PaymentPage from "@/components/payment/payment-page";
-import Link from "next/link";
-import React, { Suspense } from "react";
+import { Suspense } from "react";
 
 const Page = () => {
   return (

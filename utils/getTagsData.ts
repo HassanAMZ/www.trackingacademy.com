@@ -1,7 +1,7 @@
-import fs from "fs";
-import path from "path";
 import { PostMetadata } from "@/types/index";
+import fs from "fs";
 import matter, { GrayMatterFile } from "gray-matter";
+import path from "path";
 import extractMetaFromStringForBlog from "./extractMetaFromStringForBlog";
 import getFiles from "./getFiles";
 
@@ -12,9 +12,7 @@ export default async function getTagsData(): Promise<
   const allPostsFiles = getFiles(blogDirectory);
 
   // remove non-mdx files
-  const mdxFiles = allPostsFiles.filter(
-    (file) => path.extname(file) === ".mdx",
-  );
+  const mdxFiles = allPostsFiles.filter((file) => path.extname(file) === ".mdx");
 
   const allPostsData = mdxFiles.map(async (fileName) => {
     const fileContents = fs.readFileSync(fileName, "utf8");

@@ -22,8 +22,7 @@ export default function WhyChooseSection({
       <div className="bg-primary/10 text-primary mb-6 inline-block rounded-full px-3 py-1 text-sm font-medium">
         {eyebrow}
       </div>{" "}
-      <h2>{heading}</h2>{" "}
-      <h4 className="text-muted-foreground max-w-3xl">{subheading}</h4>{" "}
+      <h2>{heading}</h2> <h4 className="text-muted-foreground max-w-3xl">{subheading}</h4>{" "}
       <div className="grid items-center justify-center gap-12 md:grid-cols-2">
         <div className="space-y-8">
           {value.map((text, i) => (

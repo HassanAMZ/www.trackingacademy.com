@@ -21,9 +21,7 @@ const SocialProof: React.FC<SocialProofProps> = ({
         {sectionTitle && <h2 className="text-center">{sectionTitle}</h2>}{" "}
         {/* Section Description */}
         {sectionDescription && (
-          <h4 className="text-muted-foreground pb-6 text-center md:pb-12">
-            {sectionDescription}
-          </h4>
+          <h4 className="text-muted-foreground pb-6 text-center md:pb-12">{sectionDescription}</h4>
         )}{" "}
       </Container>
       <TestimonialGrid upwork={upwork} />

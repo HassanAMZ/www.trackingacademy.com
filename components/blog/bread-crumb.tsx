@@ -41,9 +41,7 @@ const BreadCrumbs: React.FC = () => {
                 {isLast ? (
                   <BreadcrumbPage>{formatSegment(segment)}</BreadcrumbPage>
                 ) : (
-                  <BreadcrumbLink href={path}>
-                    {formatSegment(segment)}
-                  </BreadcrumbLink>
+                  <BreadcrumbLink href={path}>{formatSegment(segment)}</BreadcrumbLink>
                 )}
               </BreadcrumbItem>
             </React.Fragment>

@@ -17,9 +17,7 @@ export default async function Page() {
         <div className="space-y-4">
           {operations.map((operation) => (
             <Button asChild key={operation.id}>
-              <Link href={`/marketing/${operation.slug}`}>
-                {operation.title}
-              </Link>
+              <Link href={`/marketing/${operation.slug}`}>{operation.title}</Link>
             </Button>
           ))}
         </div>

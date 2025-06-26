@@ -106,16 +106,11 @@ const ConversionChart: React.FC<ConversionChartProps> = ({
   return (
     <Card className="w-full shadow-lg">
       <CardHeader>
-        <CardTitle className="text-xl font-semibold text-gray-800">
-          {title}
-        </CardTitle>
+        <CardTitle className="text-xl font-semibold text-gray-800">{title}</CardTitle>
       </CardHeader>
       <CardContent>
         <ResponsiveContainer width="100%" height={400}>
-          <LineChart
-            data={chartData}
-            margin={{ top: 20, right: 30, left: 20, bottom: 5 }}
-          >
+          <LineChart data={chartData} margin={{ top: 20, right: 30, left: 20, bottom: 5 }}>
             <CartesianGrid strokeDasharray="3 3" stroke="#f0f0f0" />
             <XAxis dataKey="date" label={{ value: "Week" }} tickMargin={10} />
             <YAxis

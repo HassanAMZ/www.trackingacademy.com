@@ -1,18 +1,7 @@
-import { Badge } from "@/components/ui/badge";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Progress } from "@/components/ui/progress";
-import { caseStudies } from "@/data/case-studies";
 import { ExternalLink, Star } from "lucide-react";
 import Link from "next/link";
-import Container from "../ui/container";
-import { TestimonialCard } from "./testimonial-card";
 
 /**
  * Upwork statistics section displaying ratings and reviews with enhanced hover effects
@@ -38,12 +27,7 @@ function UpworkStats() {
 
   return (
     <section className="w-full">
-      <Link
-        href={UPWORK_URL}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="group block"
-      >
+      <Link href={UPWORK_URL} target="_blank" rel="noopener noreferrer" className="group block">
         <Card className="bg-background/80 relative mb-6 w-full overflow-hidden backdrop-blur-xs transition-all duration-300 group-hover:scale-[1.02] group-hover:shadow-lg">
           {/* Gradient overlay that appears on hover - similar to TestimonialCard */}
           <div className="from-primary/20 absolute inset-0 z-10 bg-linear-to-t to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100"></div>{" "}
@@ -62,17 +46,8 @@ function UpworkStats() {
                 {RATINGS.map((rating) => (
                   <div key={rating.stars} className="flex items-center gap-2">
                     <span className="w-16">{rating.stars} stars</span>
-                    <Progress
-                      value={rating.percentage}
-                      className="h-2 flex-1"
-                    />
-                    <span
-                      className={
-                        rating.count > 0
-                          ? "text-primary"
-                          : "text-muted-foreground"
-                      }
-                    >
+                    <Progress value={rating.percentage} className="h-2 flex-1" />
+                    <span className={rating.count > 0 ? "text-primary" : "text-muted-foreground"}>
                       ({rating.count})
                     </span>
                   </div>
@@ -83,10 +58,7 @@ function UpworkStats() {
                 <h3 className="text-left">Rating breakdown</h3>
                 <div className="grid grid-cols-2 gap-y-3">
                   {CATEGORIES.map((category) => (
-                    <div
-                      key={category.name}
-                      className="grid grid-cols-2 items-center gap-2"
-                    >
+                    <div key={category.name} className="grid grid-cols-2 items-center gap-2">
                       <span>{category.name}</span>
                       <div className="align-left flex flex-row items-center justify-center gap-2">
                         <Star className="text-primary fill-primary h-4 w-4" />

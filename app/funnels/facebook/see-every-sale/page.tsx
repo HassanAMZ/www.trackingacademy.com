@@ -15,29 +15,18 @@ import YoutubeEmbed from "@/components/global/youtube-embed";
 import AlternativesSection from "@/components/home/alternative-section";
 import Hero from "@/components/home/hero";
 import TestimonialGrid from "@/components/testimonial/testimonial-grid";
-import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import Container from "@/components/ui/container";
-import {
-  Dialog,
-  DialogContent,
-  DialogHeader,
-  DialogTitle,
-} from "@/components/ui/dialog";
 import { caseStudies } from "@/data/case-studies";
-import { services } from "@/data/services";
-import { PersonIcon } from "@radix-ui/react-icons";
 import {
   ArrowRight,
   BarChart2,
   CheckSquare,
   Phone,
-  Rocket,
   Settings,
   Target,
   TrendingUp,
-  Zap,
 } from "lucide-react";
 import React from "react";
 
@@ -48,8 +37,7 @@ const ctaVariants = [
   },
   {
     title: "💰 Save $300 Instantly — Plus Get $7,600 in Revenue Tools Free",
-    subtitle:
-      "We’re giving this to just 10 eComm brands — before the timer hits zero.",
+    subtitle: "We’re giving this to just 10 eComm brands — before the timer hits zero.",
   },
   {
     title: "🧠 Smart Brands Claim This Fast: $300 OFF + $7,600 Toolkit",
@@ -69,8 +57,7 @@ const ctaVariants = [
   },
   {
     title: "✅ Fix Your Tracking — and Save $300 Instantly",
-    subtitle:
-      "We’ll include $7,600 in battle-tested bonuses, free. Only 10 spots.",
+    subtitle: "We’ll include $7,600 in battle-tested bonuses, free. Only 10 spots.",
   },
   {
     title: "🎟️ Secure $7,900 in Value — Setup + Bonuses for Just One Payment",
@@ -78,8 +65,7 @@ const ctaVariants = [
   },
   {
     title: "🚀 Ready to Scale Smarter? Get $300 Off + $7,600 Free",
-    subtitle:
-      "Done-for-you tracking setup + growth tools. Just 10 brands allowed.",
+    subtitle: "Done-for-you tracking setup + growth tools. Just 10 brands allowed.",
   },
   {
     title: "💼 $300 Off + $7,600 in Expert-Level Tools — Yours Today",
@@ -87,8 +73,7 @@ const ctaVariants = [
   },
   {
     title: "🔒 Lock In $7,900 in Value — Before It Disappears",
-    subtitle:
-      "$300 discount + $7,600 in bonuses. High demand — extremely limited.",
+    subtitle: "$300 discount + $7,600 in bonuses. High demand — extremely limited.",
   },
 ];
 export default function HomePage() {
@@ -130,12 +115,11 @@ export default function HomePage() {
             Tracking Setup Work?
           </h1>
           <h4 className="text-muted-foreground">
-            Super simple process - we do all the heavy lifting so you can focus
-            on growing your business
+            Super simple process - we do all the heavy lifting so you can focus on growing your
+            business
           </h4>
         </div>
-        <YoutubeEmbed embedId="tdQufJ-qadE" className="pb-12" />{" "}
-        {/* Process Steps */}
+        <YoutubeEmbed embedId="tdQufJ-qadE" className="pb-12" /> {/* Process Steps */}
         <div className="flex flex-col items-stretch justify-center gap-8 lg:flex-row lg:gap-6">
           {steps.map((step, index) => (
             <React.Fragment key={step.number}>
@@ -195,9 +179,8 @@ export default function HomePage() {
           <h4 className="text-muted-foreground mx-auto max-w-3xl text-center lg:mx-0 lg:text-left">
             Our
             <span className="text-primary"> “See Every Sale” </span>
-            setup gives eCommerce brands 95%+ accurate conversion data — so you
-            can stop wasting ad spend, scale with confidence, and Stay Complient
-            with GDPR & CCPA.
+            setup gives eCommerce brands 95%+ accurate conversion data — so you can stop wasting ad
+            spend, scale with confidence, and Stay Complient with GDPR & CCPA.
           </h4>
         }
         carousel={<TestimonialsCarousel2 />}
@@ -229,9 +212,8 @@ export default function HomePage() {
         <Container className="flex max-w-4xl flex-col items-center space-y-6 pb-12 text-center">
           <h1>Trusted by 1,000+ eCommerce Stores </h1>
           <h4 className="text-muted-foreground max-w-3xl">
-            See exactly how we restored tracking for ecommerce brands and the
-            measurable impact on their ROAS, conversion rates, and scaling
-            success.
+            See exactly how we restored tracking for ecommerce brands and the measurable impact on
+            their ROAS, conversion rates, and scaling success.
           </h4>
         </Container>
         <CaseStudyCarousel caseStudies={caseStudies} />
@@ -425,8 +407,7 @@ export default function HomePage() {
                 <div>
                   🚀 Ready to Scale Smarter? Get $300 Off + $7,600 Free
                   <span className="mt-2 block text-sm font-medium opacity-90">
-                    Done-for-you tracking setup + growth tools. Just 10 brands
-                    allowed.
+                    Done-for-you tracking setup + growth tools. Just 10 brands allowed.
                   </span>
                 </div>
               </Button>
@@ -451,26 +432,22 @@ export default function HomePage() {
           {
             number: "1",
             title: "Need fast results",
-            description:
-              "Get back on track in just 3 days with our rapid implementation",
+            description: "Get back on track in just 3 days with our rapid implementation",
           },
           {
             number: "2",
             title: "Demand accuracy",
-            description:
-              "Our 95% accuracy guarantee ensures reliable data for scaling",
+            description: "Our 95% accuracy guarantee ensures reliable data for scaling",
           },
           {
             number: "3",
             title: "Want a turn-key solution",
-            description:
-              "We handle the complexities so you can focus on your business",
+            description: "We handle the complexities so you can focus on your business",
           },
           {
             number: "4",
             title: "Are in banned or restricted niches",
-            description:
-              "Our system works even if you've been banned or throttled",
+            description: "Our system works even if you've been banned or throttled",
           },
         ]}
         alternatives={[
@@ -524,8 +501,8 @@ export default function HomePage() {
         <div className="mx-auto max-w-4xl space-y-6 pb-6 text-center">
           <h1>Join 300+ Happy Clients Who Fixed Their Tracking </h1>
           <h4 className="text-muted-foreground">
-            See why leading ecommerce brands choose us to solve their Tracking
-            nightmares and unlock consistent, scalable growth.
+            See why leading ecommerce brands choose us to solve their Tracking nightmares and unlock
+            consistent, scalable growth.
           </h4>
         </div>
       </Container>
@@ -543,8 +520,7 @@ export default function HomePage() {
                 <div>
                   ✅ Fix Your Tracking — and Save $300 Instantly
                   <span className="mt-2 block text-sm font-medium opacity-90">
-                    We’ll include $7,600 in battle-tested bonuses, free. Only 10
-                    spots.
+                    We’ll include $7,600 in battle-tested bonuses, free. Only 10 spots.
                   </span>
                 </div>
               </Button>

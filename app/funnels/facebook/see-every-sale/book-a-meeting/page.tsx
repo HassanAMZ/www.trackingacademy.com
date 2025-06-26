@@ -44,8 +44,7 @@ export default async function Page() {
         <section className="space-y-4 py-12 text-center">
           <h1>You're One Step Away From Fixing Your Tracking Blindspot</h1>
           <h4 className="text-muted-foreground pt-3">
-            We help businesses recover 30%+ of invisible conversions and slash
-            wasted ad spend—fast.
+            We help businesses recover 30%+ of invisible conversions and slash wasted ad spend—fast.
             <br />
             <span className="text-primary font-semibold">
               Book your implementation call now to get started.
@@ -73,23 +72,22 @@ export default async function Page() {
         </h4>{" "}
         <h4>
           <span className="text-primary">✅ Step 2: </span>
-          On the call, we'll walk you through exactly how we'll deploy your
-          upgraded tracking system—customized for your tech stack.
+          On the call, we'll walk you through exactly how we'll deploy your upgraded tracking
+          system—customized for your tech stack.
         </h4>{" "}
         <h4>
           <span className="text-primary">✅ Step 3: </span>
-          You'll get a clear plan, timeline, and see real examples of how we
-          recover lost conversions and ad performance.
+          You'll get a clear plan, timeline, and see real examples of how we recover lost
+          conversions and ad performance.
         </h4>{" "}
         <h4>
           <span className="text-primary">✅ Step 4: </span>
-          Be at your computer—our team will screen share and answer any
-          technical questions live.
+          Be at your computer—our team will screen share and answer any technical questions live.
         </h4>{" "}
         <h4>
           <span className="text-primary">✅ Step 5: </span>
-          Watch the quick video below to prepare for the call and see what's
-          possible when your tracking is fully fixed.
+          Watch the quick video below to prepare for the call and see what's possible when your
+          tracking is fully fixed.
         </h4>
       </Container>{" "}
       {/* VIDEO SECTION */}

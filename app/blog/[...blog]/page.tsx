@@ -3,11 +3,7 @@ import CategoryContainer from "@/components/blog/category-container";
 import getBlogsByCategory from "@/utils/getBlogsByCategory";
 import getBlogsByCategoryStaticParams from "@/utils/getBlogsByCategoryStaticParams";
 
-export default async function Page({
-  params,
-}: {
-  params: Promise<{ blog: string[] }>;
-}) {
+export default async function Page({ params }: { params: Promise<{ blog: string[] }> }) {
   const paramsArray = await params;
   const blogSlug = paramsArray.blog;
   const blogData = await getBlogsByCategory(blogSlug);

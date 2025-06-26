@@ -25,10 +25,7 @@ function SubmitButton() {
 }
 
 const RequestABlogForm: React.FC<RequestABlogFormProps> = ({ searchTerm }) => {
-  const [state, formAction] = useActionState(
-    handleRequestABlogForm,
-    initialState,
-  );
+  const [state, formAction] = useActionState(handleRequestABlogForm, initialState);
 
   const [formSubmitted, setFormSubmitted] = useState(false);
   const [searchTermInput, setSearchTermInput] = useState(searchTerm);
@@ -50,18 +47,8 @@ const RequestABlogForm: React.FC<RequestABlogFormProps> = ({ searchTerm }) => {
   }
 
   return (
-    <form
-      action={formAction}
-      className="mt-4 w-full max-w-md space-y-4"
-      id="request-a-blog"
-    >
-      <Input
-        type="email"
-        name="email"
-        placeholder="Your email"
-        required
-        className="mt-2"
-      />
+    <form action={formAction} className="mt-4 w-full max-w-md space-y-4" id="request-a-blog">
+      <Input type="email" name="email" placeholder="Your email" required className="mt-2" />
       <Input
         type="text"
         name="searchTerm"

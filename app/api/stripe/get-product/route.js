@@ -71,9 +71,7 @@ export async function GET(request) {
         .sort();
 
       if (featureKeys.length > 0) {
-        features = featureKeys
-          .map((key) => product.metadata[key])
-          .filter(Boolean);
+        features = featureKeys.map((key) => product.metadata[key]).filter(Boolean);
         console.log("Features found via individual keys:", features);
       }
     }
@@ -98,9 +96,7 @@ export async function GET(request) {
     const response = {
       id: product.id,
       name: product.name,
-      description:
-        product.description ||
-        "Premium digital product with comprehensive features",
+      description: product.description || "Premium digital product with comprehensive features",
       priceId: price.id,
       unitAmount: price.unit_amount,
       currency: price.currency,
@@ -121,9 +117,7 @@ export async function GET(request) {
         metadata: product.metadata,
         // Extract common metadata fields
         category: product.metadata.category,
-        tags: product.metadata.tags
-          ? product.metadata.tags.split(",").map((t) => t.trim())
-          : [],
+        tags: product.metadata.tags ? product.metadata.tags.split(",").map((t) => t.trim()) : [],
         bundle_includes: product.metadata.bundle_includes,
         access_duration: product.metadata.access_duration,
         difficulty_level: product.metadata.difficulty_level,

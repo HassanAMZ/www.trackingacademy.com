@@ -6,18 +6,7 @@ import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import {
-  AlertCircle,
-  BookMarked,
-  CheckCircle2,
-  Chrome,
-  Facebook,
-  Instagram,
-  Mail,
-  TrendingUp,
-  Users,
-  XCircle,
-} from "lucide-react";
+import { AlertCircle, CheckCircle2, XCircle } from "lucide-react";
 import { useEffect, useState } from "react";
 
 const REQUIRED_UTM_PARAMS = ["utm_source", "utm_medium", "utm_campaign"];
@@ -119,22 +108,14 @@ const UTMValidator = () => {
     </div>
   );
 
-  const ParameterDisplay = ({
-    param,
-    value,
-  }: {
-    param: string;
-    value: string;
-  }) => (
+  const ParameterDisplay = ({ param, value }: { param: string; value: string }) => (
     <div className="grid grid-cols-2 gap-2 border-b py-2 last:border-b-0">
       <div
         className={`font-medium ${REQUIRED_UTM_PARAMS.includes(param) && !value ? "text-destructive" : ""}`}
       >
         {param} {REQUIRED_UTM_PARAMS.includes(param) && !value && " (Required)"}
       </div>
-      <div className="text-sm break-all">
-        {decodeURIComponent(value) || "-"}
-      </div>
+      <div className="text-sm break-all">{decodeURIComponent(value) || "-"}</div>
     </div>
   );
 
@@ -143,8 +124,7 @@ const UTMValidator = () => {
       <AlertCircle className="text-muted-foreground mx-auto h-12 w-12" />
       <h3 className="mt-4 text-lg font-semibold">No URL Analyzed</h3>
       <p className="text-muted-foreground mt-2 text-sm">
-        Enter a URL with UTM parameters to validate and analyze its tracking
-        components.
+        Enter a URL with UTM parameters to validate and analyze its tracking components.
       </p>
       <div className="bg-muted mt-4 rounded-lg p-4">
         <p className="text-sm font-medium">Example URL:</p>
@@ -180,13 +160,7 @@ const UTMValidator = () => {
                     <EmptyState />
                   ) : (
                     url && (
-                      <Alert
-                        variant={
-                          validationResults.isValidUrl
-                            ? "default"
-                            : "destructive"
-                        }
-                      >
+                      <Alert variant={validationResults.isValidUrl ? "default" : "destructive"}>
                         <AlertCircle className="h-4 w-4" />
                         <AlertTitle>URL Validation Results</AlertTitle>
                         <AlertDescription>
@@ -234,9 +208,7 @@ const UTMValidator = () => {
                 <CardContent>
                   <div className="space-y-4">
                     <div>
-                      <h3 className="text-primary mb-2 font-semibold">
-                        UTM Parameters
-                      </h3>
+                      <h3 className="text-primary mb-2 font-semibold">UTM Parameters</h3>
                       <div className="space-y-2">
                         {REQUIRED_UTM_PARAMS.map((param) => (
                           <ParameterDisplay
@@ -246,33 +218,19 @@ const UTMValidator = () => {
                           />
                         ))}
                         {Object.entries(parsedParams.utmParams)
-                          .filter(
-                            ([param]) => !REQUIRED_UTM_PARAMS.includes(param),
-                          )
+                          .filter(([param]) => !REQUIRED_UTM_PARAMS.includes(param))
                           .map(([param, value]) => (
-                            <ParameterDisplay
-                              key={param}
-                              param={param}
-                              value={value}
-                            />
+                            <ParameterDisplay key={param} param={param} value={value} />
                           ))}
                       </div>
                     </div>{" "}
                     {Object.keys(parsedParams.otherParams).length > 0 && (
                       <div>
-                        <h3 className="text-primary mb-2 font-semibold">
-                          Other Parameters
-                        </h3>
+                        <h3 className="text-primary mb-2 font-semibold">Other Parameters</h3>
                         <div className="space-y-2">
-                          {Object.entries(parsedParams.otherParams).map(
-                            ([param, value]) => (
-                              <ParameterDisplay
-                                key={param}
-                                param={param}
-                                value={value}
-                              />
-                            ),
-                          )}
+                          {Object.entries(parsedParams.otherParams).map(([param, value]) => (
+                            <ParameterDisplay key={param} param={param} value={value} />
+                          ))}
                         </div>
                       </div>
                     )}

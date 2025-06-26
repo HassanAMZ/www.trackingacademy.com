@@ -5,9 +5,8 @@ import Container from "@/components/ui/container";
 import { CheckCircle, ChevronLeft, ChevronRight } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import { ReactElement, useEffect, useState } from "react";
 import type React from "react";
-import { Dialog, DialogContent, DialogHeader, DialogTitle } from "../ui/dialog";
+import { ReactElement, useEffect, useState } from "react";
 
 // TypeScript interfaces for props
 interface CarouselItem {
@@ -95,8 +94,7 @@ const DetailsCarousel: React.FC<DetailsCarouselProps> = ({
 
   let columnCount;
   if (breakpoint === "sm" || breakpoint === "md" || breakpoint === "base") {
-    columnCount =
-      items.length > 5 ? Math.floor(items.length / 2) : items.length;
+    columnCount = items.length > 5 ? Math.floor(items.length / 2) : items.length;
   } else {
     columnCount = items.length;
   }
@@ -107,9 +105,7 @@ const DetailsCarousel: React.FC<DetailsCarouselProps> = ({
         {/* Header Section */}
         {headerTitle && (
           <div className="text-center">
-            <h1 className="mx-auto max-w-5xl whitespace-pre-wrap">
-              {headerTitle}
-            </h1>
+            <h1 className="mx-auto max-w-5xl whitespace-pre-wrap">{headerTitle}</h1>
             {headerDescription && (
               <h4 className="text-muted-foreground mx-auto max-w-4xl pt-8 whitespace-pre-wrap">
                 {headerDescription}
@@ -205,9 +201,7 @@ const DetailsCarousel: React.FC<DetailsCarouselProps> = ({
                 </div>
 
                 {activeItem.description && (
-                  <p className="text-muted-foreground line-clamp-1">
-                    {activeItem.description}
-                  </p>
+                  <p className="text-muted-foreground line-clamp-1">{activeItem.description}</p>
                 )}
 
                 {activeItem.benefits && activeItem.benefits.length > 0 && (

@@ -46,8 +46,7 @@ const OfferAnalyzer: React.FC = () => {
                   Value Score: {analysis.valueScore} / 100
                   {analysis.tips.map((tip, index) => (
                     <div key={index}>
-                      {tip.type === "increase" ? "Increase:" : "Decrease:"}{" "}
-                      {tip.description}
+                      {tip.type === "increase" ? "Increase:" : "Decrease:"} {tip.description}
                     </div>
                   ))}
                 </AlertDescription>

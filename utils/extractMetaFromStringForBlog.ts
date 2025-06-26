@@ -1,8 +1,6 @@
 export default function extractMetaFromStringForBlog(content: string): any {
   // Adjust the regex to match the updated structure, including handling backticks for template strings
-  const metaStringMatch = content.match(
-    /export const metadata = (\{[\s\S]*?\}\s*);/,
-  );
+  const metaStringMatch = content.match(/export const metadata = (\{[\s\S]*?\}\s*);/);
 
   if (!metaStringMatch) return {};
 

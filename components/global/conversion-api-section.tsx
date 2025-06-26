@@ -7,9 +7,7 @@ export const ConversionApiSection: React.FC = () => {
   return (
     <Container>
       <div className="bg-secondary relative rounded-2xl p-8">
-        <h2 className="py-6 text-center">
-          Maximise ROI with a high-quality Conversions API setup
-        </h2>{" "}
+        <h2 className="py-6 text-center">Maximise ROI with a high-quality Conversions API setup</h2>{" "}
         <div className="mx-auto grid max-w-5xl gap-6 md:grid-cols-2">
           {[
             {

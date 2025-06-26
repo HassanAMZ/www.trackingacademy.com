@@ -41,10 +41,7 @@ export default function CodeBlock({ language, children }: CodeBlockProps) {
           </Button>
         </CardHeader>
         <CardContent>
-          <pre
-            ref={codeRef}
-            className="bg-background overflow-x-auto rounded p-4 text-sm"
-          >
+          <pre ref={codeRef} className="bg-background overflow-x-auto rounded p-4 text-sm">
             <code className="block w-[250px]">{children}</code>
           </pre>
         </CardContent>

@@ -36,30 +36,10 @@ const MainNode: React.FC<{ data: NodeData }> = ({ data }) => (
     <Card className="bg-primary text-primary-foreground min-w-[200px] p-4">
       <div className="text-lg font-semibold">{data.title}</div>
     </Card>
-    <Handle
-      id="top"
-      type="target"
-      position={Position.Top}
-      className="bg-primary! h-2 w-2"
-    />
-    <Handle
-      id="bottom"
-      type="source"
-      position={Position.Bottom}
-      className="bg-primary! h-2 w-2"
-    />
-    <Handle
-      id="left"
-      type="source"
-      position={Position.Left}
-      className="bg-primary! h-2 w-2"
-    />
-    <Handle
-      id="right"
-      type="source"
-      position={Position.Right}
-      className="bg-primary! h-2 w-2"
-    />
+    <Handle id="top" type="target" position={Position.Top} className="bg-primary! h-2 w-2" />
+    <Handle id="bottom" type="source" position={Position.Bottom} className="bg-primary! h-2 w-2" />
+    <Handle id="left" type="source" position={Position.Left} className="bg-primary! h-2 w-2" />
+    <Handle id="right" type="source" position={Position.Right} className="bg-primary! h-2 w-2" />
   </div>
 );
 
@@ -127,10 +107,7 @@ export default function LearningRoadmap(): JSX.Element {
       type: "sub",
       position: {
         x: isEven ? 400 + sideOffset : 400 - sideOffset,
-        y:
-          mainIndex * nodeVerticalSpacing +
-          subIndex * subNodeVerticalSpacing +
-          5,
+        y: mainIndex * nodeVerticalSpacing + subIndex * subNodeVerticalSpacing + 5,
       },
       data: {
         ...subItem,
@@ -155,9 +132,7 @@ export default function LearningRoadmap(): JSX.Element {
     // Subnode edges (horizontal connections)
     ...mainNodes.flatMap((mainNode) =>
       mainNode.subItems.map((subItem) => {
-        const mainNodeIndex = mainNodes.findIndex(
-          (node) => node.id === mainNode.id,
-        );
+        const mainNodeIndex = mainNodes.findIndex((node) => node.id === mainNode.id);
         const isEven = mainNodeIndex % 2 === 0;
         return {
           id: `e-${mainNode.id}-${subItem.id}`,

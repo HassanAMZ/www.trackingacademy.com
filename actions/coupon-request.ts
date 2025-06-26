@@ -111,9 +111,7 @@ export async function createCouponRequest(
     throw new Error("Failed to process your request. Please try again.");
   }
 
-  console.log(
-    `Total execution time: ${(performance.now() - overallStart).toFixed(2)}ms`,
-  );
+  console.log(`Total execution time: ${(performance.now() - overallStart).toFixed(2)}ms`);
 
   // Use redirect instead of returning data
   redirect(redirectUrl);

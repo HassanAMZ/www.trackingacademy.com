@@ -1,13 +1,10 @@
 "use client";
 
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
-import { PaymentContentProps } from "@/types/index";
 import { AlertCircle } from "lucide-react";
 import { useSearchParams } from "next/navigation";
-import { Suspense } from "react";
 import Container from "../ui/container";
 import PaymentContent from "./payment-content";
-import { PaymentLoading } from "./payment-loading";
 
 const PaymentPage = () => {
   const searchParams = useSearchParams();

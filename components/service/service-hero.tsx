@@ -11,10 +11,7 @@ interface ServiceHeroProps {
 
 export default function ServiceHero({ service }: ServiceHeroProps) {
   const keyFeatures = Object.entries(service.features)
-    .filter(
-      ([_, value]) =>
-        value === true || (typeof value === "string" && value !== "false"),
-    )
+    .filter(([_, value]) => value === true || (typeof value === "string" && value !== "false"))
     .slice(0, 6);
 
   return (
@@ -77,11 +74,7 @@ export default function ServiceHero({ service }: ServiceHeroProps) {
             <div className="space-y-4">
               <div className="flex items-center justify-between">
                 <span className="font-medium">Tracking Accuracy</span>
-                <Badge
-                  variant={
-                    service.accuracy.includes("95") ? "default" : "outline"
-                  }
-                >
+                <Badge variant={service.accuracy.includes("95") ? "default" : "outline"}>
                   {service.accuracy}
                 </Badge>
               </div>
@@ -92,23 +85,16 @@ export default function ServiceHero({ service }: ServiceHeroProps) {
                   {Object.entries(service.features)
                     .filter(
                       ([_, value]) =>
-                        value === true ||
-                        (typeof value === "string" && value !== "false"),
+                        value === true || (typeof value === "string" && value !== "false"),
                     )
                     .slice(0, 8)
                     .map(([feature, value]) => (
-                      <div
-                        key={feature}
-                        className="flex items-center gap-2 text-sm"
-                      >
+                      <div key={feature} className="flex items-center gap-2 text-sm">
                         <CheckCircle className="text-primary h-3 w-3 flex-shrink-0" />
                         <span>
                           {feature}
                           {typeof value === "string" && value !== "true" && (
-                            <span className="text-muted-foreground">
-                              {" "}
-                              ({value})
-                            </span>
+                            <span className="text-muted-foreground"> ({value})</span>
                           )}
                         </span>
                       </div>
@@ -117,11 +103,7 @@ export default function ServiceHero({ service }: ServiceHeroProps) {
               </div>
             </div>
 
-            <Button
-              className="w-full"
-              variant={service.buttonVariant as any}
-              asChild
-            >
+            <Button className="w-full" variant={service.buttonVariant as any} asChild>
               <Link
                 href={`/payment/?product_id=${service.product_id}&price_id=${service.price_id}`}
                 className="flex items-center justify-center gap-2"

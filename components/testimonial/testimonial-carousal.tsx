@@ -6,9 +6,7 @@ import clsx from "clsx";
 import type React from "react";
 import { useEffect, useState } from "react";
 
-const TestimonialsCarousel: React.FC<{ className?: string }> = ({
-  className,
-}) => {
+const TestimonialsCarousel: React.FC<{ className?: string }> = ({ className }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   useEffect(() => {
@@ -23,8 +21,7 @@ const TestimonialsCarousel: React.FC<{ className?: string }> = ({
   const metrics = currentCaseStudy.analytics
     ? [
         { label: "Accuracy", value: `${currentCaseStudy.analytics.accuracy}%` },
-        ...(currentCaseStudy.analytics
-          .recoveredFromTrackingPreventionPercentage > 0
+        ...(currentCaseStudy.analytics.recoveredFromTrackingPreventionPercentage > 0
           ? [
               {
                 label: "+",

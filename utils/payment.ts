@@ -2,9 +2,7 @@
 import { loadStripe } from "@stripe/stripe-js";
 
 // Load Stripe
-export const stripePromise = loadStripe(
-  process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY!,
-);
+export const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY!);
 
 // Utility function to determine success URL based on current path
 export const getSuccessUrl = () => {

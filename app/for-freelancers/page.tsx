@@ -10,8 +10,8 @@ export default function ForFreelancers() {
       <Hero
         heading={
           <h1>
-            <span className="text-primary">Master Analytics and Tracking</span>{" "}
-            in 12 Weeks – Guaranteed!
+            <span className="text-primary">Master Analytics and Tracking</span> in 12 Weeks –
+            Guaranteed!
           </h1>
         }
         carousel={<TestimonialsCarousel2 />}

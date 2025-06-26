@@ -20,9 +20,7 @@ const TagGrid: React.FC<TagGridProps> = ({ tags, blogs }) => {
   });
 
   // Sort by most popular (most blogs)
-  const sortedTags = tagCounts
-    .sort((a, b) => b.count - a.count)
-    .map((item) => item.tag);
+  const sortedTags = tagCounts.sort((a, b) => b.count - a.count).map((item) => item.tag);
 
   return (
     <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3">

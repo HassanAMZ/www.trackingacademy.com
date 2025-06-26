@@ -153,9 +153,7 @@ interface DownloadData {
 const UTMBuilder: React.FC = () => {
   const [selectedPlatform, setSelectedPlatform] = useState<string>("manual");
   const [websiteUrl, setWebsiteUrl] = useState<string>("");
-  const [utmParams, setUtmParams] = useState<UTMParams>(
-    platformConfigs["manual"].defaults,
-  );
+  const [utmParams, setUtmParams] = useState<UTMParams>(platformConfigs["manual"].defaults);
   const [customFields, setCustomFields] = useState<CustomField[]>([]);
   const [finalUrl, setFinalUrl] = useState<string>("");
   const [isValidUrl, setIsValidUrl] = useState(false);
@@ -390,19 +388,14 @@ const UTMBuilder: React.FC = () => {
               {/* Mobile Platform Selector */}
               <div className="mb-6">
                 <Label>Platform</Label>
-                <Select
-                  value={selectedPlatform}
-                  onValueChange={handlePlatformChange}
-                >
+                <Select value={selectedPlatform} onValueChange={handlePlatformChange}>
                   <SelectTrigger>
                     <SelectValue placeholder="Select Platform" />
                   </SelectTrigger>
                   <SelectContent>
                     {Object.entries(platformConfigs).map(([key, config]) => (
                       <SelectItem key={key} value={key}>
-                        <div className="flex items-center gap-2">
-                          {config.name}
-                        </div>
+                        <div className="flex items-center gap-2">{config.name}</div>
                       </SelectItem>
                     ))}
                   </SelectContent>
@@ -417,51 +410,37 @@ const UTMBuilder: React.FC = () => {
                   onChange={(e) => handleWebsiteUrlChange(e.target.value)}
                   className={errors.url ? "border-destructive" : ""}
                 />
-                {errors.url && (
-                  <p className="text-destructive mt-1 text-sm">{errors.url}</p>
-                )}
+                {errors.url && <p className="text-destructive mt-1 text-sm">{errors.url}</p>}
                 <p className="text-muted-foreground mt-1 text-sm">
                   Enter the full URL of the page you want to track
                 </p>
               </div>
               <div className="grid grid-cols-2 gap-4">
                 {/* UTM Parameters */}
-                {(Object.keys(utmParams) as Array<keyof UTMParams>).map(
-                  (key) => (
-                    <div key={key}>
-                      <Label>UTM {key}</Label>
-                      <Input
-                        placeholder={`e.g., ${getPlaceholderForField(key)}`}
-                        value={utmParams[key]}
-                        onChange={(e) =>
-                          handleUtmParamChange(key, e.target.value)
-                        }
-                        className={
-                          errors[key as keyof typeof errors]
-                            ? "border-destructive"
-                            : ""
-                        }
-                      />
-                      {errors[key as keyof typeof errors] && (
-                        <p className="text-destructive mt-1 text-sm">
-                          {errors[key as keyof typeof errors]}
-                        </p>
-                      )}
-                      <p className="text-muted-foreground mt-1 text-sm">
-                        {getHelperTextForField(key)}
+                {(Object.keys(utmParams) as Array<keyof UTMParams>).map((key) => (
+                  <div key={key}>
+                    <Label>UTM {key}</Label>
+                    <Input
+                      placeholder={`e.g., ${getPlaceholderForField(key)}`}
+                      value={utmParams[key]}
+                      onChange={(e) => handleUtmParamChange(key, e.target.value)}
+                      className={errors[key as keyof typeof errors] ? "border-destructive" : ""}
+                    />
+                    {errors[key as keyof typeof errors] && (
+                      <p className="text-destructive mt-1 text-sm">
+                        {errors[key as keyof typeof errors]}
                       </p>
-                    </div>
-                  ),
-                )}
+                    )}
+                    <p className="text-muted-foreground mt-1 text-sm">
+                      {getHelperTextForField(key)}
+                    </p>
+                  </div>
+                ))}
                 {/* Custom Parameters */}
                 <div className="col-span-2 space-y-4">
                   <div className="flex items-center justify-between">
                     <Label>Custom Parameters</Label>
-                    <Button
-                      onClick={handleCustomFieldAdd}
-                      variant="outline"
-                      size="sm"
-                    >
+                    <Button onClick={handleCustomFieldAdd} variant="outline" size="sm">
                       <Plus size={16} className="mr-2" /> Add Parameter
                     </Button>
                   </div>
@@ -471,26 +450,14 @@ const UTMBuilder: React.FC = () => {
                         <Input
                           placeholder="Parameter name"
                           value={field.name}
-                          onChange={(e) =>
-                            handleCustomFieldChange(
-                              index,
-                              "name",
-                              e.target.value,
-                            )
-                          }
+                          onChange={(e) => handleCustomFieldChange(index, "name", e.target.value)}
                         />
                       </div>
                       <div className="flex-1">
                         <Input
                           placeholder="Parameter value"
                           value={field.value}
-                          onChange={(e) =>
-                            handleCustomFieldChange(
-                              index,
-                              "value",
-                              e.target.value,
-                            )
-                          }
+                          onChange={(e) => handleCustomFieldChange(index, "value", e.target.value)}
                         />
                       </div>
                       <Button
@@ -535,12 +502,7 @@ const UTMBuilder: React.FC = () => {
                 </CardHeader>
                 <CardContent>
                   <div className="flex justify-center p-4">
-                    <QRCodeSVG
-                      value={finalUrl}
-                      level="H"
-                      size={200}
-                      includeMargin={true}
-                    />
+                    <QRCodeSVG value={finalUrl} level="H" size={200} includeMargin={true} />
                   </div>
                 </CardContent>
               </Card>

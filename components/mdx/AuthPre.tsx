@@ -3,10 +3,7 @@
 import AuthenticatedLayout from "../layouts/AuthenticatedLayout";
 import Pre from "./Pre";
 
-type PreProps = React.DetailedHTMLProps<
-  React.HTMLAttributes<HTMLPreElement>,
-  HTMLPreElement
-> & {
+type PreProps = React.DetailedHTMLProps<React.HTMLAttributes<HTMLPreElement>, HTMLPreElement> & {
   language?: string;
 };
 

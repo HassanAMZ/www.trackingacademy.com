@@ -143,8 +143,7 @@ export default function ContactForm({
     switch (step) {
       case 1:
         if (!formData.email) newErrors.email = "Email is required";
-        else if (!/\S+@\S+\.\S+/.test(formData.email))
-          newErrors.email = "Email is invalid";
+        else if (!/\S+@\S+\.\S+/.test(formData.email)) newErrors.email = "Email is invalid";
         if (!formData.firstName) newErrors.firstName = "First Name is required";
         if (!formData.lastName) newErrors.lastName = "Last Name is required";
         break;
@@ -155,35 +154,26 @@ export default function ContactForm({
         if (!formData.interestedCourse)
           newErrors.interestedCourse = "Interested Course is required";
         if (!formData.skills) newErrors.skills = "Skills are required";
-        if (!formData.referralSource)
-          newErrors.referralSource = "Referral Source is required";
+        if (!formData.referralSource) newErrors.referralSource = "Referral Source is required";
         break;
       case 3:
         if (!formData.education) newErrors.education = "Education is required";
-        if (!formData.learningGoals)
-          newErrors.learningGoals = "Learning Goals are required";
+        if (!formData.learningGoals) newErrors.learningGoals = "Learning Goals are required";
         if (!formData.preferredLearningStyle)
-          newErrors.preferredLearningStyle =
-            "Preferred Learning Style is required";
+          newErrors.preferredLearningStyle = "Preferred Learning Style is required";
         if (!formData.budget) newErrors.budget = "Budget is required";
-        if (!formData.availability)
-          newErrors.availability = "Availability is required";
+        if (!formData.availability) newErrors.availability = "Availability is required";
         break;
       case 4:
         if (!formData.courseDurationPreference)
-          newErrors.courseDurationPreference =
-            "Course Duration Preference is required";
-        if (!formData.experienceLevel)
-          newErrors.experienceLevel = "Experience Level is required";
+          newErrors.courseDurationPreference = "Course Duration Preference is required";
+        if (!formData.experienceLevel) newErrors.experienceLevel = "Experience Level is required";
         if (!formData.languagePreference)
           newErrors.languagePreference = "Language Preference is required";
         if (!formData.courseFormatPreference)
-          newErrors.courseFormatPreference =
-            "Course Format Preference is required";
-        if (!formData.expectations)
-          newErrors.expectations = "Expectations are required";
-        if (!formData.futureGoals)
-          newErrors.futureGoals = "Future Goals are required";
+          newErrors.courseFormatPreference = "Course Format Preference is required";
+        if (!formData.expectations) newErrors.expectations = "Expectations are required";
+        if (!formData.futureGoals) newErrors.futureGoals = "Future Goals are required";
         break;
     }
     setErrors(newErrors);
@@ -250,9 +240,7 @@ export default function ContactForm({
           >
             <div
               className={`flex h-8 w-8 items-center justify-center rounded-full border-2 ${
-                index + 1 === currentStep
-                  ? "bg-primary text-secondary"
-                  : "border-secondary"
+                index + 1 === currentStep ? "bg-primary text-secondary" : "border-secondary"
               }`}
             >
               {index + 1}
@@ -286,9 +274,7 @@ export default function ContactForm({
                   value={formData.firstName}
                   onChange={handleInputChange}
                 />
-                {errors.firstName && (
-                  <span className="text-destructive">{errors.firstName}</span>
-                )}
+                {errors.firstName && <span className="text-destructive">{errors.firstName}</span>}
               </div>{" "}
               <div className="grid w-full items-center">
                 <Label className="pb-2" htmlFor="lastName">
@@ -302,9 +288,7 @@ export default function ContactForm({
                   value={formData.lastName}
                   onChange={handleInputChange}
                 />
-                {errors.lastName && (
-                  <span className="text-destructive">{errors.lastName}</span>
-                )}
+                {errors.lastName && <span className="text-destructive">{errors.lastName}</span>}
               </div>{" "}
               <div className="grid w-full items-center">
                 <Label className="pb-2" htmlFor="email">
@@ -318,9 +302,7 @@ export default function ContactForm({
                   value={formData.email}
                   onChange={handleInputChange}
                 />
-                {errors.email && (
-                  <span className="text-destructive">{errors.email}</span>
-                )}
+                {errors.email && <span className="text-destructive">{errors.email}</span>}
               </div>{" "}
               <div className="grid w-full items-center">
                 <Label className="pb-2" htmlFor="phone">
@@ -334,9 +316,7 @@ export default function ContactForm({
                   value={formData.phone}
                   onChange={handleInputChange}
                 />
-                {errors.phone && (
-                  <span className="text-destructive">{errors.phone}</span>
-                )}
+                {errors.phone && <span className="text-destructive">{errors.phone}</span>}
               </div>
             </div>{" "}
             <Button className="w-max self-end" type="button" onClick={nextStep}>
@@ -361,9 +341,7 @@ export default function ContactForm({
                   onChange={handleInputChange}
                 />
                 {errors.currentOccupation && (
-                  <span className="text-destructive">
-                    {errors.currentOccupation}
-                  </span>
+                  <span className="text-destructive">{errors.currentOccupation}</span>
                 )}
               </div>{" "}
               <div className="grid w-full items-center">
@@ -379,9 +357,7 @@ export default function ContactForm({
                   onChange={handleInputChange}
                 />
                 {errors.interestedCourse && (
-                  <span className="text-destructive">
-                    {errors.interestedCourse}
-                  </span>
+                  <span className="text-destructive">{errors.interestedCourse}</span>
                 )}
               </div>{" "}
               <div className="grid w-full items-center">
@@ -395,9 +371,7 @@ export default function ContactForm({
                   value={formData.skills}
                   onChange={handleInputChange}
                 />
-                {errors.skills && (
-                  <span className="text-destructive">{errors.skills}</span>
-                )}
+                {errors.skills && <span className="text-destructive">{errors.skills}</span>}
               </div>{" "}
               <div className="grid w-full items-center">
                 <Label className="pb-2" htmlFor="referralSource">
@@ -412,9 +386,7 @@ export default function ContactForm({
                   onChange={handleInputChange}
                 />
                 {errors.referralSource && (
-                  <span className="text-destructive">
-                    {errors.referralSource}
-                  </span>
+                  <span className="text-destructive">{errors.referralSource}</span>
                 )}
               </div>
             </div>{" "}
@@ -444,9 +416,7 @@ export default function ContactForm({
                   value={formData.education}
                   onChange={handleInputChange}
                 />
-                {errors.education && (
-                  <span className="text-destructive">{errors.education}</span>
-                )}
+                {errors.education && <span className="text-destructive">{errors.education}</span>}
               </div>{" "}
               <div className="grid w-full items-center">
                 <Label className="pb-2" htmlFor="learningGoals">
@@ -460,9 +430,7 @@ export default function ContactForm({
                   onChange={handleInputChange}
                 />
                 {errors.learningGoals && (
-                  <span className="text-destructive">
-                    {errors.learningGoals}
-                  </span>
+                  <span className="text-destructive">{errors.learningGoals}</span>
                 )}
               </div>{" "}
               <div className="grid w-full items-center">
@@ -483,15 +451,11 @@ export default function ContactForm({
                     <SelectItem value="visual">Visual</SelectItem>
                     <SelectItem value="auditory">Auditory</SelectItem>
                     <SelectItem value="kinesthetic">Kinesthetic</SelectItem>
-                    <SelectItem value="reading-writing">
-                      Reading/Writing
-                    </SelectItem>
+                    <SelectItem value="reading-writing">Reading/Writing</SelectItem>
                   </SelectContent>
                 </Select>
                 {errors.preferredLearningStyle && (
-                  <span className="text-destructive">
-                    {errors.preferredLearningStyle}
-                  </span>
+                  <span className="text-destructive">{errors.preferredLearningStyle}</span>
                 )}
               </div>{" "}
               <div className="grid w-full items-center">
@@ -506,9 +470,7 @@ export default function ContactForm({
                   value={formData.budget}
                   onChange={handleInputChange}
                 />
-                {errors.budget && (
-                  <span className="text-destructive">{errors.budget}</span>
-                )}
+                {errors.budget && <span className="text-destructive">{errors.budget}</span>}
               </div>{" "}
               <div className="grid w-full items-center">
                 <Label className="pb-2" htmlFor="availability">
@@ -523,9 +485,7 @@ export default function ContactForm({
                   onChange={handleInputChange}
                 />
                 {errors.availability && (
-                  <span className="text-destructive">
-                    {errors.availability}
-                  </span>
+                  <span className="text-destructive">{errors.availability}</span>
                 )}
               </div>
             </div>{" "}
@@ -567,9 +527,7 @@ export default function ContactForm({
                   </SelectContent>
                 </Select>
                 {errors.courseDurationPreference && (
-                  <span className="text-destructive">
-                    {errors.courseDurationPreference}
-                  </span>
+                  <span className="text-destructive">{errors.courseDurationPreference}</span>
                 )}
               </div>{" "}
               <div className="grid w-full items-center">
@@ -579,9 +537,7 @@ export default function ContactForm({
                 <Select
                   required
                   name="experienceLevel"
-                  onValueChange={(value) =>
-                    setFormData({ ...formData, experienceLevel: value })
-                  }
+                  onValueChange={(value) => setFormData({ ...formData, experienceLevel: value })}
                 >
                   <SelectTrigger>
                     <SelectValue placeholder="Select your experience level" />
@@ -593,9 +549,7 @@ export default function ContactForm({
                   </SelectContent>
                 </Select>
                 {errors.experienceLevel && (
-                  <span className="text-destructive">
-                    {errors.experienceLevel}
-                  </span>
+                  <span className="text-destructive">{errors.experienceLevel}</span>
                 )}
               </div>{" "}
               <div className="grid w-full items-center">
@@ -605,9 +559,7 @@ export default function ContactForm({
                 <Select
                   required
                   name="languagePreference"
-                  onValueChange={(value) =>
-                    setFormData({ ...formData, languagePreference: value })
-                  }
+                  onValueChange={(value) => setFormData({ ...formData, languagePreference: value })}
                 >
                   <SelectTrigger>
                     <SelectValue placeholder="Select preferred language" />
@@ -621,9 +573,7 @@ export default function ContactForm({
                   </SelectContent>
                 </Select>
                 {errors.languagePreference && (
-                  <span className="text-destructive">
-                    {errors.languagePreference}
-                  </span>
+                  <span className="text-destructive">{errors.languagePreference}</span>
                 )}
               </div>{" "}
               <div className="grid w-full items-center">
@@ -647,9 +597,7 @@ export default function ContactForm({
                   </SelectContent>
                 </Select>
                 {errors.courseFormatPreference && (
-                  <span className="text-destructive">
-                    {errors.courseFormatPreference}
-                  </span>
+                  <span className="text-destructive">{errors.courseFormatPreference}</span>
                 )}
               </div>{" "}
               <div className="grid w-full items-center">
@@ -664,9 +612,7 @@ export default function ContactForm({
                   onChange={handleInputChange}
                 />
                 {errors.expectations && (
-                  <span className="text-destructive">
-                    {errors.expectations}
-                  </span>
+                  <span className="text-destructive">{errors.expectations}</span>
                 )}
               </div>{" "}
               <div className="grid w-full items-center">
@@ -715,11 +661,7 @@ export default function ContactForm({
         {renderNavigation()}
         <Card className="rounded-t-lg">
           <CardContent className="mx-auto max-w-3xl">
-            <form
-              id="enroll-now"
-              onSubmit={handleSubmit}
-              className="flex flex-col space-y-3"
-            >
+            <form id="enroll-now" onSubmit={handleSubmit} className="flex flex-col space-y-3">
               {renderStep()}
               <p aria-live="polite" className="sr-only">
                 {state?.message}

@@ -7,12 +7,7 @@ interface SpinnerProps extends React.HTMLAttributes<HTMLDivElement> {
   variant?: "default" | "primary";
 }
 
-export function Spinner({
-  size = "md",
-  variant = "default",
-  className,
-  ...props
-}: SpinnerProps) {
+export function Spinner({ size = "md", variant = "default", className, ...props }: SpinnerProps) {
   return (
     <div
       className={cn(

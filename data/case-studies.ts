@@ -56,19 +56,105 @@ export interface CaseStudy {
 
 export const caseStudies: CaseStudy[] = [
   {
+    id: "zenon",
+    name: "Zenon.ae",
+    url: "https://zenon.ae",
+    plan: "Pro",
+    title:
+      "Restoring Meta Ads Tracking for Digital Dental Clinic in UAE with Server-Side Conversion API",
+    description:
+      "Bypassing Data Sharing Restrictions and Complete migration from traditional Facebook Pixel to server-side tracking using GTM server containers and Facebook Conversion API, achieving significant data recovery from ad blockers and tracking prevention.",
+
+    imageUrl: "/images/for-businesses/client-zenon-desktop-home.png",
+    mobileUrl: "/images/for-businesses/client-zenon-mobile-home.png",
+    siteUrl: "https://zenon.ae",
+    analytics: {
+      period: "10 days",
+      recoveredFromAdBlockersPercentage: 1.56,
+      recoveredFromTrackingPreventionPercentage: 19.27,
+      accuracy: 20.83,
+    },
+    testimonial: {
+      quote: "Perfect. Confirmed with the tracking team theres no issue and all is tracking fine",
+      author: "Anthony Adeloye",
+      role: "Marketing Director, Zenon.ae",
+      image: "/images/clients/anthony-adeloye.png",
+    },
+    platforms: ["Facebook CAPI", "Google Analytics 4", "Stape Analytics", "Looker Studio"],
+    milestones: [
+      {
+        name: "Server Container Configuration",
+        description:
+          "Set up GTM server container with Stape hosting and custom subdomain implementation",
+        expectedOutcome:
+          "Functional server-side tracking infrastructure with first-party data collection",
+      },
+      {
+        name: "Conversion API Implementation",
+        description: "Complete migration from Facebook Pixel to Conversion API with event mapping",
+        expectedOutcome: "Enhanced data accuracy and attribution with user information capture",
+      },
+      {
+        name: "Quality Assurance Testing",
+        description:
+          "Comprehensive event testing using Facebook Events Manager and server preview mode",
+        expectedOutcome: "Verified data accuracy across all tracked events and user journeys",
+      },
+      {
+        name: "Documentation & Training Delivery",
+        description:
+          "Complete advertiser documentation with Looker Studio dashboard and video tutorials",
+        expectedOutcome: "Client team equipped for ongoing management and optimization",
+      },
+    ],
+    projectTimeline: {
+      startDate: "2024-06-22",
+      endDate: "2024-06-25",
+      durationDays: 3,
+    },
+    owner: "Digital Analytics Team",
+    client: "Zenon.ae Healthcare Services",
+    budget: 1200,
+    technologies: ["Facebook CAPI", "Stape", "JavaScript Custom Tags", "Looker Studio"],
+    challenges: [
+      "23.81% of requests affected by tracking prevention measures",
+      "iOS 14.5+ Safari tracking restrictions causing data loss",
+      "Ad blockers preventing client-side Facebook Pixel execution",
+      "Incomplete customer journey tracking affecting attribution",
+      "Cookie restrictions in modern browsers",
+      "Lack of user information capture for enhanced targeting",
+    ],
+    solutions: [
+      "Implemented server-side processing to bypass client-side restrictions",
+      "Set up first-party data collection through custom subdomain (metrics.zenon.ae)",
+      "Created server-side routing to avoid blocked tracking scripts",
+      "Integrated Facebook Click ID (fbclid) for enhanced attribution",
+      "Developed custom JavaScript tags for form data capture",
+      "Built comprehensive testing framework with real-time validation",
+    ],
+    results: [
+      "Achieved 20.83% overall recovery rate from tracking prevention and ad blockers",
+      "Processed 7,545 total requests over 10-day monitoring period",
+      "Recovered 1,454 requests (19.27%) from tracking prevention",
+      "Recovered 118 requests (1.56%) from ad blockers",
+      "Successfully tracked Page View (1,960), View Item (1,233), and Generate Lead (18) events",
+      "Implemented complete user journey tracking with email, phone, and name capture",
+      "Created automated Looker Studio reporting dashboard",
+      "Delivered comprehensive advertiser documentation with video tutorials",
+      "Achieved 100% event accuracy in Facebook Events Manager testing",
+    ],
+  },
+  {
     id: "northridgeaddiction",
     name: "Northridge Addiction Meta Pixel Tracking Recovery",
     url: "https://start.northridgeaddiction.com",
     embedId: { loom: "62b9ecb8be104082ae5e2f191f5d8b21" },
     plan: "Business",
-    title:
-      "Restoring Meta Pixel Tracking for Northridge Addiction with Server-Side Conversion API",
+    title: "Restoring Meta Pixel Tracking for Northridge Addiction with Server-Side Conversion API",
     description:
       "Northridge Addiction, a health and wellness website, faced restricted Meta Pixel tracking due to content-related blocks despite compliance with legit scripts. Over a multi-day engagement, we implemented server-side tracking using Stape.io and Meta Conversion API, capturing user data on the thank-you page post-Typeform submission. This achieved 95% tracking accuracy, recovering 21.72% of events from tracking prevention and 10.4% from ad blockers, enabling accurate ad attribution.",
-    imageUrl:
-      "/images/for-businesses/client-northridgeaddiction-desktop-home.png",
-    mobileUrl:
-      "/images/for-businesses/client-northridgeaddiction-mobile-home.png",
+    imageUrl: "/images/for-businesses/client-northridgeaddiction-desktop-home.png",
+    mobileUrl: "/images/for-businesses/client-northridgeaddiction-mobile-home.png",
     siteUrl: "https://start.northridgeaddiction.com",
     analytics: {
       period: "10 days",
@@ -119,8 +205,7 @@ export const caseStudies: CaseStudy[] = [
         name: "Server-Side Implementation",
         description:
           "Set up Stape.io server container, implemented Meta Conversion API, and captured user data (email, name) on thank-you page for enhanced event matching.",
-        expectedOutcome:
-          "Achieved 95% tracking accuracy with proper ad attribution.",
+        expectedOutcome: "Achieved 95% tracking accuracy with proper ad attribution.",
       },
       {
         name: "Testing & Optimization",
@@ -170,8 +255,7 @@ export const caseStudies: CaseStudy[] = [
     name: "Peach and Cream Shopify Tracking",
     url: "https://peachandcream.com",
     plan: "Standard",
-    title:
-      "Data Sharing Restriction Fixed for Peach & Cream Shopify Ecommerce Store",
+    title: "Data Sharing Restriction Fixed for Peach & Cream Shopify Ecommerce Store",
     description:
       "Peach and Cream was blocked from Meta ads due to 'sensitive' product categories. We unlocked compliant pixel tracking through server-side methods, enabling aggressive scaling of their top-selling products—without risking another ban.",
     imageUrl: "/images/for-businesses/client-peachandcream-desktop-home.png",
@@ -223,11 +307,7 @@ export const caseStudies: CaseStudy[] = [
     owner: "Shahzada Ali Hassan",
     client: "Mathieu Frechette",
     budget: 1200,
-    technologies: [
-      "Server-Side Tracking",
-      "Advertising Pixel",
-      "E-commerce Platform",
-    ],
+    technologies: ["Server-Side Tracking", "Advertising Pixel", "E-commerce Platform"],
     challenges: [
       "Meta flagged ads due to intimacy product overlap",
       "Required split tracking without a split store",
@@ -250,8 +330,7 @@ export const caseStudies: CaseStudy[] = [
     url: "https://saneofrance.fr",
     embedId: { loom: "822299923dcb4bd3bf8e7b5537002bd0" },
     plan: "Standard",
-    title:
-      "Restoring Meta Pixel Tracking for Saneo France with Server-Side Tracking and Webhooks",
+    title: "Restoring Meta Pixel Tracking for Saneo France with Server-Side Tracking and Webhooks",
     description:
       "Saneo France, a health product e-commerce website, faced restricted Meta Pixel tracking due to HIPAA compliance issues. Over a multi-week engagement, we implemented server-side tracking via Stape.io, configured Meta Conversion API, and added Shopify webhooks to achieve 98.74% tracking accuracy, recovering 23.72% of events from ITP and 3.85% from ad blockers, while improving ROAS to 1.03.",
     imageUrl: "/images/for-businesses/client-saneofrance-desktop-home.png",
@@ -361,8 +440,7 @@ export const caseStudies: CaseStudy[] = [
     name: "Emirates Advisory Comprehensive Tracking Implementation",
     url: "https://emiratesadvisory.com",
     plan: "Standard",
-    title:
-      "Enhanced Tracking System for Emirates Advisory with Client and Server-Side Integration",
+    title: "Enhanced Tracking System for Emirates Advisory with Client and Server-Side Integration",
     description:
       "Emirates Advisory, a consultancy service website, required a robust tracking system to monitor form submissions and user interactions across their main domain and subdomain. Over an 8-day engagement, we implemented client-side and server-side tracking using Google Tag Manager, Stape.io, and Meta Conversion API, integrated a GDPR/CCPA-compliant Consent Management Platform, and built a real-time Looker Studio dashboard, achieving 95%+ tracking accuracy and recovering 14.45% of events from tracking prevention and 3.27% from ad blockers.",
     imageUrl: "/images/for-businesses/client-emiratesadvisory-desktop-home.png",
@@ -396,29 +474,25 @@ export const caseStudies: CaseStudy[] = [
         name: "Access Provisioning & Onboarding",
         description:
           "Secured access to CookieYes, WordPress subdomain, and other required platforms, and conducted onboarding to align on tracking requirements.",
-        expectedOutcome:
-          "Full system access and clear project scope established.",
+        expectedOutcome: "Full system access and clear project scope established.",
       },
       {
         name: "Client-Side Tracking Setup",
         description:
           "Installed Google Tag Manager Web Container on main domain and subdomain, configured GA4, Google Ads, Meta Pixel, and Yandex Metrica, and implemented CookieYes CMP with Google Consent Mode V2.",
-        expectedOutcome:
-          "Client-side tracking operational with GDPR/CCPA compliance.",
+        expectedOutcome: "Client-side tracking operational with GDPR/CCPA compliance.",
       },
       {
         name: "Server-Side Tracking Implementation",
         description:
           "Set up GTM Server Container on Stape.io, configured server-side tracking for GA4, Google Ads, and Meta Conversion API, and ensured event deduplication.",
-        expectedOutcome:
-          "90-95% conversion accuracy with server-side tracking.",
+        expectedOutcome: "90-95% conversion accuracy with server-side tracking.",
       },
       {
         name: "Event Tracking & Dashboard Setup",
         description:
           "Configured tracking for form submissions, phone/email clicks, social media links, CTAs, and 404 page interactions, and built a real-time Looker Studio dashboard.",
-        expectedOutcome:
-          "Full tracking system functional with real-time analytics available.",
+        expectedOutcome: "Full tracking system functional with real-time analytics available.",
       },
     ],
     projectTimeline: {
@@ -464,8 +538,7 @@ export const caseStudies: CaseStudy[] = [
     name: "Vision4kids Facebook SST & GA4 Recovery",
     url: "https://vision4kids.org",
     plan: "Standard",
-    title:
-      "Enhanced Lead Generation for Vision4kids with Server-Side Tracking and Facebook CAPI",
+    title: "Enhanced Lead Generation for Vision4kids with Server-Side Tracking and Facebook CAPI",
     description:
       "Vision4kids, a client of a Netherlands-based agency, faced inaccurate conversion tracking for their lead generation website due to reliance on client-side tracking. Over a multi-month engagement, we implemented server-side tracking via Stape.io, configured Facebook Conversion API, and built a Google Looker Studio dashboard. This restored accurate tracking, increased leads by 30%, and bypassed ad blockers and iOS ITP restrictions, achieving 97% tracking accuracy.",
     imageUrl: "/images/for-businesses/client-vision4kids-desktop-home.png",
@@ -504,15 +577,13 @@ export const caseStudies: CaseStudy[] = [
         name: "Testing Current Setup",
         description:
           "Tested the existing tracking setup and created a PDF report detailing issues with client-side tracking and inaccurate lead conversions.",
-        expectedOutcome:
-          "Comprehensive report highlighting tracking gaps and proposed solutions.",
+        expectedOutcome: "Comprehensive report highlighting tracking gaps and proposed solutions.",
       },
       {
         name: "Server-Side Implementation",
         description:
           "Provisioned a Stape.io server container, configured server-side tracking, and set up Facebook CAPI to track lead events, phone clicks, link clicks, and email clicks.",
-        expectedOutcome:
-          "Server-side tracking fully operational, capturing all key events.",
+        expectedOutcome: "Server-side tracking fully operational, capturing all key events.",
       },
       {
         name: "Validation & Dashboard",
@@ -565,10 +636,8 @@ export const caseStudies: CaseStudy[] = [
     title: "End-to-End Tracking Overhaul for SuperPerformanceReview",
     description:
       "Over 140 days, we completely revamped SuperPerformanceReview's analytics and ad tracking stack—fixing broken funnel events, isolating TikTok pixel to the enquiry subdomain, enriching user data in GA4, Facebook CAPI and Google Ads, and building a unified Looker Studio dashboard. The result: flawless funnel_submission firing, improved deduplication rates, and actionable ad optimizations across Facebook, TikTok and Google Ads.",
-    imageUrl:
-      "/images/for-businesses/client-superperformancereview-desktop-home.png",
-    mobileUrl:
-      "/images/for-businesses/client-superperformancereview-mobile-home.png",
+    imageUrl: "/images/for-businesses/client-superperformancereview-desktop-home.png",
+    mobileUrl: "/images/for-businesses/client-superperformancereview-mobile-home.png",
     siteUrl: "https://superperformancereview.com.au",
     testimonial: {
       quote: "Very happy working with Hassan! Does a great job!",
@@ -692,31 +761,24 @@ export const caseStudies: CaseStudy[] = [
     milestones: [
       {
         name: "Server-Side Tagging Launch",
-        description:
-          "Provisioned GTM server container on a custom subdomain via Stape",
-        expectedOutcome:
-          "Analytics scripts load from your own domain, bypassing ad-blockers",
+        description: "Provisioned GTM server container on a custom subdomain via Stape",
+        expectedOutcome: "Analytics scripts load from your own domain, bypassing ad-blockers",
       },
       {
         name: "UA Goals & Bounce Fix",
-        description:
-          "Configured Universal Analytics with key goals and non-interactive hits",
-        expectedOutcome:
-          "Accurate bounce rates and reliable conversion tracking",
+        description: "Configured Universal Analytics with key goals and non-interactive hits",
+        expectedOutcome: "Accurate bounce rates and reliable conversion tracking",
       },
       {
         name: "Custom Event Schema",
         description:
           "Implemented data-attribute-based click tracking for bookstores, buttons, etc.",
-        expectedOutcome:
-          "Flexible, self-documented events that any dev can add via HTML",
+        expectedOutcome: "Flexible, self-documented events that any dev can add via HTML",
       },
       {
         name: "Optimization & Handoff",
-        description:
-          "Paused unused GA4/FB tags, optimized Stape usage, delivered full docs",
-        expectedOutcome:
-          "2.1M monthly requests saved and a clear playbook for future tags",
+        description: "Paused unused GA4/FB tags, optimized Stape usage, delivered full docs",
+        expectedOutcome: "2.1M monthly requests saved and a clear playbook for future tags",
       },
     ],
     projectTimeline: {
@@ -782,27 +844,22 @@ export const caseStudies: CaseStudy[] = [
     milestones: [
       {
         name: "Audit & Access Provisioning",
-        description:
-          "Secured GTM account access and audited existing tag setup",
+        description: "Secured GTM account access and audited existing tag setup",
         expectedOutcome: "Scope and gaps clearly defined",
       },
       {
         name: "Data Layer Development",
-        description:
-          "Built and deployed a custom JavaScript data layer for all key events",
-        expectedOutcome:
-          "Consistent, structured event payloads available in GTM",
+        description: "Built and deployed a custom JavaScript data layer for all key events",
+        expectedOutcome: "Consistent, structured event payloads available in GTM",
       },
       {
         name: "Server-Side GTM Configuration",
-        description:
-          "Configured GTM server container for enhanced data integrity and privacy",
+        description: "Configured GTM server container for enhanced data integrity and privacy",
         expectedOutcome: "Server-side endpoint processing event data reliably",
       },
       {
         name: "Testing & Handover",
-        description:
-          "Validated event accuracy end-to-end and trained the client",
+        description: "Validated event accuracy end-to-end and trained the client",
         expectedOutcome: "Client empowered to manage tags and analyze data",
       },
     ],
@@ -820,11 +877,7 @@ export const caseStudies: CaseStudy[] = [
     owner: "Shahzada Ali Hassan",
     client: "Matt Cooper",
     budget: 1540.01,
-    technologies: [
-      "Google Tag Manager",
-      "JavaScript Data Layer",
-      "Server-Side Tracking",
-    ],
+    technologies: ["Google Tag Manager", "JavaScript Data Layer", "Server-Side Tracking"],
     challenges: [
       "No structured data layer to capture granular interactions",
       "Existing GTM setup was fragmented and undocumented",
@@ -871,17 +924,14 @@ export const caseStudies: CaseStudy[] = [
     milestones: [
       {
         name: "Access & Audit",
-        description:
-          "Provisioned GA4, GTM and ad account access; audited existing setup",
-        expectedOutcome:
-          "Full visibility on current gaps and required migrations",
+        description: "Provisioned GA4, GTM and ad account access; audited existing setup",
+        expectedOutcome: "Full visibility on current gaps and required migrations",
       },
       {
         name: "Tracking Implementation",
         description:
           "Deployed GTM container, replaced direct GA4 snippet, added PostMessage script for iframe form tracking",
-        expectedOutcome:
-          "All JotForm and Acuity submissions firing as GA4 events",
+        expectedOutcome: "All JotForm and Acuity submissions firing as GA4 events",
       },
       {
         name: "Dashboard Creation",
@@ -975,22 +1025,19 @@ export const caseStudies: CaseStudy[] = [
         name: "Checkout Extensibility Migration",
         description:
           "Removed all GTM/GA scripts from checkout.liquid and re-implemented them as Shopify Pixels in the new checkout UI.",
-        expectedOutcome:
-          "Checkout.liquid deprecated; new checkout scripts fully operational.",
+        expectedOutcome: "Checkout.liquid deprecated; new checkout scripts fully operational.",
       },
       {
         name: "GA4 Consolidation",
         description:
           "Disconnected legacy UA, consolidated multiple GA4 properties under G-1MSDW7HTQE via GTM and Shopify's Google app.",
-        expectedOutcome:
-          "Unified analytics reporting and App integration completed.",
+        expectedOutcome: "Unified analytics reporting and App integration completed.",
       },
       {
         name: "Brand Attribution & QA",
         description:
           "Implemented the rbidCookie logic and extended the brandDictionary to handle multi-word SKUs. Validated DataLayer pushes across all branded domains.",
-        expectedOutcome:
-          "Accurate brand-level attribution and real-time client-side tracking.",
+        expectedOutcome: "Accurate brand-level attribution and real-time client-side tracking.",
       },
       {
         name: "Server-Side Tracking Setup",
@@ -1070,29 +1117,25 @@ export const caseStudies: CaseStudy[] = [
     milestones: [
       {
         name: "Access & Audit",
-        description:
-          "Collected and verified access to Webflow, MailerLite, GTM, GA4 & Meta Pixel",
+        description: "Collected and verified access to Webflow, MailerLite, GTM, GA4 & Meta Pixel",
         expectedOutcome: "Ready to begin GTM-based tracking implementation",
       },
       {
         name: "GTM Migration",
-        description:
-          "Removed native Pixel and GA4 snippets; deployed both via GTM web container",
+        description: "Removed native Pixel and GA4 snippets; deployed both via GTM web container",
         expectedOutcome: "All pageviews and UTM parameters captured in GTM",
       },
       {
         name: "Form & UTM Capture",
         description:
           "Configured MailerLite form events (loaded, submitted) and persisted UTM tags through modal & redirect flows",
-        expectedOutcome:
-          "mailerlite_form_loaded & mailerlite_form_submitted firing with UTM data",
+        expectedOutcome: "mailerlite_form_loaded & mailerlite_form_submitted firing with UTM data",
       },
       {
         name: "QA & Documentation",
         description:
           "Tested desktop pop-up vs mobile redirect, validated GA4 & Meta event streams, delivered final tracking guide",
-        expectedOutcome:
-          "Client receives a turnkey tracking setup plus step-by-step reference",
+        expectedOutcome: "Client receives a turnkey tracking setup plus step-by-step reference",
       },
     ],
     projectTimeline: {
@@ -1138,8 +1181,7 @@ export const caseStudies: CaseStudy[] = [
     name: "EveryEvent Google Ads Tracking",
     url: "https://www.everyevent.uk",
     plan: "Standard",
-    title:
-      "Keyword-Level Conversion & Session Duration Tracking for EveryEvent",
+    title: "Keyword-Level Conversion & Session Duration Tracking for EveryEvent",
     description:
       "EveryEvent needed to know which Google Ads keywords were driving real engagement on their Bubble.io site. In a 50-day engagement, we implemented a DataLayer-driven GTM setup, linked GA4 with Google Ads & Search Console, and added a CookieScript CMP—unlocking per-keyword conversion and session-length reporting without compromising GDPR compliance.",
     imageUrl: "/images/for-businesses/client-everyevent-desktop-home.png",
@@ -1163,29 +1205,23 @@ export const caseStudies: CaseStudy[] = [
     milestones: [
       {
         name: "Audit & Access Provisioning",
-        description:
-          "Verified GA4, GTM, GSC and Bubble.io access; reviewed existing tracking gaps",
+        description: "Verified GA4, GTM, GSC and Bubble.io access; reviewed existing tracking gaps",
         expectedOutcome: "All accounts linked and initial audit complete",
       },
       {
         name: "DataLayer & GTM Setup",
-        description:
-          "Built out a generic DataLayer for form submissions and button clicks",
+        description: "Built out a generic DataLayer for form submissions and button clicks",
         expectedOutcome: "Unified event schema in place, ready to push to GTM",
       },
       {
         name: "GA4 & Ads Integration",
-        description:
-          "Configured GA4 events, linked Google Ads & Search Console for keyword data",
-        expectedOutcome:
-          "Keyword‐level conversions and session metrics flowing into GA4",
+        description: "Configured GA4 events, linked Google Ads & Search Console for keyword data",
+        expectedOutcome: "Keyword‐level conversions and session metrics flowing into GA4",
       },
       {
         name: "CMP Deployment & Testing",
-        description:
-          "Installed CookieScript for GDPR consent; end-to-end QA of all events",
-        expectedOutcome:
-          "Full compliance and accurate reporting verified in GA4",
+        description: "Installed CookieScript for GDPR consent; end-to-end QA of all events",
+        expectedOutcome: "Full compliance and accurate reporting verified in GA4",
       },
     ],
     projectTimeline: {
@@ -1246,40 +1282,27 @@ export const caseStudies: CaseStudy[] = [
       role: "Webflow Developer",
       image: "/images/clients/derrick-kityo.png",
     },
-    platforms: [
-      "Google Tag Manager",
-      "Google Analytics 4",
-      "Facebook Pixel",
-      "Slack",
-    ],
+    platforms: ["Google Tag Manager", "Google Analytics 4", "Facebook Pixel", "Slack"],
     milestones: [
       {
         name: "Kickoff & Access Setup",
-        description:
-          "Secured GTM admin access, invited to Slack channel, audited existing tags",
-        expectedOutcome:
-          "Transparent communication channel and full environment visibility",
+        description: "Secured GTM admin access, invited to Slack channel, audited existing tags",
+        expectedOutcome: "Transparent communication channel and full environment visibility",
       },
       {
         name: "Core Event Tracking",
-        description:
-          "Built click-URL triggers for GA4 and Meta Conversion API events",
-        expectedOutcome:
-          "All primary buttons and pageviews tracked with correct parameters",
+        description: "Built click-URL triggers for GA4 and Meta Conversion API events",
+        expectedOutcome: "All primary buttons and pageviews tracked with correct parameters",
       },
       {
         name: "UTM & Attribution Fix",
-        description:
-          "Diagnosed stripped UTM parameters, validated source/medium in GA4 reports",
-        expectedOutcome:
-          "Stable session attribution and accurate traffic source reporting",
+        description: "Diagnosed stripped UTM parameters, validated source/medium in GA4 reports",
+        expectedOutcome: "Stable session attribution and accurate traffic source reporting",
       },
       {
         name: "Training & Handoff",
-        description:
-          "Walked through dynamic tag creation, delivered step-by-step docs",
-        expectedOutcome:
-          "Client empowered to launch new page-level conversion tags independently",
+        description: "Walked through dynamic tag creation, delivered step-by-step docs",
+        expectedOutcome: "Client empowered to launch new page-level conversion tags independently",
       },
     ],
     projectTimeline: {
@@ -1296,12 +1319,7 @@ export const caseStudies: CaseStudy[] = [
     owner: "Shahzada Ali Hassan",
     client: "Derrick Kityo",
     budget: 160,
-    technologies: [
-      "Google Tag Manager",
-      "UTM Tracking",
-      "Event Tracking",
-      "Analytics Dashboard",
-    ],
+    technologies: ["Google Tag Manager", "UTM Tracking", "Event Tracking", "Analytics Dashboard"],
     challenges: [
       "UTM parameters stripped by redirects, breaking session attribution",
       "No dynamic process to roll out new conversion tags",
@@ -1323,8 +1341,7 @@ export const caseStudies: CaseStudy[] = [
     name: "Everskin Webflow & ClinicMinds",
     url: "https://www.everskin.ch",
     plan: "Standard",
-    title:
-      "Server-Side GTM & Meta CAPI-G Implementation for Webflow & ClinicMinds",
+    title: "Server-Side GTM & Meta CAPI-G Implementation for Webflow & ClinicMinds",
     description:
       "Everskin needed a robust, compliant tracking setup across their Webflow site and the external ClinicMinds booking tool. Over 46 days, we deployed a custom Server-Side GTM on Stape, integrated advanced Cookiebot Consent Mode V2, configured Meta CAPI-G, set up cross-domain tracking and GA4-to-Ads conversion imports, and captured key booking events—all with full deduplication and future scalability.",
     imageUrl: "/images/for-businesses/client-everskin-desktop-home.png",
@@ -1350,50 +1367,40 @@ export const caseStudies: CaseStudy[] = [
     milestones: [
       {
         name: "Access & Architecture Review",
-        description:
-          "Secured access to Webflow, GTM web & server containers, Meta & GA4 accounts",
-        expectedOutcome:
-          "Environment prepared and implementation plan locked in",
+        description: "Secured access to Webflow, GTM web & server containers, Meta & GA4 accounts",
+        expectedOutcome: "Environment prepared and implementation plan locked in",
       },
       {
         name: "Server-Side GTM Deployment",
-        description:
-          "Deployed SS-GTM on Stape using a custom subdomain and tested ingestion",
+        description: "Deployed SS-GTM on Stape using a custom subdomain and tested ingestion",
         expectedOutcome: "Server container live and ready to accept events",
       },
       {
         name: "Consent Mode Integration",
-        description:
-          "Configured Cookiebot V2 Consent Mode in GTM for granular tag firing",
-        expectedOutcome:
-          "Client-side tags respect user consent; server-side CAPI unaffected",
+        description: "Configured Cookiebot V2 Consent Mode in GTM for granular tag firing",
+        expectedOutcome: "Client-side tags respect user consent; server-side CAPI unaffected",
       },
       {
         name: "Meta CAPI-G PageView Setup",
-        description:
-          "Implemented CAPI-G in the server container, added dedupe via event_id",
+        description: "Implemented CAPI-G in the server container, added dedupe via event_id",
         expectedOutcome: "Accurate PageView data flowing into Meta",
       },
       {
         name: "GA4 & Google Ads Conversion Import",
         description:
           "Enabled cross-domain tracking, marked GA4 booking event as conversion, imported into Google Ads",
-        expectedOutcome:
-          "Booking conversions available for Google Ads optimization",
+        expectedOutcome: "Booking conversions available for Google Ads optimization",
       },
       {
         name: "ClinicMinds Booking Events",
         description:
           "Hooked into native ClinicMinds dataLayer (ServiceSelected → AppointmentBooked)",
-        expectedOutcome:
-          "End-to-end funnel events captured and deduplicated across environments",
+        expectedOutcome: "End-to-end funnel events captured and deduplicated across environments",
       },
       {
         name: "Final QA & Handover",
-        description:
-          "Validated all tags, events, deduplication rules, delivered documentation",
-        expectedOutcome:
-          "Stable, scalable tracking framework in client's hands",
+        description: "Validated all tags, events, deduplication rules, delivered documentation",
+        expectedOutcome: "Stable, scalable tracking framework in client's hands",
       },
     ],
     projectTimeline: {
@@ -1457,11 +1464,7 @@ export const caseStudies: CaseStudy[] = [
       image:
         "https://www.upwork.com/profile-portraits/c1Wsleh3GpJUkUr430pJOjyBrFOitQX1GEU7yb_6rhLw4mXVlJoDZ3itd3pRvqqNrw",
     },
-    platforms: [
-      "Custom Build Website",
-      "Google Tag Manager",
-      "Google Analytics 4",
-    ],
+    platforms: ["Custom Build Website", "Google Tag Manager", "Google Analytics 4"],
     milestones: [
       {
         name: "Initial Diagnosis",
@@ -1474,8 +1477,7 @@ export const caseStudies: CaseStudy[] = [
         name: "Custom JS Variable Implementation",
         description:
           "Created and tested custom JavaScript variables in GTM to emulate the missing dataLayer keys on purchase events.",
-        expectedOutcome:
-          "Revenue values now firing correctly into GA4 standard reports.",
+        expectedOutcome: "Revenue values now firing correctly into GA4 standard reports.",
       },
       {
         name: "Validation & Handover",
@@ -1565,29 +1567,25 @@ export const caseStudies: CaseStudy[] = [
         name: "Server-Side Container Setup",
         description:
           "Configured and secured a server-side GTM container via Stape.io to bypass ad blockers and privacy restrictions.",
-        expectedOutcome:
-          "Reliable, consistent data capture for all critical events.",
+        expectedOutcome: "Reliable, consistent data capture for all critical events.",
       },
       {
         name: "Pixel & Tag Deployment",
         description:
           "Deployed Facebook, TikTok, Hyros, HubSpot, Google Ads conversion & remarketing tags, and GA4 through GTM.",
-        expectedOutcome:
-          "All tracking centrally managed with no duplicate or missing events.",
+        expectedOutcome: "All tracking centrally managed with no duplicate or missing events.",
       },
       {
         name: "Domain Migration Support",
         description:
           "Coordinated DNS updates and migrated tracking code from thought-leader.com to leadr.co across all properties.",
-        expectedOutcome:
-          "Zero downtime and uninterrupted event flow post-migration.",
+        expectedOutcome: "Zero downtime and uninterrupted event flow post-migration.",
       },
       {
         name: "Spreadsheet-Driven Rollout",
         description:
           "Prioritized and instrumented URLs based on the client's spreadsheet of pages and key user flows.",
-        expectedOutcome:
-          "Every high-priority page fully tagged and ready for testing.",
+        expectedOutcome: "Every high-priority page fully tagged and ready for testing.",
       },
       {
         name: "Testing & Debugging",
@@ -1600,8 +1598,7 @@ export const caseStudies: CaseStudy[] = [
         name: "Training & Handoff",
         description:
           "Delivered detailed documentation and Loom videos on adding, testing and maintaining tags in GTM.",
-        expectedOutcome:
-          "Client team fully empowered to manage and extend their tracking stack.",
+        expectedOutcome: "Client team fully empowered to manage and extend their tracking stack.",
       },
     ],
     projectTimeline: {
@@ -1656,8 +1653,7 @@ export const caseStudies: CaseStudy[] = [
     name: "Tobi.com Consent Mode Implementation",
     url: "https://tobi.com",
     plan: "Standard",
-    title:
-      "Restored 80% Lost Sessions at Tobi.com with Manual gtag() Consent Mode",
+    title: "Restored 80% Lost Sessions at Tobi.com with Manual gtag() Consent Mode",
     description:
       "After GDPR cookie‐consent went live, Tobi.com saw an 80% drop in reported sessions—crippling their data-driven decisions. In just 5 days, we rolled out a manual gtag() consent mode via GTM, rebuilt the consent flow, and restored tracking accuracy and trust in their analytics.",
     imageUrl: "/images/for-businesses/client-tobi-desktop-home.png",
@@ -1677,47 +1673,37 @@ export const caseStudies: CaseStudy[] = [
       image:
         "https://media.licdn.com/dms/image/v2/D4D03AQHpin2QRF60dQ/profile-displayphoto-shrink_800_800/B4DZXKWdWsHAAc-/0/1742856640473?e=1753315200&v=beta&t=OispemTc8tLcJ2e_PiyV5s0G81Gq30eAwKMCzcNeVh0",
     },
-    platforms: [
-      "Custom Website",
-      "Google Tag Manager",
-      "gtag.js",
-      "Google Analytics 4",
-    ],
+    platforms: ["Custom Website", "Google Tag Manager", "gtag.js", "Google Analytics 4"],
     milestones: [
       {
         name: "Default Consent State Setup",
         description:
           "Injected gtag('consent','default',…) above GTM with ad_storage & analytics_storage denied by default",
-        expectedOutcome:
-          "All tags held from firing until explicit user consent",
+        expectedOutcome: "All tags held from firing until explicit user consent",
       },
       {
         name: "GTM Initialization & Consent Integration",
         description:
           "Placed GTM container snippet below default-consent code and enabled url_passthrough",
-        expectedOutcome:
-          "GTM loads with consent mode enabled—no tags fire prematurely",
+        expectedOutcome: "GTM loads with consent mode enabled—no tags fire prematurely",
       },
       {
         name: "Consent Update Functions",
         description:
           "Built updateConsent() & saveConsentAndApply() to push consent updates and 'consent_updated' events",
-        expectedOutcome:
-          "User interactions dynamically update consent state in dataLayer",
+        expectedOutcome: "User interactions dynamically update consent state in dataLayer",
       },
       {
         name: "Decision Detection & Banner Logic",
         description:
           "Stored & checked user decisions in localStorage; fired consent_updated on page load if set",
-        expectedOutcome:
-          "Existing consents auto-apply; new users see consent banner",
+        expectedOutcome: "Existing consents auto-apply; new users see consent banner",
       },
       {
         name: "QA & Production Roll-out",
         description:
           "End-to-end test of consent flow, tag firing, and dataLayer events across key pages",
-        expectedOutcome:
-          "Consent mode live in production with verified session/event tracking",
+        expectedOutcome: "Consent mode live in production with verified session/event tracking",
       },
     ],
     projectTimeline: {
@@ -1789,20 +1775,17 @@ export const caseStudies: CaseStudy[] = [
         name: "Tag Configuration & Testing",
         description:
           "Build and QA custom GTM tags/triggers for page_view, scroll, button clicks and MEC steps.",
-        expectedOutcome:
-          "All key events fire reliably in GTM Preview/Debug mode.",
+        expectedOutcome: "All key events fire reliably in GTM Preview/Debug mode.",
       },
       {
         name: "Google Ads Conversion Mapping",
         description:
           "Link GTM-fired events to Google Ads conversion actions, assign dynamic values/scores.",
-        expectedOutcome:
-          "Conversion actions appear in Google Ads and record test conversions.",
+        expectedOutcome: "Conversion actions appear in Google Ads and record test conversions.",
       },
       {
         name: "Tutorial & Documentation Delivery",
-        description:
-          "Record detailed Loom tutorial and hand off comprehensive setup docs.",
+        description: "Record detailed Loom tutorial and hand off comprehensive setup docs.",
         expectedOutcome:
           "Client can reproduce, extend and optimize the conversion setup independently.",
       },
@@ -1866,40 +1849,30 @@ export const caseStudies: CaseStudy[] = [
       image:
         "https://media.licdn.com/dms/image/v2/C4D03AQHbWO4h0DVsDA/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1613856010270?e=1753315200&v=beta&t=7IVe-5PfttGloanC8SAJBphHE1NZvhs5bM-OX8Q-Krc",
     },
-    platforms: [
-      "Shopify",
-      "Shopify Liquid",
-      "Google Tag Manager",
-      "Twitter Ads Manager",
-    ],
+    platforms: ["Shopify", "Shopify Liquid", "Google Tag Manager", "Twitter Ads Manager"],
     milestones: [
       {
         name: "Pixel Migration Planning",
         description:
           "Audit existing Twitter events in checkout extensions and prepare Liquid scripts",
-        expectedOutcome:
-          "Detailed migration plan and .liquid templates ready for implementation",
+        expectedOutcome: "Detailed migration plan and .liquid templates ready for implementation",
       },
       {
         name: "Liquid Script Injection",
         description:
           "Disabled checkout extension events and deployed Twitter pixel code into checkout.liquid and thank_you.liquid",
-        expectedOutcome:
-          "Conversion events firing via .liquid; old extension turned off",
+        expectedOutcome: "Conversion events firing via .liquid; old extension turned off",
       },
       {
         name: "End-to-End Validation",
-        description:
-          "Tested purchase and post-purchase events in Twitter Ads Manager and GA4",
-        expectedOutcome:
-          "100% of test orders recorded correctly in both systems",
+        description: "Tested purchase and post-purchase events in Twitter Ads Manager and GA4",
+        expectedOutcome: "100% of test orders recorded correctly in both systems",
       },
       {
         name: "Project Close-Out",
         description:
           "Delivered final report, handed off documentation, and confirmed no pending tasks",
-        expectedOutcome:
-          "Client satisfied, contract closed with $350 milestone paid",
+        expectedOutcome: "Client satisfied, contract closed with $350 milestone paid",
       },
     ],
     projectTimeline: {
@@ -1958,22 +1931,18 @@ export const caseStudies: CaseStudy[] = [
         name: "Audit & Diagnosis",
         description:
           "Troubleshot GTM container and Google Ads conversion tag issues after tracking went stale",
-        expectedOutcome:
-          "Identified root cause of outbound click conversion failures",
+        expectedOutcome: "Identified root cause of outbound click conversion failures",
       },
       {
         name: "Tag & Trigger Fixes",
         description:
           "Updated GTM outbound-click triggers for affiliate hostnames and republished container",
-        expectedOutcome:
-          "Outbound click events flowing into GA4 and Ads debug view",
+        expectedOutcome: "Outbound click events flowing into GA4 and Ads debug view",
       },
       {
         name: "Verification & Testing",
-        description:
-          "Validated conversion firing in GA4, GTM debug, and Google Ads reports",
-        expectedOutcome:
-          "Accurate outbound-click conversions restored for campaign optimization",
+        description: "Validated conversion firing in GA4, GTM debug, and Google Ads reports",
+        expectedOutcome: "Accurate outbound-click conversions restored for campaign optimization",
       },
     ],
     projectTimeline: {
@@ -2049,8 +2018,7 @@ export const caseStudies: CaseStudy[] = [
         name: "Audit & Access Provisioning",
         description:
           "Review existing GTM web container, Facebook Pixel setup, and secure access to all ad and analytics accounts.",
-        expectedOutcome:
-          "Clear inventory of misconfigurations and ready-to-go access.",
+        expectedOutcome: "Clear inventory of misconfigurations and ready-to-go access.",
       },
       {
         name: "Server Container Provisioning",
@@ -2062,22 +2030,19 @@ export const caseStudies: CaseStudy[] = [
         name: "Conversion API Implementation",
         description:
           "Map purchase events and user_data fields in GTM, implement advanced matching, and integrate Facebook Conversion API.",
-        expectedOutcome:
-          "All purchase and revenue events captured server-side with hashed PII.",
+        expectedOutcome: "All purchase and revenue events captured server-side with hashed PII.",
       },
       {
         name: "Quality Assurance & Testing",
         description:
           "Execute end-to-end test conversions via GTM Preview, Meta Events Manager, and real-time GA4 dashboards.",
-        expectedOutcome:
-          "Verified 100% event delivery and correct value attribution.",
+        expectedOutcome: "Verified 100% event delivery and correct value attribution.",
       },
       {
         name: "Launch & Handover",
         description:
           "Publish GTM containers to production, share documentation, and train client on monitoring and future updates.",
-        expectedOutcome:
-          "Client full ownership and visibility into ad attribution.",
+        expectedOutcome: "Client full ownership and visibility into ad attribution.",
       },
     ],
     projectTimeline: {
@@ -2147,13 +2112,11 @@ export const caseStudies: CaseStudy[] = [
         name: "Access & Audit",
         description:
           "Provisioned GTM web & server-side, GA4, Mailchimp and Google Cloud access; audited existing setup",
-        expectedOutcome:
-          "Clear roadmap to deprecate legacy tags and integrations",
+        expectedOutcome: "Clear roadmap to deprecate legacy tags and integrations",
       },
       {
         name: "Server Container Upgrade",
-        description:
-          "Updated GTM server-side container from v1.1.0 to v2.3.0 on App Engine",
+        description: "Updated GTM server-side container from v1.1.0 to v2.3.0 on App Engine",
         expectedOutcome: "Stable, secure server tagging environment",
       },
       {
@@ -2166,15 +2129,13 @@ export const caseStudies: CaseStudy[] = [
         name: "Backend API Integration",
         description:
           "Delivered developer spec & docs for Mailchimp Ecommerce Orders API; coordinated test orders",
-        expectedOutcome:
-          "Server-side order calls feeding Mailchimp with order_id, email, revenue",
+        expectedOutcome: "Server-side order calls feeding Mailchimp with order_id, email, revenue",
       },
       {
         name: "QA & Reporting",
         description:
           "Validated GA4 vs Mailchimp ecommerce reports, implemented UTM builder for newsletters",
-        expectedOutcome:
-          "Accurate revenue reporting in Mailchimp and GA4; documented workflows",
+        expectedOutcome: "Accurate revenue reporting in Mailchimp and GA4; documented workflows",
       },
     ],
     projectTimeline: {
@@ -2223,8 +2184,7 @@ export const caseStudies: CaseStudy[] = [
     name: "Google Ads gclid Tracking via Calendly",
     url: "https://jmonash.com",
     plan: "Standard",
-    title:
-      "End-to-End gclid Attribution for Calendly & OptinMonster Conversions",
+    title: "End-to-End gclid Attribution for Calendly & OptinMonster Conversions",
     description:
       "Jacob Monash needed to tie every Google Ads click (gclid) directly to his Calendly bookings and OptinMonster sign-ups. Over a 31-day engagement, we rearchitected his tracking via GTM and custom JavaScript—capturing gclids from both iframe-based and inline forms—and built a Looker Studio dashboard to report ad ID, keyword, and conversion timestamps. Now he has precise ad attribution and ROI analysis in one place.",
     imageUrl: "/images/for-businesses/client-jmonash-desktop-home.png",
@@ -2252,22 +2212,19 @@ export const caseStudies: CaseStudy[] = [
         name: "Access & Audit",
         description:
           "Provisioned GTM, GA4, Ads, Calendly and OptinMonster access; removed native integrations",
-        expectedOutcome:
-          "Clean environment ready for centralized gclid capture",
+        expectedOutcome: "Clean environment ready for centralized gclid capture",
       },
       {
         name: "gclid Capture & Tagging",
         description:
           "Configured GTM & custom JS to grab gclid in parent domain and inject into OptinMonster form",
-        expectedOutcome:
-          "All Calendly and OptinMonster conversions tagged with gclid in GA4",
+        expectedOutcome: "All Calendly and OptinMonster conversions tagged with gclid in GA4",
       },
       {
         name: "Reporting Dashboard",
         description:
           "Built Looker Studio report linking gclid to ad ID, keyword, campaign, and conversion timestamp",
-        expectedOutcome:
-          "Client-facing dashboard in his own account for live ad attribution",
+        expectedOutcome: "Client-facing dashboard in his own account for live ad attribution",
       },
     ],
     projectTimeline: {
@@ -2345,14 +2302,12 @@ export const caseStudies: CaseStudy[] = [
     milestones: [
       {
         name: "Access Provisioning",
-        description:
-          "Secured cross-platform access to analytics and ad accounts",
+        description: "Secured cross-platform access to analytics and ad accounts",
         expectedOutcome: "Ready for implementation without delays",
       },
       {
         name: "Full Funnel Tracking",
-        description:
-          "Client + server-side setup for every key event across the funnel",
+        description: "Client + server-side setup for every key event across the funnel",
         expectedOutcome: "Multi-layered data capture at >95% accuracy",
       },
       {
@@ -2363,8 +2318,7 @@ export const caseStudies: CaseStudy[] = [
       {
         name: "Custom Dashboard Rollout",
         description: "Launched real-time dashboard aligned to campaign goals",
-        expectedOutcome:
-          "Instant visibility into top-funnel to revenue metrics",
+        expectedOutcome: "Instant visibility into top-funnel to revenue metrics",
       },
     ],
     projectTimeline: {
@@ -2422,8 +2376,7 @@ export const caseStudies: CaseStudy[] = [
     milestones: [
       {
         name: "Access & Funnel Assessment",
-        description:
-          "Identified misfiring and missing events across funnel steps",
+        description: "Identified misfiring and missing events across funnel steps",
         expectedOutcome: "Clear fix plan for every broken data flow",
       },
       {
@@ -2451,12 +2404,7 @@ export const caseStudies: CaseStudy[] = [
     owner: "Shahzada Ali Hassan",
     client: "Alina Islam",
     budget: 150,
-    technologies: [
-      "Web Analytics",
-      "Advertising Pixel",
-      "Funnel Platform",
-      "Analytics Dashboard",
-    ],
+    technologies: ["Web Analytics", "Advertising Pixel", "Funnel Platform", "Analytics Dashboard"],
     challenges: [
       "GA4 events were unreliable, funnel metrics missing",
       "No native dataLayer support in ClickFunnels",

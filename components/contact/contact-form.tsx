@@ -28,10 +28,7 @@ const clientCreateContact =
       return { error: null };
     } catch (error) {
       return {
-        error:
-          error instanceof Error
-            ? error.message
-            : "An error occurred during form submission.",
+        error: error instanceof Error ? error.message : "An error occurred during form submission.",
       };
     }
   };
@@ -55,13 +52,8 @@ type ContactFormProps = {
   redirectUrl?: string;
 };
 
-export default function ContactForm({
-  redirectUrl = "/contact/book-a-meeting",
-}: ContactFormProps) {
-  const [state, formAction] = useActionState(
-    clientCreateContact(redirectUrl),
-    initialState,
-  );
+export default function ContactForm({ redirectUrl = "/contact/book-a-meeting" }: ContactFormProps) {
+  const [state, formAction] = useActionState(clientCreateContact(redirectUrl), initialState);
 
   return (
     <div className="w-full py-6">
@@ -78,26 +70,14 @@ export default function ContactForm({
               <Label htmlFor="firstName" className="font-medium">
                 First Name<span className="text-destructive">*</span>
               </Label>
-              <Input
-                required
-                type="text"
-                id="firstName"
-                name="firstName"
-                className="h-12 p-2.5"
-              />
+              <Input required type="text" id="firstName" name="firstName" className="h-12 p-2.5" />
             </div>{" "}
             {/* Last Name Input */}
             <div className="grid w-full items-start gap-1.5">
               <Label htmlFor="lastName" className="font-medium">
                 Last Name<span className="text-destructive">*</span>
               </Label>
-              <Input
-                required
-                type="text"
-                id="lastName"
-                name="lastName"
-                className="h-12 p-2.5"
-              />
+              <Input required type="text" id="lastName" name="lastName" className="h-12 p-2.5" />
             </div>
           </div>{" "}
           {/* Email Input - Full Width */}
@@ -105,26 +85,14 @@ export default function ContactForm({
             <Label htmlFor="email" className="font-medium">
               Email<span className="text-destructive">*</span>
             </Label>
-            <Input
-              required
-              type="email"
-              id="email"
-              name="email"
-              className="h-12 p-2.5"
-            />
+            <Input required type="email" id="email" name="email" className="h-12 p-2.5" />
           </div>{" "}
           {/* Website URL Input - Full Width */}
           <div className="grid w-full items-start gap-1.5">
             <Label htmlFor="website" className="font-medium">
               Website URL<span className="text-destructive">*</span>
             </Label>
-            <Input
-              required
-              type="url"
-              id="website"
-              name="website"
-              className="h-12 p-2.5"
-            />
+            <Input required type="url" id="website" name="website" className="h-12 p-2.5" />
           </div>{" "}
           {/* Budget Dropdown - Full Width */}
           <div className="grid w-full items-start gap-1.5">
@@ -137,18 +105,10 @@ export default function ContactForm({
               </SelectTrigger>
               <SelectContent>
                 <SelectItem value="Less than 5000">Less than $5,000</SelectItem>
-                <SelectItem value="$5,000 - $10,000">
-                  $5,000 - $10,000
-                </SelectItem>
-                <SelectItem value="$10,000 - $25,000">
-                  $10,000 - $25,000
-                </SelectItem>
-                <SelectItem value="$25,000 - $50,000">
-                  $25,000 - $50,000
-                </SelectItem>
-                <SelectItem value="$50,000 - $100,000">
-                  $50,000 - $100,000
-                </SelectItem>
+                <SelectItem value="$5,000 - $10,000">$5,000 - $10,000</SelectItem>
+                <SelectItem value="$10,000 - $25,000">$10,000 - $25,000</SelectItem>
+                <SelectItem value="$25,000 - $50,000">$25,000 - $50,000</SelectItem>
+                <SelectItem value="$50,000 - $100,000">$50,000 - $100,000</SelectItem>
                 <SelectItem value="100000+">$100,000+</SelectItem>
               </SelectContent>
             </Select>
@@ -160,21 +120,13 @@ export default function ContactForm({
             </Label>
             <div className="mt-1 space-y-2">
               <div className="flex items-start">
-                <Checkbox
-                  id="issue-1"
-                  name="issues"
-                  value="cant-see-purchases"
-                />
+                <Checkbox id="issue-1" name="issues" value="cant-see-purchases" />
                 <Label htmlFor="issue-1" className="ml-2 text-sm font-normal">
                   I can't see purchases or conversions from my ads
                 </Label>
               </div>
               <div className="flex items-start">
-                <Checkbox
-                  id="issue-2"
-                  name="issues"
-                  value="domain-restricted"
-                />
+                <Checkbox id="issue-2" name="issues" value="domain-restricted" />
                 <Label htmlFor="issue-2" className="ml-2 text-sm font-normal">
                   My domain is Restricted or Blocked
                 </Label>
@@ -198,11 +150,7 @@ export default function ContactForm({
                 </Label>
               </div>
               <div className="flex items-start">
-                <Checkbox
-                  id="issue-6"
-                  name="issues"
-                  value="cookie-consent-issues"
-                />
+                <Checkbox id="issue-6" name="issues" value="cookie-consent-issues" />
                 <Label htmlFor="issue-6" className="ml-2 text-sm font-normal">
                   I'm faceing issues with GDPR, CCPA or Other Cookie Compliances
                 </Label>
@@ -227,14 +175,10 @@ export default function ContactForm({
               </SelectTrigger>
               <SelectContent>
                 <SelectItem value="1">1 (Not Urgent)</SelectItem>
-                <SelectItem value="2-4">
-                  2-4: Somewhat important but not Urgent
-                </SelectItem>
+                <SelectItem value="2-4">2-4: Somewhat important but not Urgent</SelectItem>
                 <SelectItem value="5-6">5-6: It's Important</SelectItem>
                 <SelectItem value="7-8">7-8: It's Very Urgent</SelectItem>
-                <SelectItem value="9-10">
-                  9-10: It should have been fixed Yesterday..!!
-                </SelectItem>
+                <SelectItem value="9-10">9-10: It should have been fixed Yesterday..!!</SelectItem>
               </SelectContent>
             </Select>
           </div>{" "}

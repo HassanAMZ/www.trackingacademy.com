@@ -31,9 +31,7 @@ const getTagCategories = (tags: string[]) => {
     {
       name: "Technology",
       filter: (tag: string) =>
-        ["javascript", "react", "nextjs", "typescript", "programming"].includes(
-          tag.toLowerCase(),
-        ),
+        ["javascript", "react", "nextjs", "typescript", "programming"].includes(tag.toLowerCase()),
     },
     {
       name: "Design",
@@ -71,13 +69,9 @@ const TagsContainer: React.FC<TagContainerProps> = ({ tags, blogsData }) => {
     const applyFilters = () => {
       let filtered = normalizedTags; // Apply search filter
       if (searchTerm) {
-        filtered = filtered.filter((tag) =>
-          tag.toLowerCase().includes(searchTerm.toLowerCase()),
-        );
+        filtered = filtered.filter((tag) => tag.toLowerCase().includes(searchTerm.toLowerCase()));
       } // Apply category filter
-      const selectedCategoryObj = categories.find(
-        (cat) => cat.name === selectedCategory,
-      );
+      const selectedCategoryObj = categories.find((cat) => cat.name === selectedCategory);
       if (selectedCategoryObj && selectedCategory !== "All") {
         filtered = filtered.filter((tag) => {
           const count = blogsData.filter((blog) =>
@@ -102,11 +96,7 @@ const TagsContainer: React.FC<TagContainerProps> = ({ tags, blogsData }) => {
             </div>{" "}
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
-                <Button
-                  variant="outline"
-                  size="sm"
-                  className="flex items-center gap-1"
-                >
+                <Button variant="outline" size="sm" className="flex items-center gap-1">
                   <Filter className="h-4 w-4" />
                   <span>{selectedCategory}</span>
                 </Button>
@@ -118,9 +108,7 @@ const TagsContainer: React.FC<TagContainerProps> = ({ tags, blogsData }) => {
                   <DropdownMenuItem
                     key={idx}
                     onClick={() => setSelectedCategory(category.name)}
-                    className={
-                      selectedCategory === category.name ? "bg-muted" : ""
-                    }
+                    className={selectedCategory === category.name ? "bg-muted" : ""}
                   >
                     {category.name}
                   </DropdownMenuItem>
@@ -144,8 +132,7 @@ const TagsContainer: React.FC<TagContainerProps> = ({ tags, blogsData }) => {
           </div>{" "}
           {filteredTags.length > 0 ? (
             <p className="text-muted-foreground mb-4 text-sm">
-              Found {filteredTags.length} tags{" "}
-              {searchTerm && `matching "${searchTerm}"`}
+              Found {filteredTags.length} tags {searchTerm && `matching "${searchTerm}"`}
               {selectedCategory !== "All" && ` in ${selectedCategory}`}
             </p>
           ) : (
@@ -155,9 +142,7 @@ const TagsContainer: React.FC<TagContainerProps> = ({ tags, blogsData }) => {
           )}
         </CardContent>
       </Card>{" "}
-      {filteredTags.length > 0 && (
-        <TagGrid tags={filteredTags} blogs={blogsData} />
-      )}
+      {filteredTags.length > 0 && <TagGrid tags={filteredTags} blogs={blogsData} />}
     </div>
   );
 };

@@ -36,8 +36,8 @@ export default function AuditRequestEmail({
         <title>Your Website Tracking Audit Is Being Prepared</title>
       </Head>
       <Preview>
-        Your website tracking audit is in progress - we'll deliver your
-        comprehensive report within 24 hours
+        Your website tracking audit is in progress - we'll deliver your comprehensive report within
+        24 hours
       </Preview>
       <Body style={main}>
         <Container style={container}>
@@ -58,20 +58,18 @@ export default function AuditRequestEmail({
 
             <Text style={greeting}>Hi {name},</Text>
             <Text style={paragraph}>
-              Thank you for requesting a free website tracking audit. We've
-              received your request and our expert team is now analyzing your
-              website's tracking setup.
+              Thank you for requesting a free website tracking audit. We've received your request
+              and our expert team is now analyzing your website's tracking setup.
             </Text>
             <Text style={paragraph}>
-              Our specialists are currently conducting a comprehensive analysis
-              of {websiteUrl ? `${websiteUrl}` : "your website"} to identify key
-              areas for improvement in your tracking implementation.
+              Our specialists are currently conducting a comprehensive analysis of{" "}
+              {websiteUrl ? `${websiteUrl}` : "your website"} to identify key areas for improvement
+              in your tracking implementation.
             </Text>
 
             <div style={highlightBox}>
               <Text style={highlightText}>
-                ⏱️ Your personalized audit report will be delivered within 24
-                hours
+                ⏱️ Your personalized audit report will be delivered within 24 hours
               </Text>
             </div>
           </Section>
@@ -81,17 +79,11 @@ export default function AuditRequestEmail({
             <Heading as="h2" style={subheading}>
               What We're Analyzing For You:
             </Heading>
-            <Text style={bonusPoint}>
-              🔍 Complete tracking health assessment
-            </Text>
-            <Text style={bonusPoint}>
-              📊 Data quality evaluation (web & server-side)
-            </Text>
+            <Text style={bonusPoint}>🔍 Complete tracking health assessment</Text>
+            <Text style={bonusPoint}>📊 Data quality evaluation (web & server-side)</Text>
             <Text style={bonusPoint}>🔧 Missing tracking implementations</Text>
             <Text style={bonusPoint}>🛡️ GDPR & privacy compliance review</Text>
-            <Text style={bonusPoint}>
-              💡 Actionable improvement recommendations
-            </Text>
+            <Text style={bonusPoint}>💡 Actionable improvement recommendations</Text>
             <Text style={bonusPoint}>🗺️ Priority fixes roadmap</Text>
           </Section>
 
@@ -107,12 +99,9 @@ export default function AuditRequestEmail({
               </Text>
             </div>
             <div style={timelineItem}>
-              <Text style={timelineStep}>
-                2. Report Delivery (Within 24 Hours)
-              </Text>
+              <Text style={timelineStep}>2. Report Delivery (Within 24 Hours)</Text>
               <Text style={timelineDescription}>
-                You'll receive a detailed audit report with personalized
-                recommendations
+                You'll receive a detailed audit report with personalized recommendations
               </Text>
             </div>
             <div style={timelineItem}>
@@ -129,20 +118,17 @@ export default function AuditRequestEmail({
               Get Ready for Better Tracking
             </Heading>
             <Text style={paragraph}>
-              While you wait for your audit report, you can schedule a free
-              strategy call to discuss the results once they're ready.
+              While you wait for your audit report, you can schedule a free strategy call to discuss
+              the results once they're ready.
             </Text>
 
-            <Button
-              style={ctaButton}
-              href={`${baseUrl}/contact/book-a-meeting`}
-            >
+            <Button style={ctaButton} href={`${baseUrl}/contact/book-a-meeting`}>
               Schedule Your Free Strategy Call
             </Button>
 
             <Text style={smallText}>
-              Book a 15-minute call to review your audit results and create a
-              custom implementation plan.
+              Book a 15-minute call to review your audit results and create a custom implementation
+              plan.
             </Text>
           </Section>
 

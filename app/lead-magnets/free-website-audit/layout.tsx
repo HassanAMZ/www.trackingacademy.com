@@ -2,8 +2,7 @@ import type { Metadata } from "next";
 import { ReactNode } from "react";
 
 export const metadata: Metadata = {
-  title:
-    "Free Website Tracking Audit - No More Data Doubts | Total Transparency",
+  title: "Free Website Tracking Audit - No More Data Doubts | Total Transparency",
   description:
     "Get a comprehensive free tracking audit for your website. Identify Meta Pixel issues, GDPR compliance problems, and conversion tracking errors. Improve your ROAS by 15-30% with our expert analysis.",
   keywords: [

@@ -38,9 +38,7 @@ export async function generateMetadata({
   if (blogSlug.length === 2) {
     const [category, slug] = blogSlug;
     try {
-      const { metadata } = await import(
-        `@/app/_blog-markdown/${category}/${slug}.mdx`
-      );
+      const { metadata } = await import(`@/app/_blog-markdown/${category}/${slug}.mdx`);
       return {
         title: `${metadata.title} | TrackingAcademy Blog`,
         description:

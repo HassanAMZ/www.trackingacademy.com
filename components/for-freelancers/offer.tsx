@@ -9,14 +9,7 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog";
 import { Separator } from "@/components/ui/separator";
-import {
-  Globe,
-  Headset,
-  Rocket,
-  ShieldCheck,
-  Smile,
-  Target,
-} from "lucide-react";
+import { Globe, Headset, Rocket, ShieldCheck, Smile, Target } from "lucide-react";
 import Link from "next/link";
 import React, { FC } from "react";
 import YoutubeEmbed from "../global/youtube-embed";
@@ -25,8 +18,7 @@ export default function ForFreelancersOffer() {
   return (
     <Container className="space-y-6 pt-4 text-center">
       <h2>
-        Ready to see what you'll get?{" "}
-        <span className="text-primary">Watch the video</span>
+        Ready to see what you'll get? <span className="text-primary">Watch the video</span>
       </h2>{" "}
       <YoutubeEmbed embedId="9MGpL_AmEYM" />
       <h1>Master Analytics and Tracking in 12 Weeks!</h1>{" "}
@@ -125,8 +117,8 @@ export default function ForFreelancersOffer() {
         />
       </div>{" "}
       <h2>
-        Enroll now to master conversion tracking and analytics! Take the next
-        step and join our training program today.
+        Enroll now to master conversion tracking and analytics! Take the next step and join our
+        training program today.
       </h2>{" "}
       <Button asChild className="w-full px-10 py-4">
         <Link href="/for-freelancers/enroll-now">Enroll Now</Link>

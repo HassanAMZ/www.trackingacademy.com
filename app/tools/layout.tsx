@@ -1,5 +1,3 @@
-import { promises as fs } from "fs";
-import path from "path";
 import Footer from "@/components/global/footer";
 import Navbar from "@/components/global/navbar";
 import ToolBreadcrumbs from "@/components/tools/layout-breadcrumbs";
@@ -19,8 +17,10 @@ import {
   SidebarTrigger,
 } from "@/components/ui/sidebar";
 import { iconMap } from "@/utils/tools";
+import { promises as fs } from "fs";
 import { Wrench } from "lucide-react";
 import Link from "next/link";
+import path from "path";
 import React, { ReactNode } from "react";
 
 export const metadata = {
@@ -90,9 +90,7 @@ function ToolsSidebar({
       </SidebarHeader>
       <SidebarContent className="w-full">
         <SidebarGroup className="w-full">
-          <SidebarGroupLabel className="px-4 py-2">
-            Available Tools
-          </SidebarGroupLabel>
+          <SidebarGroupLabel className="px-4 py-2">Available Tools</SidebarGroupLabel>
           <SidebarMenu>
             {tools.map((tool) => (
               <SidebarMenuItem key={tool.slug}>

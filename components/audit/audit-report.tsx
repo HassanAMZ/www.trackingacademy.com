@@ -3,14 +3,7 @@
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
-import { Progress } from "@/components/ui/progress";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import {
   Table,
   TableBody,
@@ -20,7 +13,6 @@ import {
   TableRow,
 } from "@/components/ui/table";
 import type { AuditReportProps } from "@/data/audit-report";
-import { formatDate } from "date-fns";
 import {
   Activity,
   AlertTriangle,
@@ -99,15 +91,12 @@ function ScoreCircle({
   const circumference = 2 * Math.PI * radius;
   const strokeDasharray = `${(percentage / 100) * circumference} ${circumference}`;
 
-  const color =
-    percentage >= 80 ? "#22c55e" : percentage >= 60 ? "#eab308" : "#ef4444";
+  const color = percentage >= 80 ? "#22c55e" : percentage >= 60 ? "#eab308" : "#ef4444";
 
   return (
     <div className="flex flex-col items-center space-y-2">
       <div className="relative">
-        <svg
-          className={`${isLarge ? "h-32 w-32" : "h-24 w-24"} -rotate-90 transform`}
-        >
+        <svg className={`${isLarge ? "h-32 w-32" : "h-24 w-24"} -rotate-90 transform`}>
           <circle
             cx={isLarge ? "64" : "48"}
             cy={isLarge ? "64" : "48"}
@@ -130,9 +119,7 @@ function ScoreCircle({
           />
         </svg>
         <div className="absolute inset-0 flex flex-col items-center justify-center">
-          <span className={`${isLarge ? "text-4xl" : "text-2xl"} font-bold`}>
-            {score}
-          </span>
+          <span className={`${isLarge ? "text-4xl" : "text-2xl"} font-bold`}>{score}</span>
           <span className="text-muted-foreground text-sm">
             {isLarge ? `out of ${maxScore}` : `/${maxScore}`}
           </span>
@@ -201,17 +188,8 @@ function TrackerTableRow({ tracker, index }: { tracker: any; index: number }) {
             </div>
           )}
           {tracker.canImprove && tracker.improvementLink && (
-            <Button
-              variant="ghost"
-              size="sm"
-              asChild
-              className="hover:bg-primary/10 h-6 w-6 p-0"
-            >
-              <a
-                href={tracker.improvementLink}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
+            <Button variant="ghost" size="sm" asChild className="hover:bg-primary/10 h-6 w-6 p-0">
+              <a href={tracker.improvementLink} target="_blank" rel="noopener noreferrer">
                 <ExternalLink className="h-3 w-3" />
               </a>
             </Button>
@@ -260,27 +238,18 @@ function DataCard({
 }
 
 export default function AuditReport({ report }: AuditReportProps) {
-  const scorePercentage =
-    (report.overallScore.score / report.overallScore.maxScore) * 100;
+  const scorePercentage = (report.overallScore.score / report.overallScore.maxScore) * 100;
 
   // Calculate category scores
   const categoryScores = {
     analytics:
-      report.categoryScores.find((cat) =>
-        cat.name.toLowerCase().includes("analytics"),
-      )?.score || 0,
-    ads:
-      report.categoryScores.find((cat) =>
-        cat.name.toLowerCase().includes("ads"),
-      )?.score || 0,
+      report.categoryScores.find((cat) => cat.name.toLowerCase().includes("analytics"))?.score || 0,
+    ads: report.categoryScores.find((cat) => cat.name.toLowerCase().includes("ads"))?.score || 0,
     pageSpeed:
-      report.categoryScores.find((cat) =>
-        cat.name.toLowerCase().includes("page speed"),
-      )?.score || 0,
+      report.categoryScores.find((cat) => cat.name.toLowerCase().includes("page speed"))?.score ||
+      0,
     cookie:
-      report.categoryScores.find((cat) =>
-        cat.name.toLowerCase().includes("cookie"),
-      )?.score || 0,
+      report.categoryScores.find((cat) => cat.name.toLowerCase().includes("cookie"))?.score || 0,
   };
 
   // Calculate distributions
@@ -349,26 +318,10 @@ export default function AuditReport({ report }: AuditReportProps) {
 
             {/* Category Scores */}
             <div className="grid grid-cols-2 gap-6 lg:grid-cols-4">
-              <ScoreCircle
-                score={categoryScores.analytics}
-                maxScore={100}
-                label="Analytics"
-              />
-              <ScoreCircle
-                score={categoryScores.ads}
-                maxScore={100}
-                label="Ads"
-              />
-              <ScoreCircle
-                score={categoryScores.cookie}
-                maxScore={100}
-                label="Cookies"
-              />
-              <ScoreCircle
-                score={categoryScores.pageSpeed}
-                maxScore={100}
-                label="Page Speed"
-              />
+              <ScoreCircle score={categoryScores.analytics} maxScore={100} label="Analytics" />
+              <ScoreCircle score={categoryScores.ads} maxScore={100} label="Ads" />
+              <ScoreCircle score={categoryScores.cookie} maxScore={100} label="Cookies" />
+              <ScoreCircle score={categoryScores.pageSpeed} maxScore={100} label="Page Speed" />
             </div>
           </div>
 
@@ -417,42 +370,24 @@ export default function AuditReport({ report }: AuditReportProps) {
             <TrendingUp className="h-5 w-5" />
             Trackers Found ({report.trackers.length})
           </CardTitle>
-          <CardDescription>
-            Third-party trackers detected on your website
-          </CardDescription>
+          <CardDescription>Third-party trackers detected on your website</CardDescription>
         </CardHeader>
         <CardContent>
           <div className="border-muted/50 overflow-hidden rounded-lg border">
             <Table>
               <TableHeader>
                 <TableRow className="bg-muted/30 hover:bg-muted/30">
-                  <TableHead className="text-foreground font-semibold">
-                    Name
-                  </TableHead>
-                  <TableHead className="text-foreground font-semibold">
-                    Provider
-                  </TableHead>
-                  <TableHead className="text-foreground font-semibold">
-                    Category
-                  </TableHead>
-                  <TableHead className="text-foreground font-semibold">
-                    Data Sent To
-                  </TableHead>
-                  <TableHead className="text-foreground font-semibold">
-                    Method
-                  </TableHead>
-                  <TableHead className="text-foreground font-semibold">
-                    Status
-                  </TableHead>
+                  <TableHead className="text-foreground font-semibold">Name</TableHead>
+                  <TableHead className="text-foreground font-semibold">Provider</TableHead>
+                  <TableHead className="text-foreground font-semibold">Category</TableHead>
+                  <TableHead className="text-foreground font-semibold">Data Sent To</TableHead>
+                  <TableHead className="text-foreground font-semibold">Method</TableHead>
+                  <TableHead className="text-foreground font-semibold">Status</TableHead>
                 </TableRow>
               </TableHeader>
               <TableBody>
                 {report.trackers.map((tracker, index) => (
-                  <TrackerTableRow
-                    key={index}
-                    tracker={tracker}
-                    index={index}
-                  />
+                  <TrackerTableRow key={index} tracker={tracker} index={index} />
                 ))}
               </TableBody>
             </Table>
@@ -474,21 +409,11 @@ export default function AuditReport({ report }: AuditReportProps) {
             <Table>
               <TableHeader>
                 <TableRow className="bg-muted/30 hover:bg-muted/30">
-                  <TableHead className="text-foreground font-semibold">
-                    Name
-                  </TableHead>
-                  <TableHead className="text-foreground font-semibold">
-                    Provider
-                  </TableHead>
-                  <TableHead className="text-foreground font-semibold">
-                    Category
-                  </TableHead>
-                  <TableHead className="text-foreground font-semibold">
-                    Data Sent To
-                  </TableHead>
-                  <TableHead className="text-foreground font-semibold">
-                    Lifetime
-                  </TableHead>
+                  <TableHead className="text-foreground font-semibold">Name</TableHead>
+                  <TableHead className="text-foreground font-semibold">Provider</TableHead>
+                  <TableHead className="text-foreground font-semibold">Category</TableHead>
+                  <TableHead className="text-foreground font-semibold">Data Sent To</TableHead>
+                  <TableHead className="text-foreground font-semibold">Lifetime</TableHead>
                 </TableRow>
               </TableHeader>
               <TableBody>
@@ -531,10 +456,7 @@ export default function AuditReport({ report }: AuditReportProps) {
                     <TableCell className="py-4">
                       <div className="flex items-center gap-2">
                         <Clock className="h-3 w-3 text-blue-500" />
-                        <Badge
-                          variant="secondary"
-                          className="text-xs font-medium shadow-sm"
-                        >
+                        <Badge variant="secondary" className="text-xs font-medium shadow-sm">
                           {cookie.lifetime}
                         </Badge>
                       </div>
@@ -563,21 +485,11 @@ export default function AuditReport({ report }: AuditReportProps) {
             <Table>
               <TableHeader>
                 <TableRow className="bg-muted/30 hover:bg-muted/30">
-                  <TableHead className="text-foreground font-semibold">
-                    Name
-                  </TableHead>
-                  <TableHead className="text-foreground font-semibold">
-                    Provider
-                  </TableHead>
-                  <TableHead className="text-foreground font-semibold">
-                    Category
-                  </TableHead>
-                  <TableHead className="text-foreground font-semibold">
-                    Transfer Size
-                  </TableHead>
-                  <TableHead className="text-foreground font-semibold">
-                    Blocking Time
-                  </TableHead>
+                  <TableHead className="text-foreground font-semibold">Name</TableHead>
+                  <TableHead className="text-foreground font-semibold">Provider</TableHead>
+                  <TableHead className="text-foreground font-semibold">Category</TableHead>
+                  <TableHead className="text-foreground font-semibold">Transfer Size</TableHead>
+                  <TableHead className="text-foreground font-semibold">Blocking Time</TableHead>
                 </TableRow>
               </TableHeader>
               <TableBody>
@@ -616,8 +528,7 @@ export default function AuditReport({ report }: AuditReportProps) {
                         <div
                           className="h-3 w-3 rounded-full shadow-sm"
                           style={{
-                            backgroundColor:
-                              script.transferSizeColor || "#6b7280",
+                            backgroundColor: script.transferSizeColor || "#6b7280",
                           }}
                         />
                         <span
@@ -667,10 +578,7 @@ export default function AuditReport({ report }: AuditReportProps) {
               <AlertTriangle className="h-4 w-4" />
               <AlertTitle className="flex items-center justify-between">
                 <span>{action.title}</span>
-                <Badge
-                  variant="outline"
-                  className="border-green-200 bg-green-50 text-green-600"
-                >
+                <Badge variant="outline" className="border-green-200 bg-green-50 text-green-600">
                   +{action.scoreImprovement} points
                 </Badge>
               </AlertTitle>

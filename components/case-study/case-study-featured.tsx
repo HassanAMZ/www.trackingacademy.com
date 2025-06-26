@@ -6,14 +6,12 @@ import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import type { CaseStudy } from "@/data/case-studies";
 import {
   ArrowRight,
-  Award,
   Calendar,
   ChevronDown,
   ChevronUp,
   ExternalLink,
   Eye,
   Play,
-  Target,
   TrendingUp,
   Zap,
 } from "lucide-react";
@@ -29,9 +27,7 @@ interface FeaturedCaseStudyProps {
   caseStudy: CaseStudy;
 }
 
-export default function FeaturedCaseStudy({
-  caseStudy,
-}: FeaturedCaseStudyProps) {
+export default function FeaturedCaseStudy({ caseStudy }: FeaturedCaseStudyProps) {
   const [expandedSections, setExpandedSections] = useState({
     description: false,
     technologies: false,
@@ -51,14 +47,10 @@ export default function FeaturedCaseStudy({
 
   // Auto-scroll effect for before images
   useEffect(() => {
-    if (
-      caseStudy.analytics.images?.before &&
-      caseStudy.analytics.images.before.length > 1
-    ) {
+    if (caseStudy.analytics.images?.before && caseStudy.analytics.images.before.length > 1) {
       const interval = setInterval(() => {
         setCurrentBeforeIndex(
-          (prev) =>
-            (prev + 1) % (caseStudy.analytics.images?.before?.length ?? 1),
+          (prev) => (prev + 1) % (caseStudy.analytics.images?.before?.length ?? 1),
         );
       }, 7000);
 
@@ -68,14 +60,10 @@ export default function FeaturedCaseStudy({
 
   // Auto-scroll effect for after images
   useEffect(() => {
-    if (
-      caseStudy.analytics.images?.after &&
-      caseStudy.analytics.images.after.length > 1
-    ) {
+    if (caseStudy.analytics.images?.after && caseStudy.analytics.images.after.length > 1) {
       const interval = setInterval(() => {
         setCurrentAfterIndex(
-          (prev) =>
-            (prev + 1) % (caseStudy.analytics.images?.after?.length ?? 1),
+          (prev) => (prev + 1) % (caseStudy.analytics.images?.after?.length ?? 1),
         );
       }, 7000);
 
@@ -99,16 +87,14 @@ export default function FeaturedCaseStudy({
   };
 
   return (
-    <section className="from-background via-muted/10 to-primary/5 relative w-full overflow-hidden bg-gradient-to-br py-12">
+    <section className="from-background via-muted/10 to-primary/5 relative w-full overflow-hidden bg-gradient-to-br py-6 md:py-12">
       <Container className="relative">
         {/* Main Visual Card */}
         <Card className="bg-card/80 group hover:shadow-3xl overflow-hidden border-0 shadow-2xl backdrop-blur-sm transition-all duration-500">
           <CardHeader className="px-1 py-6 md:px-6">
             {/* Compact Header */}
             <div className="pt-6 pb-4 text-center">
-              <Badge className="mx-auto w-fit">
-                Featured Case Study {caseStudy.id}
-              </Badge>
+              <Badge className="mx-auto w-fit">Featured Case Study {caseStudy.id}</Badge>
               <h2 className="text-foreground mx-auto max-w-5xl py-6 text-center">
                 Case Study: {caseStudy.title}
               </h2>
@@ -158,10 +144,7 @@ export default function FeaturedCaseStudy({
                   <div className="bg-muted relative aspect-video overflow-hidden">
                     {caseStudy.embedId?.loom ? (
                       <>
-                        <LoomEmbed
-                          embedId={caseStudy.embedId.loom}
-                          className="p-0"
-                        />
+                        <LoomEmbed embedId={caseStudy.embedId.loom} className="p-0" />
                         <div className="bg-primary text-primary-foreground absolute top-4 left-4 flex items-center gap-2 rounded-full px-3 py-1.5 text-sm font-medium shadow-lg backdrop-blur-sm">
                           <Play className="h-3 w-3" />
                           Live Demo
@@ -169,10 +152,7 @@ export default function FeaturedCaseStudy({
                       </>
                     ) : caseStudy.embedId?.youtube ? (
                       <>
-                        <YoutubeEmbed
-                          embedId={caseStudy.embedId.youtube}
-                          className="p-0"
-                        />
+                        <YoutubeEmbed embedId={caseStudy.embedId.youtube} className="p-0" />
                         <div className="bg-destructive text-destructive-foreground absolute top-4 left-4 flex items-center gap-2 rounded-full px-3 py-1.5 text-sm font-medium shadow-lg backdrop-blur-sm">
                           <Play className="h-3 w-3" />
                           Case Video
@@ -181,10 +161,7 @@ export default function FeaturedCaseStudy({
                     ) : (
                       <>
                         <Image
-                          src={
-                            caseStudy.imageUrl ||
-                            "/placeholder.svg?height=600&width=800"
-                          }
+                          src={caseStudy.imageUrl || "/placeholder.svg?height=600&width=800"}
                           alt={`${caseStudy.name} preview`}
                           fill
                           className="object-cover transition-transform duration-700 group-hover:scale-105"
@@ -246,20 +223,12 @@ export default function FeaturedCaseStudy({
                   {/* Action Buttons - Visual Focus */}
                   <div className="flex flex-col gap-2 md:flex-row">
                     <Button asChild size="sm" className="group w-full">
-                      <Link
-                        href={caseStudyLink}
-                        className="flex items-center justify-center gap-2"
-                      >
+                      <Link href={caseStudyLink} className="flex items-center justify-center gap-2">
                         <span className="font-semibold">Full Case Study</span>
                         <ArrowRight className="h-3 w-3 transition-transform group-hover:translate-x-1" />
                       </Link>
                     </Button>
-                    <Button
-                      asChild
-                      variant="outline"
-                      size="sm"
-                      className="group w-full"
-                    >
+                    <Button asChild variant="outline" size="sm" className="group w-full">
                       <Link
                         href={caseStudy.url}
                         target="_blank"
@@ -280,19 +249,15 @@ export default function FeaturedCaseStudy({
               <div className="mb-12 space-y-4 text-center">
                 <h2 className="">Before vs After Results for {caseStudy.id}</h2>
                 <h4 className="text-muted-foreground mx-auto max-w-3xl">
-                  The before screenshots shows that the conversion tracking was
-                  not working, with ad spend of 1000$+ and after screenshots
-                  shows the conversion tracking working.
+                  The before screenshots shows that the conversion tracking was not working, with ad
+                  spend of 1000$+ and after screenshots shows the conversion tracking working.
                 </h4>
               </div>
               <div className="grid gap-4 md:grid-cols-2">
                 {/* Before - Auto-Scrolling Carousel */}
                 <Card className="group bg-destructive/10 overflow-hidden border-b transition-all hover:shadow-lg">
                   <div className="py-2 text-center">
-                    <Badge
-                      variant="destructive"
-                      className="text-xs font-medium"
-                    >
+                    <Badge variant="destructive" className="text-xs font-medium">
                       Before
                     </Badge>
                   </div>
@@ -301,9 +266,8 @@ export default function FeaturedCaseStudy({
                       <div className="relative aspect-video overflow-hidden rounded-lg border shadow">
                         <Image
                           src={
-                            caseStudy.analytics.images.before[
-                              currentBeforeIndex
-                            ] || "/placeholder.svg"
+                            caseStudy.analytics.images.before[currentBeforeIndex] ||
+                            "/placeholder.svg"
                           }
                           alt={`Before ${currentBeforeIndex + 1}`}
                           fill
@@ -313,8 +277,7 @@ export default function FeaturedCaseStudy({
                       {/* Image Counter */}
                       {caseStudy.analytics.images.before.length > 1 && (
                         <div className="absolute top-2 right-2 rounded-full bg-black/70 px-2 py-1 text-xs text-white">
-                          {currentBeforeIndex + 1} /{" "}
-                          {caseStudy.analytics.images.before.length}
+                          {currentBeforeIndex + 1} / {caseStudy.analytics.images.before.length}
                         </div>
                       )}
                       {/* Dot Indicators */}
@@ -346,9 +309,8 @@ export default function FeaturedCaseStudy({
                       <div className="relative aspect-video overflow-hidden rounded-lg border shadow">
                         <Image
                           src={
-                            caseStudy.analytics.images.after[
-                              currentAfterIndex
-                            ] || "/placeholder.svg"
+                            caseStudy.analytics.images.after[currentAfterIndex] ||
+                            "/placeholder.svg"
                           }
                           alt={`After ${currentAfterIndex + 1}`}
                           fill
@@ -358,8 +320,7 @@ export default function FeaturedCaseStudy({
                       {/* Image Counter */}
                       {caseStudy.analytics.images.after.length > 1 && (
                         <div className="absolute top-2 right-2 rounded-full bg-black/70 px-2 py-1 text-xs text-white">
-                          {currentAfterIndex + 1} /{" "}
-                          {caseStudy.analytics.images.after.length}
+                          {currentAfterIndex + 1} / {caseStudy.analytics.images.after.length}
                         </div>
                       )}
                       {/* Dot Indicators */}

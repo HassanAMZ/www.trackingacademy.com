@@ -41,33 +41,25 @@ export default function ContactUsEmail({
         <title>Tracking Setup Inquiry</title>
       </Head>
       <Preview>
-        {name}! Thanks for reaching out about your tracking setup. We'll be in
-        touch soon.
+        {name}! Thanks for reaching out about your tracking setup. We'll be in touch soon.
       </Preview>
       <Body style={main}>
         <Container style={container}>
           {/* Header */}
           <Section style={header}>
-            <Img
-              src={`${baseUrl}/logo.png`}
-              width="100"
-              height="100"
-              alt="Logo"
-              style={logo}
-            />
+            <Img src={`${baseUrl}/logo.png`} width="100" height="100" alt="Logo" style={logo} />
           </Section>{" "}
           {/* Hero Section */}
           <Section style={heroSection}>
             <Heading style={heading}>Let's Fix Your Tracking!</Heading>{" "}
             <Text style={greeting}>Hi {name},</Text>
             <Text style={paragraph}>
-              Thanks for reaching out about improving your ad tracking. We've
-              received your information and our team will review your tracking
-              needs right away.
+              Thanks for reaching out about improving your ad tracking. We've received your
+              information and our team will review your tracking needs right away.
             </Text>
             <Text style={paragraph}>
-              We specialize in helping businesses recover lost conversions and
-              optimize ad spend through proper tracking implementation.
+              We specialize in helping businesses recover lost conversions and optimize ad spend
+              through proper tracking implementation.
             </Text>
           </Section>{" "}
           {/* Details Section */}
@@ -101,9 +93,7 @@ export default function ContactUsEmail({
             </Row>
             <Row style={detailRow}>
               <Column style={detailLabel}>Submitted:</Column>
-              <Column style={detailValue}>
-                {createdAt.toDate().toLocaleString()}
-              </Column>
+              <Column style={detailValue}>{createdAt.toDate().toLocaleString()}</Column>
             </Row>
           </Section>{" "}
           {/* Next Steps */}
@@ -112,8 +102,8 @@ export default function ContactUsEmail({
               Next Steps
             </Heading>
             <Text style={paragraph}>
-              Our team will contact you within 24 hours to discuss your tracking
-              issues and how we can help recover your lost conversions.
+              Our team will contact you within 24 hours to discuss your tracking issues and how we
+              can help recover your lost conversions.
             </Text>
           </Section>{" "}
           {/* Footer */}

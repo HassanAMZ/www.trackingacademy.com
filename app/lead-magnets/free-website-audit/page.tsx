@@ -104,8 +104,7 @@ export default function Page() {
             Free Audit Works?
           </h1>
           <h4 className="text-muted-foreground">
-            Get a comprehensive tracking audit report in minutes - completely
-            free
+            Get a comprehensive tracking audit report in minutes - completely free
           </h4>
         </div>
         <div className="flex flex-col items-stretch justify-center gap-8 lg:flex-row lg:gap-6">
@@ -257,21 +256,12 @@ export default function Page() {
           <h4 className="text-muted-foreground mx-auto max-w-3xl text-center">
             Our
             <span className="text-primary"> "Total Transparency" </span>
-            audit reveals exactly what's broken in your tracking setup and how
-            much ad spend you're wasting due to missing data.
+            audit reveals exactly what's broken in your tracking setup and how much ad spend you're
+            wasting due to missing data.
           </h4>
         }
-        carousel={
-          <LoomEmbed
-            embedId="b6ce4c0b37e64fe4bf62bafc95ffe739"
-            className="max-w-3xl"
-          />
-        }
-        benefits={[
-          "100% Free Audit",
-          "Detailed Report",
-          "GDPR & CCPA Analysis",
-        ]}
+        carousel={<LoomEmbed embedId="b6ce4c0b37e64fe4bf62bafc95ffe739" className="max-w-3xl" />}
+        benefits={["100% Free Audit", "Detailed Report", "GDPR & CCPA Analysis"]}
         customCtaButton={
           <URLSubmissionForm
             className="w-full md:max-w-xl"
@@ -285,9 +275,8 @@ export default function Page() {
         <Container className="flex max-w-4xl flex-col items-center space-y-6 pb-12 text-center">
           <h1>Trusted by 1,000+ for Their Audits</h1>
           <h4 className="text-muted-foreground max-w-3xl">
-            See exactly how we identified tracking issues for brands and the
-            measurable impact on their ROAS, conversion rates, and scaling
-            success.
+            See exactly how we identified tracking issues for brands and the measurable impact on
+            their ROAS, conversion rates, and scaling success.
           </h4>
         </Container>
         <Auditarousel auditReports={auditReports} />
@@ -461,26 +450,22 @@ export default function Page() {
           {
             number: "1",
             title: "Want to know what's broken",
-            description:
-              "Get clarity on exactly what tracking issues are affecting your business",
+            description: "Get clarity on exactly what tracking issues are affecting your business",
           },
           {
             number: "2",
             title: "Need a clear action plan",
-            description:
-              "Receive prioritized recommendations for fixing your tracking setup",
+            description: "Receive prioritized recommendations for fixing your tracking setup",
           },
           {
             number: "3",
             title: "Want expert insights",
-            description:
-              "Benefit from our experience auditing 1,000+ eCommerce websites",
+            description: "Benefit from our experience auditing 1,000+ eCommerce websites",
           },
           {
             number: "4",
             title: "Are tired of guessing",
-            description:
-              "Stop wondering if your data is accurate and get definitive answers",
+            description: "Stop wondering if your data is accurate and get definitive answers",
           },
         ]}
         alternatives={[
@@ -535,8 +520,8 @@ export default function Page() {
         <div className="mx-auto max-w-4xl space-y-6 pb-6 text-center">
           <h1>Join 1,000+ Businesses Who Got Their Free Audit</h1>
           <h4 className="text-muted-foreground">
-            See why leading ecommerce brands choose our free audit to identify
-            tracking issues and improve their ad performance.
+            See why leading ecommerce brands choose our free audit to identify tracking issues and
+            improve their ad performance.
           </h4>
         </div>
         <TestimonialGrid upwork={true} />

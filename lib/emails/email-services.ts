@@ -113,9 +113,7 @@ export async function sendPaymentFailedEmail(data: PaymentFailedEmailData) {
   }
 }
 
-export async function sendInvoicePaymentSuccessEmail(
-  data: InvoicePaymentSuccessEmailData,
-) {
+export async function sendInvoicePaymentSuccessEmail(data: InvoicePaymentSuccessEmailData) {
   try {
     if (!process.env.RESEND_API_KEY) {
       console.warn("Resend API key not configured, skipping email");
@@ -146,9 +144,7 @@ export async function sendInvoicePaymentSuccessEmail(
   }
 }
 
-export async function sendSubscriptionCreatedEmail(
-  data: SubscriptionCreatedEmailData,
-) {
+export async function sendSubscriptionCreatedEmail(data: SubscriptionCreatedEmailData) {
   try {
     if (!process.env.RESEND_API_KEY) {
       console.warn("Resend API key not configured, skipping email");

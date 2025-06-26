@@ -6,10 +6,7 @@ import { collection, doc, setDoc, Timestamp } from "firebase/firestore";
 import { Resend } from "resend";
 import { z } from "zod";
 
-export async function handleRequestABlogForm(
-  prevState: any,
-  formData: FormData,
-) {
+export async function handleRequestABlogForm(prevState: any, formData: FormData) {
   const resend = new Resend(process.env.RESEND_API_KEY);
   // Generate a timestamp ID based on the current time
   const timestamp = new Date();

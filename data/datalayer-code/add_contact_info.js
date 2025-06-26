@@ -13,11 +13,7 @@
 function logEventToConsole(dataLayerEvent) {
   const customStyle01 =
     "color: #FFFF00; background-color: #000000; font-size: 10px; font-weight: bold; padding: 2px 0;";
-  console.log(
-    "%cDataLayer Event: add_contact_info ",
-    customStyle01,
-    dataLayerEvent,
-  );
+  console.log("%cDataLayer Event: add_contact_info ", customStyle01, dataLayerEvent);
 }
 
 // Subscribe to contact info submitted events
@@ -37,10 +33,7 @@ analytics.subscribe("checkout_contact_info_submitted", (event) => {
   // Prepare data objects with safe fallbacks
   const page_data = {
     hostname: getEventData(event, "context.document.location.hostname"),
-    location_query_string: getEventData(
-      event,
-      "context.document.location.href",
-    ),
+    location_query_string: getEventData(event, "context.document.location.href"),
     path: getEventData(event, "context.document.location.pathname"),
     referrer: getEventData(event, "context.document.referrer"),
     page_title: getEventData(event, "context.document.title"),
@@ -48,8 +41,7 @@ analytics.subscribe("checkout_contact_info_submitted", (event) => {
   };
 
   const user_data = {
-    id:
-      getEventData(event, "data.checkout.order.customer.id") || event.clientId,
+    id: getEventData(event, "data.checkout.order.customer.id") || event.clientId,
     phone: getEventData(event, "data.checkout.shippingAddress.phone"),
     email: getEventData(event, "data.checkout.email"),
     address: {
@@ -58,10 +50,7 @@ analytics.subscribe("checkout_contact_info_submitted", (event) => {
       state: getEventData(event, "data.checkout.shippingAddress.state"),
       country: getEventData(event, "data.checkout.shippingAddress.country"),
       postal_code: getEventData(event, "data.checkout.shippingAddress.zip"),
-      first_name: getEventData(
-        event,
-        "data.checkout.shippingAddress.firstName",
-      ),
+      first_name: getEventData(event, "data.checkout.shippingAddress.firstName"),
       last_name: getEventData(event, "data.checkout.shippingAddress.lastName"),
     },
     language: getEventData(event, "context.navigator.language"),
@@ -79,11 +68,7 @@ analytics.subscribe("checkout_contact_info_submitted", (event) => {
     value: getEventData(event, "data.checkout.totalPrice.amount"),
     shipping: getEventData(event, "data.checkout.shippingLine.price.amount"),
     tax: getEventData(event, "data.checkout.totalTax.amount"),
-    coupon: getEventData(
-      event,
-      "data.checkout.discountApplications[0].code",
-      "",
-    ),
+    coupon: getEventData(event, "data.checkout.discountApplications[0].code", ""),
     items: event.data.checkout.lineItems.map((item, index) => ({
       item_id: getEventData(item, "variant.product.id"),
       item_name: getEventData(item, "variant.product.title"),
@@ -91,17 +76,13 @@ analytics.subscribe("checkout_contact_info_submitted", (event) => {
       item_category: getEventData(item, "variant.product.type"),
       price: getEventData(item, "variant.price.amount"),
       item_variant:
-        getEventData(item, "variant.title") ||
-        getEventData(item, "variant.untranslatedTitle"),
+        getEventData(item, "variant.title") || getEventData(item, "variant.untranslatedTitle"),
       item_list_name: "Checkout",
       index: index + 1,
       product_id: getEventData(item, "variant.id"),
       product_image: getEventData(item, "variant.image.src"),
       product_url: getEventData(item, "variant.product.url"),
-      product_untranslatedTitle: getEventData(
-        item,
-        "variant.product.untranslatedTitle",
-      ),
+      product_untranslatedTitle: getEventData(item, "variant.product.untranslatedTitle"),
       product_sku: getEventData(item, "variant.sku"),
       quantity: getEventData(item, "quantity"),
     })),

@@ -1,13 +1,5 @@
 // components/EmailTemplate.tsx
-import {
-  Body,
-  Container,
-  Head,
-  Heading,
-  Html,
-  Preview,
-  Text,
-} from "@react-email/components";
+import { Body, Container, Head, Heading, Html, Preview, Text } from "@react-email/components";
 import { Timestamp } from "firebase/firestore";
 
 type JoinTheTeamProps = {
@@ -30,9 +22,7 @@ export default function JoinTheTeam({
   return (
     <Html>
       <Head />
-      <Preview>
-        Thank you for applying for the {applyingPosition} position...
-      </Preview>
+      <Preview>Thank you for applying for the {applyingPosition} position...</Preview>
       <Body>
         <Container>
           <Heading>Thank you for your application!</Heading>
@@ -40,17 +30,15 @@ export default function JoinTheTeam({
             Dear {firstName} {lastName},
           </Text>
           <Text>
-            We have received your application for the {applyingPosition}{" "}
-            position. Here are the details you provided:
+            We have received your application for the {applyingPosition} position. Here are the
+            details you provided:
           </Text>
           <ul>
             <li>
               <Text>Position Applied: {applyingPosition}</Text>
             </li>{" "}
             <li>
-              <Text>
-                Application Timestamp: {createdAt.toDate().toLocaleString()}
-              </Text>
+              <Text>Application Timestamp: {createdAt.toDate().toLocaleString()}</Text>
             </li>
           </ul>
           <Text className="text-sm">

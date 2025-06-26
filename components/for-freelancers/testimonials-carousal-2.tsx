@@ -3,11 +3,9 @@
 import { Button } from "@/components/ui/button";
 import { caseStudies } from "@/data/case-studies";
 import { Star } from "lucide-react";
-import Image from "next/image";
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar";
-import Container from "../ui/container";
 
 const TestimonialsCarousel2: React.FC = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -30,9 +28,7 @@ const TestimonialsCarousel2: React.FC = () => {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setCurrentIndex(
-        (prevIndex) => (prevIndex + 1) % clientTestimonials.length,
-      );
+      setCurrentIndex((prevIndex) => (prevIndex + 1) % clientTestimonials.length);
     }, 10000);
     return () => clearInterval(interval);
   }, [clientTestimonials.length]);
@@ -40,11 +36,7 @@ const TestimonialsCarousel2: React.FC = () => {
   const currentTestimonial = clientTestimonials[currentIndex];
 
   return (
-    <Link
-      href={`/case-study/${currentTestimonial.id}`}
-      target="_blank"
-      rel="noopener noreferrer"
-    >
+    <Link href={`/case-study/${currentTestimonial.id}`} target="_blank" rel="noopener noreferrer">
       <div className="md:py:2 text-muted-foreground relative space-y-4 rounded-lg px-6 pt-2 pb-4 shadow md:mx-0">
         <div className="absolute -top-3 right-0 flex space-x-1">
           {[...Array(5)].map((_, i) => (
@@ -70,15 +62,11 @@ const TestimonialsCarousel2: React.FC = () => {
             </Avatar>
           )}
           <div className="items-left flex flex-col text-left">
-            <p className="text-sm font-bold">
-              {currentTestimonial.clientName},
-            </p>
+            <p className="text-sm font-bold">{currentTestimonial.clientName},</p>
             <p className="flex gap-1 text-xs">
               <strong>{currentTestimonial.clientTitle}</strong>
               <span className="hidden sm:block">at</span>
-              <strong className="hidden sm:block">
-                {currentTestimonial.id}
-              </strong>
+              <strong className="hidden sm:block">{currentTestimonial.id}</strong>
             </p>
           </div>
         </div>

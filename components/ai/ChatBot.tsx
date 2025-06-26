@@ -11,14 +11,7 @@ import {
 import { AnthropicModels, OpenAiModels } from "@/data/gpt-models";
 import AiSystemMessages from "@/data/gpt-system-message";
 import { useChat } from "ai/react";
-import {
-  ImagePlus,
-  Loader2,
-  RotateCcw,
-  Send,
-  StopCircle,
-  Trash2,
-} from "lucide-react";
+import { ImagePlus, Loader2, RotateCcw, Send, StopCircle, Trash2 } from "lucide-react";
 import Image from "next/image";
 import React, { useRef, useState } from "react";
 import Markdown from "react-markdown";
@@ -29,9 +22,7 @@ export default function ChatBot() {
   const [model, setModel] = useState(
     provider === "anthropic" ? AnthropicModels[0] : OpenAiModels[0],
   );
-  const [systemMessage, setSystemMessage] = useState<string>(
-    Object.keys(AiSystemMessages)[0],
-  );
+  const [systemMessage, setSystemMessage] = useState<string>(Object.keys(AiSystemMessages)[0]);
   const [files, setFiles] = useState<FileList | undefined>(undefined);
   const fileInputRef = useRef<HTMLInputElement>(null);
 
@@ -49,8 +40,7 @@ export default function ChatBot() {
     body: {
       model,
       provider,
-      systemMessage:
-        AiSystemMessages[systemMessage as keyof typeof AiSystemMessages],
+      systemMessage: AiSystemMessages[systemMessage as keyof typeof AiSystemMessages],
     },
     onError: (error) => {
       console.error("Chat error:", error);
@@ -110,20 +100,14 @@ export default function ChatBot() {
                   <SelectValue placeholder="Select model" />
                 </SelectTrigger>
                 <SelectContent>
-                  {(provider === "anthropic"
-                    ? AnthropicModels
-                    : OpenAiModels
-                  ).map((m) => (
+                  {(provider === "anthropic" ? AnthropicModels : OpenAiModels).map((m) => (
                     <SelectItem key={m} value={m}>
                       {m}
                     </SelectItem>
                   ))}
                 </SelectContent>
               </Select>{" "}
-              <Select
-                value={systemMessage}
-                onValueChange={handleSystemMessageChange}
-              >
+              <Select value={systemMessage} onValueChange={handleSystemMessageChange}>
                 <SelectTrigger>
                   <SelectValue placeholder="Select personality" />
                 </SelectTrigger>
@@ -154,17 +138,13 @@ export default function ChatBot() {
                 >
                   <div
                     className={`rounded-lg p-3 ${
-                      message.role === "user"
-                        ? "bg-primary text-primary-foreground"
-                        : "bg-muted"
+                      message.role === "user" ? "bg-primary text-primary-foreground" : "bg-muted"
                     }`}
                   >
                     <Markdown>{message.content}</Markdown>
                   </div>{" "}
                   {message.experimental_attachments
-                    ?.filter((attachment) =>
-                      attachment.contentType?.startsWith("image/"),
-                    )
+                    ?.filter((attachment) => attachment.contentType?.startsWith("image/"))
                     .map((attachment, index) => (
                       <Image
                         key={`${message.id}-${index}`}

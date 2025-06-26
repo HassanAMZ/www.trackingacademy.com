@@ -38,10 +38,7 @@ const ToolBreadcrumbs: React.FC = () => {
             <BreadcrumbItem>
               {index === segments.length - 1 ? (
                 // Last segment as active link
-                <BreadcrumbLink
-                  href={getBreadcrumbPath(index)}
-                  aria-current="page"
-                >
+                <BreadcrumbLink href={getBreadcrumbPath(index)} aria-current="page">
                   {formatSegment(segment)}
                 </BreadcrumbLink>
               ) : (

@@ -3,12 +3,8 @@
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { Progress } from "@/components/ui/progress";
+import { AuditReport, CategoryScore as CategoryScoreProps } from "@/data/audit-report";
 import {
-  AuditReport,
-  CategoryScore as CategoryScoreProps,
-} from "@/data/audit-report";
-import {
-  Activity,
   AlertTriangle,
   BarChart3,
   CheckCircle2,
@@ -16,8 +12,6 @@ import {
   Database,
   ExternalLink,
   Eye,
-  Shield,
-  TrendingUp,
   XCircle,
   Zap,
 } from "lucide-react";
@@ -65,8 +59,7 @@ function getCategoryIcon(category: string) {
 
 function getStatusIcon(score: number) {
   if (score >= 80) return <CheckCircle2 className="text-primary h-4 w-4" />;
-  if (score >= 60)
-    return <AlertTriangle className="text-secondary-foreground h-4 w-4" />;
+  if (score >= 60) return <AlertTriangle className="text-secondary-foreground h-4 w-4" />;
   return <XCircle className="text-destructive h-4 w-4" />;
 }
 
@@ -129,9 +122,7 @@ function CategoryScore({ category }: { category: CategoryScoreProps }) {
       </div>
       <div className="flex items-center gap-2">
         <Progress value={category.score} className="h-2 w-16" />
-        <span
-          className={`w-8 text-sm font-semibold ${getScoreColor(category.score)}`}
-        >
+        <span className={`w-8 text-sm font-semibold ${getScoreColor(category.score)}`}>
           {category.score}
         </span>
       </div>
@@ -235,11 +226,7 @@ export default function Auditarousel({
           }}
         >
           {items.map((report, index) => (
-            <Link
-              key={`${report.id}-${index}`}
-              href={`/audit/${report.id}`}
-              target="_blank"
-            >
+            <Link key={`${report.id}-${index}`} href={`/audit/${report.id}`} target="_blank">
               <Card
                 className={`group cursor-pointer transition-all duration-300 hover:scale-97 hover:shadow-lg ${getScoreBackground(report.overallScore.score)}`}
                 style={{ width: `${itemWidth}px`, height: `${itemHeight}px` }}

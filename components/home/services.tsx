@@ -1,11 +1,4 @@
-import {
-  BarChart,
-  CheckCircle,
-  FileText,
-  Globe,
-  Layers,
-  Zap,
-} from "lucide-react";
+import { BarChart, CheckCircle, FileText, Globe, Layers, Zap } from "lucide-react";
 import Container from "../ui/container";
 import FeatureCard from "./feature-card";
 

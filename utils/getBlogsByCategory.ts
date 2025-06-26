@@ -1,8 +1,8 @@
-import fs from "fs";
-import path from "path";
 import extractMetaFromStringForBlog from "@/utils/extractMetaFromStringForBlog";
 import getFiles from "@/utils/getFiles";
+import fs from "fs";
 import matter from "gray-matter";
+import path from "path";
 
 export default async function getCategoryBlogs(params: string[]) {
   const baseDirectory = path.join(process.cwd(), "app/_blog-markdown");
@@ -15,9 +15,7 @@ export default async function getCategoryBlogs(params: string[]) {
       return [];
     }
     const allPostsFiles = getFiles(categoryPath);
-    const mdxFiles = allPostsFiles.filter(
-      (file) => path.extname(file) === ".mdx",
-    );
+    const mdxFiles = allPostsFiles.filter((file) => path.extname(file) === ".mdx");
     const contents = [];
     for (const fileName of mdxFiles) {
       const fileContents = fs.readFileSync(fileName, "utf8");

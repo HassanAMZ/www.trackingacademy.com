@@ -2,7 +2,6 @@
 
 import { Search } from "lucide-react";
 import React, { useEffect, useState } from "react";
-import { Card, CardContent } from "../ui/card";
 import { Input } from "../ui/input";
 
 interface TagSearchProps {
@@ -15,9 +14,7 @@ const TagSearch: React.FC<TagSearchProps> = ({ tags, onSearch }) => {
 
   useEffect(() => {
     const delayDebounce = setTimeout(() => {
-      const filtered = tags.filter((tag) =>
-        tag.toLowerCase().includes(searchTerm.toLowerCase()),
-      );
+      const filtered = tags.filter((tag) => tag.toLowerCase().includes(searchTerm.toLowerCase()));
       onSearch(filtered);
     }, 300);
     return () => clearTimeout(delayDebounce);
@@ -38,9 +35,7 @@ const TagSearch: React.FC<TagSearchProps> = ({ tags, onSearch }) => {
         />
       </div>
       {searchTerm && (
-        <p className="text-muted-foreground mt-2 text-sm">
-          Showing results for "{searchTerm}"
-        </p>
+        <p className="text-muted-foreground mt-2 text-sm">Showing results for "{searchTerm}"</p>
       )}
     </div>
   );

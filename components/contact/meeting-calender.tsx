@@ -1,7 +1,6 @@
 "use client";
 
 import { sendGTMEvent } from "@next/third-parties/google";
-import React from "react";
 import { InlineWidget, useCalendlyEventListener } from "react-calendly";
 import Container from "../ui/container";
 

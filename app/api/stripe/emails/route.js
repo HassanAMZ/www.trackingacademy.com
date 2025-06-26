@@ -1,11 +1,8 @@
 // src/app/api/stripe/stripe-email/route.js
 import { db } from "@/app/firebase";
-import {
-  PaymentSuccessEmailData,
-  sendPaymentSuccessEmail,
-} from "@/lib/emails/email-services";
+import { sendPaymentSuccessEmail } from "@/lib/emails/email-services";
 import { stripe } from "@/lib/stripe";
-import { collection, doc, getDoc, setDoc, Timestamp } from "firebase/firestore";
+import { doc, getDoc, setDoc, Timestamp } from "firebase/firestore";
 import { NextResponse } from "next/server";
 
 export async function POST(request) {
@@ -13,10 +10,7 @@ export async function POST(request) {
     const { paymentIntentId, fallbackData } = await request.json();
 
     if (!paymentIntentId) {
-      return NextResponse.json(
-        { error: "Missing payment_intent parameter" },
-        { status: 400 },
-      );
+      return NextResponse.json({ error: "Missing payment_intent parameter" }, { status: 400 });
     }
 
     // Check if email was already sent for this payment
@@ -33,12 +27,9 @@ export async function POST(request) {
     }
 
     // Retrieve the payment intent from Stripe
-    const paymentIntent = await stripe.paymentIntents.retrieve(
-      paymentIntentId,
-      {
-        expand: ["customer", "payment_method", "charges"],
-      },
-    );
+    const paymentIntent = await stripe.paymentIntents.retrieve(paymentIntentId, {
+      expand: ["customer", "payment_method", "charges"],
+    });
 
     // Verify the payment was successful
     if (paymentIntent.status !== "succeeded") {
@@ -119,17 +110,14 @@ export async function POST(request) {
           !paymentIntent.charges?.data?.[0]?.billing_details?.email &&
           !paymentIntent.receipt_email,
         name:
-          !paymentIntent.customer?.name &&
-          !paymentIntent.charges?.data?.[0]?.billing_details?.name,
+          !paymentIntent.customer?.name && !paymentIntent.charges?.data?.[0]?.billing_details?.name,
         phone:
           !paymentIntent.customer?.phone &&
           !paymentIntent.charges?.data?.[0]?.billing_details?.phone,
       },
     });
 
-    console.log(
-      `Success email sent to ${customerEmail} for payment ${paymentIntentId}`,
-    );
+    console.log(`Success email sent to ${customerEmail} for payment ${paymentIntentId}`);
 
     return NextResponse.json({
       success: true,

@@ -3,13 +3,7 @@
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Progress } from "@/components/ui/progress";
 import { Separator } from "@/components/ui/separator";
 import { CaseStudy } from "@/data/case-studies";
@@ -32,11 +26,7 @@ import YoutubeEmbed from "../global/youtube-embed";
 import { TestimonialCard } from "../testimonial/testimonial-card";
 import Container from "../ui/container";
 
-export default function CaseStudyComponent({
-  caseStudy,
-}: {
-  caseStudy: CaseStudy;
-}) {
+export default function CaseStudyComponent({ caseStudy }: { caseStudy: CaseStudy }) {
   const [showFullDescription, setShowFullDescription] = useState(false);
   // Auto-scroll state for before/after images
   const [currentBeforeIndex, setCurrentBeforeIndex] = useState(0);
@@ -44,14 +34,10 @@ export default function CaseStudyComponent({
 
   // Auto-scroll effect for before images
   useEffect(() => {
-    if (
-      caseStudy.analytics.images?.before &&
-      caseStudy.analytics.images.before.length > 1
-    ) {
+    if (caseStudy.analytics.images?.before && caseStudy.analytics.images.before.length > 1) {
       const interval = setInterval(() => {
         setCurrentBeforeIndex(
-          (prev) =>
-            (prev + 1) % (caseStudy.analytics.images?.before?.length ?? 1),
+          (prev) => (prev + 1) % (caseStudy.analytics.images?.before?.length ?? 1),
         );
       }, 7000);
 
@@ -61,14 +47,10 @@ export default function CaseStudyComponent({
 
   // Auto-scroll effect for after images
   useEffect(() => {
-    if (
-      caseStudy.analytics.images?.after &&
-      caseStudy.analytics.images.after.length > 1
-    ) {
+    if (caseStudy.analytics.images?.after && caseStudy.analytics.images.after.length > 1) {
       const interval = setInterval(() => {
         setCurrentAfterIndex(
-          (prev) =>
-            (prev + 1) % (caseStudy.analytics.images?.after?.length ?? 1),
+          (prev) => (prev + 1) % (caseStudy.analytics.images?.after?.length ?? 1),
         );
       }, 7000);
 
@@ -95,13 +77,9 @@ export default function CaseStudyComponent({
               <Badge variant="outline" className="mb-2">
                 {caseStudy.plan} Plan
               </Badge>
-              <h1 className="mb-4 text-3xl font-bold tracking-tight">
-                {caseStudy.title}
-              </h1>
+              <h1 className="mb-4 text-3xl font-bold tracking-tight">{caseStudy.title}</h1>
               <div className="relative">
-                <p
-                  className={`text-muted-foreground ${!showFullDescription && "line-clamp-3"}`}
-                >
+                <p className={`text-muted-foreground ${!showFullDescription && "line-clamp-3"}`}>
                   {caseStudy.description}
                 </p>
                 {caseStudy.description.length > 200 && (
@@ -130,16 +108,10 @@ export default function CaseStudyComponent({
               {caseStudy.embedId?.loom ? (
                 <LoomEmbed embedId={caseStudy.embedId.loom} className="p-0" />
               ) : caseStudy.embedId?.youtube ? (
-                <YoutubeEmbed
-                  embedId={caseStudy.embedId.youtube}
-                  className="p-0"
-                />
+                <YoutubeEmbed embedId={caseStudy.embedId.youtube} className="p-0" />
               ) : (
                 <Image
-                  src={
-                    caseStudy.imageUrl ||
-                    "/placeholder.svg?height=400&width=600"
-                  }
+                  src={caseStudy.imageUrl || "/placeholder.svg?height=400&width=600"}
                   alt={`${caseStudy.name} desktop view`}
                   fill
                   className="scale-x-102 object-cover"
@@ -154,45 +126,26 @@ export default function CaseStudyComponent({
             {/* Action Buttons */}
             <div className="flex items-center gap-2">
               <Button asChild variant="outline" size="sm">
-                <Link
-                  href={caseStudy.url}
-                  target="_blank"
-                  className="flex items-center gap-1"
-                >
+                <Link href={caseStudy.url} target="_blank" className="flex items-center gap-1">
                   Visit Website <ExternalLink className="h-3 w-3" />
                 </Link>
               </Button>
-              <Button
-                variant="outline"
-                size="sm"
-                className="flex items-center gap-1"
-              >
-                <Calendar className="h-4 w-4" />{" "}
-                {formatDate(caseStudy.projectTimeline.endDate)}
+              <Button variant="outline" size="sm" className="flex items-center gap-1">
+                <Calendar className="h-4 w-4" /> {formatDate(caseStudy.projectTimeline.endDate)}
               </Button>
-              <Button
-                variant="outline"
-                size="sm"
-                className="flex items-center gap-1"
-              >
-                <Clock className="h-3 w-3" />{" "}
-                {caseStudy.projectTimeline.durationDays} days
+              <Button variant="outline" size="sm" className="flex items-center gap-1">
+                <Clock className="h-3 w-3" /> {caseStudy.projectTimeline.durationDays} days
               </Button>
             </div>
             {/* Analytics Comparison - Auto-Scrolling Carousel */}
             {caseStudy.analytics.images && (
               <div className="space-y-4">
-                <h2 className="text-2xl font-bold">
-                  Before vs After Results for {caseStudy.id}
-                </h2>
+                <h2 className="text-2xl font-bold">Before vs After Results for {caseStudy.id}</h2>
                 <div className="grid gap-4 md:grid-cols-2">
                   {/* Before - Auto-Scrolling Carousel */}
                   <Card className="group bg-destructive/10 overflow-hidden border-b transition-all hover:shadow-lg">
                     <div className="py-2 text-center">
-                      <Badge
-                        variant="destructive"
-                        className="text-xs font-medium"
-                      >
+                      <Badge variant="destructive" className="text-xs font-medium">
                         Before
                       </Badge>
                     </div>
@@ -201,9 +154,8 @@ export default function CaseStudyComponent({
                         <div className="relative aspect-video overflow-hidden rounded-lg border shadow">
                           <Image
                             src={
-                              caseStudy.analytics.images.before[
-                                currentBeforeIndex
-                              ] || "/placeholder.svg"
+                              caseStudy.analytics.images.before[currentBeforeIndex] ||
+                              "/placeholder.svg"
                             }
                             alt={`Before ${currentBeforeIndex + 1}`}
                             fill
@@ -213,26 +165,23 @@ export default function CaseStudyComponent({
                         {/* Image Counter */}
                         {caseStudy.analytics.images.before.length > 1 && (
                           <div className="absolute top-2 right-2 rounded-full bg-black/70 px-2 py-1 text-xs text-white">
-                            {currentBeforeIndex + 1} /{" "}
-                            {caseStudy.analytics.images.before.length}
+                            {currentBeforeIndex + 1} / {caseStudy.analytics.images.before.length}
                           </div>
                         )}
                         {/* Dot Indicators */}
                         {caseStudy.analytics.images.before.length > 1 && (
                           <div className="mt-3 flex justify-center gap-1">
-                            {caseStudy.analytics.images.before.map(
-                              (_, index) => (
-                                <button
-                                  key={index}
-                                  onClick={() => setCurrentBeforeIndex(index)}
-                                  className={`h-2 w-2 rounded-full transition-colors ${
-                                    index === currentBeforeIndex
-                                      ? "bg-destructive"
-                                      : "bg-muted-foreground/30"
-                                  }`}
-                                />
-                              ),
-                            )}
+                            {caseStudy.analytics.images.before.map((_, index) => (
+                              <button
+                                key={index}
+                                onClick={() => setCurrentBeforeIndex(index)}
+                                className={`h-2 w-2 rounded-full transition-colors ${
+                                  index === currentBeforeIndex
+                                    ? "bg-destructive"
+                                    : "bg-muted-foreground/30"
+                                }`}
+                              />
+                            ))}
                           </div>
                         )}
                       </div>
@@ -248,9 +197,8 @@ export default function CaseStudyComponent({
                         <div className="relative aspect-video overflow-hidden rounded-lg border shadow">
                           <Image
                             src={
-                              caseStudy.analytics.images.after[
-                                currentAfterIndex
-                              ] || "/placeholder.svg"
+                              caseStudy.analytics.images.after[currentAfterIndex] ||
+                              "/placeholder.svg"
                             }
                             alt={`After ${currentAfterIndex + 1}`}
                             fill
@@ -260,26 +208,23 @@ export default function CaseStudyComponent({
                         {/* Image Counter */}
                         {caseStudy.analytics.images.after.length > 1 && (
                           <div className="absolute top-2 right-2 rounded-full bg-black/70 px-2 py-1 text-xs text-white">
-                            {currentAfterIndex + 1} /{" "}
-                            {caseStudy.analytics.images.after.length}
+                            {currentAfterIndex + 1} / {caseStudy.analytics.images.after.length}
                           </div>
                         )}
                         {/* Dot Indicators */}
                         {caseStudy.analytics.images.after.length > 1 && (
                           <div className="mt-3 flex justify-center gap-1">
-                            {caseStudy.analytics.images.after.map(
-                              (_, index) => (
-                                <button
-                                  key={index}
-                                  onClick={() => setCurrentAfterIndex(index)}
-                                  className={`h-2 w-2 rounded-full transition-colors ${
-                                    index === currentAfterIndex
-                                      ? "bg-primary"
-                                      : "bg-muted-foreground/30"
-                                  }`}
-                                />
-                              ),
-                            )}
+                            {caseStudy.analytics.images.after.map((_, index) => (
+                              <button
+                                key={index}
+                                onClick={() => setCurrentAfterIndex(index)}
+                                className={`h-2 w-2 rounded-full transition-colors ${
+                                  index === currentAfterIndex
+                                    ? "bg-primary"
+                                    : "bg-muted-foreground/30"
+                                }`}
+                              />
+                            ))}
                           </div>
                         )}
                       </div>
@@ -348,13 +293,9 @@ export default function CaseStudyComponent({
                       </CardTitle>
                     </CardHeader>
                     <CardContent className="space-y-3">
-                      <p className="text-muted-foreground text-sm">
-                        {milestone.description}
-                      </p>
+                      <p className="text-muted-foreground text-sm">{milestone.description}</p>
                       <div>
-                        <p className="mb-1 text-xs font-medium">
-                          Expected Outcome:
-                        </p>
+                        <p className="mb-1 text-xs font-medium">Expected Outcome:</p>
                         <p className="text-sm">{milestone.expectedOutcome}</p>
                       </div>
                     </CardContent>
@@ -373,27 +314,17 @@ export default function CaseStudyComponent({
                   </CardHeader>
                   <CardContent className="space-y-4">
                     <div className="flex justify-between">
-                      <span className="text-muted-foreground text-sm">
-                        Owner
-                      </span>
-                      <span className="text-sm font-medium">
-                        {caseStudy.owner}
-                      </span>
+                      <span className="text-muted-foreground text-sm">Owner</span>
+                      <span className="text-sm font-medium">{caseStudy.owner}</span>
                     </div>
                     <Separator />
                     <div className="flex justify-between">
-                      <span className="text-muted-foreground text-sm">
-                        Client
-                      </span>
-                      <span className="text-sm font-medium">
-                        {caseStudy.client}
-                      </span>
+                      <span className="text-muted-foreground text-sm">Client</span>
+                      <span className="text-sm font-medium">{caseStudy.client}</span>
                     </div>
                     <Separator />
                     <div className="flex justify-between">
-                      <span className="text-muted-foreground text-sm">
-                        Duration
-                      </span>
+                      <span className="text-muted-foreground text-sm">Duration</span>
                       <span className="text-sm font-medium">
                         {caseStudy.projectTimeline.durationDays} days
                       </span>
@@ -456,21 +387,14 @@ export default function CaseStudyComponent({
                     </AvatarFallback>
                   </Avatar>
                   <div>
-                    <p className="font-medium">
-                      {caseStudy.testimonial.author}
-                    </p>
-                    <p className="text-muted-foreground text-sm">
-                      {caseStudy.testimonial.role}
-                    </p>
+                    <p className="font-medium">{caseStudy.testimonial.author}</p>
+                    <p className="text-muted-foreground text-sm">{caseStudy.testimonial.role}</p>
                   </div>
                 </div>
 
                 <div className="mb-4 flex justify-center">
                   {[1, 2, 3, 4, 5].map((star) => (
-                    <Star
-                      key={star}
-                      className="h-5 w-5 fill-yellow-400 text-yellow-400"
-                    />
+                    <Star key={star} className="h-5 w-5 fill-yellow-400 text-yellow-400" />
                   ))}
                 </div>
 
@@ -483,61 +407,39 @@ export default function CaseStudyComponent({
             <Card>
               <CardHeader>
                 <CardTitle>Analytics Overview</CardTitle>
-                <CardDescription>
-                  Data collected over {caseStudy.analytics.period}
-                </CardDescription>
+                <CardDescription>Data collected over {caseStudy.analytics.period}</CardDescription>
               </CardHeader>
               <CardContent className="space-y-6">
                 <div className="space-y-2">
                   <div className="flex justify-between">
-                    <span className="text-sm font-medium">
-                      Tracking Accuracy
-                    </span>
-                    <span className="text-sm font-medium">
-                      {caseStudy.analytics.accuracy}%
-                    </span>
+                    <span className="text-sm font-medium">Tracking Accuracy</span>
+                    <span className="text-sm font-medium">{caseStudy.analytics.accuracy}%</span>
                   </div>
-                  <Progress
-                    value={caseStudy.analytics.accuracy}
-                    className="h-2"
-                  />
+                  <Progress value={caseStudy.analytics.accuracy} className="h-2" />
                 </div>
 
                 <div className="space-y-2">
                   <div className="flex justify-between">
-                    <span className="text-sm font-medium">
-                      Recovered from Ad Blockers
-                    </span>
+                    <span className="text-sm font-medium">Recovered from Ad Blockers</span>
                     <span className="text-sm font-medium">
                       {caseStudy.analytics.recoveredFromAdBlockersPercentage}%
                     </span>
                   </div>
                   <Progress
-                    value={
-                      caseStudy.analytics.recoveredFromAdBlockersPercentage
-                    }
+                    value={caseStudy.analytics.recoveredFromAdBlockersPercentage}
                     className="h-2"
                   />
                 </div>
 
                 <div className="space-y-2">
                   <div className="flex justify-between">
+                    <span className="text-sm font-medium">Recovered from Tracking Prevention</span>
                     <span className="text-sm font-medium">
-                      Recovered from Tracking Prevention
-                    </span>
-                    <span className="text-sm font-medium">
-                      {
-                        caseStudy.analytics
-                          .recoveredFromTrackingPreventionPercentage
-                      }
-                      %
+                      {caseStudy.analytics.recoveredFromTrackingPreventionPercentage}%
                     </span>
                   </div>
                   <Progress
-                    value={
-                      caseStudy.analytics
-                        .recoveredFromTrackingPreventionPercentage
-                    }
+                    value={caseStudy.analytics.recoveredFromTrackingPreventionPercentage}
                     className="h-2"
                   />
                 </div>
@@ -583,9 +485,7 @@ export default function CaseStudyComponent({
                   <User className="text-muted-foreground h-4 w-4" />
                   <div className="flex gap-2">
                     <p className="text-sm font-medium">Project Owner</p>
-                    <p className="text-muted-foreground text-sm">
-                      {caseStudy.owner}
-                    </p>
+                    <p className="text-muted-foreground text-sm">{caseStudy.owner}</p>
                   </div>
                 </div>
               </CardContent>
@@ -598,10 +498,7 @@ export default function CaseStudyComponent({
               <CardContent>
                 <div className="grid grid-cols-1 gap-4">
                   {caseStudy.results.slice(0, 3).map((result, index) => (
-                    <div
-                      key={index}
-                      className="grid grid-cols-[auto_1fr] items-start gap-2"
-                    >
+                    <div key={index} className="grid grid-cols-[auto_1fr] items-start gap-2">
                       <CheckCircle className="text-primary h-6 w-6" />
                       <p className="text-sm">{result}</p>
                     </div>

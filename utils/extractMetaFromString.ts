@@ -1,8 +1,6 @@
 export default function extractMetaFromString(content: string): any {
   // Regular expression to match the metadata pattern
-  const metaStringMatch = content.match(
-    /export const metadata = (\{[\s\S]*?\});/,
-  );
+  const metaStringMatch = content.match(/export const metadata = (\{[\s\S]*?\});/);
   if (!metaStringMatch) return {};
 
   // Extract the metadata string

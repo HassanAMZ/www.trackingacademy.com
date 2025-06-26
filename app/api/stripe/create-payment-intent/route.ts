@@ -1,16 +1,12 @@
 import { stripe } from "@/lib/stripe";
 import { NextResponse } from "next/server";
-import Stripe from "stripe";
 
 export async function POST(req: Request) {
   try {
     const { priceId, productId, promotionCode } = await req.json();
 
     if (!priceId || !productId) {
-      return NextResponse.json(
-        { error: "Missing priceId or productId" },
-        { status: 400 },
-      );
+      return NextResponse.json({ error: "Missing priceId or productId" }, { status: 400 });
     }
 
     let discountId: string | undefined;
@@ -24,10 +20,7 @@ export async function POST(req: Request) {
 
       const promo = promoList.data[0];
       if (!promo) {
-        return NextResponse.json(
-          { error: "Invalid or expired promotion code" },
-          { status: 400 },
-        );
+        return NextResponse.json({ error: "Invalid or expired promotion code" }, { status: 400 });
       }
 
       const coupon = await stripe.coupons.retrieve(promo.coupon.id);
@@ -37,8 +30,7 @@ export async function POST(req: Request) {
         expand: ["product"],
       });
 
-      const targetProductId =
-        typeof price.product === "string" ? price.product : price.product.id;
+      const targetProductId = typeof price.product === "string" ? price.product : price.product.id;
 
       if (
         coupon.applies_to &&
@@ -58,10 +50,7 @@ export async function POST(req: Request) {
     const price = await stripe.prices.retrieve(priceId);
 
     if (!price.unit_amount) {
-      return NextResponse.json(
-        { error: "Invalid price or missing amount" },
-        { status: 400 },
-      );
+      return NextResponse.json({ error: "Invalid price or missing amount" }, { status: 400 });
     }
 
     // Create payment intent
@@ -81,9 +70,6 @@ export async function POST(req: Request) {
     });
   } catch (err: any) {
     console.error("Error creating payment intent:", err);
-    return NextResponse.json(
-      { error: err.message || "Internal Server Error" },
-      { status: 500 },
-    );
+    return NextResponse.json({ error: err.message || "Internal Server Error" }, { status: 500 });
   }
 }

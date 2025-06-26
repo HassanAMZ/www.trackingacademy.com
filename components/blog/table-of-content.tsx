@@ -6,20 +6,16 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { Link as LinkIcon } from "lucide-react";
 import { useEffect, useState } from "react";
 import CustomLink from "../mdx/CustomLink";
 
 export default function TableOfContents() {
-  const [headings, setHeadings] = useState<
-    { id: string; text: string; level: number }[]
-  >([]);
+  const [headings, setHeadings] = useState<{ id: string; text: string; level: number }[]>([]);
 
   useEffect(() => {
-    const articleHeadings = Array.from(
-      document.querySelectorAll("h2, h3, h4"),
-    ).map((heading) => ({
+    const articleHeadings = Array.from(document.querySelectorAll("h2, h3, h4")).map((heading) => ({
       id: heading.id,
       text: heading.textContent || "",
       level: parseInt(heading.tagName[1]),

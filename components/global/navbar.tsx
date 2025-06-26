@@ -35,8 +35,7 @@ const NAV_ITEMS: Record<string, NavItem[]> = {
     {
       title: "All Services",
       href: "/services",
-      description:
-        "Explore our complete range of tracking and analytics services",
+      description: "Explore our complete range of tracking and analytics services",
     },
     ...services.slice(0, 4).map((service) => ({
       title: service.name,
@@ -60,8 +59,7 @@ const NAV_ITEMS: Record<string, NavItem[]> = {
     {
       title: "All Tools",
       href: "/tools",
-      description:
-        "Explore our complete collection of analytics and tracking tools",
+      description: "Explore our complete collection of analytics and tracking tools",
     },
     {
       title: "UTM Builder",
@@ -72,8 +70,7 @@ const NAV_ITEMS: Record<string, NavItem[]> = {
     {
       title: "UTM Validator",
       href: "/tools/utm-validator",
-      description:
-        "Validate and analyze your UTM parameters to ensure proper tracking setup",
+      description: "Validate and analyze your UTM parameters to ensure proper tracking setup",
     },
   ],
   blogs: [
@@ -90,8 +87,7 @@ const NAV_ITEMS: Record<string, NavItem[]> = {
     {
       title: "Shopify",
       href: "/tags/shopify",
-      description:
-        "Guides and tips for managing and growing your Shopify store.",
+      description: "Guides and tips for managing and growing your Shopify store.",
     },
     {
       title: "Google Ads",
@@ -111,14 +107,12 @@ const NAV_ITEMS: Record<string, NavItem[]> = {
     {
       title: "WooCommerce",
       href: "/tags/woocommerce",
-      description:
-        "WooCommerce tracking implementation and optimization guides.",
+      description: "WooCommerce tracking implementation and optimization guides.",
     },
     {
       title: "Google Analytics 4",
       href: "/tags/google-analytics-4",
-      description:
-        "Transition to and maximize Google Analytics 4 capabilities.",
+      description: "Transition to and maximize Google Analytics 4 capabilities.",
     },
   ],
   caseStudies: [
@@ -153,9 +147,7 @@ const ListItem = React.forwardRef<HTMLAnchorElement, ListItemProps>(
           {...props}
         >
           <div className="text-sm leading-none font-medium">{title}</div>
-          <p className="text-muted-foreground line-clamp-2 text-sm leading-snug">
-            {children}
-          </p>
+          <p className="text-muted-foreground line-clamp-2 text-sm leading-snug">{children}</p>
         </a>
       </NavigationMenuLink>
     </li>
@@ -175,8 +167,7 @@ export default function Navbar({ className }: { className?: string }) {
     <Button asChild>
       <Link href={"/contact"}>
         <div>
-          Reclaim the <span className="hidden sm:inline-flex">30% of</span>{" "}
-          Sales You're Missing
+          Reclaim the <span className="hidden sm:inline-flex">30% of</span> Sales You're Missing
         </div>
       </Link>
     </Button>
@@ -194,10 +185,7 @@ export default function Navbar({ className }: { className?: string }) {
     </NavLink>
   );
 
-  const renderNavigationMenuItems = (
-    items: NavItem[],
-    icon: React.ReactNode,
-  ) => (
+  const renderNavigationMenuItems = (items: NavItem[], icon: React.ReactNode) => (
     <ul className="grid gap-3 p-4 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]">
       <li className="row-span-3">
         <NavigationMenuLink asChild>
@@ -206,12 +194,8 @@ export default function Navbar({ className }: { className?: string }) {
             href={items[0].href}
           >
             {icon}
-            <div className="mt-4 mb-2 text-lg font-medium">
-              {items[0].title}
-            </div>
-            <p className="text-muted-foreground text-sm leading-tight">
-              {items[0].description}
-            </p>
+            <div className="mt-4 mb-2 text-lg font-medium">{items[0].title}</div>
+            <p className="text-muted-foreground text-sm leading-tight">{items[0].description}</p>
           </a>
         </NavigationMenuLink>
       </li>
@@ -232,49 +216,34 @@ export default function Navbar({ className }: { className?: string }) {
           <NavigationMenuItem>
             <NavigationMenuTrigger>Blogs</NavigationMenuTrigger>
             <NavigationMenuContent>
-              {renderNavigationMenuItems(
-                NAV_ITEMS.blogs,
-                <FileText className="h-6 w-6" />,
-              )}
+              {renderNavigationMenuItems(NAV_ITEMS.blogs, <FileText className="h-6 w-6" />)}
             </NavigationMenuContent>
           </NavigationMenuItem>
           <NavigationMenuItem>
             <NavigationMenuTrigger>Tools</NavigationMenuTrigger>
             <NavigationMenuContent>
-              {renderNavigationMenuItems(
-                NAV_ITEMS.tools,
-                <Wrench className="h-6 w-6" />,
-              )}
+              {renderNavigationMenuItems(NAV_ITEMS.tools, <Wrench className="h-6 w-6" />)}
             </NavigationMenuContent>
           </NavigationMenuItem>
 
           <NavigationMenuItem>
             <NavigationMenuTrigger>Audits</NavigationMenuTrigger>
             <NavigationMenuContent>
-              {renderNavigationMenuItems(
-                NAV_ITEMS.audits,
-                <Settings className="h-6 w-6" />,
-              )}
+              {renderNavigationMenuItems(NAV_ITEMS.audits, <Settings className="h-6 w-6" />)}
             </NavigationMenuContent>
           </NavigationMenuItem>
 
           <NavigationMenuItem>
             <NavigationMenuTrigger>Case Studies</NavigationMenuTrigger>
             <NavigationMenuContent>
-              {renderNavigationMenuItems(
-                NAV_ITEMS.caseStudies,
-                <Briefcase className="h-6 w-6" />,
-              )}
+              {renderNavigationMenuItems(NAV_ITEMS.caseStudies, <Briefcase className="h-6 w-6" />)}
             </NavigationMenuContent>
           </NavigationMenuItem>
 
           <NavigationMenuItem>
             <NavigationMenuTrigger>Services</NavigationMenuTrigger>
             <NavigationMenuContent>
-              {renderNavigationMenuItems(
-                NAV_ITEMS.services,
-                <Settings className="h-6 w-6" />,
-              )}
+              {renderNavigationMenuItems(NAV_ITEMS.services, <Settings className="h-6 w-6" />)}
             </NavigationMenuContent>
           </NavigationMenuItem>
         </NavigationMenuList>
@@ -293,11 +262,7 @@ export default function Navbar({ className }: { className?: string }) {
         <div className="flex items-center justify-center gap-2">
           {renderCallToAction()}
           <SheetTrigger asChild>
-            <Button
-              variant="outline"
-              size="icon"
-              className="shrink-0 lg:hidden"
-            >
+            <Button variant="outline" size="icon" className="shrink-0 lg:hidden">
               <Menu className="h-5 w-5" />
               <span className="sr-only">Toggle navigation menu</span>
             </Button>

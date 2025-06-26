@@ -4,13 +4,7 @@
 import { Alert, AlertDescription } from "@/components/ui/alert";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { useAuth } from "@/context/AuthContext";
 import { PersonIcon } from "@radix-ui/react-icons";
 import { CheckCircle, Download, GithubIcon, Loader2 } from "lucide-react";
@@ -23,15 +17,8 @@ interface AuthError {
 }
 
 export const FirebaseAuth = () => {
-  const {
-    user,
-    googleSignIn,
-    githubSignIn,
-    facebookSignIn,
-    emailSignIn,
-    emailSignUp,
-    logOut,
-  } = useAuth();
+  const { user, googleSignIn, githubSignIn, facebookSignIn, emailSignIn, emailSignUp, logOut } =
+    useAuth();
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string>("");
   const [email, setEmail] = useState<string>("");
@@ -118,9 +105,7 @@ export const FirebaseAuth = () => {
       <div className="bg-card grid place-content-center items-center justify-center gap-6 rounded-xl border p-8 md:grid-cols-2">
         {/* Left Column: Main CTA */}
         <div className="space-y-4">
-          <h3 className="text-xl font-semibold">
-            Free Instant Access to Code Resources
-          </h3>
+          <h3 className="text-xl font-semibold">Free Instant Access to Code Resources</h3>
           <p className="text-muted-foreground">
             Continue reading to access the complete tutorial, including:
           </p>
@@ -135,18 +120,14 @@ export const FirebaseAuth = () => {
             </div>
             <div className="flex items-center gap-2">
               <CheckCircle className="text-primary h-4 w-4" />
-              <span className="text-sm">
-                Starter templates and configurations
-              </span>
+              <span className="text-sm">Starter templates and configurations</span>
             </div>
           </div>
         </div>{" "}
         {/* Right Column: Sign In */}
         <Card className="w-full">
           <CardHeader className="space-y-1">
-            <CardTitle className="text-2xl">
-              {/* Get Free Access to Resources */}
-            </CardTitle>
+            <CardTitle className="text-2xl">{/* Get Free Access to Resources */}</CardTitle>
             <CardDescription>
               {/* Sign in to download code snippets and resources from the video */}
             </CardDescription>
@@ -168,10 +149,7 @@ export const FirebaseAuth = () => {
                 <span className="w-full border-t" />
               </div>
               <div className="relative flex justify-center text-xs uppercase">
-                <span className="bg-background text-muted-foreground px-2">
-                  {" "}
-                  continue with
-                </span>
+                <span className="bg-background text-muted-foreground px-2"> continue with</span>
               </div>
             </div>{" "}
             <div className="space-y-2">
@@ -179,11 +157,7 @@ export const FirebaseAuth = () => {
                 <PersonIcon className="mr-2 h-4 w-4" />
                 Continue with Google
               </Button>
-              <Button
-                onClick={() => handleAuth("github")}
-                className="w-full"
-                variant="outline"
-              >
+              <Button onClick={() => handleAuth("github")} className="w-full" variant="outline">
                 <GithubIcon className="mr-2 h-4 w-4" />
                 Continue with GitHub
               </Button>
@@ -191,24 +165,15 @@ export const FirebaseAuth = () => {
             <div className="flex max-w-3xl items-center justify-between space-y-3 pb-5">
               <div className="flex">
                 <Avatar className="h-10 w-10">
-                  <AvatarImage
-                    src="/images/clients/malik-osama.png"
-                    alt="@malik-osama"
-                  />
+                  <AvatarImage src="/images/clients/malik-osama.png" alt="@malik-osama" />
                   <AvatarFallback>MO</AvatarFallback>
                 </Avatar>
                 <Avatar className="h-10 w-10">
-                  <AvatarImage
-                    src="/images/clients/philipp-herglotz.png"
-                    alt="@philipp-herglotz"
-                  />
+                  <AvatarImage src="/images/clients/philipp-herglotz.png" alt="@philipp-herglotz" />
                   <AvatarFallback>PH</AvatarFallback>
                 </Avatar>
                 <Avatar className="h-10 w-10">
-                  <AvatarImage
-                    src="/images/clients/imtiaz-ahmad.png"
-                    alt="@imtiaz-ahmad"
-                  />
+                  <AvatarImage src="/images/clients/imtiaz-ahmad.png" alt="@imtiaz-ahmad" />
                   <AvatarFallback>IA</AvatarFallback>
                 </Avatar>
               </div>

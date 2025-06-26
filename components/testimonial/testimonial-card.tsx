@@ -51,18 +51,13 @@ export function TestimonialCard({
         <CardContent className="p-0">
           <div className="p-6">
             {projectName && (
-              <h3 className="mb-3 text-xl font-medium text-green-400">
-                {projectName}
-              </h3>
+              <h3 className="mb-3 text-xl font-medium text-green-400">{projectName}</h3>
             )}
             <p className="mb-3 line-clamp-3">{quote}</p>
             <div className="mb-4 flex flex-col items-start justify-center gap-4">
               <div className="flex">
                 {Array.from({ length: 5 }).map((_, i) => (
-                  <Star
-                    key={i}
-                    className="h-5 w-5 fill-yellow-400 text-yellow-400"
-                  />
+                  <Star key={i} className="h-5 w-5 fill-yellow-400 text-yellow-400" />
                 ))}
               </div>
               {/* Author info */}
@@ -76,11 +71,7 @@ export function TestimonialCard({
                     <p className="leading-tight font-semibold">
                       {author}
                       <br />
-                      {role && (
-                        <span className="text-muted text-xs font-normal">
-                          {role}
-                        </span>
-                      )}
+                      {role && <span className="text-muted text-xs font-normal">{role}</span>}
                     </p>
                   </div>
                 </div>
@@ -113,10 +104,7 @@ export function TestimonialCard({
           <div className="flex flex-col items-end gap-2">
             <div className="flex space-x-1">
               {Array.from({ length: 5 }, (_, i) => (
-                <Star
-                  key={i}
-                  className="h-4 w-4 fill-yellow-300 stroke-yellow-300"
-                />
+                <Star key={i} className="h-4 w-4 fill-yellow-300 stroke-yellow-300" />
               ))}
             </div>
             {projectName && (
@@ -143,9 +131,7 @@ export function TestimonialCard({
               </Avatar>
               <div className="flex flex-col">
                 <p className="font-semibold">{author}</p>
-                {role && (
-                  <p className="text-muted-foreground text-xs">{role}</p>
-                )}
+                {role && <p className="text-muted-foreground text-xs">{role}</p>}
               </div>
             </div>
           </div>
@@ -160,8 +146,7 @@ export function TestimonialCard({
                   variant="secondary"
                   className={`transform text-xs font-semibold ${index % 2 === 0 ? "rotate-1" : "-rotate-1"}`}
                 >
-                  {typeof metric.label === "string" &&
-                  metric.label.startsWith("+")
+                  {typeof metric.label === "string" && metric.label.startsWith("+")
                     ? metric.label
                     : `${metric.label}: `}
                   {metric.value}
@@ -178,12 +163,7 @@ export function TestimonialCard({
 
   // Return either a linked card or just the card content
   return linkEnabled && linkUrl ? (
-    <Link
-      href={linkUrl}
-      className="group block h-full"
-      target="_blank"
-      rel="noopener noreferrer"
-    >
+    <Link href={linkUrl} className="group block h-full" target="_blank" rel="noopener noreferrer">
       {cardContent}
     </Link>
   ) : (

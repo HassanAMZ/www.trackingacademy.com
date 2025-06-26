@@ -37,8 +37,7 @@ export default function PaymentSuccessEmail({
         <title>Payment Confirmation - {productName}</title>
       </Head>
       <Preview>
-        Thank you for your purchase, {name}! Your payment of {currency} {amount}{" "}
-        has been confirmed.
+        Thank you for your purchase, {name}! Your payment of {currency} {amount} has been confirmed.
       </Preview>
       <Body style={main}>
         <Container style={container}>
@@ -58,8 +57,7 @@ export default function PaymentSuccessEmail({
             <Heading style={heading}>Payment Confirmed!</Heading>
             <Text style={greeting}>Hi {name},</Text>
             <Text style={paragraph}>
-              Thank you for your purchase! Your payment has been successfully
-              processed.
+              Thank you for your purchase! Your payment has been successfully processed.
             </Text>
           </Section>
 
@@ -92,8 +90,8 @@ export default function PaymentSuccessEmail({
               What's Next?
             </Heading>
             <Text style={paragraph}>
-              You'll receive access to your purchase shortly. If you have any
-              questions, please don't hesitate to contact our support team.
+              You'll receive access to your purchase shortly. If you have any questions, please
+              don't hesitate to contact our support team.
             </Text>
           </Section>
 

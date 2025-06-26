@@ -4,13 +4,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { frequentlyAskedQuestions } from "@/data/frequently-asked-questions";
 
 export default function FAQSection() {
@@ -19,8 +13,7 @@ export default function FAQSection() {
       <CardHeader>
         <CardTitle>Frequently Asked Questions</CardTitle>
         <CardDescription>
-          Common questions about our tracking solutions and implementation
-          process
+          Common questions about our tracking solutions and implementation process
         </CardDescription>
       </CardHeader>
       <CardContent>

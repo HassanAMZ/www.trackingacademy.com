@@ -89,8 +89,7 @@ export const services: Service[] = [
         "Custom dashboard showing all your key metrics in one place for easy monitoring and decision making.",
       "Cross-domain Tracking":
         "Track users across multiple domains or subdomains for complete customer journey visibility.",
-      "UTM Parameter Tracking":
-        "Accurate attribution of traffic sources, campaigns, and keywords.",
+      "UTM Parameter Tracking": "Accurate attribution of traffic sources, campaigns, and keywords.",
       "SST Anonymizer":
         "Server-side solution that anonymizes user data while maintaining tracking accuracy, ensuring privacy compliance.",
       "SST Cookie Extender":
@@ -103,20 +102,16 @@ export const services: Service[] = [
         "Priority delivery within 1 day to get your tracking up and running quickly.",
       "Advanced Data Modeling":
         "Create custom data models to track complex user interactions and business logic.",
-      "API Integrations":
-        "Integrate with your existing systems via our comprehensive API.",
+      "API Integrations": "Integrate with your existing systems via our comprehensive API.",
       "Custom Dashboards":
         "Design dashboards tailored to your specific metrics and reporting needs.",
-      "User Management":
-        "Manage user access with role-based controls for security and efficiency.",
+      "User Management": "Manage user access with role-based controls for security and efficiency.",
       "Single Sign-On (SSO)":
         "Securely access the platform using your enterprise's identity provider.",
       "Enhanced Data Privacy Tools":
         "Advanced tools for data anonymization and compliance management.",
-      "Real-time Reporting":
-        "Get instant insights with real-time data processing and reporting.",
-      "A/B Testing Integration":
-        "Easily set up and analyze A/B tests within your tracking setup.",
+      "Real-time Reporting": "Get instant insights with real-time data processing and reporting.",
+      "A/B Testing Integration": "Easily set up and analyze A/B tests within your tracking setup.",
       "Heatmaps and Session Replays":
         "Visualize user behavior with heatmaps and session recordings.",
       "Predictive Analytics":
@@ -186,8 +181,7 @@ export const services: Service[] = [
         "Custom dashboard showing all your key metrics in one place for easy monitoring and decision making.",
       "Cross-domain Tracking":
         "Track users across multiple domains or subdomains for complete customer journey visibility.",
-      "UTM Parameter Tracking":
-        "Accurate attribution of traffic sources, campaigns, and keywords.",
+      "UTM Parameter Tracking": "Accurate attribution of traffic sources, campaigns, and keywords.",
       CST: "Client-Side Tracking captures user interactions directly in the browser. Only 60-70% accurate due to ad blockers, privacy settings, and browser restrictions.",
       SST: "Server-Side Tracking processes data on secure servers, bypassing ad blockers and preserving user privacy while maintaining 95%+ accuracy. See our case studies at /case-study.",
       Setup:
@@ -253,8 +247,7 @@ export const services: Service[] = [
     name: "Website Tracking Audit",
     id: "website-tracking-audit",
     subtitle: "Client-Side Tracking",
-    description:
-      "Identify gaps in your current tracking setup and get a roadmap for improvements.",
+    description: "Identify gaps in your current tracking setup and get a roadmap for improvements.",
     price: "$500",
 
     product_id: "prod_SMXsQEj0376cLO",

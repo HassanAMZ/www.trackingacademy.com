@@ -1,11 +1,10 @@
 import MeetingCalender from "@/components/contact/meeting-calender";
 import LoomEmbed from "@/components/global/loom-embed";
-import YoutubeEmbed from "@/components/global/youtube-embed";
 import TestimonialGrid from "@/components/testimonial/testimonial-grid";
 import { Badge } from "@/components/ui/badge";
 import Container from "@/components/ui/container";
-import { ArrowRight, Phone, Settings, TrendingUp } from "lucide-react";
-import React, { useState } from "react";
+import { Phone, Settings, TrendingUp } from "lucide-react";
+import React from "react";
 
 export default async function BookAMeetingPage() {
   const steps = [
@@ -45,14 +44,12 @@ export default async function BookAMeetingPage() {
             <span className="bg-destructive/10 text-destructive border-destructive/20 rounded-full border px-3 py-1.5">
               Data Sharing Restriction
             </span>{" "}
-            and Track Your Conversions,{" "}
-            <span className="text-primary">Again!</span>
+            and Track Your Conversions, <span className="text-primary">Again!</span>
           </h1>
           <h4>
             We built the "See Every Sale System" to solve this exact problem.{" "}
             <span className="text-muted-foreground">
-              Recover your tracking in 72 hours. Stay compliant. Get back to
-              profitable scaling.
+              Recover your tracking in 72 hours. Stay compliant. Get back to profitable scaling.
             </span>
           </h4>
         </section>
@@ -63,18 +60,14 @@ export default async function BookAMeetingPage() {
           <div className="mb-12 space-y-4 text-center">
             <h2 className="">What happens Next?</h2>
             <h4 className="text-muted-foreground mx-auto max-w-3xl">
-              Once you have booked a call, we will jump on and audit your
-              current tracking setup to identify the gaps and how we can fix
-              your Meta Ads Data sharing Restrictions
+              Once you have booked a call, we will jump on and audit your current tracking setup to
+              identify the gaps and how we can fix your Meta Ads Data sharing Restrictions
             </h4>
           </div>
 
           <div className="relative space-y-6">
             {steps.map((step, index) => (
-              <div
-                key={index}
-                className="relative mb-12 flex items-start last:mb-0"
-              >
+              <div key={index} className="relative mb-12 flex items-start last:mb-0">
                 {/* Icon */}
                 <div
                   className={`relative z-10 flex h-16 w-16 items-center justify-center ${step.color} rounded-full text-white`}
@@ -103,9 +96,8 @@ export default async function BookAMeetingPage() {
           <div className="mb-12 space-y-4 text-center">
             <h2 className="">Watch the Video to see how we can help you!</h2>
             <h4 className="text-muted-foreground mx-auto max-w-3xl">
-              Understand exactly what's happening to your tracking data and see
-              how we've helped 300+ restricted niche advertisers get back to
-              full visibility.
+              Understand exactly what's happening to your tracking data and see how we've helped
+              300+ restricted niche advertisers get back to full visibility.
             </h4>
           </div>
 
@@ -121,8 +113,8 @@ export default async function BookAMeetingPage() {
           Join 300+ Businesses Who've Recovered Their Facebook Tracking
         </h1>
         <h4 className="text-muted-foreground mx-auto max-w-3xl text-center">
-          Don't let data sharing restrictions kill your ad performance. Our
-          clients see results within 72 hours.
+          Don't let data sharing restrictions kill your ad performance. Our clients see results
+          within 72 hours.
         </h4>
         <TestimonialGrid showUpworkStats={false} upwork={true} />
       </div>

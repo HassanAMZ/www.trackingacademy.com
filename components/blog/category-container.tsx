@@ -14,12 +14,7 @@ interface BlogContentProps {
   featuredPostId?: number;
   type: string;
 }
-const BlogContent: React.FC<BlogContentProps> = ({
-  data,
-  type,
-  rawData,
-  featuredPostId,
-}) => {
+const BlogContent: React.FC<BlogContentProps> = ({ data, type, rawData, featuredPostId }) => {
   const [visiblePosts, setVisiblePosts] = useState(12);
   const remainingPosts = data.slice(0, visiblePosts);
 
@@ -60,11 +55,7 @@ interface CategoryContainerProps {
   type: string;
 }
 
-const CategoryContainer: React.FC<CategoryContainerProps> = ({
-  data,
-  type,
-  rawData,
-}) => {
+const CategoryContainer: React.FC<CategoryContainerProps> = ({ data, type, rawData }) => {
   const [filteredData, setFilteredData] = useState(data);
   const [activeCategory, setActiveCategory] = useState("All");
 
@@ -85,10 +76,7 @@ const CategoryContainer: React.FC<CategoryContainerProps> = ({
 
   return (
     <div className="space-y-8">
-      <BlogSearch
-        data={data}
-        onSearch={(filtered) => setFilteredData(filtered)}
-      />
+      <BlogSearch data={data} onSearch={(filtered) => setFilteredData(filtered)} />
       <div className="grid gap-2 lg:grid-cols-[1fr_250px]">
         <Tabs defaultValue="All" className="col-span-1 col-start-1 w-full">
           <TabsList className="mb-4">
@@ -103,12 +91,7 @@ const CategoryContainer: React.FC<CategoryContainerProps> = ({
             ))}
           </TabsList>
           <TabsContent value={activeCategory}>
-            <BlogContent
-              rawData={rawData}
-              data={filteredData}
-              type={type}
-              featuredPostId={125}
-            />
+            <BlogContent rawData={rawData} data={filteredData} type={type} featuredPostId={125} />
           </TabsContent>
         </Tabs>
         <ContactUs />

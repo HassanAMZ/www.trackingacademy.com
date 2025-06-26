@@ -2,8 +2,7 @@ import type { Metadata } from "next";
 import { ReactNode } from "react";
 
 export const metadata: Metadata = {
-  title:
-    "Audit Request Submitted - Expert Analysis Coming Soon | Total Transparency",
+  title: "Audit Request Submitted - Expert Analysis Coming Soon | Total Transparency",
   description:
     "Your tracking audit request has been successfully submitted. Our specialists will deliver a comprehensive analysis of your Meta Pixel, Conversions API, and tracking setup within 24 hours.",
   openGraph: {

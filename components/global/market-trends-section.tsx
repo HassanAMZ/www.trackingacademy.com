@@ -21,8 +21,7 @@ export const MarketTrendsSection = ({ trendCards }: { trendCards: any }) => {
         ))}
       </div>{" "}
       <p className="text-muted-foreground text-center">
-        And as a result, the picture of the customer journey is no longer
-        complete
+        And as a result, the picture of the customer journey is no longer complete
       </p>
     </Container>
   );

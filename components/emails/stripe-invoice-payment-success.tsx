@@ -34,8 +34,7 @@ export default function InvoicePaymentSuccessEmail({
         <title>Invoice Payment Confirmation</title>
       </Head>
       <Preview>
-        Your invoice payment of {currency} {amount} has been processed
-        successfully.
+        Your invoice payment of {currency} {amount} has been processed successfully.
       </Preview>
       <Body style={main}>
         <Container style={container}>
@@ -55,8 +54,8 @@ export default function InvoicePaymentSuccessEmail({
             <Heading style={heading}>Invoice Payment Confirmed</Heading>
             <Text style={greeting}>Hi {name},</Text>
             <Text style={paragraph}>
-              Your invoice payment has been successfully processed. Thank you
-              for your continued subscription!
+              Your invoice payment has been successfully processed. Thank you for your continued
+              subscription!
             </Text>
           </Section>
 

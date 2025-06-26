@@ -31,9 +31,7 @@ export default function CallToAction({
       <DialogContent>
         <DialogHeader>
           <DialogTitle>Contact Form</DialogTitle>
-          <DialogDescription>
-            Fill out the contact form and team will reach out.
-          </DialogDescription>
+          <DialogDescription>Fill out the contact form and team will reach out.</DialogDescription>
         </DialogHeader>
         <ContactForm />
       </DialogContent>

@@ -22,8 +22,7 @@ export const iconMap: { [key: string]: React.ElementType } = {
 export const toolDescriptions: ToolDescriptions = {
   "utm-builder":
     "Build UTM parameters for Google Ads, Facebook Ads, TikTok, or custom campaigns all in one place",
-  "utm-validator":
-    "Validate and analyze your UTM parameters to ensure proper tracking setup",
+  "utm-validator": "Validate and analyze your UTM parameters to ensure proper tracking setup",
   "time-managment": "Track and manage time across different projects and tasks",
   "business-metrics-calculator":
     "Check to see if your Business is Ready to Scale using Advanced Business Metrics Calculator",

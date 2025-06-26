@@ -55,26 +55,16 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
         {props.children}
       </h4>
     ),
-    h5: (props) => (
-      <h5 id={createId(props.children as string)}>{props.children}</h5>
-    ),
-    h6: (props) => (
-      <h6 id={createId(props.children as string)}>{props.children}</h6>
-    ),
+    h5: (props) => <h5 id={createId(props.children as string)}>{props.children}</h5>,
+    h6: (props) => <h6 id={createId(props.children as string)}>{props.children}</h6>,
     li: (props) => <li {...props}>{props.children}</li>,
     ol: (props) => (
-      <ol
-        className={clsx("my-6 ml-6 list-decimal [&>li]:mt-2", props.className)}
-        {...props}
-      >
+      <ol className={clsx("my-6 ml-6 list-decimal [&>li]:mt-2", props.className)} {...props}>
         {props.children}
       </ol>
     ),
     ul: (props) => (
-      <ul
-        className={clsx("my-6 ml-6 list-disc [&>li]:mt-2", props.className)}
-        {...props}
-      >
+      <ul className={clsx("my-6 ml-6 list-disc [&>li]:mt-2", props.className)} {...props}>
         {props.children}
       </ul>
     ),

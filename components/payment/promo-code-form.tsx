@@ -55,16 +55,11 @@ export const PromoCodeForm = ({
     <div className="space-y-3">
       {/* Applied Promo Display */}
       {appliedPromo && (
-        <Alert
-          variant="default"
-          className="border-green-200 bg-green-50 text-green-700"
-        >
+        <Alert variant="default" className="border-green-200 bg-green-50 text-green-700">
           <div className="flex w-full items-center justify-between">
             <div className="flex items-center gap-2">
               <Check className="h-4 w-4 text-green-600" />
-              <span className="font-medium">
-                Code "{appliedPromo.code}" applied
-              </span>
+              <span className="font-medium">Code "{appliedPromo.code}" applied</span>
             </div>
             <span className="font-semibold">
               {appliedPromo.percentOff
@@ -109,10 +104,7 @@ export const PromoCodeForm = ({
 
       {/* Success Message */}
       {success && !error && !appliedPromo && (
-        <Alert
-          variant="default"
-          className="border-green-200 bg-green-50 text-green-700"
-        >
+        <Alert variant="default" className="border-green-200 bg-green-50 text-green-700">
           <Check className="h-4 w-4 text-green-600" />
           <AlertDescription>Promo code applied successfully!</AlertDescription>
         </Alert>

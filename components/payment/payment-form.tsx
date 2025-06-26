@@ -4,11 +4,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { PaymentData, Product, PromoCode } from "@/types/index";
 import { getSuccessUrl } from "@/utils/payment";
-import {
-  PaymentElement,
-  useElements,
-  useStripe,
-} from "@stripe/react-stripe-js";
+import { PaymentElement, useElements, useStripe } from "@stripe/react-stripe-js";
 import { Loader2, LockIcon } from "lucide-react";
 import { FormEvent, useEffect, useState } from "react";
 
@@ -19,12 +15,7 @@ interface PaymentFormProps {
   onError?: (error: string) => void;
 }
 
-export const PaymentForm = ({
-  product,
-  appliedPromo,
-  onSuccess,
-  onError,
-}: PaymentFormProps) => {
+export const PaymentForm = ({ product, appliedPromo, onSuccess, onError }: PaymentFormProps) => {
   const stripe = useStripe();
   const elements = useElements();
   const [isProcessing, setIsProcessing] = useState(false);
@@ -41,12 +32,7 @@ export const PaymentForm = ({
       const storedEmail = localStorage.getItem("email_address");
       const storedPhone = localStorage.getItem("phone_number");
 
-      if (
-        storedEmail &&
-        storedEmail.trim() !== "" &&
-        storedPhone &&
-        storedPhone.trim() !== ""
-      ) {
+      if (storedEmail && storedEmail.trim() !== "" && storedPhone && storedPhone.trim() !== "") {
         setEmail(storedEmail);
         setPhone(storedPhone);
       }
@@ -108,8 +94,7 @@ export const PaymentForm = ({
       });
 
       if (error) {
-        const errorMessage =
-          error.message || "Payment failed. Please try again.";
+        const errorMessage = error.message || "Payment failed. Please try again.";
         onError?.(errorMessage);
       } else {
         onSuccess?.({ amount: finalAmount, currency: product.currency });

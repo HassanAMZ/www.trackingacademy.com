@@ -35,17 +35,13 @@ const MetaConversionConfig = {
 
   dreamOutcome: {
     heading: "Transform Your Facebook Ads with Crystal-Clear Data",
-    subheading:
-      "Get enterprise-level tracking precision without the technical headache",
+    subheading: "Get enterprise-level tracking precision without the technical headache",
     card1Title: "Perfect Tracking",
     card2Title: "Clear Insights",
     card3Title: "Proven Results",
-    card1Content:
-      "Achieve 95%+ conversion tracking accuracy with our server-side setup.",
-    card2Content:
-      "See exactly which ads drive sales, so you can optimize with confidence.",
-    card3Content:
-      "Average 30% reduction in customer acquisition costs within 30 days.",
+    card1Content: "Achieve 95%+ conversion tracking accuracy with our server-side setup.",
+    card2Content: "See exactly which ads drive sales, so you can optimize with confidence.",
+    card3Content: "Average 30% reduction in customer acquisition costs within 30 days.",
     dreamOutcomeList: [
       {
         icon: "Target",
@@ -64,8 +60,7 @@ const MetaConversionConfig = {
 
   offerDetails: {
     headerTitle: "The Complete Facebook Conversion Tracking Solution",
-    headerDescription:
-      "Enterprise-grade tracking setup handled 100% by our team.",
+    headerDescription: "Enterprise-grade tracking setup handled 100% by our team.",
     items: [
       {
         title: "Precision Tracking Audit",
@@ -95,8 +90,7 @@ const MetaConversionConfig = {
       },
       {
         title: "Custom Analytics Dashboard",
-        description:
-          "Real-time visualization of your true ROAS and conversion data.",
+        description: "Real-time visualization of your true ROAS and conversion data.",
         icon: "BarChart2",
         benefits: [
           "Real-time conversion tracking",
@@ -108,8 +102,7 @@ const MetaConversionConfig = {
       },
       {
         title: "7-Day Quality Assurance",
-        description:
-          "Rigorous testing and optimization to ensure 95%+ accuracy.",
+        description: "Rigorous testing and optimization to ensure 95%+ accuracy.",
         icon: "Activity",
         benefits: [
           "Comprehensive accuracy testing",
@@ -189,8 +182,7 @@ const MetaConversionConfig = {
     guarantees: [
       {
         title: "95%+ Accuracy Guarantee",
-        description:
-          "We guarantee 95%+ tracking accuracy within 7 days, or you don't pay a cent.",
+        description: "We guarantee 95%+ tracking accuracy within 7 days, or you don't pay a cent.",
         icon: "Shield",
       },
       {

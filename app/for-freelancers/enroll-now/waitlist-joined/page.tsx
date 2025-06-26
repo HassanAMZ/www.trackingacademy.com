@@ -15,8 +15,8 @@ const WaitlistJoined: React.FC = () => {
     <Container className="py-12 text-center">
       <h1>Thank You for Joining the Waitlist!</h1>
       <p className="mt-4">
-        We appreciate your interest. You will be among the first to know when
-        our courses are available. Stay tuned for updates and exclusive content.
+        We appreciate your interest. You will be among the first to know when our courses are
+        available. Stay tuned for updates and exclusive content.
       </p>
       <Button asChild className="mt-6">
         <Link href="/">Go to Homepage</Link>

@@ -13,13 +13,7 @@ import AlternativesSection from "@/components/home/alternative-section";
 import Hero from "@/components/home/hero";
 import WhyChooseSection from "@/components/home/why-choose-us";
 import { Button } from "@/components/ui/button";
-import {
-  BarChart2,
-  CheckSquare,
-  HeadphonesIcon,
-  Target,
-  Zap,
-} from "lucide-react";
+import { BarChart2, CheckSquare, HeadphonesIcon, Target, Zap } from "lucide-react";
 import Link from "next/link";
 
 export default function HomePage() {
@@ -38,9 +32,8 @@ export default function HomePage() {
           <h4 className="text-muted-foreground mx-auto max-w-3xl text-center lg:mx-0 lg:text-left">
             Our
             <span className="text-primary"> “See Every Sale” </span>
-            setup gives eCommerce brands 95%+ accurate conversion data — so you
-            can stop wasting ad spend, scale with confidence, and Stay Complient
-            with GDPR & CCPA.
+            setup gives eCommerce brands 95%+ accurate conversion data — so you can stop wasting ad
+            spend, scale with confidence, and Stay Complient with GDPR & CCPA.
           </h4>
         }
         carousel={<TestimonialsCarousel2 />}
@@ -61,8 +54,7 @@ export default function HomePage() {
               <div>
                 Ready to Scale Smarter?
                 <span className="mt-2 block text-sm font-medium opacity-90">
-                  Done-for-you tracking setup + growth tools. Just 5 Client
-                  Every Month.
+                  Done-for-you tracking setup + growth tools. Just 5 Client Every Month.
                 </span>
               </div>
             </Link>
@@ -196,8 +188,7 @@ export default function HomePage() {
         items={[
           {
             title: "E-commerce Conversion Checklist",
-            description:
-              "The ultimate checklist to maximize your online store's conversions.",
+            description: "The ultimate checklist to maximize your online store's conversions.",
             icon: <CheckSquare />,
             price: "$500",
             benefits: [
@@ -223,8 +214,7 @@ export default function HomePage() {
           // },
           {
             title: "Advanced Tools & Calculators",
-            description:
-              "Pre-built tools & Calculators for effortless KPI tracking.",
+            description: "Pre-built tools & Calculators for effortless KPI tracking.",
             icon: <BarChart2 />,
             price: "$700",
             benefits: [
@@ -272,20 +262,17 @@ export default function HomePage() {
           {
             number: "1",
             title: "Tailored data solutions",
-            description:
-              "Customized to address your specific business requirements",
+            description: "Customized to address your specific business requirements",
           },
           {
             number: "2",
             title: "Strategic insights",
-            description:
-              "Going beyond data to offer clear growth-driving steps",
+            description: "Going beyond data to offer clear growth-driving steps",
           },
           {
             number: "3",
             title: "Premium service",
-            description:
-              "We handle the complexities so you can concentrate on strategy",
+            description: "We handle the complexities so you can concentrate on strategy",
           },
           {
             number: "4",

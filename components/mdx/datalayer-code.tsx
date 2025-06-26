@@ -6,9 +6,7 @@ interface DataLayerCodeBlockProps {
   fileName: string;
 }
 
-export default function DataLayerCodeBlock({
-  fileName,
-}: DataLayerCodeBlockProps) {
+export default function DataLayerCodeBlock({ fileName }: DataLayerCodeBlockProps) {
   const filePath = path.join(process.cwd(), `/data/datalayer-code/${fileName}`);
   let codeContent = "File not found.";
 

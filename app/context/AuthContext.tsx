@@ -13,13 +13,7 @@ import {
   signOut,
   User,
 } from "firebase/auth";
-import {
-  createContext,
-  ReactNode,
-  useContext,
-  useEffect,
-  useState,
-} from "react";
+import { createContext, ReactNode, useContext, useEffect, useState } from "react";
 import { auth } from "../firebase";
 
 interface AuthContextType {
@@ -57,12 +51,8 @@ export const AuthContextProvider = ({ children }: AuthContextProviderProps) => {
         state: undefined,
         country: undefined,
         postal_code: undefined,
-        first_name: user?.displayName
-          ? user.displayName.split(" ")[0]
-          : undefined,
-        last_name: user?.displayName
-          ? user.displayName.split(" ")[1]
-          : undefined,
+        first_name: user?.displayName ? user.displayName.split(" ")[0] : undefined,
+        last_name: user?.displayName ? user.displayName.split(" ")[1] : undefined,
       },
     };
     sendGTMEvent({
@@ -78,12 +68,7 @@ export const AuthContextProvider = ({ children }: AuthContextProviderProps) => {
     try {
       const provider = new GoogleAuthProvider();
       const result = await signInWithPopup(auth, provider);
-      pushDataLayerEvent(
-        "user_signup_success",
-        result.user,
-        "success",
-        "google",
-      );
+      pushDataLayerEvent("user_signup_success", result.user, "success", "google");
     } catch (error) {
       console.error("Google SignIn error:", error);
       pushDataLayerEvent("user_signup_failed", null, "failure", "google");
@@ -95,12 +80,7 @@ export const AuthContextProvider = ({ children }: AuthContextProviderProps) => {
     try {
       const provider = new GithubAuthProvider();
       const result = await signInWithPopup(auth, provider);
-      pushDataLayerEvent(
-        "user_signup_success",
-        result.user,
-        "success",
-        "github",
-      );
+      pushDataLayerEvent("user_signup_success", result.user, "success", "github");
     } catch (error) {
       console.error("GitHub SignIn error:", error);
       pushDataLayerEvent("user_signup_failed", null, "failure", "github");
@@ -112,12 +92,7 @@ export const AuthContextProvider = ({ children }: AuthContextProviderProps) => {
     try {
       const provider = new FacebookAuthProvider();
       const result = await signInWithPopup(auth, provider);
-      pushDataLayerEvent(
-        "user_signup_success",
-        result.user,
-        "success",
-        "facebook",
-      );
+      pushDataLayerEvent("user_signup_success", result.user, "success", "facebook");
     } catch (error) {
       console.error("Facebook SignIn error:", error);
       pushDataLayerEvent("user_signup_failed", null, "failure", "facebook");
@@ -125,18 +100,10 @@ export const AuthContextProvider = ({ children }: AuthContextProviderProps) => {
     }
   };
 
-  const emailSignIn = async (
-    email: string,
-    password: string,
-  ): Promise<void> => {
+  const emailSignIn = async (email: string, password: string): Promise<void> => {
     try {
       const result = await signInWithEmailAndPassword(auth, email, password);
-      pushDataLayerEvent(
-        "user_signup_success",
-        result.user,
-        "success",
-        "email",
-      );
+      pushDataLayerEvent("user_signup_success", result.user, "success", "email");
     } catch (error) {
       console.error("Email SignIn error:", error);
       pushDataLayerEvent("user_signup_failed", null, "failure", "email");
@@ -144,22 +111,10 @@ export const AuthContextProvider = ({ children }: AuthContextProviderProps) => {
     }
   };
 
-  const emailSignUp = async (
-    email: string,
-    password: string,
-  ): Promise<void> => {
+  const emailSignUp = async (email: string, password: string): Promise<void> => {
     try {
-      const result = await createUserWithEmailAndPassword(
-        auth,
-        email,
-        password,
-      );
-      pushDataLayerEvent(
-        "user_signup_success",
-        result.user,
-        "success",
-        "email",
-      );
+      const result = await createUserWithEmailAndPassword(auth, email, password);
+      pushDataLayerEvent("user_signup_success", result.user, "success", "email");
     } catch (error) {
       console.error("Email SignUp error:", error);
       pushDataLayerEvent("user_signup_failed", null, "failure", "email");

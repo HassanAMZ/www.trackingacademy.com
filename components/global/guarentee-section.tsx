@@ -14,9 +14,9 @@ const GuaranteeSection = () => {
               <AlertCircle className="text-primary h-12 w-12" />
               <h2>Our "95%+ Accuracy or It's FREE" Guarantee</h2>
               <p className="max-w-xl">
-                We're confident that our system will deliver precise, actionable
-                data for your Shopify store. If we don't meet our 95% accuracy
-                promise, you don't pay a single cent.
+                We're confident that our system will deliver precise, actionable data for your
+                Shopify store. If we don't meet our 95% accuracy promise, you don't pay a single
+                cent.
               </p>
               <Button size="lg" asChild>
                 <Link href="/contact">

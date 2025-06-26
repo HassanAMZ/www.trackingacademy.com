@@ -19,23 +19,14 @@ type AvatarProps = TooltipProps & {
   invertOverlap?: boolean;
 };
 
-function AvatarContainer({
-  children,
-  align,
-  invertOverlap,
-  ...props
-}: AvatarProps) {
+function AvatarContainer({ children, align, invertOverlap, ...props }: AvatarProps) {
   return (
     <Tooltip {...props}>
       <TooltipTrigger>
         <span
           data-slot="avatar-container"
           className={cn(
-            align === "start"
-              ? "items-start"
-              : align === "center"
-                ? "items-center"
-                : "items-end",
+            align === "start" ? "items-start" : align === "center" ? "items-center" : "items-end",
             "relative grid aspect-[1/calc(1+var(--avatar-mask-ratio))] w-[var(--avatar-size)]",
             "[&_[data-slot=avatar]]:size-[var(--avatar-size)] [&_[data-slot=avatar]]:rounded-full",
             invertOverlap
@@ -97,8 +88,7 @@ function AvatarGroup({
   ...props
 }: AvatarGroupProps) {
   const maskRatio = Math.abs(translate / 100);
-  const alignOffset =
-    align === "start" ? 0 : align === "center" ? maskRatio / 2 : maskRatio;
+  const alignOffset = align === "start" ? 0 : align === "center" ? maskRatio / 2 : maskRatio;
   const maskBase = alignOffset - maskRatio / 2;
   const maskFactor = 1 - alignOffset + maskRatio / 2;
 
@@ -150,9 +140,4 @@ function AvatarGroup({
   );
 }
 
-export {
-  AvatarGroup,
-  AvatarGroupTooltip,
-  type AvatarGroupProps,
-  type AvatarGroupTooltipProps,
-};
+export { AvatarGroup, AvatarGroupTooltip, type AvatarGroupProps, type AvatarGroupTooltipProps };

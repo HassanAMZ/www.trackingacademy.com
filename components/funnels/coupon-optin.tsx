@@ -2,12 +2,7 @@
 
 import { createCouponRequest } from "@/actions/coupon-request";
 import { Button } from "@/components/ui/button";
-import {
-  Dialog,
-  DialogContent,
-  DialogHeader,
-  DialogTitle,
-} from "@/components/ui/dialog";
+import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { services } from "@/data/services";
@@ -149,12 +144,9 @@ export default function CouponOptInForm({
           {state.success ? (
             <div className="w-full py-6 text-center">
               <div className="mb-6 rounded-lg border p-4">
-                <h3 className="mb-2 text-xl font-bold">
-                  Success! Your coupon has been sent.
-                </h3>
+                <h3 className="mb-2 text-xl font-bold">Success! Your coupon has been sent.</h3>
                 <p className="mb-4">
-                  Check your email for your $300 coupon code:{" "}
-                  <strong>SEEEVERYSALE300OFF</strong>
+                  Check your email for your $300 coupon code: <strong>SEEEVERYSALE300OFF</strong>
                 </p>
               </div>
             </div>
@@ -250,8 +242,7 @@ export default function CouponOptInForm({
                   <SubmitButton />
                 </div>
                 <p className="text-muted-foreground mt-4 text-center text-xs">
-                  Limited offer for the first 10 clients only — act fast before
-                  it expires!
+                  Limited offer for the first 10 clients only — act fast before it expires!
                 </p>
               </form>
             </div>

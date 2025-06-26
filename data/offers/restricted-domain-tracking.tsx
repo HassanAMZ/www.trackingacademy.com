@@ -77,8 +77,7 @@ const RestrictedDomainTracking = {
         image: "/images/social-sharing.png",
       },
       {
-        quote:
-          "Game-changer. Their tracking setup let Meta finally optimize our campaigns again.",
+        quote: "Game-changer. Their tracking setup let Meta finally optimize our campaigns again.",
         author: "Alex F.",
         role: "Health Coach & Store Owner",
         image: "/images/social-sharing.png",
@@ -92,8 +91,7 @@ const RestrictedDomainTracking = {
     bonuses: [
       {
         title: "Looker Studio eCom Report",
-        description:
-          "Visualize your funnel data in a clean, executive-ready dashboard.",
+        description: "Visualize your funnel data in a clean, executive-ready dashboard.",
         value: "$500",
         icon: "BarChart2",
         image: "/images/social-sharing.png",
@@ -107,8 +105,7 @@ const RestrictedDomainTracking = {
       },
       {
         title: "Ecommerce Conversion Checklist",
-        description:
-          "A proven checklist to audit your store and maximize conversions.",
+        description: "A proven checklist to audit your store and maximize conversions.",
         value: "$500",
         icon: "FileText",
         image: "/images/social-sharing.png",
@@ -141,8 +138,7 @@ const RestrictedDomainTracking = {
 
   detailedCTA: {
     heading: "Only 10 Spots – Restore Your Sales Funnel in 3 Days",
-    subheading:
-      "Get your conversion tracking back—accurate, fast, and guaranteed.",
+    subheading: "Get your conversion tracking back—accurate, fast, and guaranteed.",
     listItems: [
       "3-Day turnaround",
       "$300 OFF limited-time pricing",

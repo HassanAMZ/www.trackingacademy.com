@@ -1,16 +1,10 @@
 import { caseStudies } from "@/data/case-studies";
 
-export async function generateMetadata({
-  params,
-}: {
-  params: Promise<{ caseStudy: string }>;
-}) {
+export async function generateMetadata({ params }: { params: Promise<{ caseStudy: string }> }) {
   const { caseStudy: caseStudyId } = await params;
 
   const caseStudyData =
-    caseStudies.find(
-      (study) => study.id.toLowerCase() === caseStudyId.toLowerCase(),
-    ) || null;
+    caseStudies.find((study) => study.id.toLowerCase() === caseStudyId.toLowerCase()) || null;
 
   if (!caseStudyData) {
     return {
@@ -38,10 +32,6 @@ export async function generateMetadata({
   };
 }
 
-export default function CaseStudyLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function CaseStudyLayout({ children }: { children: React.ReactNode }) {
   return <>{children}</>;
 }

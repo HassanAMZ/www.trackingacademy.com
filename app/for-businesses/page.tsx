@@ -12,9 +12,8 @@ export default function Home() {
       <Hero
         heading={
           <h1>
-            <span className="text-primary">Never Miss a Sale Again </span>-
-            Track 95% of Your Conversions -{" "}
-            <span className="text-primary"> Guaranteed!</span>
+            <span className="text-primary">Never Miss a Sale Again </span>- Track 95% of Your
+            Conversions - <span className="text-primary"> Guaranteed!</span>
           </h1>
         }
         carousel={<TestimonialsCarousel2 />}
@@ -34,9 +33,7 @@ export default function Home() {
       {/* <Offer /> */}
       <Services />
       <Container>
-        <h2 className="text-center">
-          Optimize Your Tracking in 7 Days! Get Started with No Risk.
-        </h2>
+        <h2 className="text-center">Optimize Your Tracking in 7 Days! Get Started with No Risk.</h2>
         <Container>
           <Button asChild className="w-full">
             <Link href="/contact">Book a Call</Link>

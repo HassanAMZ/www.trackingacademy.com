@@ -1,10 +1,5 @@
 import { Badge } from "@/components/ui/badge";
-import {
-  Card,
-  CardContent,
-  CardFooter,
-  CardHeader,
-} from "@/components/ui/card";
+import { Card, CardContent, CardFooter, CardHeader } from "@/components/ui/card";
 import { PostMetadata } from "@/types/index";
 import { CalendarIcon } from "lucide-react";
 import Image from "next/image";
@@ -27,9 +22,7 @@ const SingleBlogCard: React.FC<SingleBlogCardProps> = ({
 
   return (
     <Link href={`/${type}/${post.slug}`} className={`block ${className}`}>
-      <Card
-        className={`overflow-hidden transition-all hover:shadow-lg ${isMain ? "lg:flex" : ""}`}
-      >
+      <Card className={`overflow-hidden transition-all hover:shadow-lg ${isMain ? "lg:flex" : ""}`}>
         <div className={`relative ${isMain ? "lg:w-2/3" : "aspect-video"}`}>
           <Image
             src={post.openGraph.images[0]}
@@ -41,16 +34,12 @@ const SingleBlogCard: React.FC<SingleBlogCardProps> = ({
         </div>
         <div className={isMain ? "lg:w-1/3" : ""}>
           <CardHeader>
-            <h3
-              className={`line-clamp-2 font-bold ${isMain ? "text-2xl" : "text-lg"}`}
-            >
+            <h3 className={`line-clamp-2 font-bold ${isMain ? "text-2xl" : "text-lg"}`}>
               {post.title}
             </h3>
           </CardHeader>
           <CardContent>
-            <p
-              className={`text-muted-foreground line-clamp-3 text-sm ${isMain ? "mb-4" : "mb-2"}`}
-            >
+            <p className={`text-muted-foreground line-clamp-3 text-sm ${isMain ? "mb-4" : "mb-2"}`}>
               {post.description}
             </p>
             <div className="flex flex-wrap gap-2">

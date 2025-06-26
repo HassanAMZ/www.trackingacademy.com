@@ -1,12 +1,7 @@
 "use client";
 
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
-import type {
-  PaymentContentProps,
-  PaymentData,
-  Product,
-  PromoCode,
-} from "@/types/index";
+import type { PaymentContentProps, PaymentData, Product, PromoCode } from "@/types/index";
 import { stripePromise } from "@/utils/payment";
 import { sendGTMEvent } from "@next/third-parties/google";
 import { AddressElement, Elements } from "@stripe/react-stripe-js";
@@ -48,9 +43,7 @@ const PaymentContent = ({
 
         if (productId) {
           // Fetch product details if productId is provided
-          const productRes = await fetch(
-            `/api/stripe/get-product?productId=${productId}`,
-          );
+          const productRes = await fetch(`/api/stripe/get-product?productId=${productId}`);
           if (!productRes.ok) throw new Error("Failed to load product");
           productData = await productRes.json();
           effectivePriceId = priceId || productData.priceId;
@@ -119,9 +112,7 @@ const PaymentContent = ({
     const checkAndFireLeadEvent = () => {
       if (typeof window === "undefined") return;
 
-      const coupon_form_submitted = localStorage.getItem(
-        "coupon_form_submitted",
-      );
+      const coupon_form_submitted = localStorage.getItem("coupon_form_submitted");
 
       // Only fire if we have the data (indicates user came from coupon form)
       if (coupon_form_submitted) {
@@ -228,10 +219,7 @@ const PaymentContent = ({
               <h3>Not sure?</h3>
             </CardHeader>
             <CardContent>
-              <p>
-                Have questions or need to discuss your specific needs? Let's
-                talk first.
-              </p>
+              <p>Have questions or need to discuss your specific needs? Let's talk first.</p>
               <Button asChild>
                 <Link href="./success">Book a Meeting</Link>
               </Button>
@@ -262,11 +250,7 @@ const PaymentContent = ({
           <CardContent className="space-y-4">
             {paymentError && <PaymentErrorBanner error={paymentError} />}
 
-            <Elements
-              stripe={stripePromise}
-              options={elementsOptions}
-              key={clientSecret}
-            >
+            <Elements stripe={stripePromise} options={elementsOptions} key={clientSecret}>
               <AddressElement options={{ mode: "shipping" }} className="mb-6" />
               <PaymentForm
                 product={product}

@@ -1,12 +1,6 @@
-import ServiceHero from "@/components/service/service-hero";
 import auditReports from "@/data/audit-report";
-import { services } from "@/data/services";
 
-export async function generateMetadata({
-  params,
-}: {
-  params: Promise<{ audit: string }>;
-}) {
+export async function generateMetadata({ params }: { params: Promise<{ audit: string }> }) {
   const { audit: auditId } = await params;
 
   const auditReport = auditReports.find(
@@ -39,10 +33,6 @@ export async function generateMetadata({
   };
 }
 
-export default function AuditLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function AuditLayout({ children }: { children: React.ReactNode }) {
   return <>{children}</>;
 }

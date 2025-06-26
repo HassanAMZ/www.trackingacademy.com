@@ -1,9 +1,5 @@
-import Navbar from "@/components/global/navbar";
 import FAQSection from "@/components/pricing/faq-section";
-import {
-  FeatureComparison,
-  ServiceCard,
-} from "@/components/pricing/pricing-vertical";
+import { FeatureComparison, ServiceCard } from "@/components/pricing/pricing-vertical";
 import ServiceHero from "@/components/service/service-hero";
 import Container from "@/components/ui/container";
 import { services } from "@/data/services";
@@ -18,9 +14,8 @@ export default function PricingPage() {
           <span className="text-primary"> Tracking Solution</span>
         </h1>
         <p className="text-muted-foreground text-xl">
-          Reclaim your lost conversions and maximize your ad spend ROI with our
-          comprehensive tracking solutions. From basic audits to
-          enterprise-level implementations.
+          Reclaim your lost conversions and maximize your ad spend ROI with our comprehensive
+          tracking solutions. From basic audits to enterprise-level implementations.
         </p>
       </div>
 

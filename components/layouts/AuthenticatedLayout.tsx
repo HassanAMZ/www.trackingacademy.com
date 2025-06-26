@@ -9,9 +9,7 @@ interface AuthenticatedLayoutProps {
   children: ReactNode;
 }
 
-const AuthenticatedLayout: React.FC<AuthenticatedLayoutProps> = ({
-  children,
-}) => {
+const AuthenticatedLayout: React.FC<AuthenticatedLayoutProps> = ({ children }) => {
   const { user } = useAuth();
   const [loading, setLoading] = useState(true);
 

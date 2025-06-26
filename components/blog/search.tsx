@@ -49,19 +49,14 @@ const BlogSearch: React.FC<BlogSearchProps> = ({ data, onSearch }) => {
     <Card className="rounded-t-lg py-12">
       <CardHeader>
         <h1 className="text-center">
-          {!isRootBlogPage && displayText && (
-            <span className="capitalize">{displayText} - </span>
-          )}
+          {!isRootBlogPage && displayText && <span className="capitalize">{displayText} - </span>}
           Articles, Ideas and Inspiration!
         </h1>
       </CardHeader>
       <CardContent className="flex flex-col items-center">
         <p className="text-center">
-          A helpful blog for web analysts, trying to make sense of marketing
-          with{" "}
-          {!isRootBlogPage && displayText && (
-            <span className="capitalize">{displayText}, </span>
-          )}
+          A helpful blog for web analysts, trying to make sense of marketing with{" "}
+          {!isRootBlogPage && displayText && <span className="capitalize">{displayText}, </span>}
           tag manager, analytics and tracking scripts.
         </p>
         {isRootBlogPage && (

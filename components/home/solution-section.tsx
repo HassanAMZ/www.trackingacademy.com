@@ -7,8 +7,8 @@ export function SolutionsSection() {
     <section className="container space-y-16 py-24" id="solutions">
       <div className="space-y-4 text-center">
         <h2 className="text-3xl font-bold md:text-4xl">
-          We help <span className="text-primary">high-growth</span> businesses
-          build bespoke data measurement systems
+          We help <span className="text-primary">high-growth</span> businesses build bespoke data
+          measurement systems
         </h2>
         <p className="text-muted-foreground text-xl">
           and always-updated, action-ready reporting dashboards
@@ -20,9 +20,7 @@ export function SolutionsSection() {
             <div className="space-y-2">
               <Database className="text-primary h-8 w-8" />
               <h3 className="text-xl font-bold">DATA GENERATION</h3>
-              <p className="text-muted-foreground">
-                Integration, cleaning, and storage
-              </p>
+              <p className="text-muted-foreground">Integration, cleaning, and storage</p>
             </div>
           </CardContent>
         </Card>{" "}
@@ -42,25 +40,19 @@ export function SolutionsSection() {
             <div className="space-y-2">
               <MessageSquare className="text-primary h-8 w-8" />
               <h3 className="text-xl font-bold">DATA COMMUNICATION</h3>
-              <p className="text-muted-foreground">
-                Strategy, optimization, and improvement
-              </p>
+              <p className="text-muted-foreground">Strategy, optimization, and improvement</p>
             </div>
           </CardContent>
         </Card>
       </div>{" "}
       <div className="flex flex-wrap justify-center gap-4">
-        {[
-          "SaaS",
-          "Multisite Networks",
-          "Ecommerce",
-          "Infoproducts",
-          "Custom made",
-        ].map((category) => (
-          <Badge key={category} variant="secondary" className="text-sm">
-            {category}
-          </Badge>
-        ))}
+        {["SaaS", "Multisite Networks", "Ecommerce", "Infoproducts", "Custom made"].map(
+          (category) => (
+            <Badge key={category} variant="secondary" className="text-sm">
+              {category}
+            </Badge>
+          ),
+        )}
       </div>
     </section>
   );

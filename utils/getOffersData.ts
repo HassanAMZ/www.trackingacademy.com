@@ -1,5 +1,5 @@
-import path from "path";
 import getFiles from "@/utils/getFiles"; // Ensure this path is correct
+import path from "path";
 
 export default async function getContentData(
   contentDirectoryPath: string = "app/offers", // Default value assigned here
@@ -18,9 +18,7 @@ export default async function getContentData(
     const relativePath = path.relative(baseDirectory, filePath);
     const parts = relativePath.split(path.sep);
     const dirName = parts[0]; // Get the parent directory name (e.g., "offer-001")
-    const title = dirName
-      .replace(/-/g, " ")
-      .replace(/\b\w/g, (match) => match.toUpperCase());
+    const title = dirName.replace(/-/g, " ").replace(/\b\w/g, (match) => match.toUpperCase());
     let slug = relativePath.replace(path.sep, "/").replace(/\\/g, "/"); // Replace backslashes with forward slashes for URL consistency
     slug = slug.replace("/page.tsx", ""); // Remove the /page.tsx part from the slug
     return { id: filePath, slug, title };

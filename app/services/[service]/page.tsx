@@ -1,16 +1,10 @@
 // app/services/[service]/page.tsx
 
 import FAQSection from "@/components/pricing/faq-section";
-import {
-  FeatureComparison,
-  ServiceCard,
-} from "@/components/pricing/pricing-vertical";
-import ServiceComparison from "@/components/service/service-comparison";
-import ServiceFeatures from "@/components/service/service-features";
+import { FeatureComparison } from "@/components/pricing/pricing-vertical";
 import ServiceHero from "@/components/service/service-hero";
 import Container from "@/components/ui/container";
 import { Service, services } from "@/data/services";
-import { Metadata } from "next";
 import { notFound } from "next/navigation";
 
 // Generate static params for all services
@@ -27,11 +21,7 @@ function getServiceByservice(serviceSlug: string): Service | undefined {
   return services.find((service) => service.id === serviceSlug);
 }
 
-export default async function ServicePage({
-  params,
-}: {
-  params: Promise<{ service: string }>;
-}) {
+export default async function ServicePage({ params }: { params: Promise<{ service: string }> }) {
   const service = getServiceByservice((await params).service);
 
   if (!service) {

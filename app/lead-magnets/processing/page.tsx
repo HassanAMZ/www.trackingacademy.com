@@ -51,8 +51,7 @@ export default function ProcessingPage() {
   const [showForm, setShowForm] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [hasSubmittedForm, setHasSubmittedForm] = useState(false); // Prevent duplicate events
-  const [triggerScanCompleteEvent, setTriggerScanCompleteEvent] =
-    useState(false);
+  const [triggerScanCompleteEvent, setTriggerScanCompleteEvent] = useState(false);
   const [triggerFormSubmitEvent, setTriggerFormSubmitEvent] = useState(false);
 
   // Form field states
@@ -143,9 +142,8 @@ export default function ProcessingPage() {
           <span className="text-primary"> Initial Scanning in Progress</span>
         </h1>
         <h4 className="text-muted-foreground mx-auto max-w-3xl">
-          Our AI-powered system is performing a comprehensive scan of your
-          website's Ga4, GTM, Meta Pixel, tracking implementations, and
-          compliance setup
+          Our AI-powered system is performing a comprehensive scan of your website's Ga4, GTM, Meta
+          Pixel, tracking implementations, and compliance setup
         </h4>
 
         <div className="mx-auto w-full max-w-xl space-y-6">
@@ -182,9 +180,7 @@ export default function ProcessingPage() {
                     <Icon className="h-5 w-5" />
                   )}
                 </div>
-                <span className={isActive ? "font-medium" : ""}>
-                  {step.text}
-                </span>
+                <span className={isActive ? "font-medium" : ""}>{step.text}</span>
               </div>
             );
           })}
@@ -207,10 +203,9 @@ export default function ProcessingPage() {
           </div>
           <h1>Initial Scan Complete!</h1>
           <h4 className="text-muted-foreground mx-auto max-w-3xl">
-            We've completed the automated analysis of your website's tracking
-            setup. Our expert team will now conduct a comprehensive manual
-            review to identify optimization opportunities and deliver your
-            detailed audit report within 24 hours.
+            We've completed the automated analysis of your website's tracking setup. Our expert team
+            will now conduct a comprehensive manual review to identify optimization opportunities
+            and deliver your detailed audit report within 24 hours.
           </h4>
         </div>
         <form
@@ -285,9 +280,8 @@ export default function ProcessingPage() {
               </span>
             </div>
             <p className="mx-auto max-w-2xl text-xs text-green-700">
-              Our tracking specialists will personally review your website and
-              deliver a comprehensive audit report with actionable
-              recommendations within 24 hours.
+              Our tracking specialists will personally review your website and deliver a
+              comprehensive audit report with actionable recommendations within 24 hours.
             </p>
           </div>
         </form>

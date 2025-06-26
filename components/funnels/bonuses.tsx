@@ -39,19 +39,14 @@ const Bonuses: React.FC<BonusesProps> = ({
         {sectionTitle && (
           <div className="max-w-3xl text-center">
             <h2 className="mb-4">{sectionTitle}</h2>
-            {sectionDescription && (
-              <p className="text-muted-foreground">{sectionDescription}</p>
-            )}
+            {sectionDescription && <p className="text-muted-foreground">{sectionDescription}</p>}
           </div>
         )}{" "}
         {/* Bonuses List */}
         {bonuses && bonuses.length > 0 && (
           <div className="w-full space-y-12">
             {bonuses.map((bonus, index) => (
-              <section
-                key={index}
-                className="bg-primary/5 rounded-lg px-4 py-16 shadow-md"
-              >
+              <section key={index} className="bg-primary/5 rounded-lg px-4 py-16 shadow-md">
                 <Container>
                   <div className="grid grid-cols-1 gap-12 lg:grid-cols-2">
                     {/* Content Side */}
@@ -63,9 +58,7 @@ const Bonuses: React.FC<BonusesProps> = ({
                           {bonus.title}
                         </h3>{" "}
                         {/* Description */}
-                        <p className="text-muted-foreground">
-                          {bonus.description}
-                        </p>{" "}
+                        <p className="text-muted-foreground">{bonus.description}</p>{" "}
                         {/* Details List */}
                         {bonus.details && bonus.details.length > 0 && (
                           <div className="space-y-4">
@@ -129,11 +122,7 @@ const Bonuses: React.FC<BonusesProps> = ({
             <Container className="space-y-8">
               <h3>Total Bonus Value: {totalBonusValue}</h3>{" "}
               {actionButtonText && actionButtonLink && (
-                <Button
-                  size="lg"
-                  asChild
-                  className="p-6 text-2xl font-semibold"
-                >
+                <Button size="lg" asChild className="p-6 text-2xl font-semibold">
                   <Link href={actionButtonLink}>
                     {actionButtonText}
                     <ArrowRight className="ml-2 h-6 w-6" />

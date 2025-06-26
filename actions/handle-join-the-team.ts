@@ -7,10 +7,7 @@ import { cookies } from "next/headers";
 import { Resend } from "resend";
 import { z } from "zod";
 
-export async function createCareerApplication(
-  prevState: any,
-  formData: FormData,
-) {
+export async function createCareerApplication(prevState: any, formData: FormData) {
   const resend = new Resend(process.env.RESEND_API_KEY);
 
   // Generate a timestamp ID based on the current time
@@ -80,9 +77,7 @@ export async function createCareerApplication(
     position: formData.get("position"),
     currentWorkStatus: formData.get("currentWorkStatus"),
     lastJobDesignation: formData.get("lastJobDesignation"),
-    businessDevelopmentExperience: formData.get(
-      "businessDevelopmentExperience",
-    ),
+    businessDevelopmentExperience: formData.get("businessDevelopmentExperience"),
     experienceInYears: formData.get("experienceInYears"),
     lastJobCompanyName: formData.get("lastJobCompanyName"),
     lastJobResponsibilities: formData.get("lastJobResponsibilities"),

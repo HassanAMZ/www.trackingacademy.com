@@ -64,23 +64,13 @@ const CustomLink: React.FC<CustomLinkProps> = ({
       link_id: id || "",
       link_classes: className || "",
       link_url: finalUrl,
-      link_type: isInternalLink
-        ? "internal"
-        : isAnchorLink
-          ? "anchor"
-          : "external",
+      link_type: isInternalLink ? "internal" : isAnchorLink ? "anchor" : "external",
     });
   };
 
   if (isInternalLink) {
     return (
-      <Link
-        href={href}
-        id={id}
-        onClick={handleClick}
-        {...rest}
-        className={cn("", className)}
-      >
+      <Link href={href} id={id} onClick={handleClick} {...rest} className={cn("", className)}>
         {rest.children}
       </Link>
     );
@@ -88,13 +78,7 @@ const CustomLink: React.FC<CustomLinkProps> = ({
 
   if (isAnchorLink) {
     return (
-      <Link
-        href={href}
-        id={id}
-        onClick={handleClick}
-        className={cn(className)}
-        {...rest}
-      >
+      <Link href={href} id={id} onClick={handleClick} className={cn(className)} {...rest}>
         {rest.children}
       </Link>
     );

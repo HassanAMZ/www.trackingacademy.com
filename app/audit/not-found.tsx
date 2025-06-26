@@ -10,8 +10,7 @@ export default function AuditNotFound() {
       </div>
       <h2 className="mb-2 text-3xl font-bold">Audit Not Found</h2>
       <p className="text-muted-foreground mb-8 max-w-md text-center">
-        The audit report you're looking for doesn't exist or may have been
-        removed.
+        The audit report you're looking for doesn't exist or may have been removed.
       </p>
       <div className="flex gap-4">
         <Button variant="outline" asChild>

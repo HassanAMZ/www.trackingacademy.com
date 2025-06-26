@@ -26,10 +26,7 @@ analytics.subscribe("search_submitted", (event) => {
   // Prepare data objects with safe fallbacks
   const page_data = {
     hostname: getEventData(event, "context.document.location.hostname"),
-    location_query_string: getEventData(
-      event,
-      "context.document.location.href",
-    ),
+    location_query_string: getEventData(event, "context.document.location.href"),
     path: getEventData(event, "context.document.location.pathname"),
     referrer: getEventData(event, "context.document.referrer"),
     page_title: getEventData(event, "context.document.title"),
@@ -37,8 +34,7 @@ analytics.subscribe("search_submitted", (event) => {
   };
 
   const user_data = {
-    id:
-      getEventData(event, "data.checkout.order.customer.id") || event.clientId,
+    id: getEventData(event, "data.checkout.order.customer.id") || event.clientId,
     language: getEventData(event, "context.navigator.language"),
     userAgent: getEventData(event, "context.navigator.userAgent"),
   };
@@ -57,18 +53,13 @@ analytics.subscribe("search_submitted", (event) => {
       item_brand: getEventData(variant, "product.vendor"),
       item_category: getEventData(variant, "product.type"),
       price: getEventData(variant, "price.amount"),
-      item_variant:
-        getEventData(variant, "title") ||
-        getEventData(variant, "untranslatedTitle"),
+      item_variant: getEventData(variant, "title") || getEventData(variant, "untranslatedTitle"),
       item_list_name: "Search Results",
       index: index + 1,
       product_id: getEventData(variant, "id"),
       product_image: getEventData(variant, "image.src"),
       product_url: getEventData(variant, "product.url"),
-      product_untranslatedTitle: getEventData(
-        variant,
-        "product.untranslatedTitle",
-      ),
+      product_untranslatedTitle: getEventData(variant, "product.untranslatedTitle"),
       product_sku: getEventData(variant, "sku"),
     })),
   };

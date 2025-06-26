@@ -1,7 +1,6 @@
 export const frequentlyAskedQuestions = [
   {
-    question:
-      "What's the difference between Client-Side and Server-Side tracking?",
+    question: "What's the difference between Client-Side and Server-Side tracking?",
     answer:
       "Client-Side Tracking (CST) happens in the user's browser and is vulnerable to ad blockers, privacy settings, and browser restrictions, resulting in only 60-70% accuracy. Server-Side Tracking (SST) processes data on secure servers, bypassing these limitations to achieve 95%+ accuracy while maintaining user privacy and compliance with regulations.",
   },

@@ -5,10 +5,7 @@ import { caseStudies as CaseStudies, CaseStudy } from "@/data/case-studies";
 import { CheckCircle, Star } from "lucide-react";
 import Link from "next/link";
 import { FC, ReactNode } from "react";
-import {
-  AvatarGroup,
-  AvatarGroupTooltip,
-} from "../animate-ui/avatar-group-mask";
+import { AvatarGroup, AvatarGroupTooltip } from "../animate-ui/avatar-group-mask";
 import { Badge } from "../ui/badge";
 
 interface HeroProps {
@@ -62,25 +59,23 @@ const Hero: FC<HeroProps> = ({
     ? "flex flex-col space-y-5 lg:col-span-2"
     : "flex flex-col space-y-5 items-center max-w-5xl";
 
-  const badgeClasses = supportingComponent
-    ? "mx-auto w-fit lg:mx-0"
-    : "mx-auto w-fit";
+  const badgeClasses = supportingComponent ? "mx-auto w-fit lg:mx-0" : "mx-auto w-fit";
 
   const carouselClasses = supportingComponent
     ? "mx-auto w-full max-w-2xl lg:mx-0"
     : "mx-auto w-full max-w-3xl";
 
   const benefitsClasses = supportingComponent
-    ? "mx-auto grid grid-cols-3 justify-center gap-2 py-4 md:grid-cols-3 md:items-start lg:mx-0 max-w-2xl"
-    : "grid grid-cols-3 justify-center gap-2 py-4 md:grid-cols-3 md:items-start max-w-4xl";
+    ? "mx-auto grid grid-cols-3 justify-center gap-2 py-4 lg:grid-cols-3 lg:items-start lg:mx-0 max-w-2xl"
+    : "grid grid-cols-3 justify-center gap-2 py-4 lg:grid-cols-3 lg:items-start max-w-4xl";
 
   const benefitItemClasses = supportingComponent
     ? "flex items-center justify-center gap-2 lg:justify-start flex-col sm:flex-row"
-    : "flex items-center justify-center gap-2 flex-col sm:flex-row";
+    : "flex items-center justify-center gap-2 flex-col lg:flex-row";
 
   const ctaClasses = supportingComponent
     ? "flex gap-4"
-    : "flex gap-4 justify-center md:justify-start";
+    : "flex gap-4 justify-center lg:justify-start";
 
   const clientSectionClasses = supportingComponent
     ? "flex flex-col items-center gap-4 pt-2 lg:flex-row"
@@ -158,9 +153,7 @@ const Hero: FC<HeroProps> = ({
                             src={study.testimonial.image}
                             alt={`@${study.testimonial.author}`}
                           />
-                          <AvatarFallback>
-                            {study.testimonial.author[0]}
-                          </AvatarFallback>
+                          <AvatarFallback>{study.testimonial.author[0]}</AvatarFallback>
                           <AvatarGroupTooltip>
                             <p> {study.testimonial.author}</p>
                           </AvatarGroupTooltip>

@@ -1,8 +1,8 @@
-import fs from "fs";
-import path from "path";
 import { PostMetadata } from "@/types/index"; // Ensure this path is correct
 import extractMetaFromStringForBlog from "@/utils/extractMetaFromStringForBlog"; // Ensure this path is correct
 import getFiles from "@/utils/getFiles"; // Ensure this path is correct
+import fs from "fs";
+import path from "path";
 
 import matter, { GrayMatterFile } from "gray-matter";
 
@@ -12,9 +12,7 @@ export default async function getContentData(
 ): Promise<(PostMetadata & { id: string; slug: string; title: string })[]> {
   const baseDirectory = path.join(process.cwd(), contentDirectoryPath);
   const allPostsFiles = getFiles(baseDirectory);
-  const mdxFiles = allPostsFiles.filter(
-    (file) => path.extname(file) === ".mdx",
-  );
+  const mdxFiles = allPostsFiles.filter((file) => path.extname(file) === ".mdx");
 
   const contents = [];
 

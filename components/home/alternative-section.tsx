@@ -1,11 +1,7 @@
 "use client";
 
 import { Card, CardContent } from "@/components/ui/card";
-import {
-  Collapsible,
-  CollapsibleContent,
-  CollapsibleTrigger,
-} from "@/components/ui/collapsible";
+import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
 import { ChevronDown, ChevronUp } from "lucide-react";
 import { useState } from "react";
 import Container from "../ui/container";
@@ -38,9 +34,7 @@ export default function AlternativesSection({
 
   const toggleItem = (index: number) => {
     setOpenItems((current) =>
-      current.includes(index)
-        ? current.filter((i) => i !== index)
-        : [...current, index],
+      current.includes(index) ? current.filter((i) => i !== index) : [...current, index],
     );
   };
 
@@ -74,9 +68,7 @@ export default function AlternativesSection({
               className="border-primary/20 rounded-lg border"
             >
               <CollapsibleTrigger className="hover:bg-secondary/10 flex w-full items-center justify-between p-4 text-left">
-                <span className="text-primary text-xl">
-                  {alternative.title}
-                </span>
+                <span className="text-primary text-xl">{alternative.title}</span>
                 {openItems.includes(index) ? (
                   <ChevronUp className="text-muted-foreground" />
                 ) : (

@@ -1,7 +1,6 @@
 "use client";
 
 import { sendGTMEvent } from "@next/third-parties/google";
-import dynamic from "next/dynamic";
 import { FC, memo } from "react";
 import Container from "../ui/container";
 
@@ -22,10 +21,7 @@ const YoutubeEmbed: FC<YoutubeEmbedProps> = ({ embedId, className, id }) => {
 
   return (
     <Container className={className} id={id}>
-      <div
-        className="relative overflow-hidden rounded-lg"
-        style={{ paddingTop: "56.25%" }}
-      >
+      <div className="relative overflow-hidden rounded-lg" style={{ paddingTop: "56.25%" }}>
         <iframe
           className="absolute top-0 left-0 h-full w-full rounded-lg"
           src={`https://www.youtube.com/embed/${embedId}`}

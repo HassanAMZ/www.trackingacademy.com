@@ -10,9 +10,7 @@ export default async function Page() {
   return (
     <div>
       <Navbar />
-      <h3 className="container-primary py-6 text-center text-3xl font-bold">
-        Funnels
-      </h3>
+      <h3 className="container-primary py-6 text-center text-3xl font-bold">Funnels</h3>
       <Container className="container-primary py-4">
         <div className="space-y-4">
           {operations.map((operation) => (

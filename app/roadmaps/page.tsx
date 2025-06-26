@@ -183,8 +183,7 @@ export default function Roadmap() {
                 Web Analytics Roadmap
               </h1>
               <p className="text-muted-foreground mx-auto max-w-[700px] md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-                Explore the essential skills and tools required for mastering
-                web analytics.
+                Explore the essential skills and tools required for mastering web analytics.
               </p>
             </div>
           </div>

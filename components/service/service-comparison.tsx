@@ -11,13 +11,8 @@ interface ServiceComparisonProps {
   allServices: Service[];
 }
 
-export default function ServiceComparison({
-  currentService,
-  allServices,
-}: ServiceComparisonProps) {
-  const comparisonServices = allServices
-    .filter((s) => s.name !== currentService.name)
-    .slice(0, 2);
+export default function ServiceComparison({ currentService, allServices }: ServiceComparisonProps) {
+  const comparisonServices = allServices.filter((s) => s.name !== currentService.name).slice(0, 2);
 
   return (
     <Card>
@@ -32,18 +27,12 @@ export default function ServiceComparison({
               <div>
                 <Badge className="mb-2">Current Plan</Badge>
                 <h3 className="text-xl font-bold">{currentService.name}</h3>
-                <p className="text-muted-foreground text-sm">
-                  {currentService.subtitle}
-                </p>
+                <p className="text-muted-foreground text-sm">{currentService.subtitle}</p>
               </div>
 
               <div className="text-2xl font-bold">{currentService.price}</div>
 
-              <Badge
-                variant={
-                  currentService.accuracy.includes("95") ? "default" : "outline"
-                }
-              >
+              <Badge variant={currentService.accuracy.includes("95") ? "default" : "outline"}>
                 {currentService.accuracy} Accuracy
               </Badge>
 
@@ -51,10 +40,7 @@ export default function ServiceComparison({
                 {Object.entries(currentService.features)
                   .slice(0, 5)
                   .map(([feature, value]) => (
-                    <div
-                      key={feature}
-                      className="flex items-center gap-2 text-sm"
-                    >
+                    <div key={feature} className="flex items-center gap-2 text-sm">
                       {value === true ? (
                         <CheckCircle className="text-primary h-4 w-4" />
                       ) : value === false ? (
@@ -75,18 +61,12 @@ export default function ServiceComparison({
               <div className="space-y-4">
                 <div>
                   <h3 className="text-xl font-bold">{service.name}</h3>
-                  <p className="text-muted-foreground text-sm">
-                    {service.subtitle}
-                  </p>
+                  <p className="text-muted-foreground text-sm">{service.subtitle}</p>
                 </div>
 
                 <div className="text-2xl font-bold">{service.price}</div>
 
-                <Badge
-                  variant={
-                    service.accuracy.includes("95") ? "default" : "outline"
-                  }
-                >
+                <Badge variant={service.accuracy.includes("95") ? "default" : "outline"}>
                   {service.accuracy} Accuracy
                 </Badge>
 
@@ -94,10 +74,7 @@ export default function ServiceComparison({
                   {Object.entries(service.features)
                     .slice(0, 5)
                     .map(([feature, value]) => (
-                      <div
-                        key={feature}
-                        className="flex items-center gap-2 text-sm"
-                      >
+                      <div key={feature} className="flex items-center gap-2 text-sm">
                         {value === true ? (
                           <CheckCircle className="text-primary h-4 w-4" />
                         ) : value === false ? (

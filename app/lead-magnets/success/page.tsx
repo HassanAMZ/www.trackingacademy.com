@@ -3,15 +3,7 @@
 import MeetingCalender from "@/components/contact/meeting-calender";
 import CustomLink from "@/components/mdx/CustomLink";
 import Container from "@/components/ui/container";
-import {
-  ArrowRight,
-  Calendar,
-  CheckCircle,
-  Clock,
-  Target,
-  TrendingUp,
-  Users,
-} from "lucide-react";
+import { Calendar, Clock, Target, TrendingUp, Users } from "lucide-react";
 
 export default function SimplifiedSuccessPage() {
   return (
@@ -22,22 +14,20 @@ export default function SimplifiedSuccessPage() {
           <div className="space-y-4 text-center">
             <div className="flex items-center justify-center gap-2">
               <Calendar className="text-primary h-6 w-6" />
-              <h3 className="text-foreground py-4">
-                Schedule Your Audit Review Call
-              </h3>
+              <h3 className="text-foreground py-4">Schedule Your Audit Review Call</h3>
               <Calendar className="text-primary h-6 w-6" />
             </div>
 
             <p className="text-muted-foreground font-semibold">
-              Your audit has been added to our queue and our expert team will
-              begin analyzing your website's tracking setup. Let's schedule a
+              Your audit has been added to our queue and our expert team will begin analyzing your
+              website's tracking setup. Let's schedule a
               <span className="text-primary"> 30-minute call </span>
               to go over the findings and answer any questions you might have.
             </p>
 
             <p className="text-muted-foreground text-sm">
-              Free 30-minute consultation - No obligation, just expert insights
-              into your tracking setup
+              Free 30-minute consultation - No obligation, just expert insights into your tracking
+              setup
             </p>
           </div>
 
@@ -54,9 +44,7 @@ export default function SimplifiedSuccessPage() {
               <TrendingUp className="text-primary h-6 w-6" />
             </div>
             <div className="text-foreground text-2xl font-bold">20-40%</div>
-            <div className="text-muted-foreground text-sm">
-              Better Attribution
-            </div>
+            <div className="text-muted-foreground text-sm">Better Attribution</div>
           </div>
           <div className="bg-card rounded-lg border p-4 text-center">
             <div className="bg-secondary/10 mx-auto mb-2 flex h-12 w-12 items-center justify-center rounded-lg">
@@ -81,34 +69,24 @@ export default function SimplifiedSuccessPage() {
             <h3 className="font-semibold">What's Happening Now</h3>
           </div>
           <p className="text-muted-foreground text-center text-sm">
-            Our tracking specialists are conducting a comprehensive analysis of
-            your GA4, Google Ads, Meta Pixel, Conversions API, and overall
-            tracking health. You'll receive your personalized audit report
-            within <strong className="text-foreground">24 hours</strong> via
-            email.
+            Our tracking specialists are conducting a comprehensive analysis of your GA4, Google
+            Ads, Meta Pixel, Conversions API, and overall tracking health. You'll receive your
+            personalized audit report within <strong className="text-foreground">24 hours</strong>{" "}
+            via email.
           </p>
         </div>
 
         {/* Footer Navigation */}
         <div className="flex justify-center gap-4 pt-8 text-sm">
-          <CustomLink
-            href="/"
-            className="text-muted-foreground hover:text-primary"
-          >
+          <CustomLink href="/" className="text-muted-foreground hover:text-primary">
             ← Back to Home
           </CustomLink>
           <span className="text-muted-foreground">•</span>
-          <CustomLink
-            href="/case-study"
-            className="text-muted-foreground hover:text-primary"
-          >
+          <CustomLink href="/case-study" className="text-muted-foreground hover:text-primary">
             Our Case Studies
           </CustomLink>
           <span className="text-muted-foreground">•</span>
-          <CustomLink
-            href="/audit"
-            className="text-muted-foreground hover:text-primary"
-          >
+          <CustomLink href="/audit" className="text-muted-foreground hover:text-primary">
             Our Tracking Audits
           </CustomLink>
         </div>

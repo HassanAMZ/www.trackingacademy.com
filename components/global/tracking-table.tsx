@@ -3,10 +3,7 @@
 import { caseStudies, type CaseStudy } from "@/data/case-studies";
 import Link from "next/link";
 import type React from "react";
-import {
-  AvatarGroup,
-  AvatarGroupTooltip,
-} from "../animate-ui/avatar-group-mask";
+import { AvatarGroup, AvatarGroupTooltip } from "../animate-ui/avatar-group-mask";
 import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar";
 
 interface ClientTrackingTableProps {
@@ -25,9 +22,7 @@ const transformCaseStudyData = (caseStudy: CaseStudy) => {
     websiteUrl: caseStudy.url,
     avatar: caseStudy.testimonial.image,
     plan: caseStudy.plan,
-    before: Math.round(
-      beforeAccuracy > 60 ? beforeAccuracy - 37 : beforeAccuracy,
-    ),
+    before: Math.round(beforeAccuracy > 60 ? beforeAccuracy - 37 : beforeAccuracy),
     after: afterAccuracy,
     period: caseStudy.analytics.period,
   };
@@ -35,10 +30,8 @@ const transformCaseStudyData = (caseStudy: CaseStudy) => {
 
 // Simple calculation function
 const calculateStats = (data: ReturnType<typeof transformCaseStudyData>[]) => {
-  const avgBefore =
-    data.reduce((sum, item) => sum + item.before, 0) / data.length;
-  const avgAfter =
-    data.reduce((sum, item) => sum + item.after, 0) / data.length;
+  const avgBefore = data.reduce((sum, item) => sum + item.before, 0) / data.length;
+  const avgAfter = data.reduce((sum, item) => sum + item.after, 0) / data.length;
   const improvement = avgAfter - avgBefore;
   const improvementPercent = (improvement / avgBefore) * 100;
 
@@ -67,10 +60,7 @@ const ClientTableRow: React.FC<{
             <AvatarGroup>
               {[
                 <Avatar className="mb-2 h-10 w-10" key={data.id}>
-                  <AvatarImage
-                    src={data.avatar || "/placeholder.svg"}
-                    alt={data.clientName}
-                  />
+                  <AvatarImage src={data.avatar || "/placeholder.svg"} alt={data.clientName} />
                   <AvatarFallback>
                     {data.avatar
                       .split(" ")
@@ -90,16 +80,12 @@ const ClientTableRow: React.FC<{
         </Link>
       </td>
 
-      <td className="text-secondary-foreground/80 px-4 py-3 text-sm">
-        {data.before.toFixed(0)}%
-      </td>
+      <td className="text-secondary-foreground/80 px-4 py-3 text-sm">{data.before.toFixed(0)}%</td>
       <td className="px-4 py-3 text-sm font-semibold text-green-600">
         <div className="flex items-center gap-2">{data.after.toFixed(0)}%</div>
       </td>
       <td className="text-primary px-4 py-3 text-sm font-semibold">
-        <div className="flex items-center gap-2">
-          +{improvement.toFixed(0)}%
-        </div>
+        <div className="flex items-center gap-2">+{improvement.toFixed(0)}%</div>
       </td>
     </tr>
   );
@@ -116,9 +102,7 @@ const ClientTrackingTable: React.FC<ClientTrackingTableProps> = ({ rows }) => {
       {/* Data Table */}
       <div className="mb-6 overflow-hidden rounded-xl border shadow-sm">
         <div className="border-b px-6 py-4">
-          <h3 className="text-center text-lg font-semibold">
-            Explore the Case Studies
-          </h3>
+          <h3 className="text-center text-lg font-semibold">Explore the Case Studies</h3>
           <p className="text-muted-foreground mt-1 text-center text-sm">
             Before vs after implementing our tracking solutions
           </p>
@@ -128,19 +112,11 @@ const ClientTrackingTable: React.FC<ClientTrackingTableProps> = ({ rows }) => {
           <table className="w-full">
             <thead className="">
               <tr>
-                <th className="px-4 py-3 text-left text-sm font-semibold">
-                  Client
-                </th>
+                <th className="px-4 py-3 text-left text-sm font-semibold">Client</th>
 
-                <th className="px-4 py-3 text-left text-sm font-semibold">
-                  Before
-                </th>
-                <th className="px-4 py-3 text-left text-sm font-semibold">
-                  After
-                </th>
-                <th className="px-4 py-3 text-left text-sm font-semibold">
-                  Improvement
-                </th>
+                <th className="px-4 py-3 text-left text-sm font-semibold">Before</th>
+                <th className="px-4 py-3 text-left text-sm font-semibold">After</th>
+                <th className="px-4 py-3 text-left text-sm font-semibold">Improvement</th>
               </tr>
             </thead>
             <tbody>
@@ -167,10 +143,7 @@ const ClientTrackingTable: React.FC<ClientTrackingTableProps> = ({ rows }) => {
                 After: <span className="font-bold">{stats.avgAfter}%</span>
               </span>
               <span className="text-primary font-medium">
-                Improvement:{" "}
-                <span className="font-bold">
-                  +{stats.improvement.toFixed(1)}%
-                </span>
+                Improvement: <span className="font-bold">+{stats.improvement.toFixed(1)}%</span>
               </span>
             </div>
           </div>
