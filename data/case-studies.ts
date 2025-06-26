@@ -73,6 +73,10 @@ export const caseStudies: CaseStudy[] = [
       recoveredFromAdBlockersPercentage: 1.56,
       recoveredFromTrackingPreventionPercentage: 19.27,
       accuracy: 20.83,
+      images: {
+        before: ["/images/case-study/zenon_before_1.png", "/images/case-study/zenon_before_2.png"],
+        after: ["/images/case-study/zenon_after_1.png", "/images/case-study/zenon_after_2.png"],
+      },
     },
     testimonial: {
       quote: "Perfect. Confirmed with the tracking team theres no issue and all is tracking fine",
