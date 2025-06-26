@@ -84,7 +84,13 @@ export const caseStudies: CaseStudy[] = [
       role: "Marketing Director, Zenon.ae",
       image: "/images/clients/anthony-adeloye.png",
     },
-    platforms: ["Facebook CAPI", "Google Analytics 4", "Stape Analytics", "Looker Studio"],
+    platforms: [
+      "Nuxt Js",
+      "Facebook CAPI",
+      "Google Analytics 4",
+      "Stape Analytics",
+      "Looker Studio",
+    ],
     milestones: [
       {
         name: "Server Container Configuration",
