@@ -2,6 +2,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Progress } from "@/components/ui/progress";
 import { ExternalLink, Star } from "lucide-react";
 import Link from "next/link";
+import Container from "../ui/container";
 
 /**
  * Upwork statistics section displaying ratings and reviews with enhanced hover effects
@@ -26,7 +27,7 @@ function UpworkStats() {
   ];
 
   return (
-    <section className="w-full">
+    <Container className="w-full">
       <Link href={UPWORK_URL} target="_blank" rel="noopener noreferrer" className="group block">
         <Card className="bg-background/80 relative mb-6 w-full overflow-hidden backdrop-blur-xs transition-all duration-300 group-hover:scale-[1.02] group-hover:shadow-lg">
           {/* Gradient overlay that appears on hover - similar to TestimonialCard */}
@@ -78,7 +79,7 @@ function UpworkStats() {
           </div>
         </Card>
       </Link>
-    </section>
+    </Container>
   );
 }
 

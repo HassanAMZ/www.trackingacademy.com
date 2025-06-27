@@ -90,7 +90,7 @@ const restrictedCategories = [
 ];
 
 const MeetingBookingButton = ({
-  buttonText = "Schedule Your Call Below To Fix your Meta Ads Tracking",
+  buttonText = "Schedule Your Call To Fix your Meta Ads Tracking",
   className = "",
   wrapperButtonClassName = "",
   buttonClassName = "w-full text-left",

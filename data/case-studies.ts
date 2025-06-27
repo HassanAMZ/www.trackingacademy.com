@@ -123,9 +123,9 @@ export const caseStudies: CaseStudy[] = [
       durationDays: 3,
     },
     owner: "Digital Analytics Team",
-    client: "Zenon.ae Healthcare Services",
+    client: "Zenon Dental Care & Aesthetic Dentistry",
     budget: 1200,
-    technologies: ["Facebook CAPI", "Stape", "JavaScript Custom Tags", "Looker Studio"],
+    technologies: ["Facebook CAPI", "Stape", "Nuxt Js", "Looker Studio"],
     challenges: [
       "23.81% of requests affected by tracking prevention measures",
       "iOS 14.5+ Safari tracking restrictions causing data loss",
@@ -231,7 +231,7 @@ export const caseStudies: CaseStudy[] = [
       durationDays: 10,
     },
     owner: "Shahzada Ali Hassan",
-    client: "Kelly Joseph",
+    client: "Northridge Addiction Treatment & Mental Health",
     budget: 200,
     technologies: [
       "Server-Side Tracking",
@@ -315,7 +315,7 @@ export const caseStudies: CaseStudy[] = [
       durationDays: 2,
     },
     owner: "Shahzada Ali Hassan",
-    client: "Mathieu Frechette",
+    client: "PeachandCream Intimate Care & Sexual Wellness Products",
     budget: 1200,
     technologies: ["Server-Side Tracking", "Advertising Pixel", "E-commerce Platform"],
     challenges: [
@@ -415,7 +415,7 @@ export const caseStudies: CaseStudy[] = [
       durationDays: 54,
     },
     owner: "Shahzada Ali Hassan",
-    client: "Jeremy Talote",
+    client: "Saneo France Pain Relief & Orthopedic Support Products",
     budget: 1800,
     technologies: [
       "Server-Side Tracking",

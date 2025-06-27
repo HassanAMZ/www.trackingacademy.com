@@ -90,7 +90,7 @@ const restrictedCategories = [
 ];
 
 const MeetingBookingButton = ({
-  buttonText = "Schedule Your Call Below To Fix Your Dental Clinic's Meta Ads Tracking",
+  buttonText = "Schedule Your Call To Fix Your Dental Clinic's Meta Ads Tracking",
   className = "",
   wrapperButtonClassName = "",
   buttonClassName = "w-full text-left",
@@ -133,20 +133,16 @@ export default function Page() {
           </>
         }
         heading={
-          <h1 className="animate-fade-in text-center">
+          <h1 className="animate-fade-in text-center text-primary">
             Track Every{" "}
             <span className="bg-destructive/10 text-destructive border-destructive/20 rounded-lg border px-2 py-1 leading-normal tracking-normal">
               Lead
             </span>
-            {", "}
-            <span className="bg-destructive/10 text-destructive border-destructive/20 rounded-lg border px-2 py-1 leading-normal tracking-normal">
-              Appointment
-            </span>
             {" & "}
             <span className="bg-destructive/10 text-destructive border-destructive/20 rounded-lg border px-2 py-1 leading-normal tracking-normal">
-              Consultation
+              Appointment
             </span>{" "}
-            for Your Dental Clinic
+            for Your Dental Clinic in Meta Ads — in 72 Hours
           </h1>
         }
         subheading={

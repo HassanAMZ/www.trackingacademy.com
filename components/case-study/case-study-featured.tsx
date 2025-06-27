@@ -2,19 +2,9 @@
 
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardHeader } from "@/components/ui/card";
+import { Card, CardContent } from "@/components/ui/card";
 import type { CaseStudy } from "@/data/case-studies";
-import {
-  ArrowRight,
-  Calendar,
-  ChevronDown,
-  ChevronUp,
-  ExternalLink,
-  Eye,
-  Play,
-  TrendingUp,
-  Zap,
-} from "lucide-react";
+import { ArrowRight, Calendar, ExternalLink, Eye, Play, TrendingUp, Zap } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
@@ -91,56 +81,12 @@ export default function FeaturedCaseStudy({ caseStudy }: FeaturedCaseStudyProps)
       <Container className="relative">
         {/* Main Visual Card */}
         <Card className="bg-card/80 group hover:shadow-3xl overflow-hidden border-0 shadow-2xl backdrop-blur-sm transition-all duration-500">
-          <CardHeader className="px-1 py-6 md:px-6">
-            {/* Compact Header */}
-            <div className="pt-6 pb-4 text-center">
-              <Badge className="mx-auto w-fit">Featured Case Study {caseStudy.id}</Badge>
-              <h2 className="text-foreground mx-auto max-w-5xl py-6 text-center">
-                Case Study: {caseStudy.title}
-              </h2>
-              {/* Expandable Description */}
-              <div className="mx-auto max-w-3xl">
-                <div className="text-muted-foreground text-lg leading-relaxed">
-                  {expandedSections.description
-                    ? caseStudy.description
-                    : `${truncateText(caseStudy.description, 150)}... `}
-                  {caseStudy.description.length > 150 && (
-                    <button
-                      onClick={() => toggleSection("description")}
-                      className="text-primary hover:text-primary/80 mt-2 inline-flex cursor-pointer items-center text-sm font-medium transition-colors"
-                    >
-                      {expandedSections.description ? (
-                        <>
-                          Show less <ChevronUp className="ml-1 h-3 w-3" />
-                        </>
-                      ) : (
-                        <>
-                          Read more <ChevronDown className="ml-1 h-3 w-3" />
-                        </>
-                      )}
-                    </button>
-                  )}
-                </div>
-              </div>
-              {/* Technologies - Visual Grid */}
-              <Container className="flex flex-wrap items-center justify-center gap-2 pt-4 text-center">
-                {caseStudy.technologies.map((tech, index) => (
-                  <Badge
-                    key={index}
-                    variant="outline"
-                    className="hover:bg-primary/10 cursor-default px-2 py-0.5 text-xs transition-colors"
-                  >
-                    {tech}
-                  </Badge>
-                ))}
-              </Container>
-            </div>
-          </CardHeader>
           <CardContent className="px-2 py-6 md:px-6">
             <Card>
               <div className="grid w-full items-center gap-6 px-4 py-6 md:px-6 lg:grid-cols-5 lg:justify-center">
                 {/* Media Section - Takes more space */}
-                <div className="relative lg:col-span-3">
+                <div className="relative lg:col-span-3 space-y-2">
+                  <Badge className="w-fit text-center">Featured Case Study {caseStudy.id}</Badge>
                   <div className="bg-muted relative aspect-video overflow-hidden">
                     {caseStudy.embedId?.loom ? (
                       <>
@@ -189,14 +135,25 @@ export default function FeaturedCaseStudy({ caseStudy }: FeaturedCaseStudyProps)
                   </div>
                 </div>
                 {/* Compact Content Section */}
-                <div className="flex flex-col justify-between lg:col-span-2">
+                <div className="flex flex-col justify-between lg:col-span-2 space-y-4">
                   {/* Key Results - Visual List */}
-                  <div className="mb-6">
+                  <div className="space-y-4">
                     <div className="mb-3 flex items-center justify-between">
-                      <h4 className="text-foreground flex items-center gap-2">
+                      <h4 className="flex items-center gap-2 capitalize text-primary ">
                         <TrendingUp className="h-4 w-4" />
-                        Results
+                        Case Study: {caseStudy.client}
                       </h4>
+                    </div>
+                    <div className="flex flex-wrap items-start justify-start gap-2 text-center">
+                      {caseStudy.technologies.slice(0, 3).map((tech, index) => (
+                        <Badge
+                          key={index}
+                          variant="outline"
+                          className="hover:bg-primary/10 cursor-default text-xs transition-colors"
+                        >
+                          {tech}
+                        </Badge>
+                      ))}
                     </div>
                     <div className="space-y-2">
                       {caseStudy.results.slice(0, 3).map((result, index) => (
@@ -210,7 +167,7 @@ export default function FeaturedCaseStudy({ caseStudy }: FeaturedCaseStudyProps)
                     </div>
                   </div>
                   {/* Testimonial - Compact Visual */}
-                  <div className="mb-6">
+                  <div>
                     <TestimonialCard
                       upwork={true}
                       quote={caseStudy.testimonial.quote}
