@@ -22,29 +22,56 @@ export const metadata: Metadata = {
     title: "Fix Meta Pixel Restrictions for Health & Wellness Businesses",
     description:
       "Restore blocked Meta Pixel tracking for health & wellness businesses. Expert compliance solutions to recover ad performance while maintaining HIPAA and GDPR compliance.",
-    images: ["/images/hero/meta-pixel-health-restrictions.png"],
+    images: [
+      {
+        url: "/images/hero/meta-pixel-health-restrictions.png",
+        width: 1200,
+        height: 630,
+        alt: "Meta Pixel Health Restrictions Solution",
+      },
+    ],
     type: "website",
+    url: process.env.NEXT_PUBLIC_BASE_URL,
     locale: "en_US",
     siteName: "Health & Wellness Meta Pixel Solutions",
   },
   twitter: {
     card: "summary_large_image",
+    site: "@Shahzada_A",
+    creator: "@Shahzada_A",
     title: "Fix Meta Pixel Health & Wellness Restrictions",
     description:
       "Expert solutions for health & wellness businesses facing Meta Pixel data sharing restrictions. Restore tracking while maintaining compliance.",
-    images: ["/images/hero/meta-pixel-health-restrictions.png"],
+    images: [
+      {
+        url: "/images/hero/meta-pixel-health-restrictions.png",
+        alt: "Meta Pixel Health Restrictions Solution",
+      },
+    ],
   },
   robots: {
     index: true,
     follow: true,
+    nocache: false,
     googleBot: {
       index: true,
       follow: true,
+      noimageindex: false,
       "max-video-preview": -1,
       "max-image-preview": "large",
       "max-snippet": -1,
     },
   },
+
+  category: "Health & Wellness Marketing",
+  classification: "Business Services",
+  referrer: "origin-when-cross-origin",
+  formatDetection: {
+    email: false,
+    address: false,
+    telephone: false,
+  },
+  metadataBase: new URL(`${process.env.NEXT_PUBLIC_BASE_URL}`),
 };
 
 export default function Layout({ children }: { children: ReactNode }) {

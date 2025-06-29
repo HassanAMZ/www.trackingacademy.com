@@ -72,7 +72,7 @@ export const caseStudies: CaseStudy[] = [
       period: "10 days",
       recoveredFromAdBlockersPercentage: 1.56,
       recoveredFromTrackingPreventionPercentage: 19.27,
-      accuracy: 20.83,
+      accuracy: 97,
       images: {
         before: ["/images/case-study/zenon_before_1.png", "/images/case-study/zenon_before_2.png"],
         after: ["/images/case-study/zenon_after_1.png", "/images/case-study/zenon_after_2.png"],
@@ -452,7 +452,7 @@ export const caseStudies: CaseStudy[] = [
     plan: "Standard",
     title: "Enhanced Tracking System for Emirates Advisory with Client and Server-Side Integration",
     description:
-      "Emirates Advisory, a consultancy service website, required a robust tracking system to monitor form submissions and user interactions across their main domain and subdomain. Over an 8-day engagement, we implemented client-side and server-side tracking using Google Tag Manager, Stape.io, and Meta Conversion API, integrated a GDPR/CCPA-compliant Consent Management Platform, and built a real-time Looker Studio dashboard, achieving 95%+ tracking accuracy and recovering 14.45% of events from tracking prevention and 3.27% from ad blockers.",
+      "Emirates Advisory, was blocked from Meta ads due to 'sensitive' product categories.It's a consultancy service website, required a robust tracking system to monitor form submissions and user interactions across their main domain and subdomain. Over an 8-day engagement, we implemented client-side and server-side tracking using Google Tag Manager, Stape.io, and Meta Conversion API, integrated a GDPR/CCPA-compliant Consent Management Platform, and built a real-time Looker Studio dashboard, achieving 95%+ tracking accuracy and recovering 14.45% of events from tracking prevention and 3.27% from ad blockers.",
     imageUrl: "/images/for-businesses/client-emiratesadvisory-desktop-home.png",
     mobileUrl: "/images/for-businesses/client-emiratesadvisory-mobile-home.png",
     siteUrl: "https://emiratesadvisory.com",

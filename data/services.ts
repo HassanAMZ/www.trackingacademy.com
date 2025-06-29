@@ -303,13 +303,13 @@ export const services: Service[] = [
     subtitle: "3-Day Complete Tracking Solution",
     description:
       "Complete Meta ads tracking restoration with custom dashboard and compliance setup - delivered in just 3 days.",
-    price: "$1,200",
+    price: "$1,500",
     product_id: "prod_SI6QXbIdeTQbUY",
     price_id: "price_1RNWDwAE3E6zT9eTzcpnOUZy",
     popular: false,
     color: "border-muted",
     buttonVariant: "outline",
-    cta: "🎟️ Claim $300 OFF + Bonuses",
+    cta: "Fix your tracking setup now",
     accuracy: "95%+",
     features: {
       "Google Ads Tracking": "CST & SST",

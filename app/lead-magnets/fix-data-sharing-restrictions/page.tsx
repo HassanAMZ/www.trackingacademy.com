@@ -217,7 +217,7 @@ export default function Page() {
       <section className="from-primary/5 to-background bg-linear-to-b py-24">
         <Container className="max-w-6xl">
           <div className="mb-12 space-y-4 text-center">
-            <h2 className="">Is Your Business Category Affected?</h2>
+            <h2>Is Your Business Category Affected?</h2>
             <h4 className="text-muted-foreground mx-auto max-w-3xl">
               Meta's restrictions target specific business categories. Check if your industry is
               experiencing tracking limitations.

@@ -4,7 +4,7 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import type { CaseStudy } from "@/data/case-studies";
-import { ArrowRight, Calendar, ExternalLink, Eye, Play, TrendingUp, Zap } from "lucide-react";
+import { ArrowRight, Calendar, ExternalLink, Eye, Play, Zap } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
@@ -18,22 +18,9 @@ interface FeaturedCaseStudyProps {
 }
 
 export default function FeaturedCaseStudy({ caseStudy }: FeaturedCaseStudyProps) {
-  const [expandedSections, setExpandedSections] = useState({
-    description: false,
-    technologies: false,
-    results: false,
-  });
-
   // Auto-scroll state for before/after images
   const [currentBeforeIndex, setCurrentBeforeIndex] = useState(0);
   const [currentAfterIndex, setCurrentAfterIndex] = useState(0);
-
-  const toggleSection = (section: keyof typeof expandedSections) => {
-    setExpandedSections((prev) => ({
-      ...prev,
-      [section]: !prev[section],
-    }));
-  };
 
   // Auto-scroll effect for before images
   useEffect(() => {
@@ -72,147 +59,126 @@ export default function FeaturedCaseStudy({ caseStudy }: FeaturedCaseStudyProps)
 
   const caseStudyLink = `/case-study/${caseStudy.id}`;
 
-  const truncateText = (text: string, maxLength: number) => {
-    return text.length > maxLength ? text.slice(0, maxLength) : text;
-  };
-
   return (
-    <section className="from-background via-muted/10 to-primary/5 relative w-full overflow-hidden bg-gradient-to-br py-6 md:py-12">
-      <Container className="relative">
-        {/* Main Visual Card */}
-        <Card className="bg-card/80 group hover:shadow-3xl overflow-hidden border-0 shadow-2xl backdrop-blur-sm transition-all duration-500">
-          <CardContent className="px-2 py-6 md:px-6">
-            <Card>
-              <div className="grid w-full items-center gap-6 px-4 py-6 md:px-6 lg:grid-cols-5 lg:justify-center">
-                {/* Media Section - Takes more space */}
-                <div className="relative lg:col-span-3 space-y-2">
-                  <Badge className="w-fit text-center">Featured Case Study {caseStudy.id}</Badge>
-                  <div className="bg-muted relative aspect-video overflow-hidden">
-                    {caseStudy.embedId?.loom ? (
-                      <>
-                        <LoomEmbed embedId={caseStudy.embedId.loom} className="p-0" />
-                        <div className="bg-primary text-primary-foreground absolute top-4 left-4 flex items-center gap-2 rounded-full px-3 py-1.5 text-sm font-medium shadow-lg backdrop-blur-sm">
-                          <Play className="h-3 w-3" />
-                          Live Demo
-                        </div>
-                      </>
-                    ) : caseStudy.embedId?.youtube ? (
-                      <>
-                        <YoutubeEmbed embedId={caseStudy.embedId.youtube} className="p-0" />
-                        <div className="bg-destructive text-destructive-foreground absolute top-4 left-4 flex items-center gap-2 rounded-full px-3 py-1.5 text-sm font-medium shadow-lg backdrop-blur-sm">
-                          <Play className="h-3 w-3" />
-                          Case Video
-                        </div>
-                      </>
-                    ) : (
-                      <>
-                        <Image
-                          src={caseStudy.imageUrl || "/placeholder.svg?height=600&width=800"}
-                          alt={`${caseStudy.name} preview`}
-                          fill
-                          className="object-cover transition-transform duration-700 group-hover:scale-105"
-                        />
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
-                        <div className="bg-background/90 text-foreground absolute bottom-4 left-4 flex items-center gap-2 rounded-full px-3 py-1.5 text-sm font-medium shadow-lg backdrop-blur-sm">
-                          <Eye className="h-3 w-3" />
-                          Live Site
-                        </div>
-                      </>
-                    )}
-                    <div className="absolute top-4 right-4 flex gap-2">
-                      <div className="bg-background/90 text-foreground flex items-center gap-1.5 rounded-full px-3 py-1.5 text-xs font-medium shadow-lg backdrop-blur-sm">
-                        {caseStudy.plan}
-                      </div>
-                      <div className="bg-background/90 text-foreground flex items-center gap-1.5 rounded-full px-3 py-1.5 text-xs font-medium shadow-lg backdrop-blur-sm">
-                        <Calendar className="h-3 w-3" />
-                        {caseStudy.projectTimeline.durationDays}d
-                      </div>
-                      <div className="bg-background/90 text-foreground flex items-center gap-1.5 rounded-full px-3 py-1.5 text-xs font-medium shadow-lg backdrop-blur-sm">
-                        <Zap className="h-3 w-3" />
-                        {formatDate(caseStudy.projectTimeline.endDate)}
-                      </div>
+    <section className=" relative w-full overflow-hidden  bg-gradient-to-b from-primary/10 to-background  pt-12 pb-6">
+      <Container className="relative space-y-4">
+        <div className="flex items-center justify-center">
+          <Badge>Featured Case Study {caseStudy.id}</Badge>
+        </div>
+        <Card className="bg-card/80 overflow-hidden border-0 shadow-none">
+          <div className="grid w-full items-center gap-6 px-4 py-6 md:px-6 lg:grid-cols-5 lg:justify-center">
+            <div className="relative lg:col-span-3 space-y-2">
+              <div className="bg-muted relative aspect-video overflow-hidden">
+                {caseStudy.embedId?.loom ? (
+                  <>
+                    <LoomEmbed embedId={caseStudy.embedId.loom} className="p-0" />
+                    <div className="bg-primary text-primary-foreground absolute top-4 left-4 flex items-center gap-2 rounded-full px-3 py-1.5 text-sm font-medium shadow backdrop-blur-sm">
+                      <Play className="h-3 w-3" />
+                      Live Demo
                     </div>
-                  </div>
-                </div>
-                {/* Compact Content Section */}
-                <div className="flex flex-col justify-between lg:col-span-2 space-y-4">
-                  {/* Key Results - Visual List */}
-                  <div className="space-y-4">
-                    <div className="mb-3 flex items-center justify-between">
-                      <h4 className="flex items-center gap-2 capitalize text-primary ">
-                        <TrendingUp className="h-4 w-4" />
-                        Case Study: {caseStudy.client}
-                      </h4>
+                  </>
+                ) : caseStudy.embedId?.youtube ? (
+                  <>
+                    <YoutubeEmbed embedId={caseStudy.embedId.youtube} className="p-0" />
+                    <div className="bg-destructive text-destructive-foreground absolute top-4 left-4 flex items-center gap-2 rounded-full px-3 py-1.5 text-sm font-medium shadow backdrop-blur-sm">
+                      <Play className="h-3 w-3" />
+                      Case Video
                     </div>
-                    <div className="flex flex-wrap items-start justify-start gap-2 text-center">
-                      {caseStudy.technologies.slice(0, 3).map((tech, index) => (
-                        <Badge
-                          key={index}
-                          variant="outline"
-                          className="hover:bg-primary/10 cursor-default text-xs transition-colors"
-                        >
-                          {tech}
-                        </Badge>
-                      ))}
-                    </div>
-                    <div className="space-y-2">
-                      {caseStudy.results.slice(0, 3).map((result, index) => (
-                        <div key={index} className="flex items-start gap-2">
-                          <div className="bg-primary mt-2 h-1.5 w-1.5 flex-shrink-0 rounded-full" />
-                          <span className="text-muted-foreground line-clamp-1 leading-relaxed">
-                            {result}
-                          </span>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                  {/* Testimonial - Compact Visual */}
-                  <div>
-                    <TestimonialCard
-                      upwork={true}
-                      quote={caseStudy.testimonial.quote}
-                      author={caseStudy.testimonial.author}
-                      linkUrl={`/case-study/${caseStudy.id}`}
-                      role={caseStudy.testimonial.role}
-                      image={caseStudy.testimonial.image}
+                  </>
+                ) : (
+                  <>
+                    <Image
+                      src={caseStudy.imageUrl || "/placeholder.svg?height=600&width=800"}
+                      alt={`${caseStudy.name} preview`}
+                      fill
+                      className="object-cover transition-transform duration-700  rounded-lg"
                     />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent rounded-lg" />
+                    <div className="bg-background/90 text-foreground absolute bottom-4 left-4 flex items-center gap-2 rounded-full px-3 py-1.5 text-sm font-medium shadow  backdrop-blur-sm">
+                      <Eye className="h-3 w-3" />
+                      Live Site
+                    </div>
+                  </>
+                )}
+                <div className="absolute top-4 right-4 flex gap-2">
+                  <div className="bg-background/90 text-foreground flex items-center gap-1.5 rounded-full px-3 py-1.5 text-xs font-medium shadow backdrop-blur-sm">
+                    {caseStudy.plan}
                   </div>
-                  {/* Action Buttons - Visual Focus */}
-                  <div className="flex flex-col gap-2 md:flex-row">
-                    <Button asChild size="sm" className="group w-full">
-                      <Link href={caseStudyLink} className="flex items-center justify-center gap-2">
-                        <span className="font-semibold">Full Case Study</span>
-                        <ArrowRight className="h-3 w-3 transition-transform group-hover:translate-x-1" />
-                      </Link>
-                    </Button>
-                    <Button asChild variant="outline" size="sm" className="group w-full">
-                      <Link
-                        href={caseStudy.url}
-                        target="_blank"
-                        className="flex items-center justify-center gap-2"
-                      >
-                        <ExternalLink className="h-3 w-3 transition-transform group-hover:scale-110" />
-                        <span>Live Site</span>
-                      </Link>
-                    </Button>
+                  <div className="bg-background/90 text-foreground flex items-center gap-1.5 rounded-full px-3 py-1.5 text-xs font-medium shadow backdrop-blur-sm">
+                    <Calendar className="h-3 w-3" />
+                    {caseStudy.projectTimeline.durationDays}d
+                  </div>
+                  <div className="bg-background/90 text-foreground flex items-center gap-1.5 rounded-full px-3 py-1.5 text-xs font-medium shadow backdrop-blur-sm">
+                    <Zap className="h-3 w-3" />
+                    {formatDate(caseStudy.projectTimeline.endDate)}
                   </div>
                 </div>
               </div>
-            </Card>
-          </CardContent>
-          {/* Analytics Comparison - Auto-Scrolling Carousel */}
-          {caseStudy.analytics.images && (
-            <div className="p-4">
-              <div className="mb-12 space-y-4 text-center">
-                <h2 className="">Before vs After Results for {caseStudy.id}</h2>
-                <h4 className="text-muted-foreground mx-auto max-w-3xl">
-                  The before screenshots shows that the conversion tracking was not working, with ad
-                  spend of 1000$+ and after screenshots shows the conversion tracking working.
-                </h4>
+            </div>
+            <div className="flex flex-col justify-between lg:col-span-2 space-y-4">
+              <div className="space-y-4">
+                <div className="mb-3 flex items-center justify-between">
+                  <h4 className="flex items-center gap-2 capitalize text-primary ">
+                    {caseStudy.client}
+                  </h4>
+                </div>
+                <div className="flex flex-wrap items-start justify-start gap-2 text-center">
+                  {caseStudy.technologies.slice(0, 3).map((tech, index) => (
+                    <Badge
+                      key={index}
+                      variant="outline"
+                      className="hover:bg-primary/10 cursor-default text-xs transition-colors"
+                    >
+                      {tech}
+                    </Badge>
+                  ))}
+                </div>
+                <div className="space-y-2">
+                  {caseStudy.results.slice(0, 3).map((result, index) => (
+                    <div key={index} className="flex items-start gap-2">
+                      <div className="bg-primary mt-2 h-1.5 w-1.5 flex-shrink-0 rounded-full" />
+                      <span className="text-muted-foreground line-clamp-1 leading-relaxed">
+                        {result}
+                      </span>
+                    </div>
+                  ))}
+                </div>
               </div>
+              <div>
+                <TestimonialCard
+                  upwork={true}
+                  quote={caseStudy.testimonial.quote}
+                  author={caseStudy.testimonial.author}
+                  linkUrl={`/case-study/${caseStudy.id}`}
+                  role={caseStudy.testimonial.role}
+                  image={caseStudy.testimonial.image}
+                />
+              </div>
+              <div className="flex flex-col gap-2 md:flex-row">
+                <Button asChild size="sm" className="group w-full">
+                  <Link href={caseStudyLink} className="flex items-center justify-center gap-2">
+                    <span className="font-semibold">Full Case Study</span>
+                    <ArrowRight className="h-3 w-3 transition-transform group-hover:translate-x-1" />
+                  </Link>
+                </Button>
+                <Button asChild variant="outline" size="sm" className="group w-full">
+                  <Link
+                    href={caseStudy.url}
+                    target="_blank"
+                    className="flex items-center justify-center gap-2"
+                  >
+                    <ExternalLink className="h-3 w-3 transition-transform group-hover:scale-110" />
+                    <span>Live Site</span>
+                  </Link>
+                </Button>
+              </div>
+            </div>
+          </div>
+          {caseStudy.analytics.images && (
+            <div className="p-4 md:p-6">
               <div className="grid gap-4 md:grid-cols-2">
                 {/* Before - Auto-Scrolling Carousel */}
-                <Card className="group bg-destructive/10 overflow-hidden border-b transition-all hover:shadow-lg">
+                <Card className="group bg-destructive/10 overflow-hidden border-0 shadow-none">
                   <div className="py-2 text-center">
                     <Badge variant="destructive" className="text-xs font-medium">
                       Before
@@ -220,7 +186,7 @@ export default function FeaturedCaseStudy({ caseStudy }: FeaturedCaseStudyProps)
                   </div>
                   <CardContent className="px-3 py-6 md:p-6">
                     <div className="relative">
-                      <div className="relative aspect-video overflow-hidden rounded-lg border shadow">
+                      <div className="relative aspect-video overflow-hidden rounded-lg border ">
                         <Image
                           src={
                             caseStudy.analytics.images.before[currentBeforeIndex] ||
@@ -257,13 +223,13 @@ export default function FeaturedCaseStudy({ caseStudy }: FeaturedCaseStudyProps)
                   </CardContent>
                 </Card>
                 {/* After - Auto-Scrolling Carousel */}
-                <Card className="group bg-primary/10 overflow-hidden border-b transition-all hover:shadow-lg">
+                <Card className="group bg-primary/10 overflow-hidden border-0 shadow-none">
                   <div className="py-2 text-center">
                     <Badge className="text-xs font-medium">After</Badge>
                   </div>
                   <CardContent>
                     <div className="relative">
-                      <div className="relative aspect-video overflow-hidden rounded-lg border shadow">
+                      <div className="relative aspect-video overflow-hidden rounded-lg border ">
                         <Image
                           src={
                             caseStudy.analytics.images.after[currentAfterIndex] ||

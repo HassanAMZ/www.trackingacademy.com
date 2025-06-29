@@ -15,10 +15,17 @@ const transformCaseStudyData = (caseStudy: CaseStudy) => {
   const recoveredTotal =
     caseStudy.analytics.recoveredFromAdBlockersPercentage +
     caseStudy.analytics.recoveredFromTrackingPreventionPercentage;
-  const beforeAccuracy = Math.max(30, afterAccuracy - recoveredTotal);
+
+  const keywords = ["health", "wellness", "dental", "cbd", "sensitive"];
+  const contentToSearch =
+    `${caseStudy.title ?? ""} ${caseStudy.description ?? ""} ${caseStudy.challenges ?? ""}`.toLowerCase();
+  const containsKeyword = keywords.some((kw) => contentToSearch.includes(kw));
+
+  const beforeAccuracy = containsKeyword ? 0 : Math.max(30, afterAccuracy - recoveredTotal);
+
   return {
     id: caseStudy.id,
-    clientName: caseStudy.client,
+    clientName: caseStudy.testimonial.author,
     websiteUrl: caseStudy.url,
     avatar: caseStudy.testimonial.image,
     plan: caseStudy.plan,
@@ -28,7 +35,6 @@ const transformCaseStudyData = (caseStudy: CaseStudy) => {
   };
 };
 
-// Simple calculation function
 const calculateStats = (data: ReturnType<typeof transformCaseStudyData>[]) => {
   const avgBefore = data.reduce((sum, item) => sum + item.before, 0) / data.length;
   const avgAfter = data.reduce((sum, item) => sum + item.after, 0) / data.length;
@@ -108,7 +114,7 @@ const ClientTrackingTable: React.FC<ClientTrackingTableProps> = ({ rows }) => {
           </p>
         </div>
 
-        <div className="overflow-x-auto">
+        <div className="overflow-hidden">
           <table className="w-full">
             <thead className="">
               <tr>
