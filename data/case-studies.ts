@@ -461,6 +461,16 @@ export const caseStudies: CaseStudy[] = [
       recoveredFromAdBlockersPercentage: 3.27,
       recoveredFromTrackingPreventionPercentage: 14.45,
       accuracy: 95,
+      images: {
+        before: [
+          "/images/case-study/emiratesadvisory_before_1.png",
+          "/images/case-study/emiratesadvisory_before_2.png",
+        ],
+        after: [
+          "/images/case-study/emiratesadvisory_after_1.png",
+          "/images/case-study/emiratesadvisory_after_2.png",
+        ],
+      },
     },
     testimonial: {
       quote: "Would 10000% recommend working with Shahzada.",
