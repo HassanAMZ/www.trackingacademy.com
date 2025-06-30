@@ -135,7 +135,7 @@ export default function Page() {
         <TestimonialGrid showUpworkStats={false} />
       </section>
       {/* Calendar Section */}
-      <section className="py-16 bg-gradient-to-b from-primary to-primary/80 text-primary-foreground">
+      <section className="py-16 space-y-8">
         <Container className="max-w-4xl text-center space-y-8">
           <div>
             <h1 className="mb-4">Schedule Your Free Meta Tracking Setup</h1>
