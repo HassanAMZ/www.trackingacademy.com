@@ -7,6 +7,7 @@ import { ReactNode, Suspense, unstable_ViewTransition as ViewTransition } from "
 import type { Metadata } from "next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { GeistSans } from "geist/font/sans";
+import ClarityInit from "@/components/analytics/clarity";
 import AuthWrapper from "./context/AuthContextWrapper";
 
 export const metadata: Metadata = {
@@ -33,6 +34,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
             </ThemeProvider>
             <Suspense>
               <GTMAnalytics />
+              <ClarityInit />
               <VercelAnalytics />
               <CanonicalTag />
               <SpeedInsights />
