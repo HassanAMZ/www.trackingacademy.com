@@ -1,9 +1,9 @@
 "use client";
 
+import { Calendar, Clock, Target, TrendingUp, Users } from "lucide-react";
 import MeetingCalender from "@/components/contact/meeting-calender";
 import CustomLink from "@/components/mdx/CustomLink";
 import Container from "@/components/ui/container";
-import { Calendar, Clock, Target, TrendingUp, Users } from "lucide-react";
 
 export default function SimplifiedSuccessPage() {
   return (

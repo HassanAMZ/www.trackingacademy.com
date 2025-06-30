@@ -1,7 +1,7 @@
 "use client";
 
-import { Card, CardContent } from "@/components/ui/card";
-import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
+import React, { useState } from "react";
+import Image from "next/image";
 import {
   ChevronDown,
   ChevronRight,
@@ -11,8 +11,8 @@ import {
   TrendingUp,
   Trophy,
 } from "lucide-react";
-import Image from "next/image";
-import React, { useState } from "react";
+import { Card, CardContent } from "@/components/ui/card";
+import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
 import Container from "../ui/container";
 
 interface DreamOutcomeProps {

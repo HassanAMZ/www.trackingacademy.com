@@ -1,5 +1,5 @@
-import Container from "@/components/ui/container";
 import Image from "next/image";
+import Container from "@/components/ui/container";
 
 const clientImages = [
   "/images/clients/001.svg",

@@ -1,12 +1,12 @@
 "use client";
 
+import { useState } from "react";
 import CouponOptInForm from "@/components/funnels/coupon-optin";
 import YoutubeEmbed from "@/components/global/youtube-embed";
 import TestimonialGrid from "@/components/testimonial/testimonial-grid";
 import { Button } from "@/components/ui/button";
 import Container from "@/components/ui/container";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
-import { useState } from "react";
 
 const bulletPoints = [
   {

@@ -1,10 +1,7 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import { submitAuditRequest } from "@/actions/submit-audit-request";
-import { Button } from "@/components/ui/button";
-import Container from "@/components/ui/container";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
 import { sendGTMEvent } from "@next/third-parties/google";
 import {
   BarChart3,
@@ -16,7 +13,10 @@ import {
   Target,
   Users,
 } from "lucide-react";
-import { useEffect, useState } from "react";
+import { Button } from "@/components/ui/button";
+import Container from "@/components/ui/container";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
 
 const processingSteps = [
   {

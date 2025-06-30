@@ -1,7 +1,7 @@
+import Link from "next/link";
+import { ExternalLink, Star } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Progress } from "@/components/ui/progress";
-import { ExternalLink, Star } from "lucide-react";
-import Link from "next/link";
 import Container from "../ui/container";
 
 /**

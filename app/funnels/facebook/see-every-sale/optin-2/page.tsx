@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import TestimonialsCarousel2 from "@/components/for-freelancers/testimonials-carousal-2";
 import CouponOptInForm from "@/components/funnels/coupon-optin";
 import TrackingTable from "@/components/global/tracking-table";
@@ -8,7 +9,6 @@ import TestimonialGrid from "@/components/testimonial/testimonial-grid";
 import { Button } from "@/components/ui/button";
 import Container from "@/components/ui/container";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
-import { useState } from "react";
 
 export default function Page() {
   const [isModalOpen, setIsModalOpen] = useState(false);

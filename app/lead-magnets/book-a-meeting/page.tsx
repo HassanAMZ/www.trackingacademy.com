@@ -1,10 +1,10 @@
+import React from "react";
+import { Phone, Settings, TrendingUp } from "lucide-react";
 import MeetingCalender from "@/components/contact/meeting-calender";
 import LoomEmbed from "@/components/global/loom-embed";
 import TestimonialGrid from "@/components/testimonial/testimonial-grid";
 import { Badge } from "@/components/ui/badge";
 import Container from "@/components/ui/container";
-import { Phone, Settings, TrendingUp } from "lucide-react";
-import React from "react";
 
 export default async function BookAMeetingPage() {
   const steps = [

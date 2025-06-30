@@ -1,8 +1,5 @@
-import { Card } from "@/components/ui/card";
-import { Input } from "@/components/ui/input";
-import { BusinessMetrics } from "@/utils/business-calculator";
-import { DollarSign, Target, Users } from "lucide-react";
 import React from "react";
+import { DollarSign, Target, Users } from "lucide-react";
 import {
   CartesianGrid,
   Cell,
@@ -16,6 +13,9 @@ import {
   XAxis,
   YAxis,
 } from "recharts";
+import { Card } from "@/components/ui/card";
+import { Input } from "@/components/ui/input";
+import { BusinessMetrics } from "@/utils/business-calculator";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "../ui/table";
 
 interface ProjectionTableProps {

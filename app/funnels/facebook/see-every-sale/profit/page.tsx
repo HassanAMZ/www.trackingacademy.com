@@ -1,9 +1,9 @@
 "use client";
 
+import Link from "next/link";
+import { CheckCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Container from "@/components/ui/container";
-import { CheckCircle } from "lucide-react";
-import Link from "next/link";
 
 export default function ThankYouPage() {
   return (

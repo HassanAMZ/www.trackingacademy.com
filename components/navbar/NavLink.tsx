@@ -1,7 +1,7 @@
 "use client";
 
-import clsx from "clsx";
 import Link from "next/link";
+import clsx from "clsx";
 
 interface NavLinkProps {
   href: string;

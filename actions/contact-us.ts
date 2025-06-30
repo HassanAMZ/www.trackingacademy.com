@@ -1,12 +1,12 @@
 "use server";
 
-import { db } from "@/app/firebase";
-import ContactUsEmail from "@/components/emails/contact-us";
-import { collection, doc, setDoc, Timestamp } from "firebase/firestore";
 import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
+import { db } from "@/app/firebase";
+import { collection, doc, setDoc, Timestamp } from "firebase/firestore";
 import { Resend } from "resend";
 import { z } from "zod";
+import ContactUsEmail from "@/components/emails/contact-us";
 
 export async function createContact(
   formData: FormData,

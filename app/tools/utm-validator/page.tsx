@@ -1,13 +1,13 @@
 "use client";
 
+import { useEffect, useState } from "react";
+import { AlertCircle, CheckCircle2, XCircle } from "lucide-react";
 import ContactUs from "@/components/blog/call-to-action-message-us";
 import YoutubeEmbed from "@/components/global/youtube-embed";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { AlertCircle, CheckCircle2, XCircle } from "lucide-react";
-import { useEffect, useState } from "react";
 
 const REQUIRED_UTM_PARAMS = ["utm_source", "utm_medium", "utm_campaign"];
 

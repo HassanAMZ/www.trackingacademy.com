@@ -1,8 +1,8 @@
+import { Metadata } from "next";
+import { Tag } from "lucide-react";
+import getBlogAndTagsData from "utils/getBlogAndTagsData";
 import TagContainer from "@/components/tag/tag-container";
 import Container from "@/components/ui/container";
-import { Tag } from "lucide-react";
-import { Metadata } from "next";
-import getBlogAndTagsData from "utils/getBlogAndTagsData";
 
 export const metadata: Metadata = {
   title: "Browse Tags | Blog",

@@ -1,10 +1,10 @@
+import Link from "next/link";
 import TestimonialsCarousel2 from "@/components/for-freelancers/testimonials-carousal-2";
 import TrackingTable from "@/components/global/tracking-table";
 import Hero from "@/components/home/hero";
 import Services from "@/components/home/services";
 import { Button } from "@/components/ui/button";
 import Container from "@/components/ui/container";
-import Link from "next/link";
 
 export default function Home() {
   return (

@@ -1,10 +1,10 @@
+import { FC, ReactNode } from "react";
+import Link from "next/link";
+import { caseStudies as CaseStudies, CaseStudy } from "@/data/case-studies";
+import { CheckCircle, Star } from "lucide-react";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import Container from "@/components/ui/container";
-import { caseStudies as CaseStudies, CaseStudy } from "@/data/case-studies";
-import { CheckCircle, Star } from "lucide-react";
-import Link from "next/link";
-import { FC, ReactNode } from "react";
 import { AvatarGroup, AvatarGroupTooltip } from "../animate-ui/avatar-group-mask";
 import { Badge } from "../ui/badge";
 

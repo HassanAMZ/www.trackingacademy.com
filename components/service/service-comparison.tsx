@@ -1,10 +1,10 @@
 // components/services/service-comparison.tsx
+import Link from "next/link";
+import { Service } from "@/data/services";
+import { ArrowRight, CheckCircle, X } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Service } from "@/data/services";
-import { ArrowRight, CheckCircle, X } from "lucide-react";
-import Link from "next/link";
 
 interface ServiceComparisonProps {
   currentService: Service;

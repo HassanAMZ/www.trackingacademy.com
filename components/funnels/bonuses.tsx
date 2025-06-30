@@ -1,9 +1,9 @@
-import { Button } from "@/components/ui/button";
-import Container from "@/components/ui/container";
-import { ArrowRight, CheckCircle } from "lucide-react";
+import React from "react";
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
+import { ArrowRight, CheckCircle } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import Container from "@/components/ui/container";
 
 interface Bonus {
   title: string;

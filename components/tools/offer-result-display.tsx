@@ -1,5 +1,7 @@
 "use client";
 
+import { useState } from "react";
+import { CheckCircle2, Copy } from "lucide-react";
 import {
   Accordion,
   AccordionContent,
@@ -8,8 +10,6 @@ import {
 } from "@/components/ui/accordion";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { CheckCircle2, Copy } from "lucide-react";
-import { useState } from "react";
 
 interface OfferResultDisplayProps {
   generation: any;

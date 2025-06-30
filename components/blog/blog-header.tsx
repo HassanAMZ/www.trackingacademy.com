@@ -1,14 +1,14 @@
 "use client";
 
+import React from "react";
+import Image from "next/image";
+import Link from "next/link";
+import Script from "next/script";
+import { PostMetadataProps } from "@/types/index";
 import formatDate from "@/components/seo/formatDate";
 import generateSchema from "@/components/seo/generateSchema";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
-import { PostMetadataProps } from "@/types/index";
-import Image from "next/image";
-import Link from "next/link";
-import Script from "next/script";
-import React from "react";
 import YoutubeEmbed from "../global/youtube-embed";
 import { Card, CardContent } from "../ui/card";
 import BreadCrumbs from "./bread-crumb";

@@ -1,10 +1,10 @@
+import Link from "next/link";
+import { Service } from "@/data/services";
+import { ArrowRight, Check, CheckCircle, X } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
-import { Service } from "@/data/services";
-import { ArrowRight, Check, CheckCircle, X } from "lucide-react";
-import Link from "next/link";
 
 interface FeatureWithTooltipProps {
   featureName: string;

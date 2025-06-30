@@ -1,8 +1,7 @@
 "use client";
 
-import { Badge } from "@/components/ui/badge";
-import { Card, CardContent, CardHeader } from "@/components/ui/card";
-import { Progress } from "@/components/ui/progress";
+import { useEffect, useRef, useState } from "react";
+import Link from "next/link";
 import { AuditReport, CategoryScore as CategoryScoreProps } from "@/data/audit-report";
 import {
   AlertTriangle,
@@ -15,8 +14,9 @@ import {
   XCircle,
   Zap,
 } from "lucide-react";
-import Link from "next/link";
-import { useEffect, useRef, useState } from "react";
+import { Badge } from "@/components/ui/badge";
+import { Card, CardContent, CardHeader } from "@/components/ui/card";
+import { Progress } from "@/components/ui/progress";
 
 interface AuditarouselProps {
   auditReports: AuditReport[];

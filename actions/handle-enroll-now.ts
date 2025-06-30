@@ -1,11 +1,11 @@
 "use server";
 
-import { db } from "@/app/firebase";
-import WaitListEmail from "@/components/emails/enroll-now";
-import { collection, doc, setDoc, Timestamp } from "firebase/firestore";
 import { cookies } from "next/headers";
+import { db } from "@/app/firebase";
+import { collection, doc, setDoc, Timestamp } from "firebase/firestore";
 import { Resend } from "resend";
 import { z } from "zod";
+import WaitListEmail from "@/components/emails/enroll-now";
 
 export async function createWaitlist(prevState: any, formData: FormData) {
   const resend = new Resend(process.env.RESEND_API_KEY);

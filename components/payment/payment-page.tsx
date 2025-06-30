@@ -1,8 +1,8 @@
 "use client";
 
-import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
-import { AlertCircle } from "lucide-react";
 import { useSearchParams } from "next/navigation";
+import { AlertCircle } from "lucide-react";
+import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import Container from "../ui/container";
 import PaymentContent from "./payment-content";
 

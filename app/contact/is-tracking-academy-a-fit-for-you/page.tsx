@@ -1,7 +1,7 @@
+import Link from "next/link";
 import TestimonialGrid from "@/components/testimonial/testimonial-grid";
 import { Button } from "@/components/ui/button";
 import Container from "@/components/ui/container";
-import Link from "next/link";
 
 export default function page() {
   return (

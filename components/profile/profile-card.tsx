@@ -1,9 +1,9 @@
 "use client";
 
-import { db } from "@/app/firebase";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { doc, getDoc } from "firebase/firestore";
 import { useEffect, useState } from "react";
+import { db } from "@/app/firebase";
+import { doc, getDoc } from "firebase/firestore";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
 interface ProfileCardProps {
   userId: string;

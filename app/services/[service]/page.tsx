@@ -1,11 +1,11 @@
 // app/services/[service]/page.tsx
 
+import { notFound } from "next/navigation";
+import { Service, services } from "@/data/services";
 import FAQSection from "@/components/pricing/faq-section";
 import { FeatureComparison } from "@/components/pricing/pricing-vertical";
 import ServiceHero from "@/components/service/service-hero";
 import Container from "@/components/ui/container";
-import { Service, services } from "@/data/services";
-import { notFound } from "next/navigation";
 
 // Generate static params for all services
 export async function generateStaticParams() {

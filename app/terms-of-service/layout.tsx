@@ -1,6 +1,6 @@
 // app/terms-of-service/layout.tsx
-import type { Metadata } from "next";
 import { ReactNode } from "react";
+import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Terms of Service | Conversion Confidence",

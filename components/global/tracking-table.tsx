@@ -1,8 +1,8 @@
 "use client";
 
-import { caseStudies, type CaseStudy } from "@/data/case-studies";
-import Link from "next/link";
 import type React from "react";
+import Link from "next/link";
+import { caseStudies, type CaseStudy } from "@/data/case-studies";
 import { AvatarGroup, AvatarGroupTooltip } from "../animate-ui/avatar-group-mask";
 import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar";
 

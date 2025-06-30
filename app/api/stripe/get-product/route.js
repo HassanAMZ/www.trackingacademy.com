@@ -1,6 +1,6 @@
 // src/app/api/stripe/get-product/route.js
-import { stripe } from "@/lib/stripe";
 import { NextResponse } from "next/server";
+import { stripe } from "@/lib/stripe";
 
 export async function GET(request) {
   try {

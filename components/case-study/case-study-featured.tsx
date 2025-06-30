@@ -1,13 +1,13 @@
 "use client";
 
+import { useEffect, useState } from "react";
+import Image from "next/image";
+import Link from "next/link";
+import type { CaseStudy } from "@/data/case-studies";
+import { ArrowRight, Calendar, ExternalLink, Eye, Play, Zap } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import type { CaseStudy } from "@/data/case-studies";
-import { ArrowRight, Calendar, ExternalLink, Eye, Play, Zap } from "lucide-react";
-import Image from "next/image";
-import Link from "next/link";
-import { useEffect, useState } from "react";
 import LoomEmbed from "../global/loom-embed";
 import YoutubeEmbed from "../global/youtube-embed";
 import { TestimonialCard } from "../testimonial/testimonial-card";

@@ -1,5 +1,5 @@
-import Container from "@/components/ui/container";
 import React from "react";
+import Container from "@/components/ui/container";
 import TestimonialGrid from "../testimonial/testimonial-grid";
 
 interface SocialProofProps {

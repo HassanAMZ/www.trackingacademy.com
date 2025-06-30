@@ -1,4 +1,6 @@
+import { NextResponse } from "next/server";
 import { db } from "@/app/firebase";
+import { collection, doc, setDoc, Timestamp } from "firebase/firestore";
 import {
   InvoicePaymentSuccessEmailData,
   PaymentFailedEmailData,
@@ -10,8 +12,6 @@ import {
   SubscriptionCreatedEmailData,
 } from "@/lib/emails/email-services";
 import { stripe } from "@/lib/stripe";
-import { collection, doc, setDoc, Timestamp } from "firebase/firestore";
-import { NextResponse } from "next/server";
 
 export async function POST(req: Request) {
   const body = await req.text();

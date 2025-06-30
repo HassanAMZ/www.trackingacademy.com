@@ -1,5 +1,5 @@
-import getFiles from "@/utils/getFiles"; // Ensure this path is correct
 import path from "path";
+import getFiles from "@/utils/getFiles"; // Ensure this path is correct
 
 export default async function getContentData(
   contentDirectoryPath: string = "app/offers", // Default value assigned here

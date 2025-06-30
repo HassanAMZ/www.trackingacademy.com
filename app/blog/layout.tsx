@@ -1,7 +1,7 @@
+import React, { ReactNode } from "react";
 import Footer from "@/components/global/footer";
 import Navbar from "@/components/global/navbar";
 import GiscusComments from "@/components/mdx/GiscusComents";
-import React, { ReactNode } from "react";
 
 export const metadata = {
   title: "Blog Archieve- TrackingAcademy",

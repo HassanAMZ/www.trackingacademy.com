@@ -1,14 +1,14 @@
 // components/auth/FirebaseAuth.tsx
 "use client";
 
+import { useEffect, useState } from "react";
+import { useAuth } from "@/context/AuthContext";
+import { PersonIcon } from "@radix-ui/react-icons";
+import { CheckCircle, Download, GithubIcon, Loader2 } from "lucide-react";
 import { Alert, AlertDescription } from "@/components/ui/alert";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { useAuth } from "@/context/AuthContext";
-import { PersonIcon } from "@radix-ui/react-icons";
-import { CheckCircle, Download, GithubIcon, Loader2 } from "lucide-react";
-import { useEffect, useState } from "react";
 import Container from "../ui/container";
 
 interface AuthError {

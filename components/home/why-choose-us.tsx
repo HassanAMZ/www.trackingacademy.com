@@ -1,5 +1,5 @@
-import { Check } from "lucide-react";
 import Image from "next/image";
+import { Check } from "lucide-react";
 import Container from "../ui/container";
 
 interface WhyChooseSectionProps {

@@ -1,9 +1,9 @@
 "use client";
 
-import { PostMetadata } from "@/types/index";
-import { normalizeTag, normalizeTags } from "@/utils/normalizeTags";
-import { Filter, Search, Tag as TagIcon } from "lucide-react";
 import React, { useEffect, useState } from "react";
+import { PostMetadata } from "@/types/index";
+import { Filter, Search, Tag as TagIcon } from "lucide-react";
+import { normalizeTag, normalizeTags } from "@/utils/normalizeTags";
 import { Button } from "../ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "../ui/card";
 import {

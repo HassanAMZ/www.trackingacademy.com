@@ -1,10 +1,10 @@
 "use client";
 
-import { Button } from "@/components/ui/button";
+import React, { useEffect, useState } from "react";
+import Link from "next/link";
 import { caseStudies } from "@/data/case-studies";
 import { Star } from "lucide-react";
-import Link from "next/link";
-import React, { useEffect, useState } from "react";
+import { Button } from "@/components/ui/button";
 import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar";
 
 const TestimonialsCarousel2: React.FC = () => {

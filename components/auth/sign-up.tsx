@@ -1,11 +1,11 @@
 "use client";
 
+import { useState } from "react";
 import { auth, db } from "@/app/firebase";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
 import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { doc, setDoc } from "firebase/firestore";
-import { useState } from "react";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
 
 export function SignUp() {
   const [email, setEmail] = useState("");

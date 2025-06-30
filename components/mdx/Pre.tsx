@@ -1,9 +1,9 @@
 "use client";
 
+import React, { useRef, useState } from "react";
+import { ClipboardCopy } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { ClipboardCopy } from "lucide-react";
-import React, { useRef, useState } from "react";
 
 interface CodeBlockProps {
   language?: string;

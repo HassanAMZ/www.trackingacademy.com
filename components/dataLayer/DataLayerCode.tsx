@@ -1,5 +1,5 @@
-import datalayerCode from "@/data/datalayer-code";
 import React from "react";
+import datalayerCode from "@/data/datalayer-code";
 import AuthPre from "../mdx/AuthPre";
 
 interface DataLayerCodeProps {

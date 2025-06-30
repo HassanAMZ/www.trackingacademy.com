@@ -1,7 +1,7 @@
 "use client";
 
-import { sendGTMEvent } from "@next/third-parties/google";
 import { FC, memo } from "react";
+import { sendGTMEvent } from "@next/third-parties/google";
 import Container from "../ui/container";
 
 interface YoutubeEmbedProps {

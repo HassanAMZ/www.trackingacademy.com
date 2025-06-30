@@ -1,9 +1,9 @@
+import type { Product, PromoCode } from "@/types/index";
+import { CheckCircle, Info } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardFooter, CardHeader } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
-import type { Product, PromoCode } from "@/types/index";
 import { formatCurrency } from "@/utils/payment";
-import { CheckCircle, Info } from "lucide-react";
 
 interface ProductDetailsProps {
   product: Product;

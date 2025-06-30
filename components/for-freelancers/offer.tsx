@@ -1,3 +1,6 @@
+import React, { FC } from "react";
+import Link from "next/link";
+import { Globe, Headset, Rocket, ShieldCheck, Smile, Target } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Container from "@/components/ui/container";
 import {
@@ -9,9 +12,6 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog";
 import { Separator } from "@/components/ui/separator";
-import { Globe, Headset, Rocket, ShieldCheck, Smile, Target } from "lucide-react";
-import Link from "next/link";
-import React, { FC } from "react";
 import YoutubeEmbed from "../global/youtube-embed";
 
 export default function ForFreelancersOffer() {

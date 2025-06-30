@@ -1,8 +1,8 @@
 "use client";
 
-import Container from "@/components/ui/container";
-import { Facebook, Linkedin, Mail, Phone, Youtube } from "lucide-react";
 import Link from "next/link";
+import { Facebook, Linkedin, Mail, Phone, Youtube } from "lucide-react";
+import Container from "@/components/ui/container";
 import { ThemeToggle } from "./theme-switch";
 
 export default function Footer() {

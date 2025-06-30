@@ -1,3 +1,6 @@
+import Link from "next/link";
+import auditReports from "@/data/audit-report";
+import { ArrowRight, CalendarDays, ExternalLink } from "lucide-react";
 import Auditarousel from "@/components/audit/audit-carousal";
 import MeetingCalender from "@/components/contact/meeting-calender";
 import { Badge } from "@/components/ui/badge";
@@ -12,9 +15,6 @@ import {
 } from "@/components/ui/card";
 import Container from "@/components/ui/container";
 import { Progress } from "@/components/ui/progress";
-import auditReports from "@/data/audit-report";
-import { ArrowRight, CalendarDays, ExternalLink } from "lucide-react";
-import Link from "next/link";
 
 // Transform audit reports to display format with mock dates
 const audits = auditReports.map((report, index) => ({

@@ -1,3 +1,5 @@
+import React from "react";
+import { usePathname } from "next/navigation";
 import {
   Breadcrumb,
   BreadcrumbItem,
@@ -6,8 +8,6 @@ import {
   BreadcrumbPage,
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
-import { usePathname } from "next/navigation";
-import React from "react";
 
 const BreadCrumbs: React.FC = () => {
   const pathname = usePathname();

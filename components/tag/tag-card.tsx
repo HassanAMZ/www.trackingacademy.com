@@ -1,13 +1,13 @@
 "use client";
 
-import { PostMetadata } from "@/types/index";
-import { displayTag, normalizeTag } from "@/utils/normalizeTags";
-import { formatDistanceToNow } from "date-fns";
-import { Clock, Tag as TagIcon } from "lucide-react";
+import React from "react";
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
+import { PostMetadata } from "@/types/index";
+import { formatDistanceToNow } from "date-fns";
+import { Clock, Tag as TagIcon } from "lucide-react";
 import formatString from "utils/formatString";
+import { displayTag, normalizeTag } from "@/utils/normalizeTags";
 import { Badge } from "../ui/badge";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "../ui/card";
 

@@ -1,6 +1,6 @@
 // app/privacy-policy/layout.tsx
-import type { Metadata } from "next";
 import { ReactNode } from "react";
+import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Privacy Policy | Conversion Confidence",

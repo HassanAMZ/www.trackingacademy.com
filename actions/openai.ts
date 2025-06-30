@@ -1,8 +1,8 @@
 "use server";
 
-import { openai } from "@/lib/ai";
 import { streamText } from "ai";
 import { createStreamableValue } from "ai/rsc";
+import { openai } from "@/lib/ai";
 
 export interface Message {
   role: "user" | "assistant";

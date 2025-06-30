@@ -1,7 +1,7 @@
+import { ReactNode } from "react";
+import type { Metadata } from "next";
 import Footer from "@/components/global/footer";
 import Navbar from "@/components/global/navbar";
-import type { Metadata } from "next";
-import { ReactNode } from "react";
 
 export const metadata: Metadata = {
   title: "Tracking Academy Case Studies | Analytics & Tracking Solutions",

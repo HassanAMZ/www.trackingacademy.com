@@ -1,6 +1,6 @@
-import CategoryContainer from "@/components/blog/category-container";
 import formatString from "utils/formatString";
 import getTagsData from "utils/getTagsData";
+import CategoryContainer from "@/components/blog/category-container";
 
 export default async function Page(props: { params: Promise<{ tag: string }> }) {
   const params = await props.params;

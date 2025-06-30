@@ -1,5 +1,21 @@
 "use client";
 
+import React, { useState } from "react";
+import { useRouter } from "next/navigation";
+import auditReports from "@/data/audit-report";
+import { sendGTMEvent } from "@next/third-parties/google";
+import clsx from "clsx";
+import {
+  ArrowRight,
+  BarChart2,
+  CheckSquare,
+  Loader2,
+  Phone,
+  Settings,
+  Target,
+  TrendingUp,
+} from "lucide-react";
+import { z } from "zod";
 import Auditarousel from "@/components/audit/audit-carousal";
 import DetailedCTA from "@/components/funnels/detailed-cta";
 import DetailsCarousel from "@/components/funnels/details-carousal";
@@ -15,22 +31,6 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import Container from "@/components/ui/container";
 import { Input } from "@/components/ui/input";
-import auditReports from "@/data/audit-report";
-import { sendGTMEvent } from "@next/third-parties/google";
-import clsx from "clsx";
-import {
-  ArrowRight,
-  BarChart2,
-  CheckSquare,
-  Loader2,
-  Phone,
-  Settings,
-  Target,
-  TrendingUp,
-} from "lucide-react";
-import { useRouter } from "next/navigation";
-import React, { useState } from "react";
-import { z } from "zod";
 
 export default function Page() {
   const [hasSubmitted, setHasSubmitted] = useState(false);

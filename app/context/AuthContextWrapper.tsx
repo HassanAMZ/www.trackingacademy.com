@@ -1,8 +1,8 @@
 // app/context/AuthContextWrapper.tsx
 "use client";
 
-import dynamic from "next/dynamic";
 import { ReactNode } from "react";
+import dynamic from "next/dynamic";
 
 // Dynamically import AuthContextProvider with no SSR
 const AuthContextProvider = dynamic(

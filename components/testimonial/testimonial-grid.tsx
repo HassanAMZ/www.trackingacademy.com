@@ -1,7 +1,7 @@
 "use client";
 
-import { caseStudies } from "@/data/case-studies";
 import { useEffect, useRef, useState } from "react";
+import { caseStudies } from "@/data/case-studies";
 import { TestimonialCard } from "./testimonial-card";
 import UpworkStats from "./upwork-stats";
 

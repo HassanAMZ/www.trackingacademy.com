@@ -1,5 +1,7 @@
 "use client";
 
+import { useState } from "react";
+import { caseStudies } from "@/data/case-studies";
 import CaseStudyCarousel from "@/components/case-study/case-study-carousel";
 import CouponOptInForm from "@/components/funnels/coupon-optin";
 import YoutubeEmbed from "@/components/global/youtube-embed";
@@ -7,8 +9,6 @@ import TestimonialGrid from "@/components/testimonial/testimonial-grid";
 import { Button } from "@/components/ui/button";
 import Container from "@/components/ui/container";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
-import { caseStudies } from "@/data/case-studies";
-import { useState } from "react";
 
 export default function Page() {
   const [isModalOpen, setIsModalOpen] = useState(false);

@@ -1,5 +1,9 @@
 "use client";
 
+import * as React from "react";
+import { ViewVerticalIcon } from "@radix-ui/react-icons";
+import { Slot } from "@radix-ui/react-slot";
+import { cva, VariantProps } from "class-variance-authority";
 import { Button } from "@/components/ui/button";
 import { useIsMobile } from "@/components/ui/hooks/use-mobile";
 import { Input } from "@/components/ui/input";
@@ -8,10 +12,6 @@ import { Sheet, SheetContent } from "@/components/ui/sheet";
 import { Skeleton } from "@/components/ui/skeleton";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
 import { cn } from "@/lib/utils";
-import { ViewVerticalIcon } from "@radix-ui/react-icons";
-import { Slot } from "@radix-ui/react-slot";
-import { cva, VariantProps } from "class-variance-authority";
-import * as React from "react";
 
 const SIDEBAR_COOKIE_NAME = "sidebar:state";
 const SIDEBAR_COOKIE_MAX_AGE = 60 * 60 * 24 * 7;

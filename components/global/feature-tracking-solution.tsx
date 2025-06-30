@@ -1,5 +1,5 @@
-import { Card, CardContent } from "@/components/ui/card";
 import { BarChart3, Cloud, Facebook } from "lucide-react";
+import { Card, CardContent } from "@/components/ui/card";
 
 export default function TrackingSolution() {
   return (

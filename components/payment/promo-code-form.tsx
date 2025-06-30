@@ -1,13 +1,13 @@
 "use client";
 
+import type React from "react";
+import { useEffect, useState } from "react";
+import { useSearchParams } from "next/navigation";
+import type { PromoCode } from "@/types/index";
+import { Check, Loader2, X } from "lucide-react";
 import { Alert, AlertDescription } from "@/components/ui/alert";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import type { PromoCode } from "@/types/index";
-import { Check, Loader2, X } from "lucide-react";
-import { useSearchParams } from "next/navigation";
-import type React from "react";
-import { useEffect, useState } from "react";
 
 interface PromoCodeFormProps {
   onApply: (code: string) => void;

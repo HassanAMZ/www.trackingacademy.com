@@ -1,13 +1,13 @@
 "use client";
 
-import { Card, CardContent, CardHeader } from "@/components/ui/card";
+import { useEffect, useState } from "react";
+import Link from "next/link";
 import type { PaymentContentProps, PaymentData, Product, PromoCode } from "@/types/index";
-import { stripePromise } from "@/utils/payment";
 import { sendGTMEvent } from "@next/third-parties/google";
 import { AddressElement, Elements } from "@stripe/react-stripe-js";
 import type { StripeElementsOptions } from "@stripe/stripe-js";
-import Link from "next/link";
-import { useEffect, useState } from "react";
+import { Card, CardContent, CardHeader } from "@/components/ui/card";
+import { stripePromise } from "@/utils/payment";
 import { Button } from "../ui/button";
 import Container from "../ui/container";
 import { ErrorState } from "./error-state";

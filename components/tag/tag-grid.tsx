@@ -1,8 +1,8 @@
 "use client";
 
+import React from "react";
 import { PostMetadata } from "@/types/index";
 import { normalizeTag } from "@/utils/normalizeTags";
-import React from "react";
 import TagCard from "./tag-card";
 
 interface TagGridProps {

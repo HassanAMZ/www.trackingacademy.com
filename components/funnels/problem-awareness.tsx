@@ -1,8 +1,8 @@
+import React from "react";
+import Image from "next/image";
+import { AlertTriangle, CircleCheck } from "lucide-react";
 import { Card } from "@/components/ui/card";
 import Container from "@/components/ui/container";
-import { AlertTriangle, CircleCheck } from "lucide-react";
-import Image from "next/image";
-import React from "react";
 
 interface ProblemAwarenessProps {
   headingText?: string;

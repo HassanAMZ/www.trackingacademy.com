@@ -1,10 +1,10 @@
+import type { ReactNode } from "react";
+import Link from "next/link";
+import { ProjectTimelineProps } from "@/data/case-studies";
+import { Quote, Star } from "lucide-react";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { ProjectTimelineProps } from "@/data/case-studies";
-import { Quote, Star } from "lucide-react";
-import Link from "next/link";
-import type { ReactNode } from "react";
 
 export interface Metric {
   label: string;

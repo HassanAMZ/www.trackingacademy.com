@@ -1,9 +1,9 @@
-import { Badge } from "@/components/ui/badge";
-import { Card, CardContent, CardFooter, CardHeader } from "@/components/ui/card";
-import { PostMetadata } from "@/types/index";
-import { CalendarIcon } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+import { PostMetadata } from "@/types/index";
+import { CalendarIcon } from "lucide-react";
+import { Badge } from "@/components/ui/badge";
+import { Card, CardContent, CardFooter, CardHeader } from "@/components/ui/card";
 
 interface SingleBlogCardProps {
   post: PostMetadata;

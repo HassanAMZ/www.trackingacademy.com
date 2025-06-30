@@ -1,12 +1,12 @@
 "use server";
 
-import { db } from "@/app/firebase";
-import CouponRequestEmail from "@/components/emails/coupon-request";
-import { collection, doc, setDoc, Timestamp } from "firebase/firestore";
 import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
+import { db } from "@/app/firebase";
+import { collection, doc, setDoc, Timestamp } from "firebase/firestore";
 import { Resend } from "resend";
 import { z } from "zod";
+import CouponRequestEmail from "@/components/emails/coupon-request";
 
 export async function createCouponRequest(
   formData: FormData,

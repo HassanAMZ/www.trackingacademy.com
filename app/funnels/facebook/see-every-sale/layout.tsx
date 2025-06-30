@@ -1,5 +1,5 @@
-import type { Metadata } from "next";
 import { ReactNode } from "react";
+import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "$300 OFF - 3-Day 'See Every Sale' Tracking System | Restore Meta Tracking",

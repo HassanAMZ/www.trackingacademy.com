@@ -1,7 +1,7 @@
 "use client";
 
-import { Search } from "lucide-react";
 import React, { useEffect, useState } from "react";
+import { Search } from "lucide-react";
 import { Input } from "../ui/input";
 
 interface TagSearchProps {

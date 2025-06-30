@@ -1,9 +1,9 @@
 "use client";
 
-import { cn } from "@/lib/utils";
-import { sendGTMEvent } from "@next/third-parties/google";
-import Link from "next/link";
 import React from "react";
+import Link from "next/link";
+import { sendGTMEvent } from "@next/third-parties/google";
+import { cn } from "@/lib/utils";
 
 type CustomLinkProps = {
   href: string;

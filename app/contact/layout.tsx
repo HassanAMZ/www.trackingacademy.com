@@ -1,6 +1,6 @@
-import TestimonialGrid from "@/components/testimonial/testimonial-grid";
-import { Metadata } from "next";
 import { ReactNode } from "react";
+import { Metadata } from "next";
+import TestimonialGrid from "@/components/testimonial/testimonial-grid";
 
 export const metadata: Metadata = {
   title: "Contact Tracking Academy | Expert Analytics & Tracking Support",

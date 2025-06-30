@@ -1,5 +1,16 @@
 "use client";
 
+import React from "react";
+import { caseStudies } from "@/data/case-studies";
+import {
+  ArrowRight,
+  BarChart2,
+  CheckSquare,
+  Phone,
+  Settings,
+  Target,
+  TrendingUp,
+} from "lucide-react";
 import CaseStudyCarousel from "@/components/case-study/case-study-carousel";
 import TestimonialsCarousel2 from "@/components/for-freelancers/testimonials-carousal-2";
 import CouponOptInForm from "@/components/funnels/coupon-optin";
@@ -18,17 +29,6 @@ import TestimonialGrid from "@/components/testimonial/testimonial-grid";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import Container from "@/components/ui/container";
-import { caseStudies } from "@/data/case-studies";
-import {
-  ArrowRight,
-  BarChart2,
-  CheckSquare,
-  Phone,
-  Settings,
-  Target,
-  TrendingUp,
-} from "lucide-react";
-import React from "react";
 
 const ctaVariants = [
   {

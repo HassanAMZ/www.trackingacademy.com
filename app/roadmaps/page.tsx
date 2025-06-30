@@ -1,4 +1,4 @@
-import Container from "@/components/ui/container";
+import React from "react";
 import { MagnifyingGlassIcon } from "@radix-ui/react-icons";
 import {
   Award,
@@ -11,7 +11,7 @@ import {
   Play,
   Shield,
 } from "lucide-react";
-import React from "react";
+import Container from "@/components/ui/container";
 
 interface roadmapDataProps {
   category: string;

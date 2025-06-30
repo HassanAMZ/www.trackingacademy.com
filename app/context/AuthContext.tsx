@@ -1,6 +1,7 @@
 // AuthContext.tsx
 "use client";
 
+import { createContext, ReactNode, useContext, useEffect, useState } from "react";
 import { sendGTMEvent } from "@next/third-parties/google";
 import {
   createUserWithEmailAndPassword,
@@ -13,7 +14,6 @@ import {
   signOut,
   User,
 } from "firebase/auth";
-import { createContext, ReactNode, useContext, useEffect, useState } from "react";
 import { auth } from "../firebase";
 
 interface AuthContextType {

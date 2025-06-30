@@ -1,15 +1,15 @@
 "use client";
 
+import { useActionState, useEffect, useState } from "react";
+import { useFormStatus } from "react-dom";
+import { usePathname } from "next/navigation";
 import { createCouponRequest } from "@/actions/coupon-request";
+import { services } from "@/data/services";
+import { Loader2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { services } from "@/data/services";
-import { Loader2 } from "lucide-react";
-import { usePathname } from "next/navigation";
-import { useActionState, useEffect, useState } from "react";
-import { useFormStatus } from "react-dom";
 
 type CouponOptInFormProps = {
   redirectUrl?: string;

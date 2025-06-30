@@ -1,10 +1,10 @@
 "use client";
 
-import { Card } from "@/components/ui/card";
-import roadmapData from "@/data/roadmap";
-import { X } from "lucide-react";
 import React, { JSX, useState } from "react";
 import ReactFlow, { Edge, Handle, Node, Position } from "reactflow";
+import roadmapData from "@/data/roadmap";
+import { X } from "lucide-react";
+import { Card } from "@/components/ui/card";
 import "reactflow/dist/style.css";
 
 interface SubItem {

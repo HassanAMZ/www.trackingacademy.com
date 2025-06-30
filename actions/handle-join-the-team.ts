@@ -1,11 +1,11 @@
 "use server";
 
-import { db } from "@/app/firebase";
-import JoinTheTeamEmail from "@/components/emails/join-the-team";
-import { collection, doc, setDoc, Timestamp } from "firebase/firestore";
 import { cookies } from "next/headers";
+import { db } from "@/app/firebase";
+import { collection, doc, setDoc, Timestamp } from "firebase/firestore";
 import { Resend } from "resend";
 import { z } from "zod";
+import JoinTheTeamEmail from "@/components/emails/join-the-team";
 
 export async function createCareerApplication(prevState: any, formData: FormData) {
   const resend = new Resend(process.env.RESEND_API_KEY);

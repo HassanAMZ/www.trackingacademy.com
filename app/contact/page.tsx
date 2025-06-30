@@ -1,7 +1,7 @@
+import React from "react";
 import MeetingCalender from "@/components/contact/meeting-calender";
 import YoutubeEmbed from "@/components/global/youtube-embed";
 import Container from "@/components/ui/container";
-import React from "react";
 
 export default async function BookAMeetingPage() {
   return (

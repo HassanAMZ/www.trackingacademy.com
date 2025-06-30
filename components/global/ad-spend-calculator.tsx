@@ -1,9 +1,9 @@
 "use client";
 
+import { ReactNode, useState } from "react";
+import Link from "next/link";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { Slider } from "@/components/ui/slider";
-import Link from "next/link";
-import { ReactNode, useState } from "react";
 import { Badge } from "../ui/badge";
 import { Button } from "../ui/button";
 

@@ -1,5 +1,5 @@
-import Script from "next/script";
 import React from "react";
+import Script from "next/script";
 
 export default function GoogleTagManager() {
   const isProduction = process.env.NEXT_PUBLIC_ENVIRONMENT === "production";

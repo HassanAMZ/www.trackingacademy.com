@@ -1,12 +1,12 @@
 "use server";
 
-import { db } from "@/app/firebase";
-import AuditRequestEmail from "@/components/emails/request-free-audit";
-import { collection, doc, setDoc, Timestamp } from "firebase/firestore";
 import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
+import { db } from "@/app/firebase";
+import { collection, doc, setDoc, Timestamp } from "firebase/firestore";
 import { Resend } from "resend";
 import { z } from "zod";
+import AuditRequestEmail from "@/components/emails/request-free-audit";
 
 export async function submitAuditRequest(formData: FormData): Promise<void> {
   const overallStart = performance.now();

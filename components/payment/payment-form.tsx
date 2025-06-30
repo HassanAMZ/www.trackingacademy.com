@@ -1,12 +1,12 @@
+import { FormEvent, useEffect, useState } from "react";
 import { saveUserData } from "@/actions/stripe-user-data";
+import { PaymentData, Product, PromoCode } from "@/types/index";
+import { PaymentElement, useElements, useStripe } from "@stripe/react-stripe-js";
+import { Loader2, LockIcon } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { PaymentData, Product, PromoCode } from "@/types/index";
 import { getSuccessUrl } from "@/utils/payment";
-import { PaymentElement, useElements, useStripe } from "@stripe/react-stripe-js";
-import { Loader2, LockIcon } from "lucide-react";
-import { FormEvent, useEffect, useState } from "react";
 
 interface PaymentFormProps {
   product: Product;

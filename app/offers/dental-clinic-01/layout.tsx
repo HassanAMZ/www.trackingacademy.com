@@ -1,6 +1,6 @@
 // 4. Dental Clinic Meta Pixel Page
-import type { Metadata } from "next";
 import { ReactNode } from "react";
+import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Fix Meta Pixel Data Sharing Restrictions for Dental Clinics | Restore Your Tracking",

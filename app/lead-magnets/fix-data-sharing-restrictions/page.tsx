@@ -1,18 +1,7 @@
 "use client";
 
-import FeaturedCaseStudy from "@/components/case-study/case-study-featured";
-import LoomEmbed from "@/components/global/loom-embed";
-import Hero from "@/components/home/hero";
-import TestimonialGrid from "@/components/testimonial/testimonial-grid";
-import { Alert, AlertDescription } from "@/components/ui/alert";
-import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import Container from "@/components/ui/container";
-import { Progress } from "@/components/ui/progress";
-import { Separator } from "@/components/ui/separator";
-import { cn } from "@/lib/utils";
-import getCaseStudy from "@/utils/getCaseStudy";
+import Image from "next/image";
+import Link from "next/link";
 import {
   AlertTriangle,
   BarChart3,
@@ -33,8 +22,19 @@ import {
   XCircle,
   Zap,
 } from "lucide-react";
-import Image from "next/image";
-import Link from "next/link";
+import FeaturedCaseStudy from "@/components/case-study/case-study-featured";
+import LoomEmbed from "@/components/global/loom-embed";
+import Hero from "@/components/home/hero";
+import TestimonialGrid from "@/components/testimonial/testimonial-grid";
+import { Alert, AlertDescription } from "@/components/ui/alert";
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import Container from "@/components/ui/container";
+import { Progress } from "@/components/ui/progress";
+import { Separator } from "@/components/ui/separator";
+import { cn } from "@/lib/utils";
+import getCaseStudy from "@/utils/getCaseStudy";
 
 const restrictionIssues = [
   {

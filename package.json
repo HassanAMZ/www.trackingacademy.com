@@ -139,9 +139,9 @@
     "tailwindPreserveDuplicates": false,
     "tabWidth": 2,
     "plugins": [
-      "@ianvs/prettier-plugin-sort-imports",
       "prettier-plugin-tailwindcss",
-      "prettier-plugin-organize-imports"
+      "prettier-plugin-organize-imports",
+      "@ianvs/prettier-plugin-sort-imports"
     ],
     "importOrder": [
       "^react(.*)$",

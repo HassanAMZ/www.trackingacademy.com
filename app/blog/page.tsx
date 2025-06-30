@@ -1,6 +1,6 @@
+import getBlogsData from "utils/getBlogsData";
 import CategoryContainer from "@/components/blog/category-container";
 import Container from "@/components/ui/container";
-import getBlogsData from "utils/getBlogsData";
 
 export default async function Page() {
   const data = await getBlogsData("app/_blog-markdown");

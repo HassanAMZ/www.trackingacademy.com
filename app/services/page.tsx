@@ -1,8 +1,8 @@
+import { services } from "@/data/services";
 import FAQSection from "@/components/pricing/faq-section";
 import { FeatureComparison, ServiceCard } from "@/components/pricing/pricing-vertical";
 import ServiceHero from "@/components/service/service-hero";
 import Container from "@/components/ui/container";
-import { services } from "@/data/services";
 
 export default function PricingPage() {
   return (

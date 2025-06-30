@@ -1,7 +1,7 @@
+import React from "react";
+import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import Container from "@/components/ui/container";
-import Link from "next/link";
-import React from "react";
 
 interface ScarcityUrgencyProps {
   title?: string;

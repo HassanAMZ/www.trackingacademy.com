@@ -1,6 +1,5 @@
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { format, subWeeks } from "date-fns";
 import React, { useMemo } from "react";
+import { format, subWeeks } from "date-fns";
 import {
   CartesianGrid,
   Legend,
@@ -12,6 +11,7 @@ import {
   XAxis,
   YAxis,
 } from "recharts";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
 // Improved type definitions
 interface ConversionData {

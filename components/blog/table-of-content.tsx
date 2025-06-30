@@ -1,5 +1,7 @@
 "use client";
 
+import { useEffect, useState } from "react";
+import { Link as LinkIcon } from "lucide-react";
 import {
   Accordion,
   AccordionContent,
@@ -7,8 +9,6 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
-import { Link as LinkIcon } from "lucide-react";
-import { useEffect, useState } from "react";
 import CustomLink from "../mdx/CustomLink";
 
 export default function TableOfContents() {

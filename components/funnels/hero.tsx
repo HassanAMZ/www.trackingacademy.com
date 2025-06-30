@@ -1,9 +1,9 @@
+import React, { ReactNode } from "react";
+import Link from "next/link";
 import YoutubeEmbed from "@/components/global/youtube-embed";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import Container from "@/components/ui/container";
-import Link from "next/link";
-import React, { ReactNode } from "react";
 
 interface HeroProps {
   badgeText?: string;

@@ -1,7 +1,7 @@
 "use client";
 
-import { useSelectedLayoutSegments } from "next/navigation";
 import React from "react";
+import { useSelectedLayoutSegments } from "next/navigation";
 import {
   Breadcrumb,
   BreadcrumbItem,

@@ -1,7 +1,7 @@
+import React from "react";
+import Image from "next/image";
 import { Card, CardContent } from "@/components/ui/card";
 import Container from "@/components/ui/container";
-import Image from "next/image";
-import React from "react";
 
 interface Guarantee {
   title: string;

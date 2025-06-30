@@ -1,3 +1,10 @@
+import React, { useRef, useState } from "react";
+import Markdown from "react-markdown";
+import Image from "next/image";
+import { AnthropicModels, OpenAiModels } from "@/data/gpt-models";
+import AiSystemMessages from "@/data/gpt-system-message";
+import { useChat } from "ai/react";
+import { ImagePlus, Loader2, RotateCcw, Send, StopCircle, Trash2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
@@ -8,13 +15,6 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { AnthropicModels, OpenAiModels } from "@/data/gpt-models";
-import AiSystemMessages from "@/data/gpt-system-message";
-import { useChat } from "ai/react";
-import { ImagePlus, Loader2, RotateCcw, Send, StopCircle, Trash2 } from "lucide-react";
-import Image from "next/image";
-import React, { useRef, useState } from "react";
-import Markdown from "react-markdown";
 import Container from "../ui/container";
 
 export default function ChatBot() {

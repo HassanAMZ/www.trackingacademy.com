@@ -1,5 +1,7 @@
 "use client";
 
+import { useActionState } from "react";
+import { useFormStatus } from "react-dom";
 import { createContact } from "@/actions/contact-us";
 import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
@@ -12,8 +14,6 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { useActionState } from "react";
-import { useFormStatus } from "react-dom";
 
 // Initial state for form
 const initialState = {

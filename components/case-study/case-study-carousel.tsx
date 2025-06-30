@@ -1,10 +1,10 @@
 "use client";
 
-import { CaseStudy } from "@/data/case-studies";
-import { ExternalLink } from "lucide-react";
+import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { useEffect, useRef, useState } from "react";
+import { CaseStudy } from "@/data/case-studies";
+import { ExternalLink } from "lucide-react";
 
 interface CaseStudyCarouselProps {
   caseStudies: CaseStudy[];
