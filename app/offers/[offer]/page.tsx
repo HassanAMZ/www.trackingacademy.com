@@ -4,29 +4,19 @@ import { notFound } from "next/navigation";
 import { offers, type OfferData } from "@/data/offers";
 import {
   AlertTriangle,
-  BarChart3,
   CheckCircle,
-  Clock,
   Database,
   DollarSign,
-  Eye,
-  Gauge,
-  Lock,
   RefreshCw,
   Search,
   Settings,
   Shield,
-  Star,
-  Target,
-  TrendingDown,
   TrendingUp,
-  Users,
   XCircle,
   Zap,
 } from "lucide-react";
 import FeaturedCaseStudy from "@/components/case-study/case-study-featured";
 import MeetingCalendar from "@/components/contact/meeting-calender";
-import LoomEmbed from "@/components/global/loom-embed";
 import MeetingBookingButton from "@/components/global/meeting-booking-utton";
 import YoutubeEmbed from "@/components/global/youtube-embed";
 import Hero from "@/components/home/hero";
@@ -39,24 +29,15 @@ import {
 } from "@/components/ui/accordion";
 import { Alert, AlertDescription } from "@/components/ui/alert";
 import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import Container from "@/components/ui/container";
-import { Progress } from "@/components/ui/progress";
-import { Separator } from "@/components/ui/separator";
-import { cn } from "@/lib/utils";
 import getCaseStudy from "@/utils/getCaseStudy";
 
-const restrictedCategories = [
-  { name: "Health & Wellness", severity: "High", affected: "94%" },
-  { name: "Financial Services", severity: "High", affected: "87%" },
-  { name: "Politics & Advocacy", severity: "Critical", affected: "100%" },
-  { name: "Dating & Relationships", severity: "High", affected: "92%" },
-  { name: "Weight Loss", severity: "Critical", affected: "98%" },
-  { name: "Mental Health", severity: "Critical", affected: "100%" },
-  { name: "Addiction Recovery", severity: "Critical", affected: "100%" },
-  { name: "Religious Content", severity: "Medium", affected: "78%" },
-];
+// Generate static params for all offers
+export async function generateStaticParams() {
+  return Object.keys(offers).map((offer) => ({
+    offer: offer,
+  }));
+}
 
 // Icon mapping for dynamic icon rendering
 const iconMap = {
