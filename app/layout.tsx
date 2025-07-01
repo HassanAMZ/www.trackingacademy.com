@@ -26,7 +26,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
           <AuthWrapper>
             <ThemeProvider
               attribute="class"
-              defaultTheme="system"
+              defaultTheme="light"
               enableSystem
               disableTransitionOnChange
             >

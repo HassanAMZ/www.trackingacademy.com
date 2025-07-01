@@ -2,11 +2,19 @@
 
 import Link from "next/link";
 import { sendGTMEvent } from "@next/third-parties/google";
+import { DollarSign, RefreshCw, Shield, TrendingUp, Zap } from "lucide-react";
 import FeaturedCaseStudy from "@/components/case-study/case-study-featured";
 import MeetingCalendar from "@/components/contact/meeting-calender";
 import YoutubeEmbed from "@/components/global/youtube-embed";
 import TestimonialGrid from "@/components/testimonial/testimonial-grid";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
 import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import Container from "@/components/ui/container";
 import { Separator } from "@/components/ui/separator";
 import getCaseStudy from "@/utils/getCaseStudy";
@@ -66,7 +74,7 @@ export default function Page() {
             <h4>
               First, we'll have a quick onboarding call to get the necessary information about your
               dental practice like your ideal patient, how your current tracking is configured, and
-              which level of restriction you meta ads account have befoe we can qualify you for the
+              which level of restriction you meta ads account have before we can qualify you for the
               DentalPixel Pro.
             </h4>
           </div>
@@ -148,6 +156,99 @@ export default function Page() {
         <MeetingCalendar />
       </section>
 
+      {/* FAQ Section */}
+      <section className="py-4">
+        <Container className="max-w-4xl">
+          <div className="mb-12 text-center">
+            <h2 className="mb-4 text-3xl font-bold md:text-4xl">Frequently Asked Questions</h2>
+            <p className="text-muted-foreground text-xl">
+              Everything you need to know about fixing your Facebook tracking
+            </p>
+          </div>
+
+          <Accordion type="single" collapsible className="w-full space-y-6" defaultValue="item-1">
+            <AccordionItem value="item-1">
+              <AccordionTrigger className="text-left">
+                <div className="flex items-center">
+                  <Zap className="text-primary mr-2 h-5 w-5" />
+                  How quickly can you fix my tracking?
+                </div>
+              </AccordionTrigger>
+              <AccordionContent>
+                <p className="text-muted-foreground">
+                  Most clients see their tracking restored within 72 hours. The process includes:
+                  audit (Day 1), implementation (Day 2), and testing (Day 3). Complex cases may take
+                  up to 7 days.
+                </p>
+              </AccordionContent>
+            </AccordionItem>
+
+            <AccordionItem value="item-2">
+              <AccordionTrigger className="text-left">
+                <div className="flex items-center">
+                  <Shield className="text-primary mr-2 h-5 w-5" />
+                  Will this violate Meta's policies?
+                </div>
+              </AccordionTrigger>
+              <AccordionContent>
+                <p className="text-muted-foreground">
+                  No. Our solution is 100% compliant with all Meta policies and data protection
+                  regulations (GDPR, CCPA, HIPAA). We work within Meta's framework to restore
+                  tracking while respecting all restrictions.
+                </p>
+              </AccordionContent>
+            </AccordionItem>
+
+            <AccordionItem value="item-3">
+              <AccordionTrigger className="text-left">
+                <div className="flex items-center">
+                  <TrendingUp className="text-primary mr-2 h-5 w-5" />
+                  What kind of results should I expect?
+                </div>
+              </AccordionTrigger>
+              <AccordionContent>
+                <p className="text-muted-foreground">
+                  Our clients typically see 85-95% of their tracking accuracy restored, ROAS
+                  recovery to pre-restriction levels, and the ability to build custom audiences
+                  again. Results vary by business category and implementation complexity.
+                </p>
+              </AccordionContent>
+            </AccordionItem>
+
+            <AccordionItem value="item-4">
+              <AccordionTrigger className="text-left">
+                <div className="flex items-center">
+                  <DollarSign className="text-primary mr-2 h-5 w-5" />
+                  What if it doesn't work for my business?
+                </div>
+              </AccordionTrigger>
+              <AccordionContent>
+                <p className="text-muted-foreground">
+                  We offer a 30-day money-back guarantee. If we can't significantly improve your
+                  tracking within 30 days, you get a full refund. We've successfully helped 300+
+                  businesses, with a 98.7% success rate.
+                </p>
+              </AccordionContent>
+            </AccordionItem>
+
+            <AccordionItem value="item-5">
+              <AccordionTrigger className="text-left">
+                <div className="flex items-center">
+                  <RefreshCw className="text-primary mr-2 h-5 w-5" />
+                  Do you provide ongoing support?
+                </div>
+              </AccordionTrigger>
+              <AccordionContent>
+                <p className="text-muted-foreground">
+                  Yes. All implementations include 90 days of monitoring and support to ensure your
+                  tracking remains stable. We also provide guidance on maintaining compliance as
+                  regulations evolve.
+                </p>
+              </AccordionContent>
+            </AccordionItem>
+          </Accordion>
+        </Container>
+      </section>
       {/* Testimonials */}
       <section className="py-16">
         <Container className="">
