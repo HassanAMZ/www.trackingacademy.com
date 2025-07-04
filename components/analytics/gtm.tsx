@@ -35,8 +35,8 @@ export default function GoogleTagManager() {
                     t = document,
                     r = "script",
                     n = "dataLayer",
-                    o = "https://road.trackingacademy.com",
-                    a = "https://load.road.trackingacademy.com",
+                    o = "https://metrics.trackingacademy.com",
+                    a = "https://load.metrics.trackingacademy.com",
                     i = "1z6ztxquqcp",
                     c = "42poe=aWQ9R1RNLU1DS1A3Sks%3D&page=1",
                     g = "stapeUserId",
@@ -80,7 +80,7 @@ export default function GoogleTagManager() {
           </Script>
           <noscript
             dangerouslySetInnerHTML={{
-              __html: `<iframe src="https://load.road.trackingacademy.com/ns.html?id=GTM-MCKP7JK" height="0" width="0" style="display:none;visibility:hidden"></iframe>`,
+              __html: `<iframe src="https://load.metrics.trackingacademy.com/ns.html?id=GTM-MCKP7JK" height="0" width="0" style="display:none;visibility:hidden"></iframe>`,
             }}
           />
         </React.Fragment>
