@@ -63,7 +63,7 @@ export default async function Page({ params }: { params: Promise<{ offer: string
     <main>
       <Hero
         heading={
-          <h1 className="animate-fade-in text-center leading-normal tracking-tighter">
+          <h1 className="animate-fade-in text-center leading-normal md:leading-tight tracking-tighter">
             {offerData.headline.prefix}{" "}
             {offerData.headline.conversion.map((conv, index) => (
               <span key={index}>

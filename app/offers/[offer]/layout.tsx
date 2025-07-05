@@ -95,7 +95,7 @@ export async function generateMetadata({
     description: `${cleanDescription} Fix your Meta Ads tracking for ${offerData.businessTypePlural} with our ${offerData.package} solution. ${offerData.restrictionData.affected} of ${offerData.businessTypePlural} affected by Meta's restrictions.`,
     keywords: [
       ...industryKeywords,
-      offerData.industry,
+      offerData.niche,
       offerData.businessType,
       offerData.businessTypePlural,
       offerData.package,
@@ -149,7 +149,7 @@ export async function generateMetadata({
         "max-snippet": -1,
       },
     },
-    category: `${offerData.industry} Marketing`,
+    category: `${offerData.niche} Marketing`,
     classification: "Business Services",
     referrer: "origin-when-cross-origin",
     formatDetection: {

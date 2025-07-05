@@ -504,11 +504,11 @@ export const offers: Record<string, OfferData> = {
       affected: "96%",
     },
     caseStudyIds: [
-      "zenon",
       "northridgeaddiction",
+      "zenon",
       "saneofrance",
-      "emiratesadvisory",
       "peachandcream",
+      "emiratesadvisory",
     ],
     keywords: [
       "rehab center marketing",
