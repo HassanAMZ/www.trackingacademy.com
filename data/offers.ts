@@ -164,7 +164,7 @@ export const offers: Record<string, OfferData> = {
       {
         question: "How quickly can you fix tracking for restricted industries?",
         answer:
-          "Most restricted niche businesses see their conversion tracking restored within 72 hours. The process includes: compliance audit (Day 1), niche-compliant implementation (Day 2), and testing (Day 3). Complex setups in highly regulated industries may take up to 7 days.",
+          "Most restricted niche businesses see their conversion tracking restored within a week. The process includes: compliance audit (Day 1), niche-compliant implementation (Day 2), and testing (Day 3). Complex setups in highly regulated industries may take up to 7 days.",
         icon: "Zap",
       },
       {
@@ -317,7 +317,7 @@ export const offers: Record<string, OfferData> = {
       {
         question: "How quickly can you fix my dental clinic tracking?",
         answer:
-          "Most dental practices see their patient tracking restored within 72 hours. The process includes: audit (Day 1), HIPAA-compliant implementation (Day 2), and testing (Day 3). Complex dental practice setups may take up to 7 days.",
+          "Most dental practices see their patient tracking restored within a week. The process includes: audit (Day 1), HIPAA-compliant implementation (Day 2), and testing (Day 3). Complex dental practice setups may take up to 7 days.",
         icon: "Zap",
       },
       {
@@ -466,7 +466,7 @@ export const offers: Record<string, OfferData> = {
       {
         question: "How quickly can you fix my rehab center tracking?",
         answer:
-          "Most rehabilitation centers see their patient tracking restored within 72 hours. The process includes: audit (Day 1), HIPAA-compliant implementation (Day 2), and testing (Day 3). Complex multi-facility setups may take up to 7 days.",
+          "Most rehabilitation centers see their patient tracking restored within a week. The process includes: audit (Day 1), HIPAA-compliant implementation (Day 2), and testing (Day 3). Complex multi-facility setups may take up to 7 days.",
         icon: "Zap",
       },
       {
@@ -611,7 +611,7 @@ export const offers: Record<string, OfferData> = {
       {
         question: "How quickly can you fix my CBD business tracking?",
         answer:
-          "Most CBD businesses see their sales tracking restored within 72 hours. The process includes: audit (Day 1), FDA-compliant implementation (Day 2), and testing (Day 3). Complex multi-product CBD stores may take up to 7 days.",
+          "Most CBD businesses see their sales tracking restored within a week. The process includes: audit (Day 1), FDA-compliant implementation (Day 2), and testing (Day 3). Complex multi-product CBD stores may take up to 7 days.",
         icon: "Zap",
       },
       {

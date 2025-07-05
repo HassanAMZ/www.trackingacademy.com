@@ -4,7 +4,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "$300 OFF - 3-Day 'See Every Sale' Tracking System | Restore Meta Tracking",
   description:
-    "We help ecommerce brands Fix Facebook's Data Sharing Restrictions and Restore 95%+ Accurate Data for every Key Event in just 3 days, without violating policies.",
+    "We help ecommerce brands Fix Facebook's Data Sharing Restrictions and Restore 95%+ Accurate Data for every Key Event in just 7 days, without violating policies.",
   openGraph: {
     title: "$300 OFF - 3-Day 'See Every Sale' Tracking System",
     description:

@@ -74,7 +74,7 @@ const solutionBenefits = [
     icon: <Zap className="text-primary h-6 w-6" />,
     title: "3-Day Implementation",
     description:
-      "Complete tracking restoration in just 72 hours with our proven system and dedicated support.",
+      "Complete tracking restoration in just a week with our proven system and dedicated support.",
   },
 ];
 
@@ -569,7 +569,7 @@ export default function Page() {
         </h1>
         <h4 className="text-muted-foreground mx-auto max-w-3xl text-center">
           Don't let data sharing restrictions kill your ad performance. Our clients see results
-          within 72 hours.
+          within 7 Days.
         </h4>
         <TestimonialGrid showUpworkStats={false} upwork={true} />
       </div>
@@ -642,9 +642,8 @@ export default function Page() {
               </CardHeader>
               <CardContent>
                 <p className="text-muted-foreground">
-                  Most clients see their tracking restored within 72 hours. The process includes:
-                  audit (Day 1), implementation (Day 2), and testing (Day 3). Complex cases may take
-                  up to 7 days.
+                  Most clients see their tracking restored within a week. The process includes:
+                  audit (Day 1), implementation (Day 2-5), and testing (Day 6-7).
                 </p>
               </CardContent>
             </Card>

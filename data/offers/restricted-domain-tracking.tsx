@@ -23,7 +23,7 @@ const RestrictedDomainTracking = {
       "Unreliable ROAS and ad decisions",
       "Scaling becomes impossible without reliable data",
     ],
-    secondaryHeadingText: "Fix Your Meta Tracking in Just 3 Days",
+    secondaryHeadingText: "Fix Your Meta Tracking in Just 7 days",
     secondaryParagraphText:
       "We help restricted domains regain tracking, so Meta can optimize ads with accurate funnel data.",
     secondaryListItems: [
@@ -36,7 +36,7 @@ const RestrictedDomainTracking = {
   offerDetails: {
     headerTitle: "$300 Off – 3-Day “See Your Sales Again” Tracking Setup",
     headerDescription:
-      "Restore your Meta conversion tracking in just 3 days—even if your domain is restricted.",
+      "Restore your Meta conversion tracking in just 7 days—even if your domain is restricted.",
     items: [
       {
         title: "3-Day “See Your Sales Again” Tracking Setup",
@@ -44,7 +44,7 @@ const RestrictedDomainTracking = {
           "We'll implement a complete tracking system to restore your AddToCart, Checkout, and Purchase data—even if your domain is blocked.",
         icon: "Zap",
         benefits: [
-          "Full funnel visibility within 3 days",
+          "Full funnel visibility within 7 days",
           "Server-side & GA4 tracking",
           "Compliant with Meta policies",
           "No coding required from your team",
@@ -71,7 +71,7 @@ const RestrictedDomainTracking = {
     testimonials: [
       {
         quote:
-          "We couldn't track any purchases before. Within 3 days, everything was back—and our ROAS doubled.",
+          "We couldn't track any purchases before. Within 7 days, everything was back—and our ROAS doubled.",
         author: "Lindsey T.",
         role: "Wellness Brand Owner",
         image: "/images/social-sharing.png",
@@ -137,7 +137,7 @@ const RestrictedDomainTracking = {
   },
 
   detailedCTA: {
-    heading: "Only 10 Spots – Restore Your Sales Funnel in 3 Days",
+    heading: "Only 10 Spots – Restore Your Sales Funnel in 7 days",
     subheading: "Get your conversion tracking back—accurate, fast, and guaranteed.",
     listItems: [
       "3-Day turnaround",

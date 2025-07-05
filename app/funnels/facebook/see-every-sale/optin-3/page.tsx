@@ -23,7 +23,7 @@ export default function Page() {
           </h1>
           <h4 className="text-muted-foreground max-w-5xl">
             <span className="text-primary font-semibold">300$ off:</span> “See Every Sale” Tracking
-            Setup For Facebook's Data Sharing Restrictions. All done-for-you, in just 3 days, with
+            Setup For Facebook's Data Sharing Restrictions. All done-for-you, in just 7 days, with
             95% Accurate Data Tracking, without Violating Any Facebook's policies.{" "}
           </h4>{" "}
           <YoutubeEmbed embedId="tdQufJ-qadE" className="max-w-4xl" />

@@ -1933,7 +1933,7 @@ export const caseStudies: CaseStudy[] = [
     plan: "Standard",
     title: "Restored Outbound Click Conversion Tracking for Restrank.com",
     description:
-      "After pausing campaigns and changing domains, Restrank.com's outbound click conversions stopped firing properly. In 3 days, I audited GTM and Google Ads, updated triggers for affiliate domains, and restored accurate GA4 and Ads tracking—enabling data-driven campaign optimization again.",
+      "After pausing campaigns and changing domains, Restrank.com's outbound click conversions stopped firing properly. In 7 days, I audited GTM and Google Ads, updated triggers for affiliate domains, and restored accurate GA4 and Ads tracking—enabling data-driven campaign optimization again.",
     imageUrl: "/images/for-businesses/client-restrank-desktop-home.png",
     mobileUrl: "/images/for-businesses/client-restrank-mobile-home.png",
     siteUrl: "https://restrank.com",

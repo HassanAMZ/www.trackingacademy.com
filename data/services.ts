@@ -302,7 +302,7 @@ export const services: Service[] = [
     id: "see-every-sale",
     subtitle: "3-Day Complete Tracking Solution",
     description:
-      "Complete Meta ads tracking restoration with custom dashboard and compliance setup - delivered in just 3 days.",
+      "Complete Meta ads tracking restoration with custom dashboard and compliance setup - delivered in just 7 days.",
     price: "$1,500",
     product_id: "prod_SI6QXbIdeTQbUY",
     price_id: "price_1RNWDwAE3E6zT9eTzcpnOUZy",
@@ -318,7 +318,7 @@ export const services: Service[] = [
       "Google Analytics": "GA4 Full Setup",
       "Google Tag Manager": "CST Setup",
       "Enhanced Ecommerce": true,
-      "Delivery Time": "3 days",
+      "Delivery Time": "7 days",
 
       "LinkedIn Ads Tracking": false,
       "X Ads Tracking": false,
@@ -367,7 +367,7 @@ export const services: Service[] = [
       "Premium Support":
         "Dedicated support throughout implementation, training on your new setup, and ongoing optimization recommendations.",
       "Money Back Guarantee":
-        "100% money-back guarantee if we don't deliver 95% accurate conversion tracking within 3 days.",
+        "100% money-back guarantee if we don't deliver 95% accurate conversion tracking within 7 days.",
       CST: "Client-Side Tracking captures user interactions directly in the browser. Only 60-70% accurate due to ad blockers, privacy settings, and browser restrictions.",
       SST: "Server-Side Tracking processes data on secure serversWebsite. ing ad blockers and preserving user privacy while maintaining 95%+ accuracy. Perfect for Meta ads optimization.",
       "GA4 Full Setup":

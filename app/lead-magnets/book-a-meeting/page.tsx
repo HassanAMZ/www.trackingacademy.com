@@ -20,7 +20,7 @@ export default async function BookAMeetingPage() {
       number: "2",
       title: "Tracking Setup",
       description:
-        "Our team implements everything for you. No work required on your end - we handle the entire technical setup in just 3 days, so you get the 95% accurate results.",
+        "Our team implements everything for you. No work required on your end - we handle the entire technical setup in just 7 days, so you get the 95% accurate results.",
       icon: <Settings className="h-6 w-6" />,
       color: "bg-primary",
     },
@@ -49,7 +49,7 @@ export default async function BookAMeetingPage() {
           <h4>
             We built the "See Every Sale System" to solve this exact problem.{" "}
             <span className="text-muted-foreground">
-              Recover your tracking in 72 hours. Stay compliant. Get back to profitable scaling.
+              Recover your tracking in a week. Stay compliant. Get back to profitable scaling.
             </span>
           </h4>
         </section>
@@ -114,7 +114,7 @@ export default async function BookAMeetingPage() {
         </h1>
         <h4 className="text-muted-foreground mx-auto max-w-3xl text-center">
           Don't let data sharing restrictions kill your ad performance. Our clients see results
-          within 72 hours.
+          within 7 Days.
         </h4>
         <TestimonialGrid showUpworkStats={false} upwork={true} />
       </div>

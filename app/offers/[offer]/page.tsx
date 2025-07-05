@@ -74,7 +74,7 @@ export default async function Page({ params }: { params: Promise<{ offer: string
                   (index === offerData.headline.conversion.length - 2 ? " & " : ", ")}
               </span>
             ))}{" "}
-            {offerData.headline.suffix}'s Meta Ad — in 72 Hours
+            {offerData.headline.suffix}'s Meta Ad — in a week
           </h1>
         }
         subheading={

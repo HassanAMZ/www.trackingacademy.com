@@ -91,7 +91,7 @@ export default function HomePage() {
         number: "2",
         title: "Tracking Setup",
         description:
-          "Our team implements everything for you. No work required on your end - we handle the entire technical setup in just 3 days, so you get the 95% accurate results.",
+          "Our team implements everything for you. No work required on your end - we handle the entire technical setup in just 7 days, so you get the 95% accurate results.",
         icon: <Settings className="h-6 w-6" />,
         color: "bg-secondary",
       },
@@ -168,7 +168,7 @@ export default function HomePage() {
   return (
     <main>
       <Hero
-        eyebrow="3 Days Web Tracking Transformation"
+        eyebrow="7 days Web Tracking Transformation"
         heading={
           <h1 className="mx-auto text-center lg:mx-0 lg:text-left">
             Fix Broken Website Tracking with 95% Accuracy —{" "}
@@ -187,7 +187,7 @@ export default function HomePage() {
         benefits={[
           "ROAS 30% Increase",
           "GDPR & CCPA Compliant",
-          "Completed in 3 days",
+          "Completed in 7 days",
           "One-time setup cost",
           "Slace Effortlessly",
           "Get 95%+ Accuracy",
@@ -258,7 +258,7 @@ export default function HomePage() {
       </div>
       <DetailsCarousel
         headerTitle="How See Every Sale Help You Fix Everything that's Wrong with your Tracking Setup?"
-        headerDescription="A complete system designed to fix Broken Tracking and restore 95%+ accurate data for every key event — all done-for-you in just 3 days."
+        headerDescription="A complete system designed to fix Broken Tracking and restore 95%+ accurate data for every key event — all done-for-you in just 7 days."
         items={[
           {
             title: "95% Accurate Ads Conversion Tracking",
@@ -420,7 +420,7 @@ export default function HomePage() {
           {
             title: "100% Money Back Guarantee",
             description:
-              "If we don't deliver 95% accurate conversion tracking within 3 days, you get a 100% refund – no questions asked.",
+              "If we don't deliver 95% accurate conversion tracking within 7 days, you get a 100% refund – no questions asked.",
             image: "/images/hero/money-back.png",
           },
         ]}
@@ -432,7 +432,7 @@ export default function HomePage() {
           {
             number: "1",
             title: "Need fast results",
-            description: "Get back on track in just 3 days with our rapid implementation",
+            description: "Get back on track in just 7 days with our rapid implementation",
           },
           {
             number: "2",
@@ -469,13 +469,13 @@ export default function HomePage() {
           {
             title: "Our 3-Day Solution",
             content:
-              "We specialize exclusively in solving tracking issues for ecommerce brands. With our proven system, you'll have accurate tracking in just 3 days without the headaches, wasted time, or policy violations.",
+              "We specialize exclusively in solving tracking issues for ecommerce brands. With our proven system, you'll have accurate tracking in just 7 days without the headaches, wasted time, or policy violations.",
           },
         ]}
       />{" "}
       <DetailedCTA
         heading="Claim Your $300 Off Today"
-        subheading="Restore Your Meta Ads Tracking in Just 3 Days"
+        subheading="Restore Your Meta Ads Tracking in Just 7 days"
         listItems={[
           "See your ViewContent, AddToCart, Checkout & Purchase events again",
           "Get the data Meta needs to optimize your campaigns",
