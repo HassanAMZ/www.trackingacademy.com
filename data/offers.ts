@@ -1,7 +1,7 @@
 // @/data/offers.ts
 export interface OfferData {
   slug: string;
-  industry: string;
+  niche: string;
   businessType: string;
   businessTypePlural: string;
   package: string;
@@ -65,9 +65,165 @@ export interface OfferData {
 }
 
 export const offers: Record<string, OfferData> = {
-  "dental-clinic-01": {
+  "default-offer": {
+    slug: "default-restricted-niche",
+    niche: "Restricted Industries",
+    package: "RestrictedPixel Pro",
+    businessType: "business",
+    businessTypePlural: "businesses",
+    icon: "🚫",
+    eyebrow: "Running Meta Ads in a Restricted Niche?",
+    headline: {
+      prefix: "Track Every",
+      conversion: ["Lead", "Purchase"],
+      suffix: "for Your Restricted Niche",
+    },
+    subheading:
+      'Even if Meta has flagged your niche as restricted, blocked your domain, or disabled your events—we install <strong class="text-primary underline">RestrictedPixel Pro</strong> to fix your Meta Ads Conversions for your restricted business.',
+    videoId: "tdQufJ-qadE",
+    cta: {
+      primary: "Schedule Your Call To Fix Your Restricted Niche Meta Ads Tracking",
+      secondary:
+        "Start tracking conversions in Meta Ads & Events Manager again, even in restricted niches",
+    },
+    benefits: [
+      "Track all conversions in restricted industries",
+      "Fix Data Sharing Restrictions",
+      "Full Compliance with Niche Regulations",
+    ],
+    problemStatement: {
+      title: "Why Your Restricted Niche Facebook Ads Are Failing",
+      description:
+        "Meta's 2025 data sharing restrictions are specifically targeting businesses in health & wellness, financial services, CBD, politics, and other sensitive categories—blocking critical conversion tracking and causing massive performance drops.",
+      alerts: [
+        {
+          title: "Niche-specific restrictions applied",
+          description:
+            "Standard events blocked: Lead Generation, Purchase, Contact, and custom conversions across health, finance, CBD, wellness, and political niches",
+          icon: "AlertTriangle",
+        },
+        {
+          title: "Custom events can't be used with ads features",
+          description:
+            "Hundreds of thousands of conversion events blocked across restricted categories",
+          icon: "XCircle",
+        },
+        {
+          title: "Revenue Loss: $3,000-$15,000+ monthly",
+          description: "Wasted ad spend due to poor optimization in restricted industries",
+          icon: "DollarSign",
+        },
+        {
+          title: "Conversion Data Loss: 75-98% of events",
+          description:
+            "Critical business insights completely missing from restricted niche campaigns",
+          icon: "Database",
+        },
+      ],
+    },
+    solution: {
+      badge: "Niche-Compliant Solution",
+      title: 'The "RestrictedPixel Pro" System for Restricted Industries',
+      description:
+        "Our specialized approach restores your Facebook Pixel tracking for businesses in health & wellness, financial services, CBD, politics, and other restricted categories while maintaining full regulatory compliance.",
+      steps: [
+        {
+          day: 1,
+          title: "Restricted Niche Audit & Compliance Assessment",
+          description:
+            'We conduct a comprehensive onboarding call to analyze your current tracking configuration, identify niche-specific compliance requirements (HIPAA, GDPR, financial regulations), and qualify your business for our "RestrictedPixel Pro" solution.',
+          icon: "Search",
+        },
+        {
+          day: 2,
+          title: "Compliant Advanced Tracking Setup",
+          description:
+            "Our experts implement a complete niche-compliant tracking system that captures every lead, sale, and conversion while respecting Meta's restrictions. We handle all technical aspects for your restricted niche business end-to-end.",
+          icon: "Settings",
+        },
+        {
+          day: 3,
+          title: "Launch & Optimize Compliant Tracking",
+          description:
+            "Your restricted niche tracking system goes live, capturing every ad interaction within compliance guidelines. We provide monitoring guidelines and optimization recommendations for maximum performance while staying compliant.",
+          icon: "TrendingUp",
+        },
+      ],
+    },
+    finalCta: {
+      title: "Stop Losing Conversions to Meta's Restrictions",
+      description:
+        "Get your free audit now and discover exactly how many conversions your restricted niche business is losing to Meta's data sharing restrictions.",
+    },
+    calendar: {
+      title: "Schedule Your Free Restricted Niche Meta Tracking Setup",
+      description:
+        "Get your free audit now and discover exactly how many conversions your business is losing to Meta's niche-specific tracking restrictions.",
+    },
+    faq: [
+      {
+        question: "How quickly can you fix tracking for restricted industries?",
+        answer:
+          "Most restricted niche businesses see their conversion tracking restored within 72 hours. The process includes: compliance audit (Day 1), niche-compliant implementation (Day 2), and testing (Day 3). Complex setups in highly regulated industries may take up to 7 days.",
+        icon: "Zap",
+      },
+      {
+        question: "Will this violate Meta's policies or niche regulations?",
+        answer:
+          "No. Our solution is 100% compliant with Meta's restricted niche policies and all relevant regulations (HIPAA for health, financial regulations, GDPR, CCPA, etc.). We work within Meta's framework specifically designed for restricted categories to restore tracking while respecting all compliance requirements.",
+        icon: "Shield",
+      },
+      {
+        question: "What kind of results should my restricted niche business expect?",
+        answer:
+          "Businesses in restricted industries typically see 80-95% of their conversion tracking accuracy restored, ROAS recovery to pre-restriction levels, and the ability to build compliant custom audiences again. Results vary by niche regulations and implementation complexity.",
+        icon: "TrendingUp",
+      },
+      {
+        question: "What if it doesn't work for my restricted niche business?",
+        answer:
+          "We offer a 30-day money-back guarantee. If we can't significantly improve your restricted niche tracking within 30 days, you get a full refund. We've successfully helped businesses across health & wellness, financial services, CBD, wellness, and political niches with a 98.7% success rate.",
+        icon: "DollarSign",
+      },
+      {
+        question: "Do you provide ongoing support for restricted industries?",
+        answer:
+          "Yes. All restricted niche implementations include 90 days of monitoring and support to ensure your tracking remains stable and compliant. We also provide guidance on maintaining compliance as niche regulations and Meta policies evolve.",
+        icon: "RefreshCw",
+      },
+    ],
+    testimonialSection: {
+      title: "Restricted Niche Businesses Recovered Their Meta Tracking",
+      description:
+        "From health & wellness to financial services, CBD businesses to political campaigns—we've restored compliant tracking for every restricted niche client. See how we recovered their ROAS while maintaining full regulatory compliance.",
+    },
+    restrictionData: {
+      severity: "Critical",
+      affected: "89%",
+    },
+    caseStudyIds: [
+      "zenon",
+      "northridgeaddiction",
+      "saneofrance",
+      "emiratesadvisory",
+      "peachandcream",
+    ],
+    keywords: [
+      "restricted niche marketing",
+      "health wellness Facebook ads",
+      "financial services tracking",
+      "CBD business advertising",
+      "political campaign ads",
+      "compliant Meta tracking",
+      "restricted niche conversions",
+      "HIPAA compliant ads",
+      "financial services compliance",
+      "wellness business tracking",
+    ],
+  },
+  "dental-clinic": {
     slug: "dental-clinic",
-    industry: "Dental",
+    niche: "Dental",
     package: "DentalPixel Pro",
     businessType: "dental clinic",
     businessTypePlural: "dental clinics",
@@ -216,7 +372,7 @@ export const offers: Record<string, OfferData> = {
   },
   "rehab-center": {
     slug: "rehab-center",
-    industry: "Addiction Treatment",
+    niche: "Addiction Treatment",
     package: "RehabPixel Pro",
     businessType: "rehab center",
     businessTypePlural: "rehab centers",
@@ -224,7 +380,7 @@ export const offers: Record<string, OfferData> = {
     eyebrow: "Running Meta Ads for Your Rehab Center?",
     headline: {
       prefix: "Track Every",
-      conversion: ["Admission", "Lead", "Inquiry"],
+      conversion: ["Inquiry", "Lead", "Admission"],
       suffix: "for Your Rehab Center",
     },
     subheading:
@@ -366,7 +522,7 @@ export const offers: Record<string, OfferData> = {
 
   "cbd-business": {
     slug: "cbd-business",
-    industry: "CBD & Hemp",
+    niche: "CBD & Hemp",
     package: "CBDPixel Pro",
     businessType: "CBD business",
     businessTypePlural: "CBD businesses",
@@ -504,7 +660,7 @@ export const offers: Record<string, OfferData> = {
       "hemp product advertising",
       "cannabis business ads",
       "CBD ecommerce tracking",
-      "hemp industry marketing",
+      "hemp niche marketing",
       "CBD compliance advertising",
     ],
   },

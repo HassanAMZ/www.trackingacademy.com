@@ -55,75 +55,15 @@ const iconMap = {
 
 export default async function Page({ params }: { params: Promise<{ offer: string }> }) {
   const { offer } = await params;
-  const offerData = offers[offer];
 
-  // If offer doesn't exist, render the original page
-  if (!offerData) {
-    return (
-      <main>
-        <Hero
-          heading={
-            <h1 className="animate-fade-in text-center">
-              Track Every{" "}
-              <span className="bg-destructive/10 text-destructive border-destructive/20 rounded-lg border px-2 py-1">
-                Lead
-              </span>
-              {", "}
-              <span className="bg-destructive/10 text-destructive border-destructive/20 rounded-lg border px-2 py-1 ">
-                Appointment
-              </span>
-              {" & "}
-              <span className="bg-destructive/10 text-destructive border-destructive/20 rounded-lg border px-2 py-1 ">
-                Purchase
-              </span>{" "}
-              for Your Meta Ads — in 72 Hours
-            </h1>
-          }
-          subheading={
-            <div className="space-y-4">
-              <h4 className="mx-auto max-w-4xl text-center">
-                Even if Meta has restricted your domain, blocked URL parameters, or disabled your
-                events—we install <strong className="text-primary underline">See Every Sale</strong>{" "}
-                Tracking Setup to fix your Meta Ads Conversions.
-                <div className="flex flex-wrap justify-center gap-2 py-4 ">
-                  <Badge variant="destructive" className="flex items-center gap-1">
-                    <XCircle className="h-4 w-4" />
-                    Pixel Missing Data
-                  </Badge>
-                  <Badge variant="destructive" className="flex items-center gap-1">
-                    <XCircle className="h-4 w-4" />
-                    CAPI Not Firing
-                  </Badge>
-                  <Badge variant="destructive" className="flex items-center gap-1">
-                    <XCircle className="h-4 w-4" />
-                    Data Sharing Restrictions
-                  </Badge>
-                </div>
-              </h4>
-
-              <YoutubeEmbed embedId="tdQufJ-qadE" className=" max-w-4xl p-0" />
-              <MeetingBookingButton className="text-center" wrapperButtonClassName=" py-4" />
-            </div>
-          }
-          benefits={[
-            "Fix Data Sharing Restrictions",
-            "Track all conversions",
-            "GDPR & CCPA Compliant",
-          ]}
-        />
-
-        {/* Rest of the original page content */}
-        {/* ... (truncated for brevity, includes all the original sections) */}
-      </main>
-    );
-  }
+  const offerData = offers[offer] || offers["default-offer"];
 
   // Dynamic content based on offer data
   return (
     <main>
       <Hero
         heading={
-          <h1 className="animate-fade-in text-center tracking-tighter">
+          <h1 className="animate-fade-in text-center leading-normal tracking-tighter">
             {offerData.headline.prefix}{" "}
             {offerData.headline.conversion.map((conv, index) => (
               <span key={index}>
