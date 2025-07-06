@@ -1,12 +1,12 @@
 // src/components/HomePage/ConversionApiSection.tsx
-import React from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import Container from "@/components/ui/container";
+import React from "react";
 
 export const ConversionApiSection: React.FC = () => {
   return (
     <Container>
-      <div className="bg-secondary relative rounded-2xl p-8">
+      <div className="relative rounded-2xl bg-secondary p-8">
         <h2 className="py-6 text-center">Maximise ROI with a high-quality Conversions API setup</h2>{" "}
         <div className="mx-auto grid max-w-5xl gap-6 md:grid-cols-2">
           {[
@@ -31,7 +31,7 @@ export const ConversionApiSection: React.FC = () => {
               </CardHeader>
               <CardContent className="space-y-4">
                 <p className="text-muted-foreground">{card.description}</p>
-                <span className="text-primary text-5xl font-bold md:text-6xl">
+                <span className="text-5xl font-bold text-primary md:text-6xl">
                   {card.percentage}
                 </span>
                 <p className="text-muted-foreground">{card.note}</p>
@@ -39,7 +39,7 @@ export const ConversionApiSection: React.FC = () => {
             </Card>
           ))}
         </div>{" "}
-        <div className="text-muted-foreground mx-auto mt-8 max-w-3xl space-y-2 text-xs">
+        <div className="mx-auto mt-8 max-w-3xl space-y-2 text-xs text-muted-foreground">
           {/* Source citations from original component */}
         </div>
       </div>

@@ -1,9 +1,9 @@
 // components/services/service-features.tsx
-import { Service } from "@/data/services";
-import { CheckCircle, HelpCircle, X } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
+import { Service } from "@/data/services";
+import { CheckCircle, HelpCircle, X } from "lucide-react";
 
 interface ServiceFeaturesProps {
   service: Service;
@@ -22,9 +22,9 @@ export default function ServiceFeatures({ service }: ServiceFeaturesProps) {
     <div className="flex items-center justify-between rounded-lg border p-4">
       <div className="flex items-center gap-3">
         {value === true ? (
-          <CheckCircle className="text-primary h-5 w-5" />
+          <CheckCircle className="h-5 w-5 text-primary" />
         ) : value === false ? (
-          <X className="text-muted-foreground h-5 w-5" />
+          <X className="h-5 w-5 text-muted-foreground" />
         ) : (
           <Badge variant="outline" className="text-xs">
             {value}
@@ -35,7 +35,7 @@ export default function ServiceFeatures({ service }: ServiceFeaturesProps) {
           <TooltipProvider>
             <Tooltip>
               <TooltipTrigger>
-                <HelpCircle className="text-muted-foreground h-4 w-4" />
+                <HelpCircle className="h-4 w-4 text-muted-foreground" />
               </TooltipTrigger>
               <TooltipContent className="max-w-xs p-4">
                 <p>{explanation}</p>

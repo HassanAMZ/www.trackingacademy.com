@@ -1,7 +1,7 @@
-import React from "react";
 import MeetingCalender from "@/components/contact/meeting-calender";
 import YoutubeEmbed from "@/components/global/youtube-embed";
 import Container from "@/components/ui/container";
+import React from "react";
 
 export default async function BookAMeetingPage() {
   return (
@@ -10,10 +10,10 @@ export default async function BookAMeetingPage() {
       <Container className="max-w-5xl py-6">
         <section className="space-y-4 text-center">
           <h1>You're One Step Away From Fixing Your Tracking Blindspot</h1>
-          <h4 className="text-muted-foreground pt-3">
+          <h4 className="pt-3 text-muted-foreground">
             We help businesses recover 30%+ of invisible conversions and slash wasted ad spend—fast.
             <br />
-            <span className="text-primary font-semibold">
+            <span className="font-semibold text-primary">
               Book your implementation call now to get started.
             </span>
           </h4>
@@ -22,7 +22,7 @@ export default async function BookAMeetingPage() {
       <MeetingCalender />
       {/* NEXT STEPS SECTION */}
       <Container className="flex max-w-5xl flex-col gap-6 space-y-3 py-12">
-        <h1 className="text-center ">🚀 What Happens Next?</h1>{" "}
+        <h1 className="text-center">🚀 What Happens Next?</h1>{" "}
         <h4>
           <span className="text-primary">✅ Step 1: </span>
           Book your implementation call using the calendar above.

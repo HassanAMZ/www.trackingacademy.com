@@ -1,21 +1,5 @@
 "use client";
 
-import React, { useState } from "react";
-import { useRouter } from "next/navigation";
-import auditReports from "@/data/audit-report";
-import { sendGTMEvent } from "@next/third-parties/google";
-import clsx from "clsx";
-import {
-  ArrowRight,
-  BarChart2,
-  CheckSquare,
-  Loader2,
-  Phone,
-  Settings,
-  Target,
-  TrendingUp,
-} from "lucide-react";
-import { z } from "zod";
 import Auditarousel from "@/components/audit/audit-carousal";
 import DetailedCTA from "@/components/funnels/detailed-cta";
 import DetailsCarousel from "@/components/funnels/details-carousal";
@@ -31,6 +15,22 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import Container from "@/components/ui/container";
 import { Input } from "@/components/ui/input";
+import auditReports from "@/data/audit-report";
+import { sendGTMEvent } from "@next/third-parties/google";
+import clsx from "clsx";
+import {
+  ArrowRight,
+  BarChart2,
+  CheckSquare,
+  Loader2,
+  Phone,
+  Settings,
+  Target,
+  TrendingUp,
+} from "lucide-react";
+import { useRouter } from "next/navigation";
+import React, { useState } from "react";
+import { z } from "zod";
 
 export default function Page() {
   const [hasSubmitted, setHasSubmitted] = useState(false);
@@ -96,7 +96,7 @@ export default function Page() {
     ];
 
     return (
-      <Container className="from-primary/5 to-background grid place-content-center gap-6 bg-linear-to-b py-32">
+      <Container className="grid place-content-center gap-6 bg-linear-to-b from-primary/5 to-background py-32">
         <div className="mmx-to mb-8 space-y-8 text-center">
           <h1>
             How
@@ -114,7 +114,7 @@ export default function Page() {
                 <Card className="relative h-full overflow-hidden border-0 shadow-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
                   <CardHeader className="relative pb-4">
                     <div className="mb-4 flex items-center justify-between">
-                      <div className="text-muted-foreground/20 text-7xl select-none">
+                      <div className="text-7xl text-muted-foreground/20 select-none">
                         {step.number}
                       </div>
                     </div>
@@ -127,7 +127,7 @@ export default function Page() {
               </div>
               {index < steps.length - 1 && (
                 <div className="hidden items-center justify-center px-4 lg:flex">
-                  <ArrowRight className="text-primary h-6 w-6" />
+                  <ArrowRight className="h-6 w-6 text-primary" />
                 </div>
               )}
             </React.Fragment>
@@ -253,7 +253,7 @@ export default function Page() {
           </h1>
         }
         subheading={
-          <h4 className="text-muted-foreground mx-auto max-w-3xl text-center">
+          <h4 className="mx-auto max-w-3xl text-center text-muted-foreground">
             Our
             <span className="text-primary"> "Total Transparency" </span>
             audit reveals exactly what's broken in your tracking setup and how much ad spend you're
@@ -274,7 +274,7 @@ export default function Page() {
       <div className="w-full py-12">
         <Container className="flex max-w-4xl flex-col items-center space-y-6 pb-12 text-center">
           <h1>Trusted by 1,000+ for Their Audits</h1>
-          <h4 className="text-muted-foreground max-w-3xl">
+          <h4 className="max-w-3xl text-muted-foreground">
             See exactly how we identified tracking issues for brands and the measurable impact on
             their ROAS, conversion rates, and scaling success.
           </h4>
@@ -516,7 +516,7 @@ export default function Page() {
         }
       />
 
-      <div className="from-primary/5 to-background space-y-12 bg-linear-to-b py-24">
+      <div className="space-y-12 bg-linear-to-b from-primary/5 to-background py-24">
         <div className="mx-auto max-w-4xl space-y-6 pb-6 text-center">
           <h1>Join 1,000+ Businesses Who Got Their Free Audit</h1>
           <h4 className="text-muted-foreground">

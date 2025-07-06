@@ -1,5 +1,5 @@
-import React, { ReactNode } from "react";
 import type { Metadata } from "next";
+import React, { ReactNode } from "react";
 
 export const metadata: Metadata = {
   title: "ChatBot - OpenAI Bots built for Operations Teams",

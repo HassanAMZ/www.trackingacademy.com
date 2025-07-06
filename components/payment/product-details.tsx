@@ -1,9 +1,9 @@
-import type { Product, PromoCode } from "@/types/index";
-import { CheckCircle, Info } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardFooter, CardHeader } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
+import type { Product, PromoCode } from "@/types/index";
 import { formatCurrency } from "@/utils/payment";
+import { CheckCircle, Info } from "lucide-react";
 
 interface ProductDetailsProps {
   product: Product;
@@ -37,7 +37,7 @@ export const ProductDetails = ({ product, appliedPromo }: ProductDetailsProps) =
             <ul className="space-y-1.5">
               {product.features.map((feature, index) => (
                 <li key={index} className="flex items-start">
-                  <CheckCircle className="text-primary mt-0.5 mr-2 h-4 w-4 flex-shrink-0" />
+                  <CheckCircle className="mt-0.5 mr-2 h-4 w-4 flex-shrink-0 text-primary" />
                   <span className="text-muted-foreground">{feature}</span>
                 </li>
               ))}
@@ -52,7 +52,7 @@ export const ProductDetails = ({ product, appliedPromo }: ProductDetailsProps) =
             <ul className="space-y-1.5">
               {Object.entries(product.metadata).map(([key, value]) => (
                 <li key={key} className="flex items-start">
-                  <Info className="text-primary mt-0.5 mr-2 h-4 w-4 flex-shrink-0" />
+                  <Info className="mt-0.5 mr-2 h-4 w-4 flex-shrink-0 text-primary" />
                   <span className="text-muted-foreground">
                     <span className="font-medium">{key}:</span> {value}
                   </span>
@@ -64,7 +64,7 @@ export const ProductDetails = ({ product, appliedPromo }: ProductDetailsProps) =
 
         {/* Promo Code */}
         {appliedPromo && (
-          <div className="bg-muted rounded-md p-3">
+          <div className="rounded-md bg-muted p-3">
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-2">
                 <Badge variant="outline" className="text-primary">

@@ -1,10 +1,10 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
-import Link from "next/link";
+import { Button } from "@/components/ui/button";
 import { caseStudies } from "@/data/case-studies";
 import { Star } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import Link from "next/link";
+import React, { useEffect, useState } from "react";
 import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar";
 
 const TestimonialsCarousel2: React.FC = () => {
@@ -37,7 +37,7 @@ const TestimonialsCarousel2: React.FC = () => {
 
   return (
     <Link href={`/case-study/${currentTestimonial.id}`} target="_blank" rel="noopener noreferrer">
-      <div className="md:py:2 text-muted-foreground relative space-y-4 rounded-lg px-6 pt-2 pb-4 shadow md:mx-0">
+      <div className="md:py:2 relative space-y-4 rounded-lg px-6 pt-2 pb-4 text-muted-foreground shadow md:mx-0">
         <div className="absolute -top-3 right-0 flex space-x-1">
           {[...Array(5)].map((_, i) => (
             <Star key={i} className="fill-amber-400 text-amber-400" />

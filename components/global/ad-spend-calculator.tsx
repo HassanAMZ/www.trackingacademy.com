@@ -1,9 +1,9 @@
 "use client";
 
-import { ReactNode, useState } from "react";
-import Link from "next/link";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { Slider } from "@/components/ui/slider";
+import Link from "next/link";
+import { ReactNode, useState } from "react";
 import { Badge } from "../ui/badge";
 import { Button } from "../ui/button";
 
@@ -30,7 +30,7 @@ export default function AdSpendCalculator({ cta = true, customCtaButton }: AdSpe
         <CardHeader>
           <Badge className="mx-auto w-fit">Calculate your wasted ad spend</Badge>
           {cta && (
-            <p className="text-muted-foreground text-sm">
+            <p className="text-sm text-muted-foreground">
               Spoiler alert: it's more than you think.
             </p>
           )}
@@ -39,7 +39,7 @@ export default function AdSpendCalculator({ cta = true, customCtaButton }: AdSpe
           <h2 className="text-center">
             Your Current Ad Spend?
             <br />
-            <span className="text-primary py-2 font-black">${formatNumber(adSpend)}</span>
+            <span className="py-2 font-black text-primary">${formatNumber(adSpend)}</span>
           </h2>
           <div>
             <Slider
@@ -56,7 +56,7 @@ export default function AdSpendCalculator({ cta = true, customCtaButton }: AdSpe
             <Card>
               <CardContent className="px-4">
                 <p className="">ANNUALLY</p>
-                <h2 className="text-primary line-clamp-1 font-black">
+                <h2 className="line-clamp-1 font-black text-primary">
                   ${formatNumber(annualRevenue)}
                 </h2>
               </CardContent>
@@ -64,7 +64,7 @@ export default function AdSpendCalculator({ cta = true, customCtaButton }: AdSpe
             <Card>
               <CardContent className="px-4">
                 <p>MONTHLY</p>
-                <h2 className="text-primary line-clamp-1 font-black">
+                <h2 className="line-clamp-1 font-black text-primary">
                   ${formatNumber(monthlyRevenue)}
                 </h2>
               </CardContent>

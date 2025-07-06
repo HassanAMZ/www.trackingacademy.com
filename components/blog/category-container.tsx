@@ -1,11 +1,11 @@
 "use client";
 
-import React, { useMemo, useState } from "react";
-import { PostMetadata } from "@/types/index";
 import BlogSearch from "@/components/blog/search";
 import SingleBlogCard from "@/components/blog/single-card";
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { PostMetadata } from "@/types/index";
+import React, { useMemo, useState } from "react";
 import ContactUs from "./call-to-action-message-us";
 
 interface BlogContentProps {

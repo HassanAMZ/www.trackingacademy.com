@@ -1,10 +1,10 @@
-import { promises as fs } from "fs";
-import path from "path";
-import Link from "next/link";
-import { Settings } from "lucide-react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import Container from "@/components/ui/container";
 import { iconMap, toolDescriptions } from "@/utils/tools";
+import { promises as fs } from "fs";
+import { Settings } from "lucide-react";
+import Link from "next/link";
+import path from "path";
 
 async function getTools() {
   const toolsDirectory = path.join(process.cwd(), "app/tools");
@@ -40,7 +40,7 @@ export default async function Page() {
                 <Link href={`/tools/${tool.slug}`} className="block h-full">
                   <CardHeader>
                     <div className="flex items-center gap-2">
-                      <div className="bg-primary/10 rounded-lg p-2">
+                      <div className="rounded-lg bg-primary/10 p-2">
                         <Icon className="h-6 w-6" />
                       </div>
                       <CardTitle>{tool.name}</CardTitle>

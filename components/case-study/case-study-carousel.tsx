@@ -1,10 +1,10 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
-import Image from "next/image";
-import Link from "next/link";
 import { CaseStudy } from "@/data/case-studies";
 import { ExternalLink } from "lucide-react";
+import Image from "next/image";
+import Link from "next/link";
+import { useEffect, useRef, useState } from "react";
 
 interface CaseStudyCarouselProps {
   caseStudies: CaseStudy[];
@@ -57,7 +57,7 @@ export default function CaseStudyCarousel({
 
   return (
     <div
-      className={`bg-background overflow-hidden ${className}`}
+      className={`overflow-hidden bg-background ${className}`}
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
     >
@@ -85,15 +85,15 @@ export default function CaseStudyCarousel({
               className="scale-102 object-cover transition-opacity duration-300 group-hover:opacity-80"
             />{" "}
             {/* Gradient overlay that intensifies on hover */}
-            <div className="group-hover:from-primary absolute inset-0 opacity-70 transition-opacity duration-300 group-hover:bg-linear-to-t group-hover:to-transparent group-hover:opacity-90"></div>{" "}
+            <div className="absolute inset-0 opacity-70 transition-opacity duration-300 group-hover:bg-linear-to-t group-hover:from-primary group-hover:to-transparent group-hover:opacity-90"></div>{" "}
             {/* Case study details that scale up on hover */}
-            <div className="text-background absolute inset-x-0 bottom-0 z-10 hidden transform p-4 text-left transition-transform duration-300 group-hover:block group-hover:scale-110">
+            <div className="absolute inset-x-0 bottom-0 z-10 hidden transform p-4 text-left text-background transition-transform duration-300 group-hover:block group-hover:scale-110">
               <h4 className="mb-1 line-clamp-3 hover:underline">{caseStudy.title}</h4>
               <p className="line-clamp-2 transition-colors duration-300">{caseStudy.description}</p>
             </div>{" "}
             {/* Outline icon that appears on hover */}
             <div className="absolute top-1/2 left-1/2 z-30 -translate-x-1/2 -translate-y-1/2 transform opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-              <div className="bg-primary rounded-full p-3 text-white shadow-lg">
+              <div className="rounded-full bg-primary p-3 text-white shadow-lg">
                 <ExternalLink className="h-6 w-6" />
               </div>
             </div>

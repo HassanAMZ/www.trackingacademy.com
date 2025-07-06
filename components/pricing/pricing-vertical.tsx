@@ -1,10 +1,10 @@
-import Link from "next/link";
-import { Service } from "@/data/services";
-import { ArrowRight, Check, CheckCircle, X } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
+import { Service } from "@/data/services";
+import { ArrowRight, Check, CheckCircle, X } from "lucide-react";
+import Link from "next/link";
 
 interface FeatureWithTooltipProps {
   featureName: string;
@@ -118,10 +118,10 @@ const ServiceCard = ({ service }: ServiceCardProps) => {
 
   return (
     <Card
-      className={`flex h-full flex-col ${service.color} ${service.popular ? "ring-primary ring-2" : ""}`}
+      className={`flex h-full flex-col ${service.color} ${service.popular ? "ring-2 ring-primary" : ""}`}
     >
       {service.popular ? (
-        <div className="bg-primary text-primary-foreground rounded-t-lg py-2 text-center text-sm font-medium">
+        <div className="rounded-t-lg bg-primary py-2 text-center text-sm font-medium text-primary-foreground">
           Most Popular
         </div>
       ) : (
@@ -134,7 +134,7 @@ const ServiceCard = ({ service }: ServiceCardProps) => {
             {service.subtitle}
           </Badge>
           <CardTitle className="text-2xl">{service.name}</CardTitle>
-          <p className="text-muted-foreground text-sm">{service.description}</p>
+          <p className="text-sm text-muted-foreground">{service.description}</p>
         </div>
 
         <div className="flex items-center gap-4 pt-4">
@@ -151,7 +151,7 @@ const ServiceCard = ({ service }: ServiceCardProps) => {
           <div className="space-y-2">
             {keyFeatures.map(([feature, value]) => (
               <div key={feature} className="flex items-start gap-2 text-sm">
-                <CheckCircle className="text-primary h-4 w-4 flex-shrink-0" />
+                <CheckCircle className="h-4 w-4 flex-shrink-0 text-primary" />
                 <span>
                   {feature}{" "}
                   {value && typeof value !== "boolean" ? (
@@ -201,7 +201,7 @@ const FeatureComparisonDesktop = ({ services, featureNames }: FeatureComparisonD
         {services.map((service, index) => (
           <div key={index} className="py-3 text-center">
             <div className="font-semibold">{service.name}</div>
-            <div className="text-muted-foreground text-sm">{service.price}</div>
+            <div className="text-sm text-muted-foreground">{service.price}</div>
           </div>
         ))}
 
@@ -209,7 +209,7 @@ const FeatureComparisonDesktop = ({ services, featureNames }: FeatureComparisonD
         {featureNames.map((featureName, index) => (
           <div
             key={index}
-            className={`grid gap-4 py-3 ${index % 2 === 0 ? "bg-muted/50 rounded-lg" : ""}`}
+            className={`grid gap-4 py-3 ${index % 2 === 0 ? "rounded-lg bg-muted/50" : ""}`}
             style={{
               gridTemplateColumns: `200px repeat(${services.length}, minmax(0, 1fr))`,
               gridColumn: `span ${services.length + 1} / span ${services.length + 1}`, // +1 for the label column
@@ -226,9 +226,9 @@ const FeatureComparisonDesktop = ({ services, featureNames }: FeatureComparisonD
                     services={services}
                   />
                 ) : service.features[featureName] === true ? (
-                  <Check className="text-primary h-4 w-4" />
+                  <Check className="h-4 w-4 text-primary" />
                 ) : (
-                  <X className="text-muted-foreground h-4 w-4" />
+                  <X className="h-4 w-4 text-muted-foreground" />
                 )}
               </div>
             ))}
@@ -247,7 +247,7 @@ const FeatureComparisonMobile = ({ services, featureNames }: FeatureComparisonMo
           <div className="mb-4 flex items-center justify-between">
             <div>
               <h3 className="font-semibold">{service.name}</h3>
-              <p className="text-muted-foreground text-sm">{service.subtitle}</p>
+              <p className="text-sm text-muted-foreground">{service.subtitle}</p>
             </div>
             <div className="text-right">
               <div className="text-lg font-bold">{service.price}</div>
@@ -261,7 +261,7 @@ const FeatureComparisonMobile = ({ services, featureNames }: FeatureComparisonMo
             {featureNames.map((featureName, featureIndex) => (
               <div
                 key={featureIndex}
-                className="border-border/50 flex items-center justify-between border-b py-2 last:border-b-0"
+                className="flex items-center justify-between border-b border-border/50 py-2 last:border-b-0"
               >
                 <div className="flex-1">
                   <FeatureWithTooltip featureName={featureName} services={services} />
@@ -273,9 +273,9 @@ const FeatureComparisonMobile = ({ services, featureNames }: FeatureComparisonMo
                       services={services}
                     />
                   ) : service.features[featureName] === true ? (
-                    <Check className="text-primary h-4 w-4" />
+                    <Check className="h-4 w-4 text-primary" />
                   ) : (
-                    <X className="text-muted-foreground h-4 w-4" />
+                    <X className="h-4 w-4 text-muted-foreground" />
                   )}
                 </div>
               </div>

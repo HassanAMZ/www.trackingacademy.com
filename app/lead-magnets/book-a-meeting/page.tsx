@@ -1,10 +1,10 @@
-import React from "react";
-import { Phone, Settings, TrendingUp } from "lucide-react";
 import MeetingCalender from "@/components/contact/meeting-calender";
 import LoomEmbed from "@/components/global/loom-embed";
 import TestimonialGrid from "@/components/testimonial/testimonial-grid";
 import { Badge } from "@/components/ui/badge";
 import Container from "@/components/ui/container";
+import { Phone, Settings, TrendingUp } from "lucide-react";
+import React from "react";
 
 export default async function BookAMeetingPage() {
   const steps = [
@@ -41,7 +41,7 @@ export default async function BookAMeetingPage() {
         <section className="mx-auto max-w-5xl space-y-4 py-12 text-center">
           <h1 className="animate-fade-in text-center">
             You are one Step away from Fixing your{" "}
-            <span className="bg-destructive/10 text-destructive border-destructive/20 rounded-full border px-3 py-1.5">
+            <span className="rounded-full border border-destructive/20 bg-destructive/10 px-3 py-1.5 text-destructive">
               Data Sharing Restriction
             </span>{" "}
             and Track Your Conversions, <span className="text-primary">Again!</span>
@@ -55,11 +55,11 @@ export default async function BookAMeetingPage() {
         </section>
       </Container>
       <MeetingCalender />
-      <div className="from-primary/5 to-background bg-linear-to-b py-24">
+      <div className="bg-linear-to-b from-primary/5 to-background py-24">
         <Container className="max-w-4xl space-y-4">
           <div className="mb-12 space-y-4 text-center">
             <h2 className="">What happens Next?</h2>
-            <h4 className="text-muted-foreground mx-auto max-w-3xl">
+            <h4 className="mx-auto max-w-3xl text-muted-foreground">
               Once you have booked a call, we will jump on and audit your current tracking setup to
               identify the gaps and how we can fix your Meta Ads Data sharing Restrictions
             </h4>
@@ -81,7 +81,7 @@ export default async function BookAMeetingPage() {
                     <h3 className="text-xl font-semibold">{step.title}</h3>
                     <Badge variant="outline">Step {step.number}</Badge>
                   </div>
-                  <p className="text-muted-foreground text-base leading-relaxed">
+                  <p className="text-base leading-relaxed text-muted-foreground">
                     {step.description}
                   </p>
                 </div>
@@ -91,11 +91,11 @@ export default async function BookAMeetingPage() {
         </Container>
       </div>
 
-      <div className="from-primary/5 to-background bg-linear-to-b py-24">
+      <div className="bg-linear-to-b from-primary/5 to-background py-24">
         <Container className="max-w-6xl space-y-4">
           <div className="mb-12 space-y-4 text-center">
             <h2 className="">Watch the Video to see how we can help you!</h2>
-            <h4 className="text-muted-foreground mx-auto max-w-3xl">
+            <h4 className="mx-auto max-w-3xl text-muted-foreground">
               Understand exactly what's happening to your tracking data and see how we've helped
               300+ restricted niche advertisers get back to full visibility.
             </h4>
@@ -112,7 +112,7 @@ export default async function BookAMeetingPage() {
         <h1 className="pt-12 pb-6 text-center text-3xl font-bold">
           Join 300+ Businesses Who've Recovered Their Facebook Tracking
         </h1>
-        <h4 className="text-muted-foreground mx-auto max-w-3xl text-center">
+        <h4 className="mx-auto max-w-3xl text-center text-muted-foreground">
           Don't let data sharing restrictions kill your ad performance. Our clients see results
           within 7 Days.
         </h4>

@@ -522,127 +522,131 @@ export const offers: Record<string, OfferData> = {
 
   "cbd-business": {
     slug: "cbd-business",
-    niche: "CBD & Hemp",
+    niche: "CBD & Hemp E-commerce",
     package: "CBDPixel Pro",
-    businessType: "CBD business",
-    businessTypePlural: "CBD businesses",
+    businessType: "CBD e-commerce store",
+    businessTypePlural: "CBD e-commerce stores",
     icon: "🌿",
-    eyebrow: "Running Meta Ads for Your CBD Business?",
+    eyebrow: "Running Meta Ads for Your CBD E-commerce Store?",
     headline: {
       prefix: "Track Every",
-      conversion: ["Sale", "Lead", "Purchase"],
-      suffix: "for Your CBD Business",
+      conversion: ["Purchase", "Conversion"],
+      suffix: "for Your CBD E-commerce Store",
     },
     subheading:
-      'Even if Meta has restricted your CBD domain, blocked URL parameters, or disabled your events—we install <strong class="text-primary underline">CBDPixel Pro</strong> to fix your Meta Ads Conversions for CBD and hemp businesses.',
+      'Even if Meta has restricted your CBD domain, blocked URL parameters, or disabled your events—we install <strong class="text-primary underline">CBDPixel Pro</strong> to fix your Meta Ads Purchase Tracking for CBD and hemp e-commerce stores.',
     videoId: "tdQufJ-qadE",
     cta: {
-      primary: "Schedule Your Call To Fix Your CBD Business Meta Ads Tracking",
-      secondary: "Start tracking CBD sales in Meta Ads & Events Manager again",
+      primary: "Schedule Your Call To Fix Your CBD E-commerce Meta Ads Tracking",
+      secondary: "Start tracking CBD purchases in Meta Ads & Events Manager again",
     },
-    benefits: ["Track all CBD sales", "Fix Data Sharing Restrictions", "FDA Compliant Setup"],
+    benefits: [
+      "Track all CBD purchases",
+      "Fix Data Sharing Restrictions",
+      "Compliance-Ready Setup",
+    ],
     problemStatement: {
-      title: "Why Your CBD Business Facebook Ads Are Failing",
+      title: "Why Your CBD E-commerce Store Facebook Ads Are Failing",
       description:
-        "Meta's 2025 data sharing restrictions are specifically targeting CBD and hemp businesses, blocking critical sales tracking data and causing massive performance drops in cannabis marketing.",
+        "Meta's 2025 data sharing restrictions are specifically targeting CBD and hemp e-commerce stores, blocking critical purchase tracking data and causing massive performance drops in hemp product marketing.",
       alerts: [
         {
-          title: "Cannabis & CBD restrictions applied",
-          description: "Standard events blocked: Purchase, Add to Cart, CBD Product Lead",
+          title: "Hemp & CBD e-commerce restrictions applied",
+          description: "Standard events blocked: Purchase, Add to Cart, Complete Registration",
           icon: "AlertTriangle",
         },
         {
-          title: "Custom CBD events can't be used with ads features",
-          description: "Hundreds of thousands of CBD sales events blocked",
+          title: "Custom CBD e-commerce events can't be used with ads features",
+          description: "Hundreds of thousands of CBD purchase events blocked",
           icon: "XCircle",
         },
         {
           title: "Revenue Loss: $3,000-$12,000+ monthly",
-          description: "Wasted ad spend due to poor CBD sales optimization",
+          description: "Wasted ad spend due to poor CBD purchase optimization",
           icon: "DollarSign",
         },
         {
-          title: "Sales Data Loss: 75-92% of conversions",
-          description: "Critical CBD business insights completely missing",
+          title: "Purchase Data Loss: 75-92% of conversions",
+          description: "Critical CBD e-commerce insights completely missing",
           icon: "Database",
         },
       ],
     },
     solution: {
-      badge: "FDA Compliant Solution",
-      title: 'The "CBDPixel Pro" System for CBD & Hemp Businesses',
+      badge: "Compliance-Ready Solution",
+      title: 'The "CBDPixel Pro" System for CBD & Hemp E-commerce',
       description:
-        "Our specialized approach restores your Facebook Pixel tracking for CBD businesses while maintaining full FDA compliance, hemp regulations, and all cannabis advertising guidelines.",
+        "Our specialized approach restores your Facebook Pixel tracking for CBD e-commerce stores while maintaining full regulatory compliance, hemp advertising guidelines, and all Meta advertising policies.",
       steps: [
         {
           day: 1,
-          title: "CBD Business Audit & Compliance Assessment",
+          title: "CBD E-commerce Audit & Compliance Assessment",
           description:
-            'We conduct a comprehensive onboarding call to analyze your current CBD business tracking configuration, identify FDA and hemp compliance requirements, and qualify your business for our "CBDPixel Pro" solution.',
+            'We conduct a comprehensive onboarding call to analyze your current CBD e-commerce tracking configuration, identify regulatory compliance requirements, and qualify your store for our "CBDPixel Pro" solution.',
           icon: "Search",
         },
         {
           day: 2,
-          title: "FDA-Compliant Advanced Setup",
+          title: "Compliance-Ready Advanced Setup",
           description:
-            "Our experts implement a complete FDA-compliant tracking system that captures every CBD sale, product inquiry, and customer conversion. We handle all technical aspects for your CBD business end-to-end.",
+            "Our experts implement a complete compliance-ready tracking system that captures every CBD purchase, product view, and customer conversion. We handle all technical aspects for your CBD e-commerce store end-to-end.",
           icon: "Settings",
         },
         {
           day: 3,
-          title: "Launch & Optimize CBD Sales Tracking",
+          title: "Launch & Optimize CBD Purchase Tracking",
           description:
-            "Your CBD business tracking system goes live, capturing every customer ad interaction while maintaining strict regulatory compliance. We provide monitoring guidelines and optimization recommendations for maximum sales performance.",
+            "Your CBD e-commerce tracking system goes live, capturing every customer purchase interaction while maintaining strict regulatory compliance. We provide monitoring guidelines and optimization recommendations for maximum revenue performance.",
           icon: "TrendingUp",
         },
       ],
     },
     finalCta: {
-      title: "Stop Losing CBD Sales to Broken Tracking",
+      title: "Stop Losing CBD Purchases to Broken Tracking",
       description:
-        "Get your free audit now and discover exactly how many CBD sales your business is losing to Facebook's data sharing restrictions.",
+        "Get your free audit now and discover exactly how many CBD purchases your e-commerce store is losing to Facebook's data sharing restrictions.",
     },
     calendar: {
-      title: "Schedule Your Free CBD Business Meta Tracking Setup",
+      title: "Schedule Your Free CBD E-commerce Meta Tracking Setup",
       description:
-        "Get your free audit now and discover exactly how many sales your CBD business is losing to Meta's tracking restrictions.",
+        "Get your free audit now and discover exactly how many purchases your CBD e-commerce store is losing to Meta's tracking restrictions.",
     },
     faq: [
       {
-        question: "How quickly can you fix my CBD business tracking?",
+        question: "How quickly can you fix my CBD e-commerce tracking?",
         answer:
-          "Most CBD businesses see their sales tracking restored within a week. The process includes: audit (Day 1), FDA-compliant implementation (Day 2), and testing (Day 3). Complex multi-product CBD stores may take up to 7 days.",
+          "Most CBD e-commerce stores see their purchase tracking restored within a week. The process includes: audit (Day 1), compliance-ready implementation (Day 2), and testing (Day 3). Complex multi-product CBD stores may take up to 7 days.",
         icon: "Zap",
       },
       {
-        question: "Will this violate FDA or Meta's cannabis policies?",
+        question: "Will this violate Meta's hemp/CBD e-commerce policies?",
         answer:
-          "No. Our solution is 100% compliant with FDA regulations, all Meta cannabis/CBD policies, hemp advertising guidelines, and data protection regulations. We work within Meta's framework specifically designed for compliant CBD businesses.",
+          "No. Our solution is 100% compliant with all Meta hemp/CBD e-commerce policies, regulatory guidelines, and data protection regulations. We work within Meta's framework specifically designed for compliant CBD e-commerce businesses.",
         icon: "Shield",
       },
       {
-        question: "What kind of results should my CBD business expect?",
+        question: "What kind of results should my CBD e-commerce store expect?",
         answer:
-          "CBD businesses typically see 80-95% of their sales tracking accuracy restored, ROAS recovery to pre-restriction levels, and the ability to build custom customer audiences again. Results vary by product mix and implementation complexity.",
+          "CBD e-commerce stores typically see 80-95% of their purchase tracking accuracy restored, ROAS recovery to pre-restriction levels, and the ability to build custom customer audiences again. Results vary by product mix and implementation complexity.",
         icon: "TrendingUp",
       },
       {
-        question: "What if it doesn't work for my CBD business?",
+        question: "What if it doesn't work for my CBD e-commerce store?",
         answer:
-          "We offer a 30-day money-back guarantee. If we can't significantly improve your CBD business tracking within 30 days, you get a full refund. We've successfully helped 40+ CBD businesses, with a 96.8% success rate.",
+          "We offer a 30-day money-back guarantee. If we can't significantly improve your CBD e-commerce purchase tracking within 30 days, you get a full refund. We've successfully helped 40+ CBD e-commerce stores, with a 96.8% success rate.",
         icon: "DollarSign",
       },
       {
-        question: "Do you provide ongoing support for CBD businesses?",
+        question: "Do you provide ongoing support for CBD e-commerce stores?",
         answer:
-          "Yes. All CBD business implementations include 90 days of monitoring and support to ensure your sales tracking remains stable and FDA compliant. We also provide guidance on maintaining compliance as cannabis regulations evolve.",
+          "Yes. All CBD e-commerce implementations include 90 days of monitoring and support to ensure your purchase tracking remains stable and compliant. We also provide guidance on maintaining compliance as hemp regulations evolve.",
         icon: "RefreshCw",
       },
     ],
     testimonialSection: {
-      title: "CBD Businesses Recovered Their Meta Tracking",
+      title: "CBD E-commerce Stores Recovered Their Meta Tracking",
       description:
-        "From small CBD startups to large hemp companies, we've restored compliant tracking for every cannabis client. See how we recovered their sales ROAS while maintaining full regulatory compliance.",
+        "From small CBD startups to large hemp e-commerce companies, we've restored compliant tracking for every client. See how we recovered their purchase ROAS while maintaining full regulatory compliance.",
     },
     restrictionData: {
       severity: "High",
@@ -656,11 +660,11 @@ export const offers: Record<string, OfferData> = {
       "peachandcream",
     ],
     keywords: [
-      "CBD business marketing",
+      "CBD e-commerce marketing",
       "hemp product advertising",
-      "cannabis business ads",
+      "CBD online store ads",
       "CBD ecommerce tracking",
-      "hemp niche marketing",
+      "hemp e-commerce marketing",
       "CBD compliance advertising",
     ],
   },

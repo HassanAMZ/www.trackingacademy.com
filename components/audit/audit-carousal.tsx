@@ -1,7 +1,8 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
-import Link from "next/link";
+import { Badge } from "@/components/ui/badge";
+import { Card, CardContent, CardHeader } from "@/components/ui/card";
+import { Progress } from "@/components/ui/progress";
 import { AuditReport, CategoryScore as CategoryScoreProps } from "@/data/audit-report";
 import {
   AlertTriangle,
@@ -14,9 +15,8 @@ import {
   XCircle,
   Zap,
 } from "lucide-react";
-import { Badge } from "@/components/ui/badge";
-import { Card, CardContent, CardHeader } from "@/components/ui/card";
-import { Progress } from "@/components/ui/progress";
+import Link from "next/link";
+import { useEffect, useRef, useState } from "react";
 
 interface AuditarouselProps {
   auditReports: AuditReport[];
@@ -58,9 +58,9 @@ function getCategoryIcon(category: string) {
 }
 
 function getStatusIcon(score: number) {
-  if (score >= 80) return <CheckCircle2 className="text-primary h-4 w-4" />;
-  if (score >= 60) return <AlertTriangle className="text-secondary-foreground h-4 w-4" />;
-  return <XCircle className="text-destructive h-4 w-4" />;
+  if (score >= 80) return <CheckCircle2 className="h-4 w-4 text-primary" />;
+  if (score >= 60) return <AlertTriangle className="h-4 w-4 text-secondary-foreground" />;
+  return <XCircle className="h-4 w-4 text-destructive" />;
 }
 
 // Simple Score Circle Component
@@ -103,8 +103,8 @@ function ScoreCircle({
         />
       </svg>
       <div className="absolute inset-0 flex flex-col items-center justify-center">
-        <span className="text-foreground text-2xl font-bold">{score}</span>
-        <span className="text-muted-foreground text-xs">/{maxScore}</span>
+        <span className="text-2xl font-bold text-foreground">{score}</span>
+        <span className="text-xs text-muted-foreground">/{maxScore}</span>
       </div>
     </div>
   );
@@ -113,9 +113,9 @@ function ScoreCircle({
 // Category Score Component
 function CategoryScore({ category }: { category: CategoryScoreProps }) {
   return (
-    <div className="bg-muted/30 hover:bg-muted/50 flex items-center justify-between rounded-lg p-3 transition-colors">
+    <div className="flex items-center justify-between rounded-lg bg-muted/30 p-3 transition-colors hover:bg-muted/50">
       <div className="flex items-center gap-2">
-        <div className="bg-background rounded-md border p-1.5">
+        <div className="rounded-md border bg-background p-1.5">
           {getCategoryIcon(category.name)}
         </div>
         <span className="text-sm font-medium">{category.name}</span>
@@ -154,12 +154,12 @@ function MetricCard({
   };
 
   return (
-    <div className="bg-background rounded-lg border p-3 text-center">
+    <div className="rounded-lg border bg-background p-3 text-center">
       <div className={`mb-2 inline-flex rounded-lg p-2 ${getVariantStyles()}`}>
         <Icon className="h-4 w-4" />
       </div>
-      <div className="text-foreground text-lg font-bold">{value}</div>
-      <div className="text-muted-foreground text-xs">{label}</div>
+      <div className="text-lg font-bold text-foreground">{value}</div>
+      <div className="text-xs text-muted-foreground">{label}</div>
     </div>
   );
 }
@@ -248,16 +248,16 @@ export default function Auditarousel({
                       {report.overallScore.status}
                     </Badge>
                     <div className="opacity-0 transition-opacity group-hover:opacity-100">
-                      <ExternalLink className="text-muted-foreground h-4 w-4" />
+                      <ExternalLink className="h-4 w-4 text-muted-foreground" />
                     </div>
                   </div>
 
                   {/* Domain and Date */}
                   <div className="text-center">
-                    <h3 className="text-foreground mb-1 truncate text-lg font-semibold">
+                    <h3 className="mb-1 truncate text-lg font-semibold text-foreground">
                       {report.domain}
                     </h3>
-                    <p className="text-muted-foreground text-sm">
+                    <p className="text-sm text-muted-foreground">
                       {new Date(report.date).toLocaleDateString("en-US", {
                         month: "short",
                         day: "numeric",

@@ -1,8 +1,11 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import Image from "next/image";
-import Link from "next/link";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Progress } from "@/components/ui/progress";
+import { Separator } from "@/components/ui/separator";
 import { CaseStudy } from "@/data/case-studies";
 import {
   Calendar,
@@ -15,12 +18,9 @@ import {
   Star,
   User,
 } from "lucide-react";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Progress } from "@/components/ui/progress";
-import { Separator } from "@/components/ui/separator";
+import Image from "next/image";
+import Link from "next/link";
+import { useEffect, useState } from "react";
 import LoomEmbed from "../global/loom-embed";
 import YoutubeEmbed from "../global/youtube-embed";
 import { TestimonialCard } from "../testimonial/testimonial-card";
@@ -118,7 +118,7 @@ export default function CaseStudyComponent({ caseStudy }: { caseStudy: CaseStudy
                 />
               )}
 
-              <div className="bg-background/80 absolute right-2 bottom-2 rounded px-2 py-1 text-xs">
+              <div className="absolute right-2 bottom-2 rounded bg-background/80 px-2 py-1 text-xs">
                 Desktop View
               </div>
             </div>
@@ -143,7 +143,7 @@ export default function CaseStudyComponent({ caseStudy }: { caseStudy: CaseStudy
                 <h2 className="text-2xl font-bold">Before vs After Results for {caseStudy.id}</h2>
                 <div className="grid gap-4 md:grid-cols-2">
                   {/* Before - Auto-Scrolling Carousel */}
-                  <Card className="group bg-destructive/10 overflow-hidden border-b transition-all hover:shadow-lg">
+                  <Card className="group overflow-hidden border-b bg-destructive/10 transition-all hover:shadow-lg">
                     <div className="py-2 text-center">
                       <Badge variant="destructive" className="text-xs font-medium">
                         Before
@@ -188,7 +188,7 @@ export default function CaseStudyComponent({ caseStudy }: { caseStudy: CaseStudy
                     </CardContent>
                   </Card>
                   {/* After - Auto-Scrolling Carousel */}
-                  <Card className="group bg-primary/10 overflow-hidden border-b transition-all hover:shadow-lg">
+                  <Card className="group overflow-hidden border-b bg-primary/10 transition-all hover:shadow-lg">
                     <div className="py-2 text-center">
                       <Badge className="text-xs font-medium">After</Badge>
                     </div>
@@ -293,7 +293,7 @@ export default function CaseStudyComponent({ caseStudy }: { caseStudy: CaseStudy
                       </CardTitle>
                     </CardHeader>
                     <CardContent className="space-y-3">
-                      <p className="text-muted-foreground text-sm">{milestone.description}</p>
+                      <p className="text-sm text-muted-foreground">{milestone.description}</p>
                       <div>
                         <p className="mb-1 text-xs font-medium">Expected Outcome:</p>
                         <p className="text-sm">{milestone.expectedOutcome}</p>
@@ -314,17 +314,17 @@ export default function CaseStudyComponent({ caseStudy }: { caseStudy: CaseStudy
                   </CardHeader>
                   <CardContent className="space-y-4">
                     <div className="flex justify-between">
-                      <span className="text-muted-foreground text-sm">Owner</span>
+                      <span className="text-sm text-muted-foreground">Owner</span>
                       <span className="text-sm font-medium">{caseStudy.owner}</span>
                     </div>
                     <Separator />
                     <div className="flex justify-between">
-                      <span className="text-muted-foreground text-sm">Client</span>
+                      <span className="text-sm text-muted-foreground">Client</span>
                       <span className="text-sm font-medium">{caseStudy.client}</span>
                     </div>
                     <Separator />
                     <div className="flex justify-between">
-                      <span className="text-muted-foreground text-sm">Duration</span>
+                      <span className="text-sm text-muted-foreground">Duration</span>
                       <span className="text-sm font-medium">
                         {caseStudy.projectTimeline.durationDays} days
                       </span>
@@ -388,7 +388,7 @@ export default function CaseStudyComponent({ caseStudy }: { caseStudy: CaseStudy
                   </Avatar>
                   <div>
                     <p className="font-medium">{caseStudy.testimonial.author}</p>
-                    <p className="text-muted-foreground text-sm">{caseStudy.testimonial.role}</p>
+                    <p className="text-sm text-muted-foreground">{caseStudy.testimonial.role}</p>
                   </div>
                 </div>
 
@@ -452,40 +452,40 @@ export default function CaseStudyComponent({ caseStudy }: { caseStudy: CaseStudy
               </CardHeader>
               <CardContent className="space-y-4">
                 <div className="flex items-center gap-2">
-                  <Calendar className="text-muted-foreground h-4 w-4" />
+                  <Calendar className="h-4 w-4 text-muted-foreground" />
                   <div className="flex gap-2">
                     <p className="text-sm font-medium">Start Date</p>
-                    <p className="text-muted-foreground text-sm">
+                    <p className="text-sm text-muted-foreground">
                       {formatDate(caseStudy.projectTimeline.startDate)}
                     </p>
                   </div>
                 </div>
 
                 <div className="flex items-center gap-2">
-                  <Calendar className="text-muted-foreground h-4 w-4" />
+                  <Calendar className="h-4 w-4 text-muted-foreground" />
                   <div className="flex gap-2">
                     <p className="text-sm font-medium">End Date</p>
-                    <p className="text-muted-foreground text-sm">
+                    <p className="text-sm text-muted-foreground">
                       {formatDate(caseStudy.projectTimeline.endDate)}
                     </p>
                   </div>
                 </div>
 
                 <div className="flex items-center gap-2">
-                  <Clock className="text-muted-foreground h-4 w-4" />
+                  <Clock className="h-4 w-4 text-muted-foreground" />
                   <div className="flex gap-2">
                     <p className="text-sm font-medium">Duration</p>
-                    <p className="text-muted-foreground text-sm">
+                    <p className="text-sm text-muted-foreground">
                       {caseStudy.projectTimeline.durationDays} days
                     </p>
                   </div>
                 </div>
 
                 <div className="flex items-center gap-2">
-                  <User className="text-muted-foreground h-4 w-4" />
+                  <User className="h-4 w-4 text-muted-foreground" />
                   <div className="flex gap-2">
                     <p className="text-sm font-medium">Project Owner</p>
-                    <p className="text-muted-foreground text-sm">{caseStudy.owner}</p>
+                    <p className="text-sm text-muted-foreground">{caseStudy.owner}</p>
                   </div>
                 </div>
               </CardContent>
@@ -499,7 +499,7 @@ export default function CaseStudyComponent({ caseStudy }: { caseStudy: CaseStudy
                 <div className="grid grid-cols-1 gap-4">
                   {caseStudy.results.slice(0, 3).map((result, index) => (
                     <div key={index} className="grid grid-cols-[auto_1fr] items-start gap-2">
-                      <CheckCircle className="text-primary h-6 w-6" />
+                      <CheckCircle className="h-6 w-6 text-primary" />
                       <p className="text-sm">{result}</p>
                     </div>
                   ))}

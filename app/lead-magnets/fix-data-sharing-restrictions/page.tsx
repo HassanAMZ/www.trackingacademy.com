@@ -1,7 +1,18 @@
 "use client";
 
-import Image from "next/image";
-import Link from "next/link";
+import FeaturedCaseStudy from "@/components/case-study/case-study-featured";
+import LoomEmbed from "@/components/global/loom-embed";
+import Hero from "@/components/home/hero";
+import TestimonialGrid from "@/components/testimonial/testimonial-grid";
+import { Alert, AlertDescription } from "@/components/ui/alert";
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import Container from "@/components/ui/container";
+import { Progress } from "@/components/ui/progress";
+import { Separator } from "@/components/ui/separator";
+import { cn } from "@/lib/utils";
+import getCaseStudy from "@/utils/getCaseStudy";
 import {
   AlertTriangle,
   BarChart3,
@@ -22,35 +33,24 @@ import {
   XCircle,
   Zap,
 } from "lucide-react";
-import FeaturedCaseStudy from "@/components/case-study/case-study-featured";
-import LoomEmbed from "@/components/global/loom-embed";
-import Hero from "@/components/home/hero";
-import TestimonialGrid from "@/components/testimonial/testimonial-grid";
-import { Alert, AlertDescription } from "@/components/ui/alert";
-import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import Container from "@/components/ui/container";
-import { Progress } from "@/components/ui/progress";
-import { Separator } from "@/components/ui/separator";
-import { cn } from "@/lib/utils";
-import getCaseStudy from "@/utils/getCaseStudy";
+import Image from "next/image";
+import Link from "next/link";
 
 const restrictionIssues = [
   {
-    icon: <AlertTriangle className="text-destructive h-6 w-6" />,
+    icon: <AlertTriangle className="h-6 w-6 text-destructive" />,
     title: "Conversion Events Blocked",
     description:
       "Your Facebook Pixel is rejecting critical purchase, lead, and signup data, making your ads blind to actual performance.",
   },
   {
-    icon: <TrendingDown className="text-destructive h-6 w-6" />,
+    icon: <TrendingDown className="h-6 w-6 text-destructive" />,
     title: "ROAS Dropping 40-80%",
     description:
       "Without proper tracking, Facebook's algorithm can't optimize effectively, causing massive drops in return on ad spend.",
   },
   {
-    icon: <Target className="text-destructive h-6 w-6" />,
+    icon: <Target className="h-6 w-6 text-destructive" />,
     title: "Custom Audiences Disabled",
     description:
       "Retargeting and lookalike audiences are broken, cutting off your most profitable marketing channels completely.",
@@ -59,20 +59,20 @@ const restrictionIssues = [
 
 const solutionBenefits = [
   {
-    icon: <Shield className="text-primary h-6 w-6" />,
+    icon: <Shield className="h-6 w-6 text-primary" />,
     title: "Full Compliance Setup",
     description:
       "Complete compliance with all data regulations (GDPR, CCPA, HIPAA) while maintaining tracking accuracy.",
   },
   {
-    icon: <BarChart3 className="text-primary h-6 w-6" />,
+    icon: <BarChart3 className="h-6 w-6 text-primary" />,
     title: "95% Data Accuracy Restored",
     description:
       "See every sale, lead, and conversion with near-perfect attribution tracking across all your campaigns.",
   },
   {
-    icon: <Zap className="text-primary h-6 w-6" />,
-    title: "3-Day Implementation",
+    icon: <Zap className="h-6 w-6 text-primary" />,
+    title: "7-Days Implementation",
     description:
       "Complete tracking restoration in just a week with our proven system and dedicated support.",
   },
@@ -113,7 +113,7 @@ const MeetingBookingButton = ({
         <>
           {buttonText}
           <br />
-          <span className="text-muted/90 text-base underline">
+          <span className="text-base text-muted/90 underline">
             Start tracking conversions in Meta Ads & Events Manager again
           </span>
         </>
@@ -128,14 +128,14 @@ export default function Page() {
       <Hero
         eyebrow={
           <>
-            <AlertTriangle className="text-destructive mr-2 h-4 w-4" />
+            <AlertTriangle className="mr-2 h-4 w-4 text-destructive" />
             <p>Running Meta Ads in health, financial, other Restricted Niche?</p>
           </>
         }
         heading={
           <h1 className="animate-fade-in max-w-5xl text-center">
             Fix{" "}
-            <span className="bg-destructive/10 text-destructive border-destructive/20 rounded-lg border px-2 py-1 leading-normal tracking-normal">
+            <span className="rounded-lg border border-destructive/20 bg-destructive/10 px-2 py-1 leading-normal tracking-normal text-destructive">
               Data Sharing Restriction
             </span>{" "}
             and Track Your Meta Ads Conversions
@@ -214,11 +214,11 @@ export default function Page() {
       <CaseStudyCarousel caseStudies={caseStudies} /> */}
 
       {/* Restriction Categories Section */}
-      <section className="from-primary/5 to-background bg-linear-to-b py-24">
+      <section className="bg-linear-to-b from-primary/5 to-background py-24">
         <Container className="max-w-6xl">
           <div className="mb-12 space-y-4 text-center">
             <h2>Is Your Business Category Affected?</h2>
-            <h4 className="text-muted-foreground mx-auto max-w-3xl">
+            <h4 className="mx-auto max-w-3xl text-muted-foreground">
               Meta's restrictions target specific business categories. Check if your industry is
               experiencing tracking limitations.
             </h4>
@@ -262,13 +262,13 @@ export default function Page() {
       </section>
 
       {/* Problem Section */}
-      <section className="from-primary/5 to-background bg-linear-to-b py-16">
+      <section className="bg-linear-to-b from-primary/5 to-background py-16">
         <Container className="max-w-6xl">
           <div className="mb-12 text-center">
             <h2 className="mb-4 text-3xl font-bold md:text-4xl">
               Why Your Facebook Ads Are Failing
             </h2>
-            <p className="text-muted-foreground mx-auto max-w-3xl text-xl">
+            <p className="mx-auto max-w-3xl text-xl text-muted-foreground">
               Meta's 2025 data sharing restrictions are blocking critical tracking data across
               multiple business categories, causing massive performance drops.
             </p>
@@ -278,7 +278,7 @@ export default function Page() {
             {restrictionIssues.map((issue, index) => (
               <Card
                 key={index}
-                className="border-destructive/20 transform transition-all duration-300 hover:scale-105 hover:shadow-lg"
+                className="transform border-destructive/20 transition-all duration-300 hover:scale-105 hover:shadow-lg"
                 style={{ animationDelay: `${index * 200}ms` }}
               >
                 <CardHeader>
@@ -295,7 +295,7 @@ export default function Page() {
           </div>
 
           {/* Visual representation */}
-          <div className="bg-background border-destructive/20 mt-12 transform space-y-8 rounded-lg border p-4 transition-all duration-500 hover:shadow-xl md:p-12">
+          <div className="mt-12 transform space-y-8 rounded-lg border border-destructive/20 bg-background p-4 transition-all duration-500 hover:shadow-xl md:p-12">
             <h3 className="pb-6 text-center text-2xl font-bold">What You're Seeing Right Now</h3>
 
             <div className="grid items-center gap-8 md:grid-cols-2">
@@ -326,7 +326,7 @@ export default function Page() {
                 </Alert>
               </div>
               <div className="text-center">
-                <div className="bg-muted w-full overflow-hidden rounded-md">
+                <div className="w-full overflow-hidden rounded-md bg-muted">
                   <Image
                     src="/images/hero/data-sharing-restrcition-03.png"
                     alt="Data sharing restrictions illustration"
@@ -341,30 +341,30 @@ export default function Page() {
             <div className="grid grid-cols-2 gap-6 lg:grid-cols-4">
               <Card className="border-destructive/30">
                 <CardContent className="p-4 text-center">
-                  <TrendingDown className="text-destructive mx-auto mb-2 h-8 w-8" />
-                  <div className="text-destructive text-2xl font-bold">-73%</div>
-                  <div className="text-muted-foreground text-sm">Conversion Tracking</div>
+                  <TrendingDown className="mx-auto mb-2 h-8 w-8 text-destructive" />
+                  <div className="text-2xl font-bold text-destructive">-73%</div>
+                  <div className="text-sm text-muted-foreground">Conversion Tracking</div>
                 </CardContent>
               </Card>
               <Card className="border-destructive/30">
                 <CardContent className="p-4 text-center">
-                  <Gauge className="text-destructive mx-auto mb-2 h-8 w-8" />
-                  <div className="text-destructive text-2xl font-bold">-58%</div>
-                  <div className="text-muted-foreground text-sm">ROAS Performance</div>
+                  <Gauge className="mx-auto mb-2 h-8 w-8 text-destructive" />
+                  <div className="text-2xl font-bold text-destructive">-58%</div>
+                  <div className="text-sm text-muted-foreground">ROAS Performance</div>
                 </CardContent>
               </Card>
               <Card className="border-destructive/30">
                 <CardContent className="p-4 text-center">
-                  <Users className="text-destructive mx-auto mb-2 h-8 w-8" />
-                  <div className="text-destructive text-2xl font-bold">-84%</div>
-                  <div className="text-muted-foreground text-sm">Audience Building</div>
+                  <Users className="mx-auto mb-2 h-8 w-8 text-destructive" />
+                  <div className="text-2xl font-bold text-destructive">-84%</div>
+                  <div className="text-sm text-muted-foreground">Audience Building</div>
                 </CardContent>
               </Card>
               <Card className="border-destructive/30">
                 <CardContent className="p-4 text-center">
-                  <Eye className="text-destructive mx-auto mb-2 h-8 w-8" />
-                  <div className="text-destructive text-2xl font-bold">-91%</div>
-                  <div className="text-muted-foreground text-sm">Attribution Accuracy</div>
+                  <Eye className="mx-auto mb-2 h-8 w-8 text-destructive" />
+                  <div className="text-2xl font-bold text-destructive">-91%</div>
+                  <div className="text-sm text-muted-foreground">Attribution Accuracy</div>
                 </CardContent>
               </Card>
             </div>
@@ -393,16 +393,16 @@ export default function Page() {
                 <h4 className="mb-2 text-lg font-semibold">Time to Recovery Impact</h4>
                 <div className="grid grid-cols-3 gap-4">
                   <div className="text-center">
-                    <div className="text-destructive text-2xl font-bold">Week 1</div>
-                    <div className="text-muted-foreground text-sm">-$3,500 lost</div>
+                    <div className="text-2xl font-bold text-destructive">Week 1</div>
+                    <div className="text-sm text-muted-foreground">-$3,500 lost</div>
                   </div>
                   <div className="text-center">
-                    <div className="text-destructive text-2xl font-bold">Month 1</div>
-                    <div className="text-muted-foreground text-sm">-$15,000+ lost</div>
+                    <div className="text-2xl font-bold text-destructive">Month 1</div>
+                    <div className="text-sm text-muted-foreground">-$15,000+ lost</div>
                   </div>
                   <div className="text-center">
-                    <div className="text-destructive text-2xl font-bold">Quarter 1</div>
-                    <div className="text-muted-foreground text-sm">-$45,000+ lost</div>
+                    <div className="text-2xl font-bold text-destructive">Quarter 1</div>
+                    <div className="text-sm text-muted-foreground">-$45,000+ lost</div>
                   </div>
                 </div>
               </div>
@@ -418,7 +418,7 @@ export default function Page() {
         <h1 className="pt-12 pb-6 text-center text-3xl font-bold">
           300+ Businesses Recovered Their Facebook Tracking
         </h1>
-        <h4 className="text-muted-foreground mx-auto max-w-3xl text-center">
+        <h4 className="mx-auto max-w-3xl text-center text-muted-foreground">
           From e-commerce stores to service businesses, we've restored compliant tracking for every
           client. See how we recovered their ROAS while maintaining full compliance.
         </h4>
@@ -426,12 +426,12 @@ export default function Page() {
       </div>
 
       {/* Solution Section */}
-      <section className="from-primary/5 to-background bg-linear-to-b py-16">
+      <section className="bg-linear-to-b from-primary/5 to-background py-16">
         <Container className="max-w-6xl">
           <div className="mb-12 text-center">
             <Badge className="mb-4 animate-bounce">Our Proven Solution</Badge>
             <h2 className="mb-4 text-3xl font-bold md:text-4xl">The "See Every Sale" System</h2>
-            <p className="text-muted-foreground mx-auto max-w-3xl text-xl">
+            <p className="mx-auto max-w-3xl text-xl text-muted-foreground">
               Our specialized approach restores your Facebook Pixel tracking while maintaining full
               compliance with all data protection regulations.
             </p>
@@ -441,7 +441,7 @@ export default function Page() {
             {solutionBenefits.map((benefit, index) => (
               <Card
                 key={index}
-                className="border-primary/20 hover:border-primary/40 transform transition-all duration-300 hover:scale-105 hover:shadow-lg"
+                className="transform border-primary/20 transition-all duration-300 hover:scale-105 hover:border-primary/40 hover:shadow-lg"
                 style={{ animationDelay: `${index * 150}ms` }}
               >
                 <CardHeader>
@@ -458,35 +458,35 @@ export default function Page() {
           </div>
 
           {/* Process Steps */}
-          <div className="bg-muted/30 transform rounded-lg p-8 transition-all duration-500 hover:shadow-xl">
-            <h3 className="mb-8 text-center text-2xl font-bold">Our 3-Day Recovery Process</h3>
+          <div className="transform rounded-lg bg-muted/30 p-8 transition-all duration-500 hover:shadow-xl">
+            <h3 className="mb-8 text-center text-2xl font-bold">Our 7-Days Recovery Process</h3>
             <div className="grid gap-8 md:grid-cols-3">
               <div className="transform text-center transition-all duration-300 hover:scale-105">
-                <div className="bg-primary text-primary-foreground mx-auto mb-4 flex h-12 w-12 animate-pulse items-center justify-center rounded-full text-xl font-bold">
+                <div className="mx-auto mb-4 flex h-12 w-12 animate-pulse items-center justify-center rounded-full bg-primary text-xl font-bold text-primary-foreground">
                   1
                 </div>
                 <h4 className="mb-2 text-lg font-semibold">Audit & Categorization Review</h4>
-                <p className="text-muted-foreground text-sm">
+                <p className="text-sm text-muted-foreground">
                   We analyze your current restrictions and appeal any misclassifications in Meta's
                   automated system.
                 </p>
               </div>
               <div className="transform text-center transition-all duration-300 hover:scale-105">
-                <div className="bg-primary text-primary-foreground mx-auto mb-4 flex h-12 w-12 animate-pulse items-center justify-center rounded-full text-xl font-bold">
+                <div className="mx-auto mb-4 flex h-12 w-12 animate-pulse items-center justify-center rounded-full bg-primary text-xl font-bold text-primary-foreground">
                   2
                 </div>
                 <h4 className="mb-2 text-lg font-semibold">Compliant Pixel Setup</h4>
-                <p className="text-muted-foreground text-sm">
+                <p className="text-sm text-muted-foreground">
                   We implement proper event filtering and data protection measures while preserving
                   conversion tracking accuracy.
                 </p>
               </div>
               <div className="transform text-center transition-all duration-300 hover:scale-105">
-                <div className="bg-primary text-primary-foreground mx-auto mb-4 flex h-12 w-12 animate-pulse items-center justify-center rounded-full text-xl font-bold">
+                <div className="mx-auto mb-4 flex h-12 w-12 animate-pulse items-center justify-center rounded-full bg-primary text-xl font-bold text-primary-foreground">
                   3
                 </div>
                 <h4 className="mb-2 text-lg font-semibold">Testing & Optimization</h4>
-                <p className="text-muted-foreground text-sm">
+                <p className="text-sm text-muted-foreground">
                   We verify all events are tracking correctly and optimize your conversion campaigns
                   for maximum ROAS recovery.
                 </p>
@@ -500,26 +500,26 @@ export default function Page() {
             <div className="grid gap-8 md:grid-cols-2">
               <Card className="border-destructive/30 bg-destructive/5">
                 <CardHeader>
-                  <CardTitle className="text-destructive flex items-center">
+                  <CardTitle className="flex items-center text-destructive">
                     <XCircle className="mr-2 h-5 w-5" />
                     Before: Broken Tracking
                   </CardTitle>
                 </CardHeader>
                 <CardContent className="space-y-3">
                   <div className="flex items-center text-sm">
-                    <XCircle className="text-destructive mr-2 h-4 w-4" />
+                    <XCircle className="mr-2 h-4 w-4 text-destructive" />
                     Events blocked by restrictions
                   </div>
                   <div className="flex items-center text-sm">
-                    <XCircle className="text-destructive mr-2 h-4 w-4" />
+                    <XCircle className="mr-2 h-4 w-4 text-destructive" />
                     ROAS down 40-80%
                   </div>
                   <div className="flex items-center text-sm">
-                    <XCircle className="text-destructive mr-2 h-4 w-4" />
+                    <XCircle className="mr-2 h-4 w-4 text-destructive" />
                     Audiences can't be built
                   </div>
                   <div className="flex items-center text-sm">
-                    <XCircle className="text-destructive mr-2 h-4 w-4" />
+                    <XCircle className="mr-2 h-4 w-4 text-destructive" />
                     Compliance violations risk
                   </div>
                 </CardContent>
@@ -527,26 +527,26 @@ export default function Page() {
 
               <Card className="border-primary/30 bg-primary/5">
                 <CardHeader>
-                  <CardTitle className="text-primary flex items-center">
+                  <CardTitle className="flex items-center text-primary">
                     <CheckCircle className="mr-2 h-5 w-5" />
                     After: Full Recovery
                   </CardTitle>
                 </CardHeader>
                 <CardContent className="space-y-3">
                   <div className="flex items-center text-sm">
-                    <CheckCircle className="text-primary mr-2 h-4 w-4" />
+                    <CheckCircle className="mr-2 h-4 w-4 text-primary" />
                     95% tracking accuracy restored
                   </div>
                   <div className="flex items-center text-sm">
-                    <CheckCircle className="text-primary mr-2 h-4 w-4" />
+                    <CheckCircle className="mr-2 h-4 w-4 text-primary" />
                     ROAS back to normal levels
                   </div>
                   <div className="flex items-center text-sm">
-                    <CheckCircle className="text-primary mr-2 h-4 w-4" />
+                    <CheckCircle className="mr-2 h-4 w-4 text-primary" />
                     Custom audiences working
                   </div>
                   <div className="flex items-center text-sm">
-                    <CheckCircle className="text-primary mr-2 h-4 w-4" />
+                    <CheckCircle className="mr-2 h-4 w-4 text-primary" />
                     100% compliant with regulations
                   </div>
                 </CardContent>
@@ -567,7 +567,7 @@ export default function Page() {
         <h1 className="pt-12 pb-6 text-center text-3xl font-bold">
           Join 300+ Businesses Who've Recovered Their Facebook Tracking
         </h1>
-        <h4 className="text-muted-foreground mx-auto max-w-3xl text-center">
+        <h4 className="mx-auto max-w-3xl text-center text-muted-foreground">
           Don't let data sharing restrictions kill your ad performance. Our clients see results
           within 7 Days.
         </h4>
@@ -575,7 +575,7 @@ export default function Page() {
       </div>
 
       {/* Urgency Section */}
-      <section className="from-destructive to-destructive/80 bg-gradient-to-br py-16 text-white">
+      <section className="bg-gradient-to-br from-destructive to-destructive/80 py-16 text-white">
         <Container className="max-w-4xl text-center">
           <div className="mb-8">
             <Badge variant="secondary" className="mb-4 animate-pulse">
@@ -616,7 +616,7 @@ export default function Page() {
             />
 
             <p className="text-sm opacity-75">
-              ⚡ 24-hour audit • 72-hour implementation • 30-day guarantee
+              ⚡ 24-hour audit • 7-Days implementation • 30-day guarantee
             </p>
           </div>
         </Container>
@@ -627,7 +627,7 @@ export default function Page() {
         <Container className="max-w-4xl">
           <div className="mb-12 text-center">
             <h2 className="mb-4 text-3xl font-bold md:text-4xl">Frequently Asked Questions</h2>
-            <p className="text-muted-foreground text-xl">
+            <p className="text-xl text-muted-foreground">
               Everything you need to know about fixing your Facebook tracking
             </p>
           </div>
@@ -636,7 +636,7 @@ export default function Page() {
             <Card>
               <CardHeader>
                 <CardTitle className="flex items-center">
-                  <Zap className="text-primary mr-2 h-5 w-5" />
+                  <Zap className="mr-2 h-5 w-5 text-primary" />
                   How quickly can you fix my tracking?
                 </CardTitle>
               </CardHeader>
@@ -651,7 +651,7 @@ export default function Page() {
             <Card>
               <CardHeader>
                 <CardTitle className="flex items-center">
-                  <Shield className="text-primary mr-2 h-5 w-5" />
+                  <Shield className="mr-2 h-5 w-5 text-primary" />
                   Will this violate Meta's policies?
                 </CardTitle>
               </CardHeader>
@@ -667,7 +667,7 @@ export default function Page() {
             <Card>
               <CardHeader>
                 <CardTitle className="flex items-center">
-                  <TrendingUp className="text-primary mr-2 h-5 w-5" />
+                  <TrendingUp className="mr-2 h-5 w-5 text-primary" />
                   What kind of results should I expect?
                 </CardTitle>
               </CardHeader>
@@ -683,7 +683,7 @@ export default function Page() {
             <Card>
               <CardHeader>
                 <CardTitle className="flex items-center">
-                  <DollarSign className="text-primary mr-2 h-5 w-5" />
+                  <DollarSign className="mr-2 h-5 w-5 text-primary" />
                   What if it doesn't work for my business?
                 </CardTitle>
               </CardHeader>
@@ -699,7 +699,7 @@ export default function Page() {
             <Card>
               <CardHeader>
                 <CardTitle className="flex items-center">
-                  <RefreshCw className="text-primary mr-2 h-5 w-5" />
+                  <RefreshCw className="mr-2 h-5 w-5 text-primary" />
                   Do you provide ongoing support?
                 </CardTitle>
               </CardHeader>
@@ -716,7 +716,7 @@ export default function Page() {
       </section>
 
       {/* Final CTA */}
-      <section className="from-primary to-primary/80 bg-gradient-to-br py-16 text-white">
+      <section className="bg-gradient-to-br from-primary to-primary/80 py-16 text-white">
         <Container className="max-w-4xl text-center">
           <div className="mb-8">
             <h2 className="mb-4 text-3xl font-bold md:text-4xl">
@@ -735,7 +735,7 @@ export default function Page() {
             </div>
             <div className="flex items-center justify-center space-x-2">
               <CheckCircle className="h-5 w-5" />
-              <span>72-hour implementation</span>
+              <span>7-Days implementation</span>
             </div>
             <div className="flex items-center justify-center space-x-2">
               <CheckCircle className="h-5 w-5" />

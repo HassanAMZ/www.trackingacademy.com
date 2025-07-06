@@ -1,6 +1,3 @@
-import Image from "next/image";
-import clsx from "clsx";
-import type { MDXComponents } from "mdx/types";
 import BlogHeader from "@/components/blog/blog-header";
 import DataLayerCode from "@/components/dataLayer/DataLayerCode";
 import YoutubeEmbed from "@/components/global/youtube-embed";
@@ -11,6 +8,9 @@ import GiscusComments from "@/components/mdx/GiscusComents";
 import Note from "@/components/mdx/Note";
 import ToolsHeroSection from "@/components/tools/ToolsHeroSection";
 import { Button } from "@/components/ui/button";
+import clsx from "clsx";
+import type { MDXComponents } from "mdx/types";
+import Image from "next/image";
 import DataLayerCodeBlock from "./components/mdx/datalayer-code";
 
 export function useMDXComponents(components: MDXComponents): MDXComponents {

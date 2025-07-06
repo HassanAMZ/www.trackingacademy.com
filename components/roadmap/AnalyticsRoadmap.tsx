@@ -1,10 +1,10 @@
 "use client";
 
-import React, { JSX, useState } from "react";
-import ReactFlow, { Edge, Handle, Node, Position } from "reactflow";
+import { Card } from "@/components/ui/card";
 import roadmapData from "@/data/roadmap";
 import { X } from "lucide-react";
-import { Card } from "@/components/ui/card";
+import React, { JSX, useState } from "react";
+import ReactFlow, { Edge, Handle, Node, Position } from "reactflow";
 import "reactflow/dist/style.css";
 
 interface SubItem {
@@ -33,20 +33,20 @@ interface SidebarProps {
 
 const MainNode: React.FC<{ data: NodeData }> = ({ data }) => (
   <div>
-    <Card className="bg-primary text-primary-foreground min-w-[200px] p-4">
+    <Card className="min-w-[200px] bg-primary p-4 text-primary-foreground">
       <div className="text-lg font-semibold">{data.title}</div>
     </Card>
-    <Handle id="top" type="target" position={Position.Top} className="bg-primary! h-2 w-2" />
-    <Handle id="bottom" type="source" position={Position.Bottom} className="bg-primary! h-2 w-2" />
-    <Handle id="left" type="source" position={Position.Left} className="bg-primary! h-2 w-2" />
-    <Handle id="right" type="source" position={Position.Right} className="bg-primary! h-2 w-2" />
+    <Handle id="top" type="target" position={Position.Top} className="h-2 w-2 bg-primary!" />
+    <Handle id="bottom" type="source" position={Position.Bottom} className="h-2 w-2 bg-primary!" />
+    <Handle id="left" type="source" position={Position.Left} className="h-2 w-2 bg-primary!" />
+    <Handle id="right" type="source" position={Position.Right} className="h-2 w-2 bg-primary!" />
   </div>
 );
 
 const SubNode: React.FC<{ data: NodeData & SubItem }> = ({ data }) => (
   <div>
     <Card
-      className="bg-secondary text-secondary-foreground hover:bg-secondary/80 min-w-[180px] cursor-pointer p-2"
+      className="min-w-[180px] cursor-pointer bg-secondary p-2 text-secondary-foreground hover:bg-secondary/80"
       onClick={() => data.onClick?.(data)}
     >
       <div className="text-sm">{data.title}</div>
@@ -55,17 +55,17 @@ const SubNode: React.FC<{ data: NodeData & SubItem }> = ({ data }) => (
       id={data.isEven ? "left" : "right"}
       type="target"
       position={data.isEven ? Position.Left : Position.Right}
-      className="bg-secondary! h-2 w-2"
+      className="h-2 w-2 bg-secondary!"
     />
   </div>
 );
 
 const Sidebar: React.FC<SidebarProps> = ({ data, onClose }) =>
   !data ? null : (
-    <div className="bg-card text-card-foreground fixed top-0 right-0 h-full w-96 overflow-y-auto border-l p-6 shadow-lg">
+    <div className="fixed top-0 right-0 h-full w-96 overflow-y-auto border-l bg-card p-6 text-card-foreground shadow-lg">
       <div className="mb-4 flex items-center justify-between">
         <h2 className="text-xl font-bold">{data.title}</h2>
-        <button onClick={onClose} className="hover:bg-secondary rounded p-1">
+        <button onClick={onClose} className="rounded p-1 hover:bg-secondary">
           <X size={24} />
         </button>
       </div>

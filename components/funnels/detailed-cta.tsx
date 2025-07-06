@@ -1,8 +1,8 @@
-import React from "react";
-import Link from "next/link";
-import { ArrowRight, CheckCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Container from "@/components/ui/container";
+import { ArrowRight, CheckCircle } from "lucide-react";
+import Link from "next/link";
+import React from "react";
 
 interface DetailedCTAProps {
   heading?: string;
@@ -24,13 +24,13 @@ const DetailedCTA: React.FC<DetailedCTAProps> = ({
   customButton,
 }) => {
   return (
-    <section className="from-primary/5 to-background bg-linear-to-b py-24">
+    <section className="bg-linear-to-b from-primary/5 to-background py-24">
       <Container className="grid place-content-center text-center">
         {/* Heading */}
         {heading && <h2 className="mb-4">{heading}</h2>}
 
         {/* Subheading */}
-        {subheading && <h4 className="text-muted-foreground mb-8">{subheading}</h4>}
+        {subheading && <h4 className="mb-8 text-muted-foreground">{subheading}</h4>}
 
         {/* List Items */}
         {listItems && listItems.length > 0 && (
@@ -38,7 +38,7 @@ const DetailedCTA: React.FC<DetailedCTAProps> = ({
             <ul className="mb-8 grid grid-cols-2 gap-5 text-left">
               {listItems.map((item, index) => (
                 <li key={index} className="mb-2 flex items-center">
-                  <CheckCircle className="text-primary mr-2 h-5 w-5" />
+                  <CheckCircle className="mr-2 h-5 w-5 text-primary" />
                   {item}
                 </li>
               ))}
@@ -50,7 +50,7 @@ const DetailedCTA: React.FC<DetailedCTAProps> = ({
         {customButton ? (
           <React.Fragment>{customButton}</React.Fragment> //
         ) : buttonText && buttonLink ? (
-          <Button size="lg" asChild className="hover:bg-primary/90 p-8 text-lg whitespace-pre-wrap">
+          <Button size="lg" asChild className="p-8 text-lg whitespace-pre-wrap hover:bg-primary/90">
             <Link href={buttonLink}>
               {buttonText}
               <ArrowRight className="ml-2 h-4 w-4" />
@@ -59,7 +59,7 @@ const DetailedCTA: React.FC<DetailedCTAProps> = ({
         ) : null}
 
         {/* Footer Text */}
-        {footerText && <p className="text-muted-foreground py-4">{footerText}</p>}
+        {footerText && <p className="py-4 text-muted-foreground">{footerText}</p>}
       </Container>
     </section>
   );

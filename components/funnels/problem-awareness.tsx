@@ -1,8 +1,8 @@
-import React from "react";
-import Image from "next/image";
-import { AlertTriangle, CircleCheck } from "lucide-react";
 import { Card } from "@/components/ui/card";
 import Container from "@/components/ui/container";
+import { AlertTriangle, CircleCheck } from "lucide-react";
+import Image from "next/image";
+import React from "react";
 
 interface ProblemAwarenessProps {
   headingText?: string;
@@ -20,7 +20,7 @@ const ProblemAwareness: React.FC<ProblemAwarenessProps> = ({
   imageUrl = "/images/social-sharing.png?height=400&width=300",
 }) => {
   return (
-    <section className="from-primary/5 to-background bg-linear-to-b py-16">
+    <section className="bg-linear-to-b from-primary/5 to-background py-16">
       <Container className="space-y-6">
         <div className="mx-auto max-w-3xl text-center">
           {headingText && <h2 className="mb-4">{headingText}</h2>}

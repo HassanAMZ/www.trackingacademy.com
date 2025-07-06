@@ -38,7 +38,9 @@ export default function CouponRequestEmail({
   return (
     <Html>
       <Head>
-        <title>{name} - Your $300 Coupon Code for the 3-Day "See Every Sale" Tracking System</title>
+        <title>
+          {name} - Your $300 Coupon Code for the 7-Days "See Every Sale" Tracking System
+        </title>
       </Head>
       <Preview>
         {name} - Your $300 Coupon Code: {couponCode} - Fix Your Facebook's Data Sharing Restrictions
@@ -61,7 +63,7 @@ export default function CouponRequestEmail({
             <Heading style={heading}>Your $300 Coupon Is Ready!</Heading>{" "}
             <Text style={greeting}>Hi {name},</Text>
             <Text style={paragraph}>
-              Thanks for your interest in our 3-Day "See Every Sale" Tracking System for{" "}
+              Thanks for your interest in our 7-Days "See Every Sale" Tracking System for{" "}
               {website_url}. Here's your exclusive $300 coupon code to use during checkout:
             </Text>{" "}
             {/* Coupon Code Box */}
@@ -69,7 +71,7 @@ export default function CouponRequestEmail({
               <Text style={couponText}>{couponCode}</Text>
             </Section>{" "}
             <Text style={paragraph}>
-              This coupon gives you $300 OFF the complete 3-Day "See Every Sale" Tracking System —
+              This coupon gives you $300 OFF the complete 7-Days "See Every Sale" Tracking System —
               helping you fix Facebook's data sharing restrictions and restore 95%+ accurate data
               for every ecommerce event.
             </Text>

@@ -1,13 +1,13 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import { AlertCircle, CheckCircle2, XCircle } from "lucide-react";
 import ContactUs from "@/components/blog/call-to-action-message-us";
 import YoutubeEmbed from "@/components/global/youtube-embed";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import { AlertCircle, CheckCircle2, XCircle } from "lucide-react";
+import { useEffect, useState } from "react";
 
 const REQUIRED_UTM_PARAMS = ["utm_source", "utm_medium", "utm_campaign"];
 
@@ -99,11 +99,11 @@ const UTMValidator = () => {
       {check ? (
         <CheckCircle2 className="mt-1 text-green-500" size={20} />
       ) : (
-        <XCircle className="text-destructive mt-1" size={20} />
+        <XCircle className="mt-1 text-destructive" size={20} />
       )}
       <div>
         <div className="font-medium">{title}</div>
-        <div className="text-muted-foreground text-sm">{description}</div>
+        <div className="text-sm text-muted-foreground">{description}</div>
       </div>
     </div>
   );
@@ -121,14 +121,14 @@ const UTMValidator = () => {
 
   const EmptyState = () => (
     <div className="py-8 text-center">
-      <AlertCircle className="text-muted-foreground mx-auto h-12 w-12" />
+      <AlertCircle className="mx-auto h-12 w-12 text-muted-foreground" />
       <h3 className="mt-4 text-lg font-semibold">No URL Analyzed</h3>
-      <p className="text-muted-foreground mt-2 text-sm">
+      <p className="mt-2 text-sm text-muted-foreground">
         Enter a URL with UTM parameters to validate and analyze its tracking components.
       </p>
-      <div className="bg-muted mt-4 rounded-lg p-4">
+      <div className="mt-4 rounded-lg bg-muted p-4">
         <p className="text-sm font-medium">Example URL:</p>
-        <p className="text-muted-foreground mt-1 text-xs">
+        <p className="mt-1 text-xs text-muted-foreground">
           https://example.com?utm_source=facebook&utm_medium=social&utm_campaign=spring_sale
         </p>
       </div>
@@ -208,7 +208,7 @@ const UTMValidator = () => {
                 <CardContent>
                   <div className="space-y-4">
                     <div>
-                      <h3 className="text-primary mb-2 font-semibold">UTM Parameters</h3>
+                      <h3 className="mb-2 font-semibold text-primary">UTM Parameters</h3>
                       <div className="space-y-2">
                         {REQUIRED_UTM_PARAMS.map((param) => (
                           <ParameterDisplay
@@ -226,7 +226,7 @@ const UTMValidator = () => {
                     </div>{" "}
                     {Object.keys(parsedParams.otherParams).length > 0 && (
                       <div>
-                        <h3 className="text-primary mb-2 font-semibold">Other Parameters</h3>
+                        <h3 className="mb-2 font-semibold text-primary">Other Parameters</h3>
                         <div className="space-y-2">
                           {Object.entries(parsedParams.otherParams).map(([param, value]) => (
                             <ParameterDisplay key={param} param={param} value={value} />

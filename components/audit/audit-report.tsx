@@ -1,5 +1,17 @@
 "use client";
 
+import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from "@/components/ui/table";
 import type { AuditReportProps } from "@/data/audit-report";
 import {
   Activity,
@@ -17,18 +29,6 @@ import {
   XCircle,
   Zap,
 } from "lucide-react";
-import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
-import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import {
-  Table,
-  TableBody,
-  TableCell,
-  TableHead,
-  TableHeader,
-  TableRow,
-} from "@/components/ui/table";
 import LoomEmbed from "../global/loom-embed";
 import YoutubeEmbed from "../global/youtube-embed";
 
@@ -120,7 +120,7 @@ function ScoreCircle({
         </svg>
         <div className="absolute inset-0 flex flex-col items-center justify-center">
           <span className={`${isLarge ? "text-4xl" : "text-2xl"} font-bold`}>{score}</span>
-          <span className="text-muted-foreground text-sm">
+          <span className="text-sm text-muted-foreground">
             {isLarge ? `out of ${maxScore}` : `/${maxScore}`}
           </span>
         </div>
@@ -137,11 +137,11 @@ function ScoreCircle({
 // Enhanced Table Row Component
 function TrackerTableRow({ tracker, index }: { tracker: any; index: number }) {
   return (
-    <TableRow className="group hover:bg-muted/50 border-muted/30 border-b transition-all duration-200">
+    <TableRow className="group border-b border-muted/30 transition-all duration-200 hover:bg-muted/50">
       <TableCell className="py-4">
         <div className="flex items-center gap-3">
           <div className="h-3 w-3 rounded-full bg-gradient-to-r from-blue-500 to-purple-500 shadow-sm" />
-          <span className="group-hover:text-primary font-medium transition-colors">
+          <span className="font-medium transition-colors group-hover:text-primary">
             {tracker.name}
           </span>
         </div>
@@ -164,7 +164,7 @@ function TrackerTableRow({ tracker, index }: { tracker: any; index: number }) {
         </Badge>
       </TableCell>
       <TableCell className="py-4">
-        <div className="text-muted-foreground flex items-center gap-2">
+        <div className="flex items-center gap-2 text-muted-foreground">
           <Database className="h-3 w-3" />
           <span className="text-sm">{tracker.dataSentTo}</span>
         </div>
@@ -188,7 +188,7 @@ function TrackerTableRow({ tracker, index }: { tracker: any; index: number }) {
             </div>
           )}
           {tracker.canImprove && tracker.improvementLink && (
-            <Button variant="ghost" size="sm" asChild className="hover:bg-primary/10 h-6 w-6 p-0">
+            <Button variant="ghost" size="sm" asChild className="h-6 w-6 p-0 hover:bg-primary/10">
               <a href={tracker.improvementLink} target="_blank" rel="noopener noreferrer">
                 <ExternalLink className="h-3 w-3" />
               </a>
@@ -219,11 +219,11 @@ function DataCard({
       <CardContent className="p-6">
         <div className="flex items-center justify-between">
           <div>
-            <p className="text-muted-foreground text-sm font-medium">{title}</p>
+            <p className="text-sm font-medium text-muted-foreground">{title}</p>
             <p className="text-3xl font-bold" style={{ color }}>
               {value}
             </p>
-            <p className="text-muted-foreground mt-1 text-xs">{description}</p>
+            <p className="mt-1 text-xs text-muted-foreground">{description}</p>
           </div>
           <div
             className="flex h-12 w-12 items-center justify-center rounded-full"
@@ -281,7 +281,7 @@ export default function AuditReport({ report }: AuditReportProps) {
           <CardDescription className="text-base">
             {report.id}'s overall health score and key metrics
             <br />
-            <p className="text-muted-foreground text-sm">
+            <p className="text-sm text-muted-foreground">
               {new Date(report.date).toLocaleDateString("en-US", {
                 month: "short",
                 day: "numeric",
@@ -373,16 +373,16 @@ export default function AuditReport({ report }: AuditReportProps) {
           <CardDescription>Third-party trackers detected on your website</CardDescription>
         </CardHeader>
         <CardContent>
-          <div className="border-muted/50 overflow-hidden rounded-lg border">
+          <div className="overflow-hidden rounded-lg border border-muted/50">
             <Table>
               <TableHeader>
                 <TableRow className="bg-muted/30 hover:bg-muted/30">
-                  <TableHead className="text-foreground font-semibold">Name</TableHead>
-                  <TableHead className="text-foreground font-semibold">Provider</TableHead>
-                  <TableHead className="text-foreground font-semibold">Category</TableHead>
-                  <TableHead className="text-foreground font-semibold">Data Sent To</TableHead>
-                  <TableHead className="text-foreground font-semibold">Method</TableHead>
-                  <TableHead className="text-foreground font-semibold">Status</TableHead>
+                  <TableHead className="font-semibold text-foreground">Name</TableHead>
+                  <TableHead className="font-semibold text-foreground">Provider</TableHead>
+                  <TableHead className="font-semibold text-foreground">Category</TableHead>
+                  <TableHead className="font-semibold text-foreground">Data Sent To</TableHead>
+                  <TableHead className="font-semibold text-foreground">Method</TableHead>
+                  <TableHead className="font-semibold text-foreground">Status</TableHead>
                 </TableRow>
               </TableHeader>
               <TableBody>
@@ -405,27 +405,27 @@ export default function AuditReport({ report }: AuditReportProps) {
           <CardDescription>Cookies used for tracking purposes</CardDescription>
         </CardHeader>
         <CardContent>
-          <div className="border-muted/50 overflow-hidden rounded-lg border">
+          <div className="overflow-hidden rounded-lg border border-muted/50">
             <Table>
               <TableHeader>
                 <TableRow className="bg-muted/30 hover:bg-muted/30">
-                  <TableHead className="text-foreground font-semibold">Name</TableHead>
-                  <TableHead className="text-foreground font-semibold">Provider</TableHead>
-                  <TableHead className="text-foreground font-semibold">Category</TableHead>
-                  <TableHead className="text-foreground font-semibold">Data Sent To</TableHead>
-                  <TableHead className="text-foreground font-semibold">Lifetime</TableHead>
+                  <TableHead className="font-semibold text-foreground">Name</TableHead>
+                  <TableHead className="font-semibold text-foreground">Provider</TableHead>
+                  <TableHead className="font-semibold text-foreground">Category</TableHead>
+                  <TableHead className="font-semibold text-foreground">Data Sent To</TableHead>
+                  <TableHead className="font-semibold text-foreground">Lifetime</TableHead>
                 </TableRow>
               </TableHeader>
               <TableBody>
                 {report.trackingCookies.map((cookie, index) => (
                   <TableRow
                     key={index}
-                    className="group hover:bg-muted/50 border-muted/30 border-b transition-all duration-200"
+                    className="group border-b border-muted/30 transition-all duration-200 hover:bg-muted/50"
                   >
                     <TableCell className="py-4">
                       <div className="flex items-center gap-3">
                         <Cookie className="h-4 w-4 text-amber-500" />
-                        <span className="group-hover:text-primary font-medium transition-colors">
+                        <span className="font-medium transition-colors group-hover:text-primary">
                           {cookie.name}
                         </span>
                       </div>
@@ -448,7 +448,7 @@ export default function AuditReport({ report }: AuditReportProps) {
                       </Badge>
                     </TableCell>
                     <TableCell className="py-4">
-                      <div className="text-muted-foreground flex items-center gap-2">
+                      <div className="flex items-center gap-2 text-muted-foreground">
                         <Database className="h-3 w-3" />
                         <span className="text-sm">{cookie.dataSentTo}</span>
                       </div>
@@ -481,27 +481,27 @@ export default function AuditReport({ report }: AuditReportProps) {
           </CardDescription>
         </CardHeader>
         <CardContent>
-          <div className="border-muted/50 overflow-hidden rounded-lg border">
+          <div className="overflow-hidden rounded-lg border border-muted/50">
             <Table>
               <TableHeader>
                 <TableRow className="bg-muted/30 hover:bg-muted/30">
-                  <TableHead className="text-foreground font-semibold">Name</TableHead>
-                  <TableHead className="text-foreground font-semibold">Provider</TableHead>
-                  <TableHead className="text-foreground font-semibold">Category</TableHead>
-                  <TableHead className="text-foreground font-semibold">Transfer Size</TableHead>
-                  <TableHead className="text-foreground font-semibold">Blocking Time</TableHead>
+                  <TableHead className="font-semibold text-foreground">Name</TableHead>
+                  <TableHead className="font-semibold text-foreground">Provider</TableHead>
+                  <TableHead className="font-semibold text-foreground">Category</TableHead>
+                  <TableHead className="font-semibold text-foreground">Transfer Size</TableHead>
+                  <TableHead className="font-semibold text-foreground">Blocking Time</TableHead>
                 </TableRow>
               </TableHeader>
               <TableBody>
                 {report.trackingScripts.map((script, index) => (
                   <TableRow
                     key={index}
-                    className="group hover:bg-muted/50 border-muted/30 border-b transition-all duration-200"
+                    className="group border-b border-muted/30 transition-all duration-200 hover:bg-muted/50"
                   >
                     <TableCell className="py-4">
                       <div className="flex items-center gap-3">
                         <div className="h-3 w-3 rounded-full bg-gradient-to-r from-green-500 to-blue-500 shadow-sm" />
-                        <span className="group-hover:text-primary font-medium transition-colors">
+                        <span className="font-medium transition-colors group-hover:text-primary">
                           {script.name}
                         </span>
                       </div>

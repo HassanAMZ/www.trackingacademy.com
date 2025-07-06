@@ -1,8 +1,5 @@
 "use client";
 
-import React, { ChangeEvent, useActionState, useEffect, useState } from "react";
-import { useFormStatus } from "react-dom";
-import { useRouter } from "next/navigation";
 import { createWaitlist } from "@/actions/handle-enroll-now";
 import {
   Select,
@@ -12,6 +9,9 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { Textarea } from "@/components/ui/textarea";
+import { useRouter } from "next/navigation";
+import React, { ChangeEvent, useActionState, useEffect, useState } from "react";
+import { useFormStatus } from "react-dom";
 import { cn } from "../lib/utils";
 import { Button } from "../ui/button";
 import { Card, CardContent } from "../ui/card";

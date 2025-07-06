@@ -6,32 +6,32 @@ export default function Loading() {
   return (
     <main>
       {/* Hero Section Skeleton */}
-      <section className="py-8 bg-gradient-to-b from-primary/10 to-background">
-        <Container className="max-w-6xl text-center md:space-y-12 space-y-6">
+      <section className="bg-gradient-to-b from-primary/10 to-background py-8">
+        <Container className="max-w-6xl space-y-6 text-center md:space-y-12">
           {/* Hero Title Skeleton */}
           <div className="space-y-2">
-            <Skeleton className="h-12 w-full max-w-4xl mx-auto" />
-            <Skeleton className="h-12 w-3/4 mx-auto" />
+            <Skeleton className="mx-auto h-12 w-full max-w-4xl" />
+            <Skeleton className="mx-auto h-12 w-3/4" />
           </div>
 
           {/* Video Skeleton */}
-          <div className="max-w-4xl mx-auto">
+          <div className="mx-auto max-w-4xl">
             <Skeleton className="aspect-video w-full rounded-lg" />
           </div>
 
           {/* Subtitle Skeleton */}
           <div className="space-y-2">
-            <Skeleton className="h-8 w-full max-w-3xl mx-auto" />
-            <Skeleton className="h-8 w-2/3 mx-auto" />
+            <Skeleton className="mx-auto h-8 w-full max-w-3xl" />
+            <Skeleton className="mx-auto h-8 w-2/3" />
           </div>
 
           {/* CTA Button Skeleton */}
-          <Skeleton className="h-16 w-full max-w-md mx-auto rounded-lg" />
+          <Skeleton className="mx-auto h-16 w-full max-w-md rounded-lg" />
         </Container>
       </section>
 
       {/* Process Section Skeleton */}
-      <Container className="max-w-6xl pb-12 pt-4 md:space-y-12 space-y-6">
+      <Container className="max-w-6xl space-y-6 pt-4 pb-12 md:space-y-12">
         <Separator />
 
         {/* Process Title Skeleton */}
@@ -41,7 +41,7 @@ export default function Loading() {
         </div>
 
         {/* Process Steps Skeleton */}
-        <div className="grid gap-12 max-w-5xl">
+        <div className="grid max-w-5xl gap-12">
           {[1, 2, 3].map((step) => (
             <div key={step} className="flex flex-col gap-6">
               <Skeleton className="h-8 w-64" />
@@ -55,7 +55,7 @@ export default function Loading() {
         </div>
 
         {/* CTA Button Skeleton */}
-        <Skeleton className="h-16 w-full max-w-md mx-auto rounded-lg" />
+        <Skeleton className="mx-auto h-16 w-full max-w-md rounded-lg" />
 
         <Separator />
       </Container>
@@ -63,9 +63,9 @@ export default function Loading() {
       {/* Case Studies Section Skeleton */}
       <section>
         <Container className="max-w-6xl space-y-12 py-8">
-          <div className="text-center space-y-4">
-            <Skeleton className="h-10 w-80 mx-auto" />
-            <Skeleton className="h-6 w-full max-w-3xl mx-auto" />
+          <div className="space-y-4 text-center">
+            <Skeleton className="mx-auto h-10 w-80" />
+            <Skeleton className="mx-auto h-6 w-full max-w-3xl" />
           </div>
         </Container>
 
@@ -73,7 +73,7 @@ export default function Loading() {
         {[1, 2, 3, 4, 5].map((item) => (
           <div key={item} className="py-8">
             <Container className="max-w-6xl">
-              <div className="grid md:grid-cols-2 gap-8 items-center">
+              <div className="grid items-center gap-8 md:grid-cols-2">
                 <div className="space-y-4">
                   <Skeleton className="h-8 w-3/4" />
                   <div className="space-y-2">
@@ -90,22 +90,22 @@ export default function Loading() {
         ))}
 
         <Container>
-          <Skeleton className="h-16 w-full max-w-md mx-auto rounded-lg" />
+          <Skeleton className="mx-auto h-16 w-full max-w-md rounded-lg" />
         </Container>
       </section>
 
       {/* Testimonials Section Skeleton */}
       <section className="py-16">
         <Container>
-          <div className="text-center space-y-4 mb-12">
-            <Skeleton className="h-10 w-96 mx-auto" />
-            <Skeleton className="h-6 w-full max-w-4xl mx-auto" />
+          <div className="mb-12 space-y-4 text-center">
+            <Skeleton className="mx-auto h-10 w-96" />
+            <Skeleton className="mx-auto h-6 w-full max-w-4xl" />
           </div>
 
           {/* Testimonial Grid Skeleton */}
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             {[1, 2, 3, 4, 5, 6].map((item) => (
-              <div key={item} className="p-6 border rounded-lg space-y-4">
+              <div key={item} className="space-y-4 rounded-lg border p-6">
                 <div className="flex items-center space-x-2">
                   {[1, 2, 3, 4, 5].map((star) => (
                     <Skeleton key={star} className="h-4 w-4" />
@@ -130,15 +130,15 @@ export default function Loading() {
       </section>
 
       {/* Calendar Section Skeleton */}
-      <section className="py-16 bg-gradient-to-b from-primary to-primary/80">
-        <Container className="max-w-4xl text-center space-y-8">
+      <section className="bg-gradient-to-b from-primary to-primary/80 py-16">
+        <Container className="max-w-4xl space-y-8 text-center">
           <div className="space-y-4">
-            <Skeleton className="h-10 w-96 mx-auto bg-primary-foreground/20" />
-            <Skeleton className="h-6 w-full max-w-2xl mx-auto bg-primary-foreground/20" />
+            <Skeleton className="mx-auto h-10 w-96 bg-primary-foreground/20" />
+            <Skeleton className="mx-auto h-6 w-full max-w-2xl bg-primary-foreground/20" />
           </div>
 
           {/* Calendar Skeleton */}
-          <div className="max-w-2xl mx-auto">
+          <div className="mx-auto max-w-2xl">
             <Skeleton className="h-96 w-full rounded-lg bg-primary-foreground/20" />
           </div>
         </Container>
@@ -147,15 +147,15 @@ export default function Loading() {
       {/* Final Testimonials Section Skeleton */}
       <section className="py-16">
         <Container>
-          <div className="text-center space-y-4 mb-12">
-            <Skeleton className="h-10 w-96 mx-auto" />
-            <Skeleton className="h-6 w-full max-w-4xl mx-auto" />
+          <div className="mb-12 space-y-4 text-center">
+            <Skeleton className="mx-auto h-10 w-96" />
+            <Skeleton className="mx-auto h-6 w-full max-w-4xl" />
           </div>
 
           {/* Additional Testimonial Grid Skeleton */}
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
+          <div className="mb-8 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             {[1, 2, 3].map((item) => (
-              <div key={item} className="p-6 border rounded-lg space-y-4">
+              <div key={item} className="space-y-4 rounded-lg border p-6">
                 <div className="flex items-center space-x-2">
                   {[1, 2, 3, 4, 5].map((star) => (
                     <Skeleton key={star} className="h-4 w-4" />
@@ -177,7 +177,7 @@ export default function Loading() {
             ))}
           </div>
 
-          <Skeleton className="h-16 w-full max-w-md mx-auto rounded-lg" />
+          <Skeleton className="mx-auto h-16 w-full max-w-md rounded-lg" />
         </Container>
       </section>
     </main>

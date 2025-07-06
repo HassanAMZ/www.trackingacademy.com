@@ -1,7 +1,7 @@
-import React from "react";
-import Image from "next/image";
 import { Card, CardContent } from "@/components/ui/card";
 import Container from "@/components/ui/container";
+import Image from "next/image";
+import React from "react";
 
 interface Guarantee {
   title: string;
@@ -16,7 +16,7 @@ interface ObjectionHandlingProps {
 
 const ObjectionHandling: React.FC<ObjectionHandlingProps> = ({ sectionTitle, guarantees }) => {
   return (
-    <section className="bg-secondary/20 grid place-content-center py-24">
+    <section className="grid place-content-center bg-secondary/20 py-24">
       <Container>
         {/* Section Title */}
         {sectionTitle && <h2 className="mb-12 text-center">{sectionTitle}</h2>}{" "}

@@ -1,5 +1,5 @@
-import Image from "next/image";
 import { Clock } from "lucide-react";
+import Image from "next/image";
 import { Button } from "../ui/button";
 import { Card, CardContent } from "../ui/card";
 
@@ -10,7 +10,7 @@ export function CTASection() {
         <h2 className="text-3xl font-bold md:text-4xl">
           We build measurement systems enabling companies to act faster & make a bigger impact!
         </h2>
-        <p className="text-muted-foreground mx-auto max-w-[800px] text-xl">
+        <p className="mx-auto max-w-[800px] text-xl text-muted-foreground">
           Finally, a single source of truth for your leading revenue metrics, without burdening your
           internal team.
         </p>
@@ -23,7 +23,7 @@ export function CTASection() {
       <Card className="mt-12">
         <CardContent className="p-8">
           <div className="mb-4 flex items-center space-x-2">
-            <Clock className="text-primary h-5 w-5" />
+            <Clock className="h-5 w-5 text-primary" />
             <span className="text-sm">Less than 3 minutes</span>
           </div>
           <h3 className="mb-4 text-2xl font-bold">Learn how we help you win, using your data</h3>

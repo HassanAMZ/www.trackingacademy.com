@@ -1,19 +1,19 @@
 "use client";
 
-import Image from "next/image";
-import Link from "next/link";
-import { caseStudies } from "@/data/case-studies";
-import { ExternalLink } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import Container from "@/components/ui/container";
+import { caseStudies } from "@/data/case-studies";
+import { ExternalLink } from "lucide-react";
+import Image from "next/image";
+import Link from "next/link";
 
 export default function CaseStudiesPage() {
   return (
     <Container className="py-12">
       <h1 className="mb-8 text-center">Our Case Studies</h1>
-      <p className="text-muted-foreground mx-auto mb-12 max-w-2xl text-center">
+      <p className="mx-auto mb-12 max-w-2xl text-center text-muted-foreground">
         Discover how we has empowered businesses with cutting-edge analytics and tracking solutions
         to drive data-driven decisions and boost campaign performance.
       </p>
@@ -24,9 +24,9 @@ export default function CaseStudiesPage() {
             href={`/case-study/${caseStudy.id}`}
             className="group block h-full"
           >
-            <Card className="bg-background/80 relative flex h-full flex-col overflow-hidden backdrop-blur-xs transition-all duration-300 group-hover:scale-[1.02] group-hover:shadow-lg">
+            <Card className="relative flex h-full flex-col overflow-hidden bg-background/80 backdrop-blur-xs transition-all duration-300 group-hover:scale-[1.02] group-hover:shadow-lg">
               {/* Gradient overlay that appears on hover - similar to TestimonialCard */}
-              <div className="from-primary/20 absolute inset-0 z-10 bg-gradient-to-t to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100"></div>{" "}
+              <div className="absolute inset-0 z-10 bg-gradient-to-t from-primary/20 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100"></div>{" "}
               <CardHeader className="relative z-20">
                 <div className="overflow-hidden rounded-lg border">
                   <Image
@@ -47,14 +47,14 @@ export default function CaseStudiesPage() {
                 </div>
               </CardHeader>
               <CardContent className="relative z-20">
-                <p className="text-muted-foreground mb-4 line-clamp-3">{caseStudy.description}</p>
+                <p className="mb-4 line-clamp-3 text-muted-foreground">{caseStudy.description}</p>
                 <Button variant="outline" className="w-full cursor-pointer">
                   View Case Study
                 </Button>
               </CardContent>{" "}
               {/* External link icon that appears on hover - similar to TestimonialCard */}
               <div className="absolute top-1/2 left-1/2 z-30 -translate-x-1/2 -translate-y-1/2 transform opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-                <div className="bg-primary rounded-full p-3 text-white shadow-lg">
+                <div className="rounded-full bg-primary p-3 text-white shadow-lg">
                   <ExternalLink className="h-6 w-6" />
                 </div>
               </div>

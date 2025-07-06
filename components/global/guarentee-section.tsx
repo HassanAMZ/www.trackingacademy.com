@@ -1,5 +1,5 @@
-import Link from "next/link";
 import { AlertCircle, ArrowRight } from "lucide-react";
+import Link from "next/link";
 import { Button } from "../ui/button";
 import { Card, CardContent } from "../ui/card";
 import Container from "../ui/container";
@@ -11,7 +11,7 @@ const GuaranteeSection = () => {
         <Card className="border-primary/20 bg-primary/5">
           <CardContent className="pt-6">
             <div className="flex flex-col items-center gap-4 space-y-4 text-center">
-              <AlertCircle className="text-primary h-12 w-12" />
+              <AlertCircle className="h-12 w-12 text-primary" />
               <h2>Our "95%+ Accuracy or It's FREE" Guarantee</h2>
               <p className="max-w-xl">
                 We're confident that our system will deliver precise, actionable data for your

@@ -1,7 +1,7 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
 import { caseStudies } from "@/data/case-studies";
+import { useEffect, useRef, useState } from "react";
 import { TestimonialCard } from "./testimonial-card";
 import UpworkStats from "./upwork-stats";
 
@@ -129,8 +129,8 @@ export default function TestimonialGrid({
       {!upwork && showUpworkStats && <UpworkStats />}
       <div className="relative overflow-hidden py-8">
         {/* Left and Right blur overlays */}
-        <div className="from-background pointer-events-none absolute top-0 left-0 z-10 h-full w-6 bg-gradient-to-r to-transparent"></div>
-        <div className="from-background pointer-events-none absolute top-0 right-0 z-10 h-full w-6 bg-gradient-to-l to-transparent"></div>
+        <div className="pointer-events-none absolute top-0 left-0 z-10 h-full w-6 bg-gradient-to-r from-background to-transparent"></div>
+        <div className="pointer-events-none absolute top-0 right-0 z-10 h-full w-6 bg-gradient-to-l from-background to-transparent"></div>
         {/* Top Row - Moving Left to Right (1→2→3→4→5...) */}
         <div className="mb-8">
           <div

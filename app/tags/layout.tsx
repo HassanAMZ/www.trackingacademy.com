@@ -1,9 +1,9 @@
 // 5. Tags Archive Page
-import React, { ReactNode } from "react";
-import { Metadata } from "next";
 import Footer from "@/components/global/footer";
 import Navbar from "@/components/global/navbar";
 import Container from "@/components/ui/container";
+import { Metadata } from "next";
+import React, { ReactNode } from "react";
 
 export const metadata: Metadata = {
   title: "Tags Archive - TrackingAcademy | Web Analytics & Marketing Resources",

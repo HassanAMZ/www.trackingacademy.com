@@ -1,9 +1,9 @@
-import Image from "next/image";
-import Link from "next/link";
-import { PostMetadata } from "@/types/index";
-import { CalendarIcon } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardFooter, CardHeader } from "@/components/ui/card";
+import { PostMetadata } from "@/types/index";
+import { CalendarIcon } from "lucide-react";
+import Image from "next/image";
+import Link from "next/link";
 
 interface SingleBlogCardProps {
   post: PostMetadata;
@@ -39,7 +39,7 @@ const SingleBlogCard: React.FC<SingleBlogCardProps> = ({
             </h3>
           </CardHeader>
           <CardContent>
-            <p className={`text-muted-foreground line-clamp-3 text-sm ${isMain ? "mb-4" : "mb-2"}`}>
+            <p className={`line-clamp-3 text-sm text-muted-foreground ${isMain ? "mb-4" : "mb-2"}`}>
               {post.description}
             </p>
             <div className="flex flex-wrap gap-2">
@@ -50,7 +50,7 @@ const SingleBlogCard: React.FC<SingleBlogCardProps> = ({
               ))}
             </div>
           </CardContent>
-          <CardFooter className="text-muted-foreground text-sm">
+          <CardFooter className="text-sm text-muted-foreground">
             <CalendarIcon className="mr-2 h-4 w-4" />
             {post.date}
           </CardFooter>

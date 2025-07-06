@@ -1,7 +1,5 @@
 "use client";
 
-import { useActionState } from "react";
-import { useFormStatus } from "react-dom";
 import { createContact } from "@/actions/contact-us";
 import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
@@ -14,6 +12,8 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import { useActionState } from "react";
+import { useFormStatus } from "react-dom";
 
 // Initial state for form
 const initialState = {
@@ -42,7 +42,7 @@ function SubmitButton() {
       disabled={pending}
       size="lg"
       variant="default"
-      className={`bg-primary hover:bg-primary/90 w-full p-6 text-lg font-bold ${pending ? "cursor-not-allowed opacity-50" : ""}`}
+      className={`w-full bg-primary p-6 text-lg font-bold hover:bg-primary/90 ${pending ? "cursor-not-allowed opacity-50" : ""}`}
     >
       {pending ? "Submitting..." : "Submit"}
     </Button>
@@ -59,7 +59,7 @@ export default function ContactForm({ redirectUrl = "/contact/book-a-meeting" }:
     <div className="w-full py-6">
       <form id="contact-form" action={formAction} name="tracking-audit">
         {state.error && (
-          <div className="border-destructive bg-destructive/50 text-destructive mb-4 rounded border p-3">
+          <div className="mb-4 rounded border border-destructive bg-destructive/50 p-3 text-destructive">
             {state.error}
           </div>
         )}{" "}

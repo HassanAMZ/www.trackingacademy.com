@@ -1,6 +1,6 @@
-import Image from "next/image";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import Image from "next/image";
 
 export function HeroSection() {
   return (
@@ -12,7 +12,7 @@ export function HeroSection() {
         <h1>
           We build measurement systems enabling companies to act faster & make a bigger impact!{" "}
         </h1>
-        <p className="text-muted-foreground max-w-4xl text-xl">
+        <p className="max-w-4xl text-xl text-muted-foreground">
           Finally, a single source of truth for your leading revenue metrics, without burdening your
           internal team. Get always updated: data integration, cleaning, and custom visualization
           plus a dedicated Slack channel for your team to ask questions and monthly strategy

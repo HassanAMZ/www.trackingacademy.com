@@ -1,9 +1,9 @@
-import React from "react";
-import Image from "next/image";
-import Link from "next/link";
-import { ArrowRight, CheckCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Container from "@/components/ui/container";
+import { ArrowRight, CheckCircle } from "lucide-react";
+import Image from "next/image";
+import Link from "next/link";
+import React from "react";
 
 interface Bonus {
   title: string;
@@ -33,7 +33,7 @@ const Bonuses: React.FC<BonusesProps> = ({
   actionButtonLink,
 }) => {
   return (
-    <section className="from-primary/5 to-background bg-linear-to-b py-24">
+    <section className="bg-linear-to-b from-primary/5 to-background py-24">
       <Container className="flex w-full flex-col items-center space-y-16">
         {/* Header Section */}
         {sectionTitle && (
@@ -46,7 +46,7 @@ const Bonuses: React.FC<BonusesProps> = ({
         {bonuses && bonuses.length > 0 && (
           <div className="w-full space-y-12">
             {bonuses.map((bonus, index) => (
-              <section key={index} className="bg-primary/5 rounded-lg px-4 py-16 shadow-md">
+              <section key={index} className="rounded-lg bg-primary/5 px-4 py-16 shadow-md">
                 <Container>
                   <div className="grid grid-cols-1 gap-12 lg:grid-cols-2">
                     {/* Content Side */}
@@ -54,7 +54,7 @@ const Bonuses: React.FC<BonusesProps> = ({
                       <div className="flex h-full flex-col justify-between space-y-4">
                         {/* Title  */}
                         <h3 className="flex items-center">
-                          <bonus.icon className="text-primary mr-4 h-12 w-12" />
+                          <bonus.icon className="mr-4 h-12 w-12 text-primary" />
                           {bonus.title}
                         </h3>{" "}
                         {/* Description */}
@@ -66,7 +66,7 @@ const Bonuses: React.FC<BonusesProps> = ({
                             <ul className="space-y-3">
                               {bonus.details.map((detail, idx) => (
                                 <li key={idx} className="flex items-start">
-                                  <CheckCircle className="text-primary mt-1 mr-2 h-6 w-6 shrink-0" />
+                                  <CheckCircle className="mt-1 mr-2 h-6 w-6 shrink-0 text-primary" />
                                   <span>{detail}</span>
                                 </li>
                               ))}
@@ -80,7 +80,7 @@ const Bonuses: React.FC<BonusesProps> = ({
                             <ul className="space-y-3">
                               {bonus.features.map((feature, idx) => (
                                 <li key={idx} className="flex items-start">
-                                  <CheckCircle className="text-primary mt-1 mr-2 h-6 w-6 shrink-0" />
+                                  <CheckCircle className="mt-1 mr-2 h-6 w-6 shrink-0 text-primary" />
                                   <span>{feature}</span>
                                 </li>
                               ))}
@@ -88,10 +88,10 @@ const Bonuses: React.FC<BonusesProps> = ({
                           </div>
                         )}
                         {/* Value  */}{" "}
-                        <div className="bg-background/80 inline-block w-fit rounded-lg p-4 backdrop-blur-xs">
+                        <div className="inline-block w-fit rounded-lg bg-background/80 p-4 backdrop-blur-xs">
                           <p className="text-primary">
                             {bonus.value}
-                            <span className="text-muted-foreground ml-2 text-lg font-normal">
+                            <span className="ml-2 text-lg font-normal text-muted-foreground">
                               Value
                             </span>
                           </p>
@@ -118,7 +118,7 @@ const Bonuses: React.FC<BonusesProps> = ({
         )}{" "}
         {/* Total Value and CTA Section */}
         {totalBonusValue && (
-          <section className="bg-primary/10 w-full rounded-lg px-4 py-16 text-center shadow-lg">
+          <section className="w-full rounded-lg bg-primary/10 px-4 py-16 text-center shadow-lg">
             <Container className="space-y-8">
               <h3>Total Bonus Value: {totalBonusValue}</h3>{" "}
               {actionButtonText && actionButtonLink && (

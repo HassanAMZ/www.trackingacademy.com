@@ -1,10 +1,10 @@
-import type { ReactNode } from "react";
-import Link from "next/link";
-import { ProjectTimelineProps } from "@/data/case-studies";
-import { Quote, Star } from "lucide-react";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
+import { ProjectTimelineProps } from "@/data/case-studies";
+import { Quote, Star } from "lucide-react";
+import Link from "next/link";
+import type { ReactNode } from "react";
 
 export interface Metric {
   label: string;
@@ -46,7 +46,7 @@ export function TestimonialCard({
   if (upwork) {
     const upworkCardContent = (
       <Card
-        className={`bg-foreground dark:bg-background text-primary-foreground dark:text-foreground overflow-hidden p-2 ${className}`}
+        className={`overflow-hidden bg-foreground p-2 text-primary-foreground dark:bg-background dark:text-foreground ${className}`}
       >
         <CardContent className="p-0">
           <div className="p-6">
@@ -71,7 +71,7 @@ export function TestimonialCard({
                     <p className="leading-tight font-semibold">
                       {author}
                       <br />
-                      {role && <span className="text-muted text-xs font-normal">{role}</span>}
+                      {role && <span className="text-xs font-normal text-muted">{role}</span>}
                     </p>
                   </div>
                 </div>
@@ -100,7 +100,7 @@ export function TestimonialCard({
       <CardContent className="relative z-20 flex h-full flex-col space-y-4 p-0">
         {/* Header section with stars and project name */}
         <div className="flex items-start justify-between p-4 pb-0">
-          <Quote className="text-primary mb-4 h-12 w-12" />
+          <Quote className="mb-4 h-12 w-12 text-primary" />
           <div className="flex flex-col items-end gap-2">
             <div className="flex space-x-1">
               {Array.from({ length: 5 }, (_, i) => (
@@ -108,7 +108,7 @@ export function TestimonialCard({
               ))}
             </div>
             {projectName && (
-              <div className="bg-primary/10 rounded-full px-3 py-1 text-xs font-medium">
+              <div className="rounded-full bg-primary/10 px-3 py-1 text-xs font-medium">
                 {projectName}
               </div>
             )}
@@ -117,7 +117,7 @@ export function TestimonialCard({
 
         {/* Quote content */}
         <div className="flex grow items-center p-4 pt-2">
-          <h4 className="text-foreground/90 line-clamp-3 italic">{quote}</h4>
+          <h4 className="line-clamp-3 text-foreground/90 italic">{quote}</h4>
         </div>
 
         {/* Footer with author and metrics */}
@@ -131,7 +131,7 @@ export function TestimonialCard({
               </Avatar>
               <div className="flex flex-col">
                 <p className="font-semibold">{author}</p>
-                {role && <p className="text-muted-foreground text-xs">{role}</p>}
+                {role && <p className="text-xs text-muted-foreground">{role}</p>}
               </div>
             </div>
           </div>

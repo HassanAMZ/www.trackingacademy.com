@@ -265,7 +265,7 @@ export const services: Service[] = [
       "Google Tag Manager": "Audit",
       "Enhanced Ecommerce": false,
       "LinkedIn Ads Tracking": "Audit",
-      "Delivery Time": "3 day",
+      "Delivery Time": "7-Days",
 
       "X Ads Tracking": "Audit",
       "Floodlight Tags": false,
@@ -300,7 +300,7 @@ export const services: Service[] = [
   {
     name: "See Every Sale",
     id: "see-every-sale",
-    subtitle: "3-Day Complete Tracking Solution",
+    subtitle: "7-Days Complete Tracking Solution",
     description:
       "Complete Meta ads tracking restoration with custom dashboard and compliance setup - delivered in just 7 days.",
     price: "$1,500",
@@ -333,7 +333,7 @@ export const services: Service[] = [
       "Multi-language Support": false,
       "47-Point Conversion Checklist": true,
       "ROI & LTV Tracking Toolkit": true,
-      "3-Day Implementation": true,
+      "7-Days Implementation": true,
       "Premium Support": true,
       "Money Back Guarantee": true,
     },
@@ -362,7 +362,7 @@ export const services: Service[] = [
         "Proven checklist with 47 critical conversion optimization points to boost your funnel performance and ROAS.",
       "ROI & LTV Tracking Toolkit":
         "ROAS calculators, LTV tracking tools, budget optimizers, and campaign performance analyzers.",
-      "3-Day Implementation":
+      "7-Days Implementation":
         "Complete tracking restoration delivered within 3 business days with dedicated implementation support.",
       "Premium Support":
         "Dedicated support throughout implementation, training on your new setup, and ongoing optimization recommendations.",

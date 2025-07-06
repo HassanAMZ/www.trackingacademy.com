@@ -1,10 +1,10 @@
-import { FC, ReactNode } from "react";
-import Link from "next/link";
-import { caseStudies as CaseStudies, CaseStudy } from "@/data/case-studies";
-import { CheckCircle, Star } from "lucide-react";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import Container from "@/components/ui/container";
+import { caseStudies as CaseStudies, CaseStudy } from "@/data/case-studies";
+import { CheckCircle, Star } from "lucide-react";
+import Link from "next/link";
+import { FC, ReactNode } from "react";
 import { AvatarGroup, AvatarGroupTooltip } from "../animate-ui/avatar-group-mask";
 import { Badge } from "../ui/badge";
 
@@ -42,7 +42,7 @@ const Hero: FC<HeroProps> = ({
           <Star key={i} className="fill-amber-400 text-amber-400" />
         ))}
       </div>
-      <h4 className="text-muted-foreground text-sm">
+      <h4 className="text-sm text-muted-foreground">
         4.9 from 200+ reviews <br /> 1,000+ Websites Audited Optimized
       </h4>
     </div>
@@ -90,7 +90,7 @@ const Hero: FC<HeroProps> = ({
           <Star key={i} className="fill-amber-400 text-amber-400" />
         ))}
       </div>
-      <h4 className="text-muted-foreground text-sm">
+      <h4 className="text-sm text-muted-foreground">
         4.9 from 200+ reviews <br /> 1,000+ Websites Audited Optimized
       </h4>
     </div>
@@ -128,7 +128,7 @@ const Hero: FC<HeroProps> = ({
         <div className={benefitsClasses}>
           {benefits.map((benefit, index) => (
             <div key={index} className={benefitItemClasses}>
-              <CheckCircle className="text-primary h-5 w-5" />
+              <CheckCircle className="h-5 w-5 text-primary" />
               <p>{benefit}</p>
             </div>
           ))}

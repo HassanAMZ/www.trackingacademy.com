@@ -1,10 +1,10 @@
-import React from "react";
-import { RequestCookie } from "next/dist/compiled/@edge-runtime/cookies";
-import { cookies } from "next/headers";
-import { sendGTMEvent } from "@next/third-parties/google";
 import MeetingCalender from "@/components/contact/meeting-calender";
 import YoutubeEmbed from "@/components/global/youtube-embed";
 import Container from "@/components/ui/container";
+import { sendGTMEvent } from "@next/third-parties/google";
+import { RequestCookie } from "next/dist/compiled/@edge-runtime/cookies";
+import { cookies } from "next/headers";
+import React from "react";
 
 export default async function BookAMeetingPage() {
   const cookieStore = await cookies();
@@ -44,10 +44,10 @@ export default async function BookAMeetingPage() {
       <Container className="max-w-6xl">
         <section className="space-y-4 py-12 text-center">
           <h1>You're One Step Away From Fixing Your Tracking Blindspot</h1>
-          <h4 className="text-muted-foreground pt-3">
+          <h4 className="pt-3 text-muted-foreground">
             We help businesses recover 30%+ of invisible conversions and slash wasted ad spend—fast.
             <br />
-            <span className="text-primary font-semibold">
+            <span className="font-semibold text-primary">
               Book your implementation call now to get started.
             </span>
           </h4>

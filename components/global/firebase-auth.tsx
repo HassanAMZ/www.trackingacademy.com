@@ -1,14 +1,14 @@
 // components/auth/FirebaseAuth.tsx
 "use client";
 
-import { useEffect, useState } from "react";
-import { useAuth } from "@/context/AuthContext";
-import { PersonIcon } from "@radix-ui/react-icons";
-import { CheckCircle, Download, GithubIcon, Loader2 } from "lucide-react";
 import { Alert, AlertDescription } from "@/components/ui/alert";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { useAuth } from "@/context/AuthContext";
+import { PersonIcon } from "@radix-ui/react-icons";
+import { CheckCircle, Download, GithubIcon, Loader2 } from "lucide-react";
+import { useEffect, useState } from "react";
 import Container from "../ui/container";
 
 interface AuthError {
@@ -75,7 +75,7 @@ export const FirebaseAuth = () => {
   if (loading) {
     return (
       <div className="flex h-[50vh] items-center justify-center">
-        <Loader2 className="text-primary h-8 w-8 animate-spin" />
+        <Loader2 className="h-8 w-8 animate-spin text-primary" />
       </div>
     );
   }
@@ -102,7 +102,7 @@ export const FirebaseAuth = () => {
 
   return (
     <Container className="grid min-h-[50vh] place-content-center">
-      <div className="bg-card grid place-content-center items-center justify-center gap-6 rounded-xl border p-8 md:grid-cols-2">
+      <div className="grid place-content-center items-center justify-center gap-6 rounded-xl border bg-card p-8 md:grid-cols-2">
         {/* Left Column: Main CTA */}
         <div className="space-y-4">
           <h3 className="text-xl font-semibold">Free Instant Access to Code Resources</h3>
@@ -111,15 +111,15 @@ export const FirebaseAuth = () => {
           </p>
           <div className="space-y-2">
             <div className="flex items-center gap-2">
-              <CheckCircle className="text-primary h-4 w-4" />
+              <CheckCircle className="h-4 w-4 text-primary" />
               <span className="text-sm">Full source code and examples</span>
             </div>
             <div className="flex items-center gap-2">
-              <CheckCircle className="text-primary h-4 w-4" />
+              <CheckCircle className="h-4 w-4 text-primary" />
               <span className="text-sm">Step-by-step implementation guide</span>
             </div>
             <div className="flex items-center gap-2">
-              <CheckCircle className="text-primary h-4 w-4" />
+              <CheckCircle className="h-4 w-4 text-primary" />
               <span className="text-sm">Starter templates and configurations</span>
             </div>
           </div>
@@ -138,9 +138,9 @@ export const FirebaseAuth = () => {
                 <AlertDescription>{error}</AlertDescription>
               </Alert>
             )}{" "}
-            <div className="bg-muted/50 flex items-center justify-center rounded-lg p-4">
-              <Download className="text-muted-foreground mr-2 h-6 w-6" />
-              <p className="text-muted-foreground text-sm">
+            <div className="flex items-center justify-center rounded-lg bg-muted/50 p-4">
+              <Download className="mr-2 h-6 w-6 text-muted-foreground" />
+              <p className="text-sm text-muted-foreground">
                 Access code examples, starter files, and other resources
               </p>
             </div>{" "}
@@ -149,7 +149,7 @@ export const FirebaseAuth = () => {
                 <span className="w-full border-t" />
               </div>
               <div className="relative flex justify-center text-xs uppercase">
-                <span className="bg-background text-muted-foreground px-2"> continue with</span>
+                <span className="bg-background px-2 text-muted-foreground"> continue with</span>
               </div>
             </div>{" "}
             <div className="space-y-2">
@@ -177,7 +177,7 @@ export const FirebaseAuth = () => {
                   <AvatarFallback>IA</AvatarFallback>
                 </Avatar>
               </div>
-              <p className="text-muted-foreground text-sm">2,700+ Signups</p>
+              <p className="text-sm text-muted-foreground">2,700+ Signups</p>
             </div>
           </CardContent>
         </Card>

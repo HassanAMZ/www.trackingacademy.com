@@ -1,13 +1,13 @@
+import ClarityInit from "@/components/analytics/clarity";
 import GTMAnalytics from "@/components/analytics/gtm";
 import VercelAnalytics from "@/components/analytics/vercel";
 import { ThemeProvider } from "@/components/global/theme-provider";
 import CanonicalTag from "@/components/seo/CanonicalTag";
 import "@/styles/global.css";
-import { ReactNode, Suspense, unstable_ViewTransition as ViewTransition } from "react";
-import type { Metadata } from "next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { GeistSans } from "geist/font/sans";
-import ClarityInit from "@/components/analytics/clarity";
+import type { Metadata } from "next";
+import { ReactNode, Suspense, unstable_ViewTransition as ViewTransition } from "react";
 import AuthWrapper from "./context/AuthContextWrapper";
 
 export const metadata: Metadata = {

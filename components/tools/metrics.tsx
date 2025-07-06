@@ -1,5 +1,8 @@
-import React from "react";
+import { Card } from "@/components/ui/card";
+import { Input } from "@/components/ui/input";
+import { BusinessMetrics } from "@/utils/business-calculator";
 import { DollarSign, Target, Users } from "lucide-react";
+import React from "react";
 import {
   CartesianGrid,
   Cell,
@@ -13,9 +16,6 @@ import {
   XAxis,
   YAxis,
 } from "recharts";
-import { Card } from "@/components/ui/card";
-import { Input } from "@/components/ui/input";
-import { BusinessMetrics } from "@/utils/business-calculator";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "../ui/table";
 
 interface ProjectionTableProps {
@@ -38,7 +38,7 @@ export const ProjectionTable: React.FC<ProjectionTableProps> = ({ metrics }) => 
     <Table className="">
       <TableHeader>
         <TableRow>
-          <TableHead className="bg-background sticky left-0">Milestone</TableHead>
+          <TableHead className="sticky left-0 bg-background">Milestone</TableHead>
           <TableHead>Income</TableHead>
           <TableHead>Expenses</TableHead>
           <TableHead>Net Profit</TableHead>
@@ -58,7 +58,7 @@ export const ProjectionTable: React.FC<ProjectionTableProps> = ({ metrics }) => 
           if (!milestone) return null;
           return (
             <TableRow key={label} className="">
-              <TableCell className="bg-background sticky left-0">{label}</TableCell>
+              <TableCell className="sticky left-0 bg-background">{label}</TableCell>
               <TableCell>${formatNumber(milestone.income)}</TableCell>
               <TableCell>${formatNumber(milestone.expenses)}</TableCell>
               <TableCell>${formatNumber(milestone.netProfit)}</TableCell>
@@ -99,7 +99,7 @@ export const MetricItem: React.FC<{
   value: string | number;
 }> = ({ label, value }) => (
   <div className="flex items-center justify-between">
-    <span className="text-muted-foreground text-sm">{label}</span>
+    <span className="text-sm text-muted-foreground">{label}</span>
     <span className="font-medium">{value}</span>
   </div>
 );
@@ -282,29 +282,29 @@ export const MilestoneMetrics: React.FC<MilestoneMetricsProps> = ({ metrics }) =
             <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
               <MetricCard
                 title="Financial Metrics"
-                icon={<DollarSign className="text-primary h-4 w-4" />}
+                icon={<DollarSign className="h-4 w-4 text-primary" />}
               >
                 <div className="space-y-2">
                   <div className="flex justify-between">
-                    <span className="text-muted-foreground text-sm">Income</span>
+                    <span className="text-sm text-muted-foreground">Income</span>
                     <span className="font-medium">
                       ${Math.round(milestone.income).toLocaleString()}
                     </span>
                   </div>
                   <div className="flex justify-between">
-                    <span className="text-muted-foreground text-sm">Expenses</span>
+                    <span className="text-sm text-muted-foreground">Expenses</span>
                     <span className="font-medium">
                       ${Math.round(milestone.expenses).toLocaleString()}
                     </span>
                   </div>
                   <div className="flex justify-between">
-                    <span className="text-muted-foreground text-sm">Marketing</span>
+                    <span className="text-sm text-muted-foreground">Marketing</span>
                     <span className="font-medium">
                       ${Math.round(milestone.marketing).toLocaleString()}
                     </span>
                   </div>
                   <div className="flex justify-between">
-                    <span className="text-muted-foreground text-sm">Operations</span>
+                    <span className="text-sm text-muted-foreground">Operations</span>
                     <span className="font-medium">
                       ${Math.round(milestone.operations).toLocaleString()}
                     </span>
@@ -313,43 +313,43 @@ export const MilestoneMetrics: React.FC<MilestoneMetricsProps> = ({ metrics }) =
               </MetricCard>{" "}
               <MetricCard
                 title="Business Metrics"
-                icon={<Target className="text-secondary h-4 w-4" />}
+                icon={<Target className="h-4 w-4 text-secondary" />}
               >
                 <div className="space-y-2">
                   <div className="flex justify-between">
-                    <span className="text-muted-foreground text-sm">Contracts</span>
+                    <span className="text-sm text-muted-foreground">Contracts</span>
                     <span className="font-medium">{Math.round(milestone.contracts)}</span>
                   </div>
                   <div className="flex justify-between">
-                    <span className="text-muted-foreground text-sm">Projects</span>
+                    <span className="text-sm text-muted-foreground">Projects</span>
                     <span className="font-medium">{Math.round(milestone.projects)}</span>
                   </div>
                   <div className="flex justify-between">
-                    <span className="text-muted-foreground text-sm">CAC</span>
+                    <span className="text-sm text-muted-foreground">CAC</span>
                     <span className="font-medium">${Math.round(milestone.cac)}</span>
                   </div>
                   <div className="flex justify-between">
-                    <span className="text-muted-foreground text-sm">LTV:CAC</span>
+                    <span className="text-sm text-muted-foreground">LTV:CAC</span>
                     <span className="font-medium">{Math.round(milestone.ltvCac * 100) / 100}</span>
                   </div>
                 </div>
               </MetricCard>{" "}
-              <MetricCard title="Team Metrics" icon={<Users className="text-accent h-4 w-4" />}>
+              <MetricCard title="Team Metrics" icon={<Users className="h-4 w-4 text-accent" />}>
                 <div className="space-y-2">
                   <div className="flex justify-between">
-                    <span className="text-muted-foreground text-sm">Employees</span>
+                    <span className="text-sm text-muted-foreground">Employees</span>
                     <span className="font-medium">{Math.round(milestone.employees)}</span>
                   </div>
                   <div className="flex justify-between">
-                    <span className="text-muted-foreground text-sm">Team Leads</span>
+                    <span className="text-sm text-muted-foreground">Team Leads</span>
                     <span className="font-medium">{Math.round(milestone.teamLeads)}</span>
                   </div>
                   <div className="flex justify-between">
-                    <span className="text-muted-foreground text-sm">2nd Level Leaders</span>
+                    <span className="text-sm text-muted-foreground">2nd Level Leaders</span>
                     <span className="font-medium">{Math.round(milestone.secondLevelLeaders)}</span>
                   </div>
                   <div className="flex justify-between">
-                    <span className="text-muted-foreground text-sm">3rd Level Leaders</span>
+                    <span className="text-sm text-muted-foreground">3rd Level Leaders</span>
                     <span className="font-medium">{Math.round(milestone.thirdLevelLeaders)}</span>
                   </div>
                 </div>

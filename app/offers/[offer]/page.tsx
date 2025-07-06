@@ -1,7 +1,20 @@
-import Image from "next/image";
-import Link from "next/link";
-import { notFound } from "next/navigation";
-import { offers, type OfferData } from "@/data/offers";
+import FeaturedCaseStudy from "@/components/case-study/case-study-featured";
+import MeetingCalendar from "@/components/contact/meeting-calender";
+import MeetingBookingButton from "@/components/global/meeting-booking-button";
+import YoutubeEmbed from "@/components/global/youtube-embed";
+import Hero from "@/components/home/hero";
+import TestimonialGrid from "@/components/testimonial/testimonial-grid";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
+import { Alert, AlertDescription } from "@/components/ui/alert";
+import { Badge } from "@/components/ui/badge";
+import Container from "@/components/ui/container";
+import { offers } from "@/data/offers";
+import getCaseStudy from "@/utils/getCaseStudy";
 import {
   AlertTriangle,
   CheckCircle,
@@ -15,22 +28,6 @@ import {
   XCircle,
   Zap,
 } from "lucide-react";
-import FeaturedCaseStudy from "@/components/case-study/case-study-featured";
-import MeetingCalendar from "@/components/contact/meeting-calender";
-import MeetingBookingButton from "@/components/global/meeting-booking-utton";
-import YoutubeEmbed from "@/components/global/youtube-embed";
-import Hero from "@/components/home/hero";
-import TestimonialGrid from "@/components/testimonial/testimonial-grid";
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from "@/components/ui/accordion";
-import { Alert, AlertDescription } from "@/components/ui/alert";
-import { Badge } from "@/components/ui/badge";
-import Container from "@/components/ui/container";
-import getCaseStudy from "@/utils/getCaseStudy";
 
 // Generate static params for all offers
 export async function generateStaticParams() {
@@ -63,11 +60,11 @@ export default async function Page({ params }: { params: Promise<{ offer: string
     <main>
       <Hero
         heading={
-          <h1 className="animate-fade-in text-center leading-normal md:leading-tight tracking-tighter">
+          <h1 className="animate-fade-in text-center leading-tight tracking-tighter">
             {offerData.headline.prefix}{" "}
             {offerData.headline.conversion.map((conv, index) => (
               <span key={index}>
-                <span className="bg-destructive/10 text-destructive border-destructive/20 rounded-lg border px-2 py-1">
+                <span className="rounded-lg border border-destructive/20 bg-destructive/10 px-1 text-destructive">
                   {conv}
                 </span>
                 {index < offerData.headline.conversion.length - 1 &&
@@ -81,7 +78,7 @@ export default async function Page({ params }: { params: Promise<{ offer: string
           <div className="space-y-4">
             <h4 className="mx-auto max-w-4xl text-center">
               <span dangerouslySetInnerHTML={{ __html: offerData.subheading }} />
-              <div className="flex flex-wrap justify-center gap-2 py-4 ">
+              <div className="flex flex-wrap justify-center gap-2 py-4">
                 <Badge variant="destructive" className="flex items-center gap-1">
                   <XCircle className="h-4 w-4" />
                   Pixel Missing Data
@@ -109,12 +106,12 @@ export default async function Page({ params }: { params: Promise<{ offer: string
       />
 
       {/* Problem Section */}
-      <section className="from-primary/5 to-background bg-linear-to-b py-16">
-        <Container className="max-w-6xl">
-          <div className="bg-background border-destructive/20 mt-12 transform space-y-8 rounded-lg border p-4 md:p-12">
+      <section className="bg-linear-to-b from-primary/5 to-background py-16">
+        <Container className="max-w-6xl md:pt-12">
+          <div className="transform space-y-8 rounded-lg border border-destructive/20 bg-background p-4 md:p-12">
             <div className="mb-12 text-center">
               <h2 className="mb-4">{offerData.problemStatement.title}</h2>
-              <h4 className="text-muted-foreground mx-auto max-w-3xl">
+              <h4 className="mx-auto max-w-3xl text-muted-foreground">
                 {offerData.problemStatement.description}
               </h4>
             </div>
@@ -136,7 +133,7 @@ export default async function Page({ params }: { params: Promise<{ offer: string
                 })}
               </div>
               <div className="text-center">
-                <YoutubeEmbed embedId={offerData.videoId} className="mx-auto max-w-3xl" />
+                <YoutubeEmbed embedId={offerData.videoId} className="mx-auto max-w-3xl p-0" />
               </div>
             </div>
           </div>
@@ -144,19 +141,19 @@ export default async function Page({ params }: { params: Promise<{ offer: string
       </section>
 
       {/* Solution Section */}
-      <section className="from-primary/5 to-background bg-linear-to-b py-16">
+      <section className="bg-linear-to-b from-primary/5 to-background py-16">
         <Container className="max-w-6xl">
           <div className="mb-12 text-center">
             <Badge className="mb-4 animate-bounce">{offerData.solution.badge}</Badge>
             <h2 className="mb-4 text-3xl font-bold md:text-4xl">{offerData.solution.title}</h2>
-            <h4 className="text-muted-foreground mx-auto max-w-3xl">
+            <h4 className="mx-auto max-w-3xl text-muted-foreground">
               {offerData.solution.description}
             </h4>
           </div>
 
           {/* Process Steps */}
-          <div className="relative overflow-hidden rounded-xl bg-gradient-to-br from-muted/50 to-muted/30 p-8">
-            <div className="absolute inset-0 bg-grid-white/10 [mask-image:linear-gradient(0deg,transparent,black,transparent)]" />
+          <div className="relative overflow-hidden rounded-xl bg-gradient-to-br from-muted/50 to-muted/30 md:p-8">
+            <div className="bg-grid-white/10 absolute inset-0 [mask-image:linear-gradient(0deg,transparent,black,transparent)]" />
             <div className="relative">
               <div className="grid gap-8 md:grid-cols-3">
                 {offerData.solution.steps.map((step, index) => {
@@ -165,7 +162,7 @@ export default async function Page({ params }: { params: Promise<{ offer: string
                     <div key={index} className="group relative">
                       <div className="absolute -inset-4 rounded-lg bg-gradient-to-r from-primary/20 to-primary/10 opacity-0 blur" />
                       <div className="relative rounded-lg bg-background/80 p-6 text-center backdrop-blur-sm">
-                        <div className="mx-auto mb-6 flex h-16 w-16 items-center justify-center rounded-full bg-primary text-primary-foreground text-xl font-bold shadow-lg">
+                        <div className="mx-auto mb-6 flex h-16 w-16 items-center justify-center rounded-full bg-primary text-xl font-bold text-primary-foreground shadow-lg">
                           <IconComponent className="h-6 w-6" />
                         </div>
                         <div className="mb-4 flex items-center justify-center">
@@ -174,7 +171,7 @@ export default async function Page({ params }: { params: Promise<{ offer: string
                           </div>
                         </div>
                         <h4 className="mb-4 text-xl font-semibold">{step.title}</h4>
-                        <p className="text-muted-foreground leading-relaxed">{step.description}</p>
+                        <p className="leading-relaxed text-muted-foreground">{step.description}</p>
                       </div>
                     </div>
                   );
@@ -198,7 +195,7 @@ export default async function Page({ params }: { params: Promise<{ offer: string
 
       {/* Final CTA */}
       <div className="py-16">
-        <section className=" py-16 bg-gradient-to-b from-primary/20 to-background">
+        <section className="bg-gradient-to-b from-primary/20 to-background py-16">
           <Container className="max-w-4xl text-center">
             <div className="mb-8">
               <h2 className="mb-4 text-3xl font-bold md:text-4xl">{offerData.finalCta.title}</h2>
@@ -214,7 +211,7 @@ export default async function Page({ params }: { params: Promise<{ offer: string
               </div>
               <div className="flex items-center justify-center space-x-2">
                 <CheckCircle className="h-5 w-5" />
-                <span>72-hour implementation</span>
+                <span>7 Day implementation</span>
               </div>
               <div className="flex items-center justify-center space-x-2">
                 <CheckCircle className="h-5 w-5" />
@@ -232,7 +229,7 @@ export default async function Page({ params }: { params: Promise<{ offer: string
         <Container className="max-w-4xl">
           <div className="mb-12 text-center">
             <h2 className="mb-4 text-3xl font-bold md:text-4xl">Frequently Asked Questions</h2>
-            <p className="text-muted-foreground text-xl">
+            <p className="text-xl text-muted-foreground">
               Everything you need to know about fixing your {offerData.businessType} Facebook
               tracking
             </p>
@@ -245,7 +242,7 @@ export default async function Page({ params }: { params: Promise<{ offer: string
                 <AccordionItem key={index} value={`item-${index + 1}`}>
                   <AccordionTrigger className="text-left">
                     <div className="flex items-center">
-                      <IconComponent className="text-primary mr-2 h-5 w-5" />
+                      <IconComponent className="mr-2 h-5 w-5 text-primary" />
                       {faqItem.question}
                     </div>
                   </AccordionTrigger>
@@ -262,9 +259,9 @@ export default async function Page({ params }: { params: Promise<{ offer: string
       {/* Testimonials */}
       <section className="py-16">
         <Container className="">
-          <div className="text-center space-y-4 mb-12">
+          <div className="mb-12 space-y-4 text-center">
             <h2>{offerData.testimonialSection.title}</h2>
-            <h4 className="text-muted-foreground mx-auto max-w-3xl">
+            <h4 className="mx-auto max-w-3xl text-muted-foreground">
               {offerData.testimonialSection.description}
             </h4>
           </div>

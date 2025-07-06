@@ -1,8 +1,8 @@
 "use client";
 
-import React, { ReactNode, Suspense, useEffect, useState } from "react";
-import { useAuth } from "@/context/AuthContext";
 import { FirebaseAuth } from "@/components/global/firebase-auth";
+import { useAuth } from "@/context/AuthContext";
+import React, { ReactNode, Suspense, useEffect, useState } from "react";
 import { FirebaseAuthSkeleton } from "../skeleton/FirebaseAuthSkeleton";
 
 interface AuthenticatedLayoutProps {

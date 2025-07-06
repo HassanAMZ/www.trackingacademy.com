@@ -1,9 +1,9 @@
-import Link from "next/link";
-import { Service } from "@/data/services";
-import { ArrowRight, CheckCircle } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
+import { Service } from "@/data/services";
+import { ArrowRight, CheckCircle } from "lucide-react";
+import Link from "next/link";
 
 interface ServiceHeroProps {
   service: Service;
@@ -22,7 +22,7 @@ export default function ServiceHero({ service }: ServiceHeroProps) {
             {service.subtitle}
           </Badge>
           <h1 className="text-4xl font-bold lg:text-5xl">{service.name}</h1>
-          <p className="text-muted-foreground text-xl">{service.description}</p>
+          <p className="text-xl text-muted-foreground">{service.description}</p>
         </div>
 
         <div className="flex items-center gap-4">
@@ -40,7 +40,7 @@ export default function ServiceHero({ service }: ServiceHeroProps) {
           <div className="grid gap-2 sm:grid-cols-2">
             {keyFeatures.map(([feature, value]) => (
               <div key={feature} className="flex items-center gap-2">
-                <CheckCircle className="text-primary h-4 w-4" />
+                <CheckCircle className="h-4 w-4 text-primary" />
                 <span className="text-sm">
                   {feature}
                   {typeof value === "string" && value !== "true" && (
@@ -90,7 +90,7 @@ export default function ServiceHero({ service }: ServiceHeroProps) {
                     .slice(0, 8)
                     .map(([feature, value]) => (
                       <div key={feature} className="flex items-center gap-2 text-sm">
-                        <CheckCircle className="text-primary h-3 w-3 flex-shrink-0" />
+                        <CheckCircle className="h-3 w-3 flex-shrink-0 text-primary" />
                         <span>
                           {feature}
                           {typeof value === "string" && value !== "true" && (

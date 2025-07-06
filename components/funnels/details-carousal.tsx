@@ -1,12 +1,12 @@
 "use client";
 
-import type React from "react";
-import { ReactElement, useEffect, useState } from "react";
-import Image from "next/image";
-import Link from "next/link";
-import { CheckCircle, ChevronLeft, ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Container from "@/components/ui/container";
+import { CheckCircle, ChevronLeft, ChevronRight } from "lucide-react";
+import Image from "next/image";
+import Link from "next/link";
+import type React from "react";
+import { ReactElement, useEffect, useState } from "react";
 
 // TypeScript interfaces for props
 interface CarouselItem {
@@ -100,14 +100,14 @@ const DetailsCarousel: React.FC<DetailsCarouselProps> = ({
   }
 
   return (
-    <section className="from-primary/5 to-background overflow-hidden bg-linear-to-b py-16">
+    <section className="overflow-hidden bg-linear-to-b from-primary/5 to-background py-16">
       <Container className="space-y-4">
         {/* Header Section */}
         {headerTitle && (
           <div className="text-center">
             <h1 className="mx-auto max-w-5xl whitespace-pre-wrap">{headerTitle}</h1>
             {headerDescription && (
-              <h4 className="text-muted-foreground mx-auto max-w-4xl pt-8 whitespace-pre-wrap">
+              <h4 className="mx-auto max-w-4xl pt-8 whitespace-pre-wrap text-muted-foreground">
                 {headerDescription}
               </h4>
             )}
@@ -124,7 +124,7 @@ const DetailsCarousel: React.FC<DetailsCarouselProps> = ({
                   setDirection(idx < activeIndex ? "left" : "right");
                   setActiveIndex(idx);
                 }}
-                className={`h-3 w-3 cursor-pointer transition-all ${idx === activeIndex ? "bg-primary w-8" : "bg-muted"}`}
+                className={`h-3 w-3 cursor-pointer transition-all ${idx === activeIndex ? "w-8 bg-primary" : "bg-muted"}`}
                 aria-label={`Go to slide ${idx + 1}`}
               />
             ))}
@@ -167,8 +167,8 @@ const DetailsCarousel: React.FC<DetailsCarouselProps> = ({
               }}
               className={`flex h-full cursor-pointer flex-col items-center rounded-lg p-4 text-center transition-all ${
                 idx === activeIndex
-                  ? "bg-primary/10 border-primary border shadow-md"
-                  : "bg-card hover:bg-muted/50 border-border/50 border"
+                  ? "border border-primary bg-primary/10 shadow-md"
+                  : "border border-border/50 bg-card hover:bg-muted/50"
               }`}
             >
               <span>{item.icon && item.icon}</span>
@@ -182,7 +182,7 @@ const DetailsCarousel: React.FC<DetailsCarouselProps> = ({
         </div>
 
         {/* Main Showcase */}
-        <div className="from-primary/5 to-background border-border/50 relative border bg-gradient-to-br p-8">
+        <div className="relative border border-border/50 bg-gradient-to-br from-primary/5 to-background p-8">
           {activeItem && (
             <div className="grid grid-cols-1 items-center gap-8 lg:grid-cols-5">
               {/* Content Section - 3 columns */}
@@ -201,7 +201,7 @@ const DetailsCarousel: React.FC<DetailsCarouselProps> = ({
                 </div>
 
                 {activeItem.description && (
-                  <p className="text-muted-foreground line-clamp-1">{activeItem.description}</p>
+                  <p className="line-clamp-1 text-muted-foreground">{activeItem.description}</p>
                 )}
 
                 {activeItem.benefits && activeItem.benefits.length > 0 && (
@@ -210,8 +210,8 @@ const DetailsCarousel: React.FC<DetailsCarouselProps> = ({
                     <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
                       {activeItem.benefits.slice(0, 4).map((benefit, idx) => (
                         <div key={idx} className="flex items-start">
-                          <div className="bg-primary/20 mt-1 mr-3 rounded-full p-1">
-                            <CheckCircle className="text-primary h-4 w-4" />
+                          <div className="mt-1 mr-3 rounded-full bg-primary/20 p-1">
+                            <CheckCircle className="h-4 w-4 text-primary" />
                           </div>
                           <span className="line-clamp-1">{benefit}</span>
                         </div>
@@ -222,7 +222,7 @@ const DetailsCarousel: React.FC<DetailsCarouselProps> = ({
 
                 {activeItem.price && (
                   <div className="mt-8">
-                    <div className="bg-primary text-primary-foreground inline-block rounded-lg px-6 py-2 text-lg font-semibold">
+                    <div className="inline-block rounded-lg bg-primary px-6 py-2 text-lg font-semibold text-primary-foreground">
                       Total Value: {activeItem.price}
                     </div>
                   </div>
@@ -261,7 +261,7 @@ const DetailsCarousel: React.FC<DetailsCarouselProps> = ({
               >
                 {activeItem.image && (
                   <div className="relative h-80 w-full rotate-1 transform overflow-hidden shadow transition-transform duration-300 hover:rotate-0">
-                    <div className="from-primary/20 absolute inset-0 z-10 bg-gradient-to-tr to-transparent mix-blend-overlay" />
+                    <div className="absolute inset-0 z-10 bg-gradient-to-tr from-primary/20 to-transparent mix-blend-overlay" />
                     <Image
                       src={activeItem.image || "/placeholder.svg"}
                       alt={activeItem.title || "Carousel item"}

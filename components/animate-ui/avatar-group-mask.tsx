@@ -1,6 +1,5 @@
 "use client";
 
-import * as React from "react";
 import {
   Tooltip,
   TooltipContent,
@@ -10,6 +9,7 @@ import {
   type TooltipProps,
 } from "@/components/animate-ui/tooltip";
 import { cn } from "@/lib/utils";
+import * as React from "react";
 
 type Align = "start" | "center" | "end";
 

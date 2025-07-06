@@ -4,7 +4,7 @@ import { Skeleton } from "@/components/ui/skeleton";
 export const FirebaseAuthSkeleton = () => {
   return (
     <section className="py-2">
-      <Card className="bg-secondary rounded-t-lg">
+      <Card className="rounded-t-lg bg-secondary">
         <CardContent className="flex h-[30vh] flex-col items-center justify-center gap-2">
           <Skeleton className="h-4 w-[250px]" />
           <div className="flex w-full flex-col items-center justify-center gap-2">

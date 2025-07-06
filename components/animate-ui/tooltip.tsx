@@ -1,9 +1,9 @@
 "use client";
 
+import { cn } from "@/lib/utils";
+import { AnimatePresence, LayoutGroup, motion, type Transition } from "motion/react";
 import * as React from "react";
 import { createPortal } from "react-dom";
-import { AnimatePresence, LayoutGroup, motion, type Transition } from "motion/react";
-import { cn } from "@/lib/utils";
 
 type Side = "top" | "bottom" | "left" | "right";
 
@@ -233,7 +233,7 @@ function TooltipArrow({ side }: TooltipArrowProps) {
   return (
     <div
       className={cn(
-        "bg-primary absolute z-50 size-2.5 rotate-45 rounded-[2px]",
+        "absolute z-50 size-2.5 rotate-45 rounded-[2px] bg-primary",
         (side === "top" || side === "bottom") && "left-1/2 -translate-x-1/2",
         (side === "left" || side === "right") && "top-1/2 -translate-y-1/2",
         side === "top" && "-bottom-[3px]",
@@ -289,7 +289,7 @@ function TooltipOverlay() {
               animate={{ opacity: 1, scale: 1, x: 0, y: 0 }}
               exit={{ opacity: 0, scale: 0, ...position.initial }}
               transition={transition}
-              className="bg-primary fill-primary text-primary-foreground relative w-fit rounded-md px-3 py-1.5 text-sm text-balance shadow-md"
+              className="relative w-fit rounded-md bg-primary fill-primary px-3 py-1.5 text-sm text-balance text-primary-foreground shadow-md"
             >
               {currentTooltip.content}
 

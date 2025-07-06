@@ -1,7 +1,5 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import { Link as LinkIcon } from "lucide-react";
 import {
   Accordion,
   AccordionContent,
@@ -9,6 +7,8 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
+import { Link as LinkIcon } from "lucide-react";
+import { useEffect, useState } from "react";
 import CustomLink from "../mdx/CustomLink";
 
 export default function TableOfContents() {
@@ -32,7 +32,7 @@ export default function TableOfContents() {
       <AccordionItem value="toc">
         <Card>
           <CardHeader className="p-4">
-            <AccordionTrigger className="text-muted-foreground flex items-center gap-2 text-base font-semibold">
+            <AccordionTrigger className="flex items-center gap-2 text-base font-semibold text-muted-foreground">
               <LinkIcon className="h-5 w-5" />
               Table of Contents
             </AccordionTrigger>
@@ -47,7 +47,7 @@ export default function TableOfContents() {
                   >
                     <CustomLink
                       href={`#${heading.id}`}
-                      className="hover:bg-accent hover:text-accent-foreground line-clamp-1 block rounded-md px-2 py-1 transition-colors"
+                      className="line-clamp-1 block rounded-md px-2 py-1 transition-colors hover:bg-accent hover:text-accent-foreground"
                     >
                       {heading.text}
                     </CustomLink>

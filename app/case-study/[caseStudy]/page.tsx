@@ -1,7 +1,7 @@
 // app/case-study/[caseStudy]/page.tsx
-import { notFound } from "next/navigation";
-import { caseStudies } from "@/data/case-studies";
 import CaseStudyContent from "@/components/case-study/case-study-content";
+import { caseStudies } from "@/data/case-studies";
+import { notFound } from "next/navigation";
 
 export default async function Page({ params }: { params: Promise<{ caseStudy: string }> }) {
   const { caseStudy: caseStudyId } = await params;

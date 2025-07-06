@@ -1,16 +1,5 @@
 "use client";
 
-import React from "react";
-import { caseStudies } from "@/data/case-studies";
-import {
-  ArrowRight,
-  BarChart2,
-  CheckSquare,
-  Phone,
-  Settings,
-  Target,
-  TrendingUp,
-} from "lucide-react";
 import CaseStudyCarousel from "@/components/case-study/case-study-carousel";
 import TestimonialsCarousel2 from "@/components/for-freelancers/testimonials-carousal-2";
 import CouponOptInForm from "@/components/funnels/coupon-optin";
@@ -29,6 +18,17 @@ import TestimonialGrid from "@/components/testimonial/testimonial-grid";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import Container from "@/components/ui/container";
+import { caseStudies } from "@/data/case-studies";
+import {
+  ArrowRight,
+  BarChart2,
+  CheckSquare,
+  Phone,
+  Settings,
+  Target,
+  TrendingUp,
+} from "lucide-react";
+import React from "react";
 
 const ctaVariants = [
   {
@@ -106,7 +106,7 @@ export default function HomePage() {
     ];
 
     return (
-      <Container className="from-primary/5 to-background grid min-h-screen place-content-center gap-6 bg-linear-to-b py-32">
+      <Container className="grid min-h-screen place-content-center gap-6 bg-linear-to-b from-primary/5 to-background py-32">
         {/* Header */}
         <div className="mmx-to mb-8 space-y-8 text-center">
           <h1>
@@ -129,7 +129,7 @@ export default function HomePage() {
                   <CardHeader className="relative pb-4">
                     {/* Step Number */}
                     <div className="mb-4 flex items-center justify-between">
-                      <div className="text-muted-foreground/20 text-7xl select-none">
+                      <div className="text-7xl text-muted-foreground/20 select-none">
                         {step.number}
                       </div>
                     </div>
@@ -148,7 +148,7 @@ export default function HomePage() {
                 <>
                   {/* Desktop Arrow */}
                   <div className="hidden items-center justify-center px-4 lg:flex">
-                    <ArrowRight className="text-primary h-6 w-6" />
+                    <ArrowRight className="h-6 w-6 text-primary" />
                   </div>
                   {/* Mobile Arrow
                   <div className="lg:hidden flex items-center justify-center py-4">
@@ -176,7 +176,7 @@ export default function HomePage() {
           </h1>
         }
         subheading={
-          <h4 className="text-muted-foreground mx-auto max-w-3xl text-center lg:mx-0 lg:text-left">
+          <h4 className="mx-auto max-w-3xl text-center text-muted-foreground lg:mx-0 lg:text-left">
             Our
             <span className="text-primary"> “See Every Sale” </span>
             setup gives eCommerce brands 95%+ accurate conversion data — so you can stop wasting ad
@@ -211,7 +211,7 @@ export default function HomePage() {
       <div className="min-h-screen w-full max-w-full overflow-hidden py-12">
         <Container className="flex max-w-4xl flex-col items-center space-y-6 pb-12 text-center">
           <h1>Trusted by 1,000+ eCommerce Stores </h1>
-          <h4 className="text-muted-foreground max-w-3xl">
+          <h4 className="max-w-3xl text-muted-foreground">
             See exactly how we restored tracking for ecommerce brands and the measurable impact on
             their ROAS, conversion rates, and scaling success.
           </h4>
@@ -237,7 +237,7 @@ export default function HomePage() {
           "Track 40% More Conversions Than Typical Setups",
         ]}
       />{" "}
-      <div className="from-primary/5 to-background bg-linear-to-b py-16">
+      <div className="bg-linear-to-b from-primary/5 to-background py-16">
         <AdSpendCalculator
           cta={true}
           customCtaButton={
@@ -403,7 +403,7 @@ export default function HomePage() {
         customButton={
           <CouponOptInForm
             buttonElement={
-              <Button className="bg-primary-foreground hover:bg-primary-foreground/90 text-primary mx-auto flex w-fit max-w-5xl cursor-pointer flex-col items-center p-6 text-center text-xl font-bold">
+              <Button className="mx-auto flex w-fit max-w-5xl cursor-pointer flex-col items-center bg-primary-foreground p-6 text-center text-xl font-bold text-primary hover:bg-primary-foreground/90">
                 <div>
                   🚀 Ready to Scale Smarter? Get $300 Off + $7,600 Free
                   <span className="mt-2 block text-sm font-medium opacity-90">
@@ -467,7 +467,7 @@ export default function HomePage() {
               "Some businesses simply give up on Meta ads when facing tracking issues. This means missing out on one of the most effective marketing channels for ecommerce brands.",
           },
           {
-            title: "Our 3-Day Solution",
+            title: "Our 7-Days Solution",
             content:
               "We specialize exclusively in solving tracking issues for ecommerce brands. With our proven system, you'll have accurate tracking in just 7 days without the headaches, wasted time, or policy violations.",
           },
@@ -497,7 +497,7 @@ export default function HomePage() {
           />
         }
       />
-      <Container className="from-primary/5 to-background space-y-12 bg-linear-to-b py-24">
+      <Container className="space-y-12 bg-linear-to-b from-primary/5 to-background py-24">
         <div className="mx-auto max-w-4xl space-y-6 pb-6 text-center">
           <h1>Join 300+ Happy Clients Who Fixed Their Tracking </h1>
           <h4 className="text-muted-foreground">
@@ -516,7 +516,7 @@ export default function HomePage() {
         customButton={
           <CouponOptInForm
             buttonElement={
-              <Button className="bg-primary-foreground hover:bg-primary-foreground/90 text-primary mx-auto flex w-fit max-w-5xl cursor-pointer flex-col items-center p-6 text-center text-xl font-bold">
+              <Button className="mx-auto flex w-fit max-w-5xl cursor-pointer flex-col items-center bg-primary-foreground p-6 text-center text-xl font-bold text-primary hover:bg-primary-foreground/90">
                 <div>
                   ✅ Fix Your Tracking — and Save $300 Instantly
                   <span className="mt-2 block text-sm font-medium opacity-90">

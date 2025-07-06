@@ -12,7 +12,7 @@ export const LoadingState = ({
   return (
     <div className={`flex items-center justify-center p-8 ${className}`} aria-live="polite">
       <div className="flex items-center gap-2">
-        <Loader2 className="text-primary h-6 w-6 animate-spin" />
+        <Loader2 className="h-6 w-6 animate-spin text-primary" />
         <span className="text-muted-foreground">{message}</span>
       </div>
     </div>

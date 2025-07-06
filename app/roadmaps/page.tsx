@@ -1,4 +1,4 @@
-import React from "react";
+import Container from "@/components/ui/container";
 import { MagnifyingGlassIcon } from "@radix-ui/react-icons";
 import {
   Award,
@@ -11,7 +11,7 @@ import {
   Play,
   Shield,
 } from "lucide-react";
-import Container from "@/components/ui/container";
+import React from "react";
 
 interface roadmapDataProps {
   category: string;
@@ -176,13 +176,13 @@ export default function Roadmap() {
   return (
     <Container>
       <div className="flex min-h-screen flex-col">
-        <section className="bg-muted w-full py-12 md:py-24 lg:py-32">
+        <section className="w-full bg-muted py-12 md:py-24 lg:py-32">
           <div className="rounded-lg px-4 text-center md:px-6">
             <div className="space-y-4">
               <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
                 Web Analytics Roadmap
               </h1>
-              <p className="text-muted-foreground mx-auto max-w-[700px] md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
+              <p className="mx-auto max-w-[700px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
                 Explore the essential skills and tools required for mastering web analytics.
               </p>
             </div>
@@ -193,13 +193,13 @@ export default function Roadmap() {
             {roadmapData.map((item, index) => (
               <div
                 key={index}
-                className={`bg-background grid gap-4 rounded-lg border p-6 ${index == 0 ? "bg-primary" : ""}`}
+                className={`grid gap-4 rounded-lg border bg-background p-6 ${index == 0 ? "bg-primary" : ""}`}
               >
                 <div className="flex items-center space-x-2">
-                  <item.icon className="text-muted-foreground h-6 w-6" />
+                  <item.icon className="h-6 w-6 text-muted-foreground" />
                   <h3 className="text-xl font-bold">{item.category}</h3>
                 </div>
-                <ul className={`text-muted-foreground list-inside list-disc`}>
+                <ul className={`list-inside list-disc text-muted-foreground`}>
                   {item.details.map((detail, idx) => (
                     <span key={idx} className="text-sm">
                       {detail}

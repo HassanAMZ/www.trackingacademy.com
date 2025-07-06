@@ -1,12 +1,12 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import Image from "next/image";
-import Link from "next/link";
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
+import { Dialog, DialogContent } from "@/components/ui/dialog";
 import type { CaseStudy } from "@/data/case-studies";
 import {
   ArrowRight,
-  Calendar,
   ChevronLeft,
   ChevronRight,
   ExternalLink,
@@ -15,10 +15,9 @@ import {
   X,
   Zap,
 } from "lucide-react";
-import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
-import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
+import Image from "next/image";
+import Link from "next/link";
+import { useEffect, useState } from "react";
 import LoomEmbed from "../global/loom-embed";
 import YoutubeEmbed from "../global/youtube-embed";
 import { TestimonialCard } from "../testimonial/testimonial-card";
@@ -102,19 +101,19 @@ export default function FeaturedCaseStudy({ caseStudy }: FeaturedCaseStudyProps)
   };
 
   return (
-    <section className=" relative w-full overflow-hidden  bg-gradient-to-b from-primary/10 to-background  pt-12 pb-6">
+    <section className="relative w-full overflow-hidden bg-gradient-to-b from-primary/10 to-background pt-12 pb-6">
       <Container className="relative space-y-4">
         <div className="flex items-center justify-center">
           <Badge>Featured Case Study {caseStudy.id}</Badge>
         </div>
-        <Card className="bg-card/80 overflow-hidden border-0 shadow-none">
+        <Card className="overflow-hidden border-0 bg-card/80 shadow-none">
           <div className="grid w-full items-center gap-6 px-4 py-6 md:px-6 lg:grid-cols-5 lg:justify-center">
-            <div className="relative lg:col-span-3 space-y-2">
-              <div className="bg-muted relative aspect-video overflow-hidden">
+            <div className="relative space-y-2 lg:col-span-3">
+              <div className="relative aspect-video overflow-hidden bg-muted">
                 {caseStudy.embedId?.loom ? (
                   <>
                     <LoomEmbed embedId={caseStudy.embedId.loom} className="p-0" />
-                    <div className="bg-primary text-primary-foreground absolute top-4 left-4 flex items-center gap-2 rounded-full px-3 py-1.5 text-sm font-medium shadow backdrop-blur-sm">
+                    <div className="absolute top-4 left-4 flex items-center gap-2 rounded-full bg-primary px-3 py-1.5 text-sm font-medium text-primary-foreground shadow backdrop-blur-sm">
                       <Play className="h-3 w-3" />
                       Live Demo
                     </div>
@@ -122,7 +121,7 @@ export default function FeaturedCaseStudy({ caseStudy }: FeaturedCaseStudyProps)
                 ) : caseStudy.embedId?.youtube ? (
                   <>
                     <YoutubeEmbed embedId={caseStudy.embedId.youtube} className="p-0" />
-                    <div className="bg-destructive text-destructive-foreground absolute top-4 left-4 flex items-center gap-2 rounded-full px-3 py-1.5 text-sm font-medium shadow backdrop-blur-sm">
+                    <div className="absolute top-4 left-4 flex items-center gap-2 rounded-full bg-destructive px-3 py-1.5 text-sm font-medium text-destructive-foreground shadow backdrop-blur-sm">
                       <Play className="h-3 w-3" />
                       Case Video
                     </div>
@@ -133,34 +132,34 @@ export default function FeaturedCaseStudy({ caseStudy }: FeaturedCaseStudyProps)
                       src={caseStudy.imageUrl || "/placeholder.svg?height=600&width=800"}
                       alt={`${caseStudy.name} preview`}
                       fill
-                      className="object-cover transition-transform duration-700  rounded-lg"
+                      className="rounded-lg object-cover transition-transform duration-700"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent rounded-lg" />
-                    <div className="bg-background/90 text-foreground absolute bottom-4 left-4 flex items-center gap-2 rounded-full px-3 py-1.5 text-sm font-medium shadow  backdrop-blur-sm">
+                    <div className="absolute inset-0 rounded-lg bg-gradient-to-t from-black/40 via-transparent to-transparent" />
+                    <div className="absolute bottom-4 left-4 flex items-center gap-2 rounded-full bg-background/90 px-3 py-1.5 text-sm font-medium text-foreground shadow backdrop-blur-sm">
                       <Eye className="h-3 w-3" />
                       Live Site
                     </div>
                   </>
                 )}
                 <div className="absolute top-4 right-4 flex gap-2">
-                  <div className="bg-background/90 text-foreground flex items-center gap-1.5 rounded-full px-3 py-1.5 text-xs font-medium shadow backdrop-blur-sm">
+                  {/* <div className="bg-background/90 text-foreground flex items-center gap-1.5 rounded-full px-3 py-1.5 text-xs font-medium shadow backdrop-blur-sm">
                     {caseStudy.plan}
                   </div>
                   <div className="bg-background/90 text-foreground flex items-center gap-1.5 rounded-full px-3 py-1.5 text-xs font-medium shadow backdrop-blur-sm">
                     <Calendar className="h-3 w-3" />
                     {caseStudy.projectTimeline.durationDays}d
-                  </div>
-                  <div className="bg-background/90 text-foreground flex items-center gap-1.5 rounded-full px-3 py-1.5 text-xs font-medium shadow backdrop-blur-sm">
+                  </div> */}
+                  <div className="flex items-center gap-1.5 rounded-full bg-background/90 px-3 py-1.5 text-xs font-medium text-foreground shadow backdrop-blur-sm">
                     <Zap className="h-3 w-3" />
                     {formatDate(caseStudy.projectTimeline.endDate)}
                   </div>
                 </div>
               </div>
             </div>
-            <div className="flex flex-col justify-between lg:col-span-2 space-y-4">
+            <div className="flex flex-col justify-between space-y-4 lg:col-span-2">
               <div className="space-y-4">
                 <div className="mb-3 flex items-center justify-between">
-                  <h4 className="flex items-center gap-2 capitalize text-primary ">
+                  <h4 className="flex items-center gap-2 text-primary capitalize">
                     {caseStudy.client}
                   </h4>
                 </div>
@@ -169,7 +168,7 @@ export default function FeaturedCaseStudy({ caseStudy }: FeaturedCaseStudyProps)
                     <Badge
                       key={index}
                       variant="outline"
-                      className="hover:bg-primary/10 cursor-default text-xs transition-colors"
+                      className="cursor-default text-xs transition-colors hover:bg-primary/10"
                     >
                       {tech}
                     </Badge>
@@ -178,8 +177,8 @@ export default function FeaturedCaseStudy({ caseStudy }: FeaturedCaseStudyProps)
                 <div className="space-y-2">
                   {caseStudy.results.slice(0, 3).map((result, index) => (
                     <div key={index} className="flex items-start gap-2">
-                      <div className="bg-primary mt-2 h-1.5 w-1.5 flex-shrink-0 rounded-full" />
-                      <span className="text-muted-foreground line-clamp-1 leading-relaxed">
+                      <div className="mt-2 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-primary" />
+                      <span className="line-clamp-1 leading-relaxed text-muted-foreground">
                         {result}
                       </span>
                     </div>
@@ -220,7 +219,7 @@ export default function FeaturedCaseStudy({ caseStudy }: FeaturedCaseStudyProps)
             <div className="p-4 md:p-6">
               <div className="grid gap-4 md:grid-cols-2">
                 {/* Before - Auto-Scrolling Carousel */}
-                <Card className="group bg-destructive/10 overflow-hidden border-0 shadow-none">
+                <Card className="group overflow-hidden border-0 bg-destructive/10 shadow-none">
                   <div className="py-2 text-center">
                     <Badge variant="destructive" className="text-xs font-medium">
                       Before
@@ -229,7 +228,7 @@ export default function FeaturedCaseStudy({ caseStudy }: FeaturedCaseStudyProps)
                   <CardContent className="px-3 py-6 md:p-6">
                     <div className="relative">
                       <div
-                        className="relative aspect-video overflow-hidden rounded-lg border cursor-pointer group/image"
+                        className="group/image relative aspect-video cursor-pointer overflow-hidden rounded-lg border"
                         onClick={() => openModal("before", currentBeforeIndex)}
                       >
                         <Image
@@ -242,8 +241,8 @@ export default function FeaturedCaseStudy({ caseStudy }: FeaturedCaseStudyProps)
                           className="object-cover transition-all duration-300 group-hover/image:scale-105"
                         />
                         {/* Hover overlay */}
-                        <div className="absolute inset-0 bg-black/0 group-hover/image:bg-black/20 transition-all duration-300 flex items-center justify-center">
-                          <div className="opacity-0 group-hover/image:opacity-100 transition-opacity duration-300 bg-white/90 rounded-full p-2">
+                        <div className="absolute inset-0 flex items-center justify-center bg-black/0 transition-all duration-300 group-hover/image:bg-black/20">
+                          <div className="rounded-full bg-white/90 p-2 opacity-0 transition-opacity duration-300 group-hover/image:opacity-100">
                             <Eye className="h-4 w-4 text-black" />
                           </div>
                         </div>
@@ -274,14 +273,14 @@ export default function FeaturedCaseStudy({ caseStudy }: FeaturedCaseStudyProps)
                   </CardContent>
                 </Card>
                 {/* After - Auto-Scrolling Carousel */}
-                <Card className="group bg-primary/10 overflow-hidden border-0 shadow-none">
+                <Card className="group overflow-hidden border-0 bg-primary/10 shadow-none">
                   <div className="py-2 text-center">
                     <Badge className="text-xs font-medium">After</Badge>
                   </div>
                   <CardContent>
                     <div className="relative">
                       <div
-                        className="relative aspect-video overflow-hidden rounded-lg border cursor-pointer group/image"
+                        className="group/image relative aspect-video cursor-pointer overflow-hidden rounded-lg border"
                         onClick={() => openModal("after", currentAfterIndex)}
                       >
                         <Image
@@ -294,8 +293,8 @@ export default function FeaturedCaseStudy({ caseStudy }: FeaturedCaseStudyProps)
                           className="object-cover transition-all duration-300 group-hover/image:scale-105"
                         />
                         {/* Hover overlay */}
-                        <div className="absolute inset-0 bg-black/0 group-hover/image:bg-black/20 transition-all duration-300 flex items-center justify-center">
-                          <div className="opacity-0 group-hover/image:opacity-100 transition-opacity duration-300 bg-white/90 rounded-full p-2">
+                        <div className="absolute inset-0 flex items-center justify-center bg-black/0 transition-all duration-300 group-hover/image:bg-black/20">
+                          <div className="rounded-full bg-white/90 p-2 opacity-0 transition-opacity duration-300 group-hover/image:opacity-100">
                             <Eye className="h-4 w-4 text-black" />
                           </div>
                         </div>
@@ -333,10 +332,10 @@ export default function FeaturedCaseStudy({ caseStudy }: FeaturedCaseStudyProps)
 
       {/* Image Modal */}
       <Dialog open={isModalOpen} onOpenChange={setIsModalOpen}>
-        <DialogContent className="max-w-4xl w-full p-0 bg-transparent border-0 [&>button]:hidden">
-          <div className="relative bg-background rounded-lg overflow-hidden">
+        <DialogContent className="w-full max-w-4xl border-0 bg-transparent p-0 [&>button]:hidden">
+          <div className="relative overflow-hidden rounded-lg bg-background">
             {/* Modal Header */}
-            <div className="flex items-center justify-between p-4 border-b">
+            <div className="flex items-center justify-between border-b p-4">
               <div className="flex items-center gap-2">
                 <Badge variant={modalImageType === "before" ? "destructive" : "default"}>
                   {modalImageType === "before" ? "Before" : "After"}
@@ -378,7 +377,7 @@ export default function FeaturedCaseStudy({ caseStudy }: FeaturedCaseStudyProps)
                     variant="ghost"
                     size="sm"
                     onClick={() => navigateModal("prev")}
-                    className="absolute left-4 top-1/2 -translate-y-1/2 h-10 w-10 p-0 bg-background/80 hover:bg-background"
+                    className="absolute top-1/2 left-4 h-10 w-10 -translate-y-1/2 bg-background/80 p-0 hover:bg-background"
                   >
                     <ChevronLeft className="h-5 w-5" />
                   </Button>
@@ -386,7 +385,7 @@ export default function FeaturedCaseStudy({ caseStudy }: FeaturedCaseStudyProps)
                     variant="ghost"
                     size="sm"
                     onClick={() => navigateModal("next")}
-                    className="absolute right-4 top-1/2 -translate-y-1/2 h-10 w-10 p-0 bg-background/80 hover:bg-background"
+                    className="absolute top-1/2 right-4 h-10 w-10 -translate-y-1/2 bg-background/80 p-0 hover:bg-background"
                   >
                     <ChevronRight className="h-5 w-5" />
                   </Button>
@@ -396,13 +395,13 @@ export default function FeaturedCaseStudy({ caseStudy }: FeaturedCaseStudyProps)
 
             {/* Modal Footer with Thumbnails */}
             {getCurrentModalImages().length > 1 && (
-              <div className="p-4 border-t">
+              <div className="border-t p-4">
                 <div className="flex gap-2 overflow-x-auto">
                   {getCurrentModalImages().map((image, index) => (
                     <button
                       key={index}
                       onClick={() => setModalImageIndex(index)}
-                      className={`flex-shrink-0 w-16 h-16 rounded border-2 overflow-hidden ${
+                      className={`h-16 w-16 flex-shrink-0 overflow-hidden rounded border-2 ${
                         index === modalImageIndex
                           ? `border-${modalImageType === "before" ? "destructive" : "primary"}`
                           : "border-muted"
@@ -413,7 +412,7 @@ export default function FeaturedCaseStudy({ caseStudy }: FeaturedCaseStudyProps)
                         alt={`${modalImageType} ${index + 1}`}
                         width={64}
                         height={64}
-                        className="object-cover w-full h-full"
+                        className="h-full w-full object-cover"
                       />
                     </button>
                   ))}

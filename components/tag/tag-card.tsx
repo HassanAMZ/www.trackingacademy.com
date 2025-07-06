@@ -1,13 +1,13 @@
 "use client";
 
-import React from "react";
-import Image from "next/image";
-import Link from "next/link";
 import { PostMetadata } from "@/types/index";
+import { displayTag, normalizeTag } from "@/utils/normalizeTags";
 import { formatDistanceToNow } from "date-fns";
 import { Clock, Tag as TagIcon } from "lucide-react";
+import Image from "next/image";
+import Link from "next/link";
+import React from "react";
 import formatString from "utils/formatString";
-import { displayTag, normalizeTag } from "@/utils/normalizeTags";
 import { Badge } from "../ui/badge";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "../ui/card";
 
@@ -53,7 +53,7 @@ const TagCard: React.FC<TagCardProps> = ({ tag, blogs }) => {
       </div>{" "}
       <CardHeader>
         <div className="flex items-center gap-2">
-          <TagIcon className="text-primary h-5 w-5" />
+          <TagIcon className="h-5 w-5 text-primary" />
           <CardTitle className="font-bold">{displayTag(tag)}</CardTitle>
         </div>
         <CardDescription>Browse {blogCount} articles in this category</CardDescription>
@@ -62,9 +62,9 @@ const TagCard: React.FC<TagCardProps> = ({ tag, blogs }) => {
         <ul className="space-y-3">
           {relatedBlogs.map((blog, idx) => (
             <li key={idx} className="border-b pb-2 last:border-0">
-              <Link href={`/blog/${blog.slug}`} className="hover:text-primary transition-colors">
+              <Link href={`/blog/${blog.slug}`} className="transition-colors hover:text-primary">
                 <div className="line-clamp-1 text-sm font-medium">{blog.title}</div>
-                <div className="text-muted-foreground mt-1 flex items-center gap-2 text-xs">
+                <div className="mt-1 flex items-center gap-2 text-xs text-muted-foreground">
                   <Clock className="h-3 w-3" />
                   <span>
                     {formatDistanceToNow(new Date(blog.date), {
@@ -80,7 +80,7 @@ const TagCard: React.FC<TagCardProps> = ({ tag, blogs }) => {
       <CardFooter className="pt-4">
         <Link
           href={`/tags/${formatString(normalizeTag(tag))}`}
-          className="text-primary text-sm font-medium hover:underline"
+          className="text-sm font-medium text-primary hover:underline"
         >
           View all articles →
         </Link>

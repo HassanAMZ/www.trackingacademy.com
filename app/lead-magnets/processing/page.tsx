@@ -1,7 +1,10 @@
 "use client";
 
-import { useEffect, useState } from "react";
 import { submitAuditRequest } from "@/actions/submit-audit-request";
+import { Button } from "@/components/ui/button";
+import Container from "@/components/ui/container";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
 import { sendGTMEvent } from "@next/third-parties/google";
 import {
   BarChart3,
@@ -13,10 +16,7 @@ import {
   Target,
   Users,
 } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import Container from "@/components/ui/container";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
+import { useEffect, useState } from "react";
 
 const processingSteps = [
   {
@@ -141,7 +141,7 @@ export default function ProcessingPage() {
           Analyzing Your Website's Tracking Setup —
           <span className="text-primary"> Initial Scanning in Progress</span>
         </h1>
-        <h4 className="text-muted-foreground mx-auto max-w-3xl">
+        <h4 className="mx-auto max-w-3xl text-muted-foreground">
           Our AI-powered system is performing a comprehensive scan of your website's Ga4, GTM, Meta
           Pixel, tracking implementations, and compliance setup
         </h4>
@@ -157,7 +157,7 @@ export default function ProcessingPage() {
                 key={index}
                 className={`flex items-center gap-4 rounded-lg p-4 transition-all duration-500 ${
                   isActive
-                    ? "bg-primary/10 border-primary/20 border"
+                    ? "border border-primary/20 bg-primary/10"
                     : isCompleted
                       ? "bg-muted/50"
                       : "opacity-50"
@@ -186,7 +186,7 @@ export default function ProcessingPage() {
           })}
         </div>
 
-        <div className="text-muted-foreground flex items-center justify-center gap-2 text-sm">
+        <div className="flex items-center justify-center gap-2 text-sm text-muted-foreground">
           <Loader2 className="h-4 w-4 animate-spin" />
           <span>Initial tracking analysis in progress...</span>
         </div>
@@ -202,7 +202,7 @@ export default function ProcessingPage() {
             <CheckCircle className="h-8 w-8 text-green-600" />
           </div>
           <h1>Initial Scan Complete!</h1>
-          <h4 className="text-muted-foreground mx-auto max-w-3xl">
+          <h4 className="mx-auto max-w-3xl text-muted-foreground">
             We've completed the automated analysis of your website's tracking setup. Our expert team
             will now conduct a comprehensive manual review to identify optimization opportunities
             and deliver your detailed audit report within 24 hours.
@@ -226,7 +226,7 @@ export default function ProcessingPage() {
                 required
                 value={name}
                 onChange={(e) => setName(e.target.value)}
-                className="border-primary border p-4"
+                className="border border-primary p-4"
               />
             </div>
 
@@ -239,7 +239,7 @@ export default function ProcessingPage() {
                 required
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                className="border-primary border p-4"
+                className="border border-primary p-4"
               />
             </div>
 
@@ -252,7 +252,7 @@ export default function ProcessingPage() {
                 required
                 value={phone}
                 onChange={(e) => setPhone(e.target.value)}
-                className="border-primary border p-4"
+                className="border border-primary p-4"
               />
             </div>
           </div>

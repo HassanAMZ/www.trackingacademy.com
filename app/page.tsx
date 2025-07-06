@@ -1,7 +1,5 @@
 "use client";
 
-import Link from "next/link";
-import { BarChart2, CheckSquare, HeadphonesIcon, Target, Zap } from "lucide-react";
 import TestimonialsCarousel2 from "@/components/for-freelancers/testimonials-carousal-2";
 import DetailedCTA from "@/components/funnels/detailed-cta";
 import DetailsCarousel from "@/components/funnels/details-carousal";
@@ -15,6 +13,8 @@ import AlternativesSection from "@/components/home/alternative-section";
 import Hero from "@/components/home/hero";
 import WhyChooseSection from "@/components/home/why-choose-us";
 import { Button } from "@/components/ui/button";
+import { BarChart2, CheckSquare, HeadphonesIcon, Target, Zap } from "lucide-react";
+import Link from "next/link";
 
 export default function HomePage() {
   return (
@@ -29,7 +29,7 @@ export default function HomePage() {
           </h1>
         }
         subheading={
-          <h4 className="text-muted-foreground mx-auto max-w-3xl text-center lg:mx-0 lg:text-left">
+          <h4 className="mx-auto max-w-3xl text-center text-muted-foreground lg:mx-0 lg:text-left">
             Our
             <span className="text-primary"> “See Every Sale” </span>
             setup gives eCommerce brands 95%+ accurate conversion data — so you can stop wasting ad

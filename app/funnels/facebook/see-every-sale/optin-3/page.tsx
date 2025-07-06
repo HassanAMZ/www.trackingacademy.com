@@ -1,7 +1,5 @@
 "use client";
 
-import { useState } from "react";
-import { caseStudies } from "@/data/case-studies";
 import CaseStudyCarousel from "@/components/case-study/case-study-carousel";
 import CouponOptInForm from "@/components/funnels/coupon-optin";
 import YoutubeEmbed from "@/components/global/youtube-embed";
@@ -9,6 +7,8 @@ import TestimonialGrid from "@/components/testimonial/testimonial-grid";
 import { Button } from "@/components/ui/button";
 import Container from "@/components/ui/container";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
+import { caseStudies } from "@/data/case-studies";
+import { useState } from "react";
 
 export default function Page() {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -21,8 +21,8 @@ export default function Page() {
             We <span className="text-primary">Fix Broken Facebook Tracking </span> for Businesses so
             they can finally <span className="text-primary underline">scale again</span>
           </h1>
-          <h4 className="text-muted-foreground max-w-5xl">
-            <span className="text-primary font-semibold">300$ off:</span> “See Every Sale” Tracking
+          <h4 className="max-w-5xl text-muted-foreground">
+            <span className="font-semibold text-primary">300$ off:</span> “See Every Sale” Tracking
             Setup For Facebook's Data Sharing Restrictions. All done-for-you, in just 7 days, with
             95% Accurate Data Tracking, without Violating Any Facebook's policies.{" "}
           </h4>{" "}
@@ -30,11 +30,11 @@ export default function Page() {
           {/* CTA Button */}{" "}
           <Button
             size="lg"
-            className="hover:bg-primary/90 flex flex-col py-6 text-xl font-bold text-wrap whitespace-pre-wrap hover:cursor-pointer"
+            className="flex flex-col py-6 text-xl font-bold text-wrap whitespace-pre-wrap hover:cursor-pointer hover:bg-primary/90"
             onClick={() => setIsModalOpen(true)}
           >
             <div>
-              🎟️ Claim Your $300 Coupon for 3-Day "See Every Sale" Tracking System
+              🎟️ Claim Your $300 Coupon for 7-Days "See Every Sale" Tracking System
               <span className="mt-2 block text-sm font-medium opacity-90">
                 Limited to the first 10 clients — act fast before it expires
               </span>
@@ -52,11 +52,11 @@ export default function Page() {
           <TestimonialGrid /> {/* CTA Button */}
           <Button
             size="lg"
-            className="hover:bg-primary/90 mx-auto flex flex-col py-6 text-xl font-bold text-wrap whitespace-pre-wrap hover:cursor-pointer"
+            className="mx-auto flex flex-col py-6 text-xl font-bold text-wrap whitespace-pre-wrap hover:cursor-pointer hover:bg-primary/90"
             onClick={() => setIsModalOpen(true)}
           >
             <div>
-              🎟️ Claim Your $300 Coupon for 3-Day "See Every Sale" Tracking System
+              🎟️ Claim Your $300 Coupon for 7-Days "See Every Sale" Tracking System
               <span className="mt-2 block text-sm font-medium opacity-90">
                 Limited to the first 10 clients — act fast before it expires
               </span>
@@ -68,7 +68,7 @@ export default function Page() {
       <Dialog open={isModalOpen} onOpenChange={setIsModalOpen}>
         <DialogContent className="sm:max-w-md">
           <DialogHeader>
-            <DialogTitle className="text-primary text-center font-bold">
+            <DialogTitle className="text-center font-bold text-primary">
               Claim Your $300 Coupon
             </DialogTitle>
           </DialogHeader>

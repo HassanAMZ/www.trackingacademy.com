@@ -1,9 +1,9 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
 import { PostMetadata } from "@/types/index";
-import { Filter, Search, Tag as TagIcon } from "lucide-react";
 import { normalizeTag, normalizeTags } from "@/utils/normalizeTags";
+import { Filter, Search, Tag as TagIcon } from "lucide-react";
+import React, { useEffect, useState } from "react";
 import { Button } from "../ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "../ui/card";
 import {
@@ -91,7 +91,7 @@ const TagsContainer: React.FC<TagContainerProps> = ({ tags, blogsData }) => {
         <CardHeader className="pb-3">
           <CardTitle className="flex items-center justify-between">
             <div className="flex items-center gap-2">
-              <TagIcon className="text-primary h-5 w-5" />
+              <TagIcon className="h-5 w-5 text-primary" />
               <span>Find Tags</span>
             </div>{" "}
             <DropdownMenu>
@@ -120,7 +120,7 @@ const TagsContainer: React.FC<TagContainerProps> = ({ tags, blogsData }) => {
         <CardContent>
           <div className="relative mb-6">
             <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
-              <Search className="text-muted-foreground h-4 w-4" />
+              <Search className="h-4 w-4 text-muted-foreground" />
             </div>
             <Input
               type="search"
@@ -131,12 +131,12 @@ const TagsContainer: React.FC<TagContainerProps> = ({ tags, blogsData }) => {
             />
           </div>{" "}
           {filteredTags.length > 0 ? (
-            <p className="text-muted-foreground mb-4 text-sm">
+            <p className="mb-4 text-sm text-muted-foreground">
               Found {filteredTags.length} tags {searchTerm && `matching "${searchTerm}"`}
               {selectedCategory !== "All" && ` in ${selectedCategory}`}
             </p>
           ) : (
-            <p className="text-muted-foreground mb-4 text-sm">
+            <p className="mb-4 text-sm text-muted-foreground">
               No tags found matching your criteria. Try adjusting your search.
             </p>
           )}

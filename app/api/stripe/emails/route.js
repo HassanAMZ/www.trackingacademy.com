@@ -1,9 +1,9 @@
 // src/app/api/stripe/stripe-email/route.js
-import { NextResponse } from "next/server";
 import { db } from "@/app/firebase";
-import { doc, getDoc, setDoc, Timestamp } from "firebase/firestore";
 import { sendPaymentSuccessEmail } from "@/lib/emails/email-services";
 import { stripe } from "@/lib/stripe";
+import { doc, getDoc, setDoc, Timestamp } from "firebase/firestore";
+import { NextResponse } from "next/server";
 
 export async function POST(request) {
   try {

@@ -1,6 +1,5 @@
 "use client";
 
-import { useState } from "react";
 import TestimonialsCarousel2 from "@/components/for-freelancers/testimonials-carousal-2";
 import CouponOptInForm from "@/components/funnels/coupon-optin";
 import TrackingTable from "@/components/global/tracking-table";
@@ -9,6 +8,7 @@ import TestimonialGrid from "@/components/testimonial/testimonial-grid";
 import { Button } from "@/components/ui/button";
 import Container from "@/components/ui/container";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
+import { useState } from "react";
 
 export default function Page() {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -35,11 +35,11 @@ export default function Page() {
           customCtaButton={
             <Button
               size="lg"
-              className="hover:bg-primary/90 flex max-w-4xl flex-col p-4 text-center text-xl font-bold text-wrap whitespace-pre-wrap hover:cursor-pointer md:py-12 md:text-left"
+              className="flex max-w-4xl flex-col p-4 text-center text-xl font-bold text-wrap whitespace-pre-wrap hover:cursor-pointer hover:bg-primary/90 md:py-12 md:text-left"
               onClick={() => setIsModalOpen(true)}
             >
               <div>
-                🎟️ Claim Your $300 Coupon for 3-Day "See Every Sale" Tracking System
+                🎟️ Claim Your $300 Coupon for 7-Days "See Every Sale" Tracking System
                 <span className="mt-2 block text-sm font-medium opacity-90">
                   Limited to the first 10 clients — act fast before it expires
                 </span>
@@ -57,11 +57,11 @@ export default function Page() {
         <Container className="space-y-12 py-12">
           <Button
             size="lg"
-            className="hover:bg-primary/90 md:py mx-auto flex max-w-4xl flex-col p-4 text-center text-xl font-bold text-wrap whitespace-pre-wrap hover:cursor-pointer"
+            className="md:py mx-auto flex max-w-4xl flex-col p-4 text-center text-xl font-bold text-wrap whitespace-pre-wrap hover:cursor-pointer hover:bg-primary/90"
             onClick={() => setIsModalOpen(true)}
           >
             <div>
-              🎟️ Claim Your $300 Coupon for 3-Day "See Every Sale" Tracking System
+              🎟️ Claim Your $300 Coupon for 7-Days "See Every Sale" Tracking System
               <span className="mt-2 block text-sm font-medium opacity-90">
                 Limited to the first 10 clients — act fast before it expires
               </span>
@@ -73,7 +73,7 @@ export default function Page() {
       <Dialog open={isModalOpen} onOpenChange={setIsModalOpen}>
         <DialogContent className="sm:max-w-md">
           <DialogHeader>
-            <DialogTitle className="text-primary text-center font-bold">
+            <DialogTitle className="text-center font-bold text-primary">
               Claim Your $300 Coupon
             </DialogTitle>
           </DialogHeader>

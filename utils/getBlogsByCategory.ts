@@ -1,8 +1,8 @@
-import fs from "fs";
-import path from "path";
-import matter from "gray-matter";
 import extractMetaFromStringForBlog from "@/utils/extractMetaFromStringForBlog";
 import getFiles from "@/utils/getFiles";
+import fs from "fs";
+import matter from "gray-matter";
+import path from "path";
 
 export default async function getCategoryBlogs(params: string[]) {
   const baseDirectory = path.join(process.cwd(), "app/_blog-markdown");

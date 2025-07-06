@@ -1,10 +1,10 @@
+import { PostMetadata } from "@/types/index"; // Ensure this path is correct
 import fs from "fs";
 import path from "path";
-import { PostMetadata } from "@/types/index"; // Ensure this path is correct
 
-import matter from "gray-matter";
 import extractMetaFromStringForBlog from "@/utils/extractMetaFromStringForBlog"; // Ensure this path is correct
 import getFiles from "@/utils/getFiles"; // Ensure this path is correct
+import matter from "gray-matter";
 
 interface ContentData {
   metadata: PostMetadata;

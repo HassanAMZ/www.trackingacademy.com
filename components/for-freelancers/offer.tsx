@@ -1,6 +1,3 @@
-import React, { FC } from "react";
-import Link from "next/link";
-import { Globe, Headset, Rocket, ShieldCheck, Smile, Target } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Container from "@/components/ui/container";
 import {
@@ -12,6 +9,9 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog";
 import { Separator } from "@/components/ui/separator";
+import { Globe, Headset, Rocket, ShieldCheck, Smile, Target } from "lucide-react";
+import Link from "next/link";
+import React, { FC } from "react";
 import YoutubeEmbed from "../global/youtube-embed";
 
 export default function ForFreelancersOffer() {
@@ -25,21 +25,21 @@ export default function ForFreelancersOffer() {
       <p>Learn from experts and boost your skills with real-world projects.</p>{" "}
       <div className="grid gap-6 md:grid-cols-3">
         <FeatureCard
-          icon={<Rocket className="text-primary mb-4 h-12 w-12" />}
+          icon={<Rocket className="mb-4 h-12 w-12 text-primary" />}
           title="Expert Training"
           description={`Learn from top professionals with years of experience in analytics and tracking. Gain insights that you won\'t find anywhere else.`}
           dialogTitle="Expert Training"
           dialogDescription={`In this section, you will learn from the top professionals in the field of analytics and tracking. Our instructors have years of experience and provide valuable insights that you won\'t find anywhere else.`}
         />
         <FeatureCard
-          icon={<Target className="text-primary mb-4 h-12 w-12" />}
+          icon={<Target className="mb-4 h-12 w-12 text-primary" />}
           title="Hands-On Practice"
           description="Apply your skills on real projects. Get practical experience that prepares you for real-world scenarios."
           dialogTitle="Hands-On Practice"
           dialogDescription="This module focuses on practical application of skills. You will work on real projects to gain hands-on experience that prepares you for real-world scenarios."
         />
         <FeatureCard
-          icon={<Smile className="text-primary mb-4 h-12 w-12" />}
+          icon={<Smile className="mb-4 h-12 w-12 text-primary" />}
           title="Full Curriculum"
           description={`Covers all analytics and tracking. From basics to advanced techniques, you\'ll learn everything you need to succeed.`}
           dialogTitle="Full Curriculum"
@@ -49,21 +49,21 @@ export default function ForFreelancersOffer() {
       <h2>Solve Your Tracking Problems</h2>{" "}
       <div className="grid gap-6 md:grid-cols-3">
         <FeatureCard
-          icon={<ShieldCheck className="text-primary mb-4 h-12 w-12" />}
+          icon={<ShieldCheck className="mb-4 h-12 w-12 text-primary" />}
           title="Easy Guides"
           description="Step-by-step setup instructions. Simplify complex processes with our clear and concise guides."
           dialogTitle="Easy Guides"
           dialogDescription="Our easy guides provide step-by-step setup instructions that simplify complex processes. Follow our clear and concise guides to set up your tracking system efficiently."
         />
         <FeatureCard
-          icon={<Headset className="text-primary mb-4 h-12 w-12" />}
+          icon={<Headset className="mb-4 h-12 w-12 text-primary" />}
           title="Advanced Techniques"
           description="Learn high accuracy methods. Discover the secrets to achieving top-level accuracy in your tracking."
           dialogTitle="Advanced Techniques"
           dialogDescription="Learn advanced techniques to achieve high accuracy in your tracking. Discover the secrets used by top professionals to ensure precise data collection."
         />
         <FeatureCard
-          icon={<Globe className="text-primary mb-4 h-12 w-12" />}
+          icon={<Globe className="mb-4 h-12 w-12 text-primary" />}
           title="Ongoing Support"
           description="Join a community of experts. Get continuous support and never feel alone in your learning journey."
           dialogTitle="Ongoing Support"
@@ -72,21 +72,21 @@ export default function ForFreelancersOffer() {
       </div>{" "}
       <div className="grid gap-6 md:grid-cols-3">
         <FeatureCard
-          icon={<ShieldCheck className="text-primary mb-4 h-12 w-12" />}
+          icon={<ShieldCheck className="mb-4 h-12 w-12 text-primary" />}
           title="Skill Guarantee"
           description={`Improve or get your money back. We\'re confident in our training, and we stand by it.`}
           dialogTitle="Skill Guarantee"
           dialogDescription="We are confident in our training. Improve your skills or get your money back. Your satisfaction is our priority."
         />
         <FeatureCard
-          icon={<Headset className="text-primary mb-4 h-12 w-12" />}
+          icon={<Headset className="mb-4 h-12 w-12 text-primary" />}
           title="Lifetime Access"
           description="Keep all resources and support. Access your training materials anytime, forever."
           dialogTitle="Lifetime Access"
           dialogDescription="Enjoy lifetime access to all training resources and support. Access your materials anytime, forever."
         />
         <FeatureCard
-          icon={<Globe className="text-primary mb-4 h-12 w-12" />}
+          icon={<Globe className="mb-4 h-12 w-12 text-primary" />}
           title="Get Certified"
           description="Earn a certificate when you finish. Show your new skills to potential clients and employers."
           dialogTitle="Get Certified"
@@ -95,21 +95,21 @@ export default function ForFreelancersOffer() {
       </div>{" "}
       <div className="grid gap-6 md:grid-cols-3">
         <FeatureCard
-          icon={<Rocket className="text-primary mb-4 h-12 w-12" />}
+          icon={<Rocket className="mb-4 h-12 w-12 text-primary" />}
           title="Free Consultation"
           description="One-on-one to meet your needs. Get personalized advice and guidance."
           dialogTitle="Free Consultation"
           dialogDescription="Enjoy a free one-on-one consultation to meet your specific needs. Get personalized advice and guidance from our experts."
         />
         <FeatureCard
-          icon={<Headset className="text-primary mb-4 h-12 w-12" />}
+          icon={<Headset className="mb-4 h-12 w-12 text-primary" />}
           title="Exclusive Resources"
           description="Tutorials, best practices, and case studies. Access premium content that deepens your knowledge."
           dialogTitle="Exclusive Resources"
           dialogDescription="Access exclusive resources including tutorials, best practices, and case studies. Deepen your knowledge with our premium content."
         />
         <FeatureCard
-          icon={<Globe className="text-primary mb-4 h-12 w-12" />}
+          icon={<Globe className="mb-4 h-12 w-12 text-primary" />}
           title="Monthly Webinars"
           description="Live sessions with experts. Stay up-to-date with the latest trends and techniques."
           dialogTitle="Monthly Webinars"
@@ -148,7 +148,7 @@ const FeatureCard: FC<FeatureCardPorps> = ({
       <DialogTrigger asChild>
         <div className="flex cursor-pointer flex-col items-center rounded-lg border p-6 shadow-sm">
           {icon}
-          <h3 className="text-primary mb-2">{title}</h3>
+          <h3 className="mb-2 text-primary">{title}</h3>
           <p>{description}</p>
         </div>
       </DialogTrigger>

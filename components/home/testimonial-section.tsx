@@ -40,7 +40,7 @@ export function TestimonialsSection() {
               <div className="flex items-center space-x-4">
                 <div className="space-y-1">
                   <h4 className="font-medium">{testimonial.author}</h4>
-                  <p className="text-muted-foreground text-sm">{testimonial.role}</p>
+                  <p className="text-sm text-muted-foreground">{testimonial.role}</p>
                   <p className="text-sm font-medium">{testimonial.company}</p>
                 </div>
               </div>

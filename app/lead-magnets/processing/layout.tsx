@@ -1,6 +1,6 @@
 // 2. Analysis in Progress Page
-import { ReactNode } from "react";
 import type { Metadata } from "next";
+import { ReactNode } from "react";
 
 export const metadata: Metadata = {
   title: "Analyzing Your Website - Tracking Audit in Progress | Total Transparency",

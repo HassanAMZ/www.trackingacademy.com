@@ -1,7 +1,7 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
 import { Search } from "lucide-react";
+import React, { useEffect, useState } from "react";
 import { Input } from "../ui/input";
 
 interface TagSearchProps {
@@ -24,7 +24,7 @@ const TagSearch: React.FC<TagSearchProps> = ({ tags, onSearch }) => {
     <div className="relative mb-4">
       <div className="relative">
         <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
-          <Search className="text-muted-foreground h-4 w-4" />
+          <Search className="h-4 w-4 text-muted-foreground" />
         </div>
         <Input
           type="search"
@@ -35,7 +35,7 @@ const TagSearch: React.FC<TagSearchProps> = ({ tags, onSearch }) => {
         />
       </div>
       {searchTerm && (
-        <p className="text-muted-foreground mt-2 text-sm">Showing results for "{searchTerm}"</p>
+        <p className="mt-2 text-sm text-muted-foreground">Showing results for "{searchTerm}"</p>
       )}
     </div>
   );

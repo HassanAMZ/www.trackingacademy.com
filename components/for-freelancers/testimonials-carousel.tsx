@@ -1,10 +1,10 @@
 "use client";
 
-import Image from "next/image";
+import { Card, CardContent } from "@/components/ui/card";
 import Autoplay from "embla-carousel-autoplay";
 import useEmblaCarousel from "embla-carousel-react";
 import { Star } from "lucide-react";
-import { Card, CardContent } from "@/components/ui/card";
+import Image from "next/image";
 
 const testimonials = [
   {

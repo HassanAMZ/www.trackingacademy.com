@@ -1,10 +1,3 @@
-import React, { useRef, useState } from "react";
-import Markdown from "react-markdown";
-import Image from "next/image";
-import { AnthropicModels, OpenAiModels } from "@/data/gpt-models";
-import AiSystemMessages from "@/data/gpt-system-message";
-import { useChat } from "ai/react";
-import { ImagePlus, Loader2, RotateCcw, Send, StopCircle, Trash2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
@@ -15,6 +8,13 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import { AnthropicModels, OpenAiModels } from "@/data/gpt-models";
+import AiSystemMessages from "@/data/gpt-system-message";
+import { useChat } from "ai/react";
+import { ImagePlus, Loader2, RotateCcw, Send, StopCircle, Trash2 } from "lucide-react";
+import Image from "next/image";
+import React, { useRef, useState } from "react";
+import Markdown from "react-markdown";
 import Container from "../ui/container";
 
 export default function ChatBot() {
@@ -123,7 +123,7 @@ export default function ChatBot() {
           </CardTitle>
         </CardHeader>{" "}
         <CardContent className="space-y-4">
-          <div className="bg-secondary/10 h-[500px] space-y-4 overflow-y-auto rounded-lg p-4">
+          <div className="h-[500px] space-y-4 overflow-y-auto rounded-lg bg-secondary/10 p-4">
             {messages.map((message) => (
               <div
                 key={message.id}
@@ -172,7 +172,7 @@ export default function ChatBot() {
               </div>
             )}{" "}
             {error && (
-              <div className="text-destructive flex flex-col items-center gap-2">
+              <div className="flex flex-col items-center gap-2 text-destructive">
                 <p>An error occurred. Please try again.</p>
                 <Button onClick={handleReload} variant="outline" size="sm">
                   <RotateCcw className="mr-2 h-4 w-4" />

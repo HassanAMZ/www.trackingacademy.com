@@ -1,8 +1,8 @@
 "use client";
 
-import type React from "react";
-import Link from "next/link";
 import { caseStudies, type CaseStudy } from "@/data/case-studies";
+import Link from "next/link";
+import type React from "react";
 import { AvatarGroup, AvatarGroupTooltip } from "../animate-ui/avatar-group-mask";
 import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar";
 
@@ -58,7 +58,7 @@ const ClientTableRow: React.FC<{
 
   return (
     <tr
-      className={`border-secondary-foreground/10 hover:bg-background/10 border-b transition-colors duration-150 ${!isVisible ? "hidden lg:table-row" : ""} ${isLast ? "border-b-0" : ""} `}
+      className={`border-b border-secondary-foreground/10 transition-colors duration-150 hover:bg-background/10 ${!isVisible ? "hidden lg:table-row" : ""} ${isLast ? "border-b-0" : ""} `}
     >
       <td className="px-4 py-3">
         <Link href={`/case-study/${data.id}`}>
@@ -86,11 +86,11 @@ const ClientTableRow: React.FC<{
         </Link>
       </td>
 
-      <td className="text-secondary-foreground/80 px-4 py-3 text-sm">{data.before.toFixed(0)}%</td>
+      <td className="px-4 py-3 text-sm text-secondary-foreground/80">{data.before.toFixed(0)}%</td>
       <td className="px-4 py-3 text-sm font-semibold text-green-600">
         <div className="flex items-center gap-2">{data.after.toFixed(0)}%</div>
       </td>
-      <td className="text-primary px-4 py-3 text-sm font-semibold">
+      <td className="px-4 py-3 text-sm font-semibold text-primary">
         <div className="flex items-center gap-2">+{improvement.toFixed(0)}%</div>
       </td>
     </tr>
@@ -109,7 +109,7 @@ const ClientTrackingTable: React.FC<ClientTrackingTableProps> = ({ rows }) => {
       <div className="mb-6 overflow-hidden rounded-xl border shadow-sm">
         <div className="border-b px-6 py-4">
           <h3 className="text-center text-lg font-semibold">Explore the Case Studies</h3>
-          <p className="text-muted-foreground mt-1 text-center text-sm">
+          <p className="mt-1 text-center text-sm text-muted-foreground">
             Before vs after implementing our tracking solutions
           </p>
         </div>
@@ -148,7 +148,7 @@ const ClientTrackingTable: React.FC<ClientTrackingTableProps> = ({ rows }) => {
               <span className="font-medium text-green-600">
                 After: <span className="font-bold">{stats.avgAfter}%</span>
               </span>
-              <span className="text-primary font-medium">
+              <span className="font-medium text-primary">
                 Improvement: <span className="font-bold">+{stats.improvement.toFixed(1)}%</span>
               </span>
             </div>

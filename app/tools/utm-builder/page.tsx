@@ -1,6 +1,18 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import ContactUs from "@/components/blog/call-to-action-message-us";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { toast } from "@/components/ui/hooks/use-toast";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 import {
   BookMarked,
   Chrome,
@@ -15,20 +27,8 @@ import {
   X,
 } from "lucide-react";
 import { QRCodeSVG } from "qrcode.react";
+import React, { useEffect, useState } from "react";
 import { z } from "zod";
-import ContactUs from "@/components/blog/call-to-action-message-us";
-import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { toast } from "@/components/ui/hooks/use-toast";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
 
 interface UTMParams {
   id: string;
@@ -410,8 +410,8 @@ const UTMBuilder: React.FC = () => {
                   onChange={(e) => handleWebsiteUrlChange(e.target.value)}
                   className={errors.url ? "border-destructive" : ""}
                 />
-                {errors.url && <p className="text-destructive mt-1 text-sm">{errors.url}</p>}
-                <p className="text-muted-foreground mt-1 text-sm">
+                {errors.url && <p className="mt-1 text-sm text-destructive">{errors.url}</p>}
+                <p className="mt-1 text-sm text-muted-foreground">
                   Enter the full URL of the page you want to track
                 </p>
               </div>
@@ -427,11 +427,11 @@ const UTMBuilder: React.FC = () => {
                       className={errors[key as keyof typeof errors] ? "border-destructive" : ""}
                     />
                     {errors[key as keyof typeof errors] && (
-                      <p className="text-destructive mt-1 text-sm">
+                      <p className="mt-1 text-sm text-destructive">
                         {errors[key as keyof typeof errors]}
                       </p>
                     )}
-                    <p className="text-muted-foreground mt-1 text-sm">
+                    <p className="mt-1 text-sm text-muted-foreground">
                       {getHelperTextForField(key)}
                     </p>
                   </div>
@@ -480,7 +480,7 @@ const UTMBuilder: React.FC = () => {
                 <CardTitle>Generated URL</CardTitle>
               </CardHeader>
               <CardContent>
-                <div className="bg-muted relative rounded-lg p-4 text-sm break-all">
+                <div className="relative rounded-lg bg-muted p-4 text-sm break-all">
                   {finalUrl || "Enter a website URL to generate"}
                   {finalUrl && (
                     <Button

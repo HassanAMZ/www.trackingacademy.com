@@ -1,14 +1,14 @@
 "use client";
 
-import React from "react";
-import Image from "next/image";
-import Link from "next/link";
-import Script from "next/script";
-import { PostMetadataProps } from "@/types/index";
 import formatDate from "@/components/seo/formatDate";
 import generateSchema from "@/components/seo/generateSchema";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
+import { PostMetadataProps } from "@/types/index";
+import Image from "next/image";
+import Link from "next/link";
+import Script from "next/script";
+import React from "react";
 import YoutubeEmbed from "../global/youtube-embed";
 import { Card, CardContent } from "../ui/card";
 import BreadCrumbs from "./bread-crumb";
@@ -43,7 +43,7 @@ const BlogHeader: React.FC<PostMetadataProps> = ({ metadata }) => {
                       <span className="text-muted-foreground">·</span>
                       <time className="text-muted-foreground">{formatDate(metadata.date)}</time>
                     </div>{" "}
-                    <div className="text-muted-foreground flex items-center text-sm">
+                    <div className="flex items-center text-sm text-muted-foreground">
                       {metadata.updatedDate && (
                         <div>
                           <span>Last updated: {formatDate(metadata.updatedDate)}</span>

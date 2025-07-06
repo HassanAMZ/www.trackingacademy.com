@@ -1,15 +1,15 @@
 "use client";
 
-import { useActionState, useEffect, useState } from "react";
-import { useFormStatus } from "react-dom";
-import { usePathname } from "next/navigation";
 import { createCouponRequest } from "@/actions/coupon-request";
-import { services } from "@/data/services";
-import { Loader2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import { services } from "@/data/services";
+import { Loader2 } from "lucide-react";
+import { usePathname } from "next/navigation";
+import { useActionState, useEffect, useState } from "react";
+import { useFormStatus } from "react-dom";
 
 type CouponOptInFormProps = {
   redirectUrl?: string;
@@ -58,7 +58,7 @@ function SubmitButton() {
     <Button
       type="submit"
       disabled={pending}
-      className={`bg-primary hover:bg-primary/90 w-full p-6 text-lg font-bold ${
+      className={`w-full bg-primary p-6 text-lg font-bold hover:bg-primary/90 ${
         pending ? "cursor-not-allowed opacity-50" : "cursor-pointer"
       }`}
     >
@@ -117,7 +117,7 @@ export default function CouponOptInForm({
       {buttonElement ? (
         <div onClick={() => setIsOpen(true)}>{buttonElement}</div>
       ) : (
-        <div className="from-primary/5 to-background bg-linear-to-b pt-24 pb-12">
+        <div className="bg-linear-to-b from-primary/5 to-background pt-24 pb-12">
           <Button
             className="mx-auto flex w-fit max-w-5xl cursor-pointer flex-col items-center p-6 text-center text-xl font-bold"
             onClick={() => setIsOpen(true)}
@@ -136,7 +136,7 @@ export default function CouponOptInForm({
       <Dialog open={isOpen} onOpenChange={setIsOpen}>
         <DialogContent className="sm:max-w-md">
           <DialogHeader>
-            <DialogTitle className="text-primary text-center font-bold">
+            <DialogTitle className="text-center font-bold text-primary">
               Claim Your $300 Coupon
             </DialogTitle>
           </DialogHeader>
@@ -154,7 +154,7 @@ export default function CouponOptInForm({
             <div className="mx-auto w-full max-w-md py-6">
               <form action={formAction}>
                 {state.error && (
-                  <div className="text-destructive border-destructive bg-destructive/50 mb-4 rounded border p-3">
+                  <div className="mb-4 rounded border border-destructive bg-destructive/50 p-3 text-destructive">
                     {state.error}
                   </div>
                 )}
@@ -241,7 +241,7 @@ export default function CouponOptInForm({
 
                   <SubmitButton />
                 </div>
-                <p className="text-muted-foreground mt-4 text-center text-xs">
+                <p className="mt-4 text-center text-xs text-muted-foreground">
                   Limited offer for the first 10 clients only — act fast before it expires!
                 </p>
               </form>

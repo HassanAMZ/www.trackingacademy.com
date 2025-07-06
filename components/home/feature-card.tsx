@@ -1,5 +1,5 @@
-import { FC } from "react";
 import { cn } from "@/lib/utils";
+import { FC } from "react";
 import {
   Dialog,
   DialogContent,
@@ -31,7 +31,7 @@ const FeatureCard: FC<FeatureCardPorps> = ({
       <DialogTrigger asChild>
         <div className="flex cursor-pointer flex-col items-center rounded-lg border p-6 shadow-sm">
           {icon}
-          <h3 className="text-primary mb-2">{title}</h3>
+          <h3 className="mb-2 text-primary">{title}</h3>
           <p>{description}</p>
         </div>
       </DialogTrigger>

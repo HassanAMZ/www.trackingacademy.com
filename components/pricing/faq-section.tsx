@@ -1,4 +1,3 @@
-import { frequentlyAskedQuestions } from "@/data/frequently-asked-questions";
 import {
   Accordion,
   AccordionContent,
@@ -6,6 +5,7 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { frequentlyAskedQuestions } from "@/data/frequently-asked-questions";
 
 export default function FAQSection() {
   return (

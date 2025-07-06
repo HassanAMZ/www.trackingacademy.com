@@ -1,6 +1,6 @@
+import getFiles from "@/utils/getFiles";
 import fs from "fs";
 import path from "path";
-import getFiles from "@/utils/getFiles";
 
 export default function getBlogsStaticParams(): { blog: string[] }[] {
   const baseDirectory = path.join(process.cwd(), "app/_blog-markdown");

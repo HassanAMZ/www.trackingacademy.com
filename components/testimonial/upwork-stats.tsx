@@ -1,7 +1,7 @@
-import Link from "next/link";
-import { ExternalLink, Star } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Progress } from "@/components/ui/progress";
+import { ExternalLink, Star } from "lucide-react";
+import Link from "next/link";
 import Container from "../ui/container";
 
 /**
@@ -29,12 +29,12 @@ function UpworkStats() {
   return (
     <Container className="w-full">
       <Link href={UPWORK_URL} target="_blank" rel="noopener noreferrer" className="group block">
-        <Card className="bg-background/80 relative mb-6 w-full overflow-hidden backdrop-blur-xs transition-all duration-300 group-hover:scale-[1.02] group-hover:shadow-lg">
+        <Card className="relative mb-6 w-full overflow-hidden bg-background/80 backdrop-blur-xs transition-all duration-300 group-hover:scale-[1.02] group-hover:shadow-lg">
           {/* Gradient overlay that appears on hover - similar to TestimonialCard */}
-          <div className="from-primary/20 absolute inset-0 z-10 bg-linear-to-t to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100"></div>{" "}
+          <div className="absolute inset-0 z-10 bg-linear-to-t from-primary/20 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100"></div>{" "}
           <CardHeader className="relative z-20">
             <CardTitle className="flex items-center gap-2">
-              <Star className="text-primary fill-primary h-6 w-6" />
+              <Star className="h-6 w-6 fill-primary text-primary" />
               <span>5.0</span>
               <span className="text-3xl">·</span>
               <span className="font-normal">193 reviews</span>
@@ -62,7 +62,7 @@ function UpworkStats() {
                     <div key={category.name} className="grid grid-cols-2 items-center gap-2">
                       <span>{category.name}</span>
                       <div className="align-left flex flex-row items-center justify-center gap-2">
-                        <Star className="text-primary fill-primary h-4 w-4" />
+                        <Star className="h-4 w-4 fill-primary text-primary" />
                         <span className="font-medium">{category.rating}</span>
                       </div>
                     </div>
@@ -73,7 +73,7 @@ function UpworkStats() {
           </CardContent>{" "}
           {/* External link icon that appears on hover - similar to TestimonialCard */}
           <div className="absolute top-1/2 left-1/2 z-30 -translate-x-1/2 -translate-y-1/2 transform opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-            <div className="bg-primary rounded-full p-3 text-white shadow-lg">
+            <div className="rounded-full bg-primary p-3 text-white shadow-lg">
               <ExternalLink className="h-6 w-6" />
             </div>
           </div>

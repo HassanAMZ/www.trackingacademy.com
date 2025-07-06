@@ -1,8 +1,8 @@
-import { Resend } from "resend";
 import InvoicePaymentSuccessEmail from "@/components/emails/stripe-invoice-payment-success";
 import PaymentFailedEmail from "@/components/emails/stripe-payment-failed";
 import PaymentSuccessEmail from "@/components/emails/stripe-payment-success";
 import SubscriptionCreatedEmail from "@/components/emails/stripe-subscription-created";
+import { Resend } from "resend";
 
 // Ensure Resend API Key exists
 if (!process.env.RESEND_API_KEY) {

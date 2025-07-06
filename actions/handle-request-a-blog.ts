@@ -1,10 +1,10 @@
 "use server";
 
 import { db } from "@/app/firebase";
+import RequestABlogEmail from "@/components/emails/request-a-blog";
 import { collection, doc, setDoc, Timestamp } from "firebase/firestore";
 import { Resend } from "resend";
 import { z } from "zod";
-import RequestABlogEmail from "@/components/emails/request-a-blog";
 
 export async function handleRequestABlogForm(prevState: any, formData: FormData) {
   const resend = new Resend(process.env.RESEND_API_KEY);

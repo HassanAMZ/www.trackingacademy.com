@@ -1,10 +1,10 @@
 // components/services/service-comparison.tsx
-import Link from "next/link";
-import { Service } from "@/data/services";
-import { ArrowRight, CheckCircle, X } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Service } from "@/data/services";
+import { ArrowRight, CheckCircle, X } from "lucide-react";
+import Link from "next/link";
 
 interface ServiceComparisonProps {
   currentService: Service;
@@ -27,7 +27,7 @@ export default function ServiceComparison({ currentService, allServices }: Servi
               <div>
                 <Badge className="mb-2">Current Plan</Badge>
                 <h3 className="text-xl font-bold">{currentService.name}</h3>
-                <p className="text-muted-foreground text-sm">{currentService.subtitle}</p>
+                <p className="text-sm text-muted-foreground">{currentService.subtitle}</p>
               </div>
 
               <div className="text-2xl font-bold">{currentService.price}</div>
@@ -42,11 +42,11 @@ export default function ServiceComparison({ currentService, allServices }: Servi
                   .map(([feature, value]) => (
                     <div key={feature} className="flex items-center gap-2 text-sm">
                       {value === true ? (
-                        <CheckCircle className="text-primary h-4 w-4" />
+                        <CheckCircle className="h-4 w-4 text-primary" />
                       ) : value === false ? (
-                        <X className="text-muted-foreground h-4 w-4" />
+                        <X className="h-4 w-4 text-muted-foreground" />
                       ) : (
-                        <CheckCircle className="text-primary h-4 w-4" />
+                        <CheckCircle className="h-4 w-4 text-primary" />
                       )}
                       <span>{feature}</span>
                     </div>
@@ -61,7 +61,7 @@ export default function ServiceComparison({ currentService, allServices }: Servi
               <div className="space-y-4">
                 <div>
                   <h3 className="text-xl font-bold">{service.name}</h3>
-                  <p className="text-muted-foreground text-sm">{service.subtitle}</p>
+                  <p className="text-sm text-muted-foreground">{service.subtitle}</p>
                 </div>
 
                 <div className="text-2xl font-bold">{service.price}</div>
@@ -76,11 +76,11 @@ export default function ServiceComparison({ currentService, allServices }: Servi
                     .map(([feature, value]) => (
                       <div key={feature} className="flex items-center gap-2 text-sm">
                         {value === true ? (
-                          <CheckCircle className="text-primary h-4 w-4" />
+                          <CheckCircle className="h-4 w-4 text-primary" />
                         ) : value === false ? (
-                          <X className="text-muted-foreground h-4 w-4" />
+                          <X className="h-4 w-4 text-muted-foreground" />
                         ) : (
-                          <CheckCircle className="text-primary h-4 w-4" />
+                          <CheckCircle className="h-4 w-4 text-primary" />
                         )}
                         <span>{feature}</span>
                       </div>

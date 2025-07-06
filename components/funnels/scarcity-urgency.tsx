@@ -1,7 +1,7 @@
-import React from "react";
-import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import Container from "@/components/ui/container";
+import Link from "next/link";
+import React from "react";
 
 interface ScarcityUrgencyProps {
   title?: string;
@@ -32,7 +32,7 @@ const ScarcityUrgency: React.FC<ScarcityUrgencyProps> = ({
 }) => {
   return (
     <Container className="flex min-h-[50vh] items-center justify-center pb-12">
-      <section className="bg-primary text-primary-foreground flex w-full flex-col items-center justify-center space-y-8 rounded-lg px-8 py-24 text-center">
+      <section className="flex w-full flex-col items-center justify-center space-y-8 rounded-lg bg-primary px-8 py-24 text-center text-primary-foreground">
         {/* Title */}
         {title && <h2 className="max-w-3xl">{title}</h2>}
 
@@ -48,7 +48,7 @@ const ScarcityUrgency: React.FC<ScarcityUrgencyProps> = ({
               <Button
                 asChild
                 variant="outline"
-                className="text-primary mx-auto flex w-fit max-w-4xl cursor-pointer flex-col items-center p-6 text-center text-xl font-bold lg:mx-0 lg:items-start lg:text-left"
+                className="mx-auto flex w-fit max-w-4xl cursor-pointer flex-col items-center p-6 text-center text-xl font-bold text-primary lg:mx-0 lg:items-start lg:text-left"
               >
                 <Link href={buttonLink}>
                   <div>

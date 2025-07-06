@@ -1,7 +1,7 @@
 "use client";
 
-import React, { useState } from "react";
-import Image from "next/image";
+import { Card, CardContent } from "@/components/ui/card";
+import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
 import {
   ChevronDown,
   ChevronRight,
@@ -11,8 +11,8 @@ import {
   TrendingUp,
   Trophy,
 } from "lucide-react";
-import { Card, CardContent } from "@/components/ui/card";
-import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
+import Image from "next/image";
+import React, { useState } from "react";
 import Container from "../ui/container";
 
 interface DreamOutcomeProps {
@@ -42,7 +42,7 @@ const DreamOutcome: React.FC<DreamOutcomeProps> = ({ heading, subheading, dreamO
       <div className="space-y-12 px-4">
         <div>
           {heading && <h2 className="mb-4 text-4xl font-bold">{heading}</h2>}
-          {subheading && <p className="text-muted-foreground text-xl">{subheading}</p>}
+          {subheading && <p className="text-xl text-muted-foreground">{subheading}</p>}
         </div>{" "}
         {dreamOutcomeList && dreamOutcomeList.length > 0 && (
           <div className="mt-16 space-y-8">

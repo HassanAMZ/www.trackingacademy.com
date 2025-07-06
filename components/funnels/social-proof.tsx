@@ -1,5 +1,5 @@
-import React from "react";
 import Container from "@/components/ui/container";
+import React from "react";
 import TestimonialGrid from "../testimonial/testimonial-grid";
 
 interface SocialProofProps {
@@ -15,13 +15,13 @@ const SocialProof: React.FC<SocialProofProps> = ({
   sectionDescription,
 }) => {
   return (
-    <section className="from-primary/5 to-background min-h-screen bg-linear-to-b py-24">
+    <section className="min-h-screen bg-linear-to-b from-primary/5 to-background py-24">
       <Container className="space-y-6">
         {/* Section Title */}
         {sectionTitle && <h2 className="text-center">{sectionTitle}</h2>}{" "}
         {/* Section Description */}
         {sectionDescription && (
-          <h4 className="text-muted-foreground pb-6 text-center md:pb-12">{sectionDescription}</h4>
+          <h4 className="pb-6 text-center text-muted-foreground md:pb-12">{sectionDescription}</h4>
         )}{" "}
       </Container>
       <TestimonialGrid upwork={upwork} />

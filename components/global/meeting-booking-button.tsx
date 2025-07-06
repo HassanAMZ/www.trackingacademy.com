@@ -1,6 +1,6 @@
-import Link from "next/link";
 import { OfferData } from "@/data/offers";
 import { cn } from "@/lib/utils";
+import Link from "next/link";
 import { Button } from "../ui/button";
 
 interface MeetingBookingButtonProps {
@@ -23,7 +23,7 @@ const MeetingBookingButton = ({
       asChild
       size="lg"
       className={cn(
-        "mx-auto flex flex-col p-6 text-2xl font-semibold transition-transform duration-200 w-full",
+        "mx-auto flex w-full flex-col p-6 text-lg font-semibold shadow-lg shadow-primary-foreground transition-transform duration-200 md:text-2xl",
         wrapperButtonClassName,
       )}
     >
@@ -31,7 +31,7 @@ const MeetingBookingButton = ({
         <>
           {buttonText || defaultText}
           <br />
-          <span className="text-muted text-base underline">{secondaryText}</span>
+          <span className="text-sm text-muted underline md:text-base">{secondaryText}</span>
         </>
       </Link>
     </Button>

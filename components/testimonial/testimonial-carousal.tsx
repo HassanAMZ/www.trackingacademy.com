@@ -1,10 +1,10 @@
 "use client";
 
-import type React from "react";
-import { useEffect, useState } from "react";
+import { TestimonialCard } from "@/components/testimonial/testimonial-card";
 import { caseStudies } from "@/data/case-studies";
 import clsx from "clsx";
-import { TestimonialCard } from "@/components/testimonial/testimonial-card";
+import type React from "react";
+import { useEffect, useState } from "react";
 
 const TestimonialsCarousel: React.FC<{ className?: string }> = ({ className }) => {
   const [currentIndex, setCurrentIndex] = useState(0);

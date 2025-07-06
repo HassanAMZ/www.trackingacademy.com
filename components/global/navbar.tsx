@@ -1,14 +1,5 @@
 "use client";
 
-import React, { useState } from "react";
-import Image from "next/image";
-import Link from "next/link";
-import { usePathname } from "next/navigation";
-import auditReports from "@/data/audit-report";
-import { caseStudies } from "@/data/case-studies";
-import { services } from "@/data/services";
-import clsx from "clsx";
-import { Briefcase, FileText, Menu, Settings, Wrench } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Container from "@/components/ui/container";
 import {
@@ -21,6 +12,15 @@ import {
   navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import auditReports from "@/data/audit-report";
+import { caseStudies } from "@/data/case-studies";
+import { services } from "@/data/services";
+import clsx from "clsx";
+import { Briefcase, FileText, Menu, Settings, Wrench } from "lucide-react";
+import Image from "next/image";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import React, { useState } from "react";
 import NavLink from "../navbar/NavLink";
 import { ThemeToggle } from "./theme-switch";
 
@@ -141,13 +141,13 @@ const ListItem = React.forwardRef<HTMLAnchorElement, ListItemProps>(
         <a
           ref={ref}
           className={clsx(
-            "hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground block space-y-1 rounded-md p-3 leading-none no-underline outline-hidden transition-colors select-none",
+            "block space-y-1 rounded-md p-3 leading-none no-underline outline-hidden transition-colors select-none hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground",
             className,
           )}
           {...props}
         >
           <div className="text-sm leading-none font-medium">{title}</div>
-          <p className="text-muted-foreground line-clamp-2 text-sm leading-snug">{children}</p>
+          <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">{children}</p>
         </a>
       </NavigationMenuLink>
     </li>
@@ -188,12 +188,12 @@ export default function Navbar({ className }: { className?: string }) {
       <li className="row-span-3">
         <NavigationMenuLink asChild>
           <a
-            className="from-muted/50 to-muted flex h-full w-full flex-col justify-end rounded-md bg-linear-to-b p-6 no-underline outline-hidden select-none focus:shadow-sm"
+            className="flex h-full w-full flex-col justify-end rounded-md bg-linear-to-b from-muted/50 to-muted p-6 no-underline outline-hidden select-none focus:shadow-sm"
             href={items[0].href}
           >
             {icon}
             <div className="mt-4 mb-2 text-lg font-medium">{items[0].title}</div>
-            <p className="text-muted-foreground text-sm leading-tight">{items[0].description}</p>
+            <p className="text-sm leading-tight text-muted-foreground">{items[0].description}</p>
           </a>
         </NavigationMenuLink>
       </li>
@@ -274,7 +274,7 @@ export default function Navbar({ className }: { className?: string }) {
               key={path}
               href={path}
               className={clsx(
-                "text-foreground w-full! justify-start!",
+                "w-full! justify-start! text-foreground",
                 navigationMenuTriggerStyle(),
                 isActive(path) && "bg-accent text-accent-foreground",
               )}

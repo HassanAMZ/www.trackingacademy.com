@@ -1,10 +1,10 @@
 "use client";
 
-import React from "react";
-import Link from "next/link";
-import { sendGTMEvent } from "@next/third-parties/google";
 import { Button } from "@/components/ui/button";
 import Container from "@/components/ui/container";
+import { sendGTMEvent } from "@next/third-parties/google";
+import Link from "next/link";
+import React from "react";
 
 const WaitlistJoined: React.FC = () => {
   sendGTMEvent({

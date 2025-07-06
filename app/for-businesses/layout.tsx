@@ -1,6 +1,6 @@
-import React, { ReactNode } from "react";
 import Footer from "@/components/global/footer";
 import Navbar from "@/components/global/navbar";
+import React, { ReactNode } from "react";
 
 export const metadata = {
   title: "For Businesses - TrackingAcademy",

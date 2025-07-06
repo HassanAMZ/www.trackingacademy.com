@@ -1,5 +1,5 @@
-import { ReactNode } from "react";
 import type { Metadata } from "next";
+import { ReactNode } from "react";
 
 export const metadata: Metadata = {
   title: "Free Website Tracking Audit - No More Data Doubts | Total Transparency",

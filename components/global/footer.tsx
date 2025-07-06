@@ -1,8 +1,8 @@
 "use client";
 
-import Link from "next/link";
-import { Facebook, Linkedin, Mail, Phone, Youtube } from "lucide-react";
 import Container from "@/components/ui/container";
+import { Facebook, Linkedin, Mail, Phone, Youtube } from "lucide-react";
+import Link from "next/link";
 import { ThemeToggle } from "./theme-switch";
 
 export default function Footer() {
@@ -15,7 +15,7 @@ export default function Footer() {
             <Link href="/">
               <img src="/logo.png" alt="TrackingAcademy Logo" className="mb-4 h-8" />
             </Link>
-            <p className="text-muted-foreground text-sm">
+            <p className="text-sm text-muted-foreground">
               Reclaim the 30% of sales you're missing with better tracking.
             </p>
           </div>
@@ -84,31 +84,31 @@ export default function Footer() {
             <h4 className="mb-3 text-sm font-semibold">Stay Connected</h4>
             <div className="mb-4 flex items-center space-x-4">
               <Link href="mailto:analytics@trackingacademy.com" aria-label="Email">
-                <Mail className="hover:text-primary h-5 w-5" />
+                <Mail className="h-5 w-5 hover:text-primary" />
               </Link>
               <Link
                 href="https://youtube.com/@trackingacademy"
                 target="_blank"
                 aria-label="Youtube"
               >
-                <Youtube className="hover:text-primary h-5 w-5" />
+                <Youtube className="h-5 w-5 hover:text-primary" />
               </Link>
               <Link
                 href="https://linkedin.com/company/trackingacademy"
                 target="_blank"
                 aria-label="LinkedIn"
               >
-                <Linkedin className="hover:text-primary h-5 w-5" />
+                <Linkedin className="h-5 w-5 hover:text-primary" />
               </Link>
               <Link
                 href="https://facebook.com/shahzadaalihassan"
                 target="_blank"
                 aria-label="Facebook"
               >
-                <Facebook className="hover:text-primary h-5 w-5" />
+                <Facebook className="h-5 w-5 hover:text-primary" />
               </Link>
               <Link href="tel:00923364904686" target="_blank" aria-label="Phone">
-                <Phone className="hover:text-primary h-5 w-5" />
+                <Phone className="h-5 w-5 hover:text-primary" />
               </Link>
             </div>
             <ThemeToggle />
@@ -116,7 +116,7 @@ export default function Footer() {
         </div>
 
         {/* Bottom */}
-        <div className="text-muted-foreground mt-10 border-t pt-6 text-center text-xs">
+        <div className="mt-10 border-t pt-6 text-center text-xs text-muted-foreground">
           © 2020 - {new Date().getFullYear()} TrackingAcademy. All rights reserved.
         </div>
       </Container>

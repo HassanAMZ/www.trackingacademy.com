@@ -1,12 +1,12 @@
-import { FormEvent, useEffect, useState } from "react";
 import { saveUserData } from "@/actions/stripe-user-data";
-import { PaymentData, Product, PromoCode } from "@/types/index";
-import { PaymentElement, useElements, useStripe } from "@stripe/react-stripe-js";
-import { Loader2, LockIcon } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import { PaymentData, Product, PromoCode } from "@/types/index";
 import { getSuccessUrl } from "@/utils/payment";
+import { PaymentElement, useElements, useStripe } from "@stripe/react-stripe-js";
+import { Loader2, LockIcon } from "lucide-react";
+import { FormEvent, useEffect, useState } from "react";
 
 interface PaymentFormProps {
   product: Product;
@@ -111,7 +111,7 @@ export const PaymentForm = ({ product, appliedPromo, onSuccess, onError }: Payme
   return (
     <form onSubmit={handleSubmit} className="space-y-6">
       {/* User Information Section */}
-      <div className="text-muted-foreground space-y-4">
+      <div className="space-y-4 text-muted-foreground">
         <div className="space-y-2">
           <Label htmlFor="email">Email Address *</Label>
           <Input
@@ -167,7 +167,7 @@ export const PaymentForm = ({ product, appliedPromo, onSuccess, onError }: Payme
         )}
       </Button>
 
-      <div className="text-muted-foreground flex items-center justify-center gap-2 text-sm">
+      <div className="flex items-center justify-center gap-2 text-sm text-muted-foreground">
         <LockIcon className="h-4 w-4" />
         <span>Your payment is secured with 256-bit SSL encryption</span>
       </div>

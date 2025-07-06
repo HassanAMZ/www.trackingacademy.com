@@ -1,6 +1,8 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Skeleton } from "@/components/ui/skeleton";
 import { sendGTMEvent } from "@next/third-parties/google";
 import {
   Calendar,
@@ -15,9 +17,7 @@ import {
   Tag,
   User,
 } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Skeleton } from "@/components/ui/skeleton";
+import { useEffect, useRef, useState } from "react";
 
 // Helper to create standardized user data for GTM events
 const createUserData = (paymentData: PaymentData | null) => {
@@ -319,9 +319,9 @@ export default function PaymentSuccess() {
           <Card className="mx-4 w-full max-w-md">
             <CardContent className="pt-6">
               <div className="text-center">
-                <div className="bg-destructive/10 mx-auto mb-4 h-16 w-16 rounded-full p-3">
+                <div className="mx-auto mb-4 h-16 w-16 rounded-full bg-destructive/10 p-3">
                   <svg
-                    className="text-destructive h-10 w-10"
+                    className="h-10 w-10 text-destructive"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -335,7 +335,7 @@ export default function PaymentSuccess() {
                   </svg>
                 </div>
                 <h2 className="mb-2 text-xl font-semibold">Something went wrong</h2>
-                <p className="text-muted-foreground mb-4">{error}</p>
+                <p className="mb-4 text-muted-foreground">{error}</p>
                 <Button onClick={handleRetry}>Try Again</Button>
               </div>
             </CardContent>
@@ -379,8 +379,8 @@ export default function PaymentSuccess() {
           {/* Success Header */}
           <div className="mb-8 text-center">
             <div className="mb-4 flex justify-center">
-              <div className="bg-primary/10 rounded-full p-3">
-                <CheckCircle className="text-primary h-8 w-8" />
+              <div className="rounded-full bg-primary/10 p-3">
+                <CheckCircle className="h-8 w-8 text-primary" />
               </div>
             </div>
             <h1 className="mb-2 text-3xl font-bold">Payment Successful!</h1>
@@ -405,36 +405,36 @@ export default function PaymentSuccess() {
                   <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
                     {customerName && (
                       <div className="flex items-center space-x-3">
-                        <User className="text-muted-foreground h-5 w-5" />
+                        <User className="h-5 w-5 text-muted-foreground" />
                         <div>
-                          <p className="text-muted-foreground text-sm">Name</p>
+                          <p className="text-sm text-muted-foreground">Name</p>
                           <p className="font-medium">{customerName}</p>
                         </div>
                       </div>
                     )}
                     {customerEmail && (
                       <div className="flex items-center space-x-3">
-                        <Mail className="text-muted-foreground h-5 w-5" />
+                        <Mail className="h-5 w-5 text-muted-foreground" />
                         <div>
-                          <p className="text-muted-foreground text-sm">Email</p>
+                          <p className="text-sm text-muted-foreground">Email</p>
                           <p className="font-medium">{customerEmail}</p>
                         </div>
                       </div>
                     )}
                     {customerPhone && (
                       <div className="flex items-center space-x-3">
-                        <Phone className="text-muted-foreground h-5 w-5" />
+                        <Phone className="h-5 w-5 text-muted-foreground" />
                         <div>
-                          <p className="text-muted-foreground text-sm">Phone</p>
+                          <p className="text-sm text-muted-foreground">Phone</p>
                           <p className="font-medium">{customerPhone}</p>
                         </div>
                       </div>
                     )}
                     {customerAddress && (
                       <div className="flex items-start space-x-3">
-                        <MapPin className="text-muted-foreground mt-1 h-5 w-5" />
+                        <MapPin className="mt-1 h-5 w-5 text-muted-foreground" />
                         <div>
-                          <p className="text-muted-foreground text-sm">Address</p>
+                          <p className="text-sm text-muted-foreground">Address</p>
                           <div className="font-medium">
                             {customerAddress.line1 && <p>{customerAddress.line1}</p>}
                             {customerAddress.line2 && <p>{customerAddress.line2}</p>}
@@ -458,9 +458,9 @@ export default function PaymentSuccess() {
                 <div className="space-y-3">
                   {paymentData?.metadata?.productName && (
                     <div className="flex items-center space-x-3">
-                      <Package className="text-muted-foreground h-5 w-5" />
+                      <Package className="h-5 w-5 text-muted-foreground" />
                       <div>
-                        <p className="text-muted-foreground text-sm">Product</p>
+                        <p className="text-sm text-muted-foreground">Product</p>
                         <p className="font-medium">{paymentData.metadata.productName}</p>
                       </div>
                     </div>
@@ -498,10 +498,10 @@ export default function PaymentSuccess() {
                 <h3 className="mb-3 text-lg font-medium">Payment Information</h3>
                 <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
                   <div className="flex items-center space-x-3">
-                    <CreditCard className="text-muted-foreground h-5 w-5" />
+                    <CreditCard className="h-5 w-5 text-muted-foreground" />
                     <div>
-                      <p className="text-muted-foreground text-sm">Amount Paid</p>
-                      <p className="text-primary text-xl font-bold">
+                      <p className="text-sm text-muted-foreground">Amount Paid</p>
+                      <p className="text-xl font-bold text-primary">
                         {formatAmount(
                           paymentData?.amount_received || 0,
                           paymentData?.currency || "GBP",
@@ -510,9 +510,9 @@ export default function PaymentSuccess() {
                     </div>
                   </div>
                   <div className="flex items-center space-x-3">
-                    <Calendar className="text-muted-foreground h-5 w-5" />
+                    <Calendar className="h-5 w-5 text-muted-foreground" />
                     <div>
-                      <p className="text-muted-foreground text-sm">Date</p>
+                      <p className="text-sm text-muted-foreground">Date</p>
                       <p className="font-medium">
                         {paymentData?.created ? formatDate(paymentData.created) : "Just now"}
                       </p>
@@ -522,8 +522,8 @@ export default function PaymentSuccess() {
 
                 {/* Payment Method Details */}
                 {paymentData?.payment_method && (
-                  <div className="bg-muted mt-4 rounded-lg p-3">
-                    <p className="text-muted-foreground mb-1 text-sm">Payment Method</p>
+                  <div className="mt-4 rounded-lg bg-muted p-3">
+                    <p className="mb-1 text-sm text-muted-foreground">Payment Method</p>
                     <div className="flex items-center space-x-2">
                       <span className="font-medium capitalize">
                         {paymentData.payment_method.card?.brand || paymentData.payment_method.type}
@@ -541,7 +541,7 @@ export default function PaymentSuccess() {
               {/* Transaction Details */}
               <div>
                 <h3 className="mb-3 text-lg font-medium">Transaction Details</h3>
-                <div className="bg-muted rounded-md p-4">
+                <div className="rounded-md bg-muted p-4">
                   <div className="grid grid-cols-1 gap-2 text-sm">
                     <div className="flex justify-between">
                       <span className="text-muted-foreground">Transaction ID:</span>
@@ -549,7 +549,7 @@ export default function PaymentSuccess() {
                     </div>
                     <div className="flex justify-between">
                       <span className="text-muted-foreground">Status:</span>
-                      <span className="text-primary font-medium capitalize">
+                      <span className="font-medium text-primary capitalize">
                         {paymentData?.status}
                       </span>
                     </div>
