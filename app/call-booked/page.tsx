@@ -6,7 +6,7 @@ import Container from "@/components/ui/container";
 import { sendGTMEvent } from "@next/third-parties/google";
 import { useEffect } from "react";
 
-export default function BookAMeetingPage() {
+export default function MeetingBooked() {
   useEffect(() => {
     const queryParams = new URLSearchParams(window.location.search);
 
