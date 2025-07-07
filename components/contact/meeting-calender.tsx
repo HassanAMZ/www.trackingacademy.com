@@ -1,52 +1,64 @@
 "use client";
 
 import { sendGTMEvent } from "@next/third-parties/google";
-import { InlineWidget, useCalendlyEventListener } from "react-calendly";
+import Script from "next/script";
+import { useEffect } from "react";
 import Container from "../ui/container";
 
 const MeetingCalendar = () => {
-  useCalendlyEventListener({
-    onProfilePageViewed: () =>
-      sendGTMEvent({
-        event: "gtm_custom_event",
-        datalayer_event_name: "calendly_profile_viewed",
-        value: "profile_page_viewed",
-      }),
-    onDateAndTimeSelected: () =>
-      sendGTMEvent({
-        event: "gtm_custom_event",
-        datalayer_event_name: "calendly_date_selected",
-        value: "date_and_time_selected",
-      }),
-    onEventTypeViewed: () =>
-      sendGTMEvent({
-        event: "gtm_custom_event",
-        datalayer_event_name: "calendly_event_type_viewed",
-        value: "event_type_viewed",
-      }),
-    onEventScheduled: (e) =>
-      sendGTMEvent({
-        event: "gtm_custom_event",
-        datalayer_event_name: "calendly_meeting_scheduled",
-        value: "event_scheduled",
-        event_data: e.data.payload,
-      }),
-    onPageHeightResize: (e) =>
-      sendGTMEvent({
-        event: "gtm_custom_event",
-        datalayer_event_name: "calendly_page_resize",
-        value: "page_height_resize",
-        height: e.data.payload.height,
-      }),
-  });
+  useEffect(() => {
+    const handlePostMessage = (event: { data: { datalayer_event_name: any } }) => {
+      if (event.data && event.data.datalayer_event_name) {
+        const eventName = event.data.datalayer_event_name;
+        console.log("Received postMessage:", event.data);
+
+        // Only process specific iClosed events
+        const allowedEvents = [
+          "iclosed_view",
+          "iclosed_potential",
+          "iclosed_qualified",
+          "iclosed_disqualified",
+          "iclosed_call_scheduled",
+        ];
+
+        if (allowedEvents.includes(eventName)) {
+          sendGTMEvent({
+            event: "gtm_custom_event",
+            datalayer_event_name: eventName,
+          });
+        }
+      }
+    };
+
+    window.addEventListener("message", handlePostMessage);
+
+    // Cleanup
+    return () => {
+      window.removeEventListener("message", handlePostMessage);
+    };
+  }, []);
 
   return (
-    <Container id="book-a-meeting">
-      <InlineWidget
-        className="calendly-inline-widget min-h-[90vh] w-full"
-        url="https://calendly.com/shahzadaalihassan/1-on-1-meeting-with-shahzada?hide_gdpr_banner=1"
+    <>
+      <Script
+        src="https://app.iclosed.io/assets/widget.js"
+        strategy="lazyOnload"
+        onLoad={() => {
+          console.log("iClosed widget script loaded successfully");
+        }}
       />
-    </Container>
+      <Container id="book-a-meeting">
+        <div
+          className="iclosed-widget h-full w-full"
+          data-url="https://app.iclosed.io/e/shahzadaalihassan/1-on-1-meeting-with-shahzada"
+          title="1-on-1 meeting with Shahzada"
+          style={{
+            width: "100%",
+            height: "100%",
+          }}
+        />
+      </Container>
+    </>
   );
 };
 

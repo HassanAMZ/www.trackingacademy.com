@@ -1,6 +1,7 @@
 import ClarityInit from "@/components/analytics/clarity";
 import GTMAnalytics from "@/components/analytics/gtm";
 import VercelAnalytics from "@/components/analytics/vercel";
+import FloatingCalendarWidget from "@/components/contact/floating-calendar-widget";
 import { ThemeProvider } from "@/components/global/theme-provider";
 import CanonicalTag from "@/components/seo/CanonicalTag";
 import "@/styles/global.css";
@@ -37,6 +38,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
               <ClarityInit />
               <VercelAnalytics />
               <CanonicalTag />
+              <FloatingCalendarWidget />
               <SpeedInsights />
             </Suspense>
           </AuthWrapper>
