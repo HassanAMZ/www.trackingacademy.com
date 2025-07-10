@@ -1,4 +1,4 @@
-// app/book-a-meeting/layout.tsx
+// app/call-booked/layout.tsx
 
 import type { Metadata } from "next";
 

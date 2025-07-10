@@ -328,6 +328,7 @@ export default function Page() {
               <div className="text-center">
                 <div className="w-full overflow-hidden rounded-md bg-muted">
                   <Image
+                    priority={false}
                     src="/images/hero/data-sharing-restrcition-03.png"
                     alt="Data sharing restrictions illustration"
                     width={1920}

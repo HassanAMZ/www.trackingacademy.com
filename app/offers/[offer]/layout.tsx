@@ -1,3 +1,4 @@
+import Footer from "@/components/global/footer";
 import { offers } from "@/data/offers";
 import { Metadata } from "next";
 
@@ -67,7 +68,7 @@ export async function generateMetadata({
         googleBot: {
           index: true,
           follow: true,
-          noimageindex: false,
+          noimageindex: true,
           "max-video-preview": -1,
           "max-image-preview": "large",
           "max-snippet": -1,
@@ -137,13 +138,13 @@ export async function generateMetadata({
       ],
     },
     robots: {
-      index: false,
+      index: true,
       follow: false,
       nocache: false,
       googleBot: {
-        index: false,
+        index: true,
         follow: false,
-        noimageindex: false,
+        noimageindex: true,
         "max-video-preview": -1,
         "max-image-preview": "large",
         "max-snippet": -1,
@@ -162,5 +163,10 @@ export async function generateMetadata({
 }
 
 export default function OfferLayout({ children }: { children: React.ReactNode }) {
-  return <>{children}</>;
+  return (
+    <>
+      {children}
+      <Footer />
+    </>
+  );
 }

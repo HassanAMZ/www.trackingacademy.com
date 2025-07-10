@@ -30,6 +30,7 @@ export function HeroSection() {
       </div>
       <div className="relative h-[400px] w-full">
         <Image
+          priority={false}
           src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-IPTYFWH6KvZNu1muM0dT7PiIkQk4wi.png"
           alt="Data sources visualization"
           fill

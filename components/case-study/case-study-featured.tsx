@@ -129,6 +129,7 @@ export default function FeaturedCaseStudy({ caseStudy }: FeaturedCaseStudyProps)
                 ) : (
                   <>
                     <Image
+                      priority={false}
                       src={caseStudy.imageUrl || "/placeholder.svg?height=600&width=800"}
                       alt={`${caseStudy.name} preview`}
                       fill
@@ -232,6 +233,7 @@ export default function FeaturedCaseStudy({ caseStudy }: FeaturedCaseStudyProps)
                         onClick={() => openModal("before", currentBeforeIndex)}
                       >
                         <Image
+                          priority={false}
                           src={
                             caseStudy.analytics.images.before[currentBeforeIndex] ||
                             "/placeholder.svg"
@@ -284,6 +286,7 @@ export default function FeaturedCaseStudy({ caseStudy }: FeaturedCaseStudyProps)
                         onClick={() => openModal("after", currentAfterIndex)}
                       >
                         <Image
+                          priority={false}
                           src={
                             caseStudy.analytics.images.after[currentAfterIndex] ||
                             "/placeholder.svg"
@@ -364,6 +367,7 @@ export default function FeaturedCaseStudy({ caseStudy }: FeaturedCaseStudyProps)
             {/* Modal Image */}
             <div className="relative aspect-video bg-muted">
               <Image
+                priority={false}
                 src={getCurrentModalImages()[modalImageIndex] || "/placeholder.svg"}
                 alt={`${modalImageType} ${modalImageIndex + 1}`}
                 fill
@@ -408,6 +412,7 @@ export default function FeaturedCaseStudy({ caseStudy }: FeaturedCaseStudyProps)
                       }`}
                     >
                       <Image
+                        priority={false}
                         src={image}
                         alt={`${modalImageType} ${index + 1}`}
                         width={64}

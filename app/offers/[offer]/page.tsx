@@ -1,7 +1,9 @@
+import CaseStudyCarousel from "@/components/case-study/case-study-carousel";
 import FeaturedCaseStudy from "@/components/case-study/case-study-featured";
 import MeetingCalendar from "@/components/contact/meeting-calender";
+import DetailsCards from "@/components/funnels/details-card";
+import DreamOutcome from "@/components/funnels/dream-outcome";
 import MeetingBookingButton from "@/components/global/meeting-booking-button";
-import YoutubeEmbed from "@/components/global/youtube-embed";
 import Hero from "@/components/home/hero";
 import TestimonialGrid from "@/components/testimonial/testimonial-grid";
 import {
@@ -10,16 +12,22 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import { Alert, AlertDescription } from "@/components/ui/alert";
 import { Badge } from "@/components/ui/badge";
 import Container from "@/components/ui/container";
+import { caseStudies } from "@/data/case-studies";
 import { offers } from "@/data/offers";
 import getCaseStudy from "@/utils/getCaseStudy";
 import {
+  Activity,
   AlertTriangle,
   CheckCircle,
   Database,
   DollarSign,
+  Eye,
+  FileText,
+  Monitor,
+  Phone,
+  PlayCircle,
   RefreshCw,
   Search,
   Settings,
@@ -28,6 +36,7 @@ import {
   XCircle,
   Zap,
 } from "lucide-react";
+import Image from "next/image";
 
 // Generate static params for all offers
 export async function generateStaticParams() {
@@ -48,6 +57,12 @@ const iconMap = {
   Zap,
   Shield,
   RefreshCw,
+  Monitor,
+  FileText,
+  Eye,
+  Activity,
+  Phone,
+  PlayCircle,
 };
 
 export default async function Page({ params }: { params: Promise<{ offer: string }> }) {
@@ -55,12 +70,12 @@ export default async function Page({ params }: { params: Promise<{ offer: string
 
   const offerData = offers[offer] || offers["default-offer"];
 
-  // Dynamic content based on offer data
   return (
     <main>
       <Hero
+        eyebrow="Lost 50% of your Leads to Meta Restrictions?"
         heading={
-          <h1 className="animate-fade-in text-center leading-tight tracking-tighter">
+          <h1 className="mx-auto text-center lg:mx-0 lg:text-left">
             {offerData.headline.prefix}{" "}
             {offerData.headline.conversion.map((conv, index) => (
               <span key={index}>
@@ -71,123 +86,137 @@ export default async function Page({ params }: { params: Promise<{ offer: string
                   (index === offerData.headline.conversion.length - 2 ? " & " : ", ")}
               </span>
             ))}{" "}
-            {offerData.headline.suffix}'s Meta Ad — in a week
+            {offerData.headline.suffix}'s Ads
           </h1>
         }
         subheading={
-          <div className="space-y-4">
-            <h4 className="mx-auto max-w-4xl text-center">
-              <span dangerouslySetInnerHTML={{ __html: offerData.subheading }} />
-              <div className="flex flex-wrap justify-center gap-2 py-4">
-                <Badge variant="destructive" className="flex items-center gap-1">
-                  <XCircle className="h-4 w-4" />
-                  Pixel Missing Data
-                </Badge>
-                <Badge variant="destructive" className="flex items-center gap-1">
-                  <XCircle className="h-4 w-4" />
-                  CAPI Not Firing
-                </Badge>
-                <Badge variant="destructive" className="flex items-center gap-1">
-                  <XCircle className="h-4 w-4" />
-                  Data Sharing Restrictions
-                </Badge>
-              </div>
-            </h4>
-
-            <YoutubeEmbed embedId={offerData.videoId} className="max-w-4xl p-0" />
-            <MeetingBookingButton
-              className="text-center"
-              wrapperButtonClassName="py-4"
-              offerData={offerData}
-            />
-          </div>
+          <h4 className="mx-auto max-w-3xl text-center lg:mx-0 lg:text-left">
+            <span dangerouslySetInnerHTML={{ __html: offerData.subheading }} />
+            <div className="flex flex-wrap justify-center gap-2 py-4 lg:justify-start">
+              <Badge variant="destructive" className="flex items-center gap-1">
+                <XCircle className="h-4 w-4" />
+                Pixel Missing Data
+              </Badge>
+              <Badge variant="destructive" className="flex items-center gap-1">
+                <XCircle className="h-4 w-4" />
+                CAPI Not Firing
+              </Badge>
+              <Badge variant="destructive" className="flex items-center gap-1">
+                <XCircle className="h-4 w-4" />
+                Data Sharing Restrictions
+              </Badge>
+            </div>
+          </h4>
         }
         benefits={offerData.benefits}
+        customCtaButton={
+          <MeetingBookingButton
+            wrapperButtonClassName="py-4 lg:w-fit lg:mx-0 text-center lg:text-left lg:justify-start lg:items-start"
+            offerData={offerData}
+          />
+        }
+        supportingComponent={
+          <div className="flex flex-1">
+            {/* Desktop version - hidden on mobile */}
+            <Image
+              src="/images/hero/data-sharing-restrcition-04.png"
+              alt="Data Sharing Restrictions - Desktop View"
+              className="hidden rounded-lg object-contain lg:block"
+              width={1920}
+              height={1080}
+              priority
+              quality={90}
+            />
+
+            {/* Mobile version - hidden on desktop */}
+            {/* <Image
+              src="/images/hero/data-sharing-restrcition-03.png"
+              alt="Data Sharing Restrictions - Mobile View"
+              className="block rounded-lg object-contain lg:hidden"
+              width={1080}
+              height={1920}
+              priority
+              quality={90}
+            /> */}
+          </div>
+        }
+      />
+      <Container>
+        <div className="mb-12 text-center">
+          <h2 className="mb-4 text-destructive">{offerData.testimonialSection.title}</h2>
+          <h4 className="mx-auto max-w-3xl text-accent-foreground">
+            {offerData.testimonialSection.description}
+          </h4>
+        </div>
+      </Container>
+      <CaseStudyCarousel
+        caseStudies={caseStudies.filter((cs) =>
+          [
+            "northridgeaddiction",
+            "zenon",
+            "saneofrance",
+            "peachandcream",
+            "emiratesadvisory",
+          ].includes(cs.id),
+        )}
       />
 
-      {/* Problem Section */}
-      <section className="bg-linear-to-b from-primary/5 to-background py-16">
-        <Container className="max-w-6xl md:pt-12">
-          <div className="transform space-y-8 rounded-lg border border-destructive/20 bg-background p-4 md:p-12">
-            <div className="mb-12 text-center">
-              <h2 className="mb-4">{offerData.problemStatement.title}</h2>
-              <h4 className="mx-auto max-w-3xl text-muted-foreground">
-                {offerData.problemStatement.description}
-              </h4>
-            </div>
-
-            <div className="grid items-center gap-8 md:grid-cols-2">
-              <div className="space-y-4">
-                {offerData.problemStatement.alerts.map((alert, index) => {
-                  const IconComponent = iconMap[alert.icon];
-                  return (
-                    <Alert key={index} className="border-destructive">
-                      <IconComponent className="h-4 w-4" />
-                      <AlertDescription>
-                        <strong>{alert.title}</strong>
-                        <br />
-                        {alert.description}
-                      </AlertDescription>
-                    </Alert>
-                  );
-                })}
-              </div>
-              <div className="text-center">
-                <YoutubeEmbed embedId={offerData.videoId} className="mx-auto max-w-3xl p-0" />
-              </div>
-            </div>
-          </div>
-        </Container>
-      </section>
-
-      {/* Solution Section */}
-      <section className="bg-linear-to-b from-primary/5 to-background py-16">
-        <Container className="max-w-6xl">
+      {/* Problem Amplification Section */}
+      <Container className="max-w-6xl py-12">
+        <div className="transform space-y-8 rounded-lg border border-destructive/20 p-2 md:p-12">
           <div className="mb-12 text-center">
-            <Badge className="mb-4 animate-bounce">{offerData.solution.badge}</Badge>
-            <h2 className="mb-4 text-3xl font-bold md:text-4xl">{offerData.solution.title}</h2>
-            <h4 className="mx-auto max-w-3xl text-muted-foreground">
-              {offerData.solution.description}
+            <Badge variant="destructive" className="mb-4 animate-pulse">
+              ❌ {offerData.problemStatement.title}
+            </Badge>
+            <h2 className="mb-4 text-destructive">{offerData.problemStatement.title}</h2>
+            <h4 className="mx-auto max-w-3xl text-accent-foreground">
+              {offerData.problemStatement.description}
             </h4>
           </div>
 
-          {/* Process Steps */}
-          <div className="relative overflow-hidden rounded-xl bg-gradient-to-br from-muted/50 to-muted/30 md:p-8">
-            <div className="bg-grid-white/10 absolute inset-0 [mask-image:linear-gradient(0deg,transparent,black,transparent)]" />
-            <div className="relative">
-              <div className="grid gap-8 md:grid-cols-3">
-                {offerData.solution.steps.map((step, index) => {
-                  const IconComponent = iconMap[step.icon];
-                  return (
-                    <div key={index} className="group relative">
-                      <div className="absolute -inset-4 rounded-lg bg-gradient-to-r from-primary/20 to-primary/10 opacity-0 blur" />
-                      <div className="relative rounded-lg bg-background/80 p-6 text-center backdrop-blur-sm">
-                        <div className="mx-auto mb-6 flex h-16 w-16 items-center justify-center rounded-full bg-primary text-xl font-bold text-primary-foreground shadow-lg">
-                          <IconComponent className="h-6 w-6" />
-                        </div>
-                        <div className="mb-4 flex items-center justify-center">
-                          <div className="rounded-full bg-primary/10 px-3 py-1 text-xs font-medium text-primary">
-                            Day {step.day}
-                          </div>
-                        </div>
-                        <h4 className="mb-4 text-xl font-semibold">{step.title}</h4>
-                        <p className="leading-relaxed text-muted-foreground">{step.description}</p>
-                      </div>
-                    </div>
-                  );
-                })}
-              </div>
-            </div>
-          </div>
+          <DreamOutcome
+            dreamOutcomeList={offerData.problemStatement.alerts.map((alert, index) => ({
+              text: alert.title || "No title provided",
+              description: alert.description || "No description available.",
+              videoId: offerData.videoId || "/images/social-sharing.png", // fallback image
+              icon: alert.icon,
+            }))}
+          />
 
-          {/* CTA Section */}
+          {/* Add testimonial callout */}
+          <div className="mt-8 rounded-lg bg-primary/5 p-6 text-center">
+            <p className="text-lg font-medium text-primary">
+              "It's not your ads. It's your tracking."
+            </p>
+            <p className="mt-2">
+              We've fixed this for 100+ clinics — and we'll fix it for you too.
+            </p>
+          </div>
+        </div>
+      </Container>
+
+      {/* Solution Section */}
+      <section className="py-8">
+        <DetailsCards {...offerData.solution} />
+
+        <Container className="max-w-6xl">
+          {/* Bonus Section */}
+          {offerData.pricing?.bonus && (
+            <div className="mb-8 rounded-lg bg-accent/50 p-6 text-center">
+              <h3 className="mb-2 text-xl font-semibold text-accent-foreground">
+                {offerData.pricing.bonus.title}
+              </h3>
+              <p className="">{offerData.pricing.bonus.description}</p>
+            </div>
+          )}
+
           <div className="mt-12 text-center">
-            <MeetingBookingButton className="justify-center" offerData={offerData} />
+            <MeetingBookingButton offerData={offerData} />
           </div>
         </Container>
       </section>
 
-      {/* Case Studies - Dynamic based on offerData.caseStudyIds */}
+      {/* Case Studies */}
       {offerData.caseStudyIds.map((caseStudyId) => {
         const caseStudy = getCaseStudy(caseStudyId);
         return caseStudy ? <FeaturedCaseStudy key={caseStudyId} caseStudy={caseStudy} /> : null;
@@ -197,42 +226,43 @@ export default async function Page({ params }: { params: Promise<{ offer: string
       <div className="py-16">
         <section className="bg-gradient-to-b from-primary/20 to-background py-16">
           <Container className="max-w-4xl text-center">
-            <div className="mb-8">
-              <h2 className="mb-4 text-3xl font-bold md:text-4xl">{offerData.finalCta.title}</h2>
-              <p className="mx-auto max-w-2xl text-xl opacity-90">
+            <div className="space-y-6 py-6">
+              <h2 className="">{offerData.finalCta.title}</h2>
+              <h4 className="mx-auto max-w-3xl text-accent-foreground">
                 {offerData.finalCta.description}
-              </p>
+              </h4>
             </div>
 
             <div className="mb-8 grid gap-4 md:grid-cols-3">
-              <div className="flex items-center justify-center space-x-2">
+              <h6 className="flex items-center justify-center space-x-2 font-bold">
                 <CheckCircle className="h-5 w-5" />
                 <span>Free 24-hour audit</span>
-              </div>
-              <div className="flex items-center justify-center space-x-2">
+              </h6>{" "}
+              <h6 className="flex items-center justify-center space-x-2 font-bold">
                 <CheckCircle className="h-5 w-5" />
                 <span>7 Day implementation</span>
-              </div>
-              <div className="flex items-center justify-center space-x-2">
+              </h6>{" "}
+              <h6 className="flex items-center justify-center space-x-2 font-bold">
                 <CheckCircle className="h-5 w-5" />
                 <span>30-day guarantee</span>
-              </div>
+              </h6>
             </div>
           </Container>
 
           <MeetingCalendar />
+          <div className="mx-auto py-6 text-center text-sm">{offerData.calendar.description}</div>
         </section>
       </div>
 
       {/* FAQ Section */}
-      <section className="py-4">
+      <section className="py-16">
         <Container className="max-w-4xl">
-          <div className="mb-12 text-center">
-            <h2 className="mb-4 text-3xl font-bold md:text-4xl">Frequently Asked Questions</h2>
-            <p className="text-xl text-muted-foreground">
+          <div className="space-y-6 py-6 text-center">
+            <h2>Frequently Asked Questions</h2>
+            <h4 className="mx-auto max-w-3xl text-accent-foreground">
               Everything you need to know about fixing your {offerData.businessType} Facebook
               tracking
-            </p>
+            </h4>
           </div>
 
           <Accordion type="single" collapsible className="w-full space-y-6" defaultValue="item-1">
@@ -247,7 +277,7 @@ export default async function Page({ params }: { params: Promise<{ offer: string
                     </div>
                   </AccordionTrigger>
                   <AccordionContent>
-                    <p className="text-muted-foreground">{faqItem.answer}</p>
+                    <p className="">{faqItem.answer}</p>
                   </AccordionContent>
                 </AccordionItem>
               );
@@ -258,10 +288,10 @@ export default async function Page({ params }: { params: Promise<{ offer: string
 
       {/* Testimonials */}
       <section className="py-16">
-        <Container className="">
+        <Container>
           <div className="mb-12 space-y-4 text-center">
-            <h2>{offerData.testimonialSection.title}</h2>
-            <h4 className="mx-auto max-w-3xl text-muted-foreground">
+            <h2 className="text-primary">{offerData.testimonialSection.title}</h2>
+            <h4 className="mx-auto max-w-3xl text-accent-foreground">
               {offerData.testimonialSection.description}
             </h4>
           </div>

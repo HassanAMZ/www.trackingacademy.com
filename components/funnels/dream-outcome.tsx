@@ -2,90 +2,142 @@
 
 import { Card, CardContent } from "@/components/ui/card";
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
+import { cn } from "@/lib/utils";
 import {
+  AlertTriangle,
   ChevronDown,
-  ChevronRight,
+  Database,
+  DollarSign,
   Lightbulb,
   Rocket,
   Target,
   TrendingUp,
   Trophy,
+  XCircle,
 } from "lucide-react";
-import Image from "next/image";
 import React, { useState } from "react";
-import Container from "../ui/container";
+import YoutubeEmbed from "../global/youtube-embed";
 
-interface DreamOutcomeProps {
+export interface DreamOutcomeProps {
   heading?: string;
   subheading?: string;
+  className?: string;
   dreamOutcomeList: Array<{
-    icon: string;
+    icon?:
+      | "Lightbulb"
+      | "Rocket"
+      | "TrendingUp"
+      | "Target"
+      | "Trophy"
+      | "AlertTriangle"
+      | "XCircle"
+      | "DollarSign"
+      | "Database";
     text: string;
-    image: string;
+    videoId: string;
     description: string;
   }>;
 }
 
-const DreamOutcome: React.FC<DreamOutcomeProps> = ({ heading, subheading, dreamOutcomeList }) => {
+const DreamOutcome: React.FC<DreamOutcomeProps> = ({
+  heading,
+  className,
+  subheading,
+  dreamOutcomeList,
+}) => {
   const [openIndex, setOpenIndex] = useState(0);
 
-  const iconMap: { [key: string]: React.ComponentType } = {
+  const iconMap: { [key: string]: React.ComponentType<{ className?: string }> } = {
     Rocket,
     Lightbulb,
     TrendingUp,
     Target,
     Trophy,
+    AlertTriangle,
+    XCircle,
+    DollarSign,
+    Database,
+  };
+
+  const handleToggle = (index: number) => {
+    setOpenIndex(index === openIndex ? -1 : index);
   };
 
   return (
-    <Container className="py-16">
-      <div className="space-y-12 px-4">
-        <div>
-          {heading && <h2 className="mb-4 text-4xl font-bold">{heading}</h2>}
-          {subheading && <p className="text-xl text-muted-foreground">{subheading}</p>}
-        </div>{" "}
-        {dreamOutcomeList && dreamOutcomeList.length > 0 && (
-          <div className="mt-16 space-y-8">
-            <div className="grid items-center justify-center gap-8 md:grid-cols-2">
-              {/* Left side: Collapsible items */}
-              <div className="space-y-4">
-                {dreamOutcomeList.map((outcome, index) => {
-                  const IconComponent = iconMap[outcome.icon];
-                  const isOpen = index === openIndex;
-                  return (
-                    <Card key={index}>
-                      <CardContent className="p-6">
-                        <Collapsible open={isOpen} onOpenChange={() => setOpenIndex(index)}>
-                          <CollapsibleTrigger className="flex w-full items-center space-x-4">
-                            <IconComponent />
-                            <h4 className="grow text-left text-xl font-semibold">{outcome.text}</h4>
-                            {isOpen ? (
-                              <ChevronDown className="h-4 w-4" />
-                            ) : (
-                              <ChevronRight className="h-4 w-4" />
-                            )}
-                          </CollapsibleTrigger>
-                          <CollapsibleContent className="mt-4">
-                            <p className="text-muted-foreground">{outcome.description}</p>
-                          </CollapsibleContent>
-                        </Collapsible>
-                      </CardContent>
-                    </Card>
-                  );
-                })}
-              </div>{" "}
-              {/* Right side: Image */}{" "}
-              <Image
-                src={dreamOutcomeList[openIndex]?.image || "/images/social-sharing.png"}
-                alt={dreamOutcomeList[openIndex]?.text || "Dream outcome"}
-                width={1080}
-                height={1080}
-              />
-            </div>
-          </div>
-        )}
+    <div className={cn("space-y-16", className)}>
+      {/* Header Section */}
+      <div className="space-y-4 text-center">
+        {heading && <h2 className="">{heading}</h2>}
+        {subheading && <h4 className="mx-auto max-w-3xl text-muted-foreground">{subheading}</h4>}
       </div>
-    </Container>
+
+      {/* Main Content */}
+      {dreamOutcomeList && dreamOutcomeList.length > 0 && (
+        <div className="grid items-start gap-3 md:grid-cols-2 lg:gap-16">
+          {/* Left side: Collapsible items */}
+          <div className="w-full space-y-3">
+            {dreamOutcomeList.map((outcome, index) => {
+              const IconComponent = outcome.icon ? iconMap[outcome.icon] : Lightbulb;
+              const isOpen = index === openIndex;
+
+              return (
+                <Card
+                  key={index}
+                  className={`group border-2 transition-all duration-300 ease-in-out hover:shadow-lg ${
+                    isOpen
+                      ? "border-destructive bg-destructive/5 shadow-md"
+                      : "border-border hover:border-destructive/50"
+                  }`}
+                >
+                  <CardContent className="p-0">
+                    <Collapsible open={isOpen} onOpenChange={() => handleToggle(index)}>
+                      <CollapsibleTrigger className="flex w-full cursor-pointer items-center space-x-4 p-6 text-left transition-colors hover:bg-muted/50">
+                        {/* Icon with background */}
+                        <div
+                          className={`flex h-12 w-12 items-center justify-center rounded-xl transition-all duration-300 ${
+                            isOpen
+                              ? "bg-destructive text-destructive-foreground shadow-lg"
+                              : "bg-destructive/10 text-destructive group-hover:bg-destructive/20 group-hover:text-destructive"
+                          }`}
+                        >
+                          <IconComponent className="h-6 w-6" />
+                        </div>
+
+                        {/* Text content */}
+                        <div className="flex-1 space-y-1">
+                          <h4 className="text-lg leading-tight font-semibold transition-colors group-hover:text-destructive">
+                            {outcome.text}
+                          </h4>
+                        </div>
+
+                        {/* Chevron icon */}
+                        <div
+                          className={`transition-transform duration-300 ${isOpen ? "rotate-180" : ""}`}
+                        >
+                          <ChevronDown className="h-5 w-5 text-muted-foreground" />
+                        </div>
+                      </CollapsibleTrigger>
+
+                      <CollapsibleContent className="data-[state=closed]:animate-collapsible-up data-[state=open]:animate-collapsible-down overflow-hidden transition-all duration-300 ease-in-out">
+                        <div className="px-6 pt-2 pb-6">
+                          <div className="ml-6 border-l-2 border-destructive/20 pl-4">
+                            <p className="leading-relaxed text-muted-foreground">
+                              {outcome.description}
+                            </p>
+                          </div>
+                        </div>
+                      </CollapsibleContent>
+                    </Collapsible>
+                  </CardContent>
+                </Card>
+              );
+            })}
+          </div>
+          {/* Right side: Image with enhanced styling */}
+          <YoutubeEmbed embedId={dreamOutcomeList[0].videoId} className="max-w-4xl p-0" />
+        </div>
+      )}
+    </div>
   );
 };
 

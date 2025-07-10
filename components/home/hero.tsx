@@ -66,12 +66,12 @@ const Hero: FC<HeroProps> = ({
     : "mx-auto w-full max-w-3xl";
 
   const benefitsClasses = supportingComponent
-    ? "mx-auto grid grid-cols-3 justify-center gap-2 py-4 lg:grid-cols-3 lg:items-start lg:mx-0 max-w-2xl"
+    ? "mx-auto grid grid-cols-3 justify-center gap-2 py-4 lg:grid-cols-3 lg:items-start lg:mx-0 max-w-3xl"
     : "grid grid-cols-3 justify-center gap-2 py-4 lg:grid-cols-3 lg:items-start max-w-4xl";
 
   const benefitItemClasses = supportingComponent
-    ? "flex items-center justify-center gap-2 lg:justify-start flex-col sm:flex-row"
-    : "flex items-center justify-center gap-2 flex-col lg:flex-row";
+    ? "flex items-center text-center lg:text-left justify-center gap-2 lg:justify-start flex-col lg:flex-row"
+    : "flex items-center text-center lg:text-left justify-center gap-2 flex-col lg:flex-row";
 
   const ctaClasses = supportingComponent
     ? "flex gap-4"

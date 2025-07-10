@@ -162,7 +162,7 @@ export const caseStudies: CaseStudy[] = [
     plan: "Business",
     title: "Restoring Meta Pixel Tracking for Northridge Addiction with Server-Side Conversion API",
     description:
-      "Northridge Addiction, a health and wellness website, faced restricted Meta Pixel tracking due to content-related blocks despite compliance with legit scripts. Over a multi-day engagement, we implemented server-side tracking using Stape.io and Meta Conversion API, capturing user data on the thank-you page post-Typeform submission. This achieved 95% tracking accuracy, recovering 21.72% of events from tracking prevention and 10.4% from ad blockers, enabling accurate ad attribution.",
+      "Northridge Addiction, a health and wellness website, faced restricted Meta Pixel tracking due to content-related blocks despite compliance with legit scripts. Over a multi-day engagement, we implemented server-side tracking using Custom Server and Meta Conversion API, capturing user data on the thank-you page post-Typeform submission. This achieved 95% tracking accuracy, recovering 21.72% of events from tracking prevention and 10.4% from ad blockers, enabling accurate ad attribution.",
     imageUrl: "/images/for-businesses/client-northridgeaddiction-desktop-home.png",
     mobileUrl: "/images/for-businesses/client-northridgeaddiction-mobile-home.png",
     siteUrl: "https://start.northridgeaddiction.com",
@@ -192,7 +192,7 @@ export const caseStudies: CaseStudy[] = [
       "Meta Pixel",
       "Meta Conversion API",
       "Google Tag Manager",
-      "Stape.io",
+      "Custom Server",
       "Typeform",
       "Webflow",
     ],
@@ -214,7 +214,7 @@ export const caseStudies: CaseStudy[] = [
       {
         name: "Server-Side Implementation",
         description:
-          "Set up Stape.io server container, implemented Meta Conversion API, and captured user data (email, name) on thank-you page for enhanced event matching.",
+          "Set up Custom Server server container, implemented Meta Conversion API, and captured user data (email, name) on thank-you page for enhanced event matching.",
         expectedOutcome: "Achieved 95% tracking accuracy with proper ad attribution.",
       },
       {
@@ -237,7 +237,7 @@ export const caseStudies: CaseStudy[] = [
       "Server-Side Tracking",
       "Meta Conversion API",
       "Google Tag Manager",
-      "Stape.io",
+      "Custom Server",
       "Event Tracking",
       "Typeform Integration",
     ],
@@ -248,7 +248,7 @@ export const caseStudies: CaseStudy[] = [
       "Need for precise SubmitApplication event tracking without over-firing",
     ],
     solutions: [
-      "Implemented server-side tracking with Stape.io and Meta Conversion API",
+      "Implemented server-side tracking with Custom Server and Meta Conversion API",
       "Captured user data on thank-you page post-Typeform submission for enhanced matching",
       "Updated ad sets to use unrestricted pixel 1405345420657676",
       "Optimized GTM to fire SubmitApplication only for qualified users",
@@ -342,7 +342,7 @@ export const caseStudies: CaseStudy[] = [
     plan: "Standard",
     title: "Restoring Meta Pixel Tracking for Saneo France with Server-Side Tracking and Webhooks",
     description:
-      "Saneo France, a health product e-commerce website, faced restricted Meta Pixel tracking due to HIPAA compliance issues. Over a multi-week engagement, we implemented server-side tracking via Stape.io, configured Meta Conversion API, and added Shopify webhooks to achieve 98.74% tracking accuracy, recovering 23.72% of events from ITP and 3.85% from ad blockers, while improving ROAS to 1.03.",
+      "Saneo France, a health product e-commerce website, faced restricted Meta Pixel tracking due to HIPAA compliance issues. Over a multi-week engagement, we implemented server-side tracking via Custom Server, configured Meta Conversion API, and added Shopify webhooks to achieve 98.74% tracking accuracy, recovering 23.72% of events from ITP and 3.85% from ad blockers, while improving ROAS to 1.03.",
     imageUrl: "/images/for-businesses/client-saneofrance-desktop-home.png",
     mobileUrl: "/images/for-businesses/client-saneofrance-mobile-home.png",
     siteUrl: "https://saneofrance.fr",
@@ -374,7 +374,7 @@ export const caseStudies: CaseStudy[] = [
       "Meta Pixel",
       "Meta Conversion API",
       "Google Tag Manager",
-      "Stape.io",
+      "Custom Server",
       "Shopify",
       "Google Analytics 4",
       "Google Ads",
@@ -383,21 +383,21 @@ export const caseStudies: CaseStudy[] = [
       {
         name: "Onboarding & Access Setup",
         description:
-          "Conducted onboarding with Jeremy to understand tracking issues, secured access to Meta Pixel, Shopify, and Stape.io accounts, and audited existing tracking setup.",
+          "Conducted onboarding with Jeremy to understand tracking issues, secured access to Meta Pixel, Shopify, and Custom Server accounts, and audited existing tracking setup.",
         expectedOutcome:
           "Identified restrictions on Saneo and Saneo New Pixels due to HIPAA compliance and planned server-side tracking solutions.",
       },
       {
         name: "Server-Side Tracking Implementation",
         description:
-          "Configured Stape.io server container, implemented Meta Conversion API, and tested purchase events on existing pixels (1735459797389776 and 1402592670494369).",
+          "Configured Custom Server server container, implemented Meta Conversion API, and tested purchase events on existing pixels (1735459797389776 and 1402592670494369).",
         expectedOutcome:
           "Restored tracking with 65.95% initial accuracy, bypassing HIPAA restrictions.",
       },
       {
         name: "Webhook Integration",
         description:
-          "Set up a new Stape.io container with a custom subdomain, implemented Shopify webhooks to capture missing events, and migrated GTM tags for GA4, Google Ads, and Meta.",
+          "Set up a new Custom Server container with a custom subdomain, implemented Shopify webhooks to capture missing events, and migrated GTM tags for GA4, Google Ads, and Meta.",
         expectedOutcome:
           "Achieved 98.74% event tracking accuracy with 100% event coverage in Meta Events Manager.",
       },
@@ -422,7 +422,7 @@ export const caseStudies: CaseStudy[] = [
       "Meta Conversion API",
       "Shopify Webhooks",
       "Google Tag Manager",
-      "Stape.io",
+      "Custom Server",
       "Event Tracking",
       "Consent Management",
     ],
@@ -430,10 +430,10 @@ export const caseStudies: CaseStudy[] = [
       "Restricted Meta Pixels due to HIPAA compliance on health product domain",
       "Initial tracking accuracy limited to 65.95% due to ad blockers and ITP",
       "Missing 36% of purchase events due to attribution issues",
-      "Complex access setup for Meta Business Manager and Stape.io accounts",
+      "Complex access setup for Meta Business Manager and Custom Server accounts",
     ],
     solutions: [
-      "Implemented server-side tracking with Stape.io and Meta Conversion API",
+      "Implemented server-side tracking with Custom Server and Meta Conversion API",
       "Added Shopify webhooks to capture 100% of events in Meta Events Manager",
       "Configured custom subdomain and migrated GTM tags for stable tracking",
       "Optimized event match quality with user data parameters",
@@ -452,7 +452,7 @@ export const caseStudies: CaseStudy[] = [
     plan: "Standard",
     title: "Enhanced Tracking System for Emirates Advisory with Client and Server-Side Integration",
     description:
-      "Emirates Advisory, was blocked from Meta ads due to 'sensitive' product categories.It's a consultancy service website, required a robust tracking system to monitor form submissions and user interactions across their main domain and subdomain. Over an 8-day engagement, we implemented client-side and server-side tracking using Google Tag Manager, Stape.io, and Meta Conversion API, integrated a GDPR/CCPA-compliant Consent Management Platform, and built a real-time Looker Studio dashboard, achieving 95%+ tracking accuracy and recovering 14.45% of events from tracking prevention and 3.27% from ad blockers.",
+      "Emirates Advisory, was blocked from Meta ads due to 'sensitive' product categories.It's a consultancy service website, required a robust tracking system to monitor form submissions and user interactions across their main domain and subdomain. Over an 8-day engagement, we implemented client-side and server-side tracking using Google Tag Manager, Custom Server, and Meta Conversion API, integrated a GDPR/CCPA-compliant Consent Management Platform, and built a real-time Looker Studio dashboard, achieving 95%+ tracking accuracy and recovering 14.45% of events from tracking prevention and 3.27% from ad blockers.",
     imageUrl: "/images/for-businesses/client-emiratesadvisory-desktop-home.png",
     mobileUrl: "/images/for-businesses/client-emiratesadvisory-mobile-home.png",
     siteUrl: "https://emiratesadvisory.com",
@@ -485,7 +485,7 @@ export const caseStudies: CaseStudy[] = [
       "Meta Pixel",
       "Meta Conversion API",
       "Yandex Metrica",
-      "Stape.io",
+      "Custom Server",
       "CookieYes",
       "Looker Studio",
     ],
@@ -505,7 +505,7 @@ export const caseStudies: CaseStudy[] = [
       {
         name: "Server-Side Tracking Implementation",
         description:
-          "Set up GTM Server Container on Stape.io, configured server-side tracking for GA4, Google Ads, and Meta Conversion API, and ensured event deduplication.",
+          "Set up GTM Server Container on Custom Server, configured server-side tracking for GA4, Google Ads, and Meta Conversion API, and ensured event deduplication.",
         expectedOutcome: "90-95% conversion accuracy with server-side tracking.",
       },
       {
@@ -543,7 +543,7 @@ export const caseStudies: CaseStudy[] = [
       "Implemented CookieYes CMP with Google Consent Mode V2 for compliance",
       "Configured GTM on both main domain and subdomain for consistent tracking",
       "Tested form submissions to activate Google Ads conversion tags",
-      "Set up server-side tracking with Stape.io to recover 14.45% of events from tracking prevention",
+      "Set up server-side tracking with Custom Server to recover 14.45% of events from tracking prevention",
     ],
     results: [
       "Achieved 95%+ tracking accuracy for form submissions and user interactions",
@@ -560,7 +560,7 @@ export const caseStudies: CaseStudy[] = [
     plan: "Standard",
     title: "Enhanced Lead Generation for Vision4kids with Server-Side Tracking and Facebook CAPI",
     description:
-      "Vision4kids, a client of a Netherlands-based agency, faced inaccurate conversion tracking for their lead generation website due to reliance on client-side tracking. Over a multi-month engagement, we implemented server-side tracking via Stape.io, configured Facebook Conversion API, and built a Google Looker Studio dashboard. This restored accurate tracking, increased leads by 30%, and bypassed ad blockers and iOS ITP restrictions, achieving 97% tracking accuracy.",
+      "Vision4kids, a client of a Netherlands-based agency, faced inaccurate conversion tracking for their lead generation website due to reliance on client-side tracking. Over a multi-month engagement, we implemented server-side tracking via Custom Server, configured Facebook Conversion API, and built a Google Looker Studio dashboard. This restored accurate tracking, increased leads by 30%, and bypassed ad blockers and iOS ITP restrictions, achieving 97% tracking accuracy.",
     imageUrl: "/images/for-businesses/client-vision4kids-desktop-home.png",
     mobileUrl: "/images/for-businesses/client-vision4kids-mobile-home.png",
     siteUrl: "https://vision4kids.org",
@@ -602,7 +602,7 @@ export const caseStudies: CaseStudy[] = [
       {
         name: "Server-Side Implementation",
         description:
-          "Provisioned a Stape.io server container, configured server-side tracking, and set up Facebook CAPI to track lead events, phone clicks, link clicks, and email clicks.",
+          "Provisioned a Custom Server server container, configured server-side tracking, and set up Facebook CAPI to track lead events, phone clicks, link clicks, and email clicks.",
         expectedOutcome: "Server-side tracking fully operational, capturing all key events.",
       },
       {
@@ -635,7 +635,7 @@ export const caseStudies: CaseStudy[] = [
       "Ad blocker and iOS ITP restrictions blocking 27% of events",
     ],
     solutions: [
-      "Implemented server-side tracking with Stape.io and Facebook CAPI",
+      "Implemented server-side tracking with Custom Server and Facebook CAPI",
       "Configured tracking for lead events, phone clicks, link clicks, and email clicks",
       "Bypassed ad blockers and iOS ITP restrictions, recovering 27% of events",
       "Built a Google Looker Studio dashboard for real-time insights",
@@ -826,7 +826,7 @@ export const caseStudies: CaseStudy[] = [
     challenges: [
       "Massive data loss from ad-blockers & iOS tracking prevention",
       "Nested elements caused duplicate event fires",
-      "High Stape.io event consumption threatening quota",
+      "High Custom Server event consumption threatening quota",
       "Complex GTM + GA4 + FB Pixel integration",
     ],
     solutions: [
@@ -837,7 +837,7 @@ export const caseStudies: CaseStudy[] = [
     ],
     results: [
       "Achieved >98% tracking accuracy across browsers & bypassed ad-blockers",
-      "Saved ~2.1M monthly requests on Stape.io—well under quota",
+      "Saved ~2.1M monthly requests on Custom Server—well under quota",
       "Onboarded a flexible event model: new button clicks require only HTML attributes",
       "UA goals & custom reports now feed real-time insights into marketing ROI",
     ],
@@ -1564,7 +1564,7 @@ export const caseStudies: CaseStudy[] = [
     },
     platforms: [
       "Google Tag Manager",
-      "Stape.io",
+      "Custom Server",
       "Server-Side Tracking",
       "Facebook Pixel",
       "TikTok Pixel",
@@ -1586,7 +1586,7 @@ export const caseStudies: CaseStudy[] = [
       {
         name: "Server-Side Container Setup",
         description:
-          "Configured and secured a server-side GTM container via Stape.io to bypass ad blockers and privacy restrictions.",
+          "Configured and secured a server-side GTM container via Custom Server to bypass ad blockers and privacy restrictions.",
         expectedOutcome: "Reliable, consistent data capture for all critical events.",
       },
       {
@@ -1637,7 +1637,7 @@ export const caseStudies: CaseStudy[] = [
     budget: 1155,
     technologies: [
       "Google Tag Manager",
-      "Stape.io",
+      "Custom Server",
       "Server-Side Tracking",
       "Facebook Pixel",
       "TikTok Pixel",
@@ -1656,7 +1656,7 @@ export const caseStudies: CaseStudy[] = [
     ],
     solutions: [
       "Consolidated all tags into a single GTM container (client + server)",
-      "Deployed Stape.io server-side tracking to bypass blockers",
+      "Deployed Custom Server server-side tracking to bypass blockers",
       "Removed legacy scripts and enforced a single source of truth",
       "Managed DNS updates and container code swap during domain switch",
       "Built QA protocols and provided hands-on training with documentation",

@@ -25,6 +25,7 @@ const SingleBlogCard: React.FC<SingleBlogCardProps> = ({
       <Card className={`overflow-hidden transition-all hover:shadow-lg ${isMain ? "lg:flex" : ""}`}>
         <div className={`relative ${isMain ? "lg:w-2/3" : "aspect-video"}`}>
           <Image
+            priority={false}
             src={post.openGraph.images[0]}
             alt={post.title}
             height={1080}

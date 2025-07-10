@@ -36,7 +36,7 @@ export default function Services() {
         <FeatureCard
           icon={<Layers className="mb-4 h-12 w-12 text-primary" />}
           title="Tag Management & Integrations"
-          description="Google Tag Manager, Segment.io, Zapier, Stape.io, Tealium, Salesforce Marketing Cloud, Amazon AWS, Google Cloud Platforms, Adobe Launch, Piwik PRO Tag Manager."
+          description="Google Tag Manager, Segment.io, Zapier, Custom Server, Tealium, Salesforce Marketing Cloud, Amazon AWS, Google Cloud Platforms, Adobe Launch, Piwik PRO Tag Manager."
           dialogTitle="Tag Management & Integrations"
           dialogDescription="Our team can help you with tag management and integrations using tools like Google Tag Manager, Segment.io, and more to ensure seamless data collection and analysis."
         />

@@ -1,7 +1,7 @@
 // app/book-a-meeting/loading.tsx
 
-import { Skeleton } from "@/components/ui/skeleton";
 import Container from "@/components/ui/container";
+import { Skeleton } from "@/components/ui/skeleton";
 
 export default function Loading() {
   return (

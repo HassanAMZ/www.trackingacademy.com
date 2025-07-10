@@ -263,6 +263,7 @@ const DetailsCarousel: React.FC<DetailsCarouselProps> = ({
                   <div className="relative h-80 w-full rotate-1 transform overflow-hidden shadow transition-transform duration-300 hover:rotate-0">
                     <div className="absolute inset-0 z-10 bg-gradient-to-tr from-primary/20 to-transparent mix-blend-overlay" />
                     <Image
+                      priority={false}
                       src={activeItem.image || "/placeholder.svg"}
                       alt={activeItem.title || "Carousel item"}
                       fill

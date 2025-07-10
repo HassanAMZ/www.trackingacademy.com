@@ -28,6 +28,7 @@ const ObjectionHandling: React.FC<ObjectionHandlingProps> = ({ sectionTitle, gua
                 <CardContent className="flex flex-col items-center gap-8 px-8 py-12 md:flex-row">
                   <div className="flex justify-center p-4 md:w-1/3">
                     <Image
+                      priority={false}
                       src={guarantee.image || "/images/social-sharing.png"}
                       alt="Keanu Reeves with red and blue pills"
                       width={1080}

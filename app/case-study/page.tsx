@@ -30,6 +30,7 @@ export default function CaseStudiesPage() {
               <CardHeader className="relative z-20">
                 <div className="overflow-hidden rounded-lg border">
                   <Image
+                    priority={false}
                     width={1080}
                     height={1920}
                     src={caseStudy.imageUrl}

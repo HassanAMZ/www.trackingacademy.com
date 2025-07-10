@@ -66,6 +66,7 @@ const ReasonsData: React.FC<ReasonsDataProps> = ({ title, reasons, intervalTime 
         <section className="grid items-center justify-center rounded-lg pt-2">
           {activeId !== null && (
             <Image
+              priority={false}
               src={reasons.find((reason) => reason.id === activeId)!.imageUrl}
               alt="Reason Image"
               width={1080}

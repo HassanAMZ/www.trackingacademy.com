@@ -16,7 +16,7 @@ interface CaseStudyCarouselProps {
 
 export default function CaseStudyCarousel({
   caseStudies,
-  speed = 1,
+  speed = 0.6,
   itemWidth = 412 / 1.75,
   itemHeight = 893 / 1.75,
   className = "",
@@ -57,7 +57,7 @@ export default function CaseStudyCarousel({
 
   return (
     <div
-      className={`overflow-hidden bg-background ${className}`}
+      className={`overflow-x-hidden bg-background ${className}`}
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
     >
@@ -78,6 +78,7 @@ export default function CaseStudyCarousel({
             style={{ width: `${itemWidth}px`, height: `${itemHeight}px` }}
           >
             <Image
+              priority={false}
               src={caseStudy.mobileUrl || "/placeholder.svg"}
               alt={caseStudy.title}
               width={1080}

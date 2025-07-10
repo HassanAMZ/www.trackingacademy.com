@@ -4,6 +4,7 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Dialog, DialogContent } from "@/components/ui/dialog";
 import { Progress } from "@/components/ui/progress";
 import { Separator } from "@/components/ui/separator";
 import { CaseStudy } from "@/data/case-studies";
@@ -12,11 +13,15 @@ import {
   Check,
   CheckCircle,
   ChevronDown,
+  ChevronLeft,
+  ChevronRight,
   ChevronUp,
   Clock,
   ExternalLink,
+  Eye,
   Star,
   User,
+  X,
 } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
@@ -31,6 +36,11 @@ export default function CaseStudyComponent({ caseStudy }: { caseStudy: CaseStudy
   // Auto-scroll state for before/after images
   const [currentBeforeIndex, setCurrentBeforeIndex] = useState(0);
   const [currentAfterIndex, setCurrentAfterIndex] = useState(0);
+
+  // Modal state
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [modalImageType, setModalImageType] = useState<"before" | "after">("before");
+  const [modalImageIndex, setModalImageIndex] = useState(0);
 
   // Auto-scroll effect for before images
   useEffect(() => {
@@ -67,6 +77,32 @@ export default function CaseStudyComponent({ caseStudy }: { caseStudy: CaseStudy
     });
   };
 
+  const openModal = (type: "before" | "after", index: number) => {
+    setModalImageType(type);
+    setModalImageIndex(index);
+    setIsModalOpen(true);
+  };
+
+  const getCurrentModalImages = () => {
+    return modalImageType === "before"
+      ? caseStudy.analytics.images?.before || []
+      : caseStudy.analytics.images?.after || [];
+  };
+
+  const navigateModal = (direction: "prev" | "next") => {
+    const images = getCurrentModalImages();
+    if (direction === "prev") {
+      setModalImageIndex((prev) => (prev - 1 + images.length) % images.length);
+    } else {
+      setModalImageIndex((prev) => (prev + 1) % images.length);
+    }
+  };
+
+  const switchModalType = () => {
+    setModalImageType(modalImageType === "before" ? "after" : "before");
+    setModalImageIndex(0);
+  };
+
   return (
     <Container className="space-y-8 py-8">
       <div className="grid grid-cols-1 gap-8 lg:grid-cols-3">
@@ -79,7 +115,7 @@ export default function CaseStudyComponent({ caseStudy }: { caseStudy: CaseStudy
               </Badge>
               <h1 className="mb-4 text-3xl font-bold tracking-tight">{caseStudy.title}</h1>
               <div className="relative">
-                <p className={`text-muted-foreground ${!showFullDescription && "line-clamp-3"}`}>
+                <p className={` ${!showFullDescription && "line-clamp-3"}`}>
                   {caseStudy.description}
                 </p>
                 {caseStudy.description.length > 200 && (
@@ -111,6 +147,7 @@ export default function CaseStudyComponent({ caseStudy }: { caseStudy: CaseStudy
                 <YoutubeEmbed embedId={caseStudy.embedId.youtube} className="p-0" />
               ) : (
                 <Image
+                  priority={false}
                   src={caseStudy.imageUrl || "/placeholder.svg?height=400&width=600"}
                   alt={`${caseStudy.name} desktop view`}
                   fill
@@ -137,7 +174,8 @@ export default function CaseStudyComponent({ caseStudy }: { caseStudy: CaseStudy
                 <Clock className="h-3 w-3" /> {caseStudy.projectTimeline.durationDays} days
               </Button>
             </div>
-            {/* Analytics Comparison - Auto-Scrolling Carousel */}
+
+            {/* Analytics Comparison - Auto-Scrolling Carousel with Modal */}
             {caseStudy.analytics.images && (
               <div className="space-y-4">
                 <h2 className="text-2xl font-bold">Before vs After Results for {caseStudy.id}</h2>
@@ -149,18 +187,28 @@ export default function CaseStudyComponent({ caseStudy }: { caseStudy: CaseStudy
                         Before
                       </Badge>
                     </div>
-                    <CardContent>
+                    <CardContent className="px-3 py-6 md:p-6">
                       <div className="relative">
-                        <div className="relative aspect-video overflow-hidden rounded-lg border shadow">
+                        <div
+                          className="group/image relative aspect-video cursor-pointer overflow-hidden rounded-lg border shadow"
+                          onClick={() => openModal("before", currentBeforeIndex)}
+                        >
                           <Image
+                            priority={false}
                             src={
                               caseStudy.analytics.images.before[currentBeforeIndex] ||
                               "/placeholder.svg"
                             }
                             alt={`Before ${currentBeforeIndex + 1}`}
                             fill
-                            className="object-cover transition-opacity duration-500"
+                            className="object-cover transition-all duration-300 group-hover/image:scale-105"
                           />
+                          {/* Hover overlay */}
+                          <div className="absolute inset-0 flex items-center justify-center bg-black/0 transition-all duration-300 group-hover/image:bg-black/20">
+                            <div className="rounded-full bg-white/90 p-2 opacity-0 transition-opacity duration-300 group-hover/image:opacity-100">
+                              <Eye className="h-4 w-4 text-black" />
+                            </div>
+                          </div>
                         </div>
                         {/* Image Counter */}
                         {caseStudy.analytics.images.before.length > 1 && (
@@ -187,23 +235,34 @@ export default function CaseStudyComponent({ caseStudy }: { caseStudy: CaseStudy
                       </div>
                     </CardContent>
                   </Card>
+
                   {/* After - Auto-Scrolling Carousel */}
                   <Card className="group overflow-hidden border-b bg-primary/10 transition-all hover:shadow-lg">
                     <div className="py-2 text-center">
                       <Badge className="text-xs font-medium">After</Badge>
                     </div>
-                    <CardContent>
+                    <CardContent className="px-3 py-6 md:p-6">
                       <div className="relative">
-                        <div className="relative aspect-video overflow-hidden rounded-lg border shadow">
+                        <div
+                          className="group/image relative aspect-video cursor-pointer overflow-hidden rounded-lg border shadow"
+                          onClick={() => openModal("after", currentAfterIndex)}
+                        >
                           <Image
+                            priority={false}
                             src={
                               caseStudy.analytics.images.after[currentAfterIndex] ||
                               "/placeholder.svg"
                             }
                             alt={`After ${currentAfterIndex + 1}`}
                             fill
-                            className="object-cover transition-opacity duration-500"
+                            className="object-cover transition-all duration-300 group-hover/image:scale-105"
                           />
+                          {/* Hover overlay */}
+                          <div className="absolute inset-0 flex items-center justify-center bg-black/0 transition-all duration-300 group-hover/image:bg-black/20">
+                            <div className="rounded-full bg-white/90 p-2 opacity-0 transition-opacity duration-300 group-hover/image:opacity-100">
+                              <Eye className="h-4 w-4 text-black" />
+                            </div>
+                          </div>
                         </div>
                         {/* Image Counter */}
                         {caseStudy.analytics.images.after.length > 1 && (
@@ -233,6 +292,7 @@ export default function CaseStudyComponent({ caseStudy }: { caseStudy: CaseStudy
                 </div>
               </div>
             )}
+
             {/* Challenges Section */}
             <div className="space-y-4">
               <h2 className="text-2xl font-bold">Challenges</h2>
@@ -509,6 +569,7 @@ export default function CaseStudyComponent({ caseStudy }: { caseStudy: CaseStudy
           </div>
         </div>
       </div>
+
       <TestimonialCard
         upwork={true}
         image={caseStudy.testimonial.image}
@@ -518,6 +579,101 @@ export default function CaseStudyComponent({ caseStudy }: { caseStudy: CaseStudy
         author={caseStudy.testimonial.author}
         linkUrl={`/case-study/${caseStudy.id}`}
       />
+
+      {/* Image Modal */}
+      <Dialog open={isModalOpen} onOpenChange={setIsModalOpen}>
+        <DialogContent className="w-full max-w-4xl border-0 bg-transparent p-0 [&>button]:hidden">
+          <div className="relative overflow-hidden rounded-lg bg-background">
+            {/* Modal Header */}
+            <div className="flex items-center justify-between border-b p-4">
+              <div className="flex items-center gap-2">
+                <Badge variant={modalImageType === "before" ? "destructive" : "default"}>
+                  {modalImageType === "before" ? "Before" : "After"}
+                </Badge>
+                <span className="text-sm text-muted-foreground">
+                  {modalImageIndex + 1} of {getCurrentModalImages().length}
+                </span>
+              </div>
+              <div className="flex items-center gap-2">
+                {caseStudy.analytics.images?.before && caseStudy.analytics.images?.after && (
+                  <Button variant="outline" size="sm" onClick={switchModalType} className="text-xs">
+                    Switch to {modalImageType === "before" ? "After" : "Before"}
+                  </Button>
+                )}
+                <Button
+                  variant="ghost"
+                  size="sm"
+                  onClick={() => setIsModalOpen(false)}
+                  className="h-8 w-8 p-0"
+                >
+                  <X className="h-4 w-4" />
+                </Button>
+              </div>
+            </div>
+
+            {/* Modal Image */}
+            <div className="relative aspect-video bg-muted">
+              <Image
+                priority={false}
+                src={getCurrentModalImages()[modalImageIndex] || "/placeholder.svg"}
+                alt={`${modalImageType} ${modalImageIndex + 1}`}
+                fill
+                className="object-contain"
+              />
+
+              {/* Navigation Arrows */}
+              {getCurrentModalImages().length > 1 && (
+                <>
+                  <Button
+                    variant="ghost"
+                    size="sm"
+                    onClick={() => navigateModal("prev")}
+                    className="absolute top-1/2 left-4 h-10 w-10 -translate-y-1/2 bg-background/80 p-0 hover:bg-background"
+                  >
+                    <ChevronLeft className="h-5 w-5" />
+                  </Button>
+                  <Button
+                    variant="ghost"
+                    size="sm"
+                    onClick={() => navigateModal("next")}
+                    className="absolute top-1/2 right-4 h-10 w-10 -translate-y-1/2 bg-background/80 p-0 hover:bg-background"
+                  >
+                    <ChevronRight className="h-5 w-5" />
+                  </Button>
+                </>
+              )}
+            </div>
+
+            {/* Modal Footer with Thumbnails */}
+            {getCurrentModalImages().length > 1 && (
+              <div className="border-t p-4">
+                <div className="flex gap-2 overflow-x-auto">
+                  {getCurrentModalImages().map((image, index) => (
+                    <button
+                      key={index}
+                      onClick={() => setModalImageIndex(index)}
+                      className={`h-16 w-16 flex-shrink-0 overflow-hidden rounded border-2 ${
+                        index === modalImageIndex
+                          ? `border-${modalImageType === "before" ? "destructive" : "primary"}`
+                          : "border-muted"
+                      }`}
+                    >
+                      <Image
+                        priority={false}
+                        src={image}
+                        alt={`${modalImageType} ${index + 1}`}
+                        width={64}
+                        height={64}
+                        className="h-full w-full object-cover"
+                      />
+                    </button>
+                  ))}
+                </div>
+              </div>
+            )}
+          </div>
+        </DialogContent>
+      </Dialog>
     </Container>
   );
 }

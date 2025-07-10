@@ -70,7 +70,7 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     ),
     img: (props) => (
       // @ts-ignore
-      <Image src={props.src} width={1920} height={1080} {...props} />
+      <Image priority={false} src={props.src} width={1920} height={1080} {...props} />
     ),
     ...components,
   };

@@ -5,7 +5,6 @@ import { Button } from "../ui/button";
 
 interface MeetingBookingButtonProps {
   buttonText?: string;
-  className?: string;
   wrapperButtonClassName?: string;
   offerData?: OfferData;
 }
