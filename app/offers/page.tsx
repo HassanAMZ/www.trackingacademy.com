@@ -1,23 +1,16 @@
+import MeetingCalendar from "@/components/contact/meeting-calender";
 import Footer from "@/components/global/footer";
 import Navbar from "@/components/global/navbar";
-import { Button } from "@/components/ui/button";
 import Container from "@/components/ui/container";
 import getOffersData from "@/utils/getOffersData";
-import Link from "next/link";
 
 export default async function Page() {
-  const operations = await getOffersData("app/offers");
+  const offers = await getOffersData("app/offers");
   return (
     <div>
-      <Navbar /> <h3 className="container-primary py-6 text-center text-3xl font-bold">Funnels</h3>
+      <Navbar /> <h3 className="container-primary py-6 text-center text-3xl font-bold">Offers</h3>
       <Container className="container-primary py-4">
-        <div className="space-y-4">
-          {operations.map((operation) => (
-            <Button asChild key={operation.id}>
-              <Link href={`/offers/${operation.slug}`}>{operation.title}</Link>
-            </Button>
-          ))}
-        </div>
+        <MeetingCalendar />
       </Container>
       <Footer />
     </div>
