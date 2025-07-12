@@ -30,7 +30,6 @@ export interface OfferData {
     }[];
   };
   solution: DetailsCardsProps;
-
   finalCta: {
     title: string;
     description: string;
@@ -66,15 +65,15 @@ export const offers: Record<string, OfferData> = {
     icon: "🚫",
     eyebrow: "Running Meta Ads in a Restricted Niche?",
     headline: {
-      prefix: "Track Every",
-      conversion: ["Lead", "Purchase"],
-      suffix: "for Your Restricted Niche",
+      prefix: "Bypass",
+      conversion: ["Data Sharing Restriction"],
+      suffix: "and Track Every Conversion for Your Restricted Business",
     },
     subheading:
-      'Even if Meta has flagged your niche as restricted, blocked your domain, or disabled your events—we install <strong class="text-primary underline">RestrictedPixel Pro</strong> to fix your Meta Ads Conversions for your restricted business.',
+      'Even if Meta has restricted your domain, blocked URL parameters, or disabled your events—we install <strong class="text-primary underline">RestrictedPixel Pro</strong> to fix your Meta Ads Conversions for your restricted business.',
     videoId: "tdQufJ-qadE",
     cta: {
-      primary: "Schedule Your Call To Fix Your Restricted Niche Meta Ads Tracking",
+      primary: "Book Your Tracking Fix Call Now",
       secondary:
         "Start tracking conversions in Meta Ads & Events Manager again, even in restricted niches",
     },
@@ -113,31 +112,99 @@ export const offers: Record<string, OfferData> = {
         "Our specialized approach restores your Facebook Pixel tracking for businesses in health & wellness, financial services, CBD, politics, and other restricted categories while maintaining full regulatory compliance.",
       items: [
         {
-          title: "CAPI + Pixel FastStart — Installed, tested, and compliant in under 7 days",
+          image: "/images/case-study/zenon_after_2.png",
+          title: "Pixel Recovery System",
           description:
-            'We conduct a comprehensive onboarding call to analyze your current tracking configuration, identify niche-specific compliance requirements (HIPAA, GDPR, financial regulations), and qualify your business for our "RestrictedPixel Pro" solution.',
+            "Restore your existing pixels without creating new ones. Keep your pixel history, custom audiences, and conversion data intact while achieving 100% event recovery.",
+          benefits: [
+            "Works with your existing pixel setup",
+            "100% event recovery to Events Manager",
+            "Zero downtime during implementation",
+            "Keep all custom audiences and data",
+          ],
         },
         {
-          title: "Ad Blocker Bypass — Track 95%+ of visitors, even with iOS + blockers",
+          image: "/images/case-study/northridgeaddiction_after_1.png",
+          title: "Ad Account Attribution",
           description:
-            "Our experts implement a complete niche-compliant tracking system that captures every lead, sale, and conversion while respecting Meta's restrictions. We handle all technical aspects for your restricted niche business end-to-end.",
+            "Attribute all conversions without creating new ads or accounts. Restore tracking on existing accounts while maintaining your account reputation and spending history.",
+          benefits: [
+            "No new ad accounts needed",
+            "100% success rate on eligible accounts",
+            "Maintain account history and reputation",
+            "No account warming required",
+          ],
         },
         {
-          title: "MetaProof Snapshot Pack — Before/after screenshots showing results",
+          image: "/images/hero/real-time-dashboard.png",
+          title: "GA4 Unified Reporting Dashboard",
           description:
-            "Your restricted niche tracking system goes live, capturing every ad interaction within compliance guidelines. We provide monitoring guidelines and optimization recommendations for maximum performance while staying compliant.",
+            "Comprehensive tracking dashboard with GA4 integration that displays all critical metrics at a glance. Monitor your complete customer journey with real-time data synchronization and advanced attribution reporting.",
+          benefits: [
+            "Complete GA4 integration",
+            "All metrics in one view",
+            "Real-time tracking monitoring",
+            "Complete customer journey tracking",
+          ],
+        },
+        {
+          image: "/images/hero/real-time-dashboard.png",
+          title: "Tracking Optimization",
+          description:
+            "Bulletproof tracking solution that never gets shut down. Real-time event synchronization with complete attribution recovery and zero maintenance required.",
+          benefits: [
+            "Bypass the flag by Meta",
+            "Real-time event synchronization",
+            "Zero maintenance required",
+            "No more lost conversions",
+          ],
+        },
+        {
+          image: "/images/hero/100-success-no-down-time.png",
+          title: "100% Success & Zero Downtime Guarantee",
+          description:
+            "Every implementation works perfectly with zero downtime. Completely hands-off process that requires no work from your end while maintaining perfect campaign performance.",
+          benefits: [
+            "100% success rate guaranteed",
+            "Zero downtime implementation",
+            "Completely hands-off process",
+            "Permanent, stable solution",
+          ],
+        },
+        {
+          image: "/images/hero/measurement-planning.png",
+          title: "Restricted Niche Tracking Strategy",
+          description:
+            "Custom measurement planning specifically designed for restricted industries. We identify the most valuable conversion actions and create a compliance-focused tracking framework.",
+          benefits: [
+            "Industry-specific journey mapping",
+            "Key conversion metrics identification",
+            "ROI-focused tracking setup",
+            "Compliance-first optimization",
+          ],
+        },
+        {
+          image: "/images/hero/customer-support.png",
+          title: "Restricted Industry Priority Support",
+          description:
+            "Dedicated support team with personalized slack channel for instant communication and 24/7 technical support specifically tailored for restricted industry marketing needs.",
+          benefits: [
+            "Dedicated Slack Channel",
+            "Free Maintenance up to 3 months",
+            "24/7 technical support",
+            "Industry-specific optimization",
+          ],
         },
       ],
     },
     finalCta: {
-      title: "Stop Losing Conversions to Meta's Restrictions",
+      title: "📞 Book Your Tracking Fix Call Now",
       description:
-        "Get your free audit now and discover exactly how many conversions your restricted niche business is losing to Meta's data sharing restrictions.",
+        "We'll audit your current setup, show you exactly what's broken, and walk you through how we'll fix it — even if you don't work with us.",
     },
     calendar: {
       title: "Schedule Your Free Restricted Niche Meta Tracking Setup",
-      description:
-        "Get your free audit now and discover exactly how many conversions your business is losing to Meta's niche-specific tracking restrictions.",
+      description: "Spots are limited — only 7 businesses accepted per month.",
     },
     faq: [
       {
@@ -161,7 +228,7 @@ export const offers: Record<string, OfferData> = {
       {
         question: "What if it doesn't work for my restricted niche business?",
         answer:
-          "We offer a 30-day money-back guarantee. If we can't significantly improve your restricted niche tracking within 30 days, you get a full refumd. We've successfully helped businesses across health & wellness, financial services, CBD, wellness, and political niches with a 98.7% success rate.",
+          "We offer a 30-day money-back guarantee. If we can't significantly improve your restricted niche tracking within 30 days, you get a full refund. We've successfully helped businesses across health & wellness, financial services, CBD, wellness, and political niches with a 98.7% success rate.",
         icon: "DollarSign",
       },
       {
@@ -241,7 +308,6 @@ export const offers: Record<string, OfferData> = {
           description: "Hundreds of thousands of dental patient events blocked",
           icon: "XCircle",
         },
-
         {
           title: "You're spending $2K–$10K/month… and getting nothing back",
           description: "Wasted ad spend due to poor patient acquisition optimization",
@@ -314,7 +380,6 @@ export const offers: Record<string, OfferData> = {
             "Permanent, stable solution",
           ],
         },
-
         {
           image: "/images/hero/measurement-planning.png",
           title: "Dental Tracking Strategy",
@@ -327,20 +392,6 @@ export const offers: Record<string, OfferData> = {
             "Appointment conversion optimization",
           ],
         },
-
-        // {
-        //   image: "/images/hero/gdpr-cmp.png",
-        //   title: "HIPAA-Compliant Consent Management",
-        //   description:
-        //     "Automated consent management system that ensures full GDPR, CCPA & HIPAA compliance for dental practices. Seamlessly integrates with your website while protecting patient privacy and maintaining tracking accuracy.",
-        //   benefits: [
-        //     "HIPAA-compliant consent system",
-        //     "Automated privacy compliance",
-        //     "Custom dental practice branding",
-        //     "Zero impact on tracking accuracy",
-        //   ],
-        // },
-
         {
           image: "/images/hero/customer-support.png",
           title: "Dental Practice Priority Support",
@@ -348,14 +399,13 @@ export const offers: Record<string, OfferData> = {
             "Dedicated support team, get personalized slack channel for instant communication and 24/7 technical support specifically tailored for dental practice marketing needs.",
           benefits: [
             "Dedicated Slack Channel",
-            "Free Maintaince upto 3 months",
+            "Free Maintenance up to 3 months",
             "24/7 technical support",
             "Practice-specific optimization",
           ],
         },
       ],
     },
-
     finalCta: {
       title: "📞 Book Your Tracking Fix Call Now",
       description:
@@ -414,6 +464,207 @@ export const offers: Record<string, OfferData> = {
       "HIPAA compliant dental ads",
       "dental clinic advertising",
       "dental patient acquisition",
+    ],
+  },
+  "rehab-center": {
+    slug: "rehab-center",
+    niche: "Rehab & Addiction Treatment",
+    package: "RehabPixel Pro",
+    businessType: "rehab center",
+    businessTypePlural: "rehab centers",
+    icon: "🏥",
+    eyebrow: "Running Meta Ads for Your Rehab Center?",
+    headline: {
+      prefix: "Bypass",
+      conversion: ["Data Sharing Restriction"],
+      suffix: "and Track Every Admission for Your Rehab Center",
+    },
+    subheading:
+      'Even if Meta has restricted your rehab domain, blocked URL parameters, or disabled your events—we install <strong class="text-primary underline">RehabPixel Pro</strong> to fix your Meta Ads Conversions for addiction treatment centers.',
+    videoId: "tdQufJ-qadE",
+    cta: {
+      primary: "Book Your Tracking Fix Call Now",
+      secondary: "Start tracking rehab admissions in Meta Ads & Events Manager again",
+    },
+    benefits: [
+      "Track all patient admissions",
+      "Fix Data Sharing Restrictions",
+      "HIPAA & 42 CFR Part 2 Compliant",
+    ],
+    problemStatement: {
+      title: "Meta's New Rules Are Crippling Rehab Centers",
+      description:
+        "Meta's 2025 data sharing restrictions are specifically targeting addiction treatment centers, blocking critical patient tracking data and causing massive performance drops in your most important marketing channel.",
+      alerts: [
+        {
+          title: "Your domain gets flagged — no events fire",
+          description:
+            "Standard events blocked: Treatment Inquiry, Admission Request, Insurance Verification, Consultation Booking",
+          icon: "AlertTriangle",
+        },
+        {
+          title: "Pixel shows '0 leads' — even though your phone is ringing",
+          description: "Hundreds of thousands of rehab patient events blocked daily",
+          icon: "XCircle",
+        },
+        {
+          title: "You're spending $5K–$20K/month… and getting nothing back",
+          description: "Wasted ad spend due to poor patient acquisition optimization",
+          icon: "DollarSign",
+        },
+      ],
+    },
+    solution: {
+      headerTitle: 'The "RehabPixel Pro" System for Addiction Treatment Centers',
+      headerDescription:
+        "Our specialized rehab tracking solution restores your Facebook Pixel tracking for addiction treatment centers while maintaining full HIPAA and 42 CFR Part 2 compliance, respecting Meta's healthcare restrictions.",
+      items: [
+        {
+          image: "/images/case-study/zenon_after_2.png",
+          title: "Pixel Recovery System",
+          description:
+            "Restore your existing pixels without creating new ones. Keep your pixel history, custom audiences, and conversion data intact while achieving 100% event recovery for addiction treatment tracking.",
+          benefits: [
+            "Works with your existing pixel setup",
+            "100% event recovery to Events Manager",
+            "Zero downtime during implementation",
+            "Keep all custom audiences and data",
+          ],
+        },
+        {
+          image: "/images/case-study/northridgeaddiction_after_1.png",
+          title: "Ad Account Attribution",
+          description:
+            "Attribute all conversions without creating new ads or accounts. Restore tracking on existing accounts while maintaining your account reputation and spending history in the addiction treatment space.",
+          benefits: [
+            "No new ad accounts needed",
+            "100% success rate on eligible accounts",
+            "Maintain account history and reputation",
+            "No account warming required",
+          ],
+        },
+        {
+          image: "/images/hero/real-time-dashboard.png",
+          title: "GA4 Unified Reporting Dashboard",
+          description:
+            "Comprehensive tracking dashboard with GA4 integration that displays all critical metrics at a glance. Monitor your rehab center's complete patient journey with real-time data synchronization and advanced attribution reporting.",
+          benefits: [
+            "Complete GA4 integration",
+            "All metrics in one view",
+            "Real-time tracking monitoring",
+            "Complete patient journey tracking",
+          ],
+        },
+        {
+          image: "/images/hero/real-time-dashboard.png",
+          title: "Tracking Optimization",
+          description:
+            "Bulletproof tracking solution that never gets shut down. Real-time event synchronization with complete attribution recovery and zero maintenance required for addiction treatment centers.",
+          benefits: [
+            "Bypass the flag by Meta",
+            "Real-time event synchronization",
+            "Zero maintenance required",
+            "No more lost conversions",
+          ],
+        },
+        {
+          image: "/images/hero/100-success-no-down-time.png",
+          title: "100% Success & Zero Downtime Guarantee",
+          description:
+            "Every implementation works perfectly with zero downtime. Completely hands-off process that requires no work from your end while maintaining perfect campaign performance for your rehab center.",
+          benefits: [
+            "100% success rate guaranteed",
+            "Zero downtime implementation",
+            "Completely hands-off process",
+            "Permanent, stable solution",
+          ],
+        },
+        {
+          image: "/images/hero/measurement-planning.png",
+          title: "Rehab Center Tracking Strategy",
+          description:
+            "Custom measurement planning specifically designed for addiction treatment centers. We identify the most valuable patient actions and create a tracking framework that captures every admission inquiry and treatment consultation.",
+          benefits: [
+            "Patient journey mapping",
+            "Key rehab metrics identification",
+            "ROI-focused tracking setup",
+            "Admission conversion optimization",
+          ],
+        },
+        {
+          image: "/images/hero/customer-support.png",
+          title: "Rehab Center Priority Support",
+          description:
+            "Dedicated support team with personalized slack channel for instant communication and 24/7 technical support specifically tailored for addiction treatment center marketing needs.",
+          benefits: [
+            "Dedicated Slack Channel",
+            "Free Maintenance up to 3 months",
+            "24/7 technical support",
+            "Treatment center-specific optimization",
+          ],
+        },
+      ],
+    },
+    finalCta: {
+      title: "📞 Book Your Tracking Fix Call Now",
+      description:
+        "We'll audit your current setup, show you exactly what's broken, and walk you through how we'll fix it — even if you don't work with us.",
+    },
+    calendar: {
+      title: "Schedule Your Free Rehab Center Meta Tracking Setup",
+      description: "Spots are limited — only 5 treatment centers accepted per month.",
+    },
+    faq: [
+      {
+        question: "How quickly can you fix my rehab center tracking?",
+        answer:
+          "Most addiction treatment centers see their patient tracking restored within a week. The process includes: compliance audit (Day 1), HIPAA & 42 CFR Part 2 compliant implementation (Day 2), and testing (Day 3). Complex treatment center setups may take up to 7 days.",
+        icon: "Zap",
+      },
+      {
+        question: "Will this violate HIPAA, 42 CFR Part 2, or Meta's healthcare policies?",
+        answer:
+          "No. Our solution is 100% compliant with HIPAA, 42 CFR Part 2 (addiction treatment privacy regulations), all Meta healthcare policies, and data protection regulations (GDPR, CCPA). We work within Meta's framework specifically for addiction treatment providers to restore tracking while respecting all medical privacy restrictions.",
+        icon: "Shield",
+      },
+      {
+        question: "What kind of results should my rehab center expect?",
+        answer:
+          "Addiction treatment centers typically see 85-95% of their patient tracking accuracy restored, ROAS recovery to pre-restriction levels, and the ability to build custom patient audiences again. Results vary by center size and implementation complexity.",
+        icon: "TrendingUp",
+      },
+      {
+        question: "What if it doesn't work for my rehab center?",
+        answer:
+          "We offer a 30-day money-back guarantee. If we can't significantly improve your rehab center tracking within 30 days, you get a full refund. We've successfully helped addiction treatment centers with a 98.7% success rate.",
+        icon: "DollarSign",
+      },
+      {
+        question: "Do you provide ongoing support for rehab centers?",
+        answer:
+          "Yes. All rehab center implementations include 90 days of monitoring and support to ensure your patient tracking remains stable and compliant with HIPAA and 42 CFR Part 2. We also provide guidance on maintaining compliance as healthcare regulations evolve.",
+        icon: "RefreshCw",
+      },
+    ],
+    testimonialSection: {
+      title: "Rehab Centers Recovered Their Meta Tracking",
+      description:
+        "From small outpatient facilities to large inpatient treatment centers, we've restored HIPAA and 42 CFR Part 2 compliant tracking for every rehab client. See how we recovered their patient acquisition ROAS while maintaining full compliance.",
+    },
+    restrictionData: {
+      severity: "Critical",
+      affected: "96%",
+    },
+    caseStudyIds: ["northridgeaddiction", "zenon", "saneofrance"],
+    keywords: [
+      "rehab center marketing",
+      "addiction treatment advertising",
+      "rehab patient tracking",
+      "HIPAA compliant rehab ads",
+      "addiction treatment Facebook ads",
+      "rehab center patient acquisition",
+      "42 CFR Part 2 compliant ads",
+      "substance abuse treatment marketing",
     ],
   },
 };
