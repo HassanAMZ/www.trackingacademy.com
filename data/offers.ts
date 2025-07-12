@@ -30,28 +30,7 @@ export interface OfferData {
     }[];
   };
   solution: DetailsCardsProps;
-  pricing?: {
-    headline: string;
-    subheadline: string;
-    tiers: {
-      type: string;
-      price: string;
-      note: string;
-    }[];
-    guarantee: string;
-    bonus: {
-      title: string;
-      description: string;
-    };
-  };
-  whyItWorks?: {
-    title: string;
-    points: string[];
-  };
-  urgencyBonus?: {
-    title: string;
-    benefits: string[];
-  };
+
   finalCta: {
     title: string;
     description: string;
@@ -277,115 +256,55 @@ export const offers: Record<string, OfferData> = {
       items: [
         {
           image: "/images/hero/tracking-audit.png",
-          title: "Zero-Lead Diagnosis & Fix — Find and Patch Every Pixel & API Drop",
+          title: "Pixel Recovery System",
           description:
-            "Most dental clinics don’t even realize they’ve lost 50–90% of their tracked leads. We perform a deep diagnostic to uncover blocked events, flagged parameters, and conversion blackouts — and fix every gap fast.",
+            "Restore your existing pixels without creating new ones. Keep your pixel history, custom audiences, and conversion data intact while achieving 100% event recovery.",
           benefits: [
-            "Diagnose every blocked, delayed, or missing conversion",
-            "Patch your entire Meta tracking pipeline — Pixel & CAPI",
-            "Restore 85–95% of your lost patient tracking",
-            "Get screenshot proof, before/after tracking tests, and full QA",
+            "No new pixel creation required - Works with your existing setup without any changes",
+            "100% event recovery to Events Manager - All your tracking data flows perfectly",
+            "Zero downtime during implementation - Your campaigns never stop running",
+            "Keep existing pixel history - Maintain all custom audiences and conversion data",
           ],
         },
         {
           image: "/images/hero/unified-dashboard.png",
-          title: "Data Sharing Bypass Stack — Compliant CAPI + GTM Layered Fix",
+          title: "Ad Account Attribution",
           description:
-            "We install a HIPAA-compliant, server-side conversion stack — bypassing Meta’s healthcare domain restrictions with GA4, GTM, and Conversion API layers. No more ghost leads.",
+            "Attribute all conversions without creating new ads or accounts. Restore tracking on existing accounts while maintaining your account reputation and spending history.",
           benefits: [
-            "CAPI Gateway + GTM server-side tracking",
-            "HIPAA & iOS 18–compliant event passing",
-            "100% Meta-legal + regulation-proof",
-            "Test-verified against blocked healthcare domains",
+            "No new ad accounts needed - Restore tracking on your existing accounts seamlessly",
+            "100% success rate on eligible accounts - Complete hands-off process with guaranteed results",
+            "Maintain account history and data - Keep your account reputation and spending history intact",
+            "No account warming needed - Preserve audience insights and maintain existing performance",
           ],
         },
         {
           image: "/images/hero/real-time-dashboard.png",
-          title: "Live Patient Conversion Dashboard — Track Ads, Leads & ROI in Real-Time",
+          title: "Advanced Tracking Optimization",
           description:
-            "Custom real-time dashboards for dental clinics — track calls, bookings, and form fills across Meta, Google, GA4, and more. Finally know which campaigns make the phone ring.",
+            "Bulletproof tracking solution that never gets shut down. Real-time event synchronization with complete attribution recovery and zero maintenance required.",
           benefits: [
-            "Visualize your true ROAS and cost-per-patient",
-            "Spot and fix broken campaigns immediately",
-            "24/7 live syncing with Meta and backend EMR data",
-            "Instant alerts for performance drops",
+            "100% stable tracking solution - Never gets flagged or shut down by Meta",
+            "Real-time event synchronization - Complete attribution recovery with perfect accuracy",
+            "Zero maintenance required - Set it and forget it solution that runs automatically",
+            "Reliable attribution data - Consistent performance metrics with no more lost conversions",
           ],
         },
         {
           image: "/images/hero/gdpr-cmp.png",
-          title: "Consent Mode V2 + GDPR/CCPA Banner",
+          title: "100% Success & Zero Downtime Guarantee",
           description:
-            "We install Consent Mode v2 for Meta + Google with branded banners and proper event gating — keeping your dental tracking legal and accurate.",
+            "Every implementation works perfectly with zero downtime. Completely hands-off process that requires no work from your end while maintaining perfect campaign performance.",
           benefits: [
-            "Stops tracking loss from new browser and Meta rules",
-            "Auto-blocks tracking until patient consent is logged",
-            "Fully branded for your dental clinic look & feel",
-            "Includes all legal documentation pre-filled",
-          ],
-        },
-        {
-          image: "/images/hero/customer-support.png",
-          title: "Fastlane Automation & Expert Setup Support",
-          description:
-            "You don’t have to lift a finger. We handle the technical mess, testing, compliance, and QA — and walk you through exactly how to scale with data.",
-          benefits: [
-            "Full hands-off setup and CAPI implementation",
-            "Dedicated dental tracking expert",
-            "Personalized post-setup growth map",
-            "Includes lead close optimization help (scripts, funnels)",
+            "Every implementation works perfectly - 100% success rate with zero failures",
+            "Your campaigns never stop running - Zero downtime during entire implementation process",
+            "Completely hands-off implementation - No work required from your end whatsoever",
+            "Permanent, stable solution - Never gets shut down with full event recovery guaranteed",
           ],
         },
       ],
     },
-    pricing: {
-      headline: "All This — For a One-Time Setup Fee",
-      subheadline: "No retainers. No surprises. Just 1 fixed price to solve a $30K/year problem.",
-      tiers: [
-        {
-          type: "Solo Clinic",
-          price: "$2,500",
-          note: "Full install + support",
-        },
-        {
-          type: "Multi-Location",
-          price: "$2,000",
-          note: "Per location (2-4 clinics)",
-        },
-        {
-          type: "Chain Practice",
-          price: "$1,750",
-          note: "Per location (5-10 clinics)",
-        },
-        {
-          type: "Agency Partner",
-          price: "$1,500",
-          note: "Min. 3 installs/month",
-        },
-      ],
-      guarantee:
-        "If your tracking isn't fully restored in 7 days, we keep working with you for free until it is.",
-      bonus: {
-        title: "🎁 Bonus: Clinic Conversion Boost Walkthrough",
-        description: "Personalized video showing how to capture & close tracked leads",
-      },
-    },
-    whyItWorks: {
-      title: "This Isn't Magic — It's Just Meta-Proof Tech",
-      points: [
-        "We use server-side tracking to bypass Meta limitations",
-        "We tag all conversion events via GTM + CAPI Gateway",
-        "We validate every install with screenshot proof + lead testing",
-        "We document your entire setup so you're never in the dark again",
-      ],
-    },
-    urgencyBonus: {
-      title: "🧨 Promo This Week:",
-      benefits: [
-        "💥 Get a full year of tracking maintenance FREE",
-        "💥 Priority install (7 days max)",
-        "💥 Keep the dashboard + SOP even if you don't move forward",
-      ],
-    },
+
     finalCta: {
       title: "📞 Book Your Tracking Fix Call Now",
       description:

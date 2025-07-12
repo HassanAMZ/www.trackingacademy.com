@@ -152,10 +152,10 @@ export default async function Page({ params }: { params: Promise<{ offer: string
       <CaseStudyCarousel
         caseStudies={caseStudies.filter((cs) =>
           [
-            "northridgeaddiction",
-            "zenon",
-            "saneofrance",
             "peachandcream",
+            "northridgeaddiction",
+            "saneofrance",
+            "zenon",
             "emiratesadvisory",
           ].includes(cs.id),
         )}
@@ -200,16 +200,6 @@ export default async function Page({ params }: { params: Promise<{ offer: string
         <DetailsCards {...offerData.solution} />
 
         <Container className="max-w-6xl">
-          {/* Bonus Section */}
-          {offerData.pricing?.bonus && (
-            <div className="mb-8 rounded-lg bg-accent/50 p-6 text-center">
-              <h3 className="mb-2 text-xl font-semibold text-accent-foreground">
-                {offerData.pricing.bonus.title}
-              </h3>
-              <p className="">{offerData.pricing.bonus.description}</p>
-            </div>
-          )}
-
           <div className="mt-12 text-center">
             <MeetingBookingButton offerData={offerData} />
           </div>

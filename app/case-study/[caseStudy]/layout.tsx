@@ -1,3 +1,5 @@
+import MeetingCalendar from "@/components/contact/meeting-calender";
+import Container from "@/components/ui/container";
 import { caseStudies } from "@/data/case-studies";
 
 export async function generateMetadata({ params }: { params: Promise<{ caseStudy: string }> }) {
@@ -33,5 +35,13 @@ export async function generateMetadata({ params }: { params: Promise<{ caseStudy
 }
 
 export default function CaseStudyLayout({ children }: { children: React.ReactNode }) {
-  return <>{children}</>;
+  return (
+    <>
+      {children}
+
+      <Container className="py-24">
+        <MeetingCalendar />
+      </Container>
+    </>
+  );
 }

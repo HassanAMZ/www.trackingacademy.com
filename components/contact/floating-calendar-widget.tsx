@@ -21,6 +21,7 @@ const FloatingCalendarWidget = () => {
   const [isMinimized, setIsMinimized] = useState(true);
   const [showWidget, setShowWidget] = useState(false);
   const [upcomingDates, setUpcomingDates] = useState<UpcomingDate[]>([]);
+
   useEffect(() => {
     const handlePostMessage = (event: { data: { datalayer_event_name: any } }) => {
       if (event.data && event.data.datalayer_event_name) {
@@ -52,6 +53,7 @@ const FloatingCalendarWidget = () => {
       window.removeEventListener("message", handlePostMessage);
     };
   }, []);
+
   // Generate upcoming dates
   useEffect(() => {
     const generateUpcomingDates = () => {
@@ -89,13 +91,33 @@ const FloatingCalendarWidget = () => {
       const timer = setTimeout(() => {
         // Auto-expand after showing
         setTimeout(() => setIsMinimized(false), 500);
-      }, 4000);
+      }, 10000);
       return () => clearTimeout(timer);
     }
   }, []);
 
   const toggleMinimize = () => {
-    setIsMinimized(!isMinimized);
+    const newMinimizedState = !isMinimized;
+    setIsMinimized(newMinimizedState);
+
+    // Track open/close events
+    if (newMinimizedState) {
+      // Widget is being closed/minimized
+      sendGTMEvent({
+        event: "gtm_custom_event",
+        datalayer_event_name: "iclosed_widget_closed",
+        widget_action: "minimize",
+        widget_type: "floating_calendar",
+      });
+    } else {
+      // Widget is being opened/expanded
+      sendGTMEvent({
+        event: "gtm_custom_event",
+        datalayer_event_name: "iclosed_widget_opened",
+        widget_action: "expand",
+        widget_type: "floating_calendar",
+      });
+    }
   };
 
   if (!showWidget) return null;
@@ -110,27 +132,23 @@ const FloatingCalendarWidget = () => {
         }}
       />
       {/* Floating Widget */}
-      <div className="fixed right-4 bottom-4 z-50 sm:right-6 sm:bottom-6">
+      <div className="fixed right-6 bottom-6 z-50">
         {/* Always visible circle button */}
         <Button
           onClick={toggleMinimize}
           size="icon"
           className={cn(
-            "h-12 w-12 rounded-full bg-primary text-primary-foreground shadow-lg transition-all duration-300 hover:bg-primary/90 sm:h-14 sm:w-14",
+            "h-14 w-14 rounded-full bg-primary text-primary-foreground shadow-lg transition-all duration-300 hover:bg-primary/90",
             "border-2 border-secondary duration-500 animate-in fade-in zoom-in-95",
           )}
         >
-          {!isMinimized ? (
-            <ChevronDown className="h-5 w-5 sm:h-6 sm:w-6" />
-          ) : (
-            <Calendar className="h-5 w-5 sm:h-6 sm:w-6" />
-          )}
+          {!isMinimized ? <ChevronDown className="h-6 w-6" /> : <Calendar className="h-6 w-6" />}
         </Button>
 
         {/* Expanded State - Mini popup with smooth animation */}
         <div
           className={cn(
-            "absolute right-0 bottom-16 w-72 origin-bottom-right transition-all duration-300 ease-out sm:w-80 md:w-96",
+            "absolute right-0 bottom-16 w-80 origin-bottom-right transition-all duration-300 ease-out sm:w-96",
             isMinimized
               ? "pointer-events-none translate-y-2 scale-95 opacity-0"
               : "pointer-events-auto translate-y-0 scale-100 opacity-100",
@@ -148,7 +166,7 @@ const FloatingCalendarWidget = () => {
                     </AvatarFallback>
                   </Avatar>
                   <div>
-                    <h4 className="text-sm font-semibold text-card-foreground sm:text-base">
+                    <h4 className="text-base font-semibold text-card-foreground">
                       Shahzada Ali Hassan
                     </h4>
                   </div>
@@ -164,7 +182,7 @@ const FloatingCalendarWidget = () => {
                   <h5 className="mb-2 font-bold text-card-foreground">
                     1-on-1 Meeting with Shahzada
                   </h5>
-                  <p className="mb-3 text-xs leading-relaxed text-foreground sm:text-sm">
+                  <p className="mb-3 text-sm leading-relaxed text-foreground">
                     Book a 1 on 1 Meeting with me to discuss Fixing Your Tracking. The meeting will
                     be held on Google Meets and a link will be in the invite description.
                   </p>
@@ -183,6 +201,9 @@ const FloatingCalendarWidget = () => {
                         sendGTMEvent({
                           event: "gtm_custom_event",
                           datalayer_event_name: "iclosed_widget_clicked",
+                          click_type: "date_selection",
+                          selected_date: date.fullDate,
+                          is_today: date.isToday,
                         })
                       }
                       className={cn(
@@ -208,6 +229,8 @@ const FloatingCalendarWidget = () => {
                     sendGTMEvent({
                       event: "gtm_custom_event",
                       datalayer_event_name: "iclosed_widget_clicked",
+                      click_type: "main_cta",
+                      button_text: "Schedule a 1-on-1 Call",
                     })
                   }
                 >

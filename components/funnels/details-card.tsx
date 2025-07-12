@@ -88,10 +88,12 @@ const DetailsCards: React.FC<DetailsCardsProps> = ({
       <div className={`space-y-6 py-8 ${isEven ? "lg:order-1" : "lg:order-2"}`}>
         <div className="flex items-center gap-4">
           {item.icon && <span className="text-primary">{item.icon}</span>}
-          <h2 className="text-2xl font-bold">{item.title}</h2>
+          <h2>{item.title}</h2>
         </div>
 
-        {/* {item.description && <p className="text-lg leading-relaxed">{item.description}</p>} */}
+        {item.description && (
+          <h4 className="mx-auto max-w-3xl text-accent-foreground">{item.description}</h4>
+        )}
 
         {item.benefits && item.benefits.length > 0 && (
           <div className="space-y-4">
