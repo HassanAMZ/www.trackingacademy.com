@@ -255,51 +255,102 @@ export const offers: Record<string, OfferData> = {
         "Our specialized dental tracking solution restores your Facebook Pixel tracking for dental clinics while maintaining full HIPAA compliance and respecting Meta's healthcare restrictions.",
       items: [
         {
-          image: "/images/hero/tracking-audit.png",
+          image: "/images/case-study/zenon_after_2.png",
           title: "Pixel Recovery System",
           description:
             "Restore your existing pixels without creating new ones. Keep your pixel history, custom audiences, and conversion data intact while achieving 100% event recovery.",
           benefits: [
-            "No new pixel creation required - Works with your existing setup without any changes",
-            "100% event recovery to Events Manager - All your tracking data flows perfectly",
-            "Zero downtime during implementation - Your campaigns never stop running",
-            "Keep existing pixel history - Maintain all custom audiences and conversion data",
+            "Works with your existing pixel setup",
+            "100% event recovery to Events Manager",
+            "Zero downtime during implementation",
+            "Keep all custom audiences and data",
           ],
         },
         {
-          image: "/images/hero/unified-dashboard.png",
+          image: "/images/case-study/northridgeaddiction_after_1.png",
           title: "Ad Account Attribution",
           description:
             "Attribute all conversions without creating new ads or accounts. Restore tracking on existing accounts while maintaining your account reputation and spending history.",
           benefits: [
-            "No new ad accounts needed - Restore tracking on your existing accounts seamlessly",
-            "100% success rate on eligible accounts - Complete hands-off process with guaranteed results",
-            "Maintain account history and data - Keep your account reputation and spending history intact",
-            "No account warming needed - Preserve audience insights and maintain existing performance",
+            "No new ad accounts needed",
+            "100% success rate on eligible accounts",
+            "Maintain account history and reputation",
+            "No account warming required",
           ],
         },
         {
           image: "/images/hero/real-time-dashboard.png",
-          title: "Advanced Tracking Optimization",
+          title: "GA4 Unified Reporting Dashboard",
           description:
-            "Bulletproof tracking solution that never gets shut down. Real-time event synchronization with complete attribution recovery and zero maintenance required.",
+            "Comprehensive tracking dashboard with GA4 integration that displays all critical metrics at a glance. Monitor your dental practice's complete patient journey with real-time data synchronization and advanced attribution reporting.",
           benefits: [
-            "100% stable tracking solution - Never gets flagged or shut down by Meta",
-            "Real-time event synchronization - Complete attribution recovery with perfect accuracy",
-            "Zero maintenance required - Set it and forget it solution that runs automatically",
-            "Reliable attribution data - Consistent performance metrics with no more lost conversions",
+            "Complete GA4 integration",
+            "All metrics in one view",
+            "Real-time tracking monitoring",
+            "Complete patient journey tracking",
           ],
         },
         {
-          image: "/images/hero/gdpr-cmp.png",
+          image: "/images/hero/real-time-dashboard.png",
+          title: "Tracking Optimization",
+          description:
+            "Bulletproof tracking solution that never gets shut down. Real-time event synchronization with complete attribution recovery and zero maintenance required.",
+          benefits: [
+            "Bypass the flag by Meta",
+            "Real-time event synchronization",
+            "Zero maintenance required",
+            "No more lost conversions",
+          ],
+        },
+        {
+          image: "/images/hero/100-success-no-down-time.png",
           title: "100% Success & Zero Downtime Guarantee",
           description:
             "Every implementation works perfectly with zero downtime. Completely hands-off process that requires no work from your end while maintaining perfect campaign performance.",
           benefits: [
-            "Every implementation works perfectly - 100% success rate with zero failures",
-            "Your campaigns never stop running - Zero downtime during entire implementation process",
-            "Completely hands-off implementation - No work required from your end whatsoever",
-            "Permanent, stable solution - Never gets shut down with full event recovery guaranteed",
+            "100% success rate guaranteed",
+            "Zero downtime implementation",
+            "Completely hands-off process",
+            "Permanent, stable solution",
+          ],
+        },
+
+        {
+          image: "/images/hero/measurement-planning.png",
+          title: "Dental Tracking Strategy",
+          description:
+            "Custom measurement planning specifically designed for dental practices. We identify the most valuable patient actions and create a tracking framework that captures every appointment booking and consultation request.",
+          benefits: [
+            "Patient journey mapping",
+            "Key dental metrics identification",
+            "ROI-focused tracking setup",
+            "Appointment conversion optimization",
+          ],
+        },
+
+        // {
+        //   image: "/images/hero/gdpr-cmp.png",
+        //   title: "HIPAA-Compliant Consent Management",
+        //   description:
+        //     "Automated consent management system that ensures full GDPR, CCPA & HIPAA compliance for dental practices. Seamlessly integrates with your website while protecting patient privacy and maintaining tracking accuracy.",
+        //   benefits: [
+        //     "HIPAA-compliant consent system",
+        //     "Automated privacy compliance",
+        //     "Custom dental practice branding",
+        //     "Zero impact on tracking accuracy",
+        //   ],
+        // },
+
+        {
+          image: "/images/hero/customer-support.png",
+          title: "Dental Practice Priority Support",
+          description:
+            "Dedicated support team, get personalized slack channel for instant communication and 24/7 technical support specifically tailored for dental practice marketing needs.",
+          benefits: [
+            "Dedicated Slack Channel",
+            "Free Maintaince upto 3 months",
+            "24/7 technical support",
+            "Practice-specific optimization",
           ],
         },
       ],

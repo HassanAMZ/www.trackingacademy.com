@@ -92,7 +92,7 @@ const DetailsCards: React.FC<DetailsCardsProps> = ({
         </div>
 
         {item.description && (
-          <h4 className="mx-auto max-w-3xl text-accent-foreground">{item.description}</h4>
+          <h5 className="mx-auto max-w-3xl text-accent-foreground">{item.description}</h5>
         )}
 
         {item.benefits && item.benefits.length > 0 && (
