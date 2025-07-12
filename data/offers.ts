@@ -136,7 +136,7 @@ export const offers: Record<string, OfferData> = {
           ],
         },
         {
-          image: "/images/hero/real-time-dashboard.png",
+          image: "/images/hero/unified-dashboard.png",
           title: "GA4 Unified Reporting Dashboard",
           description:
             "Comprehensive tracking dashboard with GA4 integration that displays all critical metrics at a glance. Monitor your complete customer journey with real-time data synchronization and advanced attribution reporting.",
@@ -345,7 +345,7 @@ export const offers: Record<string, OfferData> = {
           ],
         },
         {
-          image: "/images/hero/real-time-dashboard.png",
+          image: "/images/hero/unified-dashboard.png",
           title: "GA4 Unified Reporting Dashboard",
           description:
             "Comprehensive tracking dashboard with GA4 integration that displays all critical metrics at a glance. Monitor your health & wellness business's complete customer journey with real-time data synchronization and advanced attribution reporting.",
@@ -548,7 +548,7 @@ export const offers: Record<string, OfferData> = {
           ],
         },
         {
-          image: "/images/hero/real-time-dashboard.png",
+          image: "/images/hero/unified-dashboard.png",
           title: "GA4 Unified Reporting Dashboard",
           description:
             "Comprehensive tracking dashboard with GA4 integration that displays all critical metrics at a glance. Monitor your dental practice's complete patient journey with real-time data synchronization and advanced attribution reporting.",
@@ -747,7 +747,7 @@ export const offers: Record<string, OfferData> = {
           ],
         },
         {
-          image: "/images/hero/real-time-dashboard.png",
+          image: "/images/hero/unified-dashboard.png",
           title: "GA4 Unified Reporting Dashboard",
           description:
             "Comprehensive tracking dashboard with GA4 integration that displays all critical metrics at a glance. Monitor your rehab center's complete patient journey with real-time data synchronization and advanced attribution reporting.",
