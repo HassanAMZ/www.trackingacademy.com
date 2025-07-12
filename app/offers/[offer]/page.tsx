@@ -73,7 +73,7 @@ export default async function Page({ params }: { params: Promise<{ offer: string
   return (
     <main>
       <Hero
-        eyebrow="Lost 50% of your Leads to Meta Restrictions?"
+        eyebrow={`Lost 50% of your Leads/Revenue to Meta Restrictions?`}
         heading={
           <h1 className="mx-auto text-center lg:mx-0 lg:text-left">
             {offerData.headline.prefix}{" "}
