@@ -1,5 +1,31 @@
 import { DetailsCardsProps } from "@/components/funnels/details-card";
+// Add these types to your offers.ts file
 
+export interface CalculatorConfig {
+  title: string;
+  description: string;
+  leadLabel: string;
+  clientLabel: string;
+  industry: string;
+  type: "business" | "agency";
+  urgencyMessage: string;
+}
+
+export interface RevenueCalculatorConfig {
+  title: string;
+  description: string;
+  industry: string;
+  urgencyMessage: string;
+}
+
+export interface CalculatorConfigs {
+  lead?: CalculatorConfig;
+  agency?: CalculatorConfig;
+  revenue?: RevenueCalculatorConfig;
+  [key: string]: CalculatorConfig | RevenueCalculatorConfig | undefined;
+}
+
+// Update your main OfferData interface to include calculators
 export interface OfferData {
   slug: string;
   niche: string;
@@ -53,6 +79,8 @@ export interface OfferData {
   };
   caseStudyIds: string[];
   keywords: string[];
+  // Add the new calculators property
+  calculators?: CalculatorConfigs;
 }
 
 export const offers: Record<string, OfferData> = {
@@ -248,10 +276,10 @@ export const offers: Record<string, OfferData> = {
       affected: "89%",
     },
     caseStudyIds: [
-      "zenon",
       "northridgeaddiction",
       "saneofrance",
       "emiratesadvisory",
+      "zenon",
       "peachandcream",
     ],
     keywords: [
@@ -266,6 +294,38 @@ export const offers: Record<string, OfferData> = {
       "financial services compliance",
       "wellness business tracking",
     ],
+    calculators: {
+      lead: {
+        title: "Restricted Business Lead Impact Calculator",
+        description:
+          "Calculate the financial impact of advertising restrictions on your restricted business leads",
+        leadLabel: "Business Leads",
+        clientLabel: "New Customers",
+        industry: "Restricted Business",
+        type: "business" as const,
+        urgencyMessage:
+          "Every month you delay addressing these restrictions costs you thousands in lost revenue. The compounding effect means early action is critical to minimize long-term impact.",
+      },
+      agency: {
+        title: "Restricted Niche Agency Client Retention Calculator",
+        description:
+          "Calculate how advertising restrictions will impact your agency's client retention and revenue in restricted niches",
+        leadLabel: "Client Performance",
+        clientLabel: "Restricted Niche Clients",
+        industry: "Restricted Niche Marketing Agency",
+        type: "agency" as const,
+        urgencyMessage:
+          "Without a solution to ad restrictions, your restricted niche clients will see declining performance and leave for agencies that can deliver results. New client acquisition becomes impossible when you can't prove consistent performance.",
+      },
+      revenue: {
+        title: "Restricted Business Revenue Loss Calculator",
+        description:
+          "Calculate the financial impact of advertising restrictions on your restricted business revenue",
+        industry: "Restricted Business",
+        urgencyMessage:
+          "Every month you delay action, your revenue loss compounds exponentially. The sooner you implement compliant tracking solutions, the faster you can recover your lost revenue and competitive advantage.",
+      },
+    },
   },
   "health-and-wellness": {
     slug: "health-and-wellness",
@@ -456,7 +516,13 @@ export const offers: Record<string, OfferData> = {
       severity: "Critical",
       affected: "91%",
     },
-    caseStudyIds: ["zenon", "saneofrance", "emiratesadvisory", "peachandcream"],
+    caseStudyIds: [
+      "northridgeaddiction",
+      "saneofrance",
+      "emiratesadvisory",
+      "zenon",
+      "peachandcream",
+    ],
     keywords: [
       "health wellness marketing",
       "health business Facebook ads",
@@ -469,6 +535,38 @@ export const offers: Record<string, OfferData> = {
       "health product marketing",
       "wellness program advertising",
     ],
+    calculators: {
+      lead: {
+        title: "Health & Wellness Lead Impact Calculator",
+        description:
+          "Calculate the financial impact of advertising restrictions on your health & wellness business leads",
+        leadLabel: "Patient Leads",
+        clientLabel: "New Patients",
+        industry: "Health & Wellness",
+        type: "business" as const,
+        urgencyMessage:
+          "Every month you delay addressing these restrictions costs your health business thousands in lost patient revenue. The compounding effect means early action is critical to minimize long-term impact on patient acquisition.",
+      },
+      agency: {
+        title: "Health & Wellness Agency Client Retention Calculator",
+        description:
+          "Calculate how advertising restrictions will impact your health & wellness agency's client retention and revenue",
+        leadLabel: "Client Performance",
+        clientLabel: "Health & Wellness Clients",
+        industry: "Health & Wellness Marketing Agency",
+        type: "agency" as const,
+        urgencyMessage:
+          "Without a solution to ad restrictions, your health & wellness clients will see declining patient acquisition and leave for agencies that can deliver compliant results. New client acquisition becomes a nightmare when you can't prove consistent performance in this regulated space.",
+      },
+      revenue: {
+        title: "Health & Wellness Revenue Loss Calculator",
+        description:
+          "Calculate the financial impact of advertising restrictions on your health & wellness business revenue",
+        industry: "Health & Wellness",
+        urgencyMessage:
+          "Every month you delay action, your patient acquisition revenue loss compounds. The sooner you implement HIPAA-compliant tracking solutions, the faster you can recover your lost revenue and competitive edge in the health market.",
+      },
+    },
   },
   "dental-clinic": {
     slug: "dental-clinic",
@@ -659,7 +757,13 @@ export const offers: Record<string, OfferData> = {
       severity: "Critical",
       affected: "94%",
     },
-    caseStudyIds: ["zenon", "northridgeaddiction", "saneofrance"],
+    caseStudyIds: [
+      "northridgeaddiction",
+      "saneofrance",
+      "emiratesadvisory",
+      "zenon",
+      "peachandcream",
+    ],
     keywords: [
       "dental practice marketing",
       "dentist Facebook ads",
@@ -668,6 +772,38 @@ export const offers: Record<string, OfferData> = {
       "dental clinic advertising",
       "dental patient acquisition",
     ],
+    calculators: {
+      lead: {
+        title: "Dental Practice Lead Impact Calculator",
+        description:
+          "Calculate the financial impact of advertising restrictions on your dental practice patient leads",
+        leadLabel: "Patient Leads",
+        clientLabel: "New Patients",
+        industry: "Dental Practice",
+        type: "business" as const,
+        urgencyMessage:
+          "Every month you delay addressing these restrictions costs your dental practice thousands in lost patient revenue. The compounding effect means early action is critical to minimize long-term impact on patient acquisition.",
+      },
+      agency: {
+        title: "Dental Agency Client Retention Calculator",
+        description:
+          "Calculate how advertising restrictions will impact your dental agency's client retention and revenue",
+        leadLabel: "Client Performance",
+        clientLabel: "Dental Clients",
+        industry: "Dental Marketing Agency",
+        type: "agency" as const,
+        urgencyMessage:
+          "Without a solution to ad restrictions, your dental clients will see declining patient acquisition and leave for agencies that can deliver results. New client acquisition becomes a nightmare when you can't prove consistent performance in the dental space.",
+      },
+      revenue: {
+        title: "Dental Practice Revenue Loss Calculator",
+        description:
+          "Calculate the financial impact of advertising restrictions on your dental practice revenue",
+        industry: "Dental Practice",
+        urgencyMessage:
+          "Every month you delay action, your patient revenue loss compounds. The sooner you implement HIPAA-compliant tracking solutions, the faster you can recover your lost revenue and competitive advantage in the dental market.",
+      },
+    },
   },
   "rehab-center": {
     slug: "rehab-center",
@@ -858,7 +994,13 @@ export const offers: Record<string, OfferData> = {
       severity: "Critical",
       affected: "96%",
     },
-    caseStudyIds: ["northridgeaddiction", "zenon", "saneofrance"],
+    caseStudyIds: [
+      "northridgeaddiction",
+      "saneofrance",
+      "emiratesadvisory",
+      "zenon",
+      "peachandcream",
+    ],
     keywords: [
       "rehab center marketing",
       "addiction treatment advertising",
@@ -869,5 +1011,37 @@ export const offers: Record<string, OfferData> = {
       "42 CFR Part 2 compliant ads",
       "substance abuse treatment marketing",
     ],
+    calculators: {
+      lead: {
+        title: "Rehab Center Lead Impact Calculator",
+        description:
+          "Calculate the financial impact of advertising restrictions on your rehab center patient leads",
+        leadLabel: "Patient Leads",
+        clientLabel: "New Admissions",
+        industry: "Rehab Center",
+        type: "business" as const,
+        urgencyMessage:
+          "Every month you delay addressing these restrictions costs your rehab center thousands in lost patient revenue. The compounding effect means early action is critical to minimize long-term impact on patient admissions.",
+      },
+      agency: {
+        title: "Rehab Center Agency Client Retention Calculator",
+        description:
+          "Calculate how advertising restrictions will impact your rehab marketing agency's client retention and revenue",
+        leadLabel: "Client Performance",
+        clientLabel: "Rehab Center Clients",
+        industry: "Rehab Marketing Agency",
+        type: "agency" as const,
+        urgencyMessage:
+          "Without a solution to ad restrictions, your rehab center clients will see declining patient admissions and leave for agencies that can deliver compliant results. New client acquisition becomes impossible when you can't prove consistent performance in addiction treatment marketing.",
+      },
+      revenue: {
+        title: "Rehab Center Revenue Loss Calculator",
+        description:
+          "Calculate the financial impact of advertising restrictions on your rehab center revenue",
+        industry: "Rehab Center",
+        urgencyMessage:
+          "Every month you delay action, your patient admission revenue loss compounds. The sooner you implement HIPAA and 42 CFR Part 2 compliant tracking solutions, the faster you can recover your lost revenue and competitive edge in addiction treatment.",
+      },
+    },
   },
 };

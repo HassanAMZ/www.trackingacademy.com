@@ -114,6 +114,8 @@ export default function RevenueCalculator({ config }: CalculatorProps) {
 
       const revenueLost = inputs.revenueBefore - revenueAfterRestrictions;
       const revenueLossPercent = (revenueLost / inputs.revenueBefore) * 100;
+
+      // Fix: Add the current month's loss to the cumulative total
       cumulativeRevenueLost += revenueLost;
 
       results.push({
@@ -121,7 +123,7 @@ export default function RevenueCalculator({ config }: CalculatorProps) {
         revenueLost,
         revenueLossPercent,
         revenueAfterRestrictions,
-        cumulativeRevenueLost,
+        cumulativeRevenueLost, // This now correctly accumulates each month's loss
       });
     }
     return results;

@@ -22,7 +22,6 @@ import {
 } from "lucide-react";
 import Container from "../ui/container";
 
-import { Button } from "@/components/ui/button";
 import { BarChart3, Settings, Target, Users, Wrench } from "lucide-react";
 
 export default function TrackingSolutionsComparison() {
@@ -630,27 +629,6 @@ export default function TrackingSolutionsComparison() {
                 ))}
               </ul>
             </div>
-          </div>
-        </div>
-
-        {/* CTA */}
-        <div className="space-y-6 text-center">
-          <h2 className="text-3xl font-bold text-foreground">
-            Ready to Fix Your Tracking Issues Permanently?
-          </h2>
-          <p className="mx-auto max-w-2xl text-base text-muted-foreground/80">
-            Stop wasting time with temporary fixes that don’t work. Get a permanent solution that
-            actually delivers results.
-          </p>
-          <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
-            <Button size="lg">
-              <Zap className="mr-2 h-5 w-5" />
-              Get Your Solution Now
-            </Button>
-            <Button size="lg" variant="outline">
-              <Clock className="mr-2 h-5 w-5" />
-              Schedule Consultation
-            </Button>
           </div>
         </div>
       </Container>
