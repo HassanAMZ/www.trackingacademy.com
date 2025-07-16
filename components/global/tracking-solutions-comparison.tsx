@@ -45,7 +45,7 @@ export default function TrackingSolutionsComparison() {
     {
       id: "new-pixel",
       name: "New Pixel",
-      description: "Creating fresh Facebook pixels to bypass restrictions",
+      description: "Creating fresh Facebook pixels to Fix restrictions",
       status: "broken",
       icon: XCircle,
       pros: ["Easy to create"],

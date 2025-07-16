@@ -93,7 +93,7 @@ export const offers: Record<string, OfferData> = {
     icon: "🚫",
     eyebrow: "Running Meta Ads in a Restricted Niche?",
     headline: {
-      prefix: "Bypass",
+      prefix: "Fix",
       conversion: ["Data Sharing Restriction"],
       suffix: "and Track Every Conversion for Your Restricted Business",
     },
@@ -181,7 +181,7 @@ export const offers: Record<string, OfferData> = {
           description:
             "Bulletproof tracking solution that never gets shut down. Real-time event synchronization with complete attribution recovery and zero maintenance required.",
           benefits: [
-            "Bypass the flag by Meta",
+            "Fix the Restriction by Meta",
             "Real-time event synchronization",
             "Zero maintenance required",
             "No more lost conversions",
@@ -336,7 +336,7 @@ export const offers: Record<string, OfferData> = {
     icon: "💚",
     eyebrow: "Running Meta Ads for Your Health & Wellness Business?",
     headline: {
-      prefix: "Bypass",
+      prefix: "Fix",
       conversion: ["Data Sharing Restriction"],
       suffix: "and Track Every Customer for Your Health & Wellness Business",
     },
@@ -422,7 +422,7 @@ export const offers: Record<string, OfferData> = {
           description:
             "Bulletproof tracking solution that never gets shut down. Real-time event synchronization with complete attribution recovery and zero maintenance required for health & wellness businesses.",
           benefits: [
-            "Bypass the flag by Meta",
+            "Fix the Restriction by Meta",
             "Real-time event synchronization",
             "Zero maintenance required",
             "No more lost conversions",
@@ -577,7 +577,7 @@ export const offers: Record<string, OfferData> = {
     icon: "🦷",
     eyebrow: "Running Meta Ads for Your Dental Clinic?",
     headline: {
-      prefix: "Bypass",
+      prefix: "Fix",
       conversion: ["Data Sharing Restriction"],
       suffix: "and Track Every Patient for Your Dental Clinic",
     },
@@ -663,7 +663,7 @@ export const offers: Record<string, OfferData> = {
           description:
             "Bulletproof tracking solution that never gets shut down. Real-time event synchronization with complete attribution recovery and zero maintenance required.",
           benefits: [
-            "Bypass the flag by Meta",
+            "Fix the Restriction by Meta",
             "Real-time event synchronization",
             "Zero maintenance required",
             "No more lost conversions",
@@ -814,7 +814,7 @@ export const offers: Record<string, OfferData> = {
     icon: "🏥",
     eyebrow: "Running Meta Ads for Your Rehab Center?",
     headline: {
-      prefix: "Bypass",
+      prefix: "Fix",
       conversion: ["Data Sharing Restriction"],
       suffix: "and Track Every Admission for Your Rehab Center",
     },
@@ -900,7 +900,7 @@ export const offers: Record<string, OfferData> = {
           description:
             "Bulletproof tracking solution that never gets shut down. Real-time event synchronization with complete attribution recovery and zero maintenance required for addiction treatment centers.",
           benefits: [
-            "Bypass the flag by Meta",
+            "Fix the Restriction by Meta",
             "Real-time event synchronization",
             "Zero maintenance required",
             "No more lost conversions",
