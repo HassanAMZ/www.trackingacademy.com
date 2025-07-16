@@ -9,7 +9,7 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { offer: offerId } = await params;
 
-  const offerData = offers[offer] || offers["default-offer"];
+  const offerData = offers[offerId] || offers["default-offer"];
 
   // Dynamic content generation
   const headlineText = `${offerData.headline.prefix} ${offerData.headline.conversion.join(" & ")} ${offerData.headline.suffix}`;
