@@ -4,6 +4,7 @@ import MeetingCalendar from "@/components/contact/meeting-calender";
 import DetailsCards from "@/components/funnels/details-card";
 import DreamOutcome from "@/components/funnels/dream-outcome";
 import MeetingBookingButton from "@/components/global/meeting-booking-button";
+import YoutubeEmbed from "@/components/global/youtube-embed";
 import Hero from "@/components/home/hero";
 import TestimonialGrid from "@/components/testimonial/testimonial-grid";
 import {
@@ -36,7 +37,6 @@ import {
   XCircle,
   Zap,
 } from "lucide-react";
-import Image from "next/image";
 
 // Generate static params for all offers
 export async function generateStaticParams() {
@@ -118,7 +118,12 @@ export default async function Page({ params }: { params: Promise<{ offer: string
         supportingComponent={
           <div className="flex flex-1">
             {/* Desktop version - hidden on mobile */}
-            <Image
+            <YoutubeEmbed
+              verticalVideo={true}
+              embedId={"_vOZLo-4YMU"}
+              className="hidden lg:block"
+            />
+            {/* <Image
               src="/images/hero/data-sharing-restrcition-04.png"
               alt="Data Sharing Restrictions - Desktop View"
               className="hidden rounded-lg object-contain lg:block"
@@ -126,7 +131,7 @@ export default async function Page({ params }: { params: Promise<{ offer: string
               height={1080}
               priority
               quality={90}
-            />
+            /> */}
 
             {/* Mobile version - hidden on desktop */}
             {/* <Image

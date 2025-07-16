@@ -76,6 +76,7 @@ const DreamOutcome: React.FC<DreamOutcomeProps> = ({
         <div className="grid items-start gap-3 lg:gap-16">
           {/* Left side: Collapsible items */}
           <LoomEmbed
+            hideControls={false}
             backgroundImage="/images/hero/data-sharing-restrcition-03.png"
             embedId="3768f5d29d724dc2837085355d614c57"
             className="p-0"

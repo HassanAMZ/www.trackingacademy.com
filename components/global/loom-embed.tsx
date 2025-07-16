@@ -10,6 +10,7 @@ interface LoomEmbedProps {
   id?: string;
   backgroundImage?: string;
   hideControls?: boolean;
+  verticalVideo?: boolean; // New prop
 }
 
 const LoomEmbed: FC<LoomEmbedProps> = ({
@@ -18,6 +19,7 @@ const LoomEmbed: FC<LoomEmbedProps> = ({
   id,
   backgroundImage,
   hideControls = true,
+  verticalVideo = false, // Default to false
 }) => {
   if (!embedId || embedId === "null" || embedId === "undefined") {
     return null;
@@ -31,28 +33,33 @@ const LoomEmbed: FC<LoomEmbedProps> = ({
     }
 
     const params = new URLSearchParams({
-      // hide_owner: "false",
-      // hide_top_bar: "false",
-      // hideEmbedTopBar: "false",
-      // hide_speed: "false",
-      // hide_title: "false",
-      // hide_share: "false",
-      // hide_video_source: "false",
+      hide_owner: "false",
+      hide_top_bar: "false",
+      hideEmbedTopBar: "false",
+      hide_speed: "false",
+      hide_title: "false",
+      hide_share: "false",
+      hide_video_source: "false",
     });
 
     return `${baseUrl}?${params.toString()}`;
   };
 
+  // Track video load event
   sendGTMEvent({
     event: "gtm_custom_event",
     datalayer_event_name: "loom_video_loaded",
   });
+
+  // Determine aspect ratio: 56.25% for 16:9, ~177.78% for 9:16 (vertical)
+  const aspectRatio = verticalVideo ? "177.78%" : "56.25%";
+
   return (
     <Container className={className} id={id}>
       <div
         className="relative overflow-hidden rounded-lg"
         style={{
-          paddingTop: "56.25%",
+          paddingTop: aspectRatio,
           ...(backgroundImage && {
             backgroundImage: `url(${backgroundImage})`,
             backgroundSize: "cover",
