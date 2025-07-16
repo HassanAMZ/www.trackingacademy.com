@@ -276,10 +276,10 @@ export const offers: Record<string, OfferData> = {
       affected: "89%",
     },
     caseStudyIds: [
+      "zenon",
       "northridgeaddiction",
       "saneofrance",
       "emiratesadvisory",
-      "zenon",
       "peachandcream",
     ],
     keywords: [
@@ -517,10 +517,10 @@ export const offers: Record<string, OfferData> = {
       affected: "91%",
     },
     caseStudyIds: [
+      "zenon",
       "northridgeaddiction",
       "saneofrance",
       "emiratesadvisory",
-      "zenon",
       "peachandcream",
     ],
     keywords: [
@@ -758,10 +758,10 @@ export const offers: Record<string, OfferData> = {
       affected: "94%",
     },
     caseStudyIds: [
+      "zenon",
       "northridgeaddiction",
       "saneofrance",
       "emiratesadvisory",
-      "zenon",
       "peachandcream",
     ],
     keywords: [
@@ -995,10 +995,10 @@ export const offers: Record<string, OfferData> = {
       affected: "96%",
     },
     caseStudyIds: [
+      "zenon",
       "northridgeaddiction",
       "saneofrance",
       "emiratesadvisory",
-      "zenon",
       "peachandcream",
     ],
     keywords: [

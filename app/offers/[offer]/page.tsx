@@ -152,11 +152,11 @@ export default async function Page({ params }: { params: Promise<{ offer: string
       <CaseStudyCarousel
         caseStudies={caseStudies.filter((cs) =>
           [
-            "peachandcream",
+            "zenon",
             "northridgeaddiction",
             "saneofrance",
-            "zenon",
             "emiratesadvisory",
+            "peachandcream",
           ].includes(cs.id),
         )}
       />

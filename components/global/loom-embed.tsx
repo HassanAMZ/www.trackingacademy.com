@@ -31,13 +31,13 @@ const LoomEmbed: FC<LoomEmbedProps> = ({
     }
 
     const params = new URLSearchParams({
-      hide_owner: "false",
-      hide_top_bar: "true",
-      hideEmbedTopBar: "false",
-      hide_speed: "false",
-      hide_title: "true",
-      hide_share: "true",
-      hide_video_source: "true",
+      // hide_owner: "false",
+      // hide_top_bar: "false",
+      // hideEmbedTopBar: "false",
+      // hide_speed: "false",
+      // hide_title: "false",
+      // hide_share: "false",
+      // hide_video_source: "false",
     });
 
     return `${baseUrl}?${params.toString()}`;

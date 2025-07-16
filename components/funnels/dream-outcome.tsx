@@ -16,7 +16,7 @@ import {
   XCircle,
 } from "lucide-react";
 import React, { useState } from "react";
-import YoutubeEmbed from "../global/youtube-embed";
+import LoomEmbed from "../global/loom-embed";
 
 export interface DreamOutcomeProps {
   heading?: string;
@@ -73,8 +73,14 @@ const DreamOutcome: React.FC<DreamOutcomeProps> = ({
 
       {/* Main Content */}
       {dreamOutcomeList && dreamOutcomeList.length > 0 && (
-        <div className="grid items-start gap-3 md:grid-cols-2 lg:gap-16">
+        <div className="grid items-start gap-3 lg:gap-16">
           {/* Left side: Collapsible items */}
+          <LoomEmbed
+            backgroundImage="/images/hero/data-sharing-restrcition-03.png"
+            embedId="3768f5d29d724dc2837085355d614c57"
+            className="p-0"
+          />
+          {/* Right side: Image with enhanced styling */}
           <div className="w-full space-y-3">
             {dreamOutcomeList.map((outcome, index) => {
               const IconComponent = outcome.icon ? iconMap[outcome.icon] : Lightbulb;
@@ -133,8 +139,6 @@ const DreamOutcome: React.FC<DreamOutcomeProps> = ({
               );
             })}
           </div>
-          {/* Right side: Image with enhanced styling */}
-          <YoutubeEmbed embedId={dreamOutcomeList[0].videoId} className="max-w-4xl p-0" />
         </div>
       )}
     </div>

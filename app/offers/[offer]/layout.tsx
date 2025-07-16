@@ -1,4 +1,5 @@
 import Footer from "@/components/global/footer";
+import Navbar from "@/components/global/navbar";
 import { offers } from "@/data/offers";
 import { Metadata } from "next";
 
@@ -165,6 +166,7 @@ export async function generateMetadata({
 export default function OfferLayout({ children }: { children: React.ReactNode }) {
   return (
     <>
+      <Navbar />
       {children}
       <Footer />
     </>
