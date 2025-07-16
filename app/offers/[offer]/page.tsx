@@ -1,4 +1,3 @@
-import CaseStudyCarousel from "@/components/case-study/case-study-carousel";
 import FeaturedCaseStudy from "@/components/case-study/case-study-featured";
 import MeetingCalendar from "@/components/contact/meeting-calender";
 import DetailsCards from "@/components/funnels/details-card";
@@ -15,7 +14,6 @@ import {
 } from "@/components/ui/accordion";
 import { Badge } from "@/components/ui/badge";
 import Container from "@/components/ui/container";
-import { caseStudies } from "@/data/case-studies";
 import { offers } from "@/data/offers";
 import getCaseStudy from "@/utils/getCaseStudy";
 import {
@@ -146,7 +144,7 @@ export default async function Page({ params }: { params: Promise<{ offer: string
           </div>
         }
       />
-      <Container>
+      {/* <Container>
         <div className="mb-12 text-center">
           <h2 className="mb-4 text-destructive">{offerData.testimonialSection.title}</h2>
           <h4 className="mx-auto max-w-3xl text-accent-foreground">
@@ -164,7 +162,7 @@ export default async function Page({ params }: { params: Promise<{ offer: string
             "peachandcream",
           ].includes(cs.id),
         )}
-      />
+      /> */}
 
       {/* Problem Amplification Section */}
       <Container className="max-w-6xl py-12">
