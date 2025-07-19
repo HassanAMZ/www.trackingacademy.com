@@ -231,8 +231,8 @@ export default async function Page({ params }: { params: Promise<{ offer: string
 
         <div className="grid gap-8 py-12">
           {getServicesByKeys([
-            "starter-subscription",
-            // "growth-subscription",
+            // "starter-subscription",
+            "growth-subscription",
             // "pro-subscription",
             // "premium-subscription",
           ]).map((service) => (

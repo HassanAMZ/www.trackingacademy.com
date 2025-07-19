@@ -101,7 +101,7 @@ export const offers: Record<string, OfferData> = {
       'Even if Meta has restricted your domain, blocked URL parameters, or disabled your events—we install <strong class="text-primary underline">RestrictedPixel Pro</strong> to fix your Meta Ads Conversions for your restricted business.',
     videoId: "tdQufJ-qadE",
     cta: {
-      primary: "Starting from 149$/month",
+      primary: "Starting from $299/month",
       secondary: "No upfront costs, Start tracking conversions in Meta Ads ",
     },
     benefits: [
@@ -231,7 +231,7 @@ export const offers: Record<string, OfferData> = {
       ],
     },
     finalCta: {
-      title: "📞 Starting from 149$/month",
+      title: "📞 Starting from $299/month",
       description:
         "We'll audit your current setup, show you exactly what's broken, and walk you through how we'll fix it — even if you don't work with us.",
     },
@@ -349,7 +349,7 @@ export const offers: Record<string, OfferData> = {
       'Even if Meta has restricted your health domain, blocked URL parameters, or disabled your events—we install <strong class="text-primary underline">HealthPixel Pro</strong> to fix your Meta Ads Conversions for health & wellness businesses.',
     videoId: "tdQufJ-qadE",
     cta: {
-      primary: "Starting from 149$/month",
+      primary: "Starting from $299/month",
       secondary: "Start tracking health & wellness conversions in Meta Ads & Events Manager again",
     },
     benefits: [
@@ -472,7 +472,7 @@ export const offers: Record<string, OfferData> = {
       ],
     },
     finalCta: {
-      title: "📞 Starting from 149$/month",
+      title: "📞 Starting from $299/month",
       description:
         "We'll audit your current setup, show you exactly what's broken, and walk you through how we'll fix it — even if you don't work with us.",
     },
@@ -590,7 +590,7 @@ export const offers: Record<string, OfferData> = {
       'Even if Meta has restricted your dental domain, blocked URL parameters, or disabled your events—we install <strong class="text-primary underline">DentalPixel Pro</strong> to fix your Meta Ads Conversions for dental practices.',
     videoId: "tdQufJ-qadE",
     cta: {
-      primary: "Starting from 149$/month",
+      primary: "Starting from $299/month",
       secondary: "Start tracking dental patient conversions in Meta Ads & Events Manager again",
     },
     benefits: [
@@ -713,7 +713,7 @@ export const offers: Record<string, OfferData> = {
       ],
     },
     finalCta: {
-      title: "📞 Starting from 149$/month",
+      title: "📞 Starting from $299/month",
       description:
         "We'll audit your current setup, show you exactly what's broken, and walk you through how we'll fix it — even if you don't work with us.",
     },
@@ -827,7 +827,7 @@ export const offers: Record<string, OfferData> = {
       'Even if Meta has restricted your rehab domain, blocked URL parameters, or disabled your events—we install <strong class="text-primary underline">RehabPixel Pro</strong> to fix your Meta Ads Conversions for addiction treatment centers.',
     videoId: "tdQufJ-qadE",
     cta: {
-      primary: "Starting from 149$/month",
+      primary: "Starting from $299/month",
       secondary: "Start tracking rehab admissions in Meta Ads & Events Manager again",
     },
     benefits: [
@@ -950,7 +950,7 @@ export const offers: Record<string, OfferData> = {
       ],
     },
     finalCta: {
-      title: "📞 Starting from 149$/month",
+      title: "📞 Starting from $299/month",
       description:
         "We'll audit your current setup, show you exactly what's broken, and walk you through how we'll fix it — even if you don't work with us.",
     },

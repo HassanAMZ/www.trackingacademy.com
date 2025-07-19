@@ -68,7 +68,6 @@ export default function ServiceHero({ service }: ServiceHeroProps) {
           <div className="space-y-6">
             <div className="text-center">
               <div className="mb-2 text-4xl font-bold">{service.price}</div>
-              <div className="text-muted-foreground">one-time payment</div>
             </div>
 
             <div className="space-y-4">

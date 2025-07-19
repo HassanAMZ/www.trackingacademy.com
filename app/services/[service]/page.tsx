@@ -31,7 +31,7 @@ export default async function ServicePage({ params }: { params: Promise<{ servic
 
   // Determine service comparison list based on "subscription" in name
   const serviceIds = service.id.toLowerCase().includes("subscription")
-    ? ["premium-subscription", "pro-subscription", "growth-subscription", "starter-subscription"]
+    ? ["premium-subscription", "pro-subscription", "growth-subscription"]
     : ["advanced-tracking", "professional-setup", "website-tracking-audit"];
 
   return (
