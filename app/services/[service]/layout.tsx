@@ -1,5 +1,13 @@
 import { services } from "@/data/services";
-
+// Generate static params for all services
+export async function generateStaticParams() {
+  return services.map((service) => ({
+    service: service.name
+      .toLowerCase()
+      .replace(/\s+/g, "-")
+      .replace(/[^a-z0-9-]/g, ""),
+  }));
+}
 export async function generateMetadata({ params }: { params: Promise<{ service: string }> }) {
   const { service: serviceId } = await params;
 

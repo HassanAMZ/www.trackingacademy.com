@@ -5,6 +5,7 @@ import DreamOutcome from "@/components/funnels/dream-outcome";
 import MeetingBookingButton from "@/components/global/meeting-booking-button";
 import YoutubeEmbed from "@/components/global/youtube-embed";
 import Hero from "@/components/home/hero";
+import ServiceHero from "@/components/service/service-hero";
 import TestimonialGrid from "@/components/testimonial/testimonial-grid";
 import {
   Accordion,
@@ -16,6 +17,7 @@ import { Badge } from "@/components/ui/badge";
 import Container from "@/components/ui/container";
 import { offers } from "@/data/offers";
 import getCaseStudy from "@/utils/getCaseStudy";
+import getServicesByKeys from "@/utils/getServices";
 import {
   Activity,
   AlertTriangle,
@@ -214,7 +216,30 @@ export default async function Page({ params }: { params: Promise<{ offer: string
         const caseStudy = getCaseStudy(caseStudyId);
         return caseStudy ? <FeaturedCaseStudy key={caseStudyId} caseStudy={caseStudy} /> : null;
       })}
+      {/* Services Grid */}
+      <Container>
+        <div className="mx-auto max-w-4xl space-y-6 text-center">
+          <h2>
+            Choose Your Perfect
+            <span className="text-primary"> Tracking Solution</span>
+          </h2>
+          <h4 className="mx-auto max-w-3xl text-muted-foreground">
+            Reclaim your lost conversions and maximize your ad spend ROI with our comprehensive
+            tracking solutions. From basic audits to enterprise-level implementations.
+          </h4>
+        </div>
 
+        <div className="grid gap-8 py-12">
+          {getServicesByKeys([
+            "starter-subscription",
+            // "growth-subscription",
+            // "pro-subscription",
+            // "premium-subscription",
+          ]).map((service) => (
+            <ServiceHero service={service} />
+          ))}
+        </div>
+      </Container>
       {/* Final CTA */}
       <div className="py-16">
         <section className="bg-gradient-to-b from-primary/20 to-background py-16">

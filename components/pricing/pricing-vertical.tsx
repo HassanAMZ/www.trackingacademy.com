@@ -137,8 +137,8 @@ const ServiceCard = ({ service }: ServiceCardProps) => {
           <p className="text-sm text-muted-foreground">{service.description}</p>
         </div>
 
-        <div className="flex items-center gap-4 pt-4">
-          <div className="text-3xl font-bold">{service.price}</div>
+        <div className="flex flex-col items-start gap-4 pt-4">
+          <h4>{service.price}</h4>
           <Badge variant={service.accuracy.includes("95") ? "default" : "outline"}>
             {service.accuracy} Accuracy
           </Badge>

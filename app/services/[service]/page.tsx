@@ -5,6 +5,7 @@ import { FeatureComparison } from "@/components/pricing/pricing-vertical";
 import ServiceHero from "@/components/service/service-hero";
 import Container from "@/components/ui/container";
 import { Service, services } from "@/data/services";
+import getServicesByKeys from "@/utils/getServices";
 import { notFound } from "next/navigation";
 
 // Generate static params for all services
@@ -28,11 +29,15 @@ export default async function ServicePage({ params }: { params: Promise<{ servic
     notFound();
   }
 
+  // Determine service comparison list based on "subscription" in name
+  const serviceIds = service.id.toLowerCase().includes("subscription")
+    ? ["premium-subscription", "pro-subscription", "growth-subscription", "starter-subscription"]
+    : ["advanced-tracking", "professional-setup", "website-tracking-audit"];
+
   return (
     <Container className="space-y-16 py-12">
       <ServiceHero service={service} />
-
-      <FeatureComparison services={services.slice(0, 3)} />
+      <FeatureComparison services={getServicesByKeys([service.id, ...serviceIds])} />
       <FAQSection />
     </Container>
   );

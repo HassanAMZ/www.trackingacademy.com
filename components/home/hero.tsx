@@ -43,7 +43,7 @@ const Hero: FC<HeroProps> = ({
         ))}
       </div>
       <h4 className="text-sm text-muted-foreground">
-        4.9 from 200+ reviews <br /> 1,000+ Websites Audited Optimized
+        4.9 from 200+ reviews <br /> 1,000+ Websites Tracked
       </h4>
     </div>
   ),
@@ -91,7 +91,7 @@ const Hero: FC<HeroProps> = ({
         ))}
       </div>
       <h4 className="text-sm text-muted-foreground">
-        4.9 from 200+ reviews <br /> 1,000+ Websites Audited Optimized
+        4.9 from 200+ reviews <br /> 1,000+ Websites Tracked
       </h4>
     </div>
   );
