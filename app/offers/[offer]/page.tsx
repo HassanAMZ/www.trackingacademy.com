@@ -86,7 +86,7 @@ export default async function Page({ params }: { params: Promise<{ offer: string
                   (index === offerData.headline.conversion.length - 2 ? " & " : ", ")}
               </span>
             ))}{" "}
-            {offerData.headline.suffix}'s Ads
+            {offerData.headline.suffix}
           </h1>
         }
         subheading={

@@ -95,7 +95,7 @@ export const offers: Record<string, OfferData> = {
     headline: {
       prefix: "Fix",
       conversion: ["Data Sharing Restriction"],
-      suffix: "and Track Every Conversion for Your Restricted Business",
+      suffix: "and Track Every Conversion for Your Meta Ads",
     },
     subheading:
       'Even if Meta has restricted your domain, blocked URL parameters, or disabled your events—we install <strong class="text-primary underline">RestrictedPixel Pro</strong> to fix your Meta Ads Conversions for your restricted business.',
@@ -343,7 +343,7 @@ export const offers: Record<string, OfferData> = {
     headline: {
       prefix: "Fix",
       conversion: ["Data Sharing Restriction"],
-      suffix: "and Track Every Customer for Your Health & Wellness Business",
+      suffix: "and Track Every Customer for Your Health & Wellness Business's Ads",
     },
     subheading:
       'Even if Meta has restricted your health domain, blocked URL parameters, or disabled your events—we install <strong class="text-primary underline">HealthPixel Pro</strong> to fix your Meta Ads Conversions for health & wellness businesses.',
@@ -584,7 +584,7 @@ export const offers: Record<string, OfferData> = {
     headline: {
       prefix: "Fix",
       conversion: ["Data Sharing Restriction"],
-      suffix: "and Track Every Patient for Your Dental Clinic",
+      suffix: "and Track Every Patient for Your Dental Clinic's Ads",
     },
     subheading:
       'Even if Meta has restricted your dental domain, blocked URL parameters, or disabled your events—we install <strong class="text-primary underline">DentalPixel Pro</strong> to fix your Meta Ads Conversions for dental practices.',
@@ -821,7 +821,7 @@ export const offers: Record<string, OfferData> = {
     headline: {
       prefix: "Fix",
       conversion: ["Data Sharing Restriction"],
-      suffix: "and Track Every Admission for Your Rehab Center",
+      suffix: "and Track Every Admission for Your Rehab Center's Ads",
     },
     subheading:
       'Even if Meta has restricted your rehab domain, blocked URL parameters, or disabled your events—we install <strong class="text-primary underline">RehabPixel Pro</strong> to fix your Meta Ads Conversions for addiction treatment centers.',
