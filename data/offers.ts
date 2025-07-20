@@ -33,7 +33,7 @@ export interface OfferData {
   businessTypePlural: string;
   package: string;
   icon: string;
-  eyebrow: string;
+  eyebrow?: string;
   headline: {
     prefix: string;
     conversion: string[];
@@ -95,17 +95,17 @@ export const offers: Record<string, OfferData> = {
     businessType: "business",
     businessTypePlural: "businesses",
     icon: "🚫",
-    eyebrow: "🚫 Data Sharing Restriction Applied",
+    eyebrow: "Data Sharing Restriction for Health, Wellness, or Finance Business?",
     headline: {
-      prefix: "We Help ",
-      conversion: ["Categorized Domains"],
-      suffix: " Start Tracking Conversions Again on Meta Ads",
+      prefix: "We fix Meta Ads tracking for ",
+      conversion: ["Restricted Domains"],
+      suffix: "& you only pay after it’s fixed",
     },
-    subheading: `If your domain has been flagged by Facebook under health, finance, politics, or religion…We fix this in 7 Days. Guaranteed.`,
+    subheading: "",
     embedId: { youtube: "tdQufJ-qadE", loom: "3768f5d29d724dc2837085355d614c57" },
     cta: {
-      primary: "Starting from $299/month",
-      secondary: "No upfront costs, Start tracking conversions in Meta Ads ",
+      primary: "Book Your Free Call & Fix Your Tracking",
+      secondary: "Starting at $299/month — only after your tracking is fixed.",
     },
     benefits: [
       "Works with restricted Niches",
@@ -224,7 +224,7 @@ export const offers: Record<string, OfferData> = {
       ],
     },
     finalCta: {
-      title: "📞 Starting from $299/month",
+      title: "📞 Book Your Free Call & Fix Your Tracking",
       description:
         "We'll audit your current setup, show you exactly what's broken, and walk you through how we'll fix it — even if you don't work with us.",
     },
@@ -342,7 +342,7 @@ export const offers: Record<string, OfferData> = {
       'Even if Meta has restricted your health domain, blocked URL parameters, or disabled your events—we install <strong class="text-primary underline">HealthPixel Pro</strong> to fix your Meta Ads Conversions for health & wellness businesses.',
     embedId: { youtube: "tdQufJ-qadE", loom: "3768f5d29d724dc2837085355d614c57" },
     cta: {
-      primary: "Starting from $299/month",
+      primary: "Book Your Free Call & Fix Your Tracking",
       secondary: "Start tracking health & wellness conversions in Meta Ads & Events Manager again",
     },
     benefits: [
@@ -465,7 +465,7 @@ export const offers: Record<string, OfferData> = {
       ],
     },
     finalCta: {
-      title: "📞 Starting from $299/month",
+      title: "📞 Book Your Free Call & Fix Your Tracking",
       description:
         "We'll audit your current setup, show you exactly what's broken, and walk you through how we'll fix it — even if you don't work with us.",
     },
@@ -583,7 +583,7 @@ export const offers: Record<string, OfferData> = {
       'Even if Meta has restricted your dental domain, blocked URL parameters, or disabled your events—we install <strong class="text-primary underline">DentalPixel Pro</strong> to fix your Meta Ads Conversions for dental practices.',
     embedId: { youtube: "tdQufJ-qadE", loom: "3768f5d29d724dc2837085355d614c57" },
     cta: {
-      primary: "Starting from $299/month",
+      primary: "Book Your Free Call & Fix Your Tracking",
       secondary: "Start tracking dental patient conversions in Meta Ads & Events Manager again",
     },
     benefits: [
@@ -706,7 +706,7 @@ export const offers: Record<string, OfferData> = {
       ],
     },
     finalCta: {
-      title: "📞 Starting from $299/month",
+      title: "📞 Book Your Free Call & Fix Your Tracking",
       description:
         "We'll audit your current setup, show you exactly what's broken, and walk you through how we'll fix it — even if you don't work with us.",
     },
@@ -820,7 +820,7 @@ export const offers: Record<string, OfferData> = {
       'Even if Meta has restricted your rehab domain, blocked URL parameters, or disabled your events—we install <strong class="text-primary underline">RehabPixel Pro</strong> to fix your Meta Ads Conversions for addiction treatment centers.',
     embedId: { youtube: "tdQufJ-qadE", loom: "3768f5d29d724dc2837085355d614c57" },
     cta: {
-      primary: "Starting from $299/month",
+      primary: "Book Your Free Call & Fix Your Tracking",
       secondary: "Start tracking rehab admissions in Meta Ads & Events Manager again",
     },
     benefits: [
@@ -943,7 +943,7 @@ export const offers: Record<string, OfferData> = {
       ],
     },
     finalCta: {
-      title: "📞 Starting from $299/month",
+      title: "📞 Book Your Free Call & Fix Your Tracking",
       description:
         "We'll audit your current setup, show you exactly what's broken, and walk you through how we'll fix it — even if you don't work with us.",
     },

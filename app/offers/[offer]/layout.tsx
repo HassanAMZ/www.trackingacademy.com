@@ -1,4 +1,3 @@
-import Footer from "@/components/global/footer";
 import { offers } from "@/data/offers";
 import { Metadata } from "next";
 
@@ -34,7 +33,7 @@ export async function generateMetadata({
       `${offerData.businessType} advertising`,
     ],
     openGraph: {
-      title: `${headlineText} | ${offerData.package}`,
+      title: `${offerData.solution.headerTitle} | ${offerData.package}`,
       description: `Fix your Meta Ads tracking for ${offerData.businessTypePlural}. Our ${offerData.package} solution restores ${offerData.restrictionData.affected} of blocked conversions while maintaining full compliance.`,
       images: [
         {
@@ -92,7 +91,6 @@ export default function OfferLayout({ children }: { children: React.ReactNode })
     <>
       {/* <Navbar /> */}
       {children}
-      <Footer />
     </>
   );
 }

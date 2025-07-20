@@ -1,9 +1,8 @@
 import FeaturedCaseStudy from "@/components/case-study/case-study-featured";
 import MeetingCalendar from "@/components/contact/meeting-calender";
 import DetailsCards from "@/components/funnels/details-card";
-import DreamOutcome from "@/components/funnels/dream-outcome";
-import LoomEmbed from "@/components/global/loom-embed";
 import MeetingBookingButton from "@/components/global/meeting-booking-button";
+import YoutubeEmbed from "@/components/global/youtube-embed";
 import Hero from "@/components/home/hero";
 import { ServiceCard } from "@/components/pricing/pricing-vertical";
 import TestimonialGrid from "@/components/testimonial/testimonial-grid";
@@ -13,7 +12,6 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import { Badge } from "@/components/ui/badge";
 import Container from "@/components/ui/container";
 import { offers } from "@/data/offers";
 import getCaseStudy from "@/utils/getCaseStudy";
@@ -79,12 +77,8 @@ export default async function Page({ params }: { params: Promise<{ offer: string
           <h1 className="mx-auto text-center">
             {offerData.headline.prefix}{" "}
             {offerData.headline.conversion.map((conv, index) => (
-              <span key={index}>
-                <span className="rounded-lg border border-destructive/20 bg-destructive/10 px-1 text-destructive">
-                  {conv}
-                </span>
-                {index < offerData.headline.conversion.length - 1 &&
-                  (index === offerData.headline.conversion.length - 2 ? " & " : ", ")}
+              <span key={index} className="text-destructive underline">
+                {conv}
               </span>
             ))}{" "}
             {offerData.headline.suffix}
@@ -92,41 +86,21 @@ export default async function Page({ params }: { params: Promise<{ offer: string
         }
         subheading={
           <>
-            <h4 className="mx-auto max-w-3xl text-center">
-              <span dangerouslySetInnerHTML={{ __html: offerData.subheading }} />
-              <div className="flex flex-wrap justify-center gap-2 py-4">
-                <Badge variant="destructive" className="flex items-center gap-1">
-                  <XCircle className="h-4 w-4" />
-                  You’re not tracking conversions
-                </Badge>
-                <Badge variant="destructive" className="flex items-center gap-1">
-                  <XCircle className="h-4 w-4" />
-                  Your conversions disappeared.
-                </Badge>
-                <Badge variant="destructive" className="flex items-center gap-1">
-                  <XCircle className="h-4 w-4" />
-                  Your ROAS dropped.
-                </Badge>
-              </div>
-            </h4>
-            {offerData.embedId.loom && (
-              <LoomEmbed
-                hideControls={true}
-                backgroundImage="/images/hero/data-sharing-restrcition-03.png"
-                embedId={offerData.embedId.loom}
-                className="p-0"
-              />
+            {offerData.embedId.youtube && (
+              <YoutubeEmbed embedId={offerData.embedId.youtube} className="p-0" />
             )}
+            <h3 className="mx-auto max-w-3xl text-center">
+              Watched the video and want us to fix your tracking? Book a Call using the Button Below
+              to Qualify.
+            </h3>
           </>
         }
         benefits={offerData.benefits}
-        customCtaButton={
-          <MeetingBookingButton wrapperButtonClassName="py-4  text-center " offerData={offerData} />
-        }
+        customCtaButton={<MeetingBookingButton offerData={offerData} />}
       />
 
       {/* Problem Amplification Section */}
-      <Container className="max-w-6xl py-12">
+      {/* <Container className="max-w-6xl py-12">
         <div className="transform space-y-8 rounded-lg border border-destructive/20 p-2 md:p-12">
           <div className="mb-12 text-center">
             <Badge variant="destructive" className="mb-4 animate-pulse">
@@ -147,7 +121,6 @@ export default async function Page({ params }: { params: Promise<{ offer: string
             }))}
           />
 
-          {/* Add testimonial callout */}
           <div className="mt-8 rounded-lg bg-primary/5 p-6 text-center">
             <p className="text-lg font-medium text-primary">
               "It's not your ads. It's your tracking."
@@ -157,7 +130,7 @@ export default async function Page({ params }: { params: Promise<{ offer: string
             </p>
           </div>
         </div>
-      </Container>
+      </Container> */}
 
       {/* Solution Section */}
       <section className="py-8">
@@ -200,38 +173,6 @@ export default async function Page({ params }: { params: Promise<{ offer: string
         const caseStudy = getCaseStudy(caseStudyId);
         return caseStudy ? <FeaturedCaseStudy key={caseStudyId} caseStudy={caseStudy} /> : null;
       })}
-
-      {/* Final CTA */}
-      <div className="py-16">
-        <section className="bg-gradient-to-b from-primary/20 to-background py-16">
-          <Container className="max-w-4xl text-center">
-            <div className="space-y-6 py-6">
-              <h2 className="">{offerData.finalCta.title}</h2>
-              <h4 className="mx-auto max-w-3xl text-accent-foreground">
-                {offerData.finalCta.description}
-              </h4>
-            </div>
-
-            <div className="mb-8 grid gap-4 md:grid-cols-3">
-              <h6 className="flex items-center justify-center space-x-2 font-bold">
-                <CheckCircle className="h-5 w-5" />
-                <span>Free 24-hour audit</span>
-              </h6>{" "}
-              <h6 className="flex items-center justify-center space-x-2 font-bold">
-                <CheckCircle className="h-5 w-5" />
-                <span>7 Day implementation</span>
-              </h6>{" "}
-              <h6 className="flex items-center justify-center space-x-2 font-bold">
-                <CheckCircle className="h-5 w-5" />
-                <span>30-day guarantee</span>
-              </h6>
-            </div>
-          </Container>
-
-          <MeetingCalendar />
-          <div className="mx-auto py-6 text-center text-sm">{offerData.calendar.description}</div>
-        </section>
-      </div>
 
       {/* FAQ Section */}
       <section className="py-16">
@@ -280,6 +221,37 @@ export default async function Page({ params }: { params: Promise<{ offer: string
           <MeetingBookingButton offerData={offerData} />
         </Container>
       </section>
+      {/* Final CTA */}
+      <div className="min-h-screen py-16">
+        <section className="bg-gradient-to-b from-primary/20 to-background py-16">
+          <Container className="max-w-4xl text-center">
+            <div className="space-y-6 py-6">
+              <h2 className="">{offerData.finalCta.title}</h2>
+              <h4 className="mx-auto max-w-3xl text-accent-foreground">
+                {offerData.finalCta.description}
+              </h4>
+            </div>
+
+            <div className="mb-8 grid gap-4 md:grid-cols-3">
+              <h6 className="flex items-center justify-center space-x-2 font-bold">
+                <CheckCircle className="h-5 w-5" />
+                <span>Free 24-hour audit</span>
+              </h6>{" "}
+              <h6 className="flex items-center justify-center space-x-2 font-bold">
+                <CheckCircle className="h-5 w-5" />
+                <span>7 Day implementation</span>
+              </h6>{" "}
+              <h6 className="flex items-center justify-center space-x-2 font-bold">
+                <CheckCircle className="h-5 w-5" />
+                <span>30-day guarantee</span>
+              </h6>
+            </div>
+          </Container>
+
+          <MeetingCalendar />
+          <div className="mx-auto py-6 text-center text-sm">{offerData.calendar.description}</div>
+        </section>
+      </div>
     </main>
   );
 }
