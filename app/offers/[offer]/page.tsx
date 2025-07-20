@@ -2,10 +2,10 @@ import FeaturedCaseStudy from "@/components/case-study/case-study-featured";
 import MeetingCalendar from "@/components/contact/meeting-calender";
 import DetailsCards from "@/components/funnels/details-card";
 import DreamOutcome from "@/components/funnels/dream-outcome";
+import LoomEmbed from "@/components/global/loom-embed";
 import MeetingBookingButton from "@/components/global/meeting-booking-button";
-import YoutubeEmbed from "@/components/global/youtube-embed";
 import Hero from "@/components/home/hero";
-import ServiceHero from "@/components/service/service-hero";
+import { ServiceCard } from "@/components/pricing/pricing-vertical";
 import TestimonialGrid from "@/components/testimonial/testimonial-grid";
 import {
   Accordion,
@@ -37,6 +37,7 @@ import {
   XCircle,
   Zap,
 } from "lucide-react";
+import React from "react";
 
 // Generate static params for all offers
 export async function generateStaticParams() {
@@ -73,9 +74,9 @@ export default async function Page({ params }: { params: Promise<{ offer: string
   return (
     <main>
       <Hero
-        eyebrow={`Lost 50% of your Leads/Revenue to Meta Restrictions?`}
+        eyebrow={offerData.eyebrow}
         heading={
-          <h1 className="mx-auto text-center lg:mx-0 lg:text-left">
+          <h1 className="mx-auto text-center">
             {offerData.headline.prefix}{" "}
             {offerData.headline.conversion.map((conv, index) => (
               <span key={index}>
@@ -90,81 +91,39 @@ export default async function Page({ params }: { params: Promise<{ offer: string
           </h1>
         }
         subheading={
-          <h4 className="mx-auto max-w-3xl text-center lg:mx-0 lg:text-left">
-            <span dangerouslySetInnerHTML={{ __html: offerData.subheading }} />
-            <div className="flex flex-wrap justify-center gap-2 py-4 lg:justify-start">
-              <Badge variant="destructive" className="flex items-center gap-1">
-                <XCircle className="h-4 w-4" />
-                Pixel Missing Data
-              </Badge>
-              <Badge variant="destructive" className="flex items-center gap-1">
-                <XCircle className="h-4 w-4" />
-                CAPI Not Firing
-              </Badge>
-              <Badge variant="destructive" className="flex items-center gap-1">
-                <XCircle className="h-4 w-4" />
-                Data Sharing Restrictions
-              </Badge>
-            </div>
-          </h4>
+          <>
+            <h4 className="mx-auto max-w-3xl text-center">
+              <span dangerouslySetInnerHTML={{ __html: offerData.subheading }} />
+              <div className="flex flex-wrap justify-center gap-2 py-4">
+                <Badge variant="destructive" className="flex items-center gap-1">
+                  <XCircle className="h-4 w-4" />
+                  You’re not tracking conversions
+                </Badge>
+                <Badge variant="destructive" className="flex items-center gap-1">
+                  <XCircle className="h-4 w-4" />
+                  Your conversions disappeared.
+                </Badge>
+                <Badge variant="destructive" className="flex items-center gap-1">
+                  <XCircle className="h-4 w-4" />
+                  Your ROAS dropped.
+                </Badge>
+              </div>
+            </h4>
+            {offerData.embedId.loom && (
+              <LoomEmbed
+                hideControls={false}
+                backgroundImage="/images/hero/data-sharing-restrcition-03.png"
+                embedId={offerData.embedId.loom}
+                className="p-0"
+              />
+            )}
+          </>
         }
         benefits={offerData.benefits}
         customCtaButton={
-          <MeetingBookingButton
-            wrapperButtonClassName="py-4 lg:w-fit lg:mx-0 text-center lg:text-left lg:justify-start lg:items-start"
-            offerData={offerData}
-          />
-        }
-        supportingComponent={
-          <div className="flex flex-1">
-            {/* Desktop version - hidden on mobile */}
-            <YoutubeEmbed
-              verticalVideo={true}
-              embedId={"_vOZLo-4YMU"}
-              className="hidden lg:block"
-            />
-            {/* <Image
-              src="/images/hero/data-sharing-restrcition-04.png"
-              alt="Data Sharing Restrictions - Desktop View"
-              className="hidden rounded-lg object-contain lg:block"
-              width={1920}
-              height={1080}
-              priority
-              quality={90}
-            /> */}
-
-            {/* Mobile version - hidden on desktop */}
-            {/* <Image
-              src="/images/hero/data-sharing-restrcition-03.png"
-              alt="Data Sharing Restrictions - Mobile View"
-              className="block rounded-lg object-contain lg:hidden"
-              width={1080}
-              height={1920}
-              priority
-              quality={90}
-            /> */}
-          </div>
+          <MeetingBookingButton wrapperButtonClassName="py-4  text-center " offerData={offerData} />
         }
       />
-      {/* <Container>
-        <div className="mb-12 text-center">
-          <h2 className="mb-4 text-destructive">{offerData.testimonialSection.title}</h2>
-          <h4 className="mx-auto max-w-3xl text-accent-foreground">
-            {offerData.testimonialSection.description}
-          </h4>
-        </div>
-      </Container>
-      <CaseStudyCarousel
-        caseStudies={caseStudies.filter((cs) =>
-          [
-            "zenon",
-            "northridgeaddiction",
-            "saneofrance",
-            "emiratesadvisory",
-            "peachandcream",
-          ].includes(cs.id),
-        )}
-      /> */}
 
       {/* Problem Amplification Section */}
       <Container className="max-w-6xl py-12">
@@ -183,7 +142,7 @@ export default async function Page({ params }: { params: Promise<{ offer: string
             dreamOutcomeList={offerData.problemStatement.alerts.map((alert, index) => ({
               text: alert.title || "No title provided",
               description: alert.description || "No description available.",
-              videoId: offerData.videoId || "/images/social-sharing.png", // fallback image
+              embedId: offerData.embedId,
               icon: alert.icon,
             }))}
           />
@@ -205,20 +164,14 @@ export default async function Page({ params }: { params: Promise<{ offer: string
         <DetailsCards {...offerData.solution} />
 
         <Container className="max-w-6xl">
-          <div className="mt-12 text-center">
+          <div className="text-center">
             <MeetingBookingButton offerData={offerData} />
           </div>
         </Container>
       </section>
-
-      {/* Case Studies */}
-      {offerData.caseStudyIds.map((caseStudyId) => {
-        const caseStudy = getCaseStudy(caseStudyId);
-        return caseStudy ? <FeaturedCaseStudy key={caseStudyId} caseStudy={caseStudy} /> : null;
-      })}
       {/* Services Grid */}
       <Container>
-        <div className="mx-auto max-w-4xl space-y-6 text-center">
+        <div className="mx-auto max-w-4xl space-y-6 py-12 text-center">
           <h2>
             Choose Your Perfect
             <span className="text-primary"> Tracking Solution</span>
@@ -229,17 +182,25 @@ export default async function Page({ params }: { params: Promise<{ offer: string
           </h4>
         </div>
 
-        <div className="grid gap-8 py-12">
+        <div className="grid gap-8 py-12 lg:grid-cols-3">
           {getServicesByKeys([
             // "starter-subscription",
             "growth-subscription",
-            // "pro-subscription",
-            // "premium-subscription",
+            "pro-subscription",
+            "premium-subscription",
           ]).map((service) => (
-            <ServiceHero service={service} />
+            <React.Fragment key={service.id}>
+              <ServiceCard service={service} />
+            </React.Fragment>
           ))}
         </div>
       </Container>
+      {/* Case Studies */}
+      {offerData.caseStudyIds.map((caseStudyId) => {
+        const caseStudy = getCaseStudy(caseStudyId);
+        return caseStudy ? <FeaturedCaseStudy key={caseStudyId} caseStudy={caseStudy} /> : null;
+      })}
+
       {/* Final CTA */}
       <div className="py-16">
         <section className="bg-gradient-to-b from-primary/20 to-background py-16">

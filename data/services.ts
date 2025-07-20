@@ -391,7 +391,7 @@ export const services: Service[] = [
     color: "border-muted",
     buttonVariant: "outline",
     cta: "Start Maximizing",
-    accuracy: "99%+",
+    accuracy: "95%+",
     features: {
       "Monthly Leads": "Unlimited",
       "Setup Included": "Free",

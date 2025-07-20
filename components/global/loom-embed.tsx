@@ -1,7 +1,7 @@
 "use client";
 
 import { sendGTMEvent } from "@next/third-parties/google";
-import { FC, memo } from "react";
+import { FC } from "react";
 import Container from "../ui/container";
 
 interface LoomEmbedProps {
@@ -80,4 +80,4 @@ const LoomEmbed: FC<LoomEmbedProps> = ({
   );
 };
 
-export default memo(LoomEmbed);
+export default LoomEmbed;

@@ -40,7 +40,11 @@ export interface OfferData {
     suffix: string;
   };
   subheading: string;
-  videoId: string;
+  embedId: {
+    loom?: string;
+    youtube?: string;
+  };
+
   cta: {
     primary: string;
     secondary: string;
@@ -91,23 +95,22 @@ export const offers: Record<string, OfferData> = {
     businessType: "business",
     businessTypePlural: "businesses",
     icon: "🚫",
-    eyebrow: "Running Meta Ads in a Restricted Niche?",
+    eyebrow: "🚫 Data Sharing Restriction Applied",
     headline: {
-      prefix: "Fix",
-      conversion: ["Data Sharing Restriction"],
-      suffix: "and Track Every Conversion for Your Meta Ads",
+      prefix: "We Help ",
+      conversion: ["Categorized Domains"],
+      suffix: " Start Tracking Conversions Again on Meta Ads",
     },
-    subheading:
-      'Even if Meta has restricted your domain, blocked URL parameters, or disabled your events—we install <strong class="text-primary underline">RestrictedPixel Pro</strong> to fix your Meta Ads Conversions for your restricted business.',
-    videoId: "tdQufJ-qadE",
+    subheading: `If your domain has been flagged by Facebook under health, finance, politics, or religion…We fix this in 7 Days. Guaranteed.`,
+    embedId: { youtube: "tdQufJ-qadE", loom: "3768f5d29d724dc2837085355d614c57" },
     cta: {
       primary: "Starting from $299/month",
       secondary: "No upfront costs, Start tracking conversions in Meta Ads ",
     },
     benefits: [
-      "Track all conversions in restricted industries",
+      "Works with restricted Niches",
       "Fix Data Sharing Restrictions",
-      "Full Compliance with Niche Regulations",
+      "Full Compliance with Meta",
     ],
     problemStatement: {
       title: "Data Sharing Restrictions are destroying Restricted Businesses",
@@ -170,7 +173,7 @@ export const offers: Record<string, OfferData> = {
         },
         {
           image: "/images/hero/unified-dashboard.png",
-          title: "GA4 Unified Reporting Dashboard",
+          title: "Lead Reproting Dashboard",
           description:
             "Comprehensive tracking dashboard with GA4 integration that displays all critical metrics at a glance. Monitor your complete customer journey with real-time data synchronization and advanced attribution reporting.",
           benefits: [
@@ -192,30 +195,30 @@ export const offers: Record<string, OfferData> = {
             "No more lost conversions",
           ],
         },
-        {
-          image: "/images/hero/100-success-no-down-time.png",
-          title: "100% Success & Zero Downtime Guarantee",
-          description:
-            "Every implementation works perfectly with zero downtime. Completely hands-off process that requires no work from your end while maintaining perfect campaign performance.",
-          benefits: [
-            "100% success rate guaranteed",
-            "Zero downtime implementation",
-            "Completely hands-off process",
-            "Permanent, stable solution",
-          ],
-        },
-        {
-          image: "/images/hero/measurement-planning.png",
-          title: "Restricted Niche Tracking Strategy",
-          description:
-            "Custom measurement planning specifically designed for restricted industries. We identify the most valuable conversion actions and create a compliance-focused tracking framework.",
-          benefits: [
-            "Industry-specific journey mapping",
-            "Key conversion metrics identification",
-            "ROI-focused tracking setup",
-            "Compliance-first optimization",
-          ],
-        },
+        // {
+        //   image: "/images/hero/100-success-no-down-time.png",
+        //   title: "100% Success & Zero Downtime Guarantee",
+        //   description:
+        //     "Every implementation works perfectly with zero downtime. Completely hands-off process that requires no work from your end while maintaining perfect campaign performance.",
+        //   benefits: [
+        //     "100% success rate guaranteed",
+        //     "Zero downtime implementation",
+        //     "Completely hands-off process",
+        //     "Permanent, stable solution",
+        //   ],
+        // },
+        // {
+        //   image: "/images/hero/measurement-planning.png",
+        //   title: "Restricted Niche Tracking Strategy",
+        //   description:
+        //     "Custom measurement planning specifically designed for restricted industries. We identify the most valuable conversion actions and create a compliance-focused tracking framework.",
+        //   benefits: [
+        //     "Industry-specific journey mapping",
+        //     "Key conversion metrics identification",
+        //     "ROI-focused tracking setup",
+        //     "Compliance-first optimization",
+        //   ],
+        // },
         {
           image: "/images/hero/customer-support.png",
           title: "Restricted Industry Priority Support",
@@ -347,7 +350,7 @@ export const offers: Record<string, OfferData> = {
     },
     subheading:
       'Even if Meta has restricted your health domain, blocked URL parameters, or disabled your events—we install <strong class="text-primary underline">HealthPixel Pro</strong> to fix your Meta Ads Conversions for health & wellness businesses.',
-    videoId: "tdQufJ-qadE",
+    embedId: { youtube: "tdQufJ-qadE", loom: "3768f5d29d724dc2837085355d614c57" },
     cta: {
       primary: "Starting from $299/month",
       secondary: "Start tracking health & wellness conversions in Meta Ads & Events Manager again",
@@ -411,7 +414,7 @@ export const offers: Record<string, OfferData> = {
         },
         {
           image: "/images/hero/unified-dashboard.png",
-          title: "GA4 Unified Reporting Dashboard",
+          title: "Lead Reproting Dashboard",
           description:
             "Comprehensive tracking dashboard with GA4 integration that displays all critical metrics at a glance. Monitor your health & wellness business's complete customer journey with real-time data synchronization and advanced attribution reporting.",
           benefits: [
@@ -433,18 +436,18 @@ export const offers: Record<string, OfferData> = {
             "No more lost conversions",
           ],
         },
-        {
-          image: "/images/hero/100-success-no-down-time.png",
-          title: "100% Success & Zero Downtime Guarantee",
-          description:
-            "Every implementation works perfectly with zero downtime. Completely hands-off process that requires no work from your end while maintaining perfect campaign performance for your health & wellness business.",
-          benefits: [
-            "100% success rate guaranteed",
-            "Zero downtime implementation",
-            "Completely hands-off process",
-            "Permanent, stable solution",
-          ],
-        },
+        // {
+        //   image: "/images/hero/100-success-no-down-time.png",
+        //   title: "100% Success & Zero Downtime Guarantee",
+        //   description:
+        //     "Every implementation works perfectly with zero downtime. Completely hands-off process that requires no work from your end while maintaining perfect campaign performance for your health & wellness business.",
+        //   benefits: [
+        //     "100% success rate guaranteed",
+        //     "Zero downtime implementation",
+        //     "Completely hands-off process",
+        //     "Permanent, stable solution",
+        //   ],
+        // },
         {
           image: "/images/hero/measurement-planning.png",
           title: "Health & Wellness Tracking Strategy",
@@ -588,7 +591,7 @@ export const offers: Record<string, OfferData> = {
     },
     subheading:
       'Even if Meta has restricted your dental domain, blocked URL parameters, or disabled your events—we install <strong class="text-primary underline">DentalPixel Pro</strong> to fix your Meta Ads Conversions for dental practices.',
-    videoId: "tdQufJ-qadE",
+    embedId: { youtube: "tdQufJ-qadE", loom: "3768f5d29d724dc2837085355d614c57" },
     cta: {
       primary: "Starting from $299/month",
       secondary: "Start tracking dental patient conversions in Meta Ads & Events Manager again",
@@ -652,7 +655,7 @@ export const offers: Record<string, OfferData> = {
         },
         {
           image: "/images/hero/unified-dashboard.png",
-          title: "GA4 Unified Reporting Dashboard",
+          title: "Lead Reproting Dashboard",
           description:
             "Comprehensive tracking dashboard with GA4 integration that displays all critical metrics at a glance. Monitor your dental practice's complete patient journey with real-time data synchronization and advanced attribution reporting.",
           benefits: [
@@ -674,18 +677,18 @@ export const offers: Record<string, OfferData> = {
             "No more lost conversions",
           ],
         },
-        {
-          image: "/images/hero/100-success-no-down-time.png",
-          title: "100% Success & Zero Downtime Guarantee",
-          description:
-            "Every implementation works perfectly with zero downtime. Completely hands-off process that requires no work from your end while maintaining perfect campaign performance.",
-          benefits: [
-            "100% success rate guaranteed",
-            "Zero downtime implementation",
-            "Completely hands-off process",
-            "Permanent, stable solution",
-          ],
-        },
+        // {
+        //   image: "/images/hero/100-success-no-down-time.png",
+        //   title: "100% Success & Zero Downtime Guarantee",
+        //   description:
+        //     "Every implementation works perfectly with zero downtime. Completely hands-off process that requires no work from your end while maintaining perfect campaign performance.",
+        //   benefits: [
+        //     "100% success rate guaranteed",
+        //     "Zero downtime implementation",
+        //     "Completely hands-off process",
+        //     "Permanent, stable solution",
+        //   ],
+        // },
         {
           image: "/images/hero/measurement-planning.png",
           title: "Dental Tracking Strategy",
@@ -825,7 +828,7 @@ export const offers: Record<string, OfferData> = {
     },
     subheading:
       'Even if Meta has restricted your rehab domain, blocked URL parameters, or disabled your events—we install <strong class="text-primary underline">RehabPixel Pro</strong> to fix your Meta Ads Conversions for addiction treatment centers.',
-    videoId: "tdQufJ-qadE",
+    embedId: { youtube: "tdQufJ-qadE", loom: "3768f5d29d724dc2837085355d614c57" },
     cta: {
       primary: "Starting from $299/month",
       secondary: "Start tracking rehab admissions in Meta Ads & Events Manager again",
@@ -889,7 +892,7 @@ export const offers: Record<string, OfferData> = {
         },
         {
           image: "/images/hero/unified-dashboard.png",
-          title: "GA4 Unified Reporting Dashboard",
+          title: "Lead Reproting Dashboard",
           description:
             "Comprehensive tracking dashboard with GA4 integration that displays all critical metrics at a glance. Monitor your rehab center's complete patient journey with real-time data synchronization and advanced attribution reporting.",
           benefits: [
@@ -911,18 +914,18 @@ export const offers: Record<string, OfferData> = {
             "No more lost conversions",
           ],
         },
-        {
-          image: "/images/hero/100-success-no-down-time.png",
-          title: "100% Success & Zero Downtime Guarantee",
-          description:
-            "Every implementation works perfectly with zero downtime. Completely hands-off process that requires no work from your end while maintaining perfect campaign performance for your rehab center.",
-          benefits: [
-            "100% success rate guaranteed",
-            "Zero downtime implementation",
-            "Completely hands-off process",
-            "Permanent, stable solution",
-          ],
-        },
+        // {
+        //   image: "/images/hero/100-success-no-down-time.png",
+        //   title: "100% Success & Zero Downtime Guarantee",
+        //   description:
+        //     "Every implementation works perfectly with zero downtime. Completely hands-off process that requires no work from your end while maintaining perfect campaign performance for your rehab center.",
+        //   benefits: [
+        //     "100% success rate guaranteed",
+        //     "Zero downtime implementation",
+        //     "Completely hands-off process",
+        //     "Permanent, stable solution",
+        //   ],
+        // },
         {
           image: "/images/hero/measurement-planning.png",
           title: "Rehab Center Tracking Strategy",

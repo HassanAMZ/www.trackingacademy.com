@@ -14,7 +14,7 @@ import {
   XCircle,
 } from "lucide-react";
 import React from "react";
-import LoomEmbed from "../global/loom-embed";
+import YoutubeEmbed from "../global/youtube-embed";
 
 export interface DreamOutcomeProps {
   heading?: string;
@@ -32,7 +32,7 @@ export interface DreamOutcomeProps {
       | "DollarSign"
       | "Database";
     text: string;
-    videoId: string;
+    embedId: { loom?: string; youtube?: string };
     description: string;
   }>;
 }
@@ -62,13 +62,9 @@ const DreamOutcome: React.FC<DreamOutcomeProps> = ({
         {heading && <h2>{heading}</h2>}
         {subheading && <h4 className="mx-auto max-w-3xl text-muted-foreground">{subheading}</h4>}
       </div>
-
-      <LoomEmbed
-        hideControls={false}
-        backgroundImage="/images/hero/data-sharing-restrcition-03.png"
-        embedId="3768f5d29d724dc2837085355d614c57"
-        className="p-0"
-      />
+      {dreamOutcomeList[0].embedId.youtube && (
+        <YoutubeEmbed embedId={dreamOutcomeList[0].embedId.youtube} className="p-0" />
+      )}
       {/* Content */}
       <div className="grid gap-8 lg:grid-cols-2">
         {dreamOutcomeList.map((outcome, index) => {
