@@ -123,22 +123,12 @@ export const offers: Record<string, OfferData> = {
             "Standard events blocked: Lead Generation, Purchase, Contact, and custom conversions across health, finance, CBD, wellness, and political niches",
           icon: "AlertTriangle",
         },
-        {
-          title: "Pixel shows '0 leads' — even though your phone is ringing",
-          description:
-            "Hundreds of thousands of conversion events blocked across restricted categories",
-          icon: "XCircle",
-        },
+
         {
           title: "Tried every other solution - new pixels, new domain, new ad account",
           description:
             "Have exhuasted all the solutions and still cannot track all the conversions",
           icon: "XCircle",
-        },
-        {
-          title: "You're spending $2K–$10K/month… and getting nothing back",
-          description: "Wasted ad spend due to poor optimization in restricted industries",
-          icon: "DollarSign",
         },
       ],
     },
