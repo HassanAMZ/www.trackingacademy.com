@@ -483,7 +483,7 @@ export const services: Service[] = [
   {
     name: "Starter Plan",
     id: "starter-subscription",
-    subtitle: "Up to 100 leads/month",
+    subtitle: "Up to 200 leads/month",
     description: "Essential Meta tracking for small businesses and new advertisers.",
     price: "$149/month",
     price_id: "price_1RmXDiAE3E6zT9eTFY5Ag1yI",
