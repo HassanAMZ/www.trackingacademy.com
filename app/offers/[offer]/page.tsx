@@ -111,7 +111,7 @@ export default async function Page({ params }: { params: Promise<{ offer: string
             </h4>
             {offerData.embedId.loom && (
               <LoomEmbed
-                hideControls={false}
+                hideControls={true}
                 backgroundImage="/images/hero/data-sharing-restrcition-03.png"
                 embedId={offerData.embedId.loom}
                 className="p-0"
