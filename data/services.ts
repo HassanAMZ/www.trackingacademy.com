@@ -504,7 +504,7 @@ export const services: Service[] = [
     },
     featureExplanations: {
       "Monthly Leads/Purchases":
-        "Track up to 100 Leads/Purchases conversions per month  with accurate attribution.",
+        "Track up to 200 Leads/Purchases conversions per month  with accurate attribution.",
       "Setup Included": "Complete setup worth $1,500 included free with your subscription.",
       "Meta Pixel": "Full Facebook Pixel installation with proper event configuration.",
       Support: "Professional email support with 24-48 hour response time.",
