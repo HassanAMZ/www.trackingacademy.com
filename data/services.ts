@@ -382,7 +382,7 @@ export const services: Service[] = [
   {
     name: "Premium Plan",
     id: "premium-subscription",
-    subtitle: "Unlimited leads",
+    subtitle: "1000+ Leads/Purchases",
     description: "Full enterprise solution with dedicated team for high-volume businesses.",
     price: "$999/month",
     price_id: "price_1RmVp3AE3E6zT9eTcoTGS9Tl",
@@ -393,7 +393,7 @@ export const services: Service[] = [
     cta: "Start Maximizing",
     accuracy: "95%+",
     features: {
-      "Monthly Leads": "Unlimited",
+      "Monthly Leads/Purchases": "1000+",
       "Setup Included": "Free",
       Support: "Dedicated Slack",
       "Google Analytics": "Full GA4",
@@ -405,7 +405,7 @@ export const services: Service[] = [
       "Meta Pixel": "Full Facebook Pixel installation with proper event configuration.",
       "Google Analytics": "Full GA4 implementation with Google Tag Manager setup.",
       "Money Back Guarantee": "Full refund if not satisfied within 60 days.",
-      "Monthly Leads": "Unlimited lead tracking with enterprise infrastructure.",
+      "Monthly Leads/Purchases": "1000+ Leads/Purchases tracking with enterprise infrastructure.",
       "Setup Included": "Complete custom enterprise setup with dedicated implementation team.",
       Support: "Private Slack channel with dedicated account manager.",
       Reporting: "Real-time dashboards",
@@ -426,7 +426,7 @@ export const services: Service[] = [
     cta: "Start Scaling",
     accuracy: "95%+",
     features: {
-      "Monthly Leads": "Up to 1,000",
+      "Monthly Leads/Purchases": "Up to 1,000",
       "Setup Included": "Free",
       Support: "Dedicated Slack",
       Reporting: "Real-time",
@@ -436,8 +436,8 @@ export const services: Service[] = [
     },
     featureExplanations: {
       "Meta Pixel": "Full Facebook Pixel installation with proper event configuration.",
-      "Monthly Leads":
-        "Track up to 1,000 lead conversions per month with enterprise infrastructure.",
+      "Monthly Leads/Purchases":
+        "Track up to 1,000 Leads/Purchases conversions per month  with enterprise infrastructure.",
       "Setup Included": "Enterprise setup worth $5,000 included free with white-glove onboarding.",
       "Google Analytics": "Full GA4 implementation with Google Tag Manager setup.",
 
@@ -460,7 +460,7 @@ export const services: Service[] = [
     cta: "Start Growing",
     accuracy: "95%+",
     features: {
-      "Monthly Leads": "Up to 500",
+      "Monthly Leads/Purchases": "Up to 500",
       "Setup Included": "Free",
       "Google Analytics": "Full GA4",
       Support: "Priority Chat + Email",
@@ -472,7 +472,8 @@ export const services: Service[] = [
     featureExplanations: {
       "Meta Pixel": "Full Facebook Pixel installation with proper event configuration.",
 
-      "Monthly Leads": "Track up to 500 lead conversions per month with advanced attribution.",
+      "Monthly Leads/Purchases":
+        "Track up to 500 Leads/Purchases conversions per month  with advanced attribution.",
       "Setup Included": "Complete advanced setup worth $2,500 included free.",
       "Google Analytics": "Full GA4 implementation with Google Tag Manager setup.",
       Support: "Priority support with same-day response guarantee.",
@@ -494,7 +495,7 @@ export const services: Service[] = [
     cta: "Start Tracking",
     accuracy: "90%+",
     features: {
-      "Monthly Leads": "Up to 200",
+      "Monthly Leads/Purchases": "Up to 200",
       "Setup Included": "Free",
       "Meta Pixel": "Complete",
       Support: "Email",
@@ -502,7 +503,8 @@ export const services: Service[] = [
       "Money Back Guarantee": "30 days",
     },
     featureExplanations: {
-      "Monthly Leads": "Track up to 100 lead conversions per month with accurate attribution.",
+      "Monthly Leads/Purchases":
+        "Track up to 100 Leads/Purchases conversions per month  with accurate attribution.",
       "Setup Included": "Complete setup worth $1,500 included free with your subscription.",
       "Meta Pixel": "Full Facebook Pixel installation with proper event configuration.",
       Support: "Professional email support with 24-48 hour response time.",
