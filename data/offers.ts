@@ -185,30 +185,6 @@ export const offers: Record<string, OfferData> = {
             "No more lost conversions",
           ],
         },
-        // {
-        //   image: "/images/hero/100-success-no-down-time.png",
-        //   title: "100% Success & Zero Downtime Guarantee",
-        //   description:
-        //     "Every implementation works perfectly with zero downtime. Completely hands-off process that requires no work from your end while maintaining perfect campaign performance.",
-        //   benefits: [
-        //     "100% success rate guaranteed",
-        //     "Zero downtime implementation",
-        //     "Completely hands-off process",
-        //     "Permanent, stable solution",
-        //   ],
-        // },
-        // {
-        //   image: "/images/hero/measurement-planning.png",
-        //   title: "Restricted Niche Tracking Strategy",
-        //   description:
-        //     "Custom measurement planning specifically designed for restricted industries. We identify the most valuable conversion actions and create a compliance-focused tracking framework.",
-        //   benefits: [
-        //     "Industry-specific journey mapping",
-        //     "Key conversion metrics identification",
-        //     "ROI-focused tracking setup",
-        //     "Compliance-first optimization",
-        //   ],
-        // },
         {
           image: "/images/hero/customer-support.png",
           title: "Restricted Industry Priority Support",
@@ -573,7 +549,7 @@ export const offers: Record<string, OfferData> = {
     businessType: "dental clinic",
     businessTypePlural: "dental clinics",
     icon: "🦷",
-    eyebrow: "Running Meta Ads for Your Dental Clinic?",
+    eyebrow: "No Upfront payments, only pay once it's working",
     headline: {
       prefix: "Fix",
       conversion: ["Data Sharing Restriction"],
@@ -655,40 +631,17 @@ export const offers: Record<string, OfferData> = {
             "Complete patient journey tracking",
           ],
         },
+
         {
-          image: "/images/hero/real-time-dashboard.png",
-          title: "Tracking Optimization",
+          image: "/images/hero/100-success-no-down-time.png",
+          title: "No upfront cost, you only pay once it's working",
           description:
-            "Bulletproof tracking solution that never gets shut down. Real-time event synchronization with complete attribution recovery and zero maintenance required.",
+            "No upfront costs, no risk to you. You only pay after the tracking is working.",
           benefits: [
-            "Fix the Restriction by Meta",
-            "Real-time event synchronization",
-            "Zero maintenance required",
-            "No more lost conversions",
-          ],
-        },
-        // {
-        //   image: "/images/hero/100-success-no-down-time.png",
-        //   title: "100% Success & Zero Downtime Guarantee",
-        //   description:
-        //     "Every implementation works perfectly with zero downtime. Completely hands-off process that requires no work from your end while maintaining perfect campaign performance.",
-        //   benefits: [
-        //     "100% success rate guaranteed",
-        //     "Zero downtime implementation",
-        //     "Completely hands-off process",
-        //     "Permanent, stable solution",
-        //   ],
-        // },
-        {
-          image: "/images/hero/measurement-planning.png",
-          title: "Dental Tracking Strategy",
-          description:
-            "Custom measurement planning specifically designed for dental practices. We identify the most valuable patient actions and create a tracking framework that captures every appointment booking and consultation request.",
-          benefits: [
-            "Patient journey mapping",
-            "Key dental metrics identification",
-            "ROI-focused tracking setup",
-            "Appointment conversion optimization",
+            "Zero Upfront",
+            "Zero Risk",
+            "Completely hands-off process",
+            "Permanent, stable solution",
           ],
         },
         {
