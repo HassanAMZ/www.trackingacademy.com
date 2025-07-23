@@ -42,6 +42,19 @@ export default function MeetingBooked() {
           },
         },
       });
+      sendGTMEvent({
+        event: "gtm_custom_event",
+        datalayer_event_name: "generate_lead",
+        user_data: {
+          id: userId,
+          email,
+          phone,
+          address: {
+            firstName,
+            lastName,
+          },
+        },
+      });
       sessionStorage.setItem("gtm_schedule_triggered", "true");
     }
   }, []);
