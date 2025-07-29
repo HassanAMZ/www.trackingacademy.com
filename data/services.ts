@@ -380,112 +380,11 @@ export const services: Service[] = [
   },
 
   {
-    name: "Premium Plan",
-    id: "premium-subscription",
-    subtitle: "1000+ Leads/Purchases",
-    description: "Full enterprise solution with dedicated team for high-volume businesses.",
-    price: "$999/month",
-    price_id: "price_1RmVp3AE3E6zT9eTcoTGS9Tl",
-    product_id: "prod_Shvgwr1LDXZfr9",
-    popular: false,
-    color: "border-muted",
-    buttonVariant: "outline",
-    cta: "Start Maximizing",
-    accuracy: "95%+",
-    features: {
-      "Monthly Leads/Purchases": "1000+",
-      "Setup Included": "Free",
-      Support: "Dedicated Slack",
-      "Google Analytics": "Full GA4",
-      "Money Back Guarantee": "30 days",
-      Reporting: "Real-time ",
-      "Meta Pixel": "Complete",
-    },
-    featureExplanations: {
-      "Meta Pixel": "Full Facebook Pixel installation with proper event configuration.",
-      "Google Analytics": "Full GA4 implementation with Google Tag Manager setup.",
-      "Money Back Guarantee": "Full refund if not satisfied within 60 days.",
-      "Monthly Leads/Purchases": "1000+ Leads/Purchases tracking with enterprise infrastructure.",
-      "Setup Included": "Complete custom enterprise setup with dedicated implementation team.",
-      Support: "Private Slack channel with dedicated account manager.",
-      Reporting: "Real-time dashboards",
-    },
-  },
-
-  {
-    name: "Pro Plan",
-    id: "pro-subscription",
-    subtitle: "Up to 1,000 leads/month",
-    description: "Enterprise-grade tracking with dedicated support for serious volume.",
-    price: "$649/month",
-    price_id: "price_1RmWr7AE3E6zT9eTyrK7k1Rv",
-    product_id: "prod_Shwk6IH1i5t9iJ",
-    popular: true,
-    color: "text-primary",
-    buttonVariant: "default",
-    cta: "Start Scaling",
-    accuracy: "95%+",
-    features: {
-      "Monthly Leads/Purchases": "Up to 1,000",
-      "Setup Included": "Free",
-      Support: "Dedicated Slack",
-      Reporting: "Real-time",
-      "Google Analytics": "Full GA4",
-      "Money Back Guarantee": "30 days",
-      "Meta Pixel": "Complete",
-    },
-    featureExplanations: {
-      "Meta Pixel": "Full Facebook Pixel installation with proper event configuration.",
-      "Monthly Leads/Purchases":
-        "Track up to 1,000 Leads/Purchases conversions per month  with enterprise infrastructure.",
-      "Setup Included": "Enterprise setup worth $5,000 included free with white-glove onboarding.",
-      "Google Analytics": "Full GA4 implementation with Google Tag Manager setup.",
-
-      Support: "Private Slack channel with dedicated account manager.",
-      Reporting: "Live dashboards with real-time tracking and automated alerts.",
-      "Money Back Guarantee": "Full refund if not satisfied within 60 days.",
-    },
-  },
-  {
-    name: "Growth Plan",
-    id: "growth-subscription",
-    subtitle: "Up to 500 leads/month",
-    description: "Advanced tracking for growing businesses ready to scale profitably.",
-    price: "$299/month",
-    price_id: "price_1RmWvkAE3E6zT9eTYJANzSwn",
-    product_id: "prod_ShwpL9nJe32cK8",
-    popular: false,
-    color: "border-muted",
-    buttonVariant: "outline",
-    cta: "Start Growing",
-    accuracy: "95%+",
-    features: {
-      "Monthly Leads/Purchases": "Up to 500",
-      "Setup Included": "Free",
-      "Google Analytics": "Full GA4",
-      Support: "Priority Chat + Email",
-
-      Reporting: "Weekly",
-      "Money Back Guarantee": "30 days",
-      "Meta Pixel": "Complete",
-    },
-    featureExplanations: {
-      "Meta Pixel": "Full Facebook Pixel installation with proper event configuration.",
-
-      "Monthly Leads/Purchases":
-        "Track up to 500 Leads/Purchases conversions per month  with advanced attribution.",
-      "Setup Included": "Complete advanced setup worth $2,500 included free.",
-      "Google Analytics": "Full GA4 implementation with Google Tag Manager setup.",
-      Support: "Priority support with same-day response guarantee.",
-      Reporting: "Detailed weekly reports with optimization recommendations.",
-      "Money Back Guarantee": "Full refund if not satisfied within 30 days.",
-    },
-  },
-  {
     name: "Starter Plan",
     id: "starter-subscription",
-    subtitle: "Up to 200 leads/month",
-    description: "Essential Meta tracking for small businesses and new advertisers.",
+    subtitle: "Perfect for new businesses",
+    description:
+      "Essential tracking for small businesses and new advertisers starting their journey.",
     price: "$149/month",
     price_id: "price_1RmXDiAE3E6zT9eTFY5Ag1yI",
     product_id: "prod_Shx7baLtc7UrEC",
@@ -495,7 +394,9 @@ export const services: Service[] = [
     cta: "Start Tracking",
     accuracy: "90%+",
     features: {
-      "Monthly Leads/Purchases": "Up to 200",
+      "eCommerce Revenue": "Up to $50K/month",
+      "Lead Generation": "Up to 100 leads/month",
+      "Usage Charges": "0.125% on revenue over $50K",
       "Setup Included": "Free",
       "Meta Pixel": "Complete",
       Support: "Email",
@@ -503,13 +404,143 @@ export const services: Service[] = [
       "Money Back Guarantee": "30 days",
     },
     featureExplanations: {
-      "Monthly Leads/Purchases":
-        "Track up to 200 Leads/Purchases conversions per month  with accurate attribution.",
+      "eCommerce Revenue":
+        "Track up to $50,000 in monthly revenue with accurate attribution. Perfect for growing online stores.",
+      "Lead Generation":
+        "Track up to 100 leads/conversions per month with precise attribution for lead gen websites.",
+      "Usage Charges": "Only 0.125% usage charges applied on monthly revenue exceeding $50,000.",
       "Setup Included": "Complete setup worth $1,500 included free with your subscription.",
-      "Meta Pixel": "Full Facebook Pixel installation with proper event configuration.",
+      "Meta Pixel":
+        "Full Facebook Pixel installation with proper event configuration for both eCommerce and lead tracking.",
       Support: "Professional email support with 24-48 hour response time.",
-      Reporting: "Monthly performance report showing tracking accuracy and insights.",
+      Reporting: "Monthly performance report showing tracking accuracy and conversion insights.",
       "Money Back Guarantee": "Full refund if not satisfied within 30 days.",
+    },
+  },
+  {
+    name: "Growth Plan",
+    id: "growth-subscription",
+    subtitle: "For scaling businesses",
+    description:
+      "Advanced tracking for growing businesses ready to scale profitably across channels.",
+    price: "$429/month",
+    price_id: "price_1RmWvkAE3E6zT9eTYJANzSwn",
+    product_id: "prod_ShwpL9nJe32cK8",
+    popular: false,
+    color: "border-muted",
+    buttonVariant: "outline",
+    cta: "Start Growing",
+    accuracy: "95%+",
+    features: {
+      "eCommerce Revenue": "Up to $250K/month",
+      "Lead Generation": "Up to 500 leads/month",
+      "Usage Charges": "0.09% on revenue over $250K",
+      "Setup Included": "Free",
+      "Google Analytics": "Full GA4",
+      Support: "Priority Chat + Email",
+      Reporting: "Weekly",
+      "Money Back Guarantee": "30 days",
+      "Meta Pixel": "Complete",
+    },
+    featureExplanations: {
+      "eCommerce Revenue":
+        "Track up to $250,000 in monthly revenue with advanced attribution for serious eCommerce growth.",
+      "Lead Generation":
+        "Track up to 500 leads/conversions per month with enterprise-grade attribution accuracy.",
+      "Usage Charges": "Only 0.09% usage charges applied on monthly revenue exceeding $250,000.",
+      "Meta Pixel":
+        "Full Facebook Pixel installation with proper event configuration for comprehensive tracking.",
+      "Setup Included": "Complete advanced setup worth $2,500 included free.",
+      "Google Analytics":
+        "Full GA4 implementation with Google Tag Manager setup for both eCommerce and lead tracking.",
+      Support: "Priority support with same-day response guarantee.",
+      Reporting: "Detailed weekly reports with optimization recommendations.",
+      "Money Back Guarantee": "Full refund if not satisfied within 30 days.",
+    },
+  },
+  {
+    name: "Pro Plan",
+    id: "pro-subscription",
+    subtitle: "High-volume optimization",
+    description:
+      "Enterprise-grade tracking with dedicated support for serious volume and optimization.",
+    price: "$649/month",
+    price_id: "price_1RmWr7AE3E6zT9eTyrK7k1Rv",
+    product_id: "prod_Shwk6IH1i5t9iJ",
+    popular: true,
+    color: "text-primary",
+    buttonVariant: "default",
+    cta: "Start Scaling",
+    accuracy: "95%+",
+    features: {
+      "eCommerce Revenue": "Up to $500K/month",
+      "Lead Generation": "Up to 1,000 leads/month",
+      "Usage Charges": "0.066% on revenue over $500K",
+      "Setup Included": "Free",
+      Support: "Dedicated Slack",
+      Reporting: "Real-time",
+      "Google Analytics": "Full GA4",
+      "Money Back Guarantee": "30 days",
+      "Meta Pixel": "Complete",
+    },
+    featureExplanations: {
+      "eCommerce Revenue":
+        "Track up to $500,000 in monthly revenue with enterprise infrastructure and attribution.",
+      "Lead Generation":
+        "Track up to 1,000 leads/conversions per month with enterprise-grade tracking infrastructure.",
+      "Usage Charges": "Only 0.066% usage charges applied on monthly revenue exceeding $500,000.",
+      "Meta Pixel":
+        "Full Facebook Pixel installation with proper event configuration and enterprise setup.",
+      "Setup Included": "Enterprise setup worth $5,000 included free with white-glove onboarding.",
+      "Google Analytics":
+        "Full GA4 implementation with Google Tag Manager setup and advanced eCommerce tracking.",
+      Support: "Private Slack channel with dedicated account manager for immediate assistance.",
+      Reporting:
+        "Live dashboards with real-time tracking and automated alerts for both revenue and leads.",
+      "Money Back Guarantee": "Full refund if not satisfied within 60 days.",
+    },
+  },
+  {
+    name: "Premium Plan",
+    id: "premium-subscription",
+    subtitle: "Enterprise solution",
+    description:
+      "Full enterprise solution with dedicated team for high-volume businesses and unlimited scale.",
+    price: "$979/month",
+    price_id: "price_1RmVp3AE3E6zT9eTcoTGS9Tl",
+    product_id: "prod_Shvgwr1LDXZfr9",
+    popular: false,
+    color: "border-muted",
+    buttonVariant: "outline",
+    cta: "Start Maximizing",
+    accuracy: "95%+",
+    features: {
+      "eCommerce Revenue": "Up to $1M/month",
+      "Lead Generation": "1000+ leads/month",
+      "Usage Charges": "0.033% on revenue over $1M",
+      "Setup Included": "Free",
+      Support: "Dedicated Slack",
+      "Google Analytics": "Full GA4",
+      "Money Back Guarantee": "30 days",
+      Reporting: "Real-time",
+      "Meta Pixel": "Complete",
+    },
+    featureExplanations: {
+      "eCommerce Revenue":
+        "Track up to $1,000,000 in monthly revenue with full enterprise infrastructure and support.",
+      "Lead Generation":
+        "Track 1000+ leads/conversions per month with unlimited scaling and enterprise attribution.",
+      "Usage Charges": "Only 0.033% usage charges applied on monthly revenue exceeding $1,000,000.",
+      "Meta Pixel":
+        "Full Facebook Pixel installation with proper event configuration and enterprise-level optimization.",
+      "Setup Included":
+        "Complete custom enterprise setup with dedicated implementation team worth $10,000+.",
+      "Google Analytics":
+        "Full GA4 implementation with Google Tag Manager setup and custom enterprise reporting.",
+      Support:
+        "Private Slack channel with dedicated account manager and priority enterprise support.",
+      Reporting: "Real-time enterprise dashboards with custom reporting and advanced analytics.",
+      "Money Back Guarantee": "Full refund if not satisfied within 60 days.",
     },
   },
 ];
