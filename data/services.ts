@@ -417,7 +417,7 @@ export const services: Service[] = [
     id: "pro-subscription",
     subtitle: "Up to 1,000 leads/month",
     description: "Enterprise-grade tracking with dedicated support for serious volume.",
-    price: "$699/month",
+    price: "$649/month",
     price_id: "price_1RmWr7AE3E6zT9eTyrK7k1Rv",
     product_id: "prod_Shwk6IH1i5t9iJ",
     popular: true,
