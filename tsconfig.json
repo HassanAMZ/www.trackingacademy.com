@@ -49,6 +49,8 @@
     "next.config.js",
     "app/_courses-markdown/react-fundamentals/modules/intro/lessons/markdown.mdx",
     "prettier.config.js",
+    "video.d.ts",
+    "next-env.d.ts",
     "app/lead-magnets/processing"
   ],
   "exclude": ["node_modules"]

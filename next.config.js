@@ -1,16 +1,18 @@
-/** @type {import('next').NextConfig} */
-
+const { withNextVideo } = require("next-video/process");
 const path = require("path");
 
+/** @type {import('next').NextConfig} */
 const nextConfig = {
   transpilePackages: ["geist"],
   pageExtensions: ["js", "jsx", "ts", "tsx", "mdx", "md"],
+
   experimental: {
     viewTransition: true,
     mdxRs: true,
     optimizeServerReact: true,
     webpackBuildWorker: true,
   },
+
   turbopack: {
     rules: {
       "*.svg": {
@@ -19,6 +21,7 @@ const nextConfig = {
       },
     },
   },
+
   images: {
     remotePatterns: [
       {
@@ -36,25 +39,23 @@ const nextConfig = {
       {
         protocol: "https",
         hostname: "*.ytimg.com",
-        port: "",
         pathname: "**",
       },
       {
         protocol: "https",
         hostname: "*.googleusercontent.com",
-        port: "",
         pathname: "**",
       },
       {
         protocol: "https",
         hostname: "*.vercel-storage.com",
-        port: "",
         pathname: "**",
       },
     ],
   },
 
   reactStrictMode: true,
+
   sassOptions: {
     includePaths: [path.join(__dirname, "styles")],
   },
@@ -68,4 +69,4 @@ const withMDX = require("@next/mdx")({
   },
 });
 
-module.exports = withMDX(nextConfig);
+module.exports = withNextVideo(withMDX(nextConfig));

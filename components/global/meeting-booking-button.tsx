@@ -5,11 +5,13 @@ import { Button } from "../ui/button";
 
 interface MeetingBookingButtonProps {
   buttonText?: string;
+  subheading?: boolean;
   wrapperButtonClassName?: string;
   offerData?: OfferData;
 }
 const MeetingBookingButton = ({
   buttonText,
+  subheading = true,
   wrapperButtonClassName = "",
   offerData,
 }: MeetingBookingButtonProps) => {
@@ -29,8 +31,12 @@ const MeetingBookingButton = ({
       <Link href="#book-a-meeting">
         <>
           {buttonText || defaultText}
-          <br />
-          <span className="text-sm text-muted underline md:text-base">{secondaryText}</span>
+          {subheading && (
+            <>
+              <br />
+              <span className="text-sm text-muted underline md:text-base">{secondaryText}</span>
+            </>
+          )}
         </>
       </Link>
     </Button>

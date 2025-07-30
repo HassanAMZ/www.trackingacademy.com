@@ -1,8 +1,8 @@
 import FeaturedCaseStudy from "@/components/case-study/case-study-featured";
 import MeetingCalendar from "@/components/contact/meeting-calender";
 import DetailsCards from "@/components/funnels/details-card";
+import DreamOutcome from "@/components/funnels/dream-outcome";
 import MeetingBookingButton from "@/components/global/meeting-booking-button";
-import YoutubeEmbed from "@/components/global/youtube-embed";
 import Hero from "@/components/home/hero";
 import { ServiceCard } from "@/components/pricing/pricing-vertical";
 import TestimonialGrid from "@/components/testimonial/testimonial-grid";
@@ -12,6 +12,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import { Badge } from "@/components/ui/badge";
 import Container from "@/components/ui/container";
 import { offers } from "@/data/offers";
 import getCaseStudy from "@/utils/getCaseStudy";
@@ -35,6 +36,7 @@ import {
   XCircle,
   Zap,
 } from "lucide-react";
+import Video from "next-video";
 import React from "react";
 
 // Generate static params for all offers
@@ -71,36 +73,54 @@ export default async function Page({ params }: { params: Promise<{ offer: string
 
   return (
     <main>
-      <Hero
-        eyebrow={offerData.eyebrow}
-        heading={
-          <h1 className="mx-auto text-center">
-            {offerData.headline.prefix}{" "}
-            {offerData.headline.conversion.map((conv, index) => (
-              <span key={index} className="text-destructive underline">
-                {conv}
-              </span>
-            ))}{" "}
-            {offerData.headline.suffix}
-          </h1>
-        }
-        subheading={
-          <>
-            {offerData.embedId.youtube && (
-              <YoutubeEmbed embedId={offerData.embedId.youtube} className="p-0" />
-            )}
-            <h3 className="mx-auto max-w-3xl text-center">
-              Watched the video and want us to fix your tracking? Book a Call using the Button Below
-              to Qualify.
-            </h3>
-          </>
-        }
-        benefits={offerData.benefits}
-        customCtaButton={<MeetingBookingButton offerData={offerData} />}
-      />
+      <div className="grid min-h-screen place-content-center">
+        <Hero
+          testimonialImages={false}
+          eyebrow={offerData.eyebrow}
+          heading={
+            <h1 className="mx-auto text-center">
+              {offerData.headline.prefix}{" "}
+              {offerData.headline.conversion.map((conv, index) => (
+                <span key={index} className="text-destructive underline">
+                  {conv}
+                </span>
+              ))}{" "}
+              {offerData.headline.suffix}
+            </h1>
+          }
+          subheading={
+            <>
+              <h4 className="mx-auto max-w-3xl text-center">
+                <span dangerouslySetInnerHTML={{ __html: offerData.subheading }} />
+                <div className="flex flex-wrap justify-center gap-2 py-4">
+                  <Badge variant="destructive" className="flex items-center gap-1">
+                    <XCircle className="h-5 w-5" />
+                    You’re not tracking conversions
+                  </Badge>
+                  <Badge variant="destructive" className="flex items-center gap-1">
+                    <XCircle className="h-5 w-5" />
+                    Your conversions disappeared.
+                  </Badge>
+                  <Badge variant="destructive" className="flex items-center gap-1">
+                    <XCircle className="h-5 w-5" />
+                    Your ROAS dropped.
+                  </Badge>
+                </div>
+              </h4>
+              <Video
+                src="https://stream.mux.com/2ycrwGk9Mq02JzWDaH9sgWWaPC2ts1dvoQMPX5asddgY.m3u8"
+                poster="https://image.mux.com/2ycrwGk9Mq02JzWDaH9sgWWaPC2ts1dvoQMPX5asddgY/animated.gif"
+                className="rounded-lg"
+              />
+            </>
+          }
+          customCtaButton={<MeetingBookingButton offerData={offerData} />}
+          benefits={offerData.benefits}
+        />
+      </div>
 
       {/* Problem Amplification Section */}
-      {/* <Container className="max-w-6xl py-12">
+      <Container className="max-w-6xl py-12">
         <div className="transform space-y-8 rounded-lg border border-destructive/20 p-2 md:p-12">
           <div className="mb-12 text-center">
             <Badge variant="destructive" className="mb-4 animate-pulse">
@@ -120,17 +140,8 @@ export default async function Page({ params }: { params: Promise<{ offer: string
               icon: alert.icon,
             }))}
           />
-
-          <div className="mt-8 rounded-lg bg-primary/5 p-6 text-center">
-            <p className="text-lg font-medium text-primary">
-              "It's not your ads. It's your tracking."
-            </p>
-            <p className="mt-2">
-              We've fixed this for 100+ clinics — and we'll fix it for you too.
-            </p>
-          </div>
         </div>
-      </Container> */}
+      </Container>
 
       {/* Solution Section */}
       <section className="py-8">
@@ -155,9 +166,9 @@ export default async function Page({ params }: { params: Promise<{ offer: string
           </h4>
         </div>
 
-        <div className="grid gap-8 py-12 lg:grid-cols-3">
+        <div className="grid gap-8 py-12 sm:grid-cols-2 lg:grid-cols-4">
           {getServicesByKeys([
-            // "starter-subscription",
+            "starter-subscription",
             "growth-subscription",
             "pro-subscription",
             "premium-subscription",
@@ -168,11 +179,27 @@ export default async function Page({ params }: { params: Promise<{ offer: string
           ))}
         </div>
       </Container>
-      {/* Case Studies */}
-      {offerData.caseStudyIds.map((caseStudyId) => {
-        const caseStudy = getCaseStudy(caseStudyId);
-        return caseStudy ? <FeaturedCaseStudy key={caseStudyId} caseStudy={caseStudy} /> : null;
-      })}
+
+      {/* Testimonials */}
+      <section className="py-16">
+        <Container>
+          <div className="mb-12 space-y-4 text-center">
+            <h2 className="text-primary">{offerData.testimonialSection.title}</h2>
+            <h4 className="mx-auto max-w-3xl text-accent-foreground">
+              {offerData.testimonialSection.description}
+            </h4>
+          </div>
+        </Container>
+        {/* Case Studies */}
+        {offerData.caseStudyIds.map((caseStudyId) => {
+          const caseStudy = getCaseStudy(caseStudyId);
+          return caseStudy ? <FeaturedCaseStudy key={caseStudyId} caseStudy={caseStudy} /> : null;
+        })}
+        <TestimonialGrid upwork={true} showUpworkStats={false} />
+        <Container>
+          <MeetingBookingButton offerData={offerData} />
+        </Container>
+      </section>
 
       {/* FAQ Section */}
       <section className="py-16">
@@ -206,21 +233,6 @@ export default async function Page({ params }: { params: Promise<{ offer: string
         </Container>
       </section>
 
-      {/* Testimonials */}
-      <section className="py-16">
-        <Container>
-          <div className="mb-12 space-y-4 text-center">
-            <h2 className="text-primary">{offerData.testimonialSection.title}</h2>
-            <h4 className="mx-auto max-w-3xl text-accent-foreground">
-              {offerData.testimonialSection.description}
-            </h4>
-          </div>
-        </Container>
-        <TestimonialGrid upwork={true} showUpworkStats={false} />
-        <Container>
-          <MeetingBookingButton offerData={offerData} />
-        </Container>
-      </section>
       {/* Final CTA */}
       <div className="min-h-screen py-16">
         <section className="bg-gradient-to-b from-primary/20 to-background py-16">

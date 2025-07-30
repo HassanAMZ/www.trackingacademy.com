@@ -8,13 +8,14 @@ import {
   DollarSign,
   Lightbulb,
   Rocket,
+  ServerCrash,
   Target,
+  TrendingDown,
   TrendingUp,
   Trophy,
   XCircle,
 } from "lucide-react";
 import React from "react";
-import YoutubeEmbed from "../global/youtube-embed";
 
 export interface DreamOutcomeProps {
   heading?: string;
@@ -29,6 +30,8 @@ export interface DreamOutcomeProps {
       | "Trophy"
       | "AlertTriangle"
       | "XCircle"
+      | "TrendingDown"
+      | "ServerCrash"
       | "DollarSign"
       | "Database";
     text: string;
@@ -51,6 +54,8 @@ const DreamOutcome: React.FC<DreamOutcomeProps> = ({
     Trophy,
     AlertTriangle,
     XCircle,
+    TrendingDown,
+    ServerCrash,
     DollarSign,
     Database,
   };
@@ -62,9 +67,12 @@ const DreamOutcome: React.FC<DreamOutcomeProps> = ({
         {heading && <h2>{heading}</h2>}
         {subheading && <h4 className="mx-auto max-w-3xl text-muted-foreground">{subheading}</h4>}
       </div>
-      {dreamOutcomeList[0].embedId.youtube && (
+      {/* {dreamOutcomeList[0].embedId.youtube && (
         <YoutubeEmbed embedId={dreamOutcomeList[0].embedId.youtube} className="p-0" />
-      )}
+      )} */}
+
+      {/* <Video src={see_every_sale_desktop} /> */}
+
       {/* Content */}
       <div className="grid gap-8 lg:grid-cols-2">
         {dreamOutcomeList.map((outcome, index) => {

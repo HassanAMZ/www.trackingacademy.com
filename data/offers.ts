@@ -1,6 +1,12 @@
 import { DetailsCardsProps } from "@/components/funnels/details-card";
 // Add these types to your offers.ts file
+import { services } from "./services";
 
+// Helper function to get dynamic pricing
+const getStarterPrice = () => {
+  const starterService = services.find((service) => service.id === "starter-subscription");
+  return starterService ? starterService.price : "$149/month";
+};
 export interface CalculatorConfig {
   title: string;
   description: string;
@@ -56,7 +62,13 @@ export interface OfferData {
     alerts: {
       title: string;
       description: string;
-      icon: "AlertTriangle" | "XCircle" | "DollarSign" | "Database";
+      icon:
+        | "AlertTriangle"
+        | "XCircle"
+        | "DollarSign"
+        | "Database"
+        | "TrendingDown"
+        | "ServerCrash";
     }[];
   };
   solution: DetailsCardsProps;
@@ -95,7 +107,7 @@ export const offers: Record<string, OfferData> = {
     businessType: "business",
     businessTypePlural: "businesses",
     icon: "🚫",
-    eyebrow: "Data Sharing Restriction for Health, Wellness, or Finance Business?",
+    eyebrow: "No Upfront payments, only pay once it's working",
     headline: {
       prefix: "We fix Meta Ads tracking for ",
       conversion: ["Restricted Domains"],
@@ -105,7 +117,7 @@ export const offers: Record<string, OfferData> = {
     embedId: { youtube: "tdQufJ-qadE", loom: "3768f5d29d724dc2837085355d614c57" },
     cta: {
       primary: "Book Your Free Call & Fix Your Tracking",
-      secondary: "Starting at $299/month — only after your tracking is fixed.",
+      secondary: `Starting at ${getStarterPrice()} — only after your tracking is fixed.`,
     },
     benefits: [
       "Works with restricted Niches",
@@ -129,6 +141,18 @@ export const offers: Record<string, OfferData> = {
           description:
             "Have exhuasted all the solutions and still cannot track all the conversions",
           icon: "XCircle",
+        },
+        {
+          title: "Conversion API still fails to capture full funnel data",
+          description:
+            "Even with CAPI fully set up, Meta filters out sensitive-category events, leaving major gaps in attribution and optimization.",
+          icon: "ServerCrash",
+        },
+        {
+          title: "Performance tanks — CPCs up, ROAS down",
+          description:
+            "Ad delivery algorithms struggle with limited data, causing skyrocketing costs and plummeting returns in restricted verticals.",
+          icon: "TrendingDown",
         },
       ],
     },
@@ -308,9 +332,9 @@ export const offers: Record<string, OfferData> = {
     businessType: "health & wellness business",
     businessTypePlural: "health & wellness businesses",
     icon: "💚",
-    eyebrow: "Running Meta Ads for Your Health & Wellness Business?",
+    eyebrow: "No Upfront payments, only pay once it's working",
     headline: {
-      prefix: "Fix",
+      prefix: "Fix ",
       conversion: ["Data Sharing Restriction"],
       suffix: "and Track Every Customer for Your Health & Wellness Business's Ads",
     },
@@ -319,7 +343,7 @@ export const offers: Record<string, OfferData> = {
     embedId: { youtube: "tdQufJ-qadE", loom: "3768f5d29d724dc2837085355d614c57" },
     cta: {
       primary: "Book Your Free Call & Fix Your Tracking",
-      secondary: "Start tracking health & wellness conversions in Meta Ads & Events Manager again",
+      secondary: `Starting at ${getStarterPrice()} — only after your tracking is fixed.`,
     },
     benefits: [
       "Track all customer conversions",
@@ -343,9 +367,16 @@ export const offers: Record<string, OfferData> = {
           icon: "XCircle",
         },
         {
-          title: "You're spending $3K–$15K/month… and getting nothing back",
-          description: "Wasted ad spend due to poor customer acquisition optimization",
-          icon: "DollarSign",
+          title: "Conversion API still fails to capture full funnel data",
+          description:
+            "Even with CAPI fully set up, Meta filters out sensitive-category events, leaving major gaps in attribution and optimization.",
+          icon: "ServerCrash",
+        },
+        {
+          title: "Performance tanks — CPCs up, ROAS down",
+          description:
+            "Ad delivery algorithms struggle with limited data, causing skyrocketing costs and plummeting returns in restricted verticals.",
+          icon: "TrendingDown",
         },
       ],
     },
@@ -402,30 +433,6 @@ export const offers: Record<string, OfferData> = {
             "No more lost conversions",
           ],
         },
-        // {
-        //   image: "/images/hero/100-success-no-down-time.png",
-        //   title: "100% Success & Zero Downtime Guarantee",
-        //   description:
-        //     "Every implementation works perfectly with zero downtime. Completely hands-off process that requires no work from your end while maintaining perfect campaign performance for your health & wellness business.",
-        //   benefits: [
-        //     "100% success rate guaranteed",
-        //     "Zero downtime implementation",
-        //     "Completely hands-off process",
-        //     "Permanent, stable solution",
-        //   ],
-        // },
-        {
-          image: "/images/hero/measurement-planning.png",
-          title: "Health & Wellness Tracking Strategy",
-          description:
-            "Custom measurement planning specifically designed for health & wellness businesses. We identify the most valuable customer actions and create a tracking framework that captures every consultation booking, product purchase, and program enrollment.",
-          benefits: [
-            "Customer journey mapping",
-            "Key health metrics identification",
-            "ROI-focused tracking setup",
-            "Conversion optimization for wellness",
-          ],
-        },
         {
           image: "/images/hero/customer-support.png",
           title: "Health & Wellness Priority Support",
@@ -447,7 +454,7 @@ export const offers: Record<string, OfferData> = {
     },
     calendar: {
       title: "Schedule Your Free Health & Wellness Meta Tracking Setup",
-      description: "Spots are limited — only 6 health businesses accepted per month.",
+      description: "Spots are limited — only 7 businesses accepted per month.",
     },
     faq: [
       {
@@ -465,7 +472,7 @@ export const offers: Record<string, OfferData> = {
       {
         question: "What kind of results should my health & wellness business expect?",
         answer:
-          "Health & wellness businesses typically see 85-95% of their customer tracking accuracy restored, ROAS recovery to pre-restriction levels, and the ability to build custom health-focused audiences again. Results vary by business size and implementation complexity.",
+          "Health & wellness businesses typically see 80-95% of their customer tracking accuracy restored, ROAS recovery to pre-restriction levels, and the ability to build custom health-focused audiences again. Results vary by business size and implementation complexity.",
         icon: "TrendingUp",
       },
       {
@@ -488,7 +495,7 @@ export const offers: Record<string, OfferData> = {
     },
     restrictionData: {
       severity: "Critical",
-      affected: "91%",
+      affected: "89%",
     },
     caseStudyIds: [
       "zenon",
@@ -551,7 +558,7 @@ export const offers: Record<string, OfferData> = {
     icon: "🦷",
     eyebrow: "No Upfront payments, only pay once it's working",
     headline: {
-      prefix: "Fix",
+      prefix: "Fix ",
       conversion: ["Data Sharing Restriction"],
       suffix: "and Track Every Patient for Your Dental Clinic's Ads",
     },
@@ -560,7 +567,7 @@ export const offers: Record<string, OfferData> = {
     embedId: { youtube: "tdQufJ-qadE", loom: "3768f5d29d724dc2837085355d614c57" },
     cta: {
       primary: "Book Your Free Call & Fix Your Tracking",
-      secondary: "Start tracking dental patient conversions in Meta Ads & Events Manager again",
+      secondary: `Starting at ${getStarterPrice()} — only after your tracking is fixed.`,
     },
     benefits: [
       "Track all patient conversions",
@@ -584,9 +591,16 @@ export const offers: Record<string, OfferData> = {
           icon: "XCircle",
         },
         {
-          title: "You're spending $2K–$10K/month… and getting nothing back",
-          description: "Wasted ad spend due to poor patient acquisition optimization",
-          icon: "DollarSign",
+          title: "Conversion API still fails to capture full funnel data",
+          description:
+            "Even with CAPI fully set up, Meta filters out sensitive-category events, leaving major gaps in attribution and optimization.",
+          icon: "ServerCrash",
+        },
+        {
+          title: "Performance tanks — CPCs up, ROAS down",
+          description:
+            "Ad delivery algorithms struggle with limited data, causing skyrocketing costs and plummeting returns in restricted verticals.",
+          icon: "TrendingDown",
         },
       ],
     },
@@ -631,24 +645,23 @@ export const offers: Record<string, OfferData> = {
             "Complete patient journey tracking",
           ],
         },
-
         {
-          image: "/images/hero/100-success-no-down-time.png",
-          title: "No upfront cost, you only pay once it's working",
+          image: "/images/hero/real-time-dashboard.png",
+          title: "Tracking Optimization",
           description:
-            "No upfront costs, no risk to you. You only pay after the tracking is working.",
+            "Bulletproof tracking solution that never gets shut down. Real-time event synchronization with complete attribution recovery and zero maintenance required.",
           benefits: [
-            "Zero Upfront",
-            "Zero Risk",
-            "Completely hands-off process",
-            "Permanent, stable solution",
+            "Fix the Restriction by Meta",
+            "Real-time event synchronization",
+            "Zero maintenance required",
+            "No more lost conversions",
           ],
         },
         {
           image: "/images/hero/customer-support.png",
           title: "Dental Practice Priority Support",
           description:
-            "Dedicated support team, get personalized slack channel for instant communication and 24/7 technical support specifically tailored for dental practice marketing needs.",
+            "Dedicated support team with personalized slack channel for instant communication and 24/7 technical support specifically tailored for dental practice marketing needs.",
           benefits: [
             "Dedicated Slack Channel",
             "Free Maintenance up to 3 months",
@@ -665,7 +678,7 @@ export const offers: Record<string, OfferData> = {
     },
     calendar: {
       title: "Schedule Your Free Dental Practice Meta Tracking Setup",
-      description: "Spots are limited — only 7 clinics accepted per month.",
+      description: "Spots are limited — only 7 businesses accepted per month.",
     },
     faq: [
       {
@@ -683,7 +696,7 @@ export const offers: Record<string, OfferData> = {
       {
         question: "What kind of results should my dental practice expect?",
         answer:
-          "Dental clinics typically see 85-95% of their patient tracking accuracy restored, ROAS recovery to pre-restriction levels, and the ability to build custom patient audiences again. Results vary by practice size and implementation complexity.",
+          "Dental clinics typically see 80-95% of their patient tracking accuracy restored, ROAS recovery to pre-restriction levels, and the ability to build custom patient audiences again. Results vary by practice size and implementation complexity.",
         icon: "TrendingUp",
       },
       {
@@ -706,7 +719,7 @@ export const offers: Record<string, OfferData> = {
     },
     restrictionData: {
       severity: "Critical",
-      affected: "94%",
+      affected: "89%",
     },
     caseStudyIds: [
       "zenon",
@@ -753,245 +766,6 @@ export const offers: Record<string, OfferData> = {
         industry: "Dental Practice",
         urgencyMessage:
           "Every month you delay action, your patient revenue loss compounds. The sooner you implement HIPAA-compliant tracking solutions, the faster you can recover your lost revenue and competitive advantage in the dental market.",
-      },
-    },
-  },
-  "rehab-center": {
-    slug: "rehab-center",
-    niche: "Rehab & Addiction Treatment",
-    package: "RehabPixel Pro",
-    businessType: "rehab center",
-    businessTypePlural: "rehab centers",
-    icon: "🏥",
-    eyebrow: "Running Meta Ads for Your Rehab Center?",
-    headline: {
-      prefix: "Fix",
-      conversion: ["Data Sharing Restriction"],
-      suffix: "and Track Every Admission for Your Rehab Center's Ads",
-    },
-    subheading:
-      'Even if Meta has restricted your rehab domain, blocked URL parameters, or disabled your events—we install <strong class="text-primary underline">RehabPixel Pro</strong> to fix your Meta Ads Conversions for addiction treatment centers.',
-    embedId: { youtube: "tdQufJ-qadE", loom: "3768f5d29d724dc2837085355d614c57" },
-    cta: {
-      primary: "Book Your Free Call & Fix Your Tracking",
-      secondary: "Start tracking rehab admissions in Meta Ads & Events Manager again",
-    },
-    benefits: [
-      "Track all patient admissions",
-      "Fix Data Sharing Restrictions",
-      "HIPAA & 42 CFR Part 2 Compliant",
-    ],
-    problemStatement: {
-      title: "Data Sharing Restrictions are destroying Rehab Centers",
-      description:
-        "Meta's 2025 data sharing restrictions are specifically targeting addiction treatment centers, blocking critical patient tracking data and causing massive performance drops in your most important marketing channel.",
-      alerts: [
-        {
-          title: "Your domain gets flagged — no events fire",
-          description:
-            "Standard events blocked: Treatment Inquiry, Admission Request, Insurance Verification, Consultation Booking",
-          icon: "AlertTriangle",
-        },
-        {
-          title: "Pixel shows '0 leads' — even though your phone is ringing",
-          description: "Hundreds of thousands of rehab patient events blocked daily",
-          icon: "XCircle",
-        },
-        {
-          title: "You're spending $5K–$20K/month… and getting nothing back",
-          description: "Wasted ad spend due to poor patient acquisition optimization",
-          icon: "DollarSign",
-        },
-      ],
-    },
-    solution: {
-      headerTitle: 'The "RehabPixel Pro" System for Addiction Treatment Centers',
-      headerDescription:
-        "Our specialized rehab tracking solution restores your Facebook Pixel tracking for addiction treatment centers while maintaining full HIPAA and 42 CFR Part 2 compliance, respecting Meta's healthcare restrictions.",
-      items: [
-        {
-          image: "/images/case-study/zenon_after_2.png",
-          title: "Pixel Recovery System",
-          description:
-            "Restore your existing pixels without creating new ones. Keep your pixel history, custom audiences, and conversion data intact while achieving 100% event recovery for addiction treatment tracking.",
-          benefits: [
-            "Works with your existing pixel setup",
-            "100% event recovery to Events Manager",
-            "Zero downtime during implementation",
-            "Keep all custom audiences and data",
-          ],
-        },
-        {
-          image: "/images/case-study/northridgeaddiction_after_1.png",
-          title: "Ad Account Attribution",
-          description:
-            "Attribute all conversions without creating new ads or accounts. Restore tracking on existing accounts while maintaining your account reputation and spending history in the addiction treatment space.",
-          benefits: [
-            "No new ad accounts needed",
-            "100% success rate on eligible accounts",
-            "Maintain account history and reputation",
-            "No account warming required",
-          ],
-        },
-        {
-          image: "/images/hero/unified-dashboard.png",
-          title: "Lead Reproting Dashboard",
-          description:
-            "Comprehensive tracking dashboard with GA4 integration that displays all critical metrics at a glance. Monitor your rehab center's complete patient journey with real-time data synchronization and advanced attribution reporting.",
-          benefits: [
-            "Complete GA4 integration",
-            "All metrics in one view",
-            "Real-time tracking monitoring",
-            "Complete patient journey tracking",
-          ],
-        },
-        {
-          image: "/images/hero/real-time-dashboard.png",
-          title: "Tracking Optimization",
-          description:
-            "Bulletproof tracking solution that never gets shut down. Real-time event synchronization with complete attribution recovery and zero maintenance required for addiction treatment centers.",
-          benefits: [
-            "Fix the Restriction by Meta",
-            "Real-time event synchronization",
-            "Zero maintenance required",
-            "No more lost conversions",
-          ],
-        },
-        // {
-        //   image: "/images/hero/100-success-no-down-time.png",
-        //   title: "100% Success & Zero Downtime Guarantee",
-        //   description:
-        //     "Every implementation works perfectly with zero downtime. Completely hands-off process that requires no work from your end while maintaining perfect campaign performance for your rehab center.",
-        //   benefits: [
-        //     "100% success rate guaranteed",
-        //     "Zero downtime implementation",
-        //     "Completely hands-off process",
-        //     "Permanent, stable solution",
-        //   ],
-        // },
-        {
-          image: "/images/hero/measurement-planning.png",
-          title: "Rehab Center Tracking Strategy",
-          description:
-            "Custom measurement planning specifically designed for addiction treatment centers. We identify the most valuable patient actions and create a tracking framework that captures every admission inquiry and treatment consultation.",
-          benefits: [
-            "Patient journey mapping",
-            "Key rehab metrics identification",
-            "ROI-focused tracking setup",
-            "Admission conversion optimization",
-          ],
-        },
-        {
-          image: "/images/hero/customer-support.png",
-          title: "Rehab Center Priority Support",
-          description:
-            "Dedicated support team with personalized slack channel for instant communication and 24/7 technical support specifically tailored for addiction treatment center marketing needs.",
-          benefits: [
-            "Dedicated Slack Channel",
-            "Free Maintenance up to 3 months",
-            "24/7 technical support",
-            "Treatment center-specific optimization",
-          ],
-        },
-      ],
-    },
-    finalCta: {
-      title: "📞 Book Your Free Call & Fix Your Tracking",
-      description:
-        "We'll audit your current setup, show you exactly what's broken, and walk you through how we'll fix it — even if you don't work with us.",
-    },
-    calendar: {
-      title: "Schedule Your Free Rehab Center Meta Tracking Setup",
-      description: "Spots are limited — only 5 treatment centers accepted per month.",
-    },
-    faq: [
-      {
-        question: "How quickly can you fix my rehab center tracking?",
-        answer:
-          "Most addiction treatment centers see their patient tracking restored within a week. The process includes: compliance audit (Day 1), HIPAA & 42 CFR Part 2 compliant implementation (Day 2), and testing (Day 3). Complex treatment center setups may take up to 7 days.",
-        icon: "Zap",
-      },
-      {
-        question: "Will this violate HIPAA, 42 CFR Part 2, or Meta's healthcare policies?",
-        answer:
-          "No. Our solution is 100% compliant with HIPAA, 42 CFR Part 2 (addiction treatment privacy regulations), all Meta healthcare policies, and data protection regulations (GDPR, CCPA). We work within Meta's framework specifically for addiction treatment providers to restore tracking while respecting all medical privacy restrictions.",
-        icon: "Shield",
-      },
-      {
-        question: "What kind of results should my rehab center expect?",
-        answer:
-          "Addiction treatment centers typically see 85-95% of their patient tracking accuracy restored, ROAS recovery to pre-restriction levels, and the ability to build custom patient audiences again. Results vary by center size and implementation complexity.",
-        icon: "TrendingUp",
-      },
-      {
-        question: "What if it doesn't work for my rehab center?",
-        answer:
-          "We offer a 30-day money-back guarantee. If we can't significantly improve your rehab center tracking within 30 days, you get a full refund. We've successfully helped addiction treatment centers with a 98.7% success rate.",
-        icon: "DollarSign",
-      },
-      {
-        question: "Do you provide ongoing support for rehab centers?",
-        answer:
-          "Yes. All rehab center implementations include 90 days of monitoring and support to ensure your patient tracking remains stable and compliant with HIPAA and 42 CFR Part 2. We also provide guidance on maintaining compliance as healthcare regulations evolve.",
-        icon: "RefreshCw",
-      },
-    ],
-    testimonialSection: {
-      title: "Rehab Centers Recovered Their Meta Tracking",
-      description:
-        "From small outpatient facilities to large inpatient treatment centers, we've restored HIPAA and 42 CFR Part 2 compliant tracking for every rehab client. See how we recovered their patient acquisition ROAS while maintaining full compliance.",
-    },
-    restrictionData: {
-      severity: "Critical",
-      affected: "96%",
-    },
-    caseStudyIds: [
-      "zenon",
-      "northridgeaddiction",
-      "saneofrance",
-      "emiratesadvisory",
-      "peachandcream",
-    ],
-    keywords: [
-      "rehab center marketing",
-      "addiction treatment advertising",
-      "rehab patient tracking",
-      "HIPAA compliant rehab ads",
-      "addiction treatment Facebook ads",
-      "rehab center patient acquisition",
-      "42 CFR Part 2 compliant ads",
-      "substance abuse treatment marketing",
-    ],
-    calculators: {
-      lead: {
-        title: "Rehab Center Lead Impact Calculator",
-        description:
-          "Calculate the financial impact of advertising restrictions on your rehab center patient leads",
-        leadLabel: "Patient Leads",
-        clientLabel: "New Admissions",
-        industry: "Rehab Center",
-        type: "business" as const,
-        urgencyMessage:
-          "Every month you delay addressing these restrictions costs your rehab center thousands in lost patient revenue. The compounding effect means early action is critical to minimize long-term impact on patient admissions.",
-      },
-      agency: {
-        title: "Rehab Center Agency Client Retention Calculator",
-        description:
-          "Calculate how advertising restrictions will impact your rehab marketing agency's client retention and revenue",
-        leadLabel: "Client Performance",
-        clientLabel: "Rehab Center Clients",
-        industry: "Rehab Marketing Agency",
-        type: "agency" as const,
-        urgencyMessage:
-          "Without a solution to ad restrictions, your rehab center clients will see declining patient admissions and leave for agencies that can deliver compliant results. New client acquisition becomes impossible when you can't prove consistent performance in addiction treatment marketing.",
-      },
-      revenue: {
-        title: "Rehab Center Revenue Loss Calculator",
-        description:
-          "Calculate the financial impact of advertising restrictions on your rehab center revenue",
-        industry: "Rehab Center",
-        urgencyMessage:
-          "Every month you delay action, your patient admission revenue loss compounds. The sooner you implement HIPAA and 42 CFR Part 2 compliant tracking solutions, the faster you can recover your lost revenue and competitive edge in addiction treatment.",
       },
     },
   },
