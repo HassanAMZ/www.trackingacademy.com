@@ -73,54 +73,52 @@ export default async function Page({ params }: { params: Promise<{ offer: string
 
   return (
     <main>
-      <div className="grid min-h-screen place-content-center">
-        <Hero
-          testimonialImages={false}
-          eyebrow={offerData.eyebrow}
-          heading={
-            <h1 className="mx-auto text-center">
-              {offerData.headline.prefix}{" "}
-              {offerData.headline.conversion.map((conv, index) => (
-                <span key={index} className="text-destructive underline">
-                  {conv}
-                </span>
-              ))}{" "}
-              {offerData.headline.suffix}
-            </h1>
-          }
-          subheading={
-            <>
-              <h4 className="mx-auto max-w-3xl text-center">
-                <span dangerouslySetInnerHTML={{ __html: offerData.subheading }} />
-                <div className="flex flex-wrap justify-center gap-2 py-4">
-                  <Badge variant="destructive" className="flex items-center gap-1">
-                    <XCircle className="h-5 w-5" />
-                    You’re not tracking conversions
-                  </Badge>
-                  <Badge variant="destructive" className="flex items-center gap-1">
-                    <XCircle className="h-5 w-5" />
-                    Your conversions disappeared.
-                  </Badge>
-                  <Badge variant="destructive" className="flex items-center gap-1">
-                    <XCircle className="h-5 w-5" />
-                    Your ROAS dropped.
-                  </Badge>
-                </div>
-              </h4>
-              <Video
-                src="https://stream.mux.com/2ycrwGk9Mq02JzWDaH9sgWWaPC2ts1dvoQMPX5asddgY.m3u8"
-                poster="https://image.mux.com/2ycrwGk9Mq02JzWDaH9sgWWaPC2ts1dvoQMPX5asddgY/animated.gif"
-                className="rounded-lg"
-              />
-            </>
-          }
-          customCtaButton={<MeetingBookingButton offerData={offerData} />}
-          benefits={offerData.benefits}
-        />
-      </div>
+      <Hero
+        testimonialImages={false}
+        eyebrow={offerData.eyebrow}
+        heading={
+          <h1 className="mx-auto text-center">
+            {offerData.headline.prefix}{" "}
+            {offerData.headline.conversion.map((conv, index) => (
+              <span key={index} className="text-destructive underline">
+                {conv}
+              </span>
+            ))}{" "}
+            {offerData.headline.suffix}
+          </h1>
+        }
+        subheading={
+          <>
+            <h4 className="mx-auto text-center">
+              <span dangerouslySetInnerHTML={{ __html: offerData.subheading }} />
+              <div className="flex flex-wrap justify-center gap-2 py-4">
+                <Badge variant="destructive" className="flex items-center gap-1">
+                  <XCircle className="h-5 w-5" />
+                  You’re not tracking conversions
+                </Badge>
+                <Badge variant="destructive" className="flex items-center gap-1">
+                  <XCircle className="h-5 w-5" />
+                  Your conversions disappeared.
+                </Badge>
+                <Badge variant="destructive" className="flex items-center gap-1">
+                  <XCircle className="h-5 w-5" />
+                  Your ROAS dropped.
+                </Badge>
+              </div>
+            </h4>
+            <Video
+              src="https://stream.mux.com/2ycrwGk9Mq02JzWDaH9sgWWaPC2ts1dvoQMPX5asddgY.m3u8"
+              poster="https://image.mux.com/2ycrwGk9Mq02JzWDaH9sgWWaPC2ts1dvoQMPX5asddgY/animated.gif"
+              className="rounded-lg"
+            />
+          </>
+        }
+        customCtaButton={<MeetingBookingButton offerData={offerData} />}
+        benefits={offerData.benefits}
+      />
 
       {/* Problem Amplification Section */}
-      <Container className="max-w-6xl py-12">
+      <Container className="max-w-6xl pt-4 pb-12">
         <div className="transform space-y-8 rounded-lg border border-destructive/20 p-2 md:p-12">
           <div className="mb-12 text-center">
             <Badge variant="destructive" className="mb-4 animate-pulse">
