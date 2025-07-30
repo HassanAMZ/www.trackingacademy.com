@@ -102,7 +102,6 @@ const Bonuses: React.FC<BonusesProps> = ({
                     {bonus.image && (
                       <div className="flex items-center justify-center">
                         <Image
-                          priority={false}
                           src={bonus.image}
                           alt={`${bonus.title} Visualization`}
                           width={1920}

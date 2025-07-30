@@ -69,7 +69,6 @@ const BlogHeader: React.FC<PostMetadataProps> = ({ metadata }) => {
             <div className="relative overflow-hidden rounded-xl">
               {metadata.embedId === "" ? (
                 <Image
-                  priority={false}
                   src={backgroundImage}
                   alt={"blog image"}
                   width={1920}
@@ -87,7 +86,7 @@ const BlogHeader: React.FC<PostMetadataProps> = ({ metadata }) => {
         <div className="grid grid-cols-2 md:grid-cols-6 gap-6 items-center opacity-50 justify-center">
           {clients.map((client, index) => (
             <div key={index} className=" bg-muted rounded animate-pulse">
-              <Image priority={false}
+              <Image 
                 width={1920}
                 height={1080}
                 alt={client.businessDetails.name}

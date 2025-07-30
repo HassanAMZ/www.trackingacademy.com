@@ -36,7 +36,6 @@ export default function WhyChooseSection({
         </div>{" "}
         <div className="relative">
           <Image
-            priority={false}
             src={image || "/images/social-sharing.png"}
             alt={`${heading} diagram`}
             width={1920}

@@ -66,7 +66,6 @@ const DetailsCards: React.FC<DetailsCardsProps> = ({
         ) : item.image ? (
           <div className="relative aspect-video w-full overflow-hidden rounded-lg shadow">
             <Image
-              priority={false}
               src={item.image || "/placeholder.svg?height=600&width=800"}
               alt={`${item.title} preview`}
               fill

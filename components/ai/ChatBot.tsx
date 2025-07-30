@@ -147,7 +147,6 @@ export default function ChatBot() {
                     ?.filter((attachment) => attachment.contentType?.startsWith("image/"))
                     .map((attachment, index) => (
                       <Image
-                        priority={false}
                         key={`${message.id}-${index}`}
                         src={attachment.url}
                         alt={`${attachment.name}`}

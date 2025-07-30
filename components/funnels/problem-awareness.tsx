@@ -43,7 +43,6 @@ const ProblemAwareness: React.FC<ProblemAwarenessProps> = ({
           </div>
           <div className="flex w-full items-center justify-center">
             <Image
-              priority={false}
               src={imageUrl || "/images/social-sharing.png"}
               alt="Keanu Reeves with red and blue pills"
               width={1080}

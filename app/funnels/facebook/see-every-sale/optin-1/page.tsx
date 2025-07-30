@@ -45,7 +45,7 @@ export default function Page() {
             <YoutubeEmbed embedId="tdQufJ-qadE" className="max-w-4xl" />{" "}
             {/* <div className="flex items-center justify-center">
               <div className="bg-muted w-full overflow-hidden rounded-md">
-                <Image priority={false}
+                <Image 
                   src="/images/hero/data-sharing-restrcition-03.png"
                   alt="Illustration of social sharing and data tracking"
                   width={1920}

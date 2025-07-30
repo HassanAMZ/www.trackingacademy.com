@@ -90,7 +90,6 @@ export default function CaseStudyCarousel({
             >
               {/* Mobile website image - hidden on hover */}
               <Image
-                priority={false}
                 src={caseStudy.mobileUrl || "/placeholder.svg"}
                 alt={caseStudy.title}
                 width={1080}

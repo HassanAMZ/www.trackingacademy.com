@@ -38,7 +38,6 @@ const TagCard: React.FC<TagCardProps> = ({ tag, blogs }) => {
         {featuredImage && (
           <div className="relative h-full w-full">
             <Image
-              priority={false}
               src={featuredImage}
               alt={`Featured image for ${tag}`}
               fill

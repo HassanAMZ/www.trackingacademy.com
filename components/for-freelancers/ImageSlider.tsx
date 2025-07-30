@@ -54,7 +54,6 @@ const ImageSlider = () => {
       <Slider {...settings}>
         {clientImages.map((image, index) => (
           <Image
-            priority={false}
             key={index}
             src={`/images/for-businesses/client-${image}-mobile-home.png`}
             alt={"client-makescents-mobile-home.png"}

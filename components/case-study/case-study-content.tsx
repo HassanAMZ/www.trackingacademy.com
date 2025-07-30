@@ -147,7 +147,6 @@ export default function CaseStudyComponent({ caseStudy }: { caseStudy: CaseStudy
                 <YoutubeEmbed embedId={caseStudy.embedId.youtube} className="p-0" />
               ) : (
                 <Image
-                  priority={false}
                   src={caseStudy.imageUrl || "/placeholder.svg?height=400&width=600"}
                   alt={`${caseStudy.name} desktop view`}
                   fill
@@ -194,7 +193,6 @@ export default function CaseStudyComponent({ caseStudy }: { caseStudy: CaseStudy
                           onClick={() => openModal("before", currentBeforeIndex)}
                         >
                           <Image
-                            priority={false}
                             src={
                               caseStudy.analytics.images.before[currentBeforeIndex] ||
                               "/placeholder.svg"
@@ -248,7 +246,6 @@ export default function CaseStudyComponent({ caseStudy }: { caseStudy: CaseStudy
                           onClick={() => openModal("after", currentAfterIndex)}
                         >
                           <Image
-                            priority={false}
                             src={
                               caseStudy.analytics.images.after[currentAfterIndex] ||
                               "/placeholder.svg"
@@ -614,7 +611,6 @@ export default function CaseStudyComponent({ caseStudy }: { caseStudy: CaseStudy
             {/* Modal Image */}
             <div className="relative aspect-video bg-muted">
               <Image
-                priority={false}
                 src={getCurrentModalImages()[modalImageIndex] || "/placeholder.svg"}
                 alt={`${modalImageType} ${modalImageIndex + 1}`}
                 fill
@@ -659,7 +655,6 @@ export default function CaseStudyComponent({ caseStudy }: { caseStudy: CaseStudy
                       }`}
                     >
                       <Image
-                        priority={false}
                         src={image}
                         alt={`${modalImageType} ${index + 1}`}
                         width={64}

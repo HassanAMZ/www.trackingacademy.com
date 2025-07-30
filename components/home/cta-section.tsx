@@ -29,7 +29,6 @@ export function CTASection() {
           <h3 className="mb-4 text-2xl font-bold">Learn how we help you win, using your data</h3>
           <div className="relative aspect-video overflow-hidden rounded-lg">
             <Image
-              priority={false}
               src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-esEvuXsvnRvzgXAAbw2yjiBpoMyDPr.png"
               alt="Demo video preview"
               fill

@@ -50,7 +50,6 @@ export function TestimonialsCarousel() {
         {testimonials.map((testimonial, index) => (
           <div className="min-w-full" key={index}>
             <Image
-              priority={false}
               src={testimonial.image}
               alt={testimonial.author}
               className="w-full rounded-t-lg object-cover"

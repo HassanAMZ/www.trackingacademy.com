@@ -174,7 +174,6 @@ export default function Navbar({ className }: { className?: string }) {
   const HomeNavigationButton = () => (
     <NavLink href="/">
       <Image
-        priority={false}
         alt="logo"
         height={100}
         width={100}
