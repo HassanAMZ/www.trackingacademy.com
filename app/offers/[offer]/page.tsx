@@ -109,8 +109,8 @@ export default async function Page({ params }: { params: Promise<{ offer: string
             <Video
               src="https://stream.mux.com/2ycrwGk9Mq02JzWDaH9sgWWaPC2ts1dvoQMPX5asddgY.m3u8"
               poster="https://image.mux.com/2ycrwGk9Mq02JzWDaH9sgWWaPC2ts1dvoQMPX5asddgY/animated.gif"
-              className="rounded-lg"
             />
+
             <MeetingBookingButton offerData={offerData} />
           </>
         }
@@ -164,11 +164,11 @@ export default async function Page({ params }: { params: Promise<{ offer: string
           </h4>
         </div>
 
-        <div className="grid gap-8 py-12 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="grid gap-8 py-12 lg:grid-cols-3">
           {getServicesByKeys([
             "starter-subscription",
             "growth-subscription",
-            "pro-subscription",
+            // "pro-subscription",
             "premium-subscription",
           ]).map((service) => (
             <React.Fragment key={service.id}>
@@ -183,9 +183,7 @@ export default async function Page({ params }: { params: Promise<{ offer: string
         <Container>
           <div className="mb-12 space-y-4 text-center">
             <h2 className="text-primary">{offerData.testimonialSection.title}</h2>
-            <h4 className="mx-auto max-w-3xl text-accent-foreground">
-              {offerData.testimonialSection.description}
-            </h4>
+            <h4 className="mx-auto max-w-3xl">{offerData.testimonialSection.description}</h4>
           </div>
         </Container>
         {/* Case Studies */}

@@ -159,8 +159,8 @@ export const offers: Record<string, OfferData> = {
       ],
     },
     solution: {
-      headerTitle: 'The "RestrictedPixel Pro" System for Restricted Industries',
-      headerDescription:
+      title: 'The "RestrictedPixel Pro" System for Restricted Industries',
+      description:
         "Our specialized approach restores your Facebook Pixel tracking for businesses in health & wellness, financial services, CBD, politics, and other restricted categories while maintaining full regulatory compliance.",
       items: [
         {
@@ -383,8 +383,8 @@ export const offers: Record<string, OfferData> = {
       ],
     },
     solution: {
-      headerTitle: 'The "HealthPixel Pro" System for Health & Wellness Businesses',
-      headerDescription:
+      title: 'The "HealthPixel Pro" System for Health & Wellness Businesses',
+      description:
         "Our specialized health & wellness tracking solution restores your Facebook Pixel tracking for health businesses while maintaining full HIPAA and FDA compliance, respecting Meta's healthcare restrictions.",
       items: [
         {
@@ -607,8 +607,8 @@ export const offers: Record<string, OfferData> = {
       ],
     },
     solution: {
-      headerTitle: 'The "DentalPixel Pro" System for Dental Practices',
-      headerDescription:
+      title: 'The "DentalPixel Pro" System for Dental Practices',
+      description:
         "Our specialized dental tracking solution restores your Facebook Pixel tracking for dental clinics while maintaining full HIPAA compliance and respecting Meta's healthcare restrictions.",
       items: [
         {

@@ -31,7 +31,7 @@ export const services: Service[] = [
     price_id: "price_1RRr1OAE3E6zT9eTlvyhObEb",
     popular: false,
     color: "border-muted",
-    buttonVariant: "outline",
+    buttonVariant: "default",
     cta: "Get Started",
     accuracy: "100%",
     features: {
@@ -199,7 +199,7 @@ export const services: Service[] = [
     price_id: "price_1RRp6lAE3E6zT9eTts6wOZWE",
     popular: false,
     color: "border-muted",
-    buttonVariant: "outline",
+    buttonVariant: "default",
     cta: "Get Started Today",
 
     accuracy: "60-70%",
@@ -254,7 +254,7 @@ export const services: Service[] = [
     price_id: "price_1RRomYAE3E6zT9eTH0szeYoQ",
     popular: false,
     color: "border-muted",
-    buttonVariant: "outline",
+    buttonVariant: "default",
     cta: "Get Your Audit",
     accuracy: "95%",
     features: {
@@ -308,7 +308,7 @@ export const services: Service[] = [
     price_id: "price_1RNWDwAE3E6zT9eTzcpnOUZy",
     popular: false,
     color: "border-muted",
-    buttonVariant: "outline",
+    buttonVariant: "default",
     cta: "Fix your tracking setup now",
     accuracy: "95%+",
     features: {
@@ -389,7 +389,7 @@ export const services: Service[] = [
     product_id: "prod_Shvgwr1LDXZfr9",
     popular: false,
     color: "border-muted",
-    buttonVariant: "outline",
+    buttonVariant: "default",
     cta: "Start Maximizing",
     accuracy: "95%+",
     features: {
@@ -430,7 +430,7 @@ export const services: Service[] = [
     price: "$649/month",
     price_id: "price_1RmWr7AE3E6zT9eTyrK7k1Rv",
     product_id: "prod_Shwk6IH1i5t9iJ",
-    popular: true,
+    popular: false,
     color: "text-primary",
     buttonVariant: "default",
     cta: "Start Scaling",
@@ -472,9 +472,9 @@ export const services: Service[] = [
     price: "$429/month",
     price_id: "price_1RmWvkAE3E6zT9eTYJANzSwn",
     product_id: "prod_ShwpL9nJe32cK8",
-    popular: false,
+    popular: true,
     color: "border-muted",
-    buttonVariant: "outline",
+    buttonVariant: "default",
     cta: "Start Growing",
     accuracy: "95%+",
     features: {
@@ -515,7 +515,7 @@ export const services: Service[] = [
     product_id: "prod_Shx7baLtc7UrEC",
     popular: false,
     color: "border-muted",
-    buttonVariant: "outline",
+    buttonVariant: "default",
     cta: "Start Tracking",
     accuracy: "95%+",
     features: {

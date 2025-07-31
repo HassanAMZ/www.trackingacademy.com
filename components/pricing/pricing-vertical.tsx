@@ -118,7 +118,7 @@ const ServiceCard = ({ service }: ServiceCardProps) => {
 
   return (
     <Card
-      className={`flex h-full flex-col ${service.color} ${service.popular ? "ring-2 ring-primary" : ""}`}
+      className={`flex h-full flex-col ${service.color} ${service.popular ? "border-2 border-primary" : ""}`}
     >
       {service.popular ? (
         <div className="rounded-t-lg bg-primary py-2 text-center text-sm font-medium text-primary-foreground">
@@ -138,17 +138,17 @@ const ServiceCard = ({ service }: ServiceCardProps) => {
         </div>
 
         <div className="flex flex-col items-start gap-4 pt-4">
-          <h4>{service.price}</h4>
-          <Badge variant={service.accuracy.includes("95") ? "default" : "outline"}>
+          <h4 className={service.popular ? "text-primary" : ""}>{service.price}</h4>
+          {/* <Badge variant={service.accuracy.includes("95") ? "outline" : "outline"}>
             {service.accuracy} Accuracy
-          </Badge>
+          </Badge> */}
         </div>
       </CardHeader>
 
       <CardContent className="flex flex-grow flex-col items-center justify-between space-y-6">
         <div className="space-y-3 self-start">
           <h4 className="text-sm font-semibold">Key Features:</h4>
-          <div className="space-y-2">
+          <div className="space-y-4">
             {keyFeatures.map(([feature, value]) => (
               <div key={feature} className="flex items-start gap-2 text-sm">
                 <CheckCircle className="h-4 w-4 flex-shrink-0 text-primary" />
