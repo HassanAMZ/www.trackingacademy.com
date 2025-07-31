@@ -149,10 +149,8 @@ const DetailsCards: React.FC<DetailsCardsProps> = ({
         {/* Header Section */}
         {headerTitle && (
           <div className="space-y-4 text-center">
-            <h2 className="text-muted-foreground">{headerTitle}</h2>
-            {headerDescription && (
-              <h4 className="mx-auto max-w-4xl text-accent-foreground">{headerDescription}</h4>
-            )}
+            <h2 className="">{headerTitle}</h2>
+            {headerDescription && <h4 className="mx-auto max-w-4xl">{headerDescription}</h4>}
           </div>
         )}
 

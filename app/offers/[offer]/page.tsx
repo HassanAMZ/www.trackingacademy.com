@@ -80,7 +80,7 @@ export default async function Page({ params }: { params: Promise<{ offer: string
           <h1 className="mx-auto text-center">
             {offerData.headline.prefix}{" "}
             {offerData.headline.conversion.map((conv, index) => (
-              <span key={index} className="text-destructive underline">
+              <span key={index} className="text-primary underline">
                 {conv}
               </span>
             ))}{" "}
