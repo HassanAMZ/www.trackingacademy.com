@@ -109,11 +109,13 @@ export const offers: Record<string, OfferData> = {
     icon: "🚫",
     eyebrow: "No Upfront payments, only pay once it's working",
     headline: {
-      prefix: "We fix Meta Ads tracking for ",
-      conversion: ["Restricted Domains"],
-      suffix: "& you only pay after it’s fixed",
+      prefix: "Fix ",
+      conversion: ["Data Sharing Restriction"],
+      suffix: "and Track Every Conversions for Your Meta Ads",
     },
-    subheading: "",
+    subheading:
+      'Even if Meta has restricted your domain, blocked URL parameters, or disabled your events—we install <strong class="text-primary underline">RestrictedPixel Pro</strong> to fix your Meta Ads Conversions.',
+
     embedId: { youtube: "tdQufJ-qadE", loom: "3768f5d29d724dc2837085355d614c57" },
     cta: {
       primary: "Book Your Free Call & Fix Your Tracking",

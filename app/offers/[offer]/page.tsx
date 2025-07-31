@@ -111,9 +111,9 @@ export default async function Page({ params }: { params: Promise<{ offer: string
               poster="https://image.mux.com/2ycrwGk9Mq02JzWDaH9sgWWaPC2ts1dvoQMPX5asddgY/animated.gif"
               className="rounded-lg"
             />
+            <MeetingBookingButton offerData={offerData} />
           </>
         }
-        customCtaButton={<MeetingBookingButton offerData={offerData} />}
         benefits={offerData.benefits}
       />
 
