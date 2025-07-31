@@ -33,7 +33,7 @@ export async function generateMetadata({
       `${offerData.businessType} advertising`,
     ],
     openGraph: {
-      title: `${offerData.solution.headerTitle} | ${offerData.package}`,
+      title: `${offerData.solution.title} | ${offerData.package}`,
       description: `Fix your Meta Ads tracking for ${offerData.businessTypePlural}. Our ${offerData.package} solution restores ${offerData.restrictionData.affected} of blocked conversions while maintaining full compliance.`,
       images: [
         {
