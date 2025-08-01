@@ -1,6 +1,5 @@
 "use client";
 
-import { sendGTMEvent } from "@next/third-parties/google";
 import { FC } from "react";
 import Container from "../ui/container";
 
@@ -44,12 +43,6 @@ const LoomEmbed: FC<LoomEmbedProps> = ({
 
     return `${baseUrl}?${params.toString()}`;
   };
-
-  // Track video load event
-  sendGTMEvent({
-    event: "gtm_custom_event",
-    datalayer_event_name: "loom_video_loaded",
-  });
 
   // Determine aspect ratio: 56.25% for 16:9, ~177.78% for 9:16 (vertical)
   const aspectRatio = verticalVideo ? "177.78%" : "56.25%";

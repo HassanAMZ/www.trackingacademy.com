@@ -1,6 +1,5 @@
 "use client";
 
-import { sendGTMEvent } from "@next/third-parties/google";
 import { FC, memo } from "react";
 import Container from "../ui/container";
 
@@ -20,11 +19,6 @@ const YoutubeEmbed: FC<YoutubeEmbedProps> = ({
   if (!embedId || embedId === "null" || embedId === "undefined") {
     return null;
   }
-
-  sendGTMEvent({
-    event: "gtm_custom_event",
-    datalayer_event_name: "youtube_video_loaded",
-  });
 
   // Aspect ratio: 56.25% (16:9) or 177.78% (9:16)
   const aspectRatio = verticalVideo ? "177.78%" : "56.25%";
