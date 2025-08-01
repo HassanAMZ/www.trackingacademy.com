@@ -112,43 +112,49 @@ const FloatingCalendarWidget = () => {
         onLoad={() => console.log("iClosed widget script loaded successfully")}
       />
 
-      <div className="fixed right-6 bottom-6 z-50">
+      <div className="fixed right-4 bottom-4 z-50 sm:right-6 sm:bottom-6">
         {/* Floating toggle button */}
         <Button
           onClick={toggleMinimize}
           size="icon"
           className={cn(
-            "h-14 w-14 rounded-full shadow-lg transition-all duration-300 hover:shadow-xl",
+            "h-12 w-12 rounded-full shadow-lg transition-all duration-300 hover:shadow-xl sm:h-14 sm:w-14",
             "duration-500 animate-in fade-in zoom-in-95",
             "bg-primary text-primary-foreground hover:bg-primary/90",
           )}
         >
-          {!isMinimized ? <ChevronDown className="h-6 w-6" /> : <Calendar className="h-6 w-6" />}
+          {!isMinimized ? (
+            <ChevronDown className="h-5 w-5 sm:h-6 sm:w-6" />
+          ) : (
+            <Calendar className="h-5 w-5 sm:h-6 sm:w-6" />
+          )}
         </Button>
 
         {/* Expanded widget */}
         <div
           className={cn(
-            "absolute right-0 bottom-16 w-80 origin-bottom-right transition-all duration-300 ease-out sm:w-96",
+            "absolute right-0 bottom-14 w-72 origin-bottom-right transition-all duration-300 ease-out sm:bottom-16 sm:w-80 lg:w-96",
             isMinimized
               ? "pointer-events-none translate-y-2 scale-95 opacity-0"
               : "pointer-events-auto translate-y-0 scale-100 opacity-100",
           )}
         >
           <Card className="border border-primary bg-background shadow-2xl">
-            <CardHeader className="pb-4">
+            <CardHeader className="bg-card pb-3 sm:pb-4">
               <div className="flex items-start justify-between">
-                <CardTitle className="flex items-center gap-3">
-                  <Avatar className="h-12 w-12 ring-2 ring-border">
+                <CardTitle className="flex items-center gap-2 sm:gap-3">
+                  <Avatar className="h-10 w-10 ring-2 ring-border sm:h-12 sm:w-12">
                     <AvatarImage src="/images/avatars/hassan.png" alt="Shahzada Ali Hassan" />
                     <AvatarFallback className="bg-muted text-muted-foreground">
-                      <User className="h-6 w-6" />
+                      <User className="h-5 w-5 sm:h-6 sm:w-6" />
                     </AvatarFallback>
                   </Avatar>
-                  <div className="space-y-1">
-                    <h4 className="text-base leading-none font-semibold">Shahzada Ali Hassan</h4>
-                    <p className="flex items-center gap-1.5 text-sm font-medium text-green-600">
-                      <span className="h-2 w-2 rounded-full bg-green-500"></span>
+                  <div className="space-y-0.5 sm:space-y-1">
+                    <h4 className="text-sm leading-tight font-semibold sm:text-base">
+                      Shahzada Ali Hassan
+                    </h4>
+                    <p className="flex items-center gap-1.5 text-xs font-medium text-green-600 sm:text-sm">
+                      <span className="h-1.5 w-1.5 rounded-full bg-green-500 sm:h-2 sm:w-2"></span>
                       Available Now
                     </p>
                   </div>
@@ -159,19 +165,19 @@ const FloatingCalendarWidget = () => {
                   onClick={toggleMinimize}
                   variant="secondary"
                   size="sm"
-                  className="h-8 w-8 cursor-pointer border p-0"
+                  className="h-7 w-7 cursor-pointer border p-0 sm:h-8 sm:w-8"
                 >
-                  <X className="h-4 w-4" />
+                  <X className="h-3 w-3 sm:h-4 sm:w-4" />
                 </Button>
               </div>
             </CardHeader>
 
             <Separator />
 
-            <CardContent className="space-y-4 pt-4">
-              <div className="space-y-3">
-                <h5 className="text-lg font-semibold">1-on-1 Meeting with Shahzada</h5>
-                <p className="text-sm leading-relaxed text-muted-foreground">
+            <CardContent className="space-y-3 pt-3 sm:space-y-4 sm:pt-4">
+              <div className="space-y-2 sm:space-y-3">
+                <h5 className="text-base font-semibold sm:text-lg">1-on-1 Meeting with Shahzada</h5>
+                <p className="text-xs leading-relaxed text-muted-foreground sm:text-sm">
                   Book a 1-on-1 meeting with me to discuss{" "}
                   <span className="font-medium text-foreground">Fixing Your Tracking</span>. The
                   meeting will be held on Google Meets with a link in the invite.
@@ -179,9 +185,9 @@ const FloatingCalendarWidget = () => {
               </div>
 
               {/* Quick date selection */}
-              <div className="space-y-3">
-                <p className="text-sm font-medium">Quick Select:</p>
-                <div className="grid grid-cols-4 gap-2">
+              <div className="space-y-2 sm:space-y-3">
+                <p className="text-xs font-medium sm:text-sm">Quick Select:</p>
+                <div className="grid grid-cols-4 gap-1.5 sm:gap-2">
                   {upcomingDates.map((date, index) => (
                     <Button
                       key={index}
@@ -199,14 +205,16 @@ const FloatingCalendarWidget = () => {
                         })
                       }
                       className={cn(
-                        "h-auto flex-col gap-1 p-3 transition-all duration-200",
+                        "h-auto flex-col gap-0.5 p-2 transition-all duration-200 sm:gap-1 sm:p-3",
                         date.isToday
                           ? "shadow-sm"
                           : "bg-card hover:bg-accent hover:text-accent-foreground",
                       )}
                     >
-                      <span className="text-xs font-medium opacity-80">{date.dayName}</span>
-                      <span className="text-lg font-bold">{date.dayNumber}</span>
+                      <span className="text-xs font-medium opacity-80 sm:text-xs">
+                        {date.dayName}
+                      </span>
+                      <span className="text-sm font-bold sm:text-lg">{date.dayNumber}</span>
                     </Button>
                   ))}
                 </div>
@@ -216,7 +224,7 @@ const FloatingCalendarWidget = () => {
               <Button
                 data-iclosed-link="https://app.iclosed.io/e/shahzadaalihassan/1-on-1-meeting-with-shahzada"
                 data-embed-type="popup"
-                className="w-full py-6 text-base font-semibold shadow-md transition-all duration-200 hover:shadow-lg"
+                className="w-full py-4 text-sm font-semibold shadow-md transition-all duration-200 hover:shadow-lg sm:py-6 sm:text-base"
                 onClick={() =>
                   sendGTMEvent({
                     event: "gtm_custom_event",
@@ -230,7 +238,7 @@ const FloatingCalendarWidget = () => {
               </Button>
 
               {/* Privacy notice */}
-              <div className="rounded-md px-3">
+              <div className="rounded-md px-2 sm:px-3">
                 <p className="text-center text-xs leading-relaxed text-muted-foreground">
                   🔒 By providing your information, you consent to contact via email, phone, or
                   text.
