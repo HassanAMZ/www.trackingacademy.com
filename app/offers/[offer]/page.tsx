@@ -109,7 +109,16 @@ export default async function Page({ params }: { params: Promise<{ offer: string
             <Video
               src="https://stream.mux.com/2ycrwGk9Mq02JzWDaH9sgWWaPC2ts1dvoQMPX5asddgY.m3u8"
               poster="https://image.mux.com/2ycrwGk9Mq02JzWDaH9sgWWaPC2ts1dvoQMPX5asddgY/animated.gif"
-            />
+            >
+              <source
+                src="https://stream.mux.com/2ycrwGk9Mq02JzWDaH9sgWWaPC2ts1dvoQMPX5asddgY.mp4"
+                type="video/mp4"
+              />
+              <source
+                src="https://stream.mux.com/2ycrwGk9Mq02JzWDaH9sgWWaPC2ts1dvoQMPX5asddgY.m3u8"
+                type="application/x-mpegURL"
+              />
+            </Video>
 
             <MeetingBookingButton offerData={offerData} />
           </>

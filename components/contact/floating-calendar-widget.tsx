@@ -230,12 +230,12 @@ const FloatingCalendarWidget = () => {
               </Button>
 
               {/* Privacy notice */}
-              {/* <div className="rounded-md bg-muted/50 p-3">
+              <div className="rounded-md px-3">
                 <p className="text-center text-xs leading-relaxed text-muted-foreground">
                   🔒 By providing your information, you consent to contact via email, phone, or
                   text.
                 </p>
-              </div> */}
+              </div>
             </CardContent>
           </Card>
         </div>
