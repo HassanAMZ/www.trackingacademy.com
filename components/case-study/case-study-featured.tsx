@@ -172,10 +172,9 @@ export default function FeaturedCaseStudy({ caseStudy }: FeaturedCaseStudyProps)
         <Image
           src={item.src}
           alt={item.alt}
-          fill
-          className="object-contain"
-          loading="lazy"
-          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 70vw"
+          width={1920}
+          height={1080}
+          className="w-full rounded-lg object-cover"
         />
       </div>
     );
@@ -203,10 +202,9 @@ export default function FeaturedCaseStudy({ caseStudy }: FeaturedCaseStudyProps)
       <Image
         src={currentImage?.src || "/placeholder.svg"}
         alt={currentImage?.alt || "Preview"}
-        fill
-        className="object-cover transition-all duration-500 group-hover:scale-105"
-        loading="lazy"
-        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 33vw, 25vw"
+        width={1920}
+        height={1080}
+        className="w-full rounded-lg object-cover transition-all duration-500 group-hover:scale-105"
       />
     );
   };
@@ -293,7 +291,6 @@ export default function FeaturedCaseStudy({ caseStudy }: FeaturedCaseStudyProps)
                       width={20}
                       height={20}
                       className="rounded-full"
-                      loading="lazy"
                     />
                   )}
                   <div className="text-xs">
@@ -426,7 +423,6 @@ export default function FeaturedCaseStudy({ caseStudy }: FeaturedCaseStudyProps)
                           width={64}
                           height={64}
                           className="h-full w-full object-cover"
-                          loading="lazy"
                         />
                       )}
                       {item.category && (

@@ -36,14 +36,12 @@ Remarketing tags allow you to:
 1. **Access Google Tag Manager**: Log in to your GTM account and locate the container ID.
 
 2. **Add Head and Body Snippets**:
-
    - Navigate to your Shopify store's admin panel.
    - Go to Online Store > Themes.
    - Click on 'Actions' and select 'Edit Code'.
    - Find the `<head>` and `<body>` tags in your theme file.
 
 3. **Insert GTM Snippets**:
-
    - Paste the head tracking snippet right below the opening `<head>` tag.
    - Locate the opening `<body>` tag (e.g., on line 292) and insert the body tracking snippet there.
 
@@ -114,7 +112,6 @@ The custom prefixes added to event names (like 'custom_begin_checkout') prevent 
 This step involves creating a conversion action in your Google Ads account specifically for the 'begin checkout' event. Follow these instructions:
 
 1. **Create a New Conversion Action**:
-
    - Go to your Google Ads account and navigate to 'Goals' under 'Conversions'.
    - Choose 'Website' as the type of conversion since we are not using Google Analytics or app conversions.
    - Enter your website URL and scan for existing Google Tags.
@@ -130,11 +127,9 @@ This step involves creating a conversion action in your Google Ads account speci
 Configuring the remarketing tag involves several steps in Google Tag Manager:
 
 1. **Set Up Data Layer Variables**:
-
    - Create variables for dynamic information like value, currency, and items array.
 
 2. **Create a Custom Trigger**:
-
    - This trigger should fire whenever the custom 'custom_begin_checkout' event is triggered.
 
 3. **Add Remarketing Tag**:
@@ -147,16 +142,13 @@ Configuring the remarketing tag involves several steps in Google Tag Manager:
 Final steps involve testing and publishing the GTM configuration:
 
 1. **Test the Setup**:
-
    - Use the 'Preview' mode in GTM to test the setup.
    - Verify that the custom checkout event triggers correctly and that the remarketing tag fires as expected.
 
 2. **Publish the GTM Container**:
-
    - Ensure all tags and triggers are correctly configured and then publish the GTM container.
 
 3. **Monitor Google Ads Conversion Actions**:
-
    - Initially, the conversion action in Google Ads might show as inactive.
    - It may take a few hours for the status to update to 'No Recent Conversions', indicating successful integration.
 

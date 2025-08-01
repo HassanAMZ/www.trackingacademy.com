@@ -48,11 +48,9 @@ A **data layer event** is a way to capture specific interactions on your website
 ### How to Add Data Layer Event Code in Shopify
 
 1. **Navigate to Settings**:
-
    - In your **Shopify store admin**, go to **Settings** and scroll down to the **Customer Events** section.
 
 2. **Add a Custom Pixel**:
-
    - In the Customer Events section, click on **"Add Custom Pixel"**. Name this pixel something relevant, like "Remove from Cart Data Layer."
 
 3. **Insert the Code Snippet**:
@@ -74,11 +72,9 @@ Once this is done, every time someone removes an item from their cart, the event
 ### How to Set Up Google Tag Manager in Shopify
 
 1. **Get Your Google Tag Manager Container ID**:
-
    - Go to [tagmanager.google.com](https://tagmanager.google.com), open your container, and copy the **Container ID**.
 
 2. **Paste Container ID in Shopify**:
-
    - Return to Shopify and paste the **Google Tag Manager Container ID** into the appropriate section.
 
 3. **Save and Connect**:
@@ -93,25 +89,20 @@ Facebook Pixel allows you to track customer actions and use this data for market
 ### How to Add Facebook Pixel Tag in GTM
 
 1. **Install Facebook Pixel Template**:
-
    - In **Google Tag Manager**, go to the **Templates** section.
    - Search for **"facebook pixel"** by the Archive team and install the template.
 
 2. **Add Pixel ID**:
-
    - Go to **Facebook Events Manager**, copy your **Facebook Pixel ID**, and paste it into a new **Constant Variable** in GTM. Name this variable "Meta Pixel ID."
 
 3. **Create Variables**:
-
    - Create a **Data Layer Variable (DLV)** for the **e-commerce items** to capture information like product name, ID, price, and quantity.
    - Create an **eCommerce Parameter Generator (EPG)** variable to format this data for Facebook Pixel.
 
 4. **Create a Trigger for "Remove from Cart"**:
-
    - In GTM, create a **Custom Event Trigger** for the "Remove from Cart" event. Name the trigger "Remove from Cart."
 
 5. **Set Up Facebook Pixel Tag**:
-
    - Go to the **Tags** section and create a new tag for the **Facebook Pixel**.
    - Choose the **"Remove from Cart"** trigger and use the **Meta Pixel ID** variable created earlier.
 
@@ -133,13 +124,11 @@ Facebook Pixel allows you to track customer actions and use this data for market
 Once the pixel and event have been set up, it's crucial to test if everything is working:
 
 1. **Go to Your Shopify Store**:
-
    - Add a product to your cart.
 
 2. **Inspect the Cart Page**:
    - Open the **Developer Tools** (right-click and select **Inspect**) and go to the **Console** tab.
 3. **Trigger "Remove from Cart"**:
-
    - Click the **Remove** button on the cart page.
    - Check if the data layer shows that the event has been fired. You should see details like the product name, ID, and price.
 

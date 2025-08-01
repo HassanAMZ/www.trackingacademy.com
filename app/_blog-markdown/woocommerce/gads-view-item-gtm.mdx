@@ -24,13 +24,11 @@ By the end of this guide, you will be able to track the "View Cart" event on you
 ## Checking Admin Access
 
 1. **WordPress:**
-
    - Go to the back end of your WordPress site.
    - Click on "Users" and find your email address.
    - Ensure you have administrator access.
 
 2. **Google Tag Manager:**
-
    - Open your GTM container.
    - Click on "Admin," then "User Management."
    - Ensure your email has publish access to the container.
@@ -43,7 +41,6 @@ By the end of this guide, you will be able to track the "View Cart" event on you
 ## Installing GTM Plugin on WordPress
 
 1. **Add GTM Plugin:**
-
    - Go to your WordPress backend, click on "Plugins," then "Add New."
    - Search for "GTM for WP" by Thomas Geiger.
    - Install and activate the plugin.
@@ -56,7 +53,6 @@ By the end of this guide, you will be able to track the "View Cart" event on you
 ## Verifying GTM Installation
 
 1. **Use GTM Preview Mode:**
-
    - Go to your GTM account, click on "Workspaces," then "Preview."
    - Connect the debug session to your website to check if tags are firing correctly.
 
@@ -66,7 +62,6 @@ By the end of this guide, you will be able to track the "View Cart" event on you
 ## Adding Data Layer Event for View Cart
 
 1. **Enable WooCommerce Events:**
-
    - In your WordPress backend, go to the GTM plugin settings.
    - Click on the "Integration" tab, then "WooCommerce."
    - Enable "Track e-commerce events" and "Clear e-commerce objects before new event."
@@ -79,7 +74,6 @@ By the end of this guide, you will be able to track the "View Cart" event on you
 ## Creating Conversion Action in Google Ads
 
 1. **Create Conversion Action:**
-
    - Go to your Google Ads account, click on "Goals," then "Summary."
    - Click the plus button to create a new conversion action.
    - Select "Website" and enter your website URL.
@@ -91,17 +85,14 @@ By the end of this guide, you will be able to track the "View Cart" event on you
 ## Configuring Conversion Tracking Tags
 
 1. **Add Conversion Linker Tag:**
-
    - In GTM, go to "Tags," click on "New," and select "Conversion Linker."
    - Set it to fire on all pages and save.
 
 2. **Create Custom Event Trigger:**
-
    - Create a new trigger with a custom event named "View Cart."
    - Configure the necessary variables: value, currency, and items array.
 
 3. **Set Up Conversion Tracking Tag:**
-
    - Create a new tag for Google Ads Conversion Tracking.
    - Use the conversion ID and label from your Google Ads account.
    - Configure the tag to fire on the "View Cart" event.
@@ -113,7 +104,6 @@ By the end of this guide, you will be able to track the "View Cart" event on you
 ## Testing and Verifying Tags
 
 1. **Use GTM Preview Mode:**
-
    - Open the debug window and test the "View Cart" event on your WooCommerce site.
    - Verify that the conversion tracking and remarketing tags are firing correctly.
 

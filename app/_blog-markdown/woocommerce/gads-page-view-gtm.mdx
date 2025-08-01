@@ -19,13 +19,11 @@ In this guide, we'll walk you through the process of setting up Google Ads page 
 #### Step 1: Verify Access Permissions
 
 1. **WordPress Access**:
-
    - Log in to your WordPress backend.
    - Navigate to the "Users" tab.
    - Ensure you have "Administrator" access.
 
 2. **Google Tag Manager Access**:
-
    - Go to [Google Tag Manager](https://tagmanager.google.com/).
    - Access the container's "Admin" section and click on "User Management".
    - Verify that you have "Publish" level permissions.
@@ -37,7 +35,6 @@ In this guide, we'll walk you through the process of setting up Google Ads page 
 #### Step 2: Install the GTM for WP Plugin
 
 1. **Install the Plugin**:
-
    - In your WordPress backend, go to the "Plugins" tab and click on "Add New".
    - Search for "GTM for WP" by Thomas Greer.
    - Install and activate the plugin.
@@ -51,7 +48,6 @@ In this guide, we'll walk you through the process of setting up Google Ads page 
 #### Step 3: Test Google Tag Manager Configuration
 
 1. **Open GTM Debug Mode**:
-
    - In Google Tag Manager, go to the "Workspace" section and click "Preview".
    - Connect to any page of your website to open the temporary debug window.
 
@@ -62,14 +58,12 @@ In this guide, we'll walk you through the process of setting up Google Ads page 
 #### Step 4: Set Up Conversion Actions in Google Ads
 
 1. **Create a Conversion Action**:
-
    - In Google Ads, go to "Tools & Settings" and click on "Conversions".
    - Click the blue "+" button to create a new conversion action.
    - Choose "Website" as the conversion source.
    - Enter your website URL and hit "Scan".
 
 2. **Configure the Conversion Action**:
-
    - Select "Page View" as the category.
    - Name the conversion action using snake_case (e.g., `page_view_conversion`).
    - Select "Don't use a value for this conversion".
@@ -81,19 +75,16 @@ In this guide, we'll walk you through the process of setting up Google Ads page 
 #### Step 5: Create Tags in Google Tag Manager
 
 1. **Create a Conversion Tag**:
-
    - In GTM, click "New" in the "Tags" section.
    - Choose "Google Ads Conversion Tracking" as the tag type.
    - Enter the conversion ID and label.
    - Set the trigger to "All Pages".
 
 2. **Optimize with Variables**:
-
    - Create constant variables for the conversion ID and label.
    - Use these variables in the tag configuration for easier management.
 
 3. **Add a Conversion Linker Tag**:
-
    - Create a new tag for "Conversion Linker".
    - Set the trigger to "All Pages".
    - Save the tag.
@@ -106,7 +97,6 @@ In this guide, we'll walk you through the process of setting up Google Ads page 
 #### Step 6: Test and Publish Changes
 
 1. **Test Tags in Debug Mode**:
-
    - Enter preview mode in GTM again and check that all tags fire correctly on your website.
    - Verify the tags using the Tag Assistant extension and the GTM debug window.
 

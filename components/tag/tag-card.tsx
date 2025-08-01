@@ -40,9 +40,9 @@ const TagCard: React.FC<TagCardProps> = ({ tag, blogs }) => {
             <Image
               src={featuredImage}
               alt={`Featured image for ${tag}`}
-              fill
-              className="object-cover"
-              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+              width={1920}
+              height={1080}
+              className="w-full rounded-lg object-cover"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
           </div>

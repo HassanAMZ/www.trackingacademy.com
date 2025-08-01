@@ -2,11 +2,11 @@
 
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardHeader } from "@/components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
 import { cn } from "@/lib/utils";
 import { sendGTMEvent } from "@next/third-parties/google";
-import { Calendar, ChevronDown, User } from "lucide-react";
+import { Calendar, ChevronDown, User, X } from "lucide-react";
 import Script from "next/script";
 import { useEffect, useState } from "react";
 
@@ -28,7 +28,6 @@ const FloatingCalendarWidget = () => {
         const eventName = event.data.datalayer_event_name;
         console.log("Received postMessage:", event.data);
 
-        // Only process specific iClosed events
         const allowedEvents = [
           "iclosed_view",
           "iclosed_potential",
@@ -47,11 +46,7 @@ const FloatingCalendarWidget = () => {
     };
 
     window.addEventListener("message", handlePostMessage);
-
-    // Cleanup
-    return () => {
-      window.removeEventListener("message", handlePostMessage);
-    };
+    return () => window.removeEventListener("message", handlePostMessage);
   }, []);
 
   // Generate upcoming dates
@@ -67,7 +62,7 @@ const FloatingCalendarWidget = () => {
         dates.push({
           dayName: date.toLocaleDateString("en-US", { weekday: "short" }),
           dayNumber: date.getDate().toString().padStart(2, "0"),
-          fullDate: date.toISOString().split("T")[0], // YYYY-MM-DD format
+          fullDate: date.toISOString().split("T")[0],
           isToday: i === 0,
         });
       }
@@ -78,7 +73,7 @@ const FloatingCalendarWidget = () => {
     generateUpcomingDates();
   }, []);
 
-  // Auto-show widget after 3 seconds, but not on contact/book-a-meeting pages
+  // Auto-show widget after delay, but not on specific pages
   useEffect(() => {
     const currentUrl = window.location.pathname.toLowerCase();
     const shouldHideWidget =
@@ -89,7 +84,6 @@ const FloatingCalendarWidget = () => {
     if (!shouldHideWidget) {
       setShowWidget(true);
       const timer = setTimeout(() => {
-        // Auto-expand after showing
         setTimeout(() => setIsMinimized(false), 500);
       }, 10000);
       return () => clearTimeout(timer);
@@ -100,24 +94,12 @@ const FloatingCalendarWidget = () => {
     const newMinimizedState = !isMinimized;
     setIsMinimized(newMinimizedState);
 
-    // Track open/close events
-    if (newMinimizedState) {
-      // Widget is being closed/minimized
-      sendGTMEvent({
-        event: "gtm_custom_event",
-        datalayer_event_name: "iclosed_widget_closed",
-        widget_action: "minimize",
-        widget_type: "floating_calendar",
-      });
-    } else {
-      // Widget is being opened/expanded
-      sendGTMEvent({
-        event: "gtm_custom_event",
-        datalayer_event_name: "iclosed_widget_opened",
-        widget_action: "expand",
-        widget_type: "floating_calendar",
-      });
-    }
+    sendGTMEvent({
+      event: "gtm_custom_event",
+      datalayer_event_name: newMinimizedState ? "iclosed_widget_closed" : "iclosed_widget_opened",
+      widget_action: newMinimizedState ? "minimize" : "expand",
+      widget_type: "floating_calendar",
+    });
   };
 
   if (!showWidget) return null;
@@ -127,25 +109,24 @@ const FloatingCalendarWidget = () => {
       <Script
         src="https://app.iclosed.io/assets/widget.js"
         strategy="lazyOnload"
-        onLoad={() => {
-          console.log("iClosed widget script loaded successfully");
-        }}
+        onLoad={() => console.log("iClosed widget script loaded successfully")}
       />
-      {/* Floating Widget */}
+
       <div className="fixed right-6 bottom-6 z-50">
-        {/* Always visible circle button */}
+        {/* Floating toggle button */}
         <Button
           onClick={toggleMinimize}
           size="icon"
           className={cn(
-            "h-14 w-14 rounded-full bg-primary text-primary-foreground shadow-lg transition-all duration-300 hover:bg-primary/90",
-            "border-2 border-secondary duration-500 animate-in fade-in zoom-in-95",
+            "h-14 w-14 rounded-full shadow-lg transition-all duration-300 hover:shadow-xl",
+            "duration-500 animate-in fade-in zoom-in-95",
+            "bg-primary text-primary-foreground hover:bg-primary/90",
           )}
         >
           {!isMinimized ? <ChevronDown className="h-6 w-6" /> : <Calendar className="h-6 w-6" />}
         </Button>
 
-        {/* Expanded State - Mini popup with smooth animation */}
+        {/* Expanded widget */}
         <div
           className={cn(
             "absolute right-0 bottom-16 w-80 origin-bottom-right transition-all duration-300 ease-out sm:w-96",
@@ -154,48 +135,59 @@ const FloatingCalendarWidget = () => {
               : "pointer-events-auto translate-y-0 scale-100 opacity-100",
           )}
         >
-          <Card className="shadow-xl">
-            <CardHeader className="pb-3">
-              <div className="flex items-center justify-between">
-                <div className="flex items-center space-x-3">
-                  <Avatar className="h-10 w-10">
-                    <AvatarImage src="/images/avatars/hassan.png" alt="ShahzadaAliHassan" />
-
-                    <AvatarFallback className="bg-primary text-primary-foreground">
-                      <User className="h-5 w-5" />
+          <Card className="border border-primary bg-background shadow-2xl">
+            <CardHeader className="pb-4">
+              <div className="flex items-start justify-between">
+                <CardTitle className="flex items-center gap-3">
+                  <Avatar className="h-12 w-12 ring-2 ring-border">
+                    <AvatarImage src="/images/avatars/hassan.png" alt="Shahzada Ali Hassan" />
+                    <AvatarFallback className="bg-muted text-muted-foreground">
+                      <User className="h-6 w-6" />
                     </AvatarFallback>
                   </Avatar>
-                  <div>
-                    <h4 className="text-base font-semibold text-card-foreground">
-                      Shahzada Ali Hassan
-                    </h4>
+                  <div className="space-y-1">
+                    <h4 className="text-base leading-none font-semibold">Shahzada Ali Hassan</h4>
+                    <p className="flex items-center gap-1.5 text-sm font-medium text-green-600">
+                      <span className="h-2 w-2 rounded-full bg-green-500"></span>
+                      Available Now
+                    </p>
                   </div>
-                </div>
+                </CardTitle>
+
+                {/* Simple inline close button */}
+                <Button
+                  onClick={toggleMinimize}
+                  variant="secondary"
+                  size="sm"
+                  className="h-8 w-8 cursor-pointer border p-0"
+                >
+                  <X className="h-4 w-4" />
+                </Button>
               </div>
             </CardHeader>
 
             <Separator />
 
-            <CardContent className="pt-4">
-              <div className="space-y-4">
-                <div>
-                  <h5 className="mb-2 font-bold text-card-foreground">
-                    1-on-1 Meeting with Shahzada
-                  </h5>
-                  <p className="mb-3 text-sm leading-relaxed text-foreground">
-                    Book a 1 on 1 Meeting with me to discuss Fixing Your Tracking. The meeting will
-                    be held on Google Meets and a link will be in the invite description.
-                  </p>
-                </div>
+            <CardContent className="space-y-4 pt-4">
+              <div className="space-y-3">
+                <h5 className="text-lg font-semibold">1-on-1 Meeting with Shahzada</h5>
+                <p className="text-sm leading-relaxed text-muted-foreground">
+                  Book a 1-on-1 meeting with me to discuss{" "}
+                  <span className="font-medium text-foreground">Fixing Your Tracking</span>. The
+                  meeting will be held on Google Meets with a link in the invite.
+                </p>
+              </div>
 
-                {/* Quick date options - Dynamic dates */}
+              {/* Quick date selection */}
+              <div className="space-y-3">
+                <p className="text-sm font-medium">Quick Select:</p>
                 <div className="grid grid-cols-4 gap-2">
                   {upcomingDates.map((date, index) => (
                     <Button
                       key={index}
                       data-iclosed-link="https://app.iclosed.io/e/shahzadaalihassan/1-on-1-meeting-with-shahzada"
                       data-embed-type="popup"
-                      variant="outline"
+                      variant={date.isToday ? "default" : "outline"}
                       size="sm"
                       onClick={() =>
                         sendGTMEvent({
@@ -207,41 +199,43 @@ const FloatingCalendarWidget = () => {
                         })
                       }
                       className={cn(
-                        "h-auto flex-col p-2 hover:bg-accent/10",
+                        "h-auto flex-col gap-1 p-3 transition-all duration-200",
                         date.isToday
-                          ? "border-accent bg-accent/10 text-accent-foreground hover:bg-accent/20"
-                          : "bg-transparent",
+                          ? "shadow-sm"
+                          : "bg-card hover:bg-accent hover:text-accent-foreground",
                       )}
                     >
-                      <span className="text-xs text-foreground">{date.dayName}</span>
-                      <span className="text-sm font-semibold">{date.dayNumber}</span>
+                      <span className="text-xs font-medium opacity-80">{date.dayName}</span>
+                      <span className="text-lg font-bold">{date.dayNumber}</span>
                     </Button>
                   ))}
                 </div>
-
-                {/* CTA Button */}
-                <Button
-                  data-iclosed-link="https://app.iclosed.io/e/shahzadaalihassan/1-on-1-meeting-with-shahzada"
-                  data-embed-type="popup"
-                  className="w-full bg-primary py-3 text-sm font-medium text-primary-foreground hover:bg-primary/90 sm:text-base"
-                  size="lg"
-                  onClick={() =>
-                    sendGTMEvent({
-                      event: "gtm_custom_event",
-                      datalayer_event_name: "iclosed_widget_clicked",
-                      click_type: "main_cta",
-                      button_text: "Schedule a 1-on-1 Call",
-                    })
-                  }
-                >
-                  Schedule a 1-on-1 Call
-                </Button>
-
-                {/* Footer - Shorter text */}
-                <p className="text-center text-xs leading-relaxed text-foreground">
-                  By providing your info, you consent to contact via mail, phone, text, or email.
-                </p>
               </div>
+
+              {/* Main CTA */}
+              <Button
+                data-iclosed-link="https://app.iclosed.io/e/shahzadaalihassan/1-on-1-meeting-with-shahzada"
+                data-embed-type="popup"
+                className="w-full py-6 text-base font-semibold shadow-md transition-all duration-200 hover:shadow-lg"
+                onClick={() =>
+                  sendGTMEvent({
+                    event: "gtm_custom_event",
+                    datalayer_event_name: "iclosed_widget_clicked",
+                    click_type: "main_cta",
+                    button_text: "Schedule a 1-on-1 Call",
+                  })
+                }
+              >
+                📅 Schedule a 1-on-1 Call
+              </Button>
+
+              {/* Privacy notice */}
+              {/* <div className="rounded-md bg-muted/50 p-3">
+                <p className="text-center text-xs leading-relaxed text-muted-foreground">
+                  🔒 By providing your information, you consent to contact via email, phone, or
+                  text.
+                </p>
+              </div> */}
             </CardContent>
           </Card>
         </div>

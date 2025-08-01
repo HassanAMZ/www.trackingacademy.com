@@ -64,20 +64,17 @@ Once the GTM container is connected, you'll be ready to track the **Add to Cart 
 Next, we need to set up the **Add to Cart event** inside GTM:
 
 1. **Inspect the Event**:
-
    - Go to your Shopify store and **right-click** on the page.
    - Select **Inspect** and navigate to the **Console Tab**.
    - Add a product to your cart and watch for the **Add to Cart event** in the data layer.
    - You should see the event fire, which includes key details like **Item ID** and **Item Name**.
 
 2. **Create a Custom HTML Tag**:
-
    - Inside GTM, search for the **Facebook Pixel by Facebook Archive** tag.
    - Add this tag to your GTM workspace.
    - This tag will be used to send the event back to Facebook.
 
 3. **Import eCommerce Parameter Generator**:
-
    - Use the **eCommerce parameter generator** for Meta (available in the tutorial or video description).
    - Import it into your GTM workspace.
    - This generator helps format the data for Facebook's tracking.
@@ -101,12 +98,10 @@ Next, we need to set up the **Add to Cart event** inside GTM:
 Now we'll configure the **Facebook Pixel** to track the **Add to Cart event**:
 
 1. **Create a Trigger**:
-
    - Go to the **Triggers** section in GTM and create a **Custom Event Trigger** for Add to Cart.
    - Name it something like **Add to Cart Event Trigger**.
 
 2. **Add the Facebook Pixel Tag**:
-
    - Use the previously created Facebook Pixel tag.
    - For the event, select **Add to Cart**.
    - Link it to the trigger you just created.
@@ -118,7 +113,6 @@ Now we'll configure the **Facebook Pixel** to track the **Add to Cart event**:
 Now that everything is set up, it's time to test the **Add to Cart event**.
 
 1. **Preview in GTM**:
-
    - In GTM, click on the **Preview** mode.
    - Go to your Shopify store and add an item to your cart.
    - Open the **Inspect** tool and check the **Console Tab** for the Add to Cart event.

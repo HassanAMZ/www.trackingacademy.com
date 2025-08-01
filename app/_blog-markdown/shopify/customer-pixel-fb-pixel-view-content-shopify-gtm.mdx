@@ -33,21 +33,17 @@ In this blog, I'll guide you through the process of configuring customer web pix
 ## Step 1: Adding Data Layer Event Code
 
 1. **Navigate to Shopify Settings**:
-
    - From your Shopify dashboard, head to **Settings** (found at the bottom left corner).
    - Scroll to the **Customer Event** section, where you will trigger the View Content event.
 
 2. **Add a Custom Pixel**:
-
    - Click the **Add Custom Pixel** button.
    - Since we're working with Meta, rename it to "Meta View Content Data Layer" and click **Add Pixel**.
 
 3. **Configure Permissions**:
-
    - Ensure the **Permissions** are set to **Not Required** and that **Data Sale Does Not Qualify**.
 
 4. **Insert Code Snippet**:
-
    - Copy a pre-written code snippet (you can find the code in a blog post linked in the description).
    - Paste this code into your Shopify store's custom pixel section.
    - Update the Google Tag Manager (GTM) ID in the code. You can find this in your GTM account by clicking on the ID at the top of the dashboard.
@@ -68,16 +64,13 @@ To confirm that the View Content event works:
 ## Step 2: Setting Up Google Tag Manager Container
 
 1. **Access Google Tag Manager**:
-
    - Go to your **Google Tag Manager** dashboard to create a container.
 
 2. **Add Facebook Pixel Template**:
-
    - In GTM, navigate to **Templates**.
    - Search for "Facebook Pixel by Facebook Archive Team" in the gallery and add it to your workspace.
 
 3. **Add Variable Templates**:
-
    - Create a **Meta Pixel ID** constant variable:
    - Go to **Variables** and click on **New**.
    - Copy the Meta Pixel ID from Facebook Events Manager and add it as a constant in GTM.
@@ -90,7 +83,6 @@ To confirm that the View Content event works:
 ## Step 3: Configuring Facebook Pixel Tags
 
 1. **Create Facebook Pixel Tags in GTM**:
-
    - Now that you've set up your variables, it's time to create the tags.
    - Start by creating a new tag for **Page View** events:
      - Set the trigger to fire on all pages.
@@ -112,7 +104,6 @@ To confirm that the View Content event works:
 ## Step 4: Tracking View Content Events on Facebook Pixel
 
 1. **Finalize Facebook Pixel Tag**:
-
    - With the trigger set to fire on product pages, configure the tag to track the View Content event.
    - Add all relevant parameters, including **content ID**, **content name**, and **value**.
    - Save the tag configuration.
@@ -125,7 +116,6 @@ To confirm that the View Content event works:
 To make sure everything is working as intended:
 
 1. **Test with Facebook Pixel Helper**:
-
    - Use the Facebook Pixel Helper extension to check if events like **Page View** and **View Content** are firing correctly.
    - On your product pages, check for details like **content IDs**, **content name**, and **currency** in the Pixel Helper tool.
 

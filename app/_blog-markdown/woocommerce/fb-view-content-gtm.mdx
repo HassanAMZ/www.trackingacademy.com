@@ -40,14 +40,12 @@ Before we start, ensure you have the following:
 ### Section 1: Configuring Google Tag Manager on WooCommerce
 
 1. **Install GTM for WordPress Plugin**
-
    - Go to your WordPress dashboard.
    - Navigate to **Plugins > Add New**.
    - Search for "GTM 4WP" by Thomas Geiger.
    - Install and activate the plugin.
 
 2. **Add GTM Container ID**
-
    - Once activated, go to **Settings > Google Tag Manager**.
    - Enter your GTM Container ID.
    - Save changes and refresh the page to ensure the settings are updated.
@@ -60,13 +58,11 @@ Before we start, ensure you have the following:
 ### Section 2: Setting Up Facebook Pixel Configuration Tag
 
 1. **Access Facebook Business Manager**
-
    - Go to **business.facebook.com**.
    - Navigate to **Event Manager** under **All Tools**.
    - Select your data source (Pixel) and copy the Pixel ID.
 
 2. **Create Facebook Pixel Tag in GTM**
-
    - In GTM, go to **Tags > New**.
    - Choose **Tag Type** as **Facebook Pixel**.
    - Enter your Pixel ID.
@@ -82,7 +78,6 @@ Before we start, ensure you have the following:
 ### Section 3: Adding Data Layer for Product Details
 
 1. **Enable Data Layer in GTM for WP Plugin**
-
    - Go to **Settings > Google Tag Manager** in your WordPress dashboard.
    - Navigate to the **Integration** tab and enable **eCommerce** under WooCommerce.
    - Set the product impression threshold.
@@ -100,19 +95,16 @@ Before we start, ensure you have the following:
 ### Section 4: Configuring View Content Event in GTM
 
 1. **Add Custom Tag Template**
-
    - In GTM, go to **Templates**.
    - Search for **Facebook Parameter Generator** and add it to your workspace.
 
 2. **Create Variables for Data Layer**
-
    - Go to **Variables > New** and create variables for:
      - **ecommerce.currency**
      - **ecommerce.value**
      - **ecommerce.items**
 
 3. **Map Data Layer to Facebook Parameters**
-
    - Use the **Facebook Parameter Generator** template to map the data layer variables to Facebook parameters.
    - Create variables for **content_ids**, **content_name**, **contents**, and **num_items**.
 
@@ -127,7 +119,6 @@ Before we start, ensure you have the following:
 ### Section 5: Testing the Setup
 
 1. **Re-enter Preview Mode**
-
    - After saving your changes, enter GTM preview mode again.
    - Navigate to a product page on your website.
    - Verify the **ViewContent** event is firing with the correct parameters using the Facebook Pixel Helper extension.
@@ -149,14 +140,12 @@ To make your life easier, you can download and import a pre-configured GTM conta
 </AuthenticatedLayout>
 
 2. **Import the Container**
-
    - Go to **Admin > Import Container** in GTM.
    - Choose the downloaded container file.
    - Select your existing workspace and choose **Merge**.
    - Confirm the changes.
 
 3. **Update Facebook Pixel ID**
-
    - Go to **Variables** and update the Facebook Pixel ID with your own.
 
 4. **Publish the Changes**

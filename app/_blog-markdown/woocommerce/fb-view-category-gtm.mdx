@@ -38,19 +38,16 @@ For the best learning experience, follow these recommendations:
 There are several ways to configure GTM on your WooCommerce store. Here, we'll use a common plugin called GTM4WP.
 
 1. **Install the GTM4WP Plugin:**
-
    - Go to your WordPress dashboard and navigate to the Plugins section.
    - Search for "GTM4WP" and install the plugin by Thomas Drner.
    - Activate the plugin.
 
 2. **Obtain Your GTM Container ID:**
-
    - Go to the Google Tag Manager website (tagmanager.google.com).
    - Create a new container (or use an existing one) if needed.
    - Copy the container ID.
 
 3. **Link GTM4WP to Your Container:**
-
    - In your WordPress dashboard, go to Settings > Google Tag Manager.
    - Paste your GTM container ID into the designated field.
    - Enable the container code.
@@ -62,13 +59,11 @@ There are several ways to configure GTM on your WooCommerce store. Here, we'll u
 ## Setting Up Facebook Pixel Configuration Tag
 
 1. **Obtain Your Facebook Pixel ID:**
-
    - Go to your Facebook Business Manager (business.facebook.com).
    - Click on "Events Manager" under the Tools menu.
    - Copy the Pixel ID from the "Data Sources" section.
 
 2. **Create a Facebook Pixel Tag in GTM:**
-
    - In GTM, go to Templates and search for "Facebook Pixel Tag."
    - Add the template to your workspace.
    - Create a new tag and select "All Pages" as the trigger.
@@ -84,7 +79,6 @@ There are several ways to configure GTM on your WooCommerce store. Here, we'll u
 The data layer acts as a helper function, enabling you to track event parameters like product name, ID, price, and more. WooCommerce provides a built-in data layer that captures e-commerce events.
 
 1. **Enable Data Layer Tracking in GTM4WP:**
-
    - Go to the GTM4WP settings and navigate to the "Integration" section.
    - Enable "Track E-commerce Events" for the WooCommerce plugin.
    - Select "20" for the impression event.
@@ -109,14 +103,12 @@ The data layer acts as a helper function, enabling you to track event parameters
 ## Building Dynamic Variables from Data Layer:
 
 - Utilize the built-in GTM "Facebook Parameter Generator" template to simplify variable creation.
-
   - Search for "Facebook Parameter Generator" in the Template Gallery.
   - Add this template to your workspace.
   - Create a new Data Layer variable named "eCommerce_do_items" to capture product information from the "view_item_list" event data layer.
     - This variable will dynamically update based on the products viewed.
 
 - Populate Variables with Data Layer Values:
-
   - Within the "eCommerce_do_items" variable configuration:
     - Set "Item IDs" to "item_id" (assuming the product ID field in your data layer is named "item_id").
     - Set "Item Names" to "item_name."

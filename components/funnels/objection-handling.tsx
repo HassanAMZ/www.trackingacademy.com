@@ -32,7 +32,7 @@ const ObjectionHandling: React.FC<ObjectionHandlingProps> = ({ sectionTitle, gua
                       alt="Keanu Reeves with red and blue pills"
                       width={1080}
                       height={1080}
-                      className="rounded-lg"
+                      className="rounded-lg object-cover"
                     />
                   </div>
                   <div className="md:w-2/3">

@@ -106,7 +106,7 @@ const Bonuses: React.FC<BonusesProps> = ({
                           alt={`${bonus.title} Visualization`}
                           width={1920}
                           height={1080}
-                          className="w-full rounded-lg shadow-lg"
+                          className="w-full rounded-lg object-cover shadow-lg"
                         />
                       </div>
                     )}

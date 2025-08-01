@@ -32,12 +32,10 @@ This guide will show you how to configure an "Add Payment Info" event for a Shop
 The first step is to ensure that the customer pixel is properly connected to your Shopify store and is triggering the data layer event. Here's how to do it:
 
 1. **Access Shopify Settings:**
-
    - Go to your Shopify store.
    - Click on the **Settings** button located at the bottom left corner.
 
 2. **Add a New Customer Pixel:**
-
    - Scroll down to **Customer Events** and click on **Add a New Customer Pixel**.
    - Rename the pixel to **Add Payment Info** since this is the data layer we're focusing on.
    - Add "data layer" next to it and click **Add Pixel**.
@@ -52,12 +50,10 @@ This setup is crucial as it ensures the pixel is correctly configured to capture
 Next, you need to add a code snippet to your Shopify store and configure the Google Tag Manager (GTM) ID.
 
 1. **Copy and Paste Code Snippet:**
-
    - Use the link provided in the description to copy the required code snippet.
    - Paste it in the designated area within your Shopify store.
 
 2. **Update GTM Container ID:**
-
    - Scroll to the top of the code snippet to locate the placeholder for the GTM ID.
    - Replace the placeholder with your actual GTM ID. To find your GTM ID:
      - Go to [Google Tag Manager](https://tagmanager.google.com).
@@ -85,7 +81,6 @@ This will link the pixel to your Shopify backend, enabling it to track customer 
 Before moving forward, it's important to verify that the "Add Payment Info" event is firing correctly.
 
 1. **Test the Event:**
-
    - Go to the front end of your store by clicking on **View Online Store**.
    - Add a product to your cart and proceed to the checkout page.
    - Enter your payment information as a test.
@@ -101,7 +96,6 @@ If everything is set up correctly, you should see the event firing in the data l
 Now, it's time to configure Google Tag Manager to send the "Add Payment Info" event to Google Analytics 4.
 
 1. **Set Up GA4 Configuration Tag:**
-
    - Go to your GTM container.
    - Click on **Tags** and then **Add New**.
    - Choose **Google Analytics: GA4 Configuration** as the tag type.
@@ -119,7 +113,6 @@ Now, it's time to configure Google Tag Manager to send the "Add Payment Info" ev
 To track the event in GA4, you need to create a custom event tag.
 
 1. **Set Up GA4 Event Tag:**
-
    - Choose **GA4 Event** as the tag type.
    - Use the same measurement ID as before.
    - Name the event `add_payment_info`.
@@ -133,7 +126,6 @@ To track the event in GA4, you need to create a custom event tag.
 To accurately capture the event parameters, you need to set up data layer variables in GTM.
 
 1. **Create Data Layer Variables:**
-
    - For each parameter (e.g., value, shipping, tax), create a new data layer variable.
    - Name each variable appropriately (e.g., `dlv_ecommerce_value` for value).
 
@@ -145,7 +137,6 @@ To accurately capture the event parameters, you need to set up data layer variab
 After setting up the tags and triggers, it's time to test and publish your changes.
 
 1. **Submit Changes in GTM:**
-
    - Submit the container with a descriptive name like "GA4 Add Payment Info Tracking."
    - Click **Publish** to make the changes live.
 

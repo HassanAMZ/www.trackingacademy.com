@@ -40,7 +40,7 @@ export default function WhyChooseSection({
             alt={`${heading} diagram`}
             width={1920}
             height={1080}
-            className="w-full"
+            className="w-full rounded-lg object-cover"
           />
         </div>
       </div>

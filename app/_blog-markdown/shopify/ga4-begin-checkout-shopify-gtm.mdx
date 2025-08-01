@@ -44,13 +44,11 @@ This blog is divided into three main sections, aiming to cover everything from b
 First up, let's set the groundwork with a configuration tag on Google Tag Manager.
 
 1. Analytics Measurement ID: Navigate to your [analytics account](analytics.google.com) to obtain the GA4 measurement ID. This unique ID facilitates data transmission from your website back to Google Analytics.
-
    - On the lower left corner, choose `Admin`.
    - Within the 'Property Settings' column, select `Data Stream`. These data streams operate akin to pipelines, bridging data flow.
    - If you already possess a data stream, great! If not, you can create one. Once set, copy the measurement ID.
 
 2. Google Tag Manager - Creating Variables: Switch over to the [Google Tag Manager container](tagmanager.google.com). Here, we'll create variables to reuse IDs efficiently.
-
    - Head to the `Variable` section.
    - Click `New` > `Tag Configuration`.
    - Opt for the `Constant` variable (since the Measurement ID remains unchanged across users).
@@ -58,7 +56,6 @@ First up, let's set the groundwork with a configuration tag on Google Tag Manage
    - Save your changes.
 
 3. Tag Creation: With the Measurement ID constant in place, it's time to create our first tag.
-
    - Top right, select `New`.
    - This configuration tag should be active across all website pages. Hence, choose the trigger for built-in all pages.
    - Under tag configuration, select the `Google Tag` (the newer version of the older Google Analytics 4 configuration tag).

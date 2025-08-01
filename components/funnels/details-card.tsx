@@ -127,12 +127,11 @@ const DetailsCards: React.FC<DetailsCardsProps> = ({ title, description, items }
                     ) : item.image ? (
                       <div className="relative aspect-video w-full overflow-hidden rounded-lg shadow">
                         <Image
-                          src={item.image}
+                          src={item.image || "/placeholder.svg?height=600&width=800"}
                           alt={`${item.title} preview`}
-                          fill
-                          priority={index === 0} // Priority for first image only
-                          sizes="(max-width: 768px) 100vw, 50vw"
-                          className="rounded-lg object-cover transition-transform duration-700"
+                          width={1920}
+                          height={1080}
+                          className="w-full rounded-lg object-cover transition-transform duration-700"
                         />
                       </div>
                     ) : (

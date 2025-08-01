@@ -36,7 +36,6 @@ To begin, ensure you have the necessary access:
 To install the GTM plugin on your WordPress site, follow these steps:
 
 1. **Install the Plugin:**
-
    - Go to your WordPress backend, click on "Plugins," then "Add New."
    - Search for "GTM for WP" and install the plugin by Thomas Geiger.
    - Activate the plugin.
@@ -55,7 +54,6 @@ After saving changes, ensure the container code is on. If it turns off automatic
 It's crucial to verify that the GTM container is properly installed on your site. You can do this using the following methods:
 
 1. **GTM Preview Mode:**
-
    - Go to your GTM account, click on "Workspaces," then "Preview."
    - This opens a temporary debug session. Connect it to your website to track events and check if tags are firing correctly.
 
@@ -65,7 +63,6 @@ It's crucial to verify that the GTM container is properly installed on your site
 ## Setting Up the Begin Checkout Event
 
 1. **Configure WooCommerce Events:**
-
    - In your WordPress backend, navigate to the GTM plugin settings.
    - Click on the "Integration" tab and enable "Track e-commerce events."
    - Check the box for "Begin Checkout" and save changes.
@@ -77,7 +74,6 @@ It's crucial to verify that the GTM container is properly installed on your site
 ## Creating Conversion Actions in Google Ads
 
 1. **Create Conversion Action:**
-
    - Go to your Google Ads account, click on "Goals," then "Summary."
    - Click the plus button to create a new conversion action.
    - Select "Website" and enter your website URL. Click "Scan."
@@ -89,17 +85,14 @@ It's crucial to verify that the GTM container is properly installed on your site
 ## Configuring Conversion Tracking Tags
 
 1. **Add Conversion Linker Tag:**
-
    - In GTM, go to "Tags," click on "New," and select "Conversion Linker."
    - Set it to fire on all pages and save.
 
 2. **Create Custom Event Trigger:**
-
    - Create a new trigger with a custom event named "Begin Checkout."
    - Configure the necessary variables: value, currency, and items array.
 
 3. **Set Up Conversion Tracking Tag:**
-
    - Create a new tag for Google Ads Conversion Tracking.
    - Use the conversion ID and label from your Google Ads account.
    - Configure the tag to fire on the "Begin Checkout" event.
@@ -111,7 +104,6 @@ It's crucial to verify that the GTM container is properly installed on your site
 ## Testing and Debugging
 
 1. **Use GTM Preview Mode:**
-
    - Open the debug window and test the "Begin Checkout" event on your WooCommerce site.
    - Verify that the conversion tracking and remarketing tags are firing correctly.
 

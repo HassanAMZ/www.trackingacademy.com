@@ -149,8 +149,9 @@ export default function CaseStudyComponent({ caseStudy }: { caseStudy: CaseStudy
                 <Image
                   src={caseStudy.imageUrl || "/placeholder.svg?height=400&width=600"}
                   alt={`${caseStudy.name} desktop view`}
-                  fill
-                  className="scale-x-102 object-cover"
+                  width={1920}
+                  height={1080}
+                  className="w-full scale-x-102 rounded-lg object-cover"
                 />
               )}
 
@@ -198,8 +199,9 @@ export default function CaseStudyComponent({ caseStudy }: { caseStudy: CaseStudy
                               "/placeholder.svg"
                             }
                             alt={`Before ${currentBeforeIndex + 1}`}
-                            fill
-                            className="object-cover transition-all duration-300 group-hover/image:scale-105"
+                            width={1920}
+                            height={1080}
+                            className="w-full rounded-lg object-cover transition-all duration-300 group-hover/image:scale-105"
                           />
                           {/* Hover overlay */}
                           <div className="absolute inset-0 flex items-center justify-center bg-black/0 transition-all duration-300 group-hover/image:bg-black/20">
@@ -251,8 +253,9 @@ export default function CaseStudyComponent({ caseStudy }: { caseStudy: CaseStudy
                               "/placeholder.svg"
                             }
                             alt={`After ${currentAfterIndex + 1}`}
-                            fill
-                            className="object-cover transition-all duration-300 group-hover/image:scale-105"
+                            width={1920}
+                            height={1080}
+                            className="w-full rounded-lg object-cover transition-all duration-300 group-hover/image:scale-105"
                           />
                           {/* Hover overlay */}
                           <div className="absolute inset-0 flex items-center justify-center bg-black/0 transition-all duration-300 group-hover/image:bg-black/20">
@@ -613,8 +616,9 @@ export default function CaseStudyComponent({ caseStudy }: { caseStudy: CaseStudy
               <Image
                 src={getCurrentModalImages()[modalImageIndex] || "/placeholder.svg"}
                 alt={`${modalImageType} ${modalImageIndex + 1}`}
-                fill
-                className="object-contain"
+                width={1920}
+                height={1080}
+                className="w-full rounded-lg object-cover"
               />
 
               {/* Navigation Arrows */}

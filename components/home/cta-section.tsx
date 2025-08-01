@@ -31,8 +31,9 @@ export function CTASection() {
             <Image
               src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-esEvuXsvnRvzgXAAbw2yjiBpoMyDPr.png"
               alt="Demo video preview"
-              fill
-              className="object-cover"
+              width={1920}
+              height={1080}
+              className="w-full rounded-lg object-cover"
             />
           </div>
         </CardContent>

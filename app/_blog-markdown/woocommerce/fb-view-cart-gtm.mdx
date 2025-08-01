@@ -40,21 +40,18 @@ In this blog post, I'll show you how to configure Facebook Pixel's view cart eve
 #### Step 1: Install Google Tag Manager on Your WordPress Store
 
 1. **Choose a Method to Add GTM Code:**
-
    - Directly using theme files
    - Function.php
    - Header.php
    - Plugins (Recommended method: GTM 4 WP)
 
 2. **Install GTM 4 WP Plugin:**
-
    - Go to your WordPress backend.
    - Navigate to Plugins > Add New.
    - Search for `GTM 4 WP`.
    - Install and activate the plugin.
 
 3. **Configure the Plugin:**
-
    - After activation, go to Settings > Google Tag Manager.
    - Enter your GTM container ID, which you can get from [tagmanager.google.com](https://tagmanager.google.com).
    - Save changes and ensure the container code is active.
@@ -70,12 +67,10 @@ In this blog post, I'll show you how to configure Facebook Pixel's view cart eve
 #### Step 1: Install Facebook Pixel Configuration Tag
 
 1. **Install the Facebook Pixel Tag:**
-
    - In GTM, go to Templates > Search Gallery.
    - Search for `Facebook Pixel` and add the template provided by the Facebook Archive team.
 
 2. **Create a New Tag:**
-
    - Go to Tags > New > Tag Configuration.
    - Select the Facebook Pixel template.
    - Enter your Facebook Pixel ID from your Facebook Events Manager.
@@ -92,7 +87,6 @@ In this blog post, I'll show you how to configure Facebook Pixel's view cart eve
 #### Step 1: Enable E-commerce Tracking in GTM 4 WP Plugin
 
 1. **Enable E-commerce Tracking:**
-
    - Go to the GTM 4 WP plugin settings.
    - Navigate to the Integration tab.
    - Enable WooCommerce E-commerce Tracking and save changes.
@@ -109,7 +103,6 @@ In this blog post, I'll show you how to configure Facebook Pixel's view cart eve
 #### Step 1: Create Variables for Data Layer
 
 1. **Create Data Layer Variables:**
-
    - In GTM, go to Variables > New > Data Layer Variable.
    - Create variables for currency, value, and items:
      - `dlv_ecommerce.currency`
@@ -124,7 +117,6 @@ In this blog post, I'll show you how to configure Facebook Pixel's view cart eve
 #### Step 2: Create the View Cart Tag
 
 1. **Create a New Tag:**
-
    - Go to Tags > New > Tag Configuration.
    - Select the Facebook Pixel template.
    - Use the View Cart event trigger.
@@ -137,7 +129,6 @@ In this blog post, I'll show you how to configure Facebook Pixel's view cart eve
      - `num_items`
 
 2. **Configure the Trigger:**
-
    - Set the trigger to the custom `view_cart` event.
 
 3. **Test the Setup:**
@@ -160,7 +151,6 @@ In this blog post, I'll show you how to configure Facebook Pixel's view cart eve
 </AuthenticatedLayout>
 
 2. **Import the Container:**
-
    - In GTM, go to Admin > Import Container.
    - Select the JSON file and choose to merge it with your existing container.
 

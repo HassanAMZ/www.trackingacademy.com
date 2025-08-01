@@ -26,13 +26,11 @@ In this Blog Post, we will learn how to track the "View Item List" event on your
 ## Step 1: Ensure Proper Access
 
 1. **WordPress Backend Access:**
-
    - Go to the WordPress backend.
    - Navigate to the Users tab.
    - Check if your user has administrator access.
 
 2. **Google Tag Manager Access:**
-
    - Go to the Admin section in Google Tag Manager.
    - Click on User Management.
    - Ensure you have publish access. If not, ask your client to update your permissions.
@@ -45,13 +43,11 @@ In this Blog Post, we will learn how to track the "View Item List" event on your
 ## Step 2: Set Up Google Tag Manager on WordPress
 
 1. **Install the GTM for WP Plugin:**
-
    - Go to the Plugins section in WordPress and click on "Add New."
    - Search for "GTM for WP" and install the plugin by Thomas Greger.
    - Activate the plugin.
 
 2. **Add the Google Tag Manager Container ID:**
-
    - Go to the settings of the GTM for WP plugin.
    - Enter your Google Tag Manager Container ID.
    - Save the changes.
@@ -63,7 +59,6 @@ In this Blog Post, we will learn how to track the "View Item List" event on your
 ## Step 3: Create Data Layer for the "View Item List" Event
 
 1. **Enable Data Layer on WooCommerce:**
-
    - Go to the plugin section in WordPress.
    - Click on Integrations.
    - Find the option for "Track e-commerce events" and select "Impressions to 20."
@@ -77,7 +72,6 @@ In this Blog Post, we will learn how to track the "View Item List" event on your
 ## Step 4: Create Conversion Actions in Google Ads Manager
 
 1. **Create a New Conversion Action:**
-
    - Go to the Goals section in Google Ads.
    - Click on "Create new conversion action."
    - Select "Website" as the conversion source.
@@ -91,20 +85,16 @@ In this Blog Post, we will learn how to track the "View Item List" event on your
 ## Step 5: Set Up Tags, Triggers, and Variables in Google Tag Manager
 
 1. **Create a Conversion Linker Tag:**
-
    - Go to Google Tag Manager and create a new tag.
    - Select "Google Ads Conversion Linker" and set it to fire on all pages.
 
 2. **Create a Trigger for "View Item List" Event:**
-
    - Go to the Trigger section and create a custom event named "view_item_list."
 
 3. **Create Variables for e-commerce Data:**
-
    - Create data layer variables for currency, items array, and value using the Facebook parameter generator template.
 
 4. **Set Up Conversion Tracking Tag:**
-
    - Create a new tag for Google Ads conversion tracking.
    - Use the Conversion ID, Conversion Label, and data layer variables.
 
@@ -115,7 +105,6 @@ In this Blog Post, we will learn how to track the "View Item List" event on your
 ## Step 6: Test and Publish
 
 1. **Test the Setup:**
-
    - Use the preview mode in Google Tag Manager to test if the "View Item List" event fires correctly.
    - Check if the event includes all required parameters and fires the Google Ads tags.
 

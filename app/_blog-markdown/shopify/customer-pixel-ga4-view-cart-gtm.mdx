@@ -35,12 +35,10 @@ The first step is to ensure that customer pixels are active on your Shopify stor
 Now, let's create the custom pixel that will track the "View Cart" event:
 
 1. **Add a Custom Pixel:**
-
    - In the customer event section, click on "Add Pixel."
    - Name your pixel something relevant, such as "Data Layer."
 
 2. **Configure Pixel Settings:**
-
    - **Permission:** Set it to "Not Required."
    - **Data Sale:** Select the option that indicates "Does Not Qualify as Data Sale."
    - **Save the Pixel:** Once configured, hit the "Save" button.
@@ -57,7 +55,6 @@ Now, let's create the custom pixel that will track the "View Cart" event:
 To link your custom pixel with Google Tag Manager:
 
 1. **Retrieve GTM Container ID:**
-
    - Go to [tagmanager.google.com](https://tagmanager.google.com) and select your container.
    - Copy the container ID from the top of the page.
 
@@ -78,7 +75,6 @@ After configuring the pixel, it must be connected to your Shopify store:
 To verify that the "View Cart" event is working:
 
 1. **Trigger the Event:**
-
    - Visit your website and navigate to the cart page.
    - Use your browser's inspect tool (right-click > Inspect) and switch to the console tab.
 
@@ -91,7 +87,6 @@ To verify that the "View Cart" event is working:
 For Google Analytics 4 tracking:
 
 1. **Create a GA4 Configuration Tag:**
-
    - In Google Tag Manager, create a new tag for GA4 configuration.
    - Use your GA4 measurement ID (found in your Google Analytics account) to complete this tag.
 
@@ -106,7 +101,6 @@ Testing is essential to confirm everything works as intended:
 
 1. **Submit Changes:** In Google Tag Manager, submit your changes to make them live.
 2. **Test the Event:**
-
    - Go back to your Shopify store and trigger the "View Cart" event.
    - Inspect the page and verify that the event is firing correctly.
 
@@ -119,7 +113,6 @@ Testing is essential to confirm everything works as intended:
 Finally, verify the event in Google Analytics:
 
 1. **Real-Time View:**
-
    - Check the real-time view in GA4 to see the "View Cart" event firing.
    - Verify that all parameters, such as currency and value, are correctly recorded.
 

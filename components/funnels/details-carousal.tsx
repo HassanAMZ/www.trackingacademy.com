@@ -265,8 +265,9 @@ const DetailsCarousel: React.FC<DetailsCarouselProps> = ({
                     <Image
                       src={activeItem.image || "/placeholder.svg"}
                       alt={activeItem.title || "Carousel item"}
-                      fill
-                      className="object-cover"
+                      width={1920}
+                      height={1080}
+                      className="w-full rounded-lg object-cover"
                     />
                   </div>
                 )}

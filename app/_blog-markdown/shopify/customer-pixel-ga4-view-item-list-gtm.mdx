@@ -76,13 +76,11 @@ This tag will initialize GA4 tracking on your Shopify store.
 You'll need to create variables to capture key data from your Shopify store:
 
 1. **Currency**:
-
    - Go to **Variables** in GTM and create a new **Data Layer Variable**.
    - Name it `dlv.ecommerce.currency`.
    - Set the data layer variable name to `ecommerce.currency`.
 
 2. **Value**:
-
    - Repeat the steps above, but name this variable `dlv.ecommerce.value` and use `ecommerce.value`.
 
 3. **Items Array**:
@@ -105,7 +103,6 @@ Finally, create a tag that sends the "View Item List" event to GA4:
 3. Select **Google Analytics: GA4 Event** as the tag type.
 4. Set the event name to `view_item_list`.
 5. Add the following event parameters:
-
    - **Value**: Set to `{{dlv.ecommerce.value}}`.
    - **Currency**: Set to `{{dlv.ecommerce.currency}}`.
    - **Items**: Set to `{{dlv.ecommerce.items}}`.
