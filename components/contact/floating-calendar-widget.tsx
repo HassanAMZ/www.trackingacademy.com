@@ -139,8 +139,8 @@ const FloatingCalendarWidget = () => {
               : "pointer-events-auto translate-y-0 scale-100 opacity-100",
           )}
         >
-          <Card className="border border-primary bg-background shadow-2xl">
-            <CardHeader className="bg-card pb-3 sm:pb-4">
+          <Card className="border border-primary bg-card shadow-2xl">
+            <CardHeader className="rounded-t-xl bg-background pb-3 sm:pb-4">
               <div className="flex items-start justify-between">
                 <CardTitle className="flex items-center gap-2 sm:gap-3">
                   <Avatar className="h-10 w-10 ring-2 ring-border sm:h-12 sm:w-12">

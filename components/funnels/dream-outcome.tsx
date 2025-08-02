@@ -1,6 +1,7 @@
 "use client";
 
-import { Card, CardContent } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { cn } from "@/lib/utils";
 import {
   AlertTriangle,
@@ -15,6 +16,7 @@ import {
   Trophy,
   XCircle,
 } from "lucide-react";
+import Image from "next/image";
 import React from "react";
 
 export interface DreamOutcomeProps {
@@ -37,6 +39,7 @@ export interface DreamOutcomeProps {
     text: string;
     embedId: { loom?: string; youtube?: string };
     description: string;
+    image: string;
   }>;
 }
 
@@ -61,42 +64,58 @@ const DreamOutcome: React.FC<DreamOutcomeProps> = ({
   };
 
   return (
-    <div className={cn("space-y-16", className)}>
+    <section className={cn("container mx-auto md:p-6", className)}>
       {/* Header */}
-      <div className="space-y-4 text-center">
-        {heading && <h2>{heading}</h2>}
-        {subheading && <h4 className="mx-auto max-w-3xl text-muted-foreground">{subheading}</h4>}
-      </div>
-      {/* {dreamOutcomeList[0].embedId.youtube && (
-        <YoutubeEmbed embedId={dreamOutcomeList[0].embedId.youtube} className="p-0" />
-      )} */}
+      {(heading || subheading) && (
+        <div className="text-center">
+          {heading && (
+            <h2 className="mb-4 text-3xl font-bold tracking-tight sm:text-4xl">{heading}</h2>
+          )}
+          {subheading && (
+            <p className="mx-auto max-w-2xl text-lg text-muted-foreground">{subheading}</p>
+          )}
+        </div>
+      )}
 
-      {/* <Video src={see_every_sale_desktop} /> */}
-
-      {/* Content */}
-      <div className="grid gap-8 lg:grid-cols-2">
-        {dreamOutcomeList.map((outcome, index) => {
+      {/* Grid */}
+      <div className="grid gap-4 md:grid-cols-3">
+        {dreamOutcomeList.slice(0, 3).map((outcome, index) => {
           const IconComponent = outcome.icon ? iconMap[outcome.icon] : Lightbulb;
 
           return (
-            <Card
-              key={index}
-              className="group border-2 transition-all hover:border-destructive/50 hover:shadow-lg"
-            >
-              <CardContent className="flex flex-col gap-4 p-6">
-                <div className="flex items-center gap-4">
-                  <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-destructive/10 text-destructive group-hover:bg-destructive/20">
-                    <IconComponent className="h-6 w-6" />
-                  </div>
-                  <h4 className="text-lg font-semibold">{outcome.text}</h4>
-                </div>
-                <p className="text-muted-foreground">{outcome.description}</p>
+            <Card key={index} className="group overflow-hidden transition-all hover:shadow-lg">
+              <div className="relative aspect-square overflow-hidden">
+                <Image
+                  src={outcome.image || "/placeholder.svg?height=400&width=600"}
+                  alt={`${outcome.text} preview`}
+                  width="1080"
+                  height="1080"
+                  className="object-cover transition-transform duration-300 group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+                <Badge
+                  variant="secondary"
+                  className="absolute top-4 left-4 bg-background/90 backdrop-blur-sm"
+                >
+                  <IconComponent className="mr-1 h-3 w-3" />
+                  Feature
+                </Badge>
+              </div>
+
+              <CardHeader className="pb-3">
+                <CardTitle>{outcome.text}</CardTitle>
+              </CardHeader>
+
+              <CardContent className="pt-0">
+                <CardDescription className="text-base leading-relaxed">
+                  {outcome.description}
+                </CardDescription>
               </CardContent>
             </Card>
           );
         })}
       </div>
-    </div>
+    </section>
   );
 };
 

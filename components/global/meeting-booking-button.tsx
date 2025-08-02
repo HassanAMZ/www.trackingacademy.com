@@ -12,7 +12,7 @@ interface MeetingBookingButtonProps {
 const MeetingBookingButton = ({
   buttonText,
   subheading = true,
-  wrapperButtonClassName = "",
+  wrapperButtonClassName,
   offerData,
 }: MeetingBookingButtonProps) => {
   const defaultText = offerData?.cta.primary || "Schedule Your Call To Fix your Meta Ads Tracking";
@@ -24,7 +24,7 @@ const MeetingBookingButton = ({
       asChild
       size="lg"
       className={cn(
-        "mx-auto flex w-full flex-col p-6 text-lg font-semibold shadow-lg shadow-primary-foreground transition-transform duration-200 md:text-2xl",
+        "mx-auto flex w-full flex-col p-6 text-center text-lg font-semibold shadow-lg shadow-primary-foreground transition-transform duration-200 md:text-2xl",
         wrapperButtonClassName,
       )}
     >

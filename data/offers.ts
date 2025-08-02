@@ -1,12 +1,5 @@
 import { DetailsCardsProps } from "@/components/funnels/details-card";
-// Add these types to your offers.ts file
-import { services } from "./services";
 
-// Helper function to get dynamic pricing
-const getStarterPrice = () => {
-  const starterService = services.find((service) => service.id === "starter-subscription");
-  return starterService ? starterService.price : "$149/month";
-};
 export interface CalculatorConfig {
   title: string;
   description: string;
@@ -44,6 +37,7 @@ export interface OfferData {
     prefix: string;
     conversion: string[];
     suffix: string;
+    benefit: string;
   };
   subheading: string;
   embedId: {
@@ -55,13 +49,14 @@ export interface OfferData {
     primary: string;
     secondary: string;
   };
-  benefits: string[];
+  benefits: { problem: string; solution: string; benefit: string }[];
   problemStatement: {
     title: string;
     description: string;
     alerts: {
       title: string;
       description: string;
+      image: string;
       icon:
         | "AlertTriangle"
         | "XCircle"
@@ -109,55 +104,73 @@ export const offers: Record<string, OfferData> = {
     icon: "🚫",
     eyebrow: "No Upfront payments, only pay once it's working",
     headline: {
-      prefix: "Fix ",
-      conversion: ["Data Sharing Restriction"],
-      suffix: "and Track Every Conversions for Your Meta Ads",
+      prefix: "We ",
+      conversion: ["Fix Broken Meta Ads Tracking"],
+      suffix: "for Restricted Businesses so they can finally ",
+      benefit: "scale again",
     },
     subheading:
-      'Even if Meta has restricted your domain, blocked URL parameters, or disabled your events—we install <strong class="text-primary underline">RestrictedPixel Pro</strong> to fix your Meta Ads Conversions.',
+      'Even if Meta has restricted your domain, blocked URL parameters, or disabled your events—we install <strong class="text-primary underline">RestrictedPixel Pro</strong> to fix your Meta Ads Conversions for restricted businesses.',
 
     embedId: { youtube: "tdQufJ-qadE", loom: "3768f5d29d724dc2837085355d614c57" },
     cta: {
-      primary: "Book Your Free Call & Fix Your Tracking",
-      secondary: `Starting at ${getStarterPrice()} — only after your tracking is fixed.`,
+      primary: "🎟️ Claim Your Free 'RestrictedPixel Pro' Tracking Setup",
+      secondary: "Limited to the first 7 Restricted Business Clients - act fast before it expires",
     },
     benefits: [
-      "Works with restricted Niches",
-      "Fix Data Sharing Restrictions",
-      "Full Compliance with Meta",
+      {
+        problem:
+          "You've tried changing domains, ad accounts, and even switching pixels… nothing worked.",
+        solution: "We restore tracking using your existing pixel.",
+        benefit: "You keep your custom audiences and avoid losing years of data.",
+      },
+      {
+        problem: "You're spending money with zero return — and Meta doesn't care.",
+        solution: "You only pay us once tracking is fixed and working.",
+        benefit: "No risk, no waste — just accurate data or you pay nothing.",
+      },
+      {
+        problem: "Other solutions take weeks and cost thousands upfront.",
+        solution: "We install RestrictedPixel Pro and complete testing within 3 days.",
+        benefit: "Go from broken tracking to real-time conversion data in 72 hours.",
+      },
     ],
     problemStatement: {
-      title: "Data Sharing Restrictions are destroying Restricted Businesses",
+      title: "Meta’s Data Restrictions Are Crippling Restricted Niches Ads",
       description:
-        "Meta's 2025 data sharing restrictions are specifically targeting businesses in health & wellness, financial services, CBD, politics, and other sensitive categories—blocking critical conversion tracking and causing massive performance drops.",
+        "Since Meta’s 2025 data policy update; Health, wellness, Finance, Religion & Political Businesses have been hit with invisible penalties that silently kill campaign performance. Conversions disappear. Tracking breaks. And most businesses don’t even realize it’s happening — until revenue starts to drop.",
       alerts: [
         {
-          title: "Your domain gets flagged — no events fire",
+          title: "Your Domain Gets Flagged — No Events Fire",
           description:
-            "Standard events blocked: Lead Generation, Purchase, Contact, and custom conversions across health, finance, CBD, wellness, and political niches",
+            "Even clean, compliant landing pages get blocked. Critical events like Leads, Appointments, or Purchases never fire — breaking your tracking from day one.",
+          image: "/images/hero/doamin_restricted.png",
           icon: "AlertTriangle",
         },
-
         {
-          title: "Tried every other solution - new pixels, new domain, new ad account",
+          title: "Pixel Shows '0 Conversions' — Revenue Starts to Shrink",
           description:
-            "Have exhuasted all the solutions and still cannot track all the conversions",
+            "Your booking rate is down, phones are quiet, and Meta shows zero conversions. You cut budget — thinking the ads stopped working — but the real problem is hidden tracking suppression.",
+          image: "/images/hero/leads_revenue_down.png",
           icon: "XCircle",
         },
         {
-          title: "Conversion API still fails to capture full funnel data",
+          title: "New Domain? New Pixel? CAPI? — Nothing Works",
           description:
-            "Even with CAPI fully set up, Meta filters out sensitive-category events, leaving major gaps in attribution and optimization.",
+            "You’ve tried swapping domains, rebuilding ads, even setting up Conversion API. But Meta still filters out sensitive events for Your Business — leaving massive gaps in attribution.",
+          image: "/images/hero/no_solution_works.png",
           icon: "ServerCrash",
         },
         {
-          title: "Performance tanks — CPCs up, ROAS down",
+          title: "Performance Collapses — CPCs Up, ROAS Down",
           description:
-            "Ad delivery algorithms struggle with limited data, causing skyrocketing costs and plummeting returns in restricted verticals.",
+            "Without accurate data, Meta’s algorithm can’t optimize. Your ads get shown to the wrong people, cost-per-click skyrockets, and your return on ad spend crashes.",
+          image: "/images/hero/highcpc_lowroas.png",
           icon: "TrendingDown",
         },
       ],
     },
+
     solution: {
       title: 'The "RestrictedPixel Pro" System for Restricted Industries',
       description:
@@ -188,20 +201,8 @@ export const offers: Record<string, OfferData> = {
           ],
         },
         {
-          image: "/images/hero/unified-dashboard.png",
-          title: "Lead Reproting Dashboard",
-          description:
-            "Comprehensive tracking dashboard with GA4 integration that displays all critical metrics at a glance. Monitor your complete customer journey with real-time data synchronization and advanced attribution reporting.",
-          benefits: [
-            "Complete GA4 integration",
-            "All metrics in one view",
-            "Real-time tracking monitoring",
-            "Complete customer journey tracking",
-          ],
-        },
-        {
           image: "/images/hero/real-time-dashboard.png",
-          title: "Tracking Optimization",
+          title: "95% Accurate Tracking",
           description:
             "Bulletproof tracking solution that never gets shut down. Real-time event synchronization with complete attribution recovery and zero maintenance required.",
           benefits: [
@@ -336,52 +337,72 @@ export const offers: Record<string, OfferData> = {
     icon: "💚",
     eyebrow: "No Upfront payments, only pay once it's working",
     headline: {
-      prefix: "Fix ",
-      conversion: ["Data Sharing Restriction"],
-      suffix: "and Track Every Customer for Your Health & Wellness Business's Ads",
+      prefix: "We ",
+      conversion: ["Fix Broken Meta Ads Tracking"],
+      suffix: "for Health & Wellness Businesses so they can finally ",
+      benefit: "scale again",
     },
     subheading:
       'Even if Meta has restricted your health domain, blocked URL parameters, or disabled your events—we install <strong class="text-primary underline">HealthPixel Pro</strong> to fix your Meta Ads Conversions for health & wellness businesses.',
     embedId: { youtube: "tdQufJ-qadE", loom: "3768f5d29d724dc2837085355d614c57" },
     cta: {
-      primary: "Book Your Free Call & Fix Your Tracking",
-      secondary: `Starting at ${getStarterPrice()} — only after your tracking is fixed.`,
+      primary: "🎟️ Claim Your Free 'HealthPixel Pro' Tracking Setup",
+      secondary: "Limited to the first 7 Health & Wellness Clients - act fast before it expires",
     },
     benefits: [
-      "Track all customer conversions",
-      "Fix Data Sharing Restrictions",
-      "HIPAA & FDA Compliant Setup",
+      {
+        problem:
+          "You've tried changing domains, ad accounts, and even switching pixels… nothing worked.",
+        solution: "We restore tracking using your existing pixel.",
+        benefit: "You keep your custom audiences and avoid losing years of data.",
+      },
+      {
+        problem: "You're spending money with zero return — and Meta doesn't care.",
+        solution: "You only pay us once tracking is fixed and working.",
+        benefit: "No risk, no waste — just accurate data or you pay nothing.",
+      },
+      {
+        problem: "Other solutions take weeks and cost thousands upfront.",
+        solution: "We install HealthPixel Pro and complete testing within 3 days.",
+        benefit: "Go from broken tracking to real-time conversion data in 72 hours.",
+      },
     ],
     problemStatement: {
-      title: "Data Sharing Restrictions are destroying Health & Wellness Businesses",
+      title: "Meta’s Data Restrictions Are Crippling Health & Wellness Ads",
       description:
-        "Meta's 2025 data sharing restrictions are specifically targeting health & wellness businesses, blocking critical customer tracking data and causing massive performance drops in your most important marketing channel.",
+        "Since Meta’s 2025 data policy update, Health & wellness Businesses have been hit with invisible penalties that silently kill campaign performance. Conversions disappear. Tracking breaks. And most businesses don’t even realize it’s happening — until revenue starts to drop.",
       alerts: [
         {
-          title: "Your domain gets flagged — no events fire",
+          title: "Your Domain Gets Flagged — No Events Fire",
           description:
-            "Standard events blocked: Health Consultation, Supplement Purchase, Wellness Program Signup, Nutrition Consultation",
+            "Even clean, HIPAA-compliant landing pages get blocked. Critical events like Leads, Appointments, or Purchases never fire — breaking your tracking from day one.",
+          image: "/images/hero/doamin_restricted.png",
           icon: "AlertTriangle",
         },
         {
-          title: "Pixel shows '0 leads' — even though your phone is ringing",
-          description: "Hundreds of thousands of health & wellness customer events blocked daily",
+          title: "Pixel Shows '0 Conversions' — Revenue Starts to Shrink",
+          description:
+            "Your booking rate is down, phones are quiet, and Meta shows zero conversions. You cut budget — thinking the ads stopped working — but the real problem is hidden tracking suppression.",
+          image: "/images/hero/leads_revenue_down.png",
           icon: "XCircle",
         },
         {
-          title: "Conversion API still fails to capture full funnel data",
+          title: "New Domain? New Pixel? CAPI? — Nothing Works",
           description:
-            "Even with CAPI fully set up, Meta filters out sensitive-category events, leaving major gaps in attribution and optimization.",
+            "You’ve tried swapping domains, rebuilding ads, even setting up Conversion API. But Meta still filters out sensitive events for Your Business — leaving massive gaps in attribution.",
+          image: "/images/hero/no_solution_works.png",
           icon: "ServerCrash",
         },
         {
-          title: "Performance tanks — CPCs up, ROAS down",
+          title: "Performance Collapses — CPCs Up, ROAS Down",
           description:
-            "Ad delivery algorithms struggle with limited data, causing skyrocketing costs and plummeting returns in restricted verticals.",
+            "Without accurate data, Meta’s algorithm can’t optimize. Your ads get shown to the wrong people, cost-per-click skyrockets, and your return on ad spend crashes.",
+          image: "/images/hero/highcpc_lowroas.png",
           icon: "TrendingDown",
         },
       ],
     },
+
     solution: {
       title: 'The "HealthPixel Pro" System for Health & Wellness Businesses',
       description:
@@ -412,20 +433,8 @@ export const offers: Record<string, OfferData> = {
           ],
         },
         {
-          image: "/images/hero/unified-dashboard.png",
-          title: "Lead Reproting Dashboard",
-          description:
-            "Comprehensive tracking dashboard with GA4 integration that displays all critical metrics at a glance. Monitor your health & wellness business's complete customer journey with real-time data synchronization and advanced attribution reporting.",
-          benefits: [
-            "Complete GA4 integration",
-            "All metrics in one view",
-            "Real-time tracking monitoring",
-            "Complete customer journey tracking",
-          ],
-        },
-        {
           image: "/images/hero/real-time-dashboard.png",
-          title: "Tracking Optimization",
+          title: "95% Accurate Tracking",
           description:
             "Bulletproof tracking solution that never gets shut down. Real-time event synchronization with complete attribution recovery and zero maintenance required for health & wellness businesses.",
           benefits: [
@@ -560,52 +569,72 @@ export const offers: Record<string, OfferData> = {
     icon: "🦷",
     eyebrow: "No Upfront payments, only pay once it's working",
     headline: {
-      prefix: "Fix ",
-      conversion: ["Data Sharing Restriction"],
-      suffix: "and Track Every Patient for Your Dental Clinic's Ads",
+      prefix: "We ",
+      conversion: ["Fix Broken Meta Ads Tracking"],
+      suffix: "for Dental Clinics so they can finally ",
+      benefit: "scale again",
     },
     subheading:
       'Even if Meta has restricted your dental domain, blocked URL parameters, or disabled your events—we install <strong class="text-primary underline">DentalPixel Pro</strong> to fix your Meta Ads Conversions for dental practices.',
     embedId: { youtube: "tdQufJ-qadE", loom: "3768f5d29d724dc2837085355d614c57" },
     cta: {
-      primary: "Book Your Free Call & Fix Your Tracking",
-      secondary: `Starting at ${getStarterPrice()} — only after your tracking is fixed.`,
+      primary: "🎟️ Claim Your Free 'DentalPixel Pro' Tracking Setup",
+      secondary: "Limited to the first 7 Dental Clients - act fast before it expires",
     },
     benefits: [
-      "Track all patient conversions",
-      "Fix Data Sharing Restrictions",
-      "HIPAA Compliant Setup",
+      {
+        problem:
+          "You’ve tried changing domains, ad accounts, and even switching pixels… nothing worked.",
+        solution: "We restore tracking using your existing pixel.",
+        benefit: "You keep your custom audiences and avoid losing years of data.",
+      },
+      {
+        problem: "You're spending money with zero return — and Meta doesn’t care.",
+        solution: "You only pay us once tracking is fixed and working.",
+        benefit: "No risk, no waste — just accurate data or you pay nothing.",
+      },
+      {
+        problem: "Other solutions take weeks and cost thousands upfront.",
+        solution: "We install DentalPixel Pro and complete testing within 3 days.",
+        benefit: "Go from broken tracking to real-time conversion data in 72 hours.",
+      },
     ],
     problemStatement: {
-      title: "Data Sharing Restrictions are destroying Dental Clinics",
+      title: "Meta’s Data Restrictions Are Crippling Dental Clinic Ads",
       description:
-        "Meta's 2025 data sharing restrictions are specifically targeting healthcare providers like dental clinics, blocking critical patient tracking data and causing massive performance drops.",
+        "Since Meta’s 2025 data policy update, dental clinics have been hit with invisible penalties that silently kill campaign performance. Conversions disappear. Tracking breaks. And most clinics don’t even realize it’s happening — until revenue starts to drop.",
       alerts: [
         {
-          title: "Your domain gets flagged — no events fire",
+          title: "Your Domain Gets Flagged — No Events Fire",
           description:
-            "Standard events blocked: Patient Lead, Appointment Booking, Treatment Purchase",
+            "Even clean, HIPAA-compliant dental landing pages get blocked. Critical events like Leads, Appointments, or Purchases never fire — breaking your tracking from day one.",
+          image: "/images/hero/doamin_restricted.png",
           icon: "AlertTriangle",
         },
         {
-          title: "Pixel shows '0 leads' — even though your phone is ringing",
-          description: "Hundreds of thousands of dental patient events blocked",
+          title: "Pixel Shows '0 Leads' — Revenue Starts to Shrink",
+          description:
+            "Your booking rate is down, phones are quiet, and Meta shows zero conversions. You cut budget — thinking the ads stopped working — but the real problem is hidden tracking suppression.",
+          image: "/images/hero/leads_revenue_down.png",
           icon: "XCircle",
         },
         {
-          title: "Conversion API still fails to capture full funnel data",
+          title: "New Domain? New Pixel? CAPI? — Nothing Works",
           description:
-            "Even with CAPI fully set up, Meta filters out sensitive-category events, leaving major gaps in attribution and optimization.",
+            "You’ve tried swapping domains, rebuilding ads, even setting up Conversion API. But Meta still filters out sensitive events for dental clinics — leaving massive gaps in attribution.",
+          image: "/images/hero/no_solution_works.png",
           icon: "ServerCrash",
         },
         {
-          title: "Performance tanks — CPCs up, ROAS down",
+          title: "Performance Collapses — CPCs Up, ROAS Down",
           description:
-            "Ad delivery algorithms struggle with limited data, causing skyrocketing costs and plummeting returns in restricted verticals.",
+            "Without accurate data, Meta’s algorithm can’t optimize. Your ads get shown to the wrong people, cost-per-click skyrockets, and your return on ad spend crashes.",
+          image: "/images/hero/highcpc_lowroas.png",
           icon: "TrendingDown",
         },
       ],
     },
+
     solution: {
       title: 'The "DentalPixel Pro" System for Dental Practices',
       description:
@@ -635,21 +664,10 @@ export const offers: Record<string, OfferData> = {
             "No account warming required",
           ],
         },
-        {
-          image: "/images/hero/unified-dashboard.png",
-          title: "Lead Reproting Dashboard",
-          description:
-            "Comprehensive tracking dashboard with GA4 integration that displays all critical metrics at a glance. Monitor your dental practice's complete patient journey with real-time data synchronization and advanced attribution reporting.",
-          benefits: [
-            "Complete GA4 integration",
-            "All metrics in one view",
-            "Real-time tracking monitoring",
-            "Complete patient journey tracking",
-          ],
-        },
+
         {
           image: "/images/hero/real-time-dashboard.png",
-          title: "Tracking Optimization",
+          title: "95% Accurate Tracking",
           description:
             "Bulletproof tracking solution that never gets shut down. Real-time event synchronization with complete attribution recovery and zero maintenance required.",
           benefits: [

@@ -3,8 +3,6 @@ import MeetingCalendar from "@/components/contact/meeting-calender";
 import DetailsCards from "@/components/funnels/details-card";
 import DreamOutcome from "@/components/funnels/dream-outcome";
 import MeetingBookingButton from "@/components/global/meeting-booking-button";
-import Hero from "@/components/home/hero";
-import { ServiceCard } from "@/components/pricing/pricing-vertical";
 import TestimonialGrid from "@/components/testimonial/testimonial-grid";
 import {
   Accordion,
@@ -16,7 +14,6 @@ import { Badge } from "@/components/ui/badge";
 import Container from "@/components/ui/container";
 import { offers } from "@/data/offers";
 import getCaseStudy from "@/utils/getCaseStudy";
-import getServicesByKeys from "@/utils/getServices";
 import {
   Activity,
   AlertTriangle,
@@ -37,8 +34,6 @@ import {
   Zap,
 } from "lucide-react";
 import Video from "next-video";
-import React from "react";
-
 // Generate static params for all offers
 export async function generateStaticParams() {
   return Object.keys(offers).map((offer) => ({
@@ -73,39 +68,46 @@ export default async function Page({ params }: { params: Promise<{ offer: string
 
   return (
     <main>
-      <Hero
-        testimonialImages={false}
-        eyebrow={offerData.eyebrow}
-        heading={
-          <h1 className="mx-auto text-center">
+      <Container className="max-w-6xl space-y-8 py-6">
+        {/* Eyebrow and Headlines - Centered */}
+        <div className="space-y-4 text-center">
+          {offerData.eyebrow && <Badge variant="outline">{offerData.eyebrow}</Badge>}
+
+          <h1 className="mx-auto max-w-6xl text-foreground">
             {offerData.headline.prefix}{" "}
-            {offerData.headline.conversion.map((conv, index) => (
-              <span key={index} className="text-primary underline">
-                {conv}
-              </span>
-            ))}{" "}
+            <span className="text-primary">{offerData.headline.conversion.join(" ")}</span>{" "}
             {offerData.headline.suffix}
+            <span className="text-primary underline">{offerData.headline.benefit}</span>
           </h1>
-        }
-        subheading={
-          <>
-            <h4 className="mx-auto text-center">
-              <span dangerouslySetInnerHTML={{ __html: offerData.subheading }} />
-              <div className="flex flex-wrap justify-center gap-2 py-4">
-                <Badge variant="destructive" className="flex items-center gap-1">
-                  <XCircle className="h-5 w-5" />
-                  You’re not tracking conversions
-                </Badge>
-                <Badge variant="destructive" className="flex items-center gap-1">
-                  <XCircle className="h-5 w-5" />
-                  Your conversions disappeared.
-                </Badge>
-                <Badge variant="destructive" className="flex items-center gap-1">
-                  <XCircle className="h-5 w-5" />
-                  Your ROAS dropped.
-                </Badge>
-              </div>
-            </h4>
+
+          <h4 className="mx-auto max-w-5xl text-center text-muted-foreground">
+            <span dangerouslySetInnerHTML={{ __html: offerData.subheading }} />
+          </h4>
+        </div>
+
+        <div className="grid items-start gap-6 lg:grid-cols-5">
+          <div className="order-2 flex h-full w-full flex-col gap-6 lg:order-1 lg:col-span-2">
+            <ul className="flex flex-col gap-4">
+              {offerData.benefits.slice(0, 3).map((benefit, index) => (
+                <li
+                  key={index}
+                  className="flex items-start gap-4 rounded-lg border bg-card p-4"
+                  aria-label={`Benefit ${index + 1}`}
+                >
+                  <div className="mt-1 flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-full bg-primary">
+                    <CheckCircle className="h-4 w-4 text-primary-foreground" />
+                  </div>
+                  <h5 className="font-semibold text-muted-foreground">
+                    {/* <span>{benefit.problem}</span>  */}
+                    <span>{benefit.solution}</span>{" "}
+                    <span className="text-foreground">{benefit.benefit}</span>
+                  </h5>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div className="order-1 grid h-full w-full place-content-center lg:order-2 lg:col-span-3">
             <Video
               src="https://stream.mux.com/2ycrwGk9Mq02JzWDaH9sgWWaPC2ts1dvoQMPX5asddgY.m3u8"
               poster="https://image.mux.com/2ycrwGk9Mq02JzWDaH9sgWWaPC2ts1dvoQMPX5asddgY/animated.gif"
@@ -119,22 +121,32 @@ export default async function Page({ params }: { params: Promise<{ offer: string
                 type="application/x-mpegURL"
               />
             </Video>
+            <div className="flex flex-wrap justify-center gap-2 py-4">
+              <Badge variant="destructive" className="flex items-center gap-1">
+                <XCircle className="h-5 w-5" />
+                Data Sharing Restriction
+              </Badge>
+              <Badge variant="destructive" className="flex items-center gap-1">
+                <XCircle className="h-5 w-5" />
+                Your conversions disappeared.
+              </Badge>
+              <Badge variant="destructive" className="flex items-center gap-1">
+                <XCircle className="h-5 w-5" />
+                Your ROAS dropped.
+              </Badge>
+            </div>
+          </div>
+        </div>
 
-            <MeetingBookingButton offerData={offerData} />
-          </>
-        }
-        benefits={offerData.benefits}
-      />
+        <MeetingBookingButton offerData={offerData} wrapperButtonClassName="" />
+      </Container>
 
       {/* Problem Amplification Section */}
-      <Container className="max-w-6xl pt-4 pb-12">
-        <div className="transform space-y-8 rounded-lg border border-destructive/20 p-2 md:p-12">
+      <Container className="pt-4 pb-12">
+        <div className="transform space-y-8 rounded-lg border border-destructive/20 px-2 py-6 lg:p-12">
           <div className="mb-12 text-center">
-            <Badge variant="destructive" className="mb-4 animate-pulse">
-              ❌ {offerData.problemStatement.title}
-            </Badge>
-            <h2 className="mb-4 text-destructive">{offerData.problemStatement.title}</h2>
-            <h4 className="mx-auto max-w-3xl text-accent-foreground">
+            <h2 className="mb-4">{offerData.problemStatement.title}</h2>
+            <h4 className="mx-auto max-w-4xl text-muted-foreground">
               {offerData.problemStatement.description}
             </h4>
           </div>
@@ -145,6 +157,7 @@ export default async function Page({ params }: { params: Promise<{ offer: string
               description: alert.description || "No description available.",
               embedId: offerData.embedId,
               icon: alert.icon,
+              image: alert.image,
             }))}
           />
         </div>
@@ -161,7 +174,7 @@ export default async function Page({ params }: { params: Promise<{ offer: string
         </Container>
       </section>
       {/* Services Grid */}
-      <Container>
+      {/* <Container>
         <div className="mx-auto max-w-4xl space-y-6 py-12 text-center">
           <h2>
             Choose Your Perfect
@@ -185,7 +198,7 @@ export default async function Page({ params }: { params: Promise<{ offer: string
             </React.Fragment>
           ))}
         </div>
-      </Container>
+      </Container> */}
 
       {/* Testimonials */}
       <section className="py-16">
@@ -244,12 +257,12 @@ export default async function Page({ params }: { params: Promise<{ offer: string
           <Container className="max-w-4xl text-center">
             <div className="space-y-6 py-6">
               <h2 className="">{offerData.finalCta.title}</h2>
-              <h4 className="mx-auto max-w-3xl text-accent-foreground">
+              <h4 className="mx-auto max-w-3xl text-muted-foreground">
                 {offerData.finalCta.description}
               </h4>
             </div>
 
-            <div className="mb-8 grid gap-4 md:grid-cols-3">
+            <div className="mb-8 grid gap-4 lg:grid-cols-3">
               <h6 className="flex items-center justify-center space-x-2 font-bold">
                 <CheckCircle className="h-5 w-5" />
                 <span>Free 24-hour audit</span>
