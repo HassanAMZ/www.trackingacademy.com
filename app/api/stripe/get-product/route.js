@@ -6,18 +6,18 @@ export async function GET(request) {
   try {
     const { searchParams } = new URL(request.url);
     const productId = searchParams.get("productId");
+    const priceId = searchParams.get("priceId"); // Add support for specific price_id
 
-    // Use provided productId or fallback to default
     const targetProductId = productId;
 
-    console.log("Fetching product:", targetProductId);
+    console.log("Fetching product:", targetProductId, "with price:", priceId);
 
-    // Fetch both product and its price
+    // Fetch both product and its prices
     const product = await stripe.products.retrieve(targetProductId);
     const prices = await stripe.prices.list({
       product: targetProductId,
       active: true,
-      limit: 1,
+      limit: 100,
     });
 
     console.log("Product data:", {
@@ -31,7 +31,18 @@ export async function GET(request) {
       throw new Error("No active price found for this product");
     }
 
-    const price = prices.data[0];
+    // Find the specific price or use the first one as fallback
+    let selectedPrice;
+    if (priceId) {
+      selectedPrice = prices.data.find((price) => price.id === priceId);
+      if (!selectedPrice) {
+        throw new Error(`Price with ID ${priceId} not found for this product`);
+      }
+      console.log("Using specified price:", selectedPrice.id, selectedPrice.nickname);
+    } else {
+      selectedPrice = prices.data[0];
+      console.log("Using default price:", selectedPrice.id, selectedPrice.nickname);
+    }
 
     // Enhanced feature extraction with multiple fallback strategies
     let features = [];
@@ -97,9 +108,9 @@ export async function GET(request) {
       id: product.id,
       name: product.name,
       description: product.description || "Premium digital product with comprehensive features",
-      priceId: price.id,
-      unitAmount: price.unit_amount,
-      currency: price.currency,
+      priceId: selectedPrice.id, // Return the correct price ID
+      unitAmount: selectedPrice.unit_amount,
+      currency: selectedPrice.currency,
       features: features,
       // Include all available product data
       active: product.active,
@@ -122,19 +133,29 @@ export async function GET(request) {
         access_duration: product.metadata.access_duration,
         difficulty_level: product.metadata.difficulty_level,
       }),
-      // Price details
+      // Price details for the selected price
       priceDetails: {
-        id: price.id,
-        currency: price.currency,
-        unitAmount: price.unit_amount,
-        unitAmountDecimal: price.unit_amount_decimal,
-        recurring: price.recurring,
-        type: price.type,
-        billingScheme: price.billing_scheme,
+        id: selectedPrice.id,
+        currency: selectedPrice.currency,
+        unitAmount: selectedPrice.unit_amount,
+        unitAmountDecimal: selectedPrice.unit_amount_decimal,
+        recurring: selectedPrice.recurring,
+        type: selectedPrice.type,
+        billingScheme: selectedPrice.billing_scheme,
+        nickname: selectedPrice.nickname,
       },
+      // Include all available prices for reference
+      availablePrices: prices.data.map((price) => ({
+        id: price.id,
+        nickname: price.nickname,
+        unitAmount: price.unit_amount,
+        currency: price.currency,
+        recurring: price.recurring,
+      })),
     };
 
     console.log("Final response features count:", features.length);
+    console.log("Selected price ID:", selectedPrice.id);
 
     return NextResponse.json(response);
   } catch (err) {
@@ -146,6 +167,7 @@ export async function GET(request) {
         error: "Failed to fetch product information",
         details: err.message,
         productId: searchParams?.get("productId") || "default",
+        priceId: searchParams?.get("price_id") || "none",
       },
       { status: 500 },
     );

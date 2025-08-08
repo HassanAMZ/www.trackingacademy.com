@@ -43,7 +43,9 @@ const PaymentContent = ({
 
         if (productId) {
           // Fetch product details if productId is provided
-          const productRes = await fetch(`/api/stripe/get-product?productId=${productId}`);
+          const productRes = await fetch(
+            `/api/stripe/get-product?productId=${productId}&priceId=${priceId}`,
+          );
           if (!productRes.ok) throw new Error("Failed to load product");
           productData = await productRes.json();
           effectivePriceId = priceId || productData.priceId;
