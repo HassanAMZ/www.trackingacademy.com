@@ -214,6 +214,25 @@ const PaymentContent = ({
   return (
     <Container className={`max-w-6xl ${className}`}>
       <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
+        <Card className="h-fit w-full">
+          <CardHeader>
+            <h2 className="text-xl font-semibold">Payment Details</h2>
+          </CardHeader>
+          <CardContent className="space-y-4">
+            {paymentError && <PaymentErrorBanner error={paymentError} />}
+
+            <Elements stripe={stripePromise} options={elementsOptions} key={clientSecret}>
+              <AddressElement options={{ mode: "shipping" }} className="mb-6" />
+              <PaymentForm
+                product={product}
+                appliedPromo={appliedPromo}
+                onSuccess={handlePaymentSuccess}
+                onError={handlePaymentError}
+              />
+            </Elements>
+          </CardContent>
+        </Card>
+
         {/* Product and Promo Section */}
         <div className="space-y-6">
           <Card className="">
@@ -244,25 +263,6 @@ const PaymentContent = ({
           <ProductDetails product={product} appliedPromo={appliedPromo} />
         </div>
         {/* Payment Section */}
-
-        <Card className="h-fit w-full">
-          <CardHeader>
-            <h2 className="text-xl font-semibold">Payment Details</h2>
-          </CardHeader>
-          <CardContent className="space-y-4">
-            {paymentError && <PaymentErrorBanner error={paymentError} />}
-
-            <Elements stripe={stripePromise} options={elementsOptions} key={clientSecret}>
-              <AddressElement options={{ mode: "shipping" }} className="mb-6" />
-              <PaymentForm
-                product={product}
-                appliedPromo={appliedPromo}
-                onSuccess={handlePaymentSuccess}
-                onError={handlePaymentError}
-              />
-            </Elements>
-          </CardContent>
-        </Card>
       </div>
     </Container>
   );

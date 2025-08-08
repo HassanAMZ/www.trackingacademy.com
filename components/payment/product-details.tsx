@@ -4,7 +4,7 @@ import { Separator } from "@/components/ui/separator";
 import type { Product, PromoCode } from "@/types/index";
 import { formatCurrency } from "@/utils/payment";
 import { CheckCircle, Info } from "lucide-react";
-
+import { Service, services } from "@/data/services";
 interface ProductDetailsProps {
   product: Product;
   appliedPromo: PromoCode | null;
@@ -18,6 +18,19 @@ export const ProductDetails = ({ product, appliedPromo }: ProductDetailsProps) =
   const finalAmount = appliedPromo
     ? formatCurrency(product.unitAmount - appliedPromo.amountOff, product.currency)
     : originalAmount;
+
+  const matchingService = services.find(
+    (service: Service) => service.product_id === product.id || service.price_id === product.priceId,
+  );
+
+  // Determine features source - prefer service data, fallback to Stripe metadata
+  const featuresSource =
+    matchingService?.features && Object.keys(matchingService.features).length > 0
+      ? matchingService.features
+      : product.metadata;
+
+  // Get feature explanations if available
+  const featureExplanations = matchingService?.featureExplanations || {};
 
   return (
     <Card>
@@ -45,22 +58,39 @@ export const ProductDetails = ({ product, appliedPromo }: ProductDetailsProps) =
           </div>
         )}
 
-        {/* Metadata */}
-        {product.metadata && Object.keys(product.metadata).length > 0 && (
-          <div className="space-y-2">
-            <h3 className="font-medium">Features:</h3>
-            <ul className="space-y-1.5">
-              {Object.entries(product.metadata).map(([key, value]) => (
+        <div className="space-y-2">
+          <h3 className="font-medium">Features:</h3>
+          <ul className="space-y-1.5">
+            {Object.entries(featuresSource ?? {}).map(([key, value]) => {
+              // Format the value based on type
+              const displayValue =
+                typeof value === "boolean" ? (value ? "Yes" : "No") : String(value);
+
+              // Get explanation if available
+              const explanation = featureExplanations[key];
+
+              return (
                 <li key={key} className="flex items-start">
                   <Info className="mt-0.5 mr-2 h-4 w-4 flex-shrink-0 text-primary" />
-                  <span className="text-muted-foreground">
-                    <span className="font-medium">{key}:</span> {value}
-                  </span>
+                  <div className="text-muted-foreground">
+                    <span className="font-medium">{key}:</span> {displayValue}
+                    {explanation && (
+                      <div className="mt-1 text-sm text-muted-foreground/80">{explanation}</div>
+                    )}
+                  </div>
                 </li>
-              ))}
-            </ul>
-          </div>
-        )}
+              );
+            })}
+          </ul>
+
+          {/* Debug info - remove in production */}
+          {process.env.NODE_ENV === "development" && (
+            <div className="mt-2 text-xs text-muted-foreground/60">
+              Source: {matchingService ? "Services data" : "Stripe metadata"}
+              {matchingService && ` (${matchingService.name})`}
+            </div>
+          )}
+        </div>
 
         {/* Promo Code */}
         {appliedPromo && (
