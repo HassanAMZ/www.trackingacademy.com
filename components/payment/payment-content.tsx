@@ -234,7 +234,7 @@ const PaymentContent = ({
         </Card>
 
         {/* Product and Promo Section */}
-        <div className="space-y-6">
+        <div className="space-y-6 lg:-order-1">
           <Card className="">
             <CardHeader>
               <h3>Not sure?</h3>
