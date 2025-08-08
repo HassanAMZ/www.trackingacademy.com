@@ -385,8 +385,8 @@ export const services: Service[] = [
     description:
       "Full enterprise solution with dedicated team for high-volume businesses and unlimited scale.",
     price: "$979/month",
-    price_id: "price_1RmVp3AE3E6zT9eTcoTGS9Tl",
-    product_id: "prod_Shvgwr1LDXZfr9",
+    price_id: "price_1RtprKAE3E6zT9eTGR8fiat2",
+    product_id: "prod_SpUTbz592iTmtR",
     popular: false,
     color: "border-muted",
     buttonVariant: "default",
@@ -428,8 +428,8 @@ export const services: Service[] = [
     description:
       "Enterprise-grade tracking with dedicated support for serious volume and optimization.",
     price: "$649/month",
-    price_id: "price_1RmWr7AE3E6zT9eTyrK7k1Rv",
-    product_id: "prod_Shwk6IH1i5t9iJ",
+    price_id: "price_1Rtpr2AE3E6zT9eTLIeJMJho",
+    product_id: "prod_SpUTbz592iTmtR",
     popular: false,
     color: "text-primary",
     buttonVariant: "default",
@@ -470,8 +470,8 @@ export const services: Service[] = [
     description:
       "Advanced tracking for growing businesses ready to scale profitably across channels.",
     price: "$429/month",
-    price_id: "price_1RmWvkAE3E6zT9eTYJANzSwn",
-    product_id: "prod_ShwpL9nJe32cK8",
+    price_id: "price_1RtpqaAE3E6zT9eTRp0Gmj47",
+    product_id: "prod_SpUTbz592iTmtR",
     popular: true,
     color: "border-muted",
     buttonVariant: "default",
@@ -511,8 +511,8 @@ export const services: Service[] = [
     description:
       "Essential tracking for small businesses and new advertisers starting their journey.",
     price: "$149/month",
-    price_id: "price_1RmXDiAE3E6zT9eTFY5Ag1yI",
-    product_id: "prod_Shx7baLtc7UrEC",
+    price_id: "price_1RtpkqAE3E6zT9eTrjT3jcqw",
+    product_id: "prod_SpUTbz592iTmtR",
     popular: false,
     color: "border-muted",
     buttonVariant: "default",
