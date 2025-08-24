@@ -1,7 +1,7 @@
+import Navbar from "@/components/global/navbar";
 import TestimonialGrid from "@/components/testimonial/testimonial-grid";
 import { Metadata } from "next";
 import { ReactNode } from "react";
-
 export const metadata: Metadata = {
   title: "Contact Tracking Academy | Expert Analytics & Tracking Support",
   description:
@@ -37,6 +37,7 @@ export const metadata: Metadata = {
 export default function Layout({ children }: { children: ReactNode }) {
   return (
     <main className="space-y-5">
+      <Navbar />
       {children}
       <TestimonialGrid />
     </main>

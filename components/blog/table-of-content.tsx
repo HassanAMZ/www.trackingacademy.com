@@ -24,11 +24,7 @@ export default function TableOfContents() {
   }, []);
 
   return (
-    <Accordion
-      type="single"
-      collapsible
-      className="max-h-[80vh] w-full self-start lg:sticky lg:top-8"
-    >
+    <Accordion type="single" collapsible className="w-full self-start">
       <AccordionItem value="toc">
         <Card>
           <CardHeader className="p-4">

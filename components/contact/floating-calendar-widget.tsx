@@ -3,12 +3,12 @@
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Separator } from "@/components/ui/separator";
 import { cn } from "@/lib/utils";
 import { sendGTMEvent } from "@next/third-parties/google";
 import { Calendar, ChevronDown, User, X } from "lucide-react";
 import Script from "next/script";
 import { useEffect, useState } from "react";
+import { GlowEffect } from "../ui/glow-effect";
 
 type UpcomingDate = {
   dayName: string;
@@ -114,21 +114,24 @@ const FloatingCalendarWidget = () => {
 
       <div className="fixed right-4 bottom-4 z-50 sm:right-6 sm:bottom-6">
         {/* Floating toggle button */}
-        <Button
-          onClick={toggleMinimize}
-          size="icon"
-          className={cn(
-            "h-12 w-12 rounded-full shadow-lg transition-all duration-300 hover:shadow-xl sm:h-14 sm:w-14",
-            "duration-500 animate-in fade-in zoom-in-95",
-            "bg-primary text-primary-foreground hover:bg-primary/90",
-          )}
-        >
-          {!isMinimized ? (
-            <ChevronDown className="h-5 w-5 sm:h-6 sm:w-6" />
-          ) : (
-            <Calendar className="h-5 w-5 sm:h-6 sm:w-6" />
-          )}
-        </Button>
+        <div className="relative">
+          <GlowEffect className="rounded-full" />
+          <Button
+            onClick={toggleMinimize}
+            size="icon"
+            className={cn(
+              "relative h-12 w-12 rounded-full shadow-lg transition-all duration-300 hover:shadow-xl sm:h-14 sm:w-14",
+              "animate-in fade-in zoom-in-95 duration-500",
+              "bg-primary text-primary-foreground hover:bg-primary/90",
+            )}
+          >
+            {!isMinimized ? (
+              <ChevronDown className="h-5 w-5 sm:h-6 sm:w-6" />
+            ) : (
+              <Calendar className="h-5 w-5 sm:h-6 sm:w-6" />
+            )}
+          </Button>
+        </div>
 
         {/* Expanded widget */}
         <div
@@ -139,11 +142,11 @@ const FloatingCalendarWidget = () => {
               : "pointer-events-auto translate-y-0 scale-100 opacity-100",
           )}
         >
-          <Card className="border border-primary bg-card shadow-2xl">
-            <CardHeader className="rounded-t-xl bg-background pb-3 sm:pb-4">
+          <Card className="border border-primary">
+            <CardHeader className="rounded-t-xl border-b-2">
               <div className="flex items-start justify-between">
                 <CardTitle className="flex items-center gap-2 sm:gap-3">
-                  <Avatar className="h-10 w-10 ring-2 ring-border sm:h-12 sm:w-12">
+                  <Avatar className="h-10 w-10 ring-2 ring-border">
                     <AvatarImage src="/images/avatars/hassan.png" alt="Shahzada Ali Hassan" />
                     <AvatarFallback className="bg-muted text-muted-foreground">
                       <User className="h-5 w-5 sm:h-6 sm:w-6" />
@@ -172,9 +175,7 @@ const FloatingCalendarWidget = () => {
               </div>
             </CardHeader>
 
-            <Separator />
-
-            <CardContent className="space-y-3 pt-3 sm:space-y-4 sm:pt-4">
+            <CardContent className="space-y-3 pt-3 sm:space-y-4">
               <div className="space-y-2 sm:space-y-3">
                 <h5 className="text-base font-semibold sm:text-lg">1-on-1 Meeting with Shahzada</h5>
                 <p className="text-xs leading-relaxed text-muted-foreground sm:text-sm">
@@ -205,7 +206,7 @@ const FloatingCalendarWidget = () => {
                         })
                       }
                       className={cn(
-                        "h-auto flex-col gap-0.5 p-2 transition-all duration-200 sm:gap-1 sm:p-3",
+                        "h-auto cursor-pointer flex-col gap-0.5 p-2 transition-all duration-200 sm:gap-1 sm:p-3",
                         date.isToday
                           ? "shadow-sm"
                           : "bg-card hover:bg-accent hover:text-accent-foreground",
@@ -224,7 +225,7 @@ const FloatingCalendarWidget = () => {
               <Button
                 data-iclosed-link="https://app.iclosed.io/e/shahzadaalihassan/1-on-1-meeting-with-shahzada"
                 data-embed-type="popup"
-                className="w-full py-4 text-sm font-semibold shadow-md transition-all duration-200 hover:shadow-lg sm:py-6 sm:text-base"
+                className="w-full cursor-pointer py-4 text-sm font-semibold shadow-md transition-all duration-200 hover:shadow-lg sm:py-6 sm:text-base"
                 onClick={() =>
                   sendGTMEvent({
                     event: "gtm_custom_event",

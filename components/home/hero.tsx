@@ -5,7 +5,8 @@ import { caseStudies as CaseStudies, CaseStudy } from "@/data/case-studies";
 import { CheckCircle, Star } from "lucide-react";
 import Link from "next/link";
 import { FC, ReactNode } from "react";
-import { AvatarGroup, AvatarGroupTooltip } from "../animate-ui/avatar-group-mask";
+
+import { AvatarGroup, AvatarGroupTooltip } from "@/components/animate-ui/avatar-group";
 import { Badge } from "../ui/badge";
 
 interface HeroProps {
@@ -170,7 +171,7 @@ const Hero: FC<HeroProps> = ({
                   ))}
                 </div>
                 <h4 className="text-sm text-muted-foreground">
-                  4.9 from 200+ reviews <br /> 1,000+ Websites Tracked
+                  4.9 from 300+ reviews <br /> 1,000+ Websites Tracked
                 </h4>
               </div>
             )}

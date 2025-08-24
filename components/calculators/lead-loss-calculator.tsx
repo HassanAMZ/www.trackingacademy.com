@@ -25,7 +25,7 @@ import {
   Users,
 } from "lucide-react";
 import { useEffect, useMemo, useState } from "react";
-import TrackingSolutionsComparison from "../global/tracking-solutions-comparison";
+import { TrackingComparisonTable } from "../global/tracking-solutions-comparison";
 import Container from "../ui/container";
 
 interface CalculatorInputs {
@@ -47,7 +47,7 @@ interface CalculationResult {
   cumulativeRevenueLost: number;
 }
 
-export interface CalculatorConfig {
+interface CalculatorConfig {
   title: string;
   description: string;
   leadLabel: string;
@@ -751,7 +751,7 @@ export default function CalculatorComponent({ config }: CalculatorProps) {
           </Container>
         </Container>
       </Container>
-      <TrackingSolutionsComparison />
+      <TrackingComparisonTable />
     </div>
   );
 }

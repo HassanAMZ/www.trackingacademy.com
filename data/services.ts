@@ -5,6 +5,7 @@ export interface Service {
   description: string;
   price: string;
   price_id: string;
+  stripe_payment_url: string;
   product_id: string;
   popular: boolean;
   color: string;
@@ -29,6 +30,7 @@ export const services: Service[] = [
     price: "$7,500",
     product_id: "prod_SMaBYVuzJgZfTK",
     price_id: "price_1RRr1OAE3E6zT9eTlvyhObEb",
+    stripe_payment_url: "update me",
     popular: false,
     color: "border-muted",
     buttonVariant: "default",
@@ -61,7 +63,6 @@ export const services: Service[] = [
       "Enhanced Data Privacy Tools": true,
       "Real-time Reporting": true,
       "A/B Testing Integration": true,
-      "Heatmaps and Session Replays": true,
       "Predictive Analytics": true,
     },
     featureExplanations: {
@@ -112,8 +113,6 @@ export const services: Service[] = [
         "Advanced tools for data anonymization and compliance management.",
       "Real-time Reporting": "Get instant insights with real-time data processing and reporting.",
       "A/B Testing Integration": "Easily set up and analyze A/B tests within your tracking setup.",
-      "Heatmaps and Session Replays":
-        "Visualize user behavior with heatmaps and session recordings.",
       "Predictive Analytics":
         "Leverage machine learning to predict marketing performance and optimize campaigns.",
       CST: "Client-Side Tracking captures user interactions directly in the browser. Only 60-70% accurate due to ad blockers, privacy settings, and browser restrictions.",
@@ -131,6 +130,8 @@ export const services: Service[] = [
     price: "$2,500",
     product_id: "prod_SMYQIgiiJQQ2Al",
     price_id: "price_1RRpK8AE3E6zT9eTRxMW2Dpq",
+    stripe_payment_url: "update me",
+
     popular: true,
     color: "border-primary",
     buttonVariant: "default",
@@ -197,6 +198,8 @@ export const services: Service[] = [
     price: "$1,500",
     product_id: "prod_SMYDcMw9E4461R",
     price_id: "price_1RRp6lAE3E6zT9eTts6wOZWE",
+    stripe_payment_url: "update me",
+
     popular: false,
     color: "border-muted",
     buttonVariant: "default",
@@ -249,6 +252,7 @@ export const services: Service[] = [
     subtitle: "Client-Side Tracking",
     description: "Identify gaps in your current tracking setup and get a roadmap for improvements.",
     price: "$500",
+    stripe_payment_url: "update me",
 
     product_id: "prod_SMXsQEj0376cLO",
     price_id: "price_1RRomYAE3E6zT9eTH0szeYoQ",
@@ -308,6 +312,8 @@ export const services: Service[] = [
     price_id: "price_1RNWDwAE3E6zT9eTzcpnOUZy",
     popular: false,
     color: "border-muted",
+    stripe_payment_url: "update me",
+
     buttonVariant: "default",
     cta: "Fix your tracking setup now",
     accuracy: "95%+",
@@ -387,14 +393,17 @@ export const services: Service[] = [
     price: "$979/month",
     price_id: "price_1RtprKAE3E6zT9eTGR8fiat2",
     product_id: "prod_SpUTbz592iTmtR",
+    stripe_payment_url: "update me",
+
     popular: false,
     color: "border-muted",
     buttonVariant: "default",
     cta: "Start Maximizing",
     accuracy: "95%+",
     features: {
+      eCommerce: "1000+ Purchases/month",
+      "Lead Generation": "1000+ Leads/month",
       "eCommerce Revenue": "Up to $1M/month",
-      "Lead Generation": "1000+ leads/month",
       "Usage Charges": "0.033% on revenue over $1M",
       "Setup Included": "Free",
       Support: "Dedicated Slack",
@@ -404,10 +413,12 @@ export const services: Service[] = [
       "Meta Pixel": "Complete",
     },
     featureExplanations: {
+      "Lead Generation":
+        "Track 1000+ leads per month with unlimited scaling and enterprise attribution.",
+      eCommerce:
+        "Track 1000+ Purchases/conversions per month with unlimited scaling and enterprise attribution.",
       "eCommerce Revenue":
         "Track up to $1,000,000 in monthly revenue with full enterprise infrastructure and support.",
-      "Lead Generation":
-        "Track 1000+ leads/conversions per month with unlimited scaling and enterprise attribution.",
       "Usage Charges": "Only 0.033% usage charges applied on monthly revenue exceeding $1,000,000.",
       "Meta Pixel":
         "Full Facebook Pixel installation with proper event configuration and enterprise-level optimization.",
@@ -430,14 +441,17 @@ export const services: Service[] = [
     price: "$649/month",
     price_id: "price_1Rtpr2AE3E6zT9eTLIeJMJho",
     product_id: "prod_SpUTbz592iTmtR",
+    stripe_payment_url: "update me",
+
     popular: false,
     color: "text-primary",
     buttonVariant: "default",
     cta: "Start Scaling",
     accuracy: "95%+",
     features: {
+      ecommerce: "Up to 1,000 Purchases/month",
+      "Lead Generation": "Up to 1,000 Leads/month",
       "eCommerce Revenue": "Up to $500K/month",
-      "Lead Generation": "Up to 1,000 leads/month",
       "Usage Charges": "0.066% on revenue over $500K",
       "Setup Included": "Free",
       Support: "Dedicated Slack",
@@ -447,10 +461,12 @@ export const services: Service[] = [
       "Meta Pixel": "Complete",
     },
     featureExplanations: {
+      eCommerce:
+        "Track up to 1,000 Purchase per month with enterprise-grade tracking infrastructure.",
+      "Lead Generation":
+        "Track up to 1,000 Leads per month with enterprise-grade tracking infrastructure.",
       "eCommerce Revenue":
         "Track up to $500,000 in monthly revenue with enterprise infrastructure and attribution.",
-      "Lead Generation":
-        "Track up to 1,000 leads/conversions per month with enterprise-grade tracking infrastructure.",
       "Usage Charges": "Only 0.066% usage charges applied on monthly revenue exceeding $500,000.",
       "Meta Pixel":
         "Full Facebook Pixel installation with proper event configuration and enterprise setup.",
@@ -472,14 +488,17 @@ export const services: Service[] = [
     price: "$429/month",
     price_id: "price_1RtpqaAE3E6zT9eTRp0Gmj47",
     product_id: "prod_SpUTbz592iTmtR",
+    stripe_payment_url: "update me",
+
     popular: true,
     color: "border-muted",
     buttonVariant: "default",
     cta: "Start Growing",
     accuracy: "95%+",
     features: {
+      eCommerce: "Up to 500 Purchases/month",
+      "Lead Generation": "Up to 500 Leads/month",
       "eCommerce Revenue": "Up to $250K/month",
-      "Lead Generation": "Up to 500 leads/month",
       "Usage Charges": "0.09% on revenue over $250K",
       "Setup Included": "Free",
       "Google Analytics": "Full GA4",
@@ -489,10 +508,12 @@ export const services: Service[] = [
       "Meta Pixel": "Complete",
     },
     featureExplanations: {
+      eCommerce:
+        "Track up to 500 Purchase/conversions per month with enterprise-grade attribution accuracy.",
+      "Lead Generation":
+        "Track up to 500 Leads per month with enterprise-grade attribution accuracy.",
       "eCommerce Revenue":
         "Track up to $250,000 in monthly revenue with advanced attribution for serious eCommerce growth.",
-      "Lead Generation":
-        "Track up to 500 leads/conversions per month with enterprise-grade attribution accuracy.",
       "Usage Charges": "Only 0.09% usage charges applied on monthly revenue exceeding $250,000.",
       "Meta Pixel":
         "Full Facebook Pixel installation with proper event configuration for comprehensive tracking.",
@@ -513,14 +534,17 @@ export const services: Service[] = [
     price: "$149/month",
     price_id: "price_1RtpkqAE3E6zT9eTrjT3jcqw",
     product_id: "prod_SpUTbz592iTmtR",
+    stripe_payment_url: "update me",
+
     popular: false,
     color: "border-muted",
     buttonVariant: "default",
     cta: "Start Tracking",
     accuracy: "95%+",
     features: {
+      eCommerce: "Up to 100 Purchases/month",
+      "Lead Generation": "Up to 100 Leads/month",
       "eCommerce Revenue": "Up to $50K/month",
-      "Lead Generation": "Up to 100 leads/month",
       "Usage Charges": "0.125% on revenue over $50K",
       "Setup Included": "Free",
       "Meta Pixel": "Complete",
@@ -529,10 +553,12 @@ export const services: Service[] = [
       "Money Back Guarantee": "30 days",
     },
     featureExplanations: {
+      eCommerce:
+        "Track up to 100 Purchases per month with precise attribution for lead gen websites.",
+      "Lead Generation":
+        "Track up to 100 Leads per month with precise attribution for lead gen websites.",
       "eCommerce Revenue":
         "Track up to $50,000 in monthly revenue with accurate attribution. Perfect for growing online stores.",
-      "Lead Generation":
-        "Track up to 100 leads/conversions per month with precise attribution for lead gen websites.",
       "Usage Charges": "Only 0.125% usage charges applied on monthly revenue exceeding $50,000.",
       "Setup Included": "Complete setup worth $1,500 included free with your subscription.",
       "Meta Pixel":

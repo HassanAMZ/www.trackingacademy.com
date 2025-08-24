@@ -61,6 +61,7 @@ export interface AuditReport {
   embedId?: {
     loom?: string;
     youtube?: string;
+    mux?: string;
   };
   date: string; //May 12, 2025
   domain: string;

@@ -53,10 +53,7 @@ export default function ServiceHero({ service }: ServiceHeroProps) {
         </div>
 
         <Button size="lg" className="w-full sm:w-auto" asChild>
-          <Link
-            href={`/payment/?product_id=${service.product_id}&price_id=${service.price_id}`}
-            className="flex items-center gap-2"
-          >
+          <Link href={service.stripe_payment_url} className="flex items-center gap-2">
             {service.cta}
             <ArrowRight className="h-4 w-4" />
           </Link>
@@ -104,7 +101,7 @@ export default function ServiceHero({ service }: ServiceHeroProps) {
 
             <Button className="w-full" variant={service.buttonVariant as any} asChild>
               <Link
-                href={`/payment/?product_id=${service.product_id}&price_id=${service.price_id}`}
+                href={service.stripe_payment_url}
                 className="flex items-center justify-center gap-2"
               >
                 {service.cta}

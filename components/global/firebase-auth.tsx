@@ -1,4 +1,3 @@
-// components/auth/FirebaseAuth.tsx
 "use client";
 
 import { Alert, AlertDescription } from "@/components/ui/alert";
@@ -16,7 +15,7 @@ interface AuthError {
   code?: string;
 }
 
-export const FirebaseAuth = () => {
+const FirebaseAuth = () => {
   const { user, googleSignIn, githubSignIn, facebookSignIn, emailSignIn, emailSignUp, logOut } =
     useAuth();
   const [loading, setLoading] = useState<boolean>(true);

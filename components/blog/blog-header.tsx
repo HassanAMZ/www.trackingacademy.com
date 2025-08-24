@@ -31,7 +31,7 @@ const BlogHeader: React.FC<PostMetadataProps> = ({ metadata }) => {
             <div className="md:space-y-8">
               <div className="space-y-4 md:space-y-8">
                 <BreadCrumbs />
-                <h1>{metadata.title}</h1>{" "}
+                <h2 className="">{metadata.title}</h2>{" "}
                 <div className="flex items-center space-x-4">
                   <Avatar className="h-12 w-12">
                     <AvatarImage src="/images/avatars/hassan.png" alt="ShahzadaAliHassan" />

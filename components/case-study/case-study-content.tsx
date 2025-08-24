@@ -27,6 +27,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import LoomEmbed from "../global/loom-embed";
+import MuxEmbed from "../global/mux-embed";
 import YoutubeEmbed from "../global/youtube-embed";
 import { TestimonialCard } from "../testimonial/testimonial-card";
 import Container from "../ui/container";
@@ -428,18 +429,44 @@ export default function CaseStudyComponent({ caseStudy }: { caseStudy: CaseStudy
         {/* Sidebar */}
         <div className="lg:col-span-1">
           <div className="sticky top-4 space-y-6">
-            <Card className="overflow-hidden">
-              <CardHeader className="bg-green-50 dark:bg-green-950/20">
-                <CardTitle className="text-lg">Client Testimonial</CardTitle>
+            {/* Video Section - Priority: Mux > YouTube > Loom */}
+            {(caseStudy.embedId?.mux || caseStudy.embedId?.youtube || caseStudy.embedId?.loom) && (
+              <>
+                {caseStudy.embedId?.mux && (
+                  <MuxEmbed
+                    embedId={caseStudy.embedId.mux}
+                    className="!p-0"
+                    verticalVideo={caseStudy.embedId.muxVertical || false}
+                  />
+                )}
+              </>
+            )}
+
+            <Card className="overflow-hidden border-green-200 bg-gradient-to-br from-green-50 to-emerald-50 dark:border-green-800 dark:from-green-950/30 dark:to-emerald-950/30">
+              <CardHeader className="bg-gradient-to-r from-green-100 to-emerald-100 dark:from-green-900/40 dark:to-emerald-900/40">
+                <div className="flex items-center gap-2">
+                  <div className="flex h-8 w-8 items-center justify-center rounded-full bg-green-600/20">
+                    <svg className="h-4 w-4 text-green-600" fill="currentColor" viewBox="0 0 20 20">
+                      <path
+                        fillRule="evenodd"
+                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                        clipRule="evenodd"
+                      />
+                    </svg>
+                  </div>
+                  <CardTitle className="text-lg text-green-800 dark:text-green-200">
+                    Client Testimonial
+                  </CardTitle>
+                </div>
               </CardHeader>
               <CardContent className="pt-6">
                 <div className="mb-4 flex flex-col items-center text-center">
-                  <Avatar className="mb-2 h-16 w-16">
+                  <Avatar className="mb-3 h-20 w-20 ring-4 ring-green-100 dark:ring-green-900/50">
                     <AvatarImage
                       src={caseStudy.testimonial.image || "/placeholder.svg"}
                       alt={caseStudy.testimonial.author}
                     />
-                    <AvatarFallback>
+                    <AvatarFallback className="bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200">
                       {caseStudy.testimonial.author
                         .split(" ")
                         .map((n) => n[0])
@@ -447,60 +474,100 @@ export default function CaseStudyComponent({ caseStudy }: { caseStudy: CaseStudy
                     </AvatarFallback>
                   </Avatar>
                   <div>
-                    <p className="font-medium">{caseStudy.testimonial.author}</p>
-                    <p className="text-sm text-muted-foreground">{caseStudy.testimonial.role}</p>
+                    <p className="font-semibold text-green-900 dark:text-green-100">
+                      {caseStudy.testimonial.author}
+                    </p>
+                    <p className="text-sm text-green-700 dark:text-green-300">
+                      {caseStudy.testimonial.role}
+                    </p>
                   </div>
                 </div>
 
                 <div className="mb-4 flex justify-center">
                   {[1, 2, 3, 4, 5].map((star) => (
-                    <Star key={star} className="h-5 w-5 fill-yellow-400 text-yellow-400" />
+                    <Star
+                      key={star}
+                      className="h-5 w-5 fill-yellow-400 text-yellow-400 drop-shadow-sm"
+                    />
                   ))}
                 </div>
 
-                <blockquote className="text-center italic">
-                  {caseStudy.testimonial.quote}
+                <blockquote className="text-center leading-relaxed text-green-800 italic dark:text-green-200">
+                  "{caseStudy.testimonial.quote}"
                 </blockquote>
               </CardContent>
             </Card>
 
-            <Card>
-              <CardHeader>
-                <CardTitle>Analytics Overview</CardTitle>
-                <CardDescription>Data collected over {caseStudy.analytics.period}</CardDescription>
-              </CardHeader>
-              <CardContent className="space-y-6">
-                <div className="space-y-2">
-                  <div className="flex justify-between">
-                    <span className="text-sm font-medium">Tracking Accuracy</span>
-                    <span className="text-sm font-medium">{caseStudy.analytics.accuracy}%</span>
+            <Card className="border-blue-200 bg-gradient-to-br from-blue-50 to-indigo-50 dark:border-blue-800 dark:from-blue-950/30 dark:to-indigo-950/30">
+              <CardHeader className="bg-gradient-to-r from-blue-100 to-indigo-100 dark:from-blue-900/40 dark:to-indigo-900/40">
+                <div className="flex items-center gap-2">
+                  <div className="flex h-8 w-8 items-center justify-center rounded-full bg-blue-600/20">
+                    <svg className="h-4 w-4 text-blue-600" fill="currentColor" viewBox="0 0 20 20">
+                      <path d="M2 11a1 1 0 011-1h2a1 1 0 011 1v5a1 1 0 01-1 1H3a1 1 0 01-1-1v-5zM8 7a1 1 0 011-1h2a1 1 0 011 1v9a1 1 0 01-1 1H9a1 1 0 01-1-1V7zM14 4a1 1 0 011-1h2a1 1 0 011 1v12a1 1 0 01-1 1h-2a1 1 0 01-1-1V4z" />
+                    </svg>
                   </div>
-                  <Progress value={caseStudy.analytics.accuracy} className="h-2" />
+                  <div>
+                    <CardTitle className="text-blue-800 dark:text-blue-200">
+                      Analytics Overview
+                    </CardTitle>
+                    <CardDescription className="text-blue-600 dark:text-blue-300">
+                      Data collected over {caseStudy.analytics.period}
+                    </CardDescription>
+                  </div>
+                </div>
+              </CardHeader>
+              <CardContent className="space-y-6 pt-6">
+                <div className="space-y-3">
+                  <div className="flex items-center justify-between">
+                    <div className="flex items-center gap-2">
+                      <div className="h-2 w-2 rounded-full bg-green-500"></div>
+                      <span className="text-sm font-medium text-blue-900 dark:text-blue-100">
+                        Tracking Accuracy
+                      </span>
+                    </div>
+                    <span className="text-lg font-bold text-blue-800 dark:text-blue-200">
+                      {caseStudy.analytics.accuracy}%
+                    </span>
+                  </div>
+                  <Progress
+                    value={caseStudy.analytics.accuracy}
+                    className="h-3 bg-blue-100 dark:bg-blue-900/50"
+                  />
                 </div>
 
-                <div className="space-y-2">
-                  <div className="flex justify-between">
-                    <span className="text-sm font-medium">Recovered from Ad Blockers</span>
-                    <span className="text-sm font-medium">
-                      {caseStudy.analytics.recoveredFromAdBlockersPercentage}%
+                <div className="space-y-3">
+                  <div className="flex items-center justify-between">
+                    <div className="flex items-center gap-2">
+                      <div className="h-2 w-2 rounded-full bg-orange-500"></div>
+                      <span className="text-sm font-medium text-blue-900 dark:text-blue-100">
+                        Ad Blockers Recovery
+                      </span>
+                    </div>
+                    <span className="text-lg font-bold text-green-600">
+                      +{caseStudy.analytics.recoveredFromAdBlockersPercentage}%
                     </span>
                   </div>
                   <Progress
                     value={caseStudy.analytics.recoveredFromAdBlockersPercentage}
-                    className="h-2"
+                    className="h-3 bg-blue-100 dark:bg-blue-900/50"
                   />
                 </div>
 
-                <div className="space-y-2">
-                  <div className="flex justify-between">
-                    <span className="text-sm font-medium">Recovered from Tracking Prevention</span>
-                    <span className="text-sm font-medium">
-                      {caseStudy.analytics.recoveredFromTrackingPreventionPercentage}%
+                <div className="space-y-3">
+                  <div className="flex items-center justify-between">
+                    <div className="flex items-center gap-2">
+                      <div className="h-2 w-2 rounded-full bg-purple-500"></div>
+                      <span className="text-sm font-medium text-blue-900 dark:text-blue-100">
+                        ITP Recovery
+                      </span>
+                    </div>
+                    <span className="text-lg font-bold text-green-600">
+                      +{caseStudy.analytics.recoveredFromTrackingPreventionPercentage}%
                     </span>
                   </div>
                   <Progress
                     value={caseStudy.analytics.recoveredFromTrackingPreventionPercentage}
-                    className="h-2"
+                    className="h-3 bg-blue-100 dark:bg-blue-900/50"
                   />
                 </div>
               </CardContent>

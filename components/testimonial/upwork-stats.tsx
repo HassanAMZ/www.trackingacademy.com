@@ -1,6 +1,6 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Progress } from "@/components/ui/progress";
-import { ExternalLink, Star } from "lucide-react";
+import { Star } from "lucide-react";
 import Link from "next/link";
 import Container from "../ui/container";
 
@@ -71,12 +71,6 @@ function UpworkStats() {
               </div>
             </div>
           </CardContent>{" "}
-          {/* External link icon that appears on hover - similar to TestimonialCard */}
-          <div className="absolute top-1/2 left-1/2 z-30 -translate-x-1/2 -translate-y-1/2 transform opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-            <div className="rounded-full bg-primary p-3 text-white shadow-lg">
-              <ExternalLink className="h-6 w-6" />
-            </div>
-          </div>
         </Card>
       </Link>
     </Container>

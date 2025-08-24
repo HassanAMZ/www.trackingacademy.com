@@ -22,7 +22,9 @@ const SingleBlogCard: React.FC<SingleBlogCardProps> = ({
 
   return (
     <Link href={`/${type}/${post.slug}`} className={`block ${className}`}>
-      <Card className={`overflow-hidden transition-all hover:shadow-lg ${isMain ? "lg:flex" : ""}`}>
+      <Card
+        className={`overflow-hidden pt-0 transition-all hover:shadow-lg ${isMain ? "lg:flex" : ""}`}
+      >
         <div className={`relative ${isMain ? "lg:w-2/3" : "aspect-video"}`}>
           <Image
             src={post.openGraph.images[0]}

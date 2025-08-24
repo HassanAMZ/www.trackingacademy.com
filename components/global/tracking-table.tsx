@@ -3,7 +3,6 @@
 import { caseStudies, type CaseStudy } from "@/data/case-studies";
 import Link from "next/link";
 import type React from "react";
-import { AvatarGroup, AvatarGroupTooltip } from "../animate-ui/avatar-group-mask";
 import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar";
 
 interface ClientTrackingTableProps {
@@ -63,24 +62,19 @@ const ClientTableRow: React.FC<{
       <td className="px-4 py-3">
         <Link href={`/case-study/${data.id}`}>
           <div className="flex items-center gap-3">
-            <AvatarGroup>
-              {[
-                <Avatar className="mb-2 h-10 w-10" key={data.id}>
-                  <AvatarImage src={data.avatar || "/placeholder.svg"} alt={data.clientName} />
-                  <AvatarFallback>
-                    {data.avatar
-                      .split(" ")
-                      .map((n) => n[0])
-                      .join("")}
-                  </AvatarFallback>
-                  <AvatarGroupTooltip>
-                    <p> {data.id}</p>
-                  </AvatarGroupTooltip>
-                </Avatar>,
-              ]}
-            </AvatarGroup>
+            {[
+              <Avatar className="mb-2 h-8 w-8" key={data.id}>
+                <AvatarImage src={data.avatar || "/placeholder.svg"} alt={data.clientName} />
+                <AvatarFallback>
+                  {data.avatar
+                    .split(" ")
+                    .map((n) => n[0])
+                    .join("")}
+                </AvatarFallback>
+              </Avatar>,
+            ]}
             <div>
-              <div className="text-sm font-medium">{data.clientName}</div>
+              <div className="text-sm font-medium">{data.clientName.split(" ")[0]}</div>
             </div>
           </div>
         </Link>
@@ -99,7 +93,7 @@ const ClientTableRow: React.FC<{
 
 // Main component
 const ClientTrackingTable: React.FC<ClientTrackingTableProps> = ({ rows }) => {
-  const transformedData = caseStudies.slice(0, 8).map(transformCaseStudyData);
+  const transformedData = caseStudies.slice(0, 6).map(transformCaseStudyData);
   const displayedData = rows ? transformedData.slice(0, rows) : transformedData;
   const stats = calculateStats(displayedData);
 

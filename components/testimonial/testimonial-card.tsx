@@ -6,12 +6,12 @@ import { Quote, Star } from "lucide-react";
 import Link from "next/link";
 import type { ReactNode } from "react";
 
-export interface Metric {
+interface Metric {
   label: string;
   value: string | number;
 }
 
-export interface TestimonialCardProps {
+interface TestimonialCardProps {
   quote: string;
   author: string;
   role?: string;

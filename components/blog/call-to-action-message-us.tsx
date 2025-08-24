@@ -4,7 +4,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "../ui/card";
 
 export default function CallToActionMessageUs() {
   return (
-    <Card className="space-y-4 self-start rounded-lg p-6 lg:sticky lg:top-8">
+    <Card className="space-y-4 self-start rounded-lg p-6">
       <CardHeader className="p-0">
         <CardTitle className="flex items-center gap-2">
           <span> 😅</span>
@@ -14,7 +14,9 @@ export default function CallToActionMessageUs() {
       <CardContent className="space-y-4 self-start p-0">
         <p>Need help implementing the tracking? Send us a message..!</p>
         <Button className="w-full" asChild>
-          <Link href="/contact">Send a Message</Link>
+          <Link href="/contact" target="_blank" rel="noopener noreferrer">
+            Send a Message
+          </Link>
         </Button>
       </CardContent>
     </Card>

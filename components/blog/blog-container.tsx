@@ -16,12 +16,14 @@ export default async function BlogContainer({
   return (
     <div>
       <BlogHeader metadata={metadata} />
-      <div className="mt-8 grid grid-cols-1 gap-8 lg:grid-cols-[300px_1fr_250px]">
-        <TableOfContents />
+      <div className="mt-8 grid grid-cols-1 gap-8 lg:grid-cols-[300px_1fr]">
+        <div className="flex flex-col gap-8 lg:sticky lg:top-8">
+          <TableOfContents />
+          <ContactUs />
+        </div>
         <article>
           <BlogPost />
         </article>
-        <ContactUs />
       </div>
     </div>
   );

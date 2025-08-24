@@ -30,7 +30,7 @@ const SolutionSection = ({ steps }: { steps: any }) => {
             ))}
           </div>{" "}
           <Button size="lg" className="mt-4" asChild>
-            <Link href="/contact">
+            <Link href="/contact" target="_blank" rel="noopener noreferrer">
               Unlock 30% More Conversions
               <ArrowRight className="h-4 w-4" />
             </Link>

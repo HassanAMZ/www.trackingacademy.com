@@ -2,7 +2,7 @@
 
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Card } from "@/components/ui/card";
+import { Card, CardContent } from "@/components/ui/card";
 import { Dialog, DialogContent } from "@/components/ui/dialog";
 import type { CaseStudy } from "@/data/case-studies";
 import {
@@ -11,14 +11,14 @@ import {
   ChevronRight,
   ExternalLink,
   Eye,
-  Maximize2,
   Play,
   X,
   Zap,
 } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import { Suspense, lazy, useEffect, useState } from "react";
+import { lazy, useEffect, useState } from "react";
+import { TestimonialCard } from "../testimonial/testimonial-card";
 import Container from "../ui/container";
 
 // Lazy load components
@@ -29,89 +29,41 @@ interface FeaturedCaseStudyProps {
   caseStudy: CaseStudy;
 }
 
-type MediaItem = {
-  type: "video" | "image";
-  src: string;
-  embedId?: string;
-  embedType?: "loom" | "youtube";
-  category?: "before" | "after";
-  alt: string;
-};
-
-// ... all imports and code above remain unchanged
-
 export default function FeaturedCaseStudy({ caseStudy }: FeaturedCaseStudyProps) {
+  // Auto-scroll state for before/after images
+  const [currentBeforeIndex, setCurrentBeforeIndex] = useState(0);
+  const [currentAfterIndex, setCurrentAfterIndex] = useState(0);
+
   // Modal state
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [currentMediaIndex, setCurrentMediaIndex] = useState(0);
-  const [isAutoPlaying, setIsAutoPlaying] = useState(true);
+  const [modalImageType, setModalImageType] = useState<"before" | "after">("before");
+  const [modalImageIndex, setModalImageIndex] = useState(0);
 
-  // Main preview carousel state
-  const [currentPreviewIndex, setCurrentPreviewIndex] = useState(0);
-
-  // Create unified media array
-  const mediaItems: MediaItem[] = [
-    ...(caseStudy.embedId?.loom
-      ? [
-          {
-            type: "video" as const,
-            src: "",
-            embedId: caseStudy.embedId.loom,
-            embedType: "loom" as const,
-            alt: "Live Demo Video",
-          },
-        ]
-      : caseStudy.embedId?.youtube
-        ? [
-            {
-              type: "video" as const,
-              src: "",
-              embedId: caseStudy.embedId.youtube,
-              embedType: "youtube" as const,
-              alt: "Case Study Video",
-            },
-          ]
-        : [
-            {
-              type: "image" as const,
-              src: caseStudy.imageUrl || "/placeholder.svg",
-              alt: "Main preview",
-            },
-          ]),
-    ...(caseStudy.analytics.images?.before?.map((img, index) => ({
-      type: "image" as const,
-      src: img,
-      category: "before" as const,
-      alt: `Before ${index + 1}`,
-    })) || []),
-    ...(caseStudy.analytics.images?.after?.map((img, index) => ({
-      type: "image" as const,
-      src: img,
-      category: "after" as const,
-      alt: `After ${index + 1}`,
-    })) || []),
-  ];
-
-  // Auto-scroll effect for modal
+  // Auto-scroll effect for before images
   useEffect(() => {
-    if (isModalOpen && isAutoPlaying && mediaItems.length > 1) {
+    if (caseStudy.analytics.images?.before && caseStudy.analytics.images.before.length > 1) {
       const interval = setInterval(() => {
-        setCurrentMediaIndex((prev) => (prev + 1) % mediaItems.length);
+        setCurrentBeforeIndex(
+          (prev) => (prev + 1) % (caseStudy.analytics.images?.before?.length ?? 1),
+        );
       }, 10000);
-      return () => clearInterval(interval);
-    }
-  }, [isModalOpen, isAutoPlaying, mediaItems.length]);
 
-  // Auto-scroll for preview
-  useEffect(() => {
-    const imageItems = mediaItems.filter((item) => item.type === "image");
-    if (!caseStudy.embedId?.loom && !caseStudy.embedId?.youtube && imageItems.length > 1) {
-      const interval = setInterval(() => {
-        setCurrentPreviewIndex((prev) => (prev + 1) % imageItems.length);
-      }, 4000);
       return () => clearInterval(interval);
     }
-  }, [mediaItems, caseStudy.embedId]);
+  }, [caseStudy.analytics.images?.before]);
+
+  // Auto-scroll effect for after images
+  useEffect(() => {
+    if (caseStudy.analytics.images?.after && caseStudy.analytics.images.after.length > 1) {
+      const interval = setInterval(() => {
+        setCurrentAfterIndex(
+          (prev) => (prev + 1) % (caseStudy.analytics.images?.after?.length ?? 1),
+        );
+      }, 7000);
+
+      return () => clearInterval(interval);
+    }
+  }, [caseStudy.analytics.images?.after]);
 
   const formatDate = (dateString: string) => {
     const date = new Date(dateString);
@@ -122,200 +74,143 @@ export default function FeaturedCaseStudy({ caseStudy }: FeaturedCaseStudyProps)
     });
   };
 
-  const openModal = (startIndex: number = 0) => {
-    setCurrentMediaIndex(startIndex);
+  const caseStudyLink = `/case-study/${caseStudy.id}`;
+
+  const openModal = (type: "before" | "after", index: number) => {
+    setModalImageType(type);
+    setModalImageIndex(index);
     setIsModalOpen(true);
-    setIsAutoPlaying(true);
+  };
+
+  const getCurrentModalImages = () => {
+    return modalImageType === "before"
+      ? caseStudy.analytics.images?.before || []
+      : caseStudy.analytics.images?.after || [];
   };
 
   const navigateModal = (direction: "prev" | "next") => {
-    setIsAutoPlaying(false);
+    const images = getCurrentModalImages();
     if (direction === "prev") {
-      setCurrentMediaIndex((prev) => (prev - 1 + mediaItems.length) % mediaItems.length);
+      setModalImageIndex((prev) => (prev - 1 + images.length) % images.length);
     } else {
-      setCurrentMediaIndex((prev) => (prev + 1) % mediaItems.length);
+      setModalImageIndex((prev) => (prev + 1) % images.length);
     }
   };
 
-  const toggleAutoPlay = () => {
-    setIsAutoPlaying(!isAutoPlaying);
+  const switchModalType = () => {
+    setModalImageType(modalImageType === "before" ? "after" : "before");
+    setModalImageIndex(0);
   };
-
-  const getMediaTypeIcon = (item: MediaItem) => {
-    if (item.type === "video") return <Play className="h-3 w-3" />;
-    if (item.category === "before") {
-      return <Badge variant="destructive">Before</Badge>;
-    }
-    if (item.category === "after") {
-      return <Badge>After</Badge>;
-    }
-    return <Eye className="h-3 w-3" />;
-  };
-
-  const renderModalMedia = (item: MediaItem) => {
-    if (item.type === "video" && item.embedType === "loom") {
-      return (
-        <Suspense fallback={<div className="aspect-video animate-pulse bg-muted" />}>
-          <LoomEmbed embedId={item.embedId!} className="p-0" />
-        </Suspense>
-      );
-    }
-    if (item.type === "video" && item.embedType === "youtube") {
-      return (
-        <Suspense fallback={<div className="aspect-video animate-pulse bg-muted" />}>
-          <YoutubeEmbed embedId={item.embedId!} className="p-0" />
-        </Suspense>
-      );
-    }
-    return (
-      <div className="relative aspect-video bg-muted">
-        <Image
-          src={item.src}
-          alt={item.alt}
-          width={1920}
-          height={1080}
-          className="w-full rounded-lg object-cover"
-        />
-      </div>
-    );
-  };
-
-  const renderMainPreview = () => {
-    if (caseStudy.embedId?.loom) {
-      return (
-        <Suspense fallback={<div className="aspect-video animate-pulse bg-muted" />}>
-          <LoomEmbed embedId={caseStudy.embedId.loom} className="p-0" />
-        </Suspense>
-      );
-    }
-    if (caseStudy.embedId?.youtube) {
-      return (
-        <Suspense fallback={<div className="aspect-video animate-pulse bg-muted" />}>
-          <YoutubeEmbed embedId={caseStudy.embedId.youtube} className="p-0" />
-        </Suspense>
-      );
-    }
-
-    const imageItems = mediaItems.filter((item) => item.type === "image");
-    const currentImage = imageItems[currentPreviewIndex] || mediaItems[0];
-    return (
-      <Image
-        src={currentImage?.src || "/placeholder.svg"}
-        alt={currentImage?.alt || "Preview"}
-        width={1920}
-        height={1080}
-        className="w-full rounded-lg object-cover transition-all duration-500 group-hover:scale-105"
-      />
-    );
-  };
-
-  // ✅ Add this before modal rendering to fix the "Cannot find name 'currentItem'" error
-  const currentItem = mediaItems[currentMediaIndex];
 
   return (
-    <section className="relative w-full overflow-hidden bg-gradient-to-b from-primary/5 to-background py-6">
-      <Container className="relative">
-        <Card className="overflow-hidden border-0 bg-card/60 shadow-sm transition-shadow hover:shadow-md">
-          <div className="grid w-full items-center gap-4 p-4 lg:grid-cols-5">
-            {/* Compact Media Preview */}
-            <div className="relative lg:col-span-2">
-              <div
-                className="group relative aspect-video cursor-pointer overflow-hidden rounded-lg border bg-muted"
-                onClick={() => openModal(0)}
-              >
-                {renderMainPreview()}
-
-                {/* Overlay with media count */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
-
-                {/* Media indicators */}
-                <div className="absolute bottom-2 left-2 flex items-center gap-2">
-                  {getMediaTypeIcon(mediaItems[0])}
-                  <span className="font-medium">
-                    {mediaItems.length} {mediaItems.length === 1 ? "item" : "items"}
-                  </span>
-                </div>
-
-                {/* Expand icon */}
-                <div className="absolute top-2 right-2 opacity-0 transition-opacity group-hover:opacity-100">
-                  <div className="rounded-full p-1.5">
-                    <Maximize2 className="h-3 w-3" />
+    <section className="relative w-full overflow-hidden bg-gradient-to-b from-primary/10 to-background pt-12 pb-6">
+      <Container className="relative space-y-4">
+        <div className="flex items-center justify-center">
+          <Badge>Featured Case Study {caseStudy.id}</Badge>
+        </div>
+        <Card className="overflow-hidden border-0 bg-card/80 shadow-none">
+          <div className="grid w-full items-center gap-6 px-4 py-6 md:px-6 lg:grid-cols-5 lg:justify-center">
+            <div className="relative space-y-2 lg:col-span-3">
+              <div className="relative aspect-video overflow-hidden bg-muted">
+                {caseStudy.embedId?.loom ? (
+                  <>
+                    <LoomEmbed embedId={caseStudy.embedId.loom} className="p-0" />
+                    <div className="absolute top-4 left-4 flex items-center gap-2 rounded-full bg-primary px-3 py-1.5 text-sm font-medium text-primary-foreground shadow backdrop-blur-sm">
+                      <Play className="h-3 w-3" />
+                      Live Demo
+                    </div>
+                  </>
+                ) : caseStudy.embedId?.youtube ? (
+                  <>
+                    <YoutubeEmbed embedId={caseStudy.embedId.youtube} className="p-0" />
+                    <div className="absolute top-4 left-4 flex items-center gap-2 rounded-full bg-destructive px-3 py-1.5 text-sm font-medium text-destructive-foreground shadow backdrop-blur-sm">
+                      <Play className="h-3 w-3" />
+                      Case Video
+                    </div>
+                  </>
+                ) : (
+                  <>
+                    <Image
+                      priority={false}
+                      src={caseStudy.imageUrl || "/placeholder.svg?height=600&width=800"}
+                      alt={`${caseStudy.name} preview`}
+                      width={1920}
+                      height={1080}
+                      className="rounded-lg object-cover transition-transform duration-700"
+                    />
+                    <div className="absolute inset-0 rounded-lg bg-gradient-to-t from-black/40 via-transparent to-transparent" />
+                    <div className="absolute bottom-4 left-4 flex items-center gap-2 rounded-full bg-background/90 px-3 py-1.5 text-sm font-medium text-foreground shadow backdrop-blur-sm">
+                      <Eye className="h-3 w-3" />
+                      Live Site
+                    </div>
+                  </>
+                )}
+                <div className="absolute top-4 right-4 flex gap-2">
+                  {/* <div className="bg-background/90 text-foreground flex items-center gap-1.5 rounded-full px-3 py-1.5 text-xs font-medium shadow backdrop-blur-sm">
+                    {caseStudy.plan}
                   </div>
-                </div>
-
-                {/* Date badge */}
-                <div className="absolute top-2 left-2 flex items-center gap-1 rounded-full bg-background/90 px-2 py-1 font-medium text-foreground shadow backdrop-blur-sm">
-                  <Zap className="h-2.5 w-2.5" />
-                  {formatDate(caseStudy.projectTimeline.endDate)}
+                  <div className="bg-background/90 text-foreground flex items-center gap-1.5 rounded-full px-3 py-1.5 text-xs font-medium shadow backdrop-blur-sm">
+                    <Calendar className="h-3 w-3" />
+                    {caseStudy.projectTimeline.durationDays}d
+                  </div> */}
+                  <div className="flex items-center gap-1.5 rounded-full bg-background/90 px-3 py-1.5 text-xs font-medium text-foreground shadow backdrop-blur-sm">
+                    <Zap className="h-3 w-3" />
+                    {formatDate(caseStudy.projectTimeline.endDate)}
+                  </div>
                 </div>
               </div>
             </div>
-
-            {/* Content */}
-            <div className="space-y-4 lg:col-span-3">
-              <div className="space-y-3">
-                <div className="flex items-start justify-between gap-2">
-                  <div className="flex-1">
-                    {/* <Badge className="mb-2">Featured Case Study {caseStudy.id}</Badge> */}
-                    <h4 className="capitalize">{caseStudy.client}</h4>
-                  </div>
-                  <div className="flex flex-wrap justify-end gap-1">
-                    {caseStudy.technologies.slice(0, 2).map((tech, index) => (
-                      <Badge key={index} variant="outline">
-                        {tech}
-                      </Badge>
-                    ))}
-                  </div>
+            <div className="flex flex-col justify-between space-y-4 lg:col-span-2">
+              <div className="space-y-4">
+                <div className="mb-3 flex items-center justify-between">
+                  <h4 className="flex items-center gap-2 text-primary capitalize">
+                    {caseStudy.client}
+                  </h4>
                 </div>
-
-                <div className="space-y-1.5">
+                <div className="flex flex-wrap items-start justify-start gap-2 text-center">
+                  {caseStudy.technologies.slice(0, 3).map((tech, index) => (
+                    <Badge
+                      key={index}
+                      variant="outline"
+                      className="cursor-default text-xs transition-colors hover:bg-primary/10"
+                    >
+                      {tech}
+                    </Badge>
+                  ))}
+                </div>
+                <div className="space-y-2">
                   {caseStudy.results.slice(0, 3).map((result, index) => (
                     <div key={index} className="flex items-start gap-2">
-                      <div className="mt-1.5 h-1 w-1 flex-shrink-0 rounded-full bg-primary" />
-                      <span className="text-sm">{result}</span>
+                      <div className="mt-2 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-primary" />
+                      <span className="line-clamp-1 leading-relaxed text-muted-foreground">
+                        {result}
+                      </span>
                     </div>
                   ))}
                 </div>
               </div>
-
-              {/* Compact Testimonial */}
-              <div className="rounded-lg bg-muted/50 p-3">
-                <blockquote className="line-clamp-2 font-semibold italic">
-                  "{caseStudy.testimonial.quote}"
-                </blockquote>
-                <div className="mt-2 flex items-center gap-2">
-                  {caseStudy.testimonial.image && (
-                    <Image
-                      src={caseStudy.testimonial.image}
-                      alt={caseStudy.testimonial.author}
-                      width={20}
-                      height={20}
-                      className="rounded-full"
-                    />
-                  )}
-                  <div className="text-xs">
-                    <div className="font-medium">{caseStudy.testimonial.author}</div>
-                    <div>{caseStudy.testimonial.role}</div>
-                  </div>
-                </div>
+              <div>
+                <TestimonialCard
+                  upwork={true}
+                  quote={caseStudy.testimonial.quote}
+                  author={caseStudy.testimonial.author}
+                  linkUrl={`/case-study/${caseStudy.id}`}
+                  role={caseStudy.testimonial.role}
+                  image={caseStudy.testimonial.image}
+                />
               </div>
-
-              {/* Action Buttons */}
-              <div className="flex max-w-sm gap-2">
-                <Button asChild size="sm" className="group">
-                  <Link
-                    href={`/case-study/${caseStudy.id}`}
-                    className="flex items-center gap-2 px-4"
-                  >
-                    <span className="font-semibold">Full Study</span>
+              <div className="flex flex-col gap-2 md:flex-row">
+                <Button asChild size="sm" className="group w-full">
+                  <Link href={caseStudyLink} className="flex items-center justify-center gap-2">
+                    <span className="font-semibold">Full Case Study</span>
                     <ArrowRight className="h-3 w-3 transition-transform group-hover:translate-x-1" />
                   </Link>
                 </Button>
-                <Button asChild variant="outline" size="sm" className="group">
+                <Button asChild variant="outline" size="sm" className="group w-full">
                   <Link
                     href={caseStudy.url}
                     target="_blank"
-                    className="flex items-center gap-2 px-4"
+                    className="flex items-center justify-center gap-2"
                   >
                     <ExternalLink className="h-3 w-3 transition-transform group-hover:scale-110" />
                     <span>Live Site</span>
@@ -324,41 +219,145 @@ export default function FeaturedCaseStudy({ caseStudy }: FeaturedCaseStudyProps)
               </div>
             </div>
           </div>
+          {caseStudy.analytics.images && (
+            <div className="p-4 md:p-6">
+              <div className="grid gap-4 md:grid-cols-2">
+                {/* Before - Auto-Scrolling Carousel */}
+                <Card className="group overflow-hidden border-0 bg-destructive/10 shadow-none">
+                  <div className="py-2 text-center">
+                    <Badge variant="destructive" className="text-xs font-medium">
+                      Before
+                    </Badge>
+                  </div>
+                  <CardContent className="px-3 py-6 md:p-6">
+                    <div className="relative">
+                      <div
+                        className="group/image relative aspect-video cursor-pointer overflow-hidden rounded-lg border"
+                        onClick={() => openModal("before", currentBeforeIndex)}
+                      >
+                        <Image
+                          priority={false}
+                          src={
+                            caseStudy.analytics.images.before[currentBeforeIndex] ||
+                            "/placeholder.svg"
+                          }
+                          alt={`Before ${currentBeforeIndex + 1}`}
+                          width={1920}
+                          height={1080}
+                          className="object-cover transition-all duration-300 group-hover/image:scale-105"
+                        />
+                        {/* Hover overlay */}
+                        <div className="absolute inset-0 flex items-center justify-center bg-black/0 transition-all duration-300 group-hover/image:bg-black/20">
+                          <div className="rounded-full bg-white/90 p-2 opacity-0 transition-opacity duration-300 group-hover/image:opacity-100">
+                            <Eye className="h-4 w-4 text-black" />
+                          </div>
+                        </div>
+                      </div>
+                      {/* Image Counter */}
+                      {caseStudy.analytics.images.before.length > 1 && (
+                        <div className="absolute top-2 right-2 rounded-full bg-black/70 px-2 py-1 text-xs text-white">
+                          {currentBeforeIndex + 1} / {caseStudy.analytics.images.before.length}
+                        </div>
+                      )}
+                      {/* Dot Indicators */}
+                      {caseStudy.analytics.images.before.length > 1 && (
+                        <div className="mt-3 flex justify-center gap-1">
+                          {caseStudy.analytics.images.before.map((_, index) => (
+                            <button
+                              key={index}
+                              onClick={() => setCurrentBeforeIndex(index)}
+                              className={`h-2 w-2 rounded-full transition-colors ${
+                                index === currentBeforeIndex
+                                  ? "bg-destructive"
+                                  : "bg-muted-foreground/30"
+                              }`}
+                            />
+                          ))}
+                        </div>
+                      )}
+                    </div>
+                  </CardContent>
+                </Card>
+                {/* After - Auto-Scrolling Carousel */}
+                <Card className="group overflow-hidden border-0 bg-primary/10 shadow-none">
+                  <div className="py-2 text-center">
+                    <Badge className="text-xs font-medium">After</Badge>
+                  </div>
+                  <CardContent>
+                    <div className="relative">
+                      <div
+                        className="group/image relative aspect-video cursor-pointer overflow-hidden rounded-lg border"
+                        onClick={() => openModal("after", currentAfterIndex)}
+                      >
+                        <Image
+                          priority={false}
+                          src={
+                            caseStudy.analytics.images.after[currentAfterIndex] ||
+                            "/placeholder.svg"
+                          }
+                          alt={`After ${currentAfterIndex + 1}`}
+                          width={1920}
+                          height={1080}
+                          className="object-cover transition-all duration-300 group-hover/image:scale-105"
+                        />
+                        {/* Hover overlay */}
+                        <div className="absolute inset-0 flex items-center justify-center bg-black/0 transition-all duration-300 group-hover/image:bg-black/20">
+                          <div className="rounded-full bg-white/90 p-2 opacity-0 transition-opacity duration-300 group-hover/image:opacity-100">
+                            <Eye className="h-4 w-4 text-black" />
+                          </div>
+                        </div>
+                      </div>
+                      {/* Image Counter */}
+                      {caseStudy.analytics.images.after.length > 1 && (
+                        <div className="absolute top-2 right-2 rounded-full bg-black/70 px-2 py-1 text-xs text-white">
+                          {currentAfterIndex + 1} / {caseStudy.analytics.images.after.length}
+                        </div>
+                      )}
+                      {/* Dot Indicators */}
+                      {caseStudy.analytics.images.after.length > 1 && (
+                        <div className="mt-3 flex justify-center gap-1">
+                          {caseStudy.analytics.images.after.map((_, index) => (
+                            <button
+                              key={index}
+                              onClick={() => setCurrentAfterIndex(index)}
+                              className={`h-2 w-2 rounded-full transition-colors ${
+                                index === currentAfterIndex
+                                  ? "bg-primary"
+                                  : "bg-muted-foreground/30"
+                              }`}
+                            />
+                          ))}
+                        </div>
+                      )}
+                    </div>
+                  </CardContent>
+                </Card>
+              </div>
+            </div>
+          )}
         </Card>
       </Container>
 
-      {/* Modal section uses `currentItem` safely now */}
+      {/* Image Modal */}
       <Dialog open={isModalOpen} onOpenChange={setIsModalOpen}>
-        <DialogContent className="w-full max-w-6xl border-0 bg-transparent p-0 [&>button]:hidden">
-          <div className="relative overflow-hidden rounded-lg bg-background shadow-2xl">
+        <DialogContent className="w-full max-w-4xl border-0 bg-transparent p-0 [&>button]:hidden">
+          <div className="relative overflow-hidden rounded-lg bg-background">
             {/* Modal Header */}
             <div className="flex items-center justify-between border-b p-4">
-              <div className="flex items-center gap-3">
-                <h3 className="font-semibold">{caseStudy.client}</h3>
-                {currentItem?.category && (
-                  <Badge variant={currentItem.category === "before" ? "destructive" : "default"}>
-                    {currentItem.category}
-                  </Badge>
-                )}
-                {currentItem?.type === "video" && (
-                  <Badge variant="secondary" className="flex items-center gap-1">
-                    <Play className="h-3 w-3" />
-                    {currentItem.embedType === "loom" ? "Live Demo" : "Case Video"}
-                  </Badge>
-                )}
-                <span className="text-muted-foreground">
-                  {currentMediaIndex + 1} of {mediaItems.length}
+              <div className="flex items-center gap-2">
+                <Badge variant={modalImageType === "before" ? "destructive" : "default"}>
+                  {modalImageType === "before" ? "Before" : "After"}
+                </Badge>
+                <span className="text-sm text-muted-foreground">
+                  {modalImageIndex + 1} of {getCurrentModalImages().length}
                 </span>
               </div>
               <div className="flex items-center gap-2">
-                <Button
-                  variant="outline"
-                  size="sm"
-                  onClick={toggleAutoPlay}
-                  className={` ${isAutoPlaying ? "bg-primary text-primary-foreground" : ""}`}
-                >
-                  {isAutoPlaying ? "Auto ⏸" : "Auto ▶"}
-                </Button>
+                {caseStudy.analytics.images?.before && caseStudy.analytics.images?.after && (
+                  <Button variant="outline" size="sm" onClick={switchModalType} className="text-xs">
+                    Switch to {modalImageType === "before" ? "After" : "Before"}
+                  </Button>
+                )}
                 <Button
                   variant="ghost"
                   size="sm"
@@ -370,10 +369,19 @@ export default function FeaturedCaseStudy({ caseStudy }: FeaturedCaseStudyProps)
               </div>
             </div>
 
-            {/* Modal Media */}
-            <div className="relative">
-              {renderModalMedia(currentItem)}
-              {mediaItems.length > 1 && (
+            {/* Modal Image */}
+            <div className="relative aspect-video bg-muted">
+              <Image
+                priority={false}
+                src={getCurrentModalImages()[modalImageIndex] || "/placeholder.svg"}
+                alt={`${modalImageType} ${modalImageIndex + 1}`}
+                width={1920}
+                height={1080}
+                className="object-contain"
+              />
+
+              {/* Navigation Arrows */}
+              {getCurrentModalImages().length > 1 && (
                 <>
                   <Button
                     variant="ghost"
@@ -395,47 +403,28 @@ export default function FeaturedCaseStudy({ caseStudy }: FeaturedCaseStudyProps)
               )}
             </div>
 
-            {/* Modal Footer Thumbnails */}
-            {mediaItems.length > 1 && (
+            {/* Modal Footer with Thumbnails */}
+            {getCurrentModalImages().length > 1 && (
               <div className="border-t p-4">
-                <div className="flex gap-2 overflow-x-auto pb-2">
-                  {mediaItems.map((item, index) => (
+                <div className="flex gap-2 overflow-x-auto">
+                  {getCurrentModalImages().map((image, index) => (
                     <button
                       key={index}
-                      onClick={() => {
-                        setCurrentMediaIndex(index);
-                        setIsAutoPlaying(false);
-                      }}
-                      className={`relative h-16 w-16 flex-shrink-0 overflow-hidden rounded border-2 transition-all ${
-                        index === currentMediaIndex
-                          ? "scale-110 border-primary"
-                          : "border-muted hover:border-muted-foreground"
+                      onClick={() => setModalImageIndex(index)}
+                      className={`h-16 w-16 flex-shrink-0 overflow-hidden rounded border-2 ${
+                        index === modalImageIndex
+                          ? `border-${modalImageType === "before" ? "destructive" : "primary"}`
+                          : "border-muted"
                       }`}
                     >
-                      {item.type === "video" ? (
-                        <div className="flex h-full w-full items-center justify-center bg-muted">
-                          <Play className="h-4 w-4" />
-                        </div>
-                      ) : (
-                        <Image
-                          src={item.src}
-                          alt={item.alt}
-                          width={64}
-                          height={64}
-                          className="h-full w-full object-cover"
-                        />
-                      )}
-                      {item.category && (
-                        <div className="absolute top-0 right-0 left-0">
-                          <div
-                            className={`px-1 py-0.5 text-center font-medium text-white ${
-                              item.category === "before" ? "bg-destructive" : "bg-primary"
-                            }`}
-                          >
-                            {item.category === "before" ? "B" : "A"}
-                          </div>
-                        </div>
-                      )}
+                      <Image
+                        priority={false}
+                        src={image}
+                        alt={`${modalImageType} ${index + 1}`}
+                        width={64}
+                        height={64}
+                        className="h-full w-full object-cover"
+                      />
                     </button>
                   ))}
                 </div>

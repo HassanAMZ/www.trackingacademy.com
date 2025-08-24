@@ -19,7 +19,7 @@ const GuaranteeSection = () => {
                 cent.
               </p>
               <Button size="lg" asChild>
-                <Link href="/contact">
+                <Link href="/contact" target="_blank" rel="noopener noreferrer">
                   Track Smarter. Scale Faster.
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </Link>

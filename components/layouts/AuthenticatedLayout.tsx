@@ -1,6 +1,6 @@
 "use client";
 
-import { FirebaseAuth } from "@/components/global/firebase-auth";
+import FirebaseAuth from "@/components/global/firebase-auth";
 import { useAuth } from "@/context/AuthContext";
 import React, { ReactNode, Suspense, useEffect, useState } from "react";
 import { FirebaseAuthSkeleton } from "../skeleton/FirebaseAuthSkeleton";

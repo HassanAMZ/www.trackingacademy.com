@@ -167,10 +167,7 @@ const ServiceCard = ({ service }: ServiceCardProps) => {
 
         <div className="space-y-3 border-t pt-4">
           <Button className="w-full" variant={service.buttonVariant as any} asChild>
-            <Link
-              href={`/payment/?product_id=${service.product_id}&price_id=${service.price_id}`}
-              className="flex items-center gap-2"
-            >
+            <Link href={service.stripe_payment_url} className="flex items-center gap-2">
               {service.cta}
               <ArrowRight className="h-4 w-4" />
             </Link>

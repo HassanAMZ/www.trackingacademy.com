@@ -57,7 +57,12 @@ export default function Footer() {
             <h4 className="mb-3 text-sm font-semibold">Resources</h4>
             <ul className="space-y-2 text-sm">
               <li>
-                <Link href="/contact" className="hover:underline">
+                <Link
+                  href="/contact"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:underline"
+                >
                   Contact
                 </Link>
               </li>

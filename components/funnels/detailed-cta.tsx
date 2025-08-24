@@ -51,7 +51,7 @@ const DetailedCTA: React.FC<DetailedCTAProps> = ({
           <React.Fragment>{customButton}</React.Fragment> //
         ) : buttonText && buttonLink ? (
           <Button size="lg" asChild className="p-8 text-lg whitespace-pre-wrap hover:bg-primary/90">
-            <Link href={buttonLink}>
+            <Link href={buttonLink} target="_blank" rel="noopener noreferrer">
               {buttonText}
               <ArrowRight className="ml-2 h-4 w-4" />
             </Link>

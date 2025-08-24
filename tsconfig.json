@@ -15,6 +15,7 @@
       "@/styles/*": ["styles/*"],
       "@/types/*": ["types/*"],
       "@/fonts/*": ["fonts/*"],
+      "@/hooks/*": ["components/ui/hooks/*"],
       "@/utils/*": ["utils/*"],
       "@/actions/*": ["actions/*"]
     },
@@ -28,7 +29,7 @@
     "noEmit": true,
     "esModuleInterop": true,
     "module": "esnext",
-    "moduleResolution": "bundler", // error due to ai/rc > switched from node: https://github.com/vercel/ai/issues/1028
+    "moduleResolution": "bundler", // updated for next-video compatibility
     "resolveJsonModule": true,
     "isolatedModules": true,
     "jsx": "preserve",

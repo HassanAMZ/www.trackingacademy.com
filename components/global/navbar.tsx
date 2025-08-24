@@ -22,6 +22,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import React, { useState } from "react";
 import NavLink from "../navbar/NavLink";
+import { GlowEffect } from "../ui/glow-effect";
 import { ThemeToggle } from "./theme-switch";
 
 interface NavItem {
@@ -118,7 +119,7 @@ const NAV_ITEMS: Record<string, NavItem[]> = {
   caseStudies: [
     {
       title: "All Case Studies",
-      href: "/audit",
+      href: "/case-study",
       description: "Checkout the Case Studies done in the past for Clients",
     },
     ...caseStudies.slice(0, 7).map((study) => ({
@@ -164,11 +165,14 @@ export default function Navbar({ className }: { className?: string }) {
   const handleLinkClick = () => setSheetOpen(false);
 
   const renderCallToAction = () => (
-    <Button asChild>
-      <Link href={"/contact"}>
-        <div>Fix Your Tracking</div>
-      </Link>
-    </Button>
+    <div className="relative">
+      <GlowEffect />
+      <Button asChild className="relative">
+        <Link href={"/contact"} target="_blank" rel="noopener noreferrer">
+          Fix My Tracking
+        </Link>
+      </Button>
+    </div>
   );
 
   const HomeNavigationButton = () => (
@@ -178,7 +182,7 @@ export default function Navbar({ className }: { className?: string }) {
         height={100}
         width={100}
         src={"/logo-navbar.png"}
-        className="h-8 w-fit rounded-full sm:flex"
+        className="h-8 w-fit rounded sm:flex"
       />
     </NavLink>
   );
@@ -299,7 +303,7 @@ export default function Navbar({ className }: { className?: string }) {
   return (
     <header className="w-full pt-4 pb-2 lg:text-sm">
       <Container className={clsx(" ", className)}>
-        <div className="rounded-full border shadow">
+        <div className="rounded border">
           <MobileNavigationMenu />
           <DesktopNavigationMenu />
         </div>

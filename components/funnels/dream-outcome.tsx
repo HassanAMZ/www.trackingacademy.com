@@ -1,6 +1,5 @@
 "use client";
 
-import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { cn } from "@/lib/utils";
 import {
@@ -18,7 +17,7 @@ import {
 } from "lucide-react";
 import Image from "next/image";
 import React from "react";
-
+import { Badge } from "../ui/badge";
 export interface DreamOutcomeProps {
   heading?: string;
   subheading?: string;
@@ -84,7 +83,7 @@ const DreamOutcome: React.FC<DreamOutcomeProps> = ({
 
           return (
             <Card key={index} className="group overflow-hidden transition-all hover:shadow-lg">
-              <div className="relative aspect-square overflow-hidden">
+              <div className="hidden aspect-square overflow-hidden lg:relative lg:block">
                 <Image
                   src={outcome.image || "/placeholder.svg?height=400&width=600"}
                   alt={`${outcome.text} preview`}

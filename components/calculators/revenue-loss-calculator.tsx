@@ -24,7 +24,7 @@ import {
   TrendingUp,
 } from "lucide-react";
 import { useMemo, useState } from "react";
-import TrackingSolutionsComparison from "../global/tracking-solutions-comparison";
+import { TrackingComparisonTable } from "../global/tracking-solutions-comparison";
 import Container from "../ui/container";
 
 interface CalculatorInputs {
@@ -41,7 +41,7 @@ interface CalculationResult {
   cumulativeRevenueLost: number;
 }
 
-export interface CalculatorConfig {
+interface CalculatorConfig {
   title: string;
   description: string;
   industry: string;
@@ -522,7 +522,7 @@ export default function RevenueCalculator({ config }: CalculatorProps) {
           </Card>
         </div>
       </Container>
-      <TrackingSolutionsComparison />
+      <TrackingComparisonTable />
     </div>
   );
 }

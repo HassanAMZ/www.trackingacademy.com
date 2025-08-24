@@ -1,25 +1,29 @@
 import { Button } from "@/components/ui/button";
-import { AlertCircle } from "lucide-react";
+import Container from "@/components/ui/container";
 import Link from "next/link";
+import React from "react";
 
-export default function AuditNotFound() {
+export default function NotFound() {
   return (
-    <div className="flex flex-col items-center justify-center py-20">
-      <div className="mb-6 rounded-full bg-destructive/10 p-4">
-        <AlertCircle className="h-12 w-12 text-destructive" />
-      </div>
-      <h2 className="mb-2 text-3xl font-bold">Audit Not Found</h2>
-      <p className="mb-8 max-w-md text-center text-muted-foreground">
-        The audit report you're looking for doesn't exist or may have been removed.
-      </p>
-      <div className="flex gap-4">
-        <Button variant="outline" asChild>
-          <Link href="/audit">View All Audits</Link>
-        </Button>
-        <Button asChild>
-          <Link href="/contact">Request New Audit</Link>
-        </Button>
-      </div>
-    </div>
+    <React.Fragment>
+      <Container className="flex h-[75vh] max-w-4xl flex-col items-center justify-center space-y-6 text-center">
+        <h1>404 - Audit Report Not Found</h1>
+        <p>
+          Oops! Looks like the tracking pixel went AWOL. The page you're looking for doesn't exist.
+          But don't worry, we've already notified our data analysts to look into this. In the
+          meantime, let's get you back on track.
+        </p>
+        <div className="flex gap-6">
+          <Button asChild size="lg">
+            <Link href="/audit">Go Back to Audits</Link>
+          </Button>
+          <Button asChild size="lg" variant="outline">
+            <Link href="/" passHref>
+              Or Go Home Page
+            </Link>
+          </Button>
+        </div>
+      </Container>
+    </React.Fragment>
   );
 }

@@ -50,7 +50,7 @@ const ScarcityUrgency: React.FC<ScarcityUrgencyProps> = ({
                 variant="outline"
                 className="mx-auto flex w-fit max-w-4xl cursor-pointer flex-col items-center p-6 text-center text-xl font-bold text-primary lg:mx-0 lg:items-start lg:text-left"
               >
-                <Link href={buttonLink}>
+                <Link href={buttonLink} target="_blank" rel="noopener noreferrer">
                   <div>
                     {ctaButtonText}
                     {subtextForButtonCta && (

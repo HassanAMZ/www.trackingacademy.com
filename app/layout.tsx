@@ -8,7 +8,7 @@ import "@/styles/global.css";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { GeistSans } from "geist/font/sans";
 import type { Metadata } from "next";
-import { ReactNode, Suspense, unstable_ViewTransition as ViewTransition } from "react";
+import { ReactNode, Suspense } from "react";
 import AuthWrapper from "./context/AuthContextWrapper";
 
 export const metadata: Metadata = {
@@ -21,29 +21,27 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
-    <ViewTransition>
-      <html lang="en" className={GeistSans.className} suppressHydrationWarning>
-        <body>
-          <AuthWrapper>
-            <ThemeProvider
-              attribute="class"
-              defaultTheme="light"
-              enableSystem
-              disableTransitionOnChange
-            >
-              {children}
-            </ThemeProvider>
-            <Suspense>
-              <GTMAnalytics />
-              <ClarityInit />
-              <VercelAnalytics />
-              <CanonicalTag />
-              <FloatingCalendarWidget />
-              <SpeedInsights />
-            </Suspense>
-          </AuthWrapper>
-        </body>
-      </html>
-    </ViewTransition>
+    <html lang="en" className={`${GeistSans.className} `} suppressHydrationWarning>
+      <body>
+        <AuthWrapper>
+          <ThemeProvider
+            attribute="class"
+            defaultTheme="light"
+            enableSystem
+            disableTransitionOnChange
+          >
+            {children}
+          </ThemeProvider>
+          <Suspense>
+            <GTMAnalytics />
+            <ClarityInit />
+            <VercelAnalytics />
+            <CanonicalTag />
+            <FloatingCalendarWidget />
+            <SpeedInsights />
+          </Suspense>
+        </AuthWrapper>
+      </body>
+    </html>
   );
 }

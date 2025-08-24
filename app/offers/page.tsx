@@ -9,7 +9,7 @@ export default async function Page() {
   return (
     <div>
       <Navbar /> <h3 className="container-primary py-6 text-center text-3xl font-bold">Offers</h3>
-      <Container className="container-primary py-4">
+      <Container className="py-24">
         <MeetingCalendar />
       </Container>
       <Footer />

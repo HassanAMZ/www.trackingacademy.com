@@ -1,6 +1,5 @@
 import { offers } from "@/data/offers";
 import { Metadata } from "next";
-
 export async function generateMetadata({
   params,
 }: {
@@ -33,7 +32,7 @@ export async function generateMetadata({
       `${offerData.businessType} advertising`,
     ],
     openGraph: {
-      title: `${offerData.solution.title} | ${offerData.package}`,
+      title: `${offerData.solution.heading} | ${offerData.package}`,
       description: `Fix your Meta Ads tracking for ${offerData.businessTypePlural}. Our ${offerData.package} solution restores ${offerData.restrictionData.affected} of blocked conversions while maintaining full compliance.`,
       images: [
         {
@@ -89,7 +88,7 @@ export async function generateMetadata({
 export default function OfferLayout({ children }: { children: React.ReactNode }) {
   return (
     <>
-      {/* <Navbar /> */}
+      {/* <BackgroundBeams /> */}
       {children}
     </>
   );
