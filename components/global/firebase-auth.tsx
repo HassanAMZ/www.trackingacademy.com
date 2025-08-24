@@ -111,9 +111,9 @@ const FirebaseAuth: React.FC<FirebaseAuthProps> = ({ darkMode = true }) => {
     <Container
       className={`grid min-h-[50vh] w-full place-content-center px-0 ${darkMode ? "dark" : ""}`}
     >
-      <div className="grid place-content-center items-center justify-center gap-8 rounded-xl border bg-card/90 p-8 shadow-lg md:grid-cols-2">
+      <div className="grid w-full place-content-center items-center justify-center rounded-xl border bg-card/90 shadow-lg sm:p-8 md:grid-cols-2 md:gap-8">
         {/* Left Column: Information */}
-        <div className="space-y-6">
+        <div className="hidden space-y-6 md:block">
           <div className="space-y-4">
             <h2 className="text-xl leading-tight font-semibold text-foreground">
               Sign in to unlock the full tutorial with working examples and templates
@@ -200,7 +200,7 @@ const FirebaseAuth: React.FC<FirebaseAuthProps> = ({ darkMode = true }) => {
               </Button>
               <Button
                 onClick={() => handleAuth("github")}
-                className="w-full"
+                className="w-full text-primary"
                 variant="outline"
                 size="sm"
               >
@@ -209,7 +209,7 @@ const FirebaseAuth: React.FC<FirebaseAuthProps> = ({ darkMode = true }) => {
               </Button>
             </div>
 
-            <div className="flex max-w-3xl items-center justify-between space-y-3 pb-5">
+            <div className="flex max-w-3xl flex-col items-center justify-between gap-4">
               <AvatarGroup>
                 {caseStudies
                   .filter((study) =>

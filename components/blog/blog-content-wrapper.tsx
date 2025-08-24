@@ -21,13 +21,7 @@ const BlogContentWrapper: React.FC<BlogContentWrapperProps> = ({ data, type }) =
     <div className="space-y-8">
       <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
         {visiblePosts.map((post, index) => (
-          <SingleBlogCard
-            post={post}
-            type={type}
-            key={post.slug || post.id || index}
-            // Use static fallback for video duration
-            videoDuration="12 min read"
-          />
+          <SingleBlogCard post={post} type={type} key={post.slug || post.id || index} />
         ))}
       </div>
       <BlogPagination data={data} type={type} onPageChange={handlePageChange} />

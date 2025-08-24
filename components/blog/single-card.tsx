@@ -12,7 +12,6 @@ interface SingleBlogCardProps {
   type: string;
   isMain?: boolean;
   className?: string;
-  videoDuration?: string; // YouTube video duration in format like "4:13" or "1:23:45"
 }
 
 // Suspended image component for YouTube thumbnails
@@ -50,7 +49,6 @@ const SingleBlogCard: React.FC<SingleBlogCardProps> = ({
   type,
   isMain = false,
   className = "",
-  videoDuration,
 }) => {
   if (!post) return null;
 
@@ -58,28 +56,12 @@ const SingleBlogCard: React.FC<SingleBlogCardProps> = ({
   const isYouTubeVideo = post.embedId && post.embedId.trim() !== "";
   const imageSrc = isYouTubeVideo ? null : post.openGraph.images[0];
 
-  // Calculate read time: use video duration if available, otherwise default to 12 min
+  // Calculate read time: show "Video" for YouTube posts, "12 min read" for others
   const getReadTime = () => {
-    if (videoDuration && post.embedId && post.embedId.trim() !== "") {
-      // Parse video duration (format: "4:13" or "1:23:45")
-      const parts = videoDuration.split(":").map(Number);
-      if (parts.length === 2) {
-        // Format: "4:13" -> 4 minutes
-        return `${parts[0]} min`;
-      } else if (parts.length === 3) {
-        // Format: "1:23:45" -> 1 hour 23 minutes
-        const hours = parts[0];
-        const minutes = parts[1];
-        if (hours > 0) {
-          return `${hours}h ${minutes}m`;
-        } else {
-          return `${minutes} min`;
-        }
-      }
-      return videoDuration;
+    if (isYouTubeVideo) {
+      return "Video";
     }
-    // Static fallback - no client-side fetching needed
-    return post.embedId && post.embedId.trim() !== "" ? "Video" : "12 min read";
+    return "12 min read";
   };
 
   return (

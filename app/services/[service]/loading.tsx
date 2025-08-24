@@ -10,7 +10,7 @@ export default function Loading() {
         <Skeleton className="mx-auto h-16 w-48" />
       </div>
 
-      {/* Content */}
+      {/* Service Content */}
       <div className="mx-auto max-w-4xl px-4 py-12">
         <div className="space-y-8">
           <Skeleton className="h-8 w-64" />

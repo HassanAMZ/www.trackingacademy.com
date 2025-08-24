@@ -184,10 +184,15 @@
 
 @utility container {
   margin-inline: auto;
-  padding-left: 1.5rem;
-  padding-right: 1.5rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
   max-width: 100%;
   width: 100%;
+
+  @media (width >= 40rem) {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
 
   @media (width >= 96rem) {
     max-width: 96rem;

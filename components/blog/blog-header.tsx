@@ -54,11 +54,11 @@ const BlogHeader: React.FC<BlogHeaderProps> = ({ metadata, videoData }) => {
         </div>
       </div>
 
-      <div className="grid gap-4 py-4">
+      <div className="grid gap-4 py-4 md:px-12">
         <div className="justfify-center col-span-1 flex h-full w-full flex-col space-y-4">
           <BreadCrumbs />
           <h1 className="text-primary">{metadata.title}</h1>
-          <p className="text-muted-foreground">{metadata.description}</p>
+          <p className="hidden text-muted-foreground md:block">{metadata.description}</p>
           {/* Author */}
           <div className="flex items-center space-x-3">
             <Avatar className="h-12 w-12 border-2 border-border/50">

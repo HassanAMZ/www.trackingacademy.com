@@ -7,7 +7,6 @@ const nextConfig = {
   pageExtensions: ["js", "jsx", "ts", "tsx", "mdx", "md"],
 
   experimental: {
-    viewTransition: true,
     mdxRs: true,
     optimizeServerReact: true,
     webpackBuildWorker: true,

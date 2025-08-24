@@ -10,27 +10,16 @@ export default function Loading() {
         <Skeleton className="mx-auto h-16 w-48" />
       </div>
 
-      {/* Calculator Form */}
-      <div className="mx-auto max-w-2xl px-4 py-12">
+      {/* UTM Builder Form */}
+      <div className="mx-auto max-w-4xl px-4 py-12">
         <div className="space-y-6">
           <Skeleton className="h-8 w-48" />
           <Skeleton className="h-12 w-full" />
           <Skeleton className="h-8 w-32" />
           <Skeleton className="h-12 w-full" />
+          <Skeleton className="h-8 w-40" />
+          <Skeleton className="h-12 w-full" />
           <Skeleton className="h-12 w-full bg-primary" />
-        </div>
-      </div>
-
-      {/* Results */}
-      <div className="mx-auto max-w-4xl px-4 pb-12">
-        <Skeleton className="mb-6 h-8 w-32" />
-        <div className="grid gap-4 md:grid-cols-3">
-          {Array.from({ length: 3 }).map((_, i) => (
-            <div key={i} className="rounded-lg border p-4">
-              <Skeleton className="mb-2 h-6 w-24" />
-              <Skeleton className="h-8 w-20" />
-            </div>
-          ))}
         </div>
       </div>
     </main>
