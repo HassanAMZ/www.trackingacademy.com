@@ -6,7 +6,7 @@ import { Star } from "lucide-react";
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar";
-
+import Image from "next/image";
 const TestimonialsCarousel2: React.FC = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
@@ -49,10 +49,14 @@ const TestimonialsCarousel2: React.FC = () => {
         <div className="flex items-center gap-1">
           {currentTestimonial.clientImage && (
             <Avatar className="mr-4 h-12 w-12">
-              <AvatarImage
+              <Image
                 src={currentTestimonial.clientImage}
                 alt={currentTestimonial.clientName}
+                width={1080}
+                height={1080}
+                className="aspect-square size-full object-cover"
               />
+
               <AvatarFallback>
                 {currentTestimonial.author
                   .split(" ")

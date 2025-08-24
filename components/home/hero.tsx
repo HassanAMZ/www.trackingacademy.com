@@ -5,7 +5,7 @@ import { caseStudies as CaseStudies, CaseStudy } from "@/data/case-studies";
 import { CheckCircle, Star } from "lucide-react";
 import Link from "next/link";
 import { FC, ReactNode } from "react";
-
+import Image from "next/image";
 import { AvatarGroup, AvatarGroupTooltip } from "@/components/animate-ui/avatar-group";
 import { Badge } from "../ui/badge";
 
@@ -139,9 +139,12 @@ const Hero: FC<HeroProps> = ({
                       return (
                         <Link href={`/case-study/${study.id}`} key={study.id}>
                           <Avatar>
-                            <AvatarImage
+                            <Image
                               src={study.testimonial.image}
                               alt={`@${study.testimonial.author}`}
+                              width={1080}
+                              height={1080}
+                              className="aspect-square size-full object-cover"
                             />
                             <AvatarFallback>{study.testimonial.author[0]}</AvatarFallback>
                             <AvatarGroupTooltip>

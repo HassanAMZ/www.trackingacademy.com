@@ -26,8 +26,8 @@ const MuxEmbed: FC<MuxEmbedProps> = ({
   }
 
   // Build Mux URLs from the embedId
-  const streamUrl = `https://stream.mux.com/${embedId}.m3u8?default_subtitles_lang=en&default_language=en`;
-  const mp4Url = `https://stream.mux.com/${embedId}.mp4?default_subtitles_lang=en&default_language=en`;
+  const streamUrl = `https://stream.mux.com/${embedId}.m3u8?default_subtitles_lang=en`;
+  const mp4Url = `https://stream.mux.com/${embedId}.mp4?default_subtitles_lang=en`;
   const posterUrl = poster || `https://image.mux.com/${embedId}/animated.gif`;
 
   // Aspect ratio: 56.25% for 16:9, ~177.78% for 9:16 (vertical)

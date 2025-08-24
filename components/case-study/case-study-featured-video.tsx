@@ -205,9 +205,12 @@ const CaseStudyFeaturedVideo: FC<CaseStudyFeaturedVideoProps> = ({
                 <div className="rounded-lg border border-border bg-muted/30 p-4 sm:p-6 dark:border-primary/10 dark:bg-primary/5">
                   <div className="flex items-start gap-4">
                     <Avatar className="h-12 w-12">
-                      <AvatarImage
+                      <Image
                         src={caseStudy.testimonial.image}
                         alt={caseStudy.testimonial.author}
+                        width={1080}
+                        height={1080}
+                        className="aspect-square size-full object-cover"
                       />
                       <AvatarFallback className="bg-muted text-muted-foreground dark:bg-primary/10 dark:text-primary">
                         {caseStudy.testimonial.author

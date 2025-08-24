@@ -5,7 +5,7 @@ import { ProjectTimelineProps } from "@/data/case-studies";
 import { Quote, Star } from "lucide-react";
 import Link from "next/link";
 import type { ReactNode } from "react";
-
+import Image from "next/image";
 interface Metric {
   label: string;
   value: string | number;
@@ -64,7 +64,14 @@ export function TestimonialCard({
               <div className="flex items-center justify-between gap-2">
                 <div className="flex items-center gap-2">
                   <Avatar className="h-10 w-10 shrink-0">
-                    <AvatarImage src={image} alt={author} />
+                    <Image
+                      src={image || "/placeholder.svg"}
+                      alt={author}
+                      width={1080}
+                      height={1080}
+                      className="aspect-square size-full object-cover"
+                    />
+
                     <AvatarFallback>{author[0]?.toUpperCase()}</AvatarFallback>
                   </Avatar>
                   <div className="flex flex-col">
@@ -124,7 +131,13 @@ export function TestimonialCard({
           <div className="flex items-center justify-between gap-2">
             <div className="flex items-center gap-2">
               <Avatar className="h-10 w-10 shrink-0">
-                <AvatarImage src={image} alt={author} />
+                <Image
+                  src={image || "/placeholder.svg"}
+                  alt={author}
+                  width={1080}
+                  height={1080}
+                  className="aspect-square size-full object-cover"
+                />
                 <AvatarFallback>{author[0]?.toUpperCase()}</AvatarFallback>
               </Avatar>
               <div className="flex flex-col">

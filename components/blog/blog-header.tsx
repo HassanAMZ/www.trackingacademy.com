@@ -62,7 +62,14 @@ const BlogHeader: React.FC<BlogHeaderProps> = ({ metadata, videoData }) => {
           {/* Author */}
           <div className="flex items-center space-x-3">
             <Avatar className="h-12 w-12 border-2 border-border/50">
-              <AvatarImage src="/images/avatars/hassan.png" alt="Shahzada Ali Hassan" />
+              <Image
+                src="/images/avatars/hassan.png"
+                alt={process.env.NEXT_PUBLIC_AUTHOR_NAME || "Shahzada Ali Hassan"}
+                width={1080}
+                height={1080}
+                className="aspect-square size-full object-cover"
+              />
+
               <AvatarFallback className="text-base font-semibold">SAH</AvatarFallback>
             </Avatar>
 

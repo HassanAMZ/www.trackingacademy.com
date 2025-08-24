@@ -6,6 +6,7 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import { useAuth } from "@/context/AuthContext";
 import { caseStudies } from "@/data/case-studies";
+import Image from "next/image";
 import {
   CheckCircle,
   Code,
@@ -224,10 +225,14 @@ const FirebaseAuth: React.FC<FirebaseAuthProps> = ({ darkMode = true }) => {
                   .map((study) => (
                     <Link href={`/case-study/${study.id}`} key={study.id}>
                       <Avatar className="border-2 border-primary bg-background">
-                        <AvatarImage
+                        <Image
                           src={study.testimonial.image}
                           alt={`@${study.testimonial.author}`}
+                          width={1080}
+                          height={1080}
+                          className="aspect-square size-full object-cover"
                         />
+
                         <AvatarFallback>{study.testimonial.author[0]}</AvatarFallback>
                       </Avatar>
                     </Link>

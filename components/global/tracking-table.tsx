@@ -4,7 +4,7 @@ import { caseStudies, type CaseStudy } from "@/data/case-studies";
 import Link from "next/link";
 import type React from "react";
 import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar";
-
+import Image from "next/image";
 interface ClientTrackingTableProps {
   rows?: number;
 }
@@ -64,7 +64,14 @@ const ClientTableRow: React.FC<{
           <div className="flex items-center gap-3">
             {[
               <Avatar className="mb-2 h-8 w-8" key={data.id}>
-                <AvatarImage src={data.avatar || "/placeholder.svg"} alt={data.clientName} />
+                <Image
+                  src={data.avatar || "/placeholder.svg"}
+                  alt={data.clientName}
+                  width={1080}
+                  height={1080}
+                  className="aspect-square size-full object-cover"
+                />
+
                 <AvatarFallback>
                   {data.avatar
                     .split(" ")

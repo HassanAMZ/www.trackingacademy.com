@@ -9,6 +9,7 @@ import { Calendar, ChevronDown, User, X } from "lucide-react";
 import Script from "next/script";
 import { useEffect, useState } from "react";
 import { GlowEffect } from "../ui/glow-effect";
+import Image from "next/image";
 
 type UpcomingDate = {
   dayName: string;
@@ -147,7 +148,14 @@ const FloatingCalendarWidget = () => {
               <div className="flex items-start justify-between">
                 <CardTitle className="flex items-center gap-2 sm:gap-3">
                   <Avatar className="h-10 w-10 ring-2 ring-border">
-                    <AvatarImage src="/images/avatars/hassan.png" alt="Shahzada Ali Hassan" />
+                    <Image
+                      src="/images/avatars/hassan.png"
+                      alt={process.env.NEXT_PUBLIC_AUTHOR_NAME || "Shahzada Ali Hassan"}
+                      width={1080}
+                      height={1080}
+                      className="aspect-square size-full object-cover"
+                    />
+
                     <AvatarFallback className="bg-muted text-muted-foreground">
                       <User className="h-5 w-5 sm:h-6 sm:w-6" />
                     </AvatarFallback>

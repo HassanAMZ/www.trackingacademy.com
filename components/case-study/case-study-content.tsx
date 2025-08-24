@@ -462,10 +462,14 @@ export default function CaseStudyComponent({ caseStudy }: { caseStudy: CaseStudy
               <CardContent className="pt-6">
                 <div className="mb-4 flex flex-col items-center text-center">
                   <Avatar className="mb-3 h-20 w-20 ring-4 ring-green-100 dark:ring-green-900/50">
-                    <AvatarImage
+                    <Image
                       src={caseStudy.testimonial.image || "/placeholder.svg"}
                       alt={caseStudy.testimonial.author}
+                      width={1080}
+                      height={1080}
+                      className="aspect-square size-full object-cover"
                     />
+
                     <AvatarFallback className="bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200">
                       {caseStudy.testimonial.author
                         .split(" ")
