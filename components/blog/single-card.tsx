@@ -1,11 +1,14 @@
+"use client";
+
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardFooter, CardHeader } from "@/components/ui/card";
 import { getBestYouTubeThumbnail } from "@/lib/youtube-thumbnails";
+import { getYouTubeDurationClient } from "@/lib/youtube-duration-client";
 import { PostMetadata } from "@/types/index";
 import { CalendarIcon, Clock } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import { Suspense } from "react";
+import { Suspense, useEffect, useState } from "react";
 
 interface SingleBlogCardProps {
   post: PostMetadata;
@@ -24,11 +27,28 @@ const SuspendedYouTubeThumbnail = ({
   alt: string;
   className?: string;
 }) => {
-  const imageSrc = getBestYouTubeThumbnail(videoId);
+  const [thumbnailUrl, setThumbnailUrl] = useState<string | null>(null);
+
+  useEffect(() => {
+    const fetchThumbnail = async () => {
+      try {
+        const thumbnail = await getBestYouTubeThumbnail(videoId);
+        setThumbnailUrl(thumbnail);
+      } catch (error) {
+        console.warn(`Failed to fetch thumbnail for video ${videoId}:`, error);
+      }
+    };
+
+    fetchThumbnail();
+  }, [videoId]);
+
+  if (!thumbnailUrl) {
+    return <ImageSkeleton />;
+  }
 
   return (
     <Image
-      src={imageSrc}
+      src={thumbnailUrl}
       alt={alt}
       fill
       className={className}
@@ -37,12 +57,7 @@ const SuspendedYouTubeThumbnail = ({
   );
 };
 
-// Image skeleton for loading state
-const ImageSkeleton = () => (
-  <div className="absolute inset-0 animate-pulse bg-gradient-to-br from-muted/30 to-muted/50">
-    <div className="absolute inset-0 bg-gradient-to-br from-transparent via-muted/20 to-muted/40" />
-  </div>
-);
+const ImageSkeleton = () => <div className="h-full w-full animate-pulse bg-muted" />;
 
 const SingleBlogCard: React.FC<SingleBlogCardProps> = ({
   post,
@@ -50,15 +65,51 @@ const SingleBlogCard: React.FC<SingleBlogCardProps> = ({
   isMain = false,
   className = "",
 }) => {
+  const [videoDuration, setVideoDuration] = useState<string | null>(null);
+
   if (!post) return null;
 
   // Determine which image to use
   const isYouTubeVideo = post.embedId && post.embedId.trim() !== "";
   const imageSrc = isYouTubeVideo ? null : post.openGraph.images[0];
 
-  // Calculate read time: show "Video" for YouTube posts, "12 min read" for others
+  // Fetch video duration for YouTube videos
+  useEffect(() => {
+    if (isYouTubeVideo && post.embedId) {
+      const fetchDuration = async () => {
+        try {
+          const videoData = await getYouTubeDurationClient(post.embedId);
+          if (videoData?.duration) {
+            setVideoDuration(videoData.duration);
+          }
+        } catch (error) {
+          console.warn(`Failed to fetch duration for video ${post.embedId}:`, error);
+        }
+      };
+      fetchDuration();
+    }
+  }, [isYouTubeVideo, post.embedId]);
+
+  // Calculate read time: show video duration for YouTube posts, "12 min read" for others
   const getReadTime = () => {
-    if (isYouTubeVideo) {
+    if (isYouTubeVideo && videoDuration) {
+      // Parse video duration (format: "4:13" or "1:23:45")
+      const parts = videoDuration.split(":").map(Number);
+      if (parts.length === 2) {
+        // Format: "4:13" -> 4 minutes
+        return `${parts[0]} min`;
+      } else if (parts.length === 3) {
+        // Format: "1:23:45" -> 1 hour 23 minutes
+        const hours = parts[0];
+        const minutes = parts[1];
+        if (hours > 0) {
+          return `${hours}h ${minutes}m`;
+        } else {
+          return `${minutes} min`;
+        }
+      }
+      return videoDuration;
+    } else if (isYouTubeVideo) {
       return "Video";
     }
     return "12 min read";
