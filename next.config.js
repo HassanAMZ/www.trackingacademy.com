@@ -4,25 +4,20 @@ const path = require("path");
 const nextConfig = {
   transpilePackages: ["geist"],
   pageExtensions: ["js", "jsx", "ts", "tsx", "mdx", "md"],
-
   swcMinify: true,
+
   experimental: {
     mdxRs: true,
     optimizeServerReact: true,
     webpackBuildWorker: true,
+
     // Add these optimizations
-    optimizePackageImports: ["lucide-react", "@radix-ui/react-icons"],
-    turbo: {
-      rules: {
-        "*.svg": {
-          loaders: ["@svgr/webpack"],
-          as: "*.js",
-        },
-      },
-    },
+    optimizePackageImports: ["lucide-react", "@radix-ui/react-icons"]
   },
+
   compress: true,
   poweredByHeader: false,
+
   images: {
     remotePatterns: [
       {
@@ -65,6 +60,15 @@ const nextConfig = {
   sassOptions: {
     includePaths: [path.join(__dirname, "styles")],
   },
+
+  turbopack: {
+    rules: {
+      "*.svg": {
+        loaders: ["@svgr/webpack"],
+        as: "*.js",
+      },
+    }
+  }
 };
 
 const withMDX = require("@next/mdx")({
