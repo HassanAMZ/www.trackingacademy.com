@@ -1,5 +1,5 @@
 import BlogHeader from "@/components/blog/blog-header";
-import ContactUs from "./call-to-action-message-us";
+import HelpSection from "./help-section";
 import TableOfContents from "./table-of-content";
 
 export default async function BlogContainer({
@@ -16,12 +16,15 @@ export default async function BlogContainer({
   return (
     <div>
       <BlogHeader metadata={metadata} />
-      <div className="mt-8 grid grid-cols-1 gap-8 lg:grid-cols-[300px_1fr]">
-        <div className="flex flex-col gap-8 lg:sticky lg:top-8">
+      <div className="mt-8 grid grid-cols-1 gap-8 lg:grid-cols-[320px_1fr]">
+        {/* Sidebar */}
+        <div className="flex flex-col gap-4 lg:sticky lg:top-8">
           <TableOfContents />
-          <ContactUs />
+          <HelpSection />
         </div>
-        <article>
+
+        {/* Main Content */}
+        <article className="blog-content max-w-4xl">
           <BlogPost />
         </article>
       </div>

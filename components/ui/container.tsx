@@ -8,7 +8,7 @@ interface ContainerProps extends React.HTMLAttributes<HTMLDivElement> {
 const Container = forwardRef<HTMLDivElement, ContainerProps>(
   ({ children, className, ...props }, ref) => {
     return (
-      <div ref={ref} className={cn("container mx-auto px-3", className)} {...props}>
+      <div ref={ref} className={cn("container", className)} {...props}>
         {children}
       </div>
     );

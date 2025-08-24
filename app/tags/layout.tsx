@@ -6,11 +6,34 @@ import { Metadata } from "next";
 import React, { ReactNode } from "react";
 
 export const metadata: Metadata = {
-  title: "Tags Archive - TrackingAcademy | Web Analytics & Marketing Resources",
+  title: "Tags Archive | TrackingAcademy - Web Analytics & Marketing Resources",
   description:
     "Browse our comprehensive collection of web analytics and marketing tags. Find expert resources, tutorials, and insights for tracking optimization and digital marketing success.",
+  keywords: [
+    "web analytics tags",
+    "marketing tags",
+    "tracking optimization",
+    "digital marketing resources",
+    "analytics tutorials",
+    "tracking academy tags",
+    "marketing insights",
+    "web analytics resources",
+    "conversion tracking guides",
+    "ROAS optimization resources",
+  ],
+  authors: [
+    {
+      name: process.env.NEXT_PUBLIC_AUTHOR_NAME || "Shahzada Ali Hassan",
+    },
+  ],
+  creator: process.env.NEXT_PUBLIC_AUTHOR_NAME || "Shahzada Ali Hassan",
+  publisher: process.env.NEXT_PUBLIC_SITE_NAME || "TrackingAcademy",
   openGraph: {
-    title: "Tags Archive - TrackingAcademy Resources",
+    type: "website",
+    locale: "en_US",
+    url: `${process.env.NEXT_PUBLIC_SITE_URL || "https://www.trackingacademy.com"}/tags`,
+    siteName: process.env.NEXT_PUBLIC_SITE_NAME || "TrackingAcademy",
+    title: "Tags Archive | TrackingAcademy - Web Analytics & Marketing Resources",
     description:
       "Explore categorized resources for web analysts and marketing professionals. Access expert guides, tutorials, and best practices for tracking and analytics.",
     images: [
@@ -18,27 +41,20 @@ export const metadata: Metadata = {
         url: "/images/social-sharing.png",
         width: 1200,
         height: 630,
-        alt: "TrackingAcademy Tags Archive",
+        alt: "TrackingAcademy Tags Archive - Web analytics and marketing resources",
       },
     ],
-    type: "website",
-    url: process.env.NEXT_PUBLIC_BASE_URL,
-    locale: "en_US",
-    siteName: "TrackingAcademy",
   },
   twitter: {
     card: "summary_large_image",
-    site: "@Shahzada_A",
-    creator: "@Shahzada_A",
-    title: "Tags Archive - TrackingAcademy",
+    title: "Tags Archive | TrackingAcademy - Web Analytics & Marketing Resources",
     description:
       "Browse categorized web analytics and marketing resources. Expert guides and tutorials for tracking optimization.",
-    images: [
-      {
-        url: "/images/social-sharing.png",
-        alt: "TrackingAcademy Tags Archive",
-      },
-    ],
+    images: ["/images/social-sharing.png"],
+    creator: process.env.NEXT_PUBLIC_TWITTER_HANDLE || "@trackingacademy",
+  },
+  alternates: {
+    canonical: "/tags",
   },
   robots: {
     index: false,
@@ -47,7 +63,7 @@ export const metadata: Metadata = {
   },
   category: "Web Analytics Education",
   classification: "Educational Resources",
-  metadataBase: new URL(`${process.env.NEXT_PUBLIC_BASE_URL}`),
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || "https://www.trackingacademy.com"),
 };
 
 export default function Layout({ children }: { children: ReactNode }) {

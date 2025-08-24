@@ -243,7 +243,7 @@ export const caseStudies: CaseStudy[] = [
       endDate: "Jun 16, 2025",
       durationDays: 10,
     },
-    owner: "Shahzada Ali Hassan",
+    owner: process.env.NEXT_PUBLIC_AUTHOR_NAME || "Shahzada Ali Hassan",
     client: "Northridge Addiction Treatment & Mental Health",
     budget: 200,
     technologies: [
@@ -327,7 +327,7 @@ export const caseStudies: CaseStudy[] = [
       endDate: "Apr 28, 2025",
       durationDays: 2,
     },
-    owner: "Shahzada Ali Hassan",
+    owner: process.env.NEXT_PUBLIC_AUTHOR_NAME || "Shahzada Ali Hassan",
     client: "PeachandCream Intimate Care & Sexual Wellness Products",
     budget: 1200,
     technologies: ["Server-Side Tracking", "Advertising Pixel", "E-commerce Platform"],
@@ -427,7 +427,7 @@ export const caseStudies: CaseStudy[] = [
       endDate: "Apr 19, 2025",
       durationDays: 54,
     },
-    owner: "Shahzada Ali Hassan",
+    owner: process.env.NEXT_PUBLIC_AUTHOR_NAME || "Shahzada Ali Hassan",
     client: "Saneo France Pain Relief & Orthopedic Support Products",
     budget: 1800,
     technologies: [
@@ -533,7 +533,7 @@ export const caseStudies: CaseStudy[] = [
       endDate: "Apr 10, 2025",
       durationDays: 8,
     },
-    owner: "Shahzada Ali Hassan",
+    owner: process.env.NEXT_PUBLIC_AUTHOR_NAME || "Shahzada Ali Hassan",
     client: "Haris Ahmed",
     budget: 1200,
     technologies: [
@@ -631,7 +631,7 @@ export const caseStudies: CaseStudy[] = [
       endDate: "Apr 11, 2023",
       durationDays: 313,
     },
-    owner: "Shahzada Ali Hassan",
+    owner: process.env.NEXT_PUBLIC_AUTHOR_NAME || "Shahzada Ali Hassan",
     client: "Thomas André Jensen",
     budget: 1842,
     technologies: [
@@ -731,7 +731,7 @@ export const caseStudies: CaseStudy[] = [
       recoveredFromTrackingPreventionPercentage: 21.0,
       accuracy: 93,
     },
-    owner: "Shahzada Ali Hassan",
+    owner: process.env.NEXT_PUBLIC_AUTHOR_NAME || "Shahzada Ali Hassan",
     client: "David Bodnar",
     budget: 1150,
     technologies: [
@@ -824,7 +824,7 @@ export const caseStudies: CaseStudy[] = [
       recoveredFromTrackingPreventionPercentage: 34.0,
       accuracy: 94,
     },
-    owner: "Shahzada Ali Hassan",
+    owner: process.env.NEXT_PUBLIC_AUTHOR_NAME || "Shahzada Ali Hassan",
     client: "Ben Fox",
     budget: 1700,
     technologies: [
@@ -906,7 +906,7 @@ export const caseStudies: CaseStudy[] = [
       recoveredFromTrackingPreventionPercentage: 39.0,
       accuracy: 99,
     },
-    owner: "Shahzada Ali Hassan",
+    owner: process.env.NEXT_PUBLIC_AUTHOR_NAME || "Shahzada Ali Hassan",
     client: "Matt Cooper",
     budget: 1540.01,
     technologies: ["Google Tag Manager", "JavaScript Data Layer", "Server-Side Tracking"],
@@ -989,7 +989,7 @@ export const caseStudies: CaseStudy[] = [
       recoveredFromTrackingPreventionPercentage: 19.0,
       accuracy: 92,
     },
-    owner: "Shahzada Ali Hassan",
+    owner: process.env.NEXT_PUBLIC_AUTHOR_NAME || "Shahzada Ali Hassan",
     client: "James Wilkinson",
     budget: 531.67,
     technologies: [
@@ -1089,7 +1089,7 @@ export const caseStudies: CaseStudy[] = [
       recoveredFromTrackingPreventionPercentage: 31.0,
       accuracy: 97,
     },
-    owner: "Shahzada Ali Hassan",
+    owner: process.env.NEXT_PUBLIC_AUTHOR_NAME || "Shahzada Ali Hassan",
     client: "Michael Quinn",
     budget: 1600,
     technologies: [
@@ -1180,7 +1180,7 @@ export const caseStudies: CaseStudy[] = [
       recoveredFromTrackingPreventionPercentage: 21.0,
       accuracy: 99,
     },
-    owner: "Shahzada Ali Hassan",
+    owner: process.env.NEXT_PUBLIC_AUTHOR_NAME || "Shahzada Ali Hassan",
     client: "George Boyd",
     budget: 180,
     technologies: [
@@ -1265,7 +1265,7 @@ export const caseStudies: CaseStudy[] = [
       recoveredFromTrackingPreventionPercentage: 58.0,
       accuracy: 94,
     },
-    owner: "Shahzada Ali Hassan",
+    owner: process.env.NEXT_PUBLIC_AUTHOR_NAME || "Shahzada Ali Hassan",
     client: "James Hague",
     budget: 300,
     technologies: [
@@ -1346,7 +1346,7 @@ export const caseStudies: CaseStudy[] = [
       recoveredFromTrackingPreventionPercentage: 14.0,
       accuracy: 91,
     },
-    owner: "Shahzada Ali Hassan",
+    owner: process.env.NEXT_PUBLIC_AUTHOR_NAME || "Shahzada Ali Hassan",
     client: "Derrick Kityo",
     budget: 160,
     technologies: ["Google Tag Manager", "UTM Tracking", "Event Tracking", "Analytics Dashboard"],
@@ -1444,7 +1444,7 @@ export const caseStudies: CaseStudy[] = [
       recoveredFromTrackingPreventionPercentage: 45.0,
       accuracy: 99,
     },
-    owner: "Shahzada Ali Hassan",
+    owner: process.env.NEXT_PUBLIC_AUTHOR_NAME || "Shahzada Ali Hassan",
     client: "Julian Grimme",
     budget: 290,
     technologies: [
@@ -1528,7 +1528,7 @@ export const caseStudies: CaseStudy[] = [
       recoveredFromTrackingPreventionPercentage: 24.0,
       accuracy: 96,
     },
-    owner: "Shahzada Ali Hassan",
+    owner: process.env.NEXT_PUBLIC_AUTHOR_NAME || "Shahzada Ali Hassan",
     client: "Luis Boani",
     budget: 191.67,
     technologies: [
@@ -1641,7 +1641,7 @@ export const caseStudies: CaseStudy[] = [
       recoveredFromTrackingPreventionPercentage: 30.0,
       accuracy: 99,
     },
-    owner: "Shahzada Ali Hassan",
+    owner: process.env.NEXT_PUBLIC_AUTHOR_NAME || "Shahzada Ali Hassan",
     client: "Nick Ahrens",
     budget: 1155,
     technologies: [
@@ -1739,7 +1739,7 @@ export const caseStudies: CaseStudy[] = [
       endDate: "Sep 18, 2024",
       durationDays: 5,
     },
-    owner: "Shahzada Ali Hassan",
+    owner: process.env.NEXT_PUBLIC_AUTHOR_NAME || "Shahzada Ali Hassan",
     client: "Winston Abiera",
     budget: 900,
     technologies: [
@@ -1829,7 +1829,7 @@ export const caseStudies: CaseStudy[] = [
       recoveredFromTrackingPreventionPercentage: 51.0,
       accuracy: 97,
     },
-    owner: "Shahzada Ali Hassan",
+    owner: process.env.NEXT_PUBLIC_AUTHOR_NAME || "Shahzada Ali Hassan",
     client: "David Laroche",
     budget: 250,
     technologies: [
@@ -1913,7 +1913,7 @@ export const caseStudies: CaseStudy[] = [
       recoveredFromTrackingPreventionPercentage: 14.0,
       accuracy: 96,
     },
-    owner: "Shahzada Ali Hassan",
+    owner: process.env.NEXT_PUBLIC_AUTHOR_NAME || "Shahzada Ali Hassan",
     client: "Libie Motchan",
     budget: 350,
     technologies: ["Event Tracking", "Liquid Templating", "Analytics Tagging"],
@@ -1982,7 +1982,7 @@ export const caseStudies: CaseStudy[] = [
       recoveredFromTrackingPreventionPercentage: 44.0,
       accuracy: 98,
     },
-    owner: "Shahzada Ali Hassan",
+    owner: process.env.NEXT_PUBLIC_AUTHOR_NAME || "Shahzada Ali Hassan",
     client: "Hayam Sh",
     budget: 100,
     technologies: [
@@ -2076,7 +2076,7 @@ export const caseStudies: CaseStudy[] = [
       endDate: "Feb 1, 2025",
       durationDays: 31,
     },
-    owner: "Shahzada Ali Hassan",
+    owner: process.env.NEXT_PUBLIC_AUTHOR_NAME || "Shahzada Ali Hassan",
     client: "Ryan Bagley",
     budget: 1700,
     technologies: [
@@ -2174,7 +2174,7 @@ export const caseStudies: CaseStudy[] = [
       recoveredFromTrackingPreventionPercentage: 26.0,
       accuracy: 99,
     },
-    owner: "Shahzada Ali Hassan",
+    owner: process.env.NEXT_PUBLIC_AUTHOR_NAME || "Shahzada Ali Hassan",
     client: "Chris Lister",
     budget: 175,
     technologies: [
@@ -2262,7 +2262,7 @@ export const caseStudies: CaseStudy[] = [
       recoveredFromTrackingPreventionPercentage: 18.0,
       accuracy: 97,
     },
-    owner: "Shahzada Ali Hassan",
+    owner: process.env.NEXT_PUBLIC_AUTHOR_NAME || "Shahzada Ali Hassan",
     client: "Jacob Monash",
     budget: 250,
     technologies: [
@@ -2349,7 +2349,7 @@ export const caseStudies: CaseStudy[] = [
       endDate: "Apr 28, 2025",
       durationDays: 32,
     },
-    owner: "Shahzada Ali Hassan",
+    owner: process.env.NEXT_PUBLIC_AUTHOR_NAME || "Shahzada Ali Hassan",
     client: "Sam Emara",
     budget: 1200,
     technologies: [
@@ -2423,7 +2423,7 @@ export const caseStudies: CaseStudy[] = [
       recoveredFromTrackingPreventionPercentage: 19.0,
       accuracy: 89,
     },
-    owner: "Shahzada Ali Hassan",
+    owner: process.env.NEXT_PUBLIC_AUTHOR_NAME || "Shahzada Ali Hassan",
     client: "Alina Islam",
     budget: 150,
     technologies: ["Web Analytics", "Advertising Pixel", "Funnel Platform", "Analytics Dashboard"],

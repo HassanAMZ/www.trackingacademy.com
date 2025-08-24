@@ -1,5 +1,6 @@
 import { offers } from "@/data/offers";
 import { Metadata } from "next";
+
 export async function generateMetadata({
   params,
 }: {
@@ -15,7 +16,7 @@ export async function generateMetadata({
   const industryKeywords = offerData.keywords;
 
   return {
-    title: `${headlineText} | ${offerData.package} - Tracking Academy`,
+    title: `${headlineText} | ${offerData.package} - TrackingAcademy`,
     description: `${cleanDescription} Fix your Meta Ads tracking for ${offerData.businessTypePlural} with our ${offerData.package} solution. ${offerData.restrictionData.affected} of ${offerData.businessTypePlural} affected by Meta's restrictions.`,
     keywords: [
       ...industryKeywords,
@@ -30,8 +31,22 @@ export async function generateMetadata({
       "ROAS optimization",
       `${offerData.businessType} marketing`,
       `${offerData.businessType} advertising`,
+      "tracking academy",
+      "health & wellness tracking",
+      "restricted niche tracking",
     ],
+    authors: [
+      {
+        name: process.env.NEXT_PUBLIC_AUTHOR_NAME || "Shahzada Ali Hassan",
+      },
+    ],
+    creator: process.env.NEXT_PUBLIC_AUTHOR_NAME || "Shahzada Ali Hassan",
+    publisher: process.env.NEXT_PUBLIC_SITE_NAME || "TrackingAcademy",
     openGraph: {
+      type: "website",
+      locale: "en_US",
+      url: `${process.env.NEXT_PUBLIC_SITE_URL || "https://www.trackingacademy.com"}/offers/${offerData.slug}`,
+      siteName: process.env.NEXT_PUBLIC_SITE_NAME || "TrackingAcademy",
       title: `${offerData.solution.heading} | ${offerData.package}`,
       description: `Fix your Meta Ads tracking for ${offerData.businessTypePlural}. Our ${offerData.package} solution restores ${offerData.restrictionData.affected} of blocked conversions while maintaining full compliance.`,
       images: [
@@ -42,23 +57,16 @@ export async function generateMetadata({
           alt: `${offerData.package} - Meta Ads Tracking Solution for ${offerData.businessTypePlural}`,
         },
       ],
-      type: "website",
-      locale: "en_US",
-      url: `${process.env.NEXT_PUBLIC_BASE_URL}/offers/${offerData.slug}`,
-      siteName: "Tracking Academy",
     },
     twitter: {
       card: "summary_large_image",
-      site: "@Shahzada_A",
-      creator: "@Shahzada_A",
       title: `${headlineText} | ${offerData.package}`,
       description: `Fix Meta Ads tracking for ${offerData.businessTypePlural}. ${offerData.restrictionData.affected} affected by restrictions. ${offerData.restrictionData.severity} severity level.`,
-      images: [
-        {
-          url: "/images/social-sharing.png",
-          alt: `${offerData.package} Solution for ${offerData.businessTypePlural}`,
-        },
-      ],
+      images: ["/images/social-sharing.png"],
+      creator: process.env.NEXT_PUBLIC_TWITTER_HANDLE || "@trackingacademy",
+    },
+    alternates: {
+      canonical: `/offers/${offerData.slug}`,
     },
     robots: {
       index: true,
@@ -81,7 +89,7 @@ export async function generateMetadata({
       address: false,
       telephone: false,
     },
-    metadataBase: new URL(`${process.env.NEXT_PUBLIC_BASE_URL}`),
+    metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || "https://www.trackingacademy.com"),
   };
 }
 

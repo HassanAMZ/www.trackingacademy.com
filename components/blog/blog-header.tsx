@@ -4,102 +4,132 @@ import formatDate from "@/components/seo/formatDate";
 import generateSchema from "@/components/seo/generateSchema";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
+import { YouTubeVideoData } from "@/lib/youtube-api";
 import { PostMetadataProps } from "@/types/index";
+import { Calendar, FileText } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import Script from "next/script";
 import React from "react";
 import YoutubeEmbed from "../global/youtube-embed";
-import { Card, CardContent } from "../ui/card";
 import BreadCrumbs from "./bread-crumb";
+import YouTubeStats from "./youtube-stats";
 
-const BlogHeader: React.FC<PostMetadataProps> = ({ metadata }) => {
+interface BlogHeaderProps extends PostMetadataProps {
+  videoData?: YouTubeVideoData | null;
+}
+
+// Helper function to extract category from slug
+const getCategoryFromSlug = (slug: string): string => {
+  const parts = slug.split("/");
+  return parts[0] || "general";
+};
+
+// Helper function to get related categories from tags
+const getRelatedCategories = (tags: string[]): string[] => {
+  return tags.map((tag) => tag.toLowerCase().replace(/\s+/g, "-")).slice(0, 3); // Limit to 3 related categories
+};
+
+const BlogHeader: React.FC<BlogHeaderProps> = ({ metadata, videoData }) => {
   const schema = generateSchema(metadata);
   const backgroundImage = metadata.openGraph.images[0];
 
   return (
-    <Card>
-      <CardContent>
-        <article>
-          <Script
-            id="blog-schema"
-            type="application/ld+json"
-            dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
-          />{" "}
-          <div className="grid items-center justify-center gap-2 space-y-8 md:grid-cols-2">
-            {/* Breadcrumb and metadata section */}{" "}
-            <div className="md:space-y-8">
-              <div className="space-y-4 md:space-y-8">
-                <BreadCrumbs />
-                <h2 className="">{metadata.title}</h2>{" "}
-                <div className="flex items-center space-x-4">
-                  <Avatar className="h-12 w-12">
-                    <AvatarImage src="/images/avatars/hassan.png" alt="ShahzadaAliHassan" />
-                    <AvatarFallback>SAH</AvatarFallback>
-                  </Avatar>{" "}
-                  <div className="space-y-1">
-                    <div className="flex items-center space-x-2">
-                      <span className="font-medium">ShahzadaAliHassan</span>
-                      <span className="text-muted-foreground">·</span>
-                      <time className="text-muted-foreground">{formatDate(metadata.date)}</time>
-                    </div>{" "}
-                    <div className="flex items-center text-sm text-muted-foreground">
-                      {metadata.updatedDate && (
-                        <div>
-                          <span>Last updated: {formatDate(metadata.updatedDate)}</span>
-                          <span className="mx-2">·</span>
-                        </div>
-                      )}
-                      <span></span>
-                    </div>
+    <div className="dark w-full rounded-lg border bg-card p-4">
+      <Script
+        id="blog-schema"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+      />
+
+      <div className="mb-4 border-b pb-3">
+        <div className="flex items-center justify-between">
+          <div className="flex items-center gap-2">
+            <FileText className="h-4 w-4 text-muted-foreground" />
+            <span className="text-sm font-medium text-muted-foreground">Article</span>
+          </div>
+          <time className="text-xs text-muted-foreground" dateTime={metadata.date}>
+            {formatDate(metadata.date)}
+          </time>
+        </div>
+      </div>
+
+      <div className="grid gap-4 py-4">
+        <div className="justfify-center col-span-1 flex h-full w-full flex-col space-y-4">
+          <BreadCrumbs />
+          <h1 className="text-primary">{metadata.title}</h1>
+          <p className="text-muted-foreground">{metadata.description}</p>
+          {/* Author */}
+          <div className="flex items-center space-x-3">
+            <Avatar className="h-12 w-12 border-2 border-border/50">
+              <AvatarImage src="/images/avatars/hassan.png" alt="Shahzada Ali Hassan" />
+              <AvatarFallback className="text-base font-semibold">SAH</AvatarFallback>
+            </Avatar>
+
+            <div className="space-y-1">
+              <div className="flex flex-col items-center">
+                <span className="font-semibold text-foreground">
+                  {process.env.NEXT_PUBLIC_AUTHOR_NAME || "Shahzada Ali Hassan"}
+                </span>
+                {/* Date and Category Navigation */}
+                <div className="flex flex-wrap items-center gap-4 text-sm text-muted-foreground">
+                  <div className="flex items-center gap-2">
+                    <Calendar className="h-4 w-4" />
+                    <time dateTime={metadata.date}>{formatDate(metadata.date)}</time>
                   </div>
-                </div>{" "}
-                <div className="flex flex-wrap gap-2">
-                  {metadata.tags.map((tag, index) => (
-                    <Link href={`/tags/${tag.toLowerCase().replace(/\s+/g, "-")}`} key={index}>
-                      <Badge variant="secondary" className="px-3 py-1">
-                        {tag}
-                      </Badge>
-                    </Link>
-                  ))}
                 </div>
               </div>
-            </div>{" "}
-            {/* Hero Image/Video Section */}
-            <div className="relative overflow-hidden rounded-xl">
-              {metadata.embedId === "" ? (
-                <Image
-                  src={backgroundImage}
-                  alt={"blog image"}
-                  width={1920}
-                  height={1080}
-                  className="hidden w-full object-cover md:flex"
-                />
-              ) : (
-                <YoutubeEmbed embedId={metadata.embedId} className="p-0!" />
+
+              {metadata.updatedDate && (
+                <div className="text-sm text-muted-foreground">
+                  <span>Last updated: {formatDate(metadata.updatedDate)}</span>
+                </div>
               )}
             </div>
-          </div>{" "}
-          {/* As Seen On Section */}
-          {/* <div className="py-4 border-t-2 border-b-2 ">
-        <p className="text-sm text-muted-foreground mb-4">As seen on:</p>
-        <div className="grid grid-cols-2 md:grid-cols-6 gap-6 items-center opacity-50 justify-center">
-          {clients.map((client, index) => (
-            <div key={index} className=" bg-muted rounded animate-pulse">
-              <Image  
-                width={1920}
-                height={1080}
-                alt={client.businessDetails.name}
-                src={client.clientDetails.images[0].url}
-                className="w-full object-cover rounded-lg h-12"
-              />
+          </div>
+
+          {/* Tags */}
+          {metadata.tags && metadata.tags.length > 0 && (
+            <div className="flex flex-wrap gap-1.5">
+              {metadata.tags.map((tag: string, index: number) => (
+                <Link href={`/tags/${tag.toLowerCase().replace(/\s+/g, "-")}`} key={index}>
+                  <Badge
+                    variant="secondary"
+                    className="px-2.5 py-1 text-xs font-medium transition-colors hover:bg-secondary/80"
+                  >
+                    {tag}
+                  </Badge>
+                </Link>
+              ))}
             </div>
-          ))}
+          )}
         </div>
-      </div> */}
-        </article>
-      </CardContent>
-    </Card>
+        {/* Hero Image/Video Section */}
+        <div className="relative w-full rounded border border-border/50 bg-muted/30">
+          {metadata.embedId === "" ? (
+            <Image
+              src={backgroundImage}
+              alt={metadata.title || "Blog post image"}
+              width={800}
+              height={600}
+              className="h-full w-full object-cover transition-transform duration-300"
+            />
+          ) : (
+            <div className="space-y-3">
+              {/* YouTube Stats Above the Fold */}
+              {videoData && (
+                <div className="px-4 pt-4">
+                  <YouTubeStats videoData={videoData} embedId={metadata.embedId} />
+                </div>
+              )}
+
+              {/* Video embed */}
+              <YoutubeEmbed embedId={metadata.embedId} className="w-full px-0" />
+            </div>
+          )}
+        </div>
+      </div>
+    </div>
   );
 };
 

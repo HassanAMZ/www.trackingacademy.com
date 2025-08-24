@@ -111,7 +111,9 @@ export default function ContactUsEmail({
             <Text style={footerText}>
               Looking forward to helping you fix your tracking,
               <br />
-              <span style={signature}>Shahzada Ali Hassan</span>
+              <span style={signature}>
+                {process.env.NEXT_PUBLIC_AUTHOR_NAME || "Shahzada Ali Hassan"}
+              </span>
               <br />
               Tracking & Analytics Specialist
             </Text>

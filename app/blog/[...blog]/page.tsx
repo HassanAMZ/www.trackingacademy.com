@@ -3,6 +3,9 @@ import CategoryContainer from "@/components/blog/category-container";
 import getBlogsByCategory from "@/utils/getBlogsByCategory";
 import getBlogsByCategoryStaticParams from "@/utils/getBlogsByCategoryStaticParams";
 
+// Revalidate every hour for fresh content
+export const revalidate = 3600;
+
 export default async function Page({ params }: { params: Promise<{ blog: string[] }> }) {
   const paramsArray = await params;
   const blogSlug = paramsArray.blog;
@@ -25,6 +28,5 @@ export default async function Page({ params }: { params: Promise<{ blog: string[
 
 export async function generateStaticParams() {
   const blogs = getBlogsByCategoryStaticParams();
-
   return blogs;
 }

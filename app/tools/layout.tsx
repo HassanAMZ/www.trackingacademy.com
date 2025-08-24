@@ -19,13 +19,62 @@ import {
 import { iconMap } from "@/utils/tools";
 import { promises as fs } from "fs";
 import { Wrench } from "lucide-react";
+import type { Metadata } from "next";
 import Link from "next/link";
 import path from "path";
 import React, { ReactNode } from "react";
 
-export const metadata = {
-  title: "Tools - TrackingAcademy",
-  description: "Tools built for Analysts to make life easier.",
+export const metadata: Metadata = {
+  title: "Tools | TrackingAcademy - Professional Analytics & Tracking Tools",
+  description:
+    "Professional tools built for web analysts and marketing professionals to make tracking optimization easier and more efficient.",
+  keywords: [
+    "tracking tools",
+    "analytics tools",
+    "conversion tracking tools",
+    "ROAS optimization tools",
+    "tracking academy tools",
+    "web analytics tools",
+    "marketing tools",
+    "tracking calculators",
+    "conversion optimization tools",
+    "data analysis tools",
+  ],
+  authors: [
+    {
+      name: process.env.NEXT_PUBLIC_AUTHOR_NAME || "Shahzada Ali Hassan",
+    },
+  ],
+  creator: process.env.NEXT_PUBLIC_AUTHOR_NAME || "Shahzada Ali Hassan",
+  publisher: process.env.NEXT_PUBLIC_SITE_NAME || "TrackingAcademy",
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    url: `${process.env.NEXT_PUBLIC_SITE_URL || "https://www.trackingacademy.com"}/tools`,
+    siteName: process.env.NEXT_PUBLIC_SITE_NAME || "TrackingAcademy",
+    title: "Tools | TrackingAcademy - Professional Analytics & Tracking Tools",
+    description:
+      "Professional tools built for web analysts and marketing professionals to make tracking optimization easier and more efficient.",
+    images: [
+      {
+        url: "/images/social-sharing.png",
+        width: 1200,
+        height: 630,
+        alt: "TrackingAcademy Tools - Professional analytics and tracking tools",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Tools | TrackingAcademy - Professional Analytics & Tracking Tools",
+    description:
+      "Professional tools built for web analysts and marketing professionals to make tracking optimization easier and more efficient.",
+    images: ["/images/social-sharing.png"],
+    creator: process.env.NEXT_PUBLIC_TWITTER_HANDLE || "@trackingacademy",
+  },
+  alternates: {
+    canonical: "/tools",
+  },
 };
 
 async function getTools() {

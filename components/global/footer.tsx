@@ -2,6 +2,7 @@
 
 import Container from "@/components/ui/container";
 import { Facebook, Linkedin, Mail, Phone, Youtube } from "lucide-react";
+import Image from "next/image";
 import Link from "next/link";
 import { ThemeToggle } from "./theme-switch";
 
@@ -13,7 +14,13 @@ export default function Footer() {
           {/* Brand */}
           <div>
             <Link href="/">
-              <img src="/logo.png" alt="TrackingAcademy Logo" className="mb-4 h-8" />
+              <Image
+                src="/logo.png"
+                width={100}
+                height={100}
+                alt="TrackingAcademy Logo"
+                className="mb-4 h-8"
+              />
             </Link>
             <p className="text-sm text-muted-foreground">
               Reclaim the 30% of sales you're missing with better tracking.

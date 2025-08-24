@@ -43,6 +43,11 @@ const nextConfig = {
       },
       {
         protocol: "https",
+        hostname: "img.youtube.com",
+        pathname: "**",
+      },
+      {
+        protocol: "https",
         hostname: "*.googleusercontent.com",
         pathname: "**",
       },

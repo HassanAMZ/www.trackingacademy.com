@@ -95,21 +95,21 @@ export default function FeatureGridWithModal({
 
       {/* Modal Backdrop */}
       {activeItem && (
-        <div className="fixed inset-0 z-50 bg-background/50 animate-in fade-in-0 duration-200" />
+        <div className="animate-in fade-in-0 fixed inset-0 z-50 bg-background/50 duration-200" />
       )}
 
       {/* Modal */}
       {activeItem && (
         <div className="fixed inset-0 z-60 grid place-items-center border-2 p-4">
           <button
-            className="absolute top-4 right-4 flex h-8 w-8 items-center justify-center rounded-full bg-card lg:hidden animate-in fade-in-0 duration-200"
+            className="animate-in fade-in-0 absolute top-4 right-4 flex h-8 w-8 items-center justify-center rounded-full bg-card duration-200 lg:hidden"
             onClick={() => setActiveItem(null)}
           >
             <CloseIcon />
           </button>
           <div
             ref={ref}
-            className="w-full max-w-[600px] overflow-hidden rounded-lg bg-card shadow-lg animate-in fade-in-0 zoom-in-95 duration-300"
+            className="animate-in fade-in-0 zoom-in-95 w-full max-w-[600px] overflow-hidden rounded-lg bg-card shadow-lg duration-300"
           >
             {activeItem.image && (
               <div>
@@ -205,7 +205,7 @@ const Feature = ({
     <div
       onClick={onClick}
       className={cn(
-        "group/feature relative flex cursor-pointer flex-col border-border py-1 lg:border-r lg:py-10 transition-all duration-200",
+        "group/feature relative flex cursor-pointer flex-col border-border py-1 transition-all duration-200 lg:border-r lg:py-10",
         (index === 0 || index === 4) && "border-border lg:border-l",
         index < 4 && "border-border lg:border-b",
       )}

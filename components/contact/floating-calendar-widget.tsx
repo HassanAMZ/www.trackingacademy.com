@@ -154,7 +154,7 @@ const FloatingCalendarWidget = () => {
                   </Avatar>
                   <div className="space-y-0.5 sm:space-y-1">
                     <h4 className="text-sm leading-tight font-semibold sm:text-base">
-                      Shahzada Ali Hassan
+                      {process.env.NEXT_PUBLIC_AUTHOR_NAME || "Shahzada Ali Hassan"}
                     </h4>
                     <p className="flex items-center gap-1.5 text-xs font-medium text-green-600 sm:text-sm">
                       <span className="h-1.5 w-1.5 rounded-full bg-green-500 sm:h-2 sm:w-2"></span>
