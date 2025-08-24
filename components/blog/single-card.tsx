@@ -2,8 +2,8 @@
 
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardFooter, CardHeader } from "@/components/ui/card";
-import { getBestYouTubeThumbnail } from "@/lib/youtube-thumbnails";
 import { getYouTubeDurationClient } from "@/lib/youtube-duration-client";
+import { getBestYouTubeThumbnail } from "@/lib/youtube-thumbnails";
 import { PostMetadata } from "@/types/index";
 import { CalendarIcon, Clock } from "lucide-react";
 import Image from "next/image";

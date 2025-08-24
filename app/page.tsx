@@ -10,7 +10,7 @@ import CaseStudyImages from "@/components/home/case-study-images";
 import FeatureGridWithModal from "@/components/home/feature-grid-with-modal";
 import FeatureGridWithModal2 from "@/components/home/feature-grid-with-modal-2";
 import WhyChooseSection from "@/components/home/why-choose-us";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import Container from "@/components/ui/container";
@@ -110,7 +110,7 @@ export default function HomePage() {
           </div>
         </Container>
       </div>
-      <CaseStudyImages caseStudies={caseStudies} direction="right" speed="fast" />
+      <CaseStudyImages caseStudies={caseStudies} direction="left" speed="fast" />
       <Container className="sm:pt-10">
         <CaseStudyFeaturedVideo
           caseStudy={caseStudies[0]}

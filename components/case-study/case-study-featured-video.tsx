@@ -3,7 +3,7 @@
 import LoomEmbed from "@/components/global/loom-embed";
 import MuxEmbed from "@/components/global/mux-embed";
 import YoutubeEmbed from "@/components/global/youtube-embed";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { CaseStudy } from "@/data/case-studies";

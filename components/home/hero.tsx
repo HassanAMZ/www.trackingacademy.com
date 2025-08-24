@@ -1,12 +1,12 @@
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { AvatarGroup, AvatarGroupTooltip } from "@/components/animate-ui/avatar-group";
+import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import Container from "@/components/ui/container";
 import { caseStudies as CaseStudies, CaseStudy } from "@/data/case-studies";
 import { CheckCircle, Star } from "lucide-react";
+import Image from "next/image";
 import Link from "next/link";
 import { FC, ReactNode } from "react";
-import Image from "next/image";
-import { AvatarGroup, AvatarGroupTooltip } from "@/components/animate-ui/avatar-group";
 import { Badge } from "../ui/badge";
 
 interface HeroProps {

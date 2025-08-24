@@ -2,7 +2,7 @@
 
 import formatDate from "@/components/seo/formatDate";
 import generateSchema from "@/components/seo/generateSchema";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
 import { YouTubeVideoData } from "@/lib/youtube-api";
 import { PostMetadataProps } from "@/types/index";

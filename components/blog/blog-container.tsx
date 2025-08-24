@@ -1,7 +1,7 @@
 import BlogHeader from "@/components/blog/blog-header";
+import { getYouTubeVideoData } from "@/lib/youtube-api";
 import HelpSection from "./help-section";
 import TableOfContents from "./table-of-content";
-import { getYouTubeVideoData } from "@/lib/youtube-api";
 
 export default async function BlogContainer({
   slug,

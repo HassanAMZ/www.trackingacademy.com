@@ -1,15 +1,15 @@
 "use client";
 
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { cn } from "@/lib/utils";
 import { sendGTMEvent } from "@next/third-parties/google";
 import { Calendar, ChevronDown, User, X } from "lucide-react";
+import Image from "next/image";
 import Script from "next/script";
 import { useEffect, useState } from "react";
 import { GlowEffect } from "../ui/glow-effect";
-import Image from "next/image";
 
 type UpcomingDate = {
   dayName: string;

@@ -2,11 +2,10 @@
 
 import { AvatarGroup } from "@/components/animate-ui/avatar-group";
 import { Alert, AlertDescription } from "@/components/ui/alert";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import { useAuth } from "@/context/AuthContext";
 import { caseStudies } from "@/data/case-studies";
-import Image from "next/image";
 import {
   CheckCircle,
   Code,
@@ -17,6 +16,7 @@ import {
   Mail,
   Play,
 } from "lucide-react";
+import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import Container from "../ui/container";

@@ -3,10 +3,10 @@
 import { Button } from "@/components/ui/button";
 import { caseStudies } from "@/data/case-studies";
 import { Star } from "lucide-react";
+import Image from "next/image";
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
-import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar";
-import Image from "next/image";
+import { Avatar, AvatarFallback } from "../ui/avatar";
 const TestimonialsCarousel2: React.FC = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
 

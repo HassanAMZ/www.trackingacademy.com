@@ -1,10 +1,10 @@
 "use client";
 
 import { caseStudies, type CaseStudy } from "@/data/case-studies";
+import Image from "next/image";
 import Link from "next/link";
 import type React from "react";
-import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar";
-import Image from "next/image";
+import { Avatar, AvatarFallback } from "../ui/avatar";
 interface ClientTrackingTableProps {
   rows?: number;
 }
