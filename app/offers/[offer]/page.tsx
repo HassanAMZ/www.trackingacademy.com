@@ -15,6 +15,7 @@ import { Badge } from "@/components/ui/badge";
 import Container from "@/components/ui/container";
 import { offers } from "@/data/offers";
 import getCaseStudy from "@/utils/getCaseStudy";
+import MuxPlayer from "@mux/mux-player-react";
 import {
   Activity,
   AlertTriangle,
@@ -34,8 +35,7 @@ import {
   XCircle,
   Zap,
 } from "lucide-react";
-import Video from "next-video";
-// Generate static params for all offers
+
 export async function generateStaticParams() {
   return Object.keys(offers).map((offer) => ({
     offer: offer,
@@ -126,21 +126,12 @@ export default async function Page({ params }: { params: Promise<{ offer: string
               </ul>
             </div>
             <Container className="py-12">
-              <Video
-                src="https://stream.mux.com/2ycrwGk9Mq02JzWDaH9sgWWaPC2ts1dvoQMPX5asddgY.m3u8"
+              <MuxPlayer
+                streamType="on-demand"
+                playbackId="2ycrwGk9Mq02JzWDaH9sgWWaPC2ts1dvoQMPX5asddgY"
                 poster="https://image.mux.com/2ycrwGk9Mq02JzWDaH9sgWWaPC2ts1dvoQMPX5asddgY/animated.gif"
-                controls
                 style={{ aspectRatio: "16/9", width: "100%" }}
-              >
-                <source
-                  src="https://stream.mux.com/2ycrwGk9Mq02JzWDaH9sgWWaPC2ts1dvoQMPX5asddgY.mp4"
-                  type="video/mp4"
-                />
-                <source
-                  src="https://stream.mux.com/2ycrwGk9Mq02JzWDaH9sgWWaPC2ts1dvoQMPX5asddgY.m3u8"
-                  type="application/x-mpegURL"
-                />
-              </Video>
+              />
             </Container>
           </div>
 

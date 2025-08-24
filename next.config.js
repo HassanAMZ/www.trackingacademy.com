@@ -1,4 +1,3 @@
-const { withNextVideo } = require("next-video/process");
 const path = require("path");
 
 /** @type {import('next').NextConfig} */
@@ -6,8 +5,8 @@ const nextConfig = {
   transpilePackages: ["geist"],
   pageExtensions: ["js", "jsx", "ts", "tsx", "mdx", "md"],
 
+  swcMinify: true,
   experimental: {
-    swcMinify: true,
     mdxRs: true,
     optimizeServerReact: true,
     webpackBuildWorker: true,
@@ -76,4 +75,4 @@ const withMDX = require("@next/mdx")({
   },
 });
 
-module.exports = withNextVideo(withMDX(nextConfig));
+module.exports = withMDX(nextConfig);

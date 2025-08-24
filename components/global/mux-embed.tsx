@@ -1,6 +1,6 @@
 "use client";
 
-import Video from "next-video";
+import MuxPlayer from "@mux/mux-player-react";
 import { FC, memo } from "react";
 import Container from "../ui/container";
 
@@ -26,31 +26,22 @@ const MuxEmbed: FC<MuxEmbedProps> = ({
   }
 
   // Build Mux URLs from the embedId
-  const streamUrl = `https://stream.mux.com/${embedId}.m3u8?default_subtitles_lang=en`;
-  const mp4Url = `https://stream.mux.com/${embedId}.mp4?default_subtitles_lang=en`;
+  const streamUrl = `https://stream.mux.com/${embedId}.m3u8`;
   const posterUrl = poster || `https://image.mux.com/${embedId}/animated.gif`;
-
-  // Aspect ratio: 56.25% for 16:9, ~177.78% for 9:16 (vertical)
-  const aspectRatio = verticalVideo ? "177.78%" : "56.25%";
 
   return (
     <Container className={className} id={id}>
-      <div className="relative overflow-hidden rounded-lg" style={{ paddingTop: aspectRatio }}>
-        <div className="absolute top-0 left-0 h-full w-full">
-          <Video
-            src={streamUrl}
-            poster={posterUrl}
-            controls={controls}
-            style={{
-              aspectRatio: verticalVideo ? "9/16" : "16/9",
-              width: "100%",
-              height: "100%",
-            }}
-          >
-            <source src={mp4Url} type="video/mp4" />
-            <source src={streamUrl} type="application/x-mpegURL" />
-          </Video>
-        </div>
+      <div className="relative overflow-hidden rounded-lg">
+        <MuxPlayer
+          streamType="on-demand"
+          playbackId={embedId}
+          poster={posterUrl}
+          style={{
+            aspectRatio: verticalVideo ? "9/16" : "16/9",
+            width: "100%",
+            height: "100%",
+          }}
+        />
       </div>
     </Container>
   );
