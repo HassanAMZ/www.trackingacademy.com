@@ -7,10 +7,12 @@ interface NavLinkProps {
   href: string;
   children: React.ReactNode;
   className?: string;
+  prefetch?: boolean;
 }
-const NavLink: React.FC<NavLinkProps> = ({ href, children, className }) => {
+
+const NavLink: React.FC<NavLinkProps> = ({ href, children, className, prefetch = true }) => {
   return (
-    <Link className={clsx(className, "hover:no-underline")} href={href}>
+    <Link className={clsx(className, "hover:no-underline")} href={href} prefetch={prefetch}>
       {children}
     </Link>
   );

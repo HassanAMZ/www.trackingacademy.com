@@ -3,6 +3,7 @@ import Container from "@/components/ui/container";
 import { caseStudies } from "@/data/case-studies";
 
 export default function CaseStudiesPage() {
+  const initialCaseStudies = caseStudies.slice(0, 3);
   return (
     <Container className="py-12">
       <div className="mb-16 text-center">
@@ -31,16 +32,18 @@ export default function CaseStudiesPage() {
         </div>
       </div>
 
-      {caseStudies.map((caseStudy) => (
+      {initialCaseStudies.map((caseStudy) => (
         <div key={caseStudy.id}>
-          <CaseStudyFeaturedVideo
-            caseStudy={caseStudy}
-            // verticalVideo={caseStudy.embedId?.muxVertical ?? false}
-            verticalVideo={true}
-            darkMode={true}
-          />
+          <CaseStudyFeaturedVideo caseStudy={caseStudy} verticalVideo={true} darkMode={true} />
         </div>
       ))}
+
+      {/* Add "Load More" functionality if needed */}
+      {caseStudies.length > 3 && (
+        <div className="mt-8 text-center">
+          <p className="text-muted-foreground">Showing 3 of {caseStudies.length} case studies</p>
+        </div>
+      )}
     </Container>
   );
 }

@@ -19,8 +19,8 @@ import clsx from "clsx";
 import { Briefcase, FileText, Menu, Settings, Wrench } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
-import React, { useState } from "react";
+import { usePathname, useRouter } from "next/navigation";
+import React, { useEffect, useState } from "react";
 import NavLink from "../navbar/NavLink";
 import { GlowEffect } from "../ui/glow-effect";
 import { ThemeToggle } from "./theme-switch";
@@ -159,11 +159,17 @@ ListItem.displayName = "ListItem";
 export default function Navbar({ className }: { className?: string }) {
   const [isSheetOpen, setSheetOpen] = useState(false);
   const pathname = usePathname();
-
+  const router = useRouter();
   const isActive = (path: string) => pathname.startsWith(path);
 
   const handleLinkClick = () => setSheetOpen(false);
-
+  useEffect(() => {
+    // Prefetch main routes
+    router.prefetch("/contact");
+    router.prefetch("/case-study");
+    router.prefetch("/tools");
+    router.prefetch("/blog");
+  }, [router]);
   const renderCallToAction = () => (
     <div className="relative">
       <GlowEffect />

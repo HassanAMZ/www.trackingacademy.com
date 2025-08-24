@@ -201,7 +201,6 @@ function TrackerTableRow({ tracker, index }: { tracker: any; index: number }) {
   );
 }
 
-// Data Visualization Cards (replacing charts)
 function DataCard({
   title,
   value,

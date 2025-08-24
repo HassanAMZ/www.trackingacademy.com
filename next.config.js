@@ -7,20 +7,23 @@ const nextConfig = {
   pageExtensions: ["js", "jsx", "ts", "tsx", "mdx", "md"],
 
   experimental: {
+    swcMinify: true,
     mdxRs: true,
     optimizeServerReact: true,
     webpackBuildWorker: true,
-  },
-
-  turbopack: {
-    rules: {
-      "*.svg": {
-        loaders: ["@svgr/webpack"],
-        as: "*.js",
+    // Add these optimizations
+    optimizePackageImports: ["lucide-react", "@radix-ui/react-icons"],
+    turbo: {
+      rules: {
+        "*.svg": {
+          loaders: ["@svgr/webpack"],
+          as: "*.js",
+        },
       },
     },
   },
-
+  compress: true,
+  poweredByHeader: false,
   images: {
     remotePatterns: [
       {
