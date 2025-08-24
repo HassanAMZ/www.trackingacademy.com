@@ -262,7 +262,7 @@ const CaseStudyFeaturedVideo: FC<CaseStudyFeaturedVideoProps> = ({
                     size="sm"
                     className="w-full border-border text-foreground hover:bg-accent hover:text-accent-foreground sm:w-auto"
                   >
-                    <Link href={caseStudy.url} target="_blank" className="flex items-center gap-2">
+                    <Link href={caseStudy.url} className="flex items-center gap-2">
                       Visit Website <ExternalLink className="h-3 w-3" />
                     </Link>
                   </Button>

@@ -168,9 +168,7 @@ export default function Navbar({ className }: { className?: string }) {
     <div className="relative">
       <GlowEffect />
       <Button asChild className="relative">
-        <Link href={"/contact"} target="_blank" rel="noopener noreferrer">
-          Fix My Tracking
-        </Link>
+        <Link href={"/contact"}>Fix My Tracking</Link>
       </Button>
     </div>
   );

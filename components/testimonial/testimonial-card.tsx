@@ -85,9 +85,7 @@ export function TestimonialCard({
 
     return linkEnabled && linkUrl ? (
       <div>
-        <Link href={linkUrl} target="_blank" rel="noopener noreferrer">
-          {upworkCardContent}
-        </Link>
+        <Link href={linkUrl}>{upworkCardContent}</Link>
       </div>
     ) : (
       <div>{upworkCardContent}</div>
@@ -163,7 +161,7 @@ export function TestimonialCard({
 
   // Return either a linked card or just the card content
   return linkEnabled && linkUrl ? (
-    <Link href={linkUrl} className="group block h-full" target="_blank" rel="noopener noreferrer">
+    <Link href={linkUrl} className="group block h-full">
       {cardContent}
     </Link>
   ) : (

@@ -3,6 +3,7 @@
 import { Button } from "@/components/ui/button";
 import { useOutsideClick } from "@/components/ui/hooks/use-outside-click";
 import Image from "next/image";
+import Link from "next/link";
 import React, { useEffect, useId, useRef, useState } from "react";
 
 interface DetailsItem {
@@ -187,9 +188,7 @@ export const DetailsStack: React.FC<DetailsCardsProps> = ({
                     asChild
                     className="bg-primary text-primary-foreground hover:bg-primary/90"
                   >
-                    <a href={activeItem.ctaLink} target="_blank" rel="noopener noreferrer">
-                      {activeItem.ctaText}
-                    </a>
+                    <Link href={activeItem.ctaLink}>{activeItem.ctaText}</Link>
                   </Button>
                   {activeItem.ctaSubtitle && (
                     <p className="mt-2 text-sm text-muted-foreground">{activeItem.ctaSubtitle}</p>

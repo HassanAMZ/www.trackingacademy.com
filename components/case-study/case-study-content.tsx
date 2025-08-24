@@ -164,7 +164,7 @@ export default function CaseStudyComponent({ caseStudy }: { caseStudy: CaseStudy
             {/* Action Buttons */}
             <div className="flex items-center gap-2">
               <Button asChild variant="outline" size="sm">
-                <Link href={caseStudy.url} target="_blank" className="flex items-center gap-1">
+                <Link href={caseStudy.url} className="flex items-center gap-1">
                   Visit Website <ExternalLink className="h-3 w-3" />
                 </Link>
               </Button>

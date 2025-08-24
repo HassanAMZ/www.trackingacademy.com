@@ -36,7 +36,7 @@ const TestimonialsCarousel2: React.FC = () => {
   const currentTestimonial = clientTestimonials[currentIndex];
 
   return (
-    <Link href={`/case-study/${currentTestimonial.id}`} target="_blank" rel="noopener noreferrer">
+    <Link href={`/case-study/${currentTestimonial.id}`}>
       <div className="md:py:2 relative space-y-4 rounded-lg px-6 pt-2 pb-4 text-muted-foreground shadow md:mx-0">
         <div className="absolute -top-3 right-0 flex space-x-1">
           {[...Array(5)].map((_, i) => (

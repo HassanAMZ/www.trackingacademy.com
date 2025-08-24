@@ -3,6 +3,7 @@ import { ComponentPropsWithoutRef, ReactNode } from "react";
 
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
+import Link from "next/link";
 
 interface BentoGridProps extends ComponentPropsWithoutRef<"div"> {
   children: ReactNode;
@@ -44,7 +45,7 @@ const BentoCard = ({
       // light styles
       "bg-background [box-shadow:0_0_0_1px_rgba(0,0,0,.03),0_2px_4px_rgba(0,0,0,.05),0_12px_24px_rgba(0,0,0,.05)]",
       // dark styles
-      "transform-gpu dark:bg-background dark:[border:1px_solid_rgba(255,255,255,.1)] dark:[box-shadow:0_-20px_80px_-20px_#ffffff1f_inset]",
+      "transform-gpu dark:bg-background dark:[box-shadow:0_-20px_80px_-20px_#ffffff1f_inset] dark:[border:1px_solid_rgba(255,255,255,.1)]",
       className,
     )}
     {...props}
@@ -59,28 +60,30 @@ const BentoCard = ({
 
       <div
         className={cn(
-          "lg:hidden pointer-events-none flex w-full translate-y-0 transform-gpu flex-row items-center transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100",
+          "pointer-events-none flex w-full translate-y-0 transform-gpu flex-row items-center transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100 lg:hidden",
         )}
       >
         <Button variant="link" asChild size="sm" className="pointer-events-auto p-0">
-          <a href={href}>
+          <Link href={href}>
             {cta}
             <ArrowRightIcon className="ms-2 h-4 w-4 rtl:rotate-180" />
-          </a>
+          </Link>
         </Button>
       </div>
     </div>
 
     <div
       className={cn(
-        "hidden lg:flex pointer-events-none absolute bottom-0 w-full translate-y-10 transform-gpu flex-row items-center p-4 opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100",
+        "pointer-events-none absolute bottom-0 hidden w-full translate-y-10 transform-gpu flex-row items-center p-4 opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100 lg:flex",
       )}
     >
       <Button variant="link" asChild size="sm" className="pointer-events-auto p-0">
-        <a href={href}>
-          {cta}
-          <ArrowRightIcon className="ms-2 h-4 w-4 rtl:rotate-180" />
-        </a>
+        <Link href={href}>
+          <>
+            {cta}
+            <ArrowRightIcon className="ms-2 h-4 w-4 rtl:rotate-180" />
+          </>
+        </Link>
       </Button>
     </div>
 

@@ -83,8 +83,6 @@ export default function CaseStudyCarousel({
             <Link
               href={`/case-study/${caseStudy.id}`}
               key={`${caseStudy.id}-${index}`}
-              target="_blank"
-              rel="noopener noreferrer"
               className={`w-[${itemWidth}px] h-[${itemHeight}px] group relative mx-1 cursor-pointer overflow-hidden rounded shadow-lg ring-2 ring-transparent transition-all duration-300 hover:scale-x-[1.02] hover:shadow-xl hover:ring-primary/20`}
               style={{ width: `${itemWidth}px`, height: `${itemHeight}px` }}
             >

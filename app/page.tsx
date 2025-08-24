@@ -80,12 +80,7 @@ export default function HomePage() {
                     ].includes(study.id),
                   )
                   .map((study) => (
-                    <Link
-                      href={`/case-study/${study.id}`}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      key={study.id}
-                    >
+                    <Link href={`/case-study/${study.id}`} key={study.id}>
                       <Avatar className="border-2 border-primary bg-background">
                         <AvatarImage
                           src={study.testimonial.image}

@@ -16,7 +16,7 @@ export default function HelpSection() {
         </p>
 
         <Button size="sm" className="w-full" asChild>
-          <Link href="/contact" target="_blank" rel="noopener noreferrer">
+          <Link href="/contact">
             <MessageCircle className="mr-2 h-4 w-4" />
             Get Help
           </Link>

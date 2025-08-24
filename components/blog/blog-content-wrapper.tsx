@@ -30,11 +30,7 @@ const BlogContentWrapper: React.FC<BlogContentWrapperProps> = ({ data, type }) =
           />
         ))}
       </div>
-      <BlogPagination 
-        data={data} 
-        type={type} 
-        onPageChange={handlePageChange}
-      />
+      <BlogPagination data={data} type={type} onPageChange={handlePageChange} />
     </div>
   );
 };

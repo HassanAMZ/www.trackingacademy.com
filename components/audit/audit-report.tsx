@@ -29,6 +29,7 @@ import {
   XCircle,
   Zap,
 } from "lucide-react";
+import Link from "next/link";
 import LoomEmbed from "../global/loom-embed";
 import YoutubeEmbed from "../global/youtube-embed";
 
@@ -189,9 +190,9 @@ function TrackerTableRow({ tracker, index }: { tracker: any; index: number }) {
           )}
           {tracker.canImprove && tracker.improvementLink && (
             <Button variant="ghost" size="sm" asChild className="h-6 w-6 p-0 hover:bg-primary/10">
-              <a href={tracker.improvementLink} target="_blank" rel="noopener noreferrer">
+              <Link href={tracker.improvementLink}>
                 <ExternalLink className="h-3 w-3" />
-              </a>
+              </Link>
             </Button>
           )}
         </div>

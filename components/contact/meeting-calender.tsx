@@ -1,18 +1,48 @@
 "use client";
 
 import { sendGTMEvent } from "@next/third-parties/google";
-import Script from "next/script";
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import Container from "../ui/container";
 
+type IClosedEventName =
+  | "iclosed_view"
+  | "iclosed_potential"
+  | "iclosed_qualified"
+  | "iclosed_disqualified"
+  | "iclosed_call_scheduled";
+
+interface IClosedEvent {
+  datalayer_event_name: IClosedEventName;
+}
+
 const MeetingCalendar = () => {
+  const widgetRef = useRef<HTMLDivElement>(null);
+
   useEffect(() => {
-    const handlePostMessage = (event: { data: { datalayer_event_name: any } }) => {
+    // Create and inject the script dynamically
+    const script = document.createElement("script");
+    script.src = "https://app.iclosed.io/assets/widget.js";
+    script.async = true;
+    script.type = "text/javascript";
+
+    // Append to document head
+    document.head.appendChild(script);
+
+    // Cleanup: remove script when component unmounts
+    return () => {
+      if (document.head.contains(script)) {
+        document.head.removeChild(script);
+      }
+    };
+  }, []);
+
+  useEffect(() => {
+    const handlePostMessage = (event: MessageEvent<IClosedEvent>) => {
       if (event.data && event.data.datalayer_event_name) {
         const eventName = event.data.datalayer_event_name;
 
         // Only process specific iClosed events
-        const allowedEvents = [
+        const allowedEvents: IClosedEventName[] = [
           "iclosed_view",
           "iclosed_potential",
           "iclosed_qualified",
@@ -39,20 +69,12 @@ const MeetingCalendar = () => {
 
   return (
     <section id="book-a-meeting">
-      <Script
-        src="https://app.iclosed.io/assets/widget.js"
-        strategy="lazyOnload"
-        onLoad={() => console.log("iClosed widget script loaded successfully")}
-      />
-      <Container>
+      <Container className="min-h-[300px] w-full">
         <div
-          className="iclosed-widget min-h-[300px] w-full"
+          className="iclosed-widget"
           data-url="https://app.iclosed.io/e/shahzadaalihassan/1-on-1-meeting-with-shahzada"
           title="1-on-1 meeting with Shahzada"
-          style={{
-            width: "100%",
-            minHeight: "300px",
-          }}
+          style={{ width: "100%", height: "620px" }}
         />
       </Container>
     </section>

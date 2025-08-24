@@ -30,7 +30,7 @@ export const HeroSection: React.FC = () => {
             size="lg"
             className="transform px-12 py-7 text-xl whitespace-pre-wrap shadow-2xl transition-all hover:-translate-y-1"
           >
-            <Link href="/contact" target="_blank" rel="noopener noreferrer">
+            <Link href="/contact">
               Book a FREE CALL and Sky Rocket Your Business
               <ArrowRight className="ml-2 h-4 w-4" />
             </Link>

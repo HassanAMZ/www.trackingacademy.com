@@ -1,15 +1,13 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { PostMetadata } from "@/types/index";
+import { FileText, Search, Tag, TrendingUp } from "lucide-react";
 import { useParams, usePathname } from "next/navigation";
-import Link from "next/link";
-import React, { useEffect, useState, useMemo, useCallback } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import RequestABlogForm from "./request-a-blog";
 import YouTubeMetricsSuspense from "./youtube-metrics-suspense";
-import { Search, FileText, Tag, Calendar, TrendingUp } from "lucide-react";
 
 interface BlogSearchProps {
   data: PostMetadata[];

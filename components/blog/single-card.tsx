@@ -1,11 +1,11 @@
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardFooter, CardHeader } from "@/components/ui/card";
+import { getBestYouTubeThumbnail } from "@/lib/youtube-thumbnails";
 import { PostMetadata } from "@/types/index";
-import { CalendarIcon, Clock, Tag as TagIcon } from "lucide-react";
+import { CalendarIcon, Clock } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { Suspense } from "react";
-import { getBestYouTubeThumbnail } from "@/lib/youtube-thumbnails";
 
 interface SingleBlogCardProps {
   post: PostMetadata;

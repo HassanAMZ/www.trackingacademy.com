@@ -112,8 +112,6 @@ const CaseStudyInfiniteScroll = ({
           >
             <Link
               href={`/case-study/${study.id}`}
-              target="_blank"
-              rel="noopener noreferrer"
               className={cn(
                 "group relative block transition-all duration-300 hover:scale-95 hover:shadow-lg",
                 isVertical && idx % 2 === 0 ? "self-start" : "self-end",

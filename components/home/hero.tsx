@@ -137,12 +137,7 @@ const Hero: FC<HeroProps> = ({
                     {[0, 1, 2, 3, 4, 5, 6].map((i, index) => {
                       const study = caseStudies[i];
                       return (
-                        <Link
-                          href={`/case-study/${study.id}`}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          key={study.id}
-                        >
+                        <Link href={`/case-study/${study.id}`} key={study.id}>
                           <Avatar>
                             <AvatarImage
                               src={study.testimonial.image}
