@@ -175,7 +175,7 @@ const solutions = [
 ];
 
 // Other Options Grid Component
-export function OtherTrackingOptions() {
+function OtherTrackingOptions() {
   const getStatusVariant = (status: string) => {
     switch (status) {
       case "stable":
@@ -378,7 +378,7 @@ export function TrackingComparisonTable() {
 }
 
 // Our Solutions Component
-export function OurSolutions() {
+function OurSolutions() {
   const ourSolutions = [
     {
       id: "pixel-recovery",

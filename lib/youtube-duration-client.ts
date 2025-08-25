@@ -15,7 +15,7 @@ export interface YouTubeDurationResponse {
  * @param videoId - YouTube video ID
  * @returns Duration string in format "X:XX" or "X:XX:XX"
  */
-export function getYouTubeDurationFallback(videoId: string): string {
+function getYouTubeDurationFallback(videoId: string): string {
   // Generate a consistent duration based on video ID hash
   // This ensures the same video always gets the same duration
   const hash = videoId.split("").reduce((a, b) => {

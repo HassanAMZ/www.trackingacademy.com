@@ -34,7 +34,7 @@ import LoomEmbed from "../global/loom-embed";
 import YoutubeEmbed from "../global/youtube-embed";
 
 // Utility functions
-export function getScoreColor(score: number, maxScore: number) {
+function getScoreColor(score: number, maxScore: number) {
   const percentage = (score / maxScore) * 100;
   if (percentage >= 80) return "text-green-600";
   if (percentage >= 60) return "text-yellow-600";

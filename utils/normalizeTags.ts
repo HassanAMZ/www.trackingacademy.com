@@ -31,7 +31,7 @@ export const normalizeTags = (tags: string[]): string[] => {
  * For display purposes - capitalizes first letter of each word in a tag
  * e.g., "next.js development" becomes "Next.js Development"
  */
-export const formatTagForDisplay = (tag: string): string => {
+const formatTagForDisplay = (tag: string): string => {
   return tag
     .split(" ")
     .map((word) => word.charAt(0).toUpperCase() + word.slice(1))

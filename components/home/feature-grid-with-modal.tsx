@@ -21,14 +21,6 @@ interface FeatureItem {
   icon?: React.ReactNode;
 }
 
-export interface FeatureGridWithModalProps {
-  heading?: string;
-  subheading?: string;
-  items: FeatureItem[];
-  ctaButton?: React.ReactNode;
-  className?: string;
-}
-
 const CloseIcon: React.FC = () => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
@@ -54,7 +46,13 @@ export default function FeatureGridWithModal({
   items,
   ctaButton,
   className = "",
-}: FeatureGridWithModalProps) {
+}: {
+  heading?: string;
+  subheading?: string;
+  items: FeatureItem[];
+  ctaButton?: React.ReactNode;
+  className?: string;
+}) {
   const [activeItem, setActiveItem] = useState<FeatureItem | null>(null);
   const id = useId();
   const ref = useRef<HTMLDivElement>(null) as React.RefObject<HTMLDivElement>;

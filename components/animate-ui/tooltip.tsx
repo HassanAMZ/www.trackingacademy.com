@@ -442,10 +442,6 @@ export {
   TooltipContent,
   TooltipProvider,
   TooltipTrigger,
-  useGlobalTooltip,
-  useTooltip,
   type TooltipContentProps,
   type TooltipProps,
-  type TooltipProviderProps,
-  type TooltipTriggerProps,
 };

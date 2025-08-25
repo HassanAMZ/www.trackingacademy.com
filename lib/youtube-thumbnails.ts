@@ -4,7 +4,7 @@
  * @param quality - Thumbnail quality (default, medium, high, maxres)
  * @returns Thumbnail URL
  */
-export function getYouTubeThumbnail(
+function getYouTubeThumbnail(
   videoId: string,
   quality: "default" | "medium" | "high" | "maxres" = "maxres",
 ): string {

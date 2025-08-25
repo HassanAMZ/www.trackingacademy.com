@@ -4,7 +4,6 @@ const path = require("path");
 const nextConfig = {
   transpilePackages: ["geist"],
   pageExtensions: ["js", "jsx", "ts", "tsx", "mdx", "md"],
-  swcMinify: true,
 
   experimental: {
     mdxRs: true,

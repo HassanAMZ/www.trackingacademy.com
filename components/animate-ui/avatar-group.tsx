@@ -79,4 +79,4 @@ function AvatarGroup({
   );
 }
 
-export { AvatarGroup, AvatarGroupTooltip, type AvatarGroupProps, type AvatarGroupTooltipProps };
+export { AvatarGroup, AvatarGroupTooltip };

@@ -24,20 +24,6 @@ export interface YouTubeVideoData {
   defaultAudioLanguage?: string | null;
 }
 
-export interface YouTubeChannelData {
-  id: string;
-  title: string;
-  description: string;
-  subscriberCount: string;
-  viewCount: string;
-  videoCount: string;
-  thumbnails: {
-    default?: { url: string; width: number; height: number };
-    medium?: { url: string; width: number; height: number };
-    high?: { url: string; width: number; height: number };
-  };
-}
-
 /**
  * Fetch video metadata from YouTube API with Next.js React cache
  * @param videoId - YouTube video ID
@@ -103,78 +89,6 @@ export const getYouTubeVideoData = cache(
 );
 
 /**
- * Fetch channel metadata from YouTube API
- * @param channelId - YouTube channel ID
- * @param apiKey - YouTube Data API key
- * @returns Promise<YouTubeChannelData | null>
- */
-export async function getYouTubeChannelData(
-  channelId: string,
-  apiKey: string,
-): Promise<YouTubeChannelData | null> {
-  try {
-    const response = await youtube.channels.list({
-      key: apiKey,
-      part: ["snippet", "statistics"],
-      id: [channelId],
-    });
-
-    if (!response.data.items || response.data.items.length === 0) {
-      console.warn(`No channel found with ID: ${channelId}`);
-      return null;
-    }
-
-    const channel = response.data.items[0];
-    const snippet = channel.snippet;
-    const statistics = channel.statistics;
-
-    if (!snippet || !statistics) {
-      console.warn(`Incomplete channel data for ID: ${channelId}`);
-      return null;
-    }
-
-    // Transform thumbnails to match our interface
-    const transformedThumbnails: YouTubeChannelData["thumbnails"] = {};
-    if (snippet.thumbnails) {
-      if (snippet.thumbnails.default) {
-        transformedThumbnails.default = {
-          url: snippet.thumbnails.default.url || "",
-          width: snippet.thumbnails.default.width || 0,
-          height: snippet.thumbnails.default.height || 0,
-        };
-      }
-      if (snippet.thumbnails.medium) {
-        transformedThumbnails.medium = {
-          url: snippet.thumbnails.medium.url || "",
-          width: snippet.thumbnails.medium.width || 0,
-          height: snippet.thumbnails.medium.height || 0,
-        };
-      }
-      if (snippet.thumbnails.high) {
-        transformedThumbnails.high = {
-          url: snippet.thumbnails.high.url || "",
-          width: snippet.thumbnails.high.width || 0,
-          height: snippet.thumbnails.high.height || 0,
-        };
-      }
-    }
-
-    return {
-      id: channelId,
-      title: snippet.title || "",
-      description: snippet.description || "",
-      subscriberCount: statistics.subscriberCount || "0",
-      viewCount: statistics.viewCount || "0",
-      videoCount: statistics.videoCount || "0",
-      thumbnails: transformedThumbnails,
-    };
-  } catch (error) {
-    console.error("Error fetching YouTube channel data:", error);
-    return null;
-  }
-}
-
-/**
  * Convert ISO 8601 duration to readable format
  * @param duration - ISO 8601 duration string (e.g., "PT4M13S")
  * @returns Formatted duration string (e.g., "4:13")
@@ -206,7 +120,7 @@ function formatDuration(duration: string): string {
  * @param url - YouTube URL (various formats supported)
  * @returns Video ID or null if invalid
  */
-export function extractYouTubeVideoId(url: string): string | null {
+function extractYouTubeVideoId(url: string): string | null {
   const patterns = [
     /(?:youtube\.com\/watch\?v=|youtu\.be\/|youtube\.com\/embed\/|youtube\.com\/v\/)([^&\n?#]+)/,
     /youtube\.com\/watch\?.*v=([^&\n?#]+)/,

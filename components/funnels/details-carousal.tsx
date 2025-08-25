@@ -25,17 +25,11 @@ interface CarouselItem {
   customCtaButton?: React.ReactElement;
 }
 
-export interface DetailsCarouselProps {
+const DetailsCarousel: React.FC<{
   headerTitle?: string;
   headerDescription?: string;
   items?: CarouselItem[];
-}
-
-const DetailsCarousel: React.FC<DetailsCarouselProps> = ({
-  headerTitle,
-  headerDescription,
-  items = [],
-}) => {
+}> = ({ headerTitle, headerDescription, items = [] }) => {
   return (
     <section>
       <Container className="space-y-8 py-12">
