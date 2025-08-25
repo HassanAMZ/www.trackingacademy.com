@@ -32,8 +32,8 @@ export default function Footer() {
             <h4 className="mb-3 text-sm font-semibold">Explore</h4>
             <ul className="space-y-2 text-sm">
               <li>
-                <Link href="/services" className="hover:underline">
-                  Services
+                <Link href="/contact" className="hover:underline">
+                  Contact Us
                 </Link>
               </li>
               <li>

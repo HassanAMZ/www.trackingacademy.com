@@ -12,7 +12,7 @@ const nextConfig = {
     webpackBuildWorker: true,
 
     // Add these optimizations
-    optimizePackageImports: ["lucide-react", "@radix-ui/react-icons"]
+    optimizePackageImports: ["lucide-react", "@radix-ui/react-icons"],
   },
 
   compress: true,
@@ -67,8 +67,8 @@ const nextConfig = {
         loaders: ["@svgr/webpack"],
         as: "*.js",
       },
-    }
-  }
+    },
+  },
 };
 
 const withMDX = require("@next/mdx")({

@@ -119,7 +119,7 @@ const auditReports: AuditReport[] = [
         dataSentTo: "US",
         trackingMethod: "Client-side",
         canImprove: true,
-        improvementLink: "/services",
+        improvementLink: "/contact",
       },
       {
         name: "Google Analytics 4",
@@ -128,7 +128,7 @@ const auditReports: AuditReport[] = [
         dataSentTo: "US",
         trackingMethod: "Client-side",
         canImprove: true,
-        improvementLink: "/services",
+        improvementLink: "/contact",
       },
       {
         name: "Google Ads",
@@ -137,7 +137,7 @@ const auditReports: AuditReport[] = [
         dataSentTo: "US",
         trackingMethod: "Client-side",
         canImprove: true,
-        improvementLink: "/services",
+        improvementLink: "/contact",
       },
       {
         name: "TikTok",
@@ -146,7 +146,7 @@ const auditReports: AuditReport[] = [
         dataSentTo: "CN",
         trackingMethod: "Client-side",
         canImprove: true,
-        improvementLink: "/services",
+        improvementLink: "/contact",
       },
       {
         name: "Microsoft Clarity",
@@ -377,7 +377,7 @@ const auditReports: AuditReport[] = [
         dataSentTo: "US",
         trackingMethod: "Client-side",
         canImprove: true,
-        improvementLink: "/services",
+        improvementLink: "/contact",
       },
       {
         name: "Google Analytics 4",
@@ -386,7 +386,7 @@ const auditReports: AuditReport[] = [
         dataSentTo: "US",
         trackingMethod: "Client-side",
         canImprove: true,
-        improvementLink: "/services",
+        improvementLink: "/contact",
       },
     ],
     trackingCookies: [
@@ -501,7 +501,7 @@ const auditReports: AuditReport[] = [
         dataSentTo: "US",
         trackingMethod: "Client-side",
         canImprove: true,
-        improvementLink: "/services",
+        improvementLink: "/contact",
       },
       {
         name: "Google Analytics 4",
@@ -510,7 +510,7 @@ const auditReports: AuditReport[] = [
         dataSentTo: "US",
         trackingMethod: "Client-side",
         canImprove: true,
-        improvementLink: "/services",
+        improvementLink: "/contact",
       },
       {
         name: "Microsoft Ads",
@@ -682,7 +682,7 @@ const auditReports: AuditReport[] = [
         dataSentTo: "US",
         trackingMethod: "Client-side",
         canImprove: true,
-        improvementLink: "/services",
+        improvementLink: "/contact",
       },
       {
         name: "Google Analytics 4",
@@ -691,7 +691,7 @@ const auditReports: AuditReport[] = [
         dataSentTo: "US",
         trackingMethod: "Client-side",
         canImprove: true,
-        improvementLink: "/services",
+        improvementLink: "/contact",
       },
       {
         name: "Google Ads",
@@ -700,7 +700,7 @@ const auditReports: AuditReport[] = [
         dataSentTo: "US",
         trackingMethod: "Client-side",
         canImprove: true,
-        improvementLink: "/services",
+        improvementLink: "/contact",
       },
     ],
     trackingCookies: [
@@ -844,7 +844,7 @@ const auditReports: AuditReport[] = [
         dataSentTo: "US",
         trackingMethod: "Client-side",
         canImprove: true,
-        improvementLink: "/services",
+        improvementLink: "/contact",
       },
       {
         name: "Google Analytics 4",
@@ -853,7 +853,7 @@ const auditReports: AuditReport[] = [
         dataSentTo: "US",
         trackingMethod: "Client-side",
         canImprove: true,
-        improvementLink: "/services",
+        improvementLink: "/contact",
       },
       {
         name: "Google Ads",
@@ -862,7 +862,7 @@ const auditReports: AuditReport[] = [
         dataSentTo: "US",
         trackingMethod: "Client-side",
         canImprove: true,
-        improvementLink: "/services",
+        improvementLink: "/contact",
       },
       {
         name: "Universal Analytics",
@@ -871,7 +871,7 @@ const auditReports: AuditReport[] = [
         dataSentTo: "US",
         trackingMethod: "Client-side",
         canImprove: true,
-        improvementLink: "/services",
+        improvementLink: "/contact",
       },
       {
         name: "Microsoft Clarity",
@@ -1061,7 +1061,7 @@ const auditReports: AuditReport[] = [
         dataSentTo: "US",
         trackingMethod: "Client-side",
         canImprove: true,
-        improvementLink: "/services",
+        improvementLink: "/contact",
       },
       {
         name: "Google Analytics 4",
@@ -1070,7 +1070,7 @@ const auditReports: AuditReport[] = [
         dataSentTo: "US",
         trackingMethod: "Client-side",
         canImprove: true,
-        improvementLink: "/services",
+        improvementLink: "/contact",
       },
       {
         name: "Pinterest",
@@ -1079,7 +1079,7 @@ const auditReports: AuditReport[] = [
         dataSentTo: "US",
         trackingMethod: "Client-side",
         canImprove: true,
-        improvementLink: "/services",
+        improvementLink: "/contact",
       },
       {
         name: "Microsoft Clarity",
@@ -1263,7 +1263,7 @@ const auditReports: AuditReport[] = [
         dataSentTo: "US",
         trackingMethod: "Client-side",
         canImprove: true,
-        improvementLink: "/services",
+        improvementLink: "/contact",
       },
       {
         name: "Google Analytics 4",
@@ -1272,7 +1272,7 @@ const auditReports: AuditReport[] = [
         dataSentTo: "US",
         trackingMethod: "Client-side",
         canImprove: true,
-        improvementLink: "/services",
+        improvementLink: "/contact",
       },
       {
         name: "Microsoft Clarity",
@@ -1426,7 +1426,7 @@ const auditReports: AuditReport[] = [
         dataSentTo: "US",
         trackingMethod: "Client-side",
         canImprove: true,
-        improvementLink: "/services",
+        improvementLink: "/contact",
       },
     ],
     trackingCookies: [
@@ -1533,7 +1533,7 @@ const auditReports: AuditReport[] = [
         dataSentTo: "US",
         trackingMethod: "Client-side",
         canImprove: true,
-        improvementLink: "/services",
+        improvementLink: "/contact",
       },
       {
         name: "Google Ads",
@@ -1550,7 +1550,7 @@ const auditReports: AuditReport[] = [
         dataSentTo: "CN",
         trackingMethod: "Client-side",
         canImprove: true,
-        improvementLink: "/services",
+        improvementLink: "/contact",
       },
     ],
     trackingCookies: [
@@ -1775,7 +1775,7 @@ const auditReports: AuditReport[] = [
         dataSentTo: "US",
         trackingMethod: "Client-side",
         canImprove: true,
-        improvementLink: "/services",
+        improvementLink: "/contact",
       },
     ],
     trackingCookies: [
@@ -1873,7 +1873,7 @@ const auditReports: AuditReport[] = [
         dataSentTo: "US",
         trackingMethod: "Client-side",
         canImprove: true,
-        improvementLink: "/services",
+        improvementLink: "/contact",
       },
       {
         name: "Google Ads",
@@ -1882,7 +1882,7 @@ const auditReports: AuditReport[] = [
         dataSentTo: "US",
         trackingMethod: "Client-side",
         canImprove: true,
-        improvementLink: "/services",
+        improvementLink: "/contact",
       },
       {
         name: "Microsoft Clarity",
@@ -2031,7 +2031,7 @@ const auditReports: AuditReport[] = [
         dataSentTo: "US",
         trackingMethod: "Client-side",
         canImprove: true,
-        improvementLink: "/services",
+        improvementLink: "/contact",
       },
       {
         name: "Google Ads",
@@ -2040,7 +2040,7 @@ const auditReports: AuditReport[] = [
         dataSentTo: "US",
         trackingMethod: "Client-side",
         canImprove: true,
-        improvementLink: "/services",
+        improvementLink: "/contact",
       },
       {
         name: "Klaviyo",
@@ -2049,7 +2049,7 @@ const auditReports: AuditReport[] = [
         dataSentTo: "US",
         trackingMethod: "Client-side",
         canImprove: true,
-        improvementLink: "/services",
+        improvementLink: "/contact",
       },
       {
         name: "Universal Analytics",
@@ -2058,7 +2058,7 @@ const auditReports: AuditReport[] = [
         dataSentTo: "US",
         trackingMethod: "Client-side",
         canImprove: true,
-        improvementLink: "/services",
+        improvementLink: "/contact",
       },
       {
         name: "Matomo",
@@ -2067,7 +2067,7 @@ const auditReports: AuditReport[] = [
         dataSentTo: "NZ",
         trackingMethod: "Client-side",
         canImprove: true,
-        improvementLink: "/services",
+        improvementLink: "/contact",
       },
       {
         name: "Taboola",
@@ -2076,7 +2076,7 @@ const auditReports: AuditReport[] = [
         dataSentTo: "US",
         trackingMethod: "Client-side",
         canImprove: true,
-        improvementLink: "/services",
+        improvementLink: "/contact",
       },
       {
         name: "Microsoft Clarity",
@@ -2356,7 +2356,7 @@ const auditReports: AuditReport[] = [
         dataSentTo: "US",
         trackingMethod: "Client-side",
         canImprove: true,
-        improvementLink: "/services",
+        improvementLink: "/contact",
       },
       {
         name: "Google Analytics 4",
@@ -2365,7 +2365,7 @@ const auditReports: AuditReport[] = [
         dataSentTo: "US",
         trackingMethod: "Client-side",
         canImprove: true,
-        improvementLink: "/services",
+        improvementLink: "/contact",
       },
     ],
     trackingCookies: [
@@ -2675,7 +2675,7 @@ const auditReports: AuditReport[] = [
         dataSentTo: "US",
         trackingMethod: "Client-side",
         canImprove: true,
-        improvementLink: "/services",
+        improvementLink: "/contact",
       },
       {
         name: "Google Analytics 4",
@@ -2684,7 +2684,7 @@ const auditReports: AuditReport[] = [
         dataSentTo: "US",
         trackingMethod: "Client-side",
         canImprove: true,
-        improvementLink: "/services",
+        improvementLink: "/contact",
       },
       {
         name: "Google Ads",
@@ -2693,7 +2693,7 @@ const auditReports: AuditReport[] = [
         dataSentTo: "US",
         trackingMethod: "Client-side",
         canImprove: true,
-        improvementLink: "/services",
+        improvementLink: "/contact",
       },
     ],
     trackingCookies: [
@@ -2838,7 +2838,7 @@ const auditReports: AuditReport[] = [
         dataSentTo: "US",
         trackingMethod: "Client-side",
         canImprove: true,
-        improvementLink: "/services",
+        improvementLink: "/contact",
       },
     ],
     trackingCookies: [
@@ -2936,7 +2936,7 @@ const auditReports: AuditReport[] = [
         dataSentTo: "US",
         trackingMethod: "Client-side",
         canImprove: true,
-        improvementLink: "/services",
+        improvementLink: "/contact",
       },
       {
         name: "Google Ads",
@@ -2945,7 +2945,7 @@ const auditReports: AuditReport[] = [
         dataSentTo: "US",
         trackingMethod: "Client-side",
         canImprove: true,
-        improvementLink: "/services",
+        improvementLink: "/contact",
       },
     ],
     trackingCookies: [
@@ -3059,7 +3059,7 @@ const auditReports: AuditReport[] = [
         dataSentTo: "US",
         trackingMethod: "Client-side",
         canImprove: true,
-        improvementLink: "/services",
+        improvementLink: "/contact",
       },
       {
         name: "Google Analytics 4",
@@ -3068,7 +3068,7 @@ const auditReports: AuditReport[] = [
         dataSentTo: "US",
         trackingMethod: "Client-side",
         canImprove: true,
-        improvementLink: "/services",
+        improvementLink: "/contact",
       },
       {
         name: "Google Ads",
@@ -3077,7 +3077,7 @@ const auditReports: AuditReport[] = [
         dataSentTo: "US",
         trackingMethod: "Client-side",
         canImprove: true,
-        improvementLink: "/services",
+        improvementLink: "/contact",
       },
       {
         name: "Klaviyo",
@@ -3086,7 +3086,7 @@ const auditReports: AuditReport[] = [
         dataSentTo: "US",
         trackingMethod: "Client-side",
         canImprove: true,
-        improvementLink: "/services",
+        improvementLink: "/contact",
       },
     ],
     trackingCookies: [
@@ -3267,7 +3267,7 @@ const auditReports: AuditReport[] = [
         dataSentTo: "US",
         trackingMethod: "Client-side",
         canImprove: true,
-        improvementLink: "/services",
+        improvementLink: "/contact",
       },
       {
         name: "Google Analytics 4",
@@ -3276,7 +3276,7 @@ const auditReports: AuditReport[] = [
         dataSentTo: "US",
         trackingMethod: "Client-side",
         canImprove: true,
-        improvementLink: "/services",
+        improvementLink: "/contact",
       },
       {
         name: "Klaviyo",
@@ -3285,7 +3285,7 @@ const auditReports: AuditReport[] = [
         dataSentTo: "US",
         trackingMethod: "Client-side",
         canImprove: true,
-        improvementLink: "/services",
+        improvementLink: "/contact",
       },
     ],
     trackingCookies: [
@@ -3442,7 +3442,7 @@ const auditReports: AuditReport[] = [
         dataSentTo: "US",
         trackingMethod: "Client-side",
         canImprove: true,
-        improvementLink: "/services",
+        improvementLink: "/contact",
       },
       {
         name: "Google Ads",
@@ -3451,7 +3451,7 @@ const auditReports: AuditReport[] = [
         dataSentTo: "US",
         trackingMethod: "Client-side",
         canImprove: true,
-        improvementLink: "/services",
+        improvementLink: "/contact",
       },
       {
         name: "Klaviyo",
@@ -3460,7 +3460,7 @@ const auditReports: AuditReport[] = [
         dataSentTo: "US",
         trackingMethod: "Client-side",
         canImprove: true,
-        improvementLink: "/services",
+        improvementLink: "/contact",
       },
     ],
     trackingCookies: [
@@ -3623,7 +3623,7 @@ const auditReports: AuditReport[] = [
         dataSentTo: "US",
         trackingMethod: "Client-side",
         canImprove: true,
-        improvementLink: "/services",
+        improvementLink: "/contact",
       },
       {
         name: "Google Ads",
@@ -3632,7 +3632,7 @@ const auditReports: AuditReport[] = [
         dataSentTo: "US",
         trackingMethod: "Client-side",
         canImprove: true,
-        improvementLink: "/services",
+        improvementLink: "/contact",
       },
       {
         name: "Microsoft Clarity",
@@ -3778,7 +3778,7 @@ const auditReports: AuditReport[] = [
         dataSentTo: "US",
         trackingMethod: "Client-side",
         canImprove: true,
-        improvementLink: "/services",
+        improvementLink: "/contact",
       },
       {
         name: "Google Analytics 4",
@@ -3787,7 +3787,7 @@ const auditReports: AuditReport[] = [
         dataSentTo: "US",
         trackingMethod: "Client-side",
         canImprove: true,
-        improvementLink: "/services",
+        improvementLink: "/contact",
       },
     ],
     trackingCookies: [
@@ -3907,7 +3907,7 @@ const auditReports: AuditReport[] = [
         dataSentTo: "US",
         trackingMethod: "Client-side",
         canImprove: true,
-        improvementLink: "/services",
+        improvementLink: "/contact",
       },
       {
         name: "Google Analytics 4",
@@ -3916,7 +3916,7 @@ const auditReports: AuditReport[] = [
         dataSentTo: "US",
         trackingMethod: "Client-side",
         canImprove: true,
-        improvementLink: "/services",
+        improvementLink: "/contact",
       },
     ],
     trackingCookies: [
@@ -4036,7 +4036,7 @@ const auditReports: AuditReport[] = [
         dataSentTo: "US",
         trackingMethod: "Client-side",
         canImprove: true,
-        improvementLink: "/services",
+        improvementLink: "/contact",
       },
       {
         name: "Google Analytics 4",
@@ -4045,7 +4045,7 @@ const auditReports: AuditReport[] = [
         dataSentTo: "US",
         trackingMethod: "Client-side",
         canImprove: true,
-        improvementLink: "/services",
+        improvementLink: "/contact",
       },
       {
         name: "Klaviyo",
@@ -4054,7 +4054,7 @@ const auditReports: AuditReport[] = [
         dataSentTo: "US",
         trackingMethod: "Client-side",
         canImprove: true,
-        improvementLink: "/services",
+        improvementLink: "/contact",
       },
       {
         name: "Pinterest",
@@ -4246,7 +4246,7 @@ const auditReports: AuditReport[] = [
         dataSentTo: "US",
         trackingMethod: "Client-side",
         canImprove: true,
-        improvementLink: "/services",
+        improvementLink: "/contact",
       },
       {
         name: "Google Analytics 4",
@@ -4255,7 +4255,7 @@ const auditReports: AuditReport[] = [
         dataSentTo: "US",
         trackingMethod: "Client-side",
         canImprove: true,
-        improvementLink: "/services",
+        improvementLink: "/contact",
       },
       {
         name: "Google Analytics 4",
@@ -4478,7 +4478,7 @@ const auditReports: AuditReport[] = [
         dataSentTo: "US",
         trackingMethod: "Client-side",
         canImprove: true,
-        improvementLink: "/services",
+        improvementLink: "/contact",
       },
       {
         name: "Google Analytics 4",
@@ -4503,7 +4503,7 @@ const auditReports: AuditReport[] = [
         dataSentTo: "CN",
         trackingMethod: "Client-side",
         canImprove: true,
-        improvementLink: "/services",
+        improvementLink: "/contact",
       },
       {
         name: "Awin",
@@ -4512,7 +4512,7 @@ const auditReports: AuditReport[] = [
         dataSentTo: "DE",
         trackingMethod: "Client-side",
         canImprove: true,
-        improvementLink: "/services",
+        improvementLink: "/contact",
       },
       {
         name: "Microsoft Ads",
@@ -4771,7 +4771,7 @@ const auditReports: AuditReport[] = [
         dataSentTo: "US",
         trackingMethod: "Client-side",
         canImprove: true,
-        improvementLink: "/services",
+        improvementLink: "/contact",
       },
       {
         name: "Google Analytics 4",
@@ -4780,7 +4780,7 @@ const auditReports: AuditReport[] = [
         dataSentTo: "US",
         trackingMethod: "Client-side",
         canImprove: true,
-        improvementLink: "/services",
+        improvementLink: "/contact",
       },
       {
         name: "Google Ads",
@@ -4789,7 +4789,7 @@ const auditReports: AuditReport[] = [
         dataSentTo: "US",
         trackingMethod: "Client-side",
         canImprove: true,
-        improvementLink: "/services",
+        improvementLink: "/contact",
       },
       {
         name: "Mixpanel",
@@ -4798,7 +4798,7 @@ const auditReports: AuditReport[] = [
         dataSentTo: "US",
         trackingMethod: "Client-side",
         canImprove: true,
-        improvementLink: "/services",
+        improvementLink: "/contact",
       },
       {
         name: "ActiveCampaign",
@@ -4807,7 +4807,7 @@ const auditReports: AuditReport[] = [
         dataSentTo: "US",
         trackingMethod: "Client-side",
         canImprove: true,
-        improvementLink: "/services",
+        improvementLink: "/contact",
       },
       {
         name: "Segment Analytics",
@@ -5015,7 +5015,7 @@ const auditReports: AuditReport[] = [
         dataSentTo: "US",
         trackingMethod: "Client-side",
         canImprove: true,
-        improvementLink: "/services",
+        improvementLink: "/contact",
       },
       {
         name: "Google Analytics 4",
@@ -5024,7 +5024,7 @@ const auditReports: AuditReport[] = [
         dataSentTo: "US",
         trackingMethod: "Client-side",
         canImprove: true,
-        improvementLink: "/services",
+        improvementLink: "/contact",
       },
       {
         name: "Klaviyo",
@@ -5033,7 +5033,7 @@ const auditReports: AuditReport[] = [
         dataSentTo: "US",
         trackingMethod: "Client-side",
         canImprove: true,
-        improvementLink: "/services",
+        improvementLink: "/contact",
       },
       {
         name: "Pinterest",
@@ -5042,7 +5042,7 @@ const auditReports: AuditReport[] = [
         dataSentTo: "US",
         trackingMethod: "Client-side",
         canImprove: true,
-        improvementLink: "/services",
+        improvementLink: "/contact",
       },
       {
         name: "Microsoft Clarity",
@@ -5257,7 +5257,7 @@ const auditReports: AuditReport[] = [
         dataSentTo: "US",
         trackingMethod: "Client-side",
         canImprove: true,
-        improvementLink: "/services",
+        improvementLink: "/contact",
       },
       {
         name: "Google Analytics 4",
@@ -5266,7 +5266,7 @@ const auditReports: AuditReport[] = [
         dataSentTo: "US",
         trackingMethod: "Client-side",
         canImprove: true,
-        improvementLink: "/services",
+        improvementLink: "/contact",
       },
       {
         name: "Google Ads",
@@ -5275,7 +5275,7 @@ const auditReports: AuditReport[] = [
         dataSentTo: "US",
         trackingMethod: "Client-side",
         canImprove: true,
-        improvementLink: "/services",
+        improvementLink: "/contact",
       },
     ],
     trackingCookies: [
@@ -5419,7 +5419,7 @@ const auditReports: AuditReport[] = [
         dataSentTo: "US",
         trackingMethod: "Client-side",
         canImprove: true,
-        improvementLink: "/services",
+        improvementLink: "/contact",
       },
       {
         name: "Google Analytics 4",
@@ -5428,7 +5428,7 @@ const auditReports: AuditReport[] = [
         dataSentTo: "US",
         trackingMethod: "Client-side",
         canImprove: true,
-        improvementLink: "/services",
+        improvementLink: "/contact",
       },
       {
         name: "Google Ads",
@@ -5437,7 +5437,7 @@ const auditReports: AuditReport[] = [
         dataSentTo: "US",
         trackingMethod: "Client-side",
         canImprove: true,
-        improvementLink: "/services",
+        improvementLink: "/contact",
       },
     ],
     trackingCookies: [
@@ -5593,7 +5593,7 @@ const auditReports: AuditReport[] = [
         dataSentTo: "US",
         trackingMethod: "Client-side",
         canImprove: true,
-        improvementLink: "/services",
+        improvementLink: "/contact",
       },
       {
         name: "Google Analytics 4",
@@ -5602,7 +5602,7 @@ const auditReports: AuditReport[] = [
         dataSentTo: "US",
         trackingMethod: "Client-side",
         canImprove: true,
-        improvementLink: "/services",
+        improvementLink: "/contact",
       },
     ],
     trackingCookies: [
@@ -5719,7 +5719,7 @@ const auditReports: AuditReport[] = [
         dataSentTo: "US",
         trackingMethod: "Client-side",
         canImprove: true,
-        improvementLink: "/services",
+        improvementLink: "/contact",
       },
     ],
     trackingCookies: [
@@ -5823,7 +5823,7 @@ const auditReports: AuditReport[] = [
         dataSentTo: "US",
         trackingMethod: "Client-side",
         canImprove: true,
-        improvementLink: "/services",
+        improvementLink: "/contact",
       },
       {
         name: "Google Ads",
@@ -5832,7 +5832,7 @@ const auditReports: AuditReport[] = [
         dataSentTo: "US",
         trackingMethod: "Client-side",
         canImprove: true,
-        improvementLink: "/services",
+        improvementLink: "/contact",
       },
       {
         name: "Universal Analytics",
@@ -5841,7 +5841,7 @@ const auditReports: AuditReport[] = [
         dataSentTo: "US",
         trackingMethod: "Client-side",
         canImprove: true,
-        improvementLink: "/services",
+        improvementLink: "/contact",
       },
     ],
     trackingCookies: [
@@ -5965,7 +5965,7 @@ const auditReports: AuditReport[] = [
         dataSentTo: "US",
         trackingMethod: "Client-side",
         canImprove: true,
-        improvementLink: "/services",
+        improvementLink: "/contact",
       },
       {
         name: "Universal Analytics",
@@ -5974,7 +5974,7 @@ const auditReports: AuditReport[] = [
         dataSentTo: "US",
         trackingMethod: "Client-side",
         canImprove: true,
-        improvementLink: "/services",
+        improvementLink: "/contact",
       },
     ],
     trackingCookies: [
@@ -6074,7 +6074,7 @@ const auditReports: AuditReport[] = [
         dataSentTo: "US",
         trackingMethod: "Client-side",
         canImprove: true,
-        improvementLink: "/services",
+        improvementLink: "/contact",
       },
       {
         name: "Klaviyo",
@@ -6083,7 +6083,7 @@ const auditReports: AuditReport[] = [
         dataSentTo: "US",
         trackingMethod: "Client-side",
         canImprove: true,
-        improvementLink: "/services",
+        improvementLink: "/contact",
       },
       {
         name: "Twitter (X)",
@@ -6092,7 +6092,7 @@ const auditReports: AuditReport[] = [
         dataSentTo: "US",
         trackingMethod: "Client-side",
         canImprove: true,
-        improvementLink: "/services",
+        improvementLink: "/contact",
       },
     ],
     trackingCookies: [
@@ -6208,7 +6208,7 @@ const auditReports: AuditReport[] = [
         dataSentTo: "US",
         trackingMethod: "Client-side",
         canImprove: true,
-        improvementLink: "/services",
+        improvementLink: "/contact",
       },
       {
         name: "Google Analytics 4",
@@ -6217,7 +6217,7 @@ const auditReports: AuditReport[] = [
         dataSentTo: "US",
         trackingMethod: "Client-side",
         canImprove: true,
-        improvementLink: "/services",
+        improvementLink: "/contact",
       },
       {
         name: "Klaviyo",
@@ -6226,7 +6226,7 @@ const auditReports: AuditReport[] = [
         dataSentTo: "US",
         trackingMethod: "Client-side",
         canImprove: true,
-        improvementLink: "/services",
+        improvementLink: "/contact",
       },
       {
         name: "Pinterest",
@@ -6243,7 +6243,7 @@ const auditReports: AuditReport[] = [
         dataSentTo: "US",
         trackingMethod: "Client-side",
         canImprove: true,
-        improvementLink: "/services",
+        improvementLink: "/contact",
       },
       {
         name: "Microsoft Clarity",
@@ -6462,7 +6462,7 @@ const auditReports: AuditReport[] = [
         dataSentTo: "US",
         trackingMethod: "Client-side",
         canImprove: true,
-        improvementLink: "/services",
+        improvementLink: "/contact",
       },
       {
         name: "Google Analytics 4",
@@ -6471,7 +6471,7 @@ const auditReports: AuditReport[] = [
         dataSentTo: "US",
         trackingMethod: "Client-side",
         canImprove: true,
-        improvementLink: "/services",
+        improvementLink: "/contact",
       },
       {
         name: "Google Ads",
@@ -6480,7 +6480,7 @@ const auditReports: AuditReport[] = [
         dataSentTo: "US",
         trackingMethod: "Client-side",
         canImprove: true,
-        improvementLink: "/services",
+        improvementLink: "/contact",
       },
       {
         name: "Universal Analytics",
@@ -6489,7 +6489,7 @@ const auditReports: AuditReport[] = [
         dataSentTo: "US",
         trackingMethod: "Client-side",
         canImprove: true,
-        improvementLink: "/services",
+        improvementLink: "/contact",
       },
     ],
     trackingCookies: [
@@ -6631,7 +6631,7 @@ const auditReports: AuditReport[] = [
         dataSentTo: "US",
         trackingMethod: "Client-side",
         canImprove: true,
-        improvementLink: "/services",
+        improvementLink: "/contact",
       },
       {
         name: "Google Analytics 4",
@@ -6640,7 +6640,7 @@ const auditReports: AuditReport[] = [
         dataSentTo: "US",
         trackingMethod: "Client-side",
         canImprove: true,
-        improvementLink: "/services",
+        improvementLink: "/contact",
       },
       {
         name: "Klaviyo",
@@ -6649,7 +6649,7 @@ const auditReports: AuditReport[] = [
         dataSentTo: "US",
         trackingMethod: "Client-side",
         canImprove: true,
-        improvementLink: "/services",
+        improvementLink: "/contact",
       },
       {
         name: "Outbrain",
@@ -6658,7 +6658,7 @@ const auditReports: AuditReport[] = [
         dataSentTo: "US",
         trackingMethod: "Client-side",
         canImprove: true,
-        improvementLink: "/services",
+        improvementLink: "/contact",
       },
       {
         name: "Criteo",
@@ -6857,7 +6857,7 @@ const auditReports: AuditReport[] = [
         dataSentTo: "US",
         trackingMethod: "Client-side",
         canImprove: true,
-        improvementLink: "/services",
+        improvementLink: "/contact",
       },
     ],
     trackingCookies: [
@@ -6942,7 +6942,7 @@ const auditReports: AuditReport[] = [
         dataSentTo: "US",
         trackingMethod: "Client-side",
         canImprove: true,
-        improvementLink: "/services",
+        improvementLink: "/contact",
       },
       {
         name: "Google Analytics 4",
@@ -6959,7 +6959,7 @@ const auditReports: AuditReport[] = [
         dataSentTo: "US",
         trackingMethod: "Client-side",
         canImprove: true,
-        improvementLink: "/services",
+        improvementLink: "/contact",
       },
       {
         name: "TikTok",
@@ -6968,7 +6968,7 @@ const auditReports: AuditReport[] = [
         dataSentTo: "CN",
         trackingMethod: "Server-side",
         canImprove: true,
-        improvementLink: "/services",
+        improvementLink: "/contact",
       },
     ],
     trackingCookies: [
@@ -7267,7 +7267,7 @@ const auditReports: AuditReport[] = [
         dataSentTo: "US",
         trackingMethod: "Client-side",
         canImprove: true,
-        improvementLink: "/services",
+        improvementLink: "/contact",
       },
       {
         name: "Google Analytics 4",
@@ -7276,7 +7276,7 @@ const auditReports: AuditReport[] = [
         dataSentTo: "US",
         trackingMethod: "Client-side",
         canImprove: true,
-        improvementLink: "/services",
+        improvementLink: "/contact",
       },
       {
         name: "TikTok",
@@ -7285,7 +7285,7 @@ const auditReports: AuditReport[] = [
         dataSentTo: "CN",
         trackingMethod: "Client-side",
         canImprove: true,
-        improvementLink: "/services",
+        improvementLink: "/contact",
       },
       {
         name: "Klaviyo",
@@ -7294,7 +7294,7 @@ const auditReports: AuditReport[] = [
         dataSentTo: "US",
         trackingMethod: "Client-side",
         canImprove: true,
-        improvementLink: "/services",
+        improvementLink: "/contact",
       },
       {
         name: "Universal Analytics",
@@ -7303,7 +7303,7 @@ const auditReports: AuditReport[] = [
         dataSentTo: "US",
         trackingMethod: "Client-side",
         canImprove: true,
-        improvementLink: "/services",
+        improvementLink: "/contact",
       },
       {
         name: "Hotjar",

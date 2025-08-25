@@ -1,6 +1,5 @@
 import CaseStudyFeaturedVideo from "@/components/case-study/case-study-featured-video";
 import MeetingCalendar from "@/components/contact/meeting-calender";
-import FeaturesSectionDemo3 from "@/components/features-section-demo-3";
 import { DetailsStack } from "@/components/global/details-stack";
 import MeetingBookingButton from "@/components/global/meeting-booking-button";
 import { TrackingComparisonTable } from "@/components/global/tracking-solutions-comparison";
@@ -150,7 +149,6 @@ export default async function Page({ params }: { params: Promise<{ offer: string
         ctaButton={<MeetingBookingButton offerData={offerData} wrapperButtonClassName="w-fit" />}
       />
 
-      <FeaturesSectionDemo3 />
       <TrackingComparisonTable />
       {/* Solution Section */}
       <section className="py-8">
